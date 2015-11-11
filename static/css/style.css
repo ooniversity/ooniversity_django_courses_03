@@ -1,6 +1,9 @@
 body {
   padding-top: 20px;
 }
+.footer {
+  text-align: center;
+}
 .starter-template {
   padding: 40px 15px;
   text-align: center;
