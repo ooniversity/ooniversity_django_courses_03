@@ -7,7 +7,7 @@
 .contacts{
   margin: auto;
   width: 90%;
-  align: center; 
+  text-align: center; 
 }
 .contact-header{
   text-align: center;	
@@ -29,7 +29,6 @@ body{
 	background-color:#e6e6e6;
 }
 .nota-bene {
-	text-indent: : 1.5em;
 	font-weight: 600 ;
 	color: #2B0F5A;
 }
