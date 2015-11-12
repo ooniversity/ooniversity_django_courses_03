@@ -189,10 +189,6 @@ a:hover {
     position: absolute;
     right: 15px;
     top: 15px;
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
     width: 30px
 }
 #menu {
@@ -205,8 +201,6 @@ a:hover {
     z-index: 99
 }
 #menu.active {
-    -moz-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.25);
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.25);
     box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.25)
 }
 #menu .btn_menu {
@@ -242,23 +236,11 @@ a:hover {
     top: 24px;
     width: 32px
 }
-#menu .btn_menu.active .line1 {
-    top: 15px;
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg)
-}
+
 #menu .btn_menu.active .line2 {
     display: none
 }
-#menu .btn_menu.active .line3 {
-    top: 15px;
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg)
-}
+
 #menu_in ul {
     border-bottom: 1px solid #444
 }
@@ -277,34 +259,7 @@ a:hover {
     background: #444;
     color: #f68954
 }
-#menu_in {
-    color: #fff;
-    max-height: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-arrow-color: #aaa;
-    scrollbar-base-color: #ddd;
-    scrollbar-face-color: #585858;
-    scrollbar-highlight-color: #ddd;
-    scrollbar-shadow-color: #585858
-}
-#menu_in::-webkit-scrollbar {
-    height: 5px;
-    width: 5px
-}
-#menu_in::-webkit-scrollbar-thumb {
-    background: #aaaaaa;
-    -moz-transition: background 0.3s ease;
-    -o-transition: background 0.3s ease;
-    transition: background 0.3s ease;
-    -webkit-transition: background 0.3s ease
-}
-#menu_in::-webkit-scrollbar-thumb:hover {
-    background: #666
-}
-#menu_in::-webkit-scrollbar-track {
-    background: #ddd
-}
+
 .director {
     padding: 40px 0 15px
 }
@@ -331,8 +286,6 @@ a:hover {
     width: 20%
 }
 .director .photo img {
-    -moz-border-radius: 250px;
-    -webkit-border-radius: 250px;
     border-radius: 250px;
     display: block;
     height: auto;
@@ -361,8 +314,6 @@ a:hover {
         width: 30%
     }
     .director .photo img {
-        -moz-border-radius: 250px;
-        -webkit-border-radius: 250px;
         border-radius: 250px;
         display: block;
         height: auto;
@@ -377,54 +328,13 @@ a:hover {
 .clients {
     background: #f7f7f7
 }
-.clients .client {
-    background-color: #fff;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 90% auto;
-    border: 2px solid #efefef;
-    -moz-border-radius: 100px;
-    -webkit-border-radius: 100px;
-    border-radius: 100px;
-    float: left;
-    height: 200px;
-    margin: 20px 20px 0 0;
-    width: 200px;
-    -moz-transition-property: border;
-    -o-transition-property: border;
-    -webkit-transition-property: border;
-    transition-property: border;
-    -moz-transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -moz-transition-timing-function: ease-out;
-    -o-transition-timing-function: ease-out;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out
-}
-.clients .client:hover {
-    border: 2px solid #f26724;
-    -moz-transition-property: border;
-    -o-transition-property: border;
-    -webkit-transition-property: border;
-    transition-property: border;
-    -moz-transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -moz-transition-timing-function: ease-in;
-    -o-transition-timing-function: ease-in;
-    -webkit-transition-timing-function: ease-in;
-    transition-timing-function: ease-in
-}
+
+
 @media all and (max-width: 800px) {
     .clients {
         text-align: center
     }
     .clients .client {
-        -moz-border-radius: 75px;
-        -webkit-border-radius: 75px;
         border-radius: 75px;
         display: inline-block;
         float: none;
@@ -433,21 +343,8 @@ a:hover {
         width: 150px
     }
 }
-@media all and (max-width: 640px) {
-    .clients .client {
-        -moz-border-radius: 50px;
-        -webkit-border-radius: 50px;
-        border-radius: 50px;
-        height: 100px;
-        margin: 20px 10px 0;
-        width: 100px
-    }
-}
-.whatwedo {
-    background: url(../images/bg_whatwedo.jpg) 50% 50% fixed no-repeat;
-    background-size: cover;
-    color: #fff
-}
+
+
 .whatwedo h2,
 .whatwedo p {
     text-shadow: none
