@@ -23,13 +23,16 @@
   		<div class="container">
 				<ul class="nav navbar-nav">
         <li class="active"><a href="#">Main<span class="sr-only">(current)</span></a></li>
-        <li><a href="contacts.html">Contacts</a></li>
+        <li><a href="contact.html">Contacts</a></li>
       </ul>
   		</div>
 		</nav>
 		<div class ='container'>
 			<h2 class='possition'>Description</h2>
+<<<<<<< HEAD
 
+=======
+>>>>>>> o_yemets
 			<div class='jumbotron'>
 				<p class='text'>Python course can be easy to pick up whether you're a first time programmer or you're experienced with other languages. <li class="list-group-item list-group-item-warning"><span id='bursa'>PyBursa</span> is a useful first step to get on your way writing programs with Python!</li></p>
 
