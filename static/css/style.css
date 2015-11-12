@@ -15,7 +15,7 @@ body {
     background: url(../images/fone.png) no-repeat;
 }
 #sh {
-    color: yellow
+    color: blue
 }
 .text-warning {
 	color: #00FFFF
@@ -65,4 +65,6 @@ body {
 #soho {
 	font-size: 25px
 }
-
+#soho2 {
+	color: yellow
+}
