@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- SAMPLE COMMENT -->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contacts</title>
-
+        <title>Contacts</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../static/images/favicon.ico" />
     <link href="../static/css/bootstrap.css" rel="stylesheet">
     <link href="../static/css/style.css" rel="stylesheet">
-
   </head>
-  <body>
-    <div class="slash-div">
+  <body class="sl-background">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">
+            <img class="sl-brand" alt="GodsBursa" src="../static/images/gb-logo.jpg">
+          </a>
+        </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="index.html">Main</a></li>
-            <li class="active"><a href="#">Contacts<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="contact.html">Contacts<span class="sr-only">(current)</span></a></li>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+    <div class="slash-div">
       <div class="container" align="center"> 
        <div class="media">
           <div class="media-left">
@@ -32,11 +36,12 @@
             </a>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">Director</h4>
+            <h4 class="media-heading sl-h4-contacts">Director</h4>
+            <div class="sl-contacts">
             Name:   Tony Stark<br>
             Skype:  redironman<br>
             Email:  ironmain@google.com<br>
-            Phone:  +1234567890<br>
+            Phone:  +1234567890<br></div>
           </div>
         </div>
         </div>
@@ -50,11 +55,13 @@
             </a>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">Founder</h4>
+            <h4 class="media-heading sl-h4-contacts">Founder</h4>
+            <div class="sl-contacts">
             Name:   Thor<br>
             Skype:  ligthinghammer<br>
             Email:  thor@godville.net<br>
             Phone:  +1111111111111<br>
+            </div>
           </div>
           <div class="media-left">
             <a href="#">
@@ -62,15 +69,19 @@
             </a>
           </div>
           <div class="media-body">
-            <h4 class="media-heading">Manager</h4>
+            <h4 class="media-heading sl-h4-contacts">Manager</h4>
+            <div class="sl-contacts">
             Name:   Hulk<br>
             Skype:  lowetodestroy<br>
             Email:  hulkkills@yahoo.com<br>
             Phone:  +grr-grr-grrr<br>
+            </div>
           </div>
         </div>
+   </div>
+      <div class="navbar-fixed-bottom row-fluid">
+      <div class="panel-footer sl-footer">&copy; Stalker inc., 2015+</div>
     </div>
-  
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
   </body>
