@@ -19,57 +19,197 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        
-        <img class="logo" src="../static/images/py_logo.png" />
-        
-      </div>
-      <div class="container">
+    <div class="navbar-wrapper">
+    <div class="container">
+      <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div class="container">
           <ul class="nav navbar-nav">
             <li><a class="top_bar" href="index.html">Main</a></li>
             <li class="active"><a class="top_bar" href="contact.html">Contacts</a></li>
           </ul>
         </div>
+        </nav>
+      </div>
+      
     </div>
-    </nav>
+
+     <!-- Carousel
+    ================================================== -->
+    
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item">
+          <img class="first-slide" src="../static/images/intro1.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Учитесь вместе с нами!</h1>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="../static/images/intro2.jpg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Развивайтейсь вместе с нами!</h1>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item active">
+          <img class="third-slide" src="../static/images/intro3.jpg" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Работайте в команде!</h1>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    
+    <!-- /.carousel -->
     <div class="container">
       <div class="page-header">
         <h1 class="conts">Contacts</h1>
         <div class="jumbotron">
-          <h2>Director:</h2>
-            <p>
-            <span class="spa">Name:</span> Алексей Радченко</br>
-            <span class="spa">Skype:</span> dixon.che</br>
-            <span class="spa">Email:</span> dixon.che@gmail.com</br>
-            <span class="spa">Phone:</span> 8-800-555-35-35</br>
-            </p>
-            
-          <h2>Manager:</h2>
-            <p>
-            <span class="spa">Name:</span> Дария Михалевич</br>
-            <span class="spa">Skype:</span> darka.darka.darka.darka.</br>
-            <span class="spa">Email:</span> daria.mykhalevych@gmail.com</br>
-            <span class="spa">Phone:</span> 8 096 469 15 57</br>
-            </p>
-          <h2>Founder:</h2>
-            <p>
-            <span class="spa">Name:</span> Павел Обод</br>
-            <span class="spa">Skype:</span> azaless</br>
-            <span class="spa">Email:</span> itbursa100@gmail.com</br>
-            <span class="spa">Phone:</span> 8-800-555-35-36</br>
-            </p>
+          <div class="row">
+
+          <div class="col-md-4">
+            <img src="../static/images/dir2.png" alt="..." class="img-circle">
+              <div class="caption">
+                <h2>Director:</h2>
+                <p>
+                <span class="spa">Name:</span> Svidetel</br>
+                <span class="spa">Skype:</span> svidetel</br>
+                <span class="spa">Email:</span> svidetel@gmail.com</br>
+                <span class="spa">Phone:</span> 8-800-555-35-35</br>
+                </p>
+                <div><a href="#" class="btn btn-primary" role="button">Send email</a></div>
+              </div>
+          </div>
+        
+          <div class="col-md-4">
+            <img src="../static/images/brian.png" alt="..." class="img-circle">
+              <div class="caption">
+                <h2>Manager:</h2>
+                <p>
+                <span class="spa">Name:</span> Brian</br>
+                <span class="spa">Skype:</span> brian</br>
+                <span class="spa">Email:</span> brian@gmail.com</br>
+                <span class="spa">Phone:</span> 8-800-555-35-35</br>
+                </p>
+                <div><a href="#" class="btn btn-primary" role="button">Send email</a></div>
+              </div>
+          </div>
+           
+          <div class="col-md-4">
+            <img src="../static/images/mad_fox2.png" alt="..." class="img-circle">
+              <div class="caption">
+                <h2>Founder:</h2>
+                <p>
+                <span class="spa">Name:</span> Mad Fox</br>
+                <span class="spa">Skype:</span> mad_fox</br>
+                <span class="spa">Email:</span> mad_fox@gmail.com</br>
+                <span class="spa">Phone:</span> 8-800-555-35-35</br>
+                </p>
+                <div><a href="#" class="btn btn-primary" role="button">Send email</a></div>
+              </div>
+          </div>
+          </div>
+                   
         </div>
       </div>
+
+<!--
+<div class="page-header">
+        <h1 class="conts">Contacts</h1>
+        <div class="jumbotron">
+          <div class="row">
+
+          <div class="col-md-4">
+            <img src="../static/images/dir2.png" alt="..." class="img-circle">
+              <div class="caption">
+                <h2>Director:</h2>
+                <p>
+                <span class="spa">Name:</span> Svidetel</br>
+                <span class="spa">Skype:</span> svidetel</br>
+                <span class="spa">Email:</span> svidetel@gmail.com</br>
+                <span class="spa">Phone:</span> 8-800-555-35-35</br>
+                </p>
+                <div><a href="#" class="btn btn-primary" role="button">Send email</a></div>
+              </div>
+          </div>
+        
+          <div class="col-md-4">
+            <img src="../static/images/brian.png" alt="..." class="img-circle">
+              <div class="caption">
+                <h2>Manager:</h2>
+                <p>
+                <span class="spa">Name:</span> Brian</br>
+                <span class="spa">Skype:</span> brian</br>
+                <span class="spa">Email:</span> brian@gmail.com</br>
+                <span class="spa">Phone:</span> 8-800-555-35-35</br>
+                </p>
+                <div><a href="#" class="btn btn-primary" role="button">Send email</a></div>
+              </div>
+          </div>
+           
+          <div class="col-md-4">
+            <img src="../static/images/mad_fox2.png" alt="..." class="img-circle">
+              <div class="caption">
+                <h2>Founder:</h2>
+                <p>
+                <span class="spa">Name:</span> Mad Fox</br>
+                <span class="spa">Skype:</span> mad_fox</br>
+                <span class="spa">Email:</span> mad_fox@gmail.com</br>
+                <span class="spa">Phone:</span> 8-800-555-35-35</br>
+                </p>
+                <div><a href="#" class="btn btn-primary" role="button">Send email</a></div>
+              </div>
+          </div>
+          </div>
+                   
+        </div>
+      </div>
+      -->
+
+
+
+
+
+
+
+
+
     </div>
+
+
     <nav class="container">
     <ul class="pager">
       <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span>Main</a></li>
       
     </ul>
     </nav>
+    -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

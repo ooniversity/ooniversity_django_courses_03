@@ -1,13 +1,20 @@
-.top{
+.navbar-brand {
+    background-image: url("../images/py_logo2.png");
+  	width: 50px;
+}
+.navbar-header {
+    padding: 0 30px 0 30px;
+}
+.col-md-4{
 	text-align: center;
 }
-
-.logo{
-	width: 5%;
-	height: 5%;
-	margin: 1% 1% -1% 10%;
+.col-md-4 p{
+  text-align: left;
 }
-.diviz1, .diviz2, .diviz3{
+.navbar{
+    margin-top: 20px;
+}
+.deviz{
 	color: #3b5998;
 	padding-right: 5px;
 	padding-top: 3px;
@@ -15,26 +22,15 @@
 	font-weight: bold;
 	font-size: 14pt;
 }
-.program{
-	text-align: center;
-}
-.descr{
+.descr, .conts{
 	text-align: center;
 	font-weight: bold;
 }
-.programh{
-	text-align: center;
-	font-weight: bold;
-}
-.conts{
-	text-align: center;
-	font-weight: bold;
-}
+
 .py{
 	font-weight: bold;
 	color: #3b5998;
 }
-
 .top_bar{
 	font-weight: bold;
 	font-size: 14pt;
@@ -53,6 +49,7 @@
 	border-collapse:collapse;
 	margin: auto;
 }
+
 table tbody tr th{
 	vertical-align:middle;
 	border:#bdbdbd 1px solid;
@@ -71,14 +68,12 @@ table tbody tr td{
 	padding-right: 7px;
 	padding-left: 7px;
 }
-
 .t_head th{
 	text-align:center;
 }
 .my_table tr td:last-child{
 	text-align:left;
 }
-
 tr:nth-child(2n) {
     background: #fcfcfc; /* Цвет фона */
    } 
@@ -86,3 +81,48 @@ tr:nth-child(1) {
     background: #666; /* Цвет фона */
     color: #fff; /* Цвет текста */
 } 
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 800px;
+  margin-bottom: 10px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 800px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 800px;
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
