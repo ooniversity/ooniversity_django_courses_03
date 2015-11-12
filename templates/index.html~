@@ -22,22 +22,23 @@
 		<nav class="navbar navbar-default navbar-static-top">
   		<div class="container">
 				<ul class="nav navbar-nav">
-        <li class="active"><a href="/">Main<span class="sr-only">(current)</span></a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li class="active"><a href="#">Main<span class="sr-only">(current)</span></a></li>
+        <li><a href="contacts.html">Contacts</a></li>
       </ul>
   		</div>
 		</nav>
 		<div class ='container'>
 			<h2 class='possition'>Description</h2>
 
-			<p class='text'>Python course can be easy to pick up whether you're a first time programmer or you're experienced with other languages. <span id='bursa'>PyBursa</span> is a useful first step to get on your way writing programs with Python!</p>
+			<div class='jumbotron'>
+				<p class='text'>Python course can be easy to pick up whether you're a first time programmer or you're experienced with other languages. <li class="list-group-item list-group-item-warning"><span id='bursa'>PyBursa</span> is a useful first step to get on your way writing programs with Python!</li></p>
 
-			<p class='text2'>The online conferences and meetups, collaborates on code, and much more. Online videos will help you along the way, and the mailing lists will keep you in touch.</p>
-
+				<p class='text2'>The online conferences and meetups, collaborates on code, and much more. Online videos will help you along the way, and the mailing lists will keep you in touch.</p>
+			</div>
 			<h2 class='possition'>Program</h2>
 			<div class='grey'>
 				<table class='table'>
-					<tr class='title_table'><th align="center">Lesson</th><th align="center">Theme</th>
+					<tr class='title_table'><th>Lesson</th><th>Theme</th>
 					<tr align="center"><td>1</td><td>Basic Python</td>
 					<tr align="center"><td>2</td><td>Strings, dictionary, list, integer, tuple</td>
 					<tr align="center"><td>3</td><td>for, while, if</td>
