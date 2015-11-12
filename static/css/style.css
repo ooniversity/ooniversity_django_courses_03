@@ -1,0 +1,8 @@
+.col-md-4 img {
+	max-width:160px;
+	max-height: 160px;
+}
+
+.marker {
+	font: bold italic 12pt sans-serif; 
+}
