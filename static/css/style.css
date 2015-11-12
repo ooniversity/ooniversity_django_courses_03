@@ -1,6 +1,7 @@
 body {
    background-color: white;
 }
+
 a:hover {
   border: 5px solid #F2F2F2;
 }
@@ -12,3 +13,32 @@ color: red;
 .program {
 color: green;
 }
+
+a {color:#000060; font-weight: bold;}
+
+.help-block {
+  color:red;
+}
+
+.checkbox {
+    float: left;
+}
+
+.text-info {
+   color: blue;
+}
+
+input[type=button],input[type=submit],button{
+    background:url(images/btn-verzend.jpg) no-repeat;
+    width:91px;
+    height:35px;
+    line-height:35px;
+    border:none;
+    color:#FFF;
+    cursor:pointer;
+}
+
+.text-warning {
+  text-align: left;
+}
+
