@@ -1,0 +1,23 @@
+.first-p{
+	color: red;
+	font-size: 12px;
+	font-family: Arial;
+}
+#list{
+	font: normal small-caps 12px/14px fantasy;
+}
+#list2{
+	font: bold italic 110% serif;
+}
+#list3{
+	font: 12pt/10pt sans-serif;
+}
+#pybursa{
+    text-align:  center;
+}
+div div ul li{
+	text-decoration: underline;
+}
+#description{
+	font-variant: small-caps;
+}
