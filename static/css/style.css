@@ -1,0 +1,58 @@
+.logo {
+    width: 50px;
+    height: 50px
+}
+.tag-name {
+    color: black
+}
+#sh1 {
+    color: gold
+}
+body {
+    background: url(../images/fone.png) no-repeat;
+    -moz-background-size: 100%;
+    /* Firefox 3.6+ */
+    
+    -webkit-background-size: 100%;
+    /* Safari 3.1+ и Chrome 4.0+ */
+    
+    -o-background-size: 100%;
+    /* Opera 9.6+ */
+    
+    background-size: 100%;
+    /* Современные браузеры */
+}
+#sh {
+    color:
+}
+#desc-id {
+    color: black
+}
+#program {
+    color: gold
+}
+#text {
+    color: black
+}
+#boom {
+    padding: 5px;
+    /* Поля вокруг текста */
+    
+    background: #ADD8E6;
+    /* Цвет фона */
+    
+    margin: 0 auto;
+    /* Выравниваем слой по центру */
+    
+    width: 80%;
+    /* Ширина слоя */
+    
+    opacity: 0.8;
+    /* Значение прозрачности */
+    
+    filter: alpha(Opacity=5000);
+    /* Прозрачность в IE */
+}
+.row {
+    color: black
+}
