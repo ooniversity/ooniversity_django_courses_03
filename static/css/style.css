@@ -6,30 +6,22 @@
     color: black
 }
 #sh1 {
-    color: gold
+    color: #2ECCFA
 }
 body {
     background: url(../images/fone.png) no-repeat;
-    -moz-background-size: 100%;
-    /* Firefox 3.6+ */
-    
-    -webkit-background-size: 100%;
-    /* Safari 3.1+ и Chrome 4.0+ */
-    
-    -o-background-size: 100%;
-    /* Opera 9.6+ */
-    
-    background-size: 100%;
-    /* Современные браузеры */
 }
 #sh {
-    color:
+    color: yellow
+}
+.text-warning {
+	color: #00FFFF
 }
 #desc-id {
     color: black
 }
 #program {
-    color: gold
+    color: #8904B1
 }
 #text {
     color: black
@@ -50,9 +42,7 @@ body {
     opacity: 0.8;
     /* Значение прозрачности */
     
-    filter: alpha(Opacity=5000);
-    /* Прозрачность в IE */
 }
-.row {
+#rombo {
     color: black
 }
