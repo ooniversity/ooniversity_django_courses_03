@@ -1,0 +1,38 @@
+#brico {
+    width: 50px;
+  }
+.con-info{
+  width:200px; height: 200px; border-radius: 10px; margin: 2px 2px 2px 2px;
+}
+.contacts{
+  margin: auto;
+  width: 90%;
+  align: center; 
+}
+.contact-header{
+  text-align: center;	
+}
+.condata {
+	text-align: center
+}
+.courseinfo {
+	font-style: italic;
+
+}
+th{
+	border-radius: 4px;
+}
+th:hover{
+	background-color:#d1d1d1;
+}
+body{
+	background-color:#e6e6e6;
+}
+.nota-bene {
+	text-indent: : 1.5em;
+	font-weight: 600 ;
+	color: #2B0F5A;
+}
+.whypython {
+	font-style:oblique;
+}
