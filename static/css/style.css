@@ -2,6 +2,9 @@
     width: 50px;
     height: 50px
 }
+.container-fluid {
+	background-color: #1C1C1C
+}
 .tag-name {
     color: black
 }
@@ -46,3 +49,20 @@ body {
 #rombo {
     color: black
 }
+.rightimg {
+	border: 2px dotted red;
+	position: relative;
+	width: auto;
+	max-height: 300px;
+}
+.text-center {
+	text-decoration: underline
+}
+.img-circle {
+	width: 170px;
+	height: 170px
+}
+#soho {
+	font-size: 25px
+}
+
