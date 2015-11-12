@@ -7,14 +7,8 @@
 #brico {
     width: 50px;
   }
-#director {
+.con-info{
   width:200px; height: 200px; border-radius: 10px; margin: 2px 2px 2px 2px;
-}
-#manager {
-  width:200px; height: 200px; border-radius: 10px; margin: 2px 2px 2px 2px;
-}
-#founder {
-  width:200px; height:200px; border-radius: 10px; margin: 2px 2px 2px 2px;
 }
 .contacts{
   margin: auto;
