@@ -10,12 +10,9 @@ body {
     background-image: url(../images/background.jpg);
 }
 .photo {
-    filter: alpha(opacity=100);
-    -moz-opacity: 1;
-    -khtml-opacity: 1;
     opacity: 1;
     padding-top: 25px;
-    align: center;
+    
 }
 #dir {
     height: 300px
@@ -31,4 +28,17 @@ span.skype {
 }
 span.phone {
     text-decoration: underline;
+}
+.tdfunc{
+  font: 18pt serif;
+  text-align: center;
+}
+th{
+  color:black;
+  font: 24pt serif;
+}
+td.first{
+  color:blue;
+  float: right;
+  margin-right:49%
 }
