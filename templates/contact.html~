@@ -23,12 +23,15 @@
   		<div class="container">
 				<ul class="nav navbar-nav">
         <li><a href="index.html">Main</a></li>
-        <li class="active"><a href="#">Contact</a></li>
+        <li class="active"><a href="#">Contacts</a></li>
       </ul>
   		</div>
 		</nav>
 		<div class ='container'>
+			<div class='jumbotron'><h2 class='text-uppercase'>Contacts</h1></div>
+			<div class="alert alert-success" role="alert">You can contact us!</div>
 			<div class='proffesion'>
+				<hr>
 				<h2 class='possition'>Director</h2>
 				<table class='table'>
 					<tr><td><img src='../static/images/manager.png'></td>
@@ -46,16 +49,19 @@
 					<p class='name'>Skype: taras.bulba</p>
 					<p class='name'>Email: taras.bulba@gmail.com</p>
 					<p class='name'>Phone: (050) 455 44 15</p></td>
-				<table class='table'>
+				</table>
 			</div>
 			<div>
 				<h2 class='possition'>Founder</h2>
-				<img src='../static/images/image.jpg'>
-				<p class='name'>Name: Lev Tolstoy</p>
-				<p class='name'>Skype: lev.tolstoy</p>
-				<p class='name'>Email: lev.tolstoy@gmail.com</p>
-				<p class='name'>Phone: (050) 285 34 17</p>
+				<table class='table'>
+					<tr><td><img src='../static/images/image.jpg'></td>
+					<td><p class='name'>Name: Lev Tolstoy</p>
+					<p class='name'>Skype: lev.tolstoy</p>
+					<p class='name'>Email: lev.tolstoy@gmail.com</p>
+					<p class='name'>Phone: (050) 285 34 17</p></td>
+				</table>
 			</div>
+			<p><span class="label label-info">Info</span>More information here</p>
 		</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
