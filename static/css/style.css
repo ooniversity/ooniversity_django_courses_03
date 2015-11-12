@@ -1,0 +1,30 @@
+.center{text-align: center;}
+.color{color: green;;}
+
+.bold{font-weight: bold}
+.font{background:yellow}
+.area {
+ 
+  background-color: #dff0d8;
+}
+.panel {
+  padding: 10px;
+}
+.border {
+  padding: 10px 15px;
+  border-bottom: 5px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.page {
+  padding-bottom: 1px;
+  margin: 5px 0 5px;
+  border-bottom: 20px solid #dff0d8;
+}
+.jumb {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  color: inherit;
+  background-color: #eee;
+}
