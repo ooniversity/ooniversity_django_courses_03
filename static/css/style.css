@@ -10,6 +10,24 @@ p + p {
 	margin-top: 20px;
 }
 
+h1 {
+	text-align: center;
+}
+.navbar-brand {
+	padding: 0;
+}
+
+.navbar-brand img {
+	height: 50px;
+}
+.thumbnail h3 {
+	text-align: center;
+}
+.thumbnail>img {
+	height: 200px;
+}
+
+
 .purple{
 	color: purple;
 }
@@ -29,23 +47,6 @@ p + p {
 	color: orange;
 }
 
-.black {
-	color: black;
-}
-
-.lemon {
-	color: #CCFF33;
-}
-
-.dark-blue {
-	color: #000066;
-}
-
-.ff {
-	color: #FF66FF;
-}
-
 .dark-orange {
 	color: #CC3300;
 }
-
