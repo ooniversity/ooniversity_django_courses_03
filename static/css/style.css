@@ -1,0 +1,50 @@
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+.green-text{
+    color: green;
+}
+p{
+    font-size: 18px;
+}
+div{
+    margin: 5px 5px 5px 5px;
+}
+#menu{
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+.jumbotron{
+    height: 270px;
+    margin: 5px 5px 5px 5px;
+    padding: 2px;
+}
+.alert{
+    font-family: Courier;
+}
+.label.label-primary{
+    font-size: 26px;
+    font-family: Arial;
+}
+h1{
+    color: #1b6d85;
+}
+h2{
+    color: #269abc;
+}
+.page-header{
+    margin: 1px 1px 1px 1px;
+}
+.well{
+    font-family: fantasy;
+}
+.well-sm{
+    font-family: sans-serif;
+}
+.well-lg{
+    font-family: Consolas;
+}
