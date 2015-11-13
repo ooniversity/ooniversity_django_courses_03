@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PyBursa - Main</title>
+    <title>PyBursa - Students</title>
 
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
     <link href="../static/css/style.css" rel="stylesheet">
     <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/ico">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,45 +30,75 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Main</a><span class="sr-only">(current)</span></li>
+            <li><a href="index.html">Main</a></li>
             <li><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
+            <li  class="active"><a href="student_list.html">Students</a><span class="sr-only">(current)</span></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-    </nav>    
-     <div class= "container">    
-      <div class="jumbotron">
-        <div class="container"><h1>PyBursa</h1></div>
-        <h1>Description</h1>
-        <p>Learn to program in Python, a powerful language used by sites like YouTube and Dropbox.</p>
-        <p class ="nota-bene">5 Reasons why Python is Powerful Enough for Google </p>
-        <div class = "container"><ul class ="whypython">
-        <li>Python is Efficient
-        <li>Python is Fast
-        <li>Python is Broad
-        <li>Python is not Python
-        <li>Python is Easy
-        </ul>
-        </div>
-        <hr>
-        <h2>Programm</h2>
-        <div class = "container">
-          <ol class = "courseinfo">
-            <li>Getting Started</li>
-            <li>Python Set Up</li>
-            <li>Introduction</li>
-            <li>Strings</li>
-            <li>Lists</li>
-            <li>Sorting</li>
-            <li>Dicts and Files</li>
-            <li>Regular Expressions</li>
-            <li>Utilities</li>
-            <li>Lecture Videos day1, day2</li>
-            <li>Python Exercises</li>
-          </ol>
-        </div>
-      </div>    
+    </nav>
+    <div class= "container">
+      <div class ="jumbotron">
+        <h1>PyBursa students</h1><hr>
+        <table class = "student-table">
+        <thead>
+          <tr>
+            <th>
+              No
+            </th>
+            <th>
+              Surname
+            </th>
+            <th>
+              Name          
+            </th>
+            <th>
+              Address
+            </th>
+            <th>
+              Skype
+            </th>
+
+          </tr>
+        </thead>
+            <tr class = "oddtr">
+            <td><a href="student_detail.html">1</a></td>
+            <td>Parker</td>
+            <td>Peter</td>
+            <td>New Wave street, 14</td>
+            <td>spidey</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Benner</td>
+            <td>Bruce</td>
+            <td>Hulk planet, Raging street, 33/1</td>
+            <td>mr.green</td>
+          </tr>
+          <tr class = "oddtr">
+            <td>3</td>
+            <td>Romanoff</td>
+            <td>Natasha</td>
+            <td>Moscov, Red square, 1</td>
+            <td>blackwidow</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Rend</td>
+            <td>Daniel</td>
+            <td>Kun-Lun, Shao-Lao lane, 6</td>
+            <td>ironfist</td>
+          </tr>
+          <tr class = "oddtr">
+            <td>5</td>
+            <td>Rhodes</td>
+            <td>James</td>
+            <td>Military base #312</td>
+            <td>warmachine</td>
+          </tr>
+        </table>
+   
+      </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
