@@ -48,13 +48,12 @@ thead{
 .oddtr{
 	background-color: #e1e1e1;
 }
-.student-table tr, 
+.student-table tr
 {
 	border: 2px solid white;
 }
 .student-detail {
 	width: 40%;
-
 	background-color:#D09595;
 }
 .student-detail td{
@@ -63,7 +62,6 @@ thead{
 }
 .student-results{
 	width: 60%;
-
 }
 .student-results td{
 	border:2px solid white;
