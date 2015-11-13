@@ -37,3 +37,18 @@
 .row {
 	background-color: #BAD4F6;
 }
+.alert-success {
+	font-weight: bold;	
+}
+.alert-warning {
+	font-weight: bold;
+}
+.row {
+	margin-top: 8%;
+}
+.progy {
+	margin-top: 8%;
+}
+.container {
+	background-color: #FFEBCD
+}
