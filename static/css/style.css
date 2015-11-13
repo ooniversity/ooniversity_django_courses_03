@@ -53,7 +53,7 @@ h1 {
 
 .list_student thead{
 	background: #fefcea; /* Для старых браузров */
-    background: linear-gradient(to bottom left, #fefcea, #5EE9F7);
+    /*background: linear-gradient(to bottom left, #fefcea, #5EE9F7);*/
 }
 .list_student tbody td:first-child {
 	font-weight: bold;
