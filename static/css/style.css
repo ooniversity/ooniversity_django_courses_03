@@ -1,0 +1,30 @@
+.color {
+    color: red;
+}
+#test {
+    color: green;
+}
+div.test2 {
+    color: blue;
+}
+.color2 {
+    color: black;
+}
+#test2 {
+    size: 150px;
+}
+#test3 {
+    size: 200px;
+}
+#test4 {
+    size: 100px;
+}
+#test5 {
+    size: 100px;
+}
+.color.point {
+    color: yellow;
+}
+.color.print {
+    color: yellow;
+}
