@@ -27,7 +27,6 @@ h1 {
 	height: 200px;
 }
 
-
 .purple{
 	color: purple;
 }
@@ -49,4 +48,41 @@ h1 {
 
 .dark-orange {
 	color: #CC3300;
+}
+
+
+.list_student thead{
+	background: #fefcea; /* Для старых браузров */
+    background: linear-gradient(to bottom left, #fefcea, #5EE9F7);
+}
+.list_student tbody td:first-child {
+	font-weight: bold;
+	text-align: center;
+}
+.list_student tbody td:first-child a {
+	color: black;
+	
+}
+
+.list_student tbody tr{
+	background: #fefcea; /* Для старых браузров */
+    background: linear-gradient(to left, #E4DFB9,#11DEB8);
+}
+
+.list_student tbody tr:hover {
+	background: linear-gradient(to right, #E4DFB9,#11DEB8);
+}
+
+.student_detail table tr {
+	background: #fefcea; /* Для старых браузров */
+    background: linear-gradient(to left, #D8C2C2,#ACF7DF);
+}
+
+.perfomance thead tr {
+	background: #fefcea; /* Для старых браузров */
+    background: linear-gradient(to left, #1A6B10,#84D600);
+}
+.perfomance tbody tr {
+	background: #fefcea; /* Для старых браузров */
+    background: linear-gradient(to left, #D8C2C2,#73B749);
 }
