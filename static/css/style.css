@@ -32,7 +32,7 @@ div div ul li{
 	text-align:  center;
 }
 .footer_div{
-	background-color: none;
+	background: #fc0;
 }
 .end_of_course{
 	font-family: Arial;
@@ -54,8 +54,9 @@ div div ul li{
     padding: 10px;
 }
 .alert1{
-	background: #fc0;
+	padding: 10px;
+	text-align:  center;
 }
-.alert1{
-	background: #fc0;
+.alert2{
+	padding: 10px;
 }
