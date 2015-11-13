@@ -1,0 +1,26 @@
+.center{text-align: center;}
+
+
+.bold{font-weight: 900;}
+
+.area {
+ 
+  background-color: #dff0d8;
+}
+.panel {
+  padding: 10px;
+}
+
+.page {
+  padding-bottom: 1px;
+  margin: 5px 0 5px;
+  border-bottom: 20px solid #dff0d8;
+}
+.font{font-size:40px;}
+.justify{text-align: justify;}
+.color{color:#008080}
+.italic{font-style:italic}
+.panel-color {
+ 
+  background-color: #FAEBD7;
+}
