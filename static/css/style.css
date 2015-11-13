@@ -69,3 +69,6 @@ a.table {
   font-size: 14px;
   font-weight: normal;
 }
+tr.generic {
+  background-color: aliceblue;
+}
