@@ -86,20 +86,20 @@ body {
 	box-shadow: 20px 10px 5px #888888;
 	border:1px solid #000000;
 	
-	-moz-border-radius-bottomleft:11px;
-	-webkit-border-bottom-left-radius:11px;
+	moz-border-radius-bottomleft:11px;
+	webkit-border-bottom-left-radius:11px;
 	border-bottom-left-radius:11px;
 	
-	-moz-border-radius-bottomright:11px;
-	-webkit-border-bottom-right-radius:11px;
+	moz-border-radius-bottomright:11px;
+	webkit-border-bottom-right-radius:11px;
 	border-bottom-right-radius:11px;
 	
-	-moz-border-radius-topright:11px;
-	-webkit-border-top-right-radius:11px;
+	moz-border-radius-topright:11px;
+	webkit-border-top-right-radius:11px;
 	border-top-right-radius:11px;
 	
-	-moz-border-radius-topleft:11px;
-	-webkit-border-top-left-radius:11px;
+	moz-border-radius-topleft:11px;
+	webkit-border-top-left-radius:11px;
 	border-top-left-radius:11px;
 }.table-hover table{
     border-collapse: collapse;
@@ -108,22 +108,22 @@ body {
 	height:100%;
 	margin:0px;padding:0px;
 }.table-hover tr:last-child td:last-child {
-	-moz-border-radius-bottomright:11px;
-	-webkit-border-bottom-right-radius:11px;
+	moz-border-radius-bottomright:11px;
+	webkit-border-bottom-right-radius:11px;
 	border-bottom-right-radius:11px;
 }
 .table-hover table tr:first-child td:first-child {
-	-moz-border-radius-topleft:11px;
-	-webkit-border-top-left-radius:11px;
+	moz-border-radius-topleft:11px;
+	webkit-border-top-left-radius:11px;
 	border-top-left-radius:11px;
 }
 .table-hover table tr:first-child td:last-child {
-	-moz-border-radius-topright:11px;
-	-webkit-border-top-right-radius:11px;
+	moz-border-radius-topright:11px;
+	webkit-border-top-right-radius:11px;
 	border-top-right-radius:11px;
 }.table-hover tr:last-child td:first-child{
-	-moz-border-radius-bottomleft:11px;
-	-webkit-border-bottom-left-radius:11px;
+	moz-border-radius-bottomleft:11px;
+	webkit-border-bottom-left-radius:11px;
 	border-bottom-left-radius:11px;
 }.table-hover tr:hover td{
 	background-color:#bcb1b1;
@@ -209,20 +209,20 @@ body {
 	box-shadow: 10px 10px 5px #888888;
 	border:1px solid #ffffff;
 	
-	-moz-border-radius-bottomleft:18px;
-	-webkit-border-bottom-left-radius:18px;
+	moz-border-radius-bottomleft:18px;
+	webkit-border-bottom-left-radius:18px;
 	border-bottom-left-radius:18px;
 	
-	-moz-border-radius-bottomright:18px;
-	-webkit-border-bottom-right-radius:18px;
+	moz-border-radius-bottomright:18px;
+	webkit-border-bottom-right-radius:18px;
 	border-bottom-right-radius:18px;
 	
-	-moz-border-radius-topright:18px;
-	-webkit-border-top-right-radius:18px;
+	moz-border-radius-topright:18px;
+	webkit-border-top-right-radius:18px;
 	border-top-right-radius:18px;
 	
-	-moz-border-radius-topleft:18px;
-	-webkit-border-top-left-radius:18px;
+	moz-border-radius-topleft:18px;
+	webkit-border-top-left-radius:18px;
 	border-top-left-radius:18px;
 }.mytable table{
     border-collapse: collapse;
@@ -231,22 +231,22 @@ body {
 	height:100%;
 	margin:0px;padding:0px;
 }.mytable tr:last-child td:last-child {
-	-moz-border-radius-bottomright:18px;
-	-webkit-border-bottom-right-radius:18px;
+	moz-border-radius-bottomright:18px;
+	webkit-border-bottom-right-radius:18px;
 	border-bottom-right-radius:18px;
 }
 .mytable table tr:first-child td:first-child {
-	-moz-border-radius-topleft:18px;
-	-webkit-border-top-left-radius:18px;
+	moz-border-radius-topleft:18px;
+	webkit-border-top-left-radius:18px;
 	border-top-left-radius:18px;
 }
 .mytable table tr:first-child td:last-child {
-	-moz-border-radius-topright:18px;
-	-webkit-border-top-right-radius:18px;
+	moz-border-radius-topright:18px;
+	webkit-border-top-right-radius:18px;
 	border-top-right-radius:18px;
 }.mytable tr:last-child td:first-child{
-	-moz-border-radius-bottomleft:18px;
-	-webkit-border-bottom-left-radius:18px;
+	moz-border-radius-bottomleft:18px;
+	webkit-border-bottom-left-radius:18px;
 	border-bottom-left-radius:18px;
 }.mytable tr:hover td{
 	background-color:#6d6565;
@@ -316,20 +316,20 @@ body {
 	width:100%;
 	border:1px solid #000000;
 	
-	-moz-border-radius-bottomleft:0px;
-	-webkit-border-bottom-left-radius:0px;
+	moz-border-radius-bottomleft:0px;
+	webkit-border-bottom-left-radius:0px;
 	border-bottom-left-radius:0px;
 	
-	-moz-border-radius-bottomright:0px;
-	-webkit-border-bottom-right-radius:0px;
+	moz-border-radius-bottomright:0px;
+	webkit-border-bottom-right-radius:0px;
 	border-bottom-right-radius:0px;
 	
-	-moz-border-radius-topright:0px;
-	-webkit-border-top-right-radius:0px;
+	moz-border-radius-topright:0px;
+	webkit-border-top-right-radius:0px;
 	border-top-right-radius:0px;
 	
-	-moz-border-radius-topleft:0px;
-	-webkit-border-top-left-radius:0px;
+	moz-border-radius-topleft:0px;
+	webkit-border-top-left-radius:0px;
 	border-top-left-radius:0px;
 }.mytable2 table{
     border-collapse: collapse;
@@ -338,22 +338,22 @@ body {
 	height:100%;
 	margin:0px;padding:0px;
 }.mytable2 tr:last-child td:last-child {
-	-moz-border-radius-bottomright:0px;
-	-webkit-border-bottom-right-radius:0px;
+	moz-border-radius-bottomright:0px;
+	webkit-border-bottom-right-radius:0px;
 	border-bottom-right-radius:0px;
 }
 .mytable2 table tr:first-child td:first-child {
-	-moz-border-radius-topleft:0px;
-	-webkit-border-top-left-radius:0px;
+	moz-border-radius-topleft:0px;
+	webkit-border-top-left-radius:0px;
 	border-top-left-radius:0px;
 }
 .mytable2 table tr:first-child td:last-child {
-	-moz-border-radius-topright:0px;
-	-webkit-border-top-right-radius:0px;
+	moz-border-radius-topright:0px;
+	webkit-border-top-right-radius:0px;
 	border-top-right-radius:0px;
 }.mytable2 tr:last-child td:first-child{
-	-moz-border-radius-bottomleft:0px;
-	-webkit-border-bottom-left-radius:0px;
+	moz-border-radius-bottomleft:0px;
+	webkit-border-bottom-left-radius:0px;
 	border-bottom-left-radius:0px;
 }.mytable2 tr:hover td{
 	background-color:#3b77ef;
