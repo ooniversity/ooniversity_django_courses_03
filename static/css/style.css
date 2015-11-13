@@ -1,5 +1,5 @@
 .transparent {
-	opacity: 0.8;
+	opacity: 0.7;
 }
 
 body {
@@ -11,6 +11,18 @@ body {
 	font-size: 20px;
 }
 
-ol > li {
+.zagolovok1 {
+	font-size: 16px
+}
+
+.spisok1 {
 	font-size: 16px;
+}
+
+.change:hover{
+	color: red;
+}
+
+.director {
+	font-weight: bold
 }
