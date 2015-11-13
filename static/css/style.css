@@ -57,3 +57,11 @@ padding-left: 50px;
 height: 200px;
 width: 300px;
 }
+
+.text-uppercase{
+text-align: center;
+}
+
+.alert-success{
+float: left;
+}
