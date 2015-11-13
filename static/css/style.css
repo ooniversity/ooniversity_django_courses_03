@@ -64,3 +64,9 @@ li {
 div h3{
 	font-style: italic;
 }
+title {
+	font-style: italic;
+}
+.page-header {
+	font-family: arial;
+}
