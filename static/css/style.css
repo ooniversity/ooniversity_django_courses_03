@@ -221,3 +221,11 @@ footer a{
 .pink-darken-4 {
   color: #880e4f;
 }
+
+.container img {
+  width: 600px;
+}
+
+.commands {
+  margin-top: 150px;
+}
