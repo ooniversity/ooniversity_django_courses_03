@@ -1,88 +1,129 @@
 body {
-	font: 14px Arial;
+    font: 14px Arial;
 }
 
 p {
-	margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 p + p {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 h1 {
-	text-align: center;
+    text-align: center;
 }
+
 .navbar-brand {
-	padding: 0;
+    padding: 0;
 }
 
 .navbar-brand img {
-	height: 50px;
-}
-.thumbnail h3 {
-	text-align: center;
-}
-.thumbnail>img {
-	height: 200px;
+    height: 50px;
 }
 
-.purple{
-	color: purple;
+.thumbnail h3 {
+    text-align: center;
+}
+
+.thumbnail>img {
+    height: 200px;
+}
+
+.purple {
+    color: purple;
 }
 
 .red {
-	color: red;
+    color: red;
 }
+
 .blue {
-	color: blue;
+    color: blue;
 }
 
 .green {
-	color: green;
+    color: green;
 }
 
 .orange {
-	color: orange;
+    color: orange;
 }
 
 .dark-orange {
-	color: #CC3300;
+    color: #CC3300;
 }
 
-
-.list_student thead{
-	background: #fefcea; /* Для старых браузров */
+.list_student thead {
+    background: #fefcea;
+    /* Для старых браузров */
     background: linear-gradient(to bottom left, #fefcea, #5EE9F7);
 }
+
 .list_student tbody td:first-child {
-	font-weight: bold;
-	text-align: center;
-}
-.list_student tbody td:first-child a {
-	color: black;
-	
+    font-weight: bold;
+    text-align: center;
 }
 
-.list_student tbody tr{
-	background: #fefcea; /* Для старых браузров */
-    background: linear-gradient(to left, #E4DFB9,#11DEB8);
+.list_student tbody td:first-child a {
+    color: black;
+}
+
+.list_student tbody tr {
+    background: #fefcea;
+    /* For Safari 5.1 to 6.0 */
+    background: -webkit-linear-gradient(to left, #E4DFB9, #11DEB8);
+    /* For Opera 11.1 to 12.0 */
+    background: -o-linear-gradient(to left, #E4DFB9, #11DEB8);
+    /* For Fx 3.6 to 15 */
+    background: -moz-linear-gradient(to left, #E4DFB9, #11DEB8);
+    /* Standard syntax */
+    background: linear-gradient(to left, #E4DFB9, #11DEB8);
 }
 
 .list_student tbody tr:hover {
-	background: linear-gradient(to right, #E4DFB9,#11DEB8);
+    /* For Safari 5.1 to 6.0 */
+    background: -webkit-linear-gradient(to left, #E4DFB9, #11DEB8);
+    /* For Opera 11.1 to 12.0 */
+    background: -o-linear-gradient(to left, #E4DFB9, #11DEB8);
+    /* For Fx 3.6 to 15 */
+    background: -moz-linear-gradient(to left, #E4DFB9, #11DEB8);
+    /* Standard syntax */
+    background: linear-gradient(to left, #E4DFB9, #11DEB8);
 }
 
 .student_detail table tr {
-	background: #fefcea; /* Для старых браузров */
-    background: linear-gradient(to left, #D8C2C2,#ACF7DF);
+    background: #fefcea;
+    /* For Safari 5.1 to 6.0 */
+    background: -webkit-linear-gradient(to left, #D8C2C2, #ACF7DF);
+    /* For Opera 11.1 to 12.0 */
+    background: -o-linear-gradient(to left, #D8C2C2, #ACF7DF);
+    /* For Fx 3.6 to 15 */
+    background: -moz-linear-gradient(to left, #D8C2C2, #ACF7DF);
+    /* Standard syntax */
+    background: linear-gradient(to left, #D8C2C2, #ACF7DF);
 }
 
 .perfomance thead tr {
-	background: #fefcea; /* Для старых браузров */
-    background: linear-gradient(to left, #1A6B10,#84D600);
+    background: #fefcea;
+    /* For Safari 5.1 to 6.0 */
+    background: -webkit-linear-gradient(to left, #1A6B10, #84D600);
+    /* For Opera 11.1 to 12.0 */
+    background: -o-linear-gradient(to left, #1A6B10, #84D600);
+    /* For Fx 3.6 to 15 */
+    background: -moz-linear-gradient(to left, #1A6B10, #84D600);
+    /* Standard syntax */
+    background: linear-gradient(to left, #1A6B10, #84D600);
 }
+
 .perfomance tbody tr {
-	background: #fefcea; /* Для старых браузров */
-    background: linear-gradient(to left, #D8C2C2,#73B749);
+    background: #fefcea;
+    /* For Safari 5.1 to 6.0 */
+    background: -webkit-linear-gradient(to left, #D8C2C2, #73B749);
+    /* For Opera 11.1 to 12.0 */
+    background: -o-linear-gradient(to left, #D8C2C2, #73B749);
+    /* For Fx 3.6 to 15 */
+    background: -moz-linear-gradient(to left, #D8C2C2, #73B749);
+    /* Standard syntax */
+    background: linear-gradient(to left, #D8C2C2, #73B749);
 }
