@@ -54,7 +54,7 @@ thead{
 }
 .student-detail {
 	width: 40%;
-	margin: left;
+
 	background-color:#D09595;
 }
 .student-detail td{
@@ -63,7 +63,7 @@ thead{
 }
 .student-results{
 	width: 60%;
-	margin:left;
+
 }
 .student-results td{
 	border:2px solid white;
