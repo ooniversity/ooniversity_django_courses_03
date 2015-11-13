@@ -67,8 +67,6 @@ body {
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
-  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
 .site-wrapper-inner {
   display: table-cell;
@@ -191,7 +189,7 @@ body {
 .wrapper-2 {
     background-color: #333;
     color: #fff;
-    padding-top: 10rem;
+    padding-top: 100px;
 }
 
 footer p, a{
@@ -199,4 +197,27 @@ footer p, a{
 }
 footer a{
     padding-right: 20px;
+}
+
+.green {
+  color: #4caf50
+}
+.red {
+  color: #f44336;
+}
+.cyan {
+  color: #00bcd4 ;
+}
+
+.purple-lighten-3 {
+  color: #ce93d8;
+}
+.amber {
+  color: #ffc107;
+}
+.deep-orange-darken-1 {
+  color: #f4511e;
+}
+.pink-darken-4 {
+  color: #880e4f;
 }
