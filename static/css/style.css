@@ -2,11 +2,17 @@
  * a_bondarenko custom stylesheet
  */
 
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
 .slash-div {
   background-color: lightgrey;
   border-color: #080808;
   margin-left: 25px;
   margin-right: 25px;
+  padding-top: 60px;
+  padding-bottom: 50px;
 }
 
 .sl-background {
