@@ -8,6 +8,12 @@ body {
 .h1, h1 {
     font-size: 36px;
 }
+
+ul {
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
 .lead {
     margin-bottom: 20px;
     font-size: 16px;
@@ -35,7 +41,7 @@ footer {
 
 .thumbnail {
     display: block;
-    padding: 4px;
+    padding: 0px;
     margin-bottom: 20px;
     line-height: 1.42857143;
     background-color: #fff;
