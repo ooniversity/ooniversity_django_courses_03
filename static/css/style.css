@@ -1,0 +1,16 @@
+.transparent {
+	opacity: 0.8;
+}
+
+body {
+	background-image: url("../images/back.png");
+}
+
+.list > ul > li {
+	padding-top: 40px;
+	font-size: 20px;
+}
+
+ol > li {
+	font-size: 16px;
+}
