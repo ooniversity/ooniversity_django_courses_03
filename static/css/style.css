@@ -61,3 +61,11 @@ ol.course {
 .custom-header {
   padding: 0px 80px;
 }
+.table {
+  text-align: left;
+}
+a.table {
+  color: black;
+  font-size: 14px;
+  font-weight: normal;
+}
