@@ -19,10 +19,10 @@
 	font-style: italic;
 
 }
-th{
+.conth{
 	border-radius: 4px;
 }
-th:hover{
+.conth:hover{
 	background-color:#d1d1d1;
 }
 body{
@@ -34,4 +34,38 @@ body{
 }
 .whypython {
 	font-style:oblique;
+	border-color: black;
+}
+.student-table {
+	width:99%;
+	margin: auto;
+	border-radius: 2px ;
+	border: 3px;
+}
+thead{
+	background-color: #9F29D1;
+}
+.oddtr{
+	background-color: #e1e1e1;
+}
+.student-table tr, 
+{
+	border: 2px solid white;
+}
+.student-detail {
+	width: 40%;
+	margin: left;
+	background-color:#D09595;
+}
+.student-detail td{
+	border: 2px solid white;
+	padding-left: 5px
+}
+.student-results{
+	width: 60%;
+	margin:left;
+}
+.student-results td{
+	border:2px solid white;
+	padding-left: 5px;
 }
