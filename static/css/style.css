@@ -55,3 +55,12 @@
 ul {
 	font-family: cursive;
 }
+div {
+	hover { background: #e3e3e3; }
+}
+li {
+	color: brown;
+}
+div h3{
+	font-style: italic;
+}
