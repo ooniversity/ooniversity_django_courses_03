@@ -109,9 +109,9 @@
   margin-right:5px;
 }
 .linkc {text-align: left; bottom:0;}
-.thumbnail .caption .D {color:red;}
-.thumbnail .caption .M {color:red;}
-.thumbnail .caption .F {color:red;}
+.thumbnail .caption .D {color:black;}
+.thumbnail .caption .M {color:black;}
+.thumbnail .caption .F {color:black;}
 .thumbnail .caption .D1 {color:#333;}
 .thumbnail .caption .M1 {color:#333;}
 .thumbnail .caption .F1 {color:#333;}
