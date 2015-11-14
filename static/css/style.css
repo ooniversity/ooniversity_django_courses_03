@@ -1,9 +1,9 @@
-.align-center
+.text-align-center
 {
 text-align : center;
 }
 
-.background-image
+.set-background-image
 {
     background-image: url(../images/background.jpg);
 }
@@ -13,7 +13,7 @@ text-align : center;
 background-color: rgba(238, 238, 238 , 0.7);
 }
 
-.align-justify
+.text-align-justify
 {
 text-align : justify;
 }
@@ -33,7 +33,7 @@ text-align : justify;
     font-variant: small-caps;
 }
 
-.indent
+.f-indent
 {
     text-indent: 1.5em;
 }
