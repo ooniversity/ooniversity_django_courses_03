@@ -1,6 +1,7 @@
 .text1 {font-size: 16px; font-family: Courier New}
 .jumbotron {padding-left: 1%; padding-right: 1%}
 .logo {height: 50px; width: 50px}
+img {height: 150px; width: 150px}
 .navbar-brand {padding-top: 2px; padding-left: 15px}
 .nav-pills {padding-top: 5px; padding-left: 60px}
 .active {font-weight: bold; font-family: Courier New; font-size: 18px}
@@ -12,8 +13,12 @@ h4 {font-weight: bold}
 .names {font-size: 14px; font-weight: bold}
 .prenames {font-size: 20px; font-family: Courier New}
 .data {font-size: 16px; font-family: Courier New}
-.table {border:2px; width: 70%}
+.table {border:2px;}
 .name {width: 25%}
 .skype {width: 25%}
 .email {width: 25%}
 .phone {width: 25%}
+.panel-body {background: #00BFFF;}
+.panel {width:70%;}
+
+
