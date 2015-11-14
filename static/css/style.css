@@ -55,3 +55,7 @@ h1.descr {
   text-align: left;
   padding: 50px;
 }
+.table {
+  text-align: left;
+  background-color: #F0F8FF;
+}
