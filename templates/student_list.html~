@@ -14,8 +14,8 @@
     <!-- Bootstrap core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="jumbotron-narrow.css" rel="stylesheet">
+    <!-- Custom styles for this template 
+    <link href="jumbotron-narrow.css" rel="stylesheet">-->
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -51,7 +51,7 @@
 
       <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading">Ниже представлен список адептов факультета Гриффиндор</div>
+  <div class="panel-heading">Ниже представлен список будущих Змееустов</div>
 
   <!-- Table -->
   <table class="table">
