@@ -1,6 +1,6 @@
 body {
     padding-top: 20px;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
 }
 
 .header {
@@ -14,10 +14,6 @@ h3 {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
-}
-
-.nav .nav-pills .pull-right {
-    color: #000;
 }
 
 .container-narrow > hr {
@@ -63,10 +59,18 @@ td {
     border: 1pt solid #000;
     padding-left: 1em;
 }
+.contacts_td {
+  border: none;
+}
 
 .table_head {
     table-layout: auto;
     font-weight: 700;
+}
+
+.contacts_table {
+  border: none;
+  width: 80%;
 }
 
 #student_card {
@@ -87,7 +91,28 @@ td {
     height: 200px;
     width: 250px;
     border: 2px solid gray;
-    align: center;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.contacts_image {
+  height: 130px;
+  width: 180px;
+  border: 2px solid gray;
+  padding-top: 15px;
+}
+
+#header_sponsors_contacts {
+  text-align: center;
+  color: #38300A;
+}
+.sponsors_title {
+  text-align: left;
+  padding-left: 105px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  /*background: #E9C92D;*/
+  color: #38300A;
 }
 
 .grey_row {
@@ -102,8 +127,11 @@ td {
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
-    padding-right: 15px;
-    padding-left: 15px;
+    /*padding-right: 15px;
+    padding-left: 15px;*/
+    width: 100%;
+    background: #FFD500;
+    padding: 50px 0;
 }
 
 /*border-image: url(border.png) 20% round;*/
