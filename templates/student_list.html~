@@ -36,7 +36,7 @@
           <ul class="nav nav-pills pull-right">
             <li role="presentation" ><a href="index.html">Main</a></li>
             <li role="presentation"><a href="contact.html">Contacts</a></li>
-						<li role="presentation" class="active"><a href="Students_list.html">Students</a></li>
+						<li role="presentation" class="active"><a href="Student_list.html">Students</a></li>
           </ul>
         </nav>
         
