@@ -20,6 +20,17 @@ body {
     text-decoration: underline;
     color: blue;
 }
+.course {
+  text-align: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+.footer {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-top: 1px;
+  text-align: center;
+}
 #director {
     height: 160px
 }
