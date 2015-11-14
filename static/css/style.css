@@ -6,7 +6,7 @@
 	background-image: url("../images/back.png");
 }
 
-.list > ul > li {
+.list1 > ul > li {
 	padding-top: 40px;
 	font-size: 20px;
 }
@@ -44,6 +44,6 @@
 	border: medium solid gray;
 }
 
-.small {
-	font-size: 75%;
+.smalll {
+	font-size: 50%;
 }
