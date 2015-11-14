@@ -54,6 +54,15 @@ em.bb b { background-position: 100% -30px; left: 4px; }
 .ksenia-color1{
   color: blue
 }
+
 .ksenia-color2{
   color: green
+}
+
+.ksenia-font1{
+  font-size: 12px;
+}
+
+.ksenia-font2{
+  font-size: 11px;
 }
