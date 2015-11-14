@@ -38,14 +38,9 @@ color: #fff;
   font-weight: bold;
   color: #777;
   text-align: center;
-  background-color: #777; /* Old browsers */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#777));
-  background-image: -webkit-linear-gradient(top, #eee 0%, #777 100%);
-  background-image:      -o-linear-gradient(top, #eee 0%, #777 100%);
-  background-image:         linear-gradient(to bottom, #eee 0%,#777 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eee', endColorstr='#777',GradientType=0 ); /* IE6-9 */
+
   background-repeat: repeat-x; /* Repeat the gradient */
-  border-bottom: 1px solid @gray-light;
+  border-bottom: 1px solid #777;
 }
 .nav-justified > .active > a,
 .nav-justified > .active > a:hover,
@@ -68,7 +63,7 @@ color: #fff;
     max-height: 52px;
   }
   .nav-justified > li > a {
-    border-right: 1px solid @gray-light;
+    border-right: 1px solid #777;
     border-left: 1px solid #fff;
   }
   .nav-justified > li:first-child > a {
