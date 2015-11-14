@@ -39,3 +39,10 @@ em.bb b { background-position: 100% -30px; left: 4px; }
 .color_block .block_content {
   padding: 0 7px; /* Поля вокруг текста */
 }
+
+.lead1 {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+}
