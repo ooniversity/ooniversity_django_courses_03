@@ -1,0 +1,48 @@
+body {
+	background-image:url('../images/background.png');
+	background-repeat: no-repeat;
+	font-family: "Courier New", Courier New, monospace;
+	font-size: 30px;
+	background-size: cover;
+}
+
+.navbar-logo {
+  float: left;
+  height: 50px;
+  padding: 1px 1px;
+}
+
+.photo1 {
+	height: 150px;
+	width: 150px;
+}
+
+.photo2 {
+	height: 120px;
+	width: 120px;
+}
+
+.photo3 {
+	height: 170px;
+	width: 170px;
+}
+
+.contact {
+	width: 63%;
+	float: left;
+	background-color: rgba(255, 255, 255, 0.7);
+	font-size: 45%;
+}
+
+#id1 {background-color: rgba(0, 44, 179, 0.8);
+			color: #FFF 
+}
+
+#id2 {font-size: 50%
+}
+
+#id3 {font-size: 150%
+}
+
+#id4 {font-size: 90%
+}
