@@ -5,7 +5,9 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
   <title>PyBursa Contacts</title><!-- Bootstrap -->
+
   <link href="../static/css/bootstrap.min.css" rel="stylesheet">
   <link href="../static/css/style.css" rel="stylesheet"><!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,7 +31,10 @@
             <a href="index.html">Main</a>
           </li>
           <li class="active">
-            <a href="contact.html">Contacts <span class="sr-only">(current)</span></a>
+            <a href="contact.html">Contacts</a>
+          </li>
+          <li>
+            <a href="student_list.html">Students</a>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
