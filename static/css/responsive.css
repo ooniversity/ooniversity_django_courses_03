@@ -1,0 +1,140 @@
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.header_banner .caption{
+		display:none;
+	}
+	.sm-title:after, .sm-title:before, .sm-title span:before, .sm-title span:after{
+		display:none;
+	}
+	.responsive-design .container > .items:first-child{
+		border:none;
+	}
+	.client-says .items:first-child blockquote{
+		border:none;
+	}
+	.navbar-nav{
+		float:none;
+	}
+
+	.team-detail li:nth-child(9n+1){
+	margin-left: 0%;
+}
+.team-detail li:nth-child(7n+4){
+	margin-left: 16.667%;
+}
+.team-detail li:nth-child(7n+9){
+	margin-left: 16.667%;
+}
+.team-caption {
+		padding: 47px 0px;
+}
+.latest-project .item {
+	position: relative;
+	width:50%;
+	float:left;
+}
+}
+
+@media only screen and (max-width: 767px) {
+	.header_banner .caption{
+		display:none;
+	}
+	.sm-title:after, .sm-title:before, .sm-title span:before, .sm-title span:after{
+		display:none;
+	}
+
+	.responsive-design .container > .items:first-child{
+		border:none;
+	}
+	.client-says .items:first-child blockquote{
+		border:none;
+	}
+	.navbar-nav{
+		float:none;
+	}
+	.navbar-collapse {
+		margin-top:15px;
+	}
+	.navbar-default .navbar-nav > li:last-child a{
+		display:none;
+	}
+	.breadcrumb-section h1:after, .breadcrumbs:after{
+		display:none;
+	}
+	.breadcrumb{
+		text-align:left;
+	}
+	.contact-form .col-sm-5, .contact-form .col-sm-6{
+		padding:0px 15px;
+		margin:0px 0px 10px;
+		}
+		.contact-form .col-sm-6 input{
+			border:1px solid #ccc;
+		}
+	.contact-form .form-horizontal .form-group
+	{
+		margin:0px 0px 10px;
+	}
+	.web-design .container .col-sm-12{
+		margin-top:10px;
+	}
+img{
+    max-width: 100%;
+
+}
+.feature-service .item .img-wrap::before{
+	display:none;
+}
+#blog-post .col-lg-8{
+	width: 100%;
+}
+.feature-list .items:first-child img {
+	margin-right: 0px;
+}
+#image-gallery-isotope .masonary-item {
+		width: 50%;
+		height: 275px;
+	}
+	#image-gallery-isotope .masonary-item.width-1 {
+		width: 100%;
+	}
+	#image-gallery-isotope .masonary-item.height-1 {
+		height: 565px;
+	}
+	#image-gallery-isotope .masonary-item.width-2 {
+		width: 100%;
+		height: 157px;
+	}
+
+	#image-gallery-isotope .masonary-item.width-2.height-1 {
+		height: 273px;
+	}
+	#image-gallery-isotope .masonary-item.width-3 {
+    width: 100%;
+	height:auto;
+}
+
+
+
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.team-detail li{
+	margin: 10% 17%;
+}
+.team-detail li:nth-child(9n+1), .team-detail li:nth-child(7n+4), .team-detail li:nth-child(7n+9){
+	margin: 10% 17%;
+}
+.team-caption {
+		padding: 100px 0px;
+}
+
+.latest-project .item {
+	position: relative;
+	width:100%;
+	float:left;
+}
+
+}
