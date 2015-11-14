@@ -1,62 +1,116 @@
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .header {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
-  padding-right: 15px;
-  padding-left: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
 }
 
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-  padding-right: 15px;
-  padding-left: 15px;
+.nav .nav-pills .pull-right {
+    color: #000;
 }
 
 .container-narrow > hr {
-  margin: 30px 0;
+    margin: 30px 0;
 }
 
 .jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .btn {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 14px 24px;
-  font-size: 21px;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 14px 24px;
+    font-size: 21px;
 }
 
 .marketing {
-  margin: 40px 0;
-  padding-right: 15px;
-  padding-left: 15px;
+    margin: 40px 0;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 h4 {
-  margin-top: 28px;
+    margin-top: 28px;
 }
 
-p
-{
-  margin-top: 28px;
+p {
+    margin-top: 28px;
 }
 
 li {
     list-style-type: none;
-   }
+}
 
+table {
+    border: 1pt solid #000;
+    width: 100%;
+}
 
+td {
+    border: 1pt solid #000;
+    padding-left: 1em;
+}
+
+.table_head {
+    table-layout: auto;
+    font-weight: 700;
+}
+
+#student_card {
+    margin: 40px 0;
+    width: 40%;
+}
+
+#performance {
+    margin: 40px 0;
+}
+
+.grey_border_line {
+/*padding-bottom: 20px;*/
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.imagehere {
+    height: 200px;
+    width: 250px;
+    border: 2px solid gray;
+    align: center;
+}
+
+.grey_row {
+    background: #DCDCDC;
+}
+
+.dark_grey_row {
+    background: silver;
+}
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/*border-image: url(border.png) 20% round;*/
+/*
+#FFD500 yellow
+#FFFFFF white
+#38300A dark green
+#E9C92D darl yellow
+#000000 black
+*/
