@@ -5,9 +5,7 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-  <title>PyBursa Contacts</title><!-- Bootstrap -->
-
+  <title>PyBursa Students</title><!-- Bootstrap -->
   <link href="../static/css/bootstrap.min.css" rel="stylesheet">
   <link href="../static/css/style.css" rel="stylesheet"><!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,10 +28,10 @@
           <li>
             <a href="index.html">Main</a>
           </li>
-          <li class="active">
+          <li>
             <a href="contact.html">Contacts</a>
           </li>
-          <li>
+          <li class="active">
             <a href="student_list.html">Students</a>
           </li>
         </ul>
@@ -43,35 +41,74 @@
   <div class="container theme-showcase" role="main">
     <div class="jumbotron">
       <div class="container">
-        <div class="col-sm-3"><img class="photo" id="director" src="../static/images/dasha.jpg"></div>
         <div class="col-sm-9">
-          <h2 class="zagolovok">Director</h2><strong>Name:</strong> <span class="name">Дария Михалевич</span><br>
-          <strong>Skype:</strong> <span class="skype">darka.darka.darka.darka.</span><br>
-          <strong>Email:</strong> <span class="mylo">daria.mykhalevych@gmail.com</span><br>
-          <strong>Phone:</strong> <span class="phone">+38 096 469 15 57</span><br>
-          <br>
-          <br>
-        </div>
-        <div class="col-sm-3"><img class="photo" id="founder" src="../static/images/pasha.jpg"></div>
-        <div class="col-sm-9">
-          <h2 class="zagolovok">Founder</h2><strong>Name:</strong> <span class="name">Павел Обод</span><br>
-          <strong>Skype:</strong> <span class="skype">azaless</span><br>
-          <strong>Email:</strong> <span class="mylo">itbursa100@gmail.com</span><br>
-          <strong>Phone:</strong> <span class="phone">+38 096 469 15 57</span><br>
-          <br>
-          <br>
-        </div>
-        <div class="col-sm-3"><img class="photo" id="manager" src="../static/images/tanya.jpg"></div>
-        <div class="col-sm-9">
-          <h2 class="zagolovok">Manager</h2><strong>Name:</strong> <span class="name">Татьяна Орехова</span><br>
-          <strong>Skype:</strong> <span class="skype">Tatyana_Oriekhova</span><br>
-          <strong>Email:</strong> <span class="mylo">to096540848@gmail.com</span><br>
-          <strong>Phone:</strong> <span class="phone">+38 099 186 64 75</span><br>
-          <br>
-          <br>
+          <h2>Курс PyBursa</h2>
+          <div class="bs-example" data-example-id="simple-table">
+            <table class="table table-striped table table-bordered">
+              <caption>
+                Список студентов PyBursa-3.
+              </caption>
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Surname</th>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Skype</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a class="table" href="student_detail.html">1</a>
+                  </td>
+                  <td>Пупкин</td>
+                  <td>Василий</td>
+                  <td>Харьков, ул. Гвардейца Пупкина д.1, кв.23</td>
+                  <td>pupkin_man</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="table" href="#">2</a>
+                  </td>
+                  <td>Иванов</td>
+                  <td>Петр</td>
+                  <td>Крыжополь, ул. Колючих ежиков д.67</td>
+                  <td>ivanov_skype</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="table" href="#">3</a>
+                  </td>
+                  <td>Петров</td>
+                  <td>Иван</td>
+                  <td>Мурзилкино, ул. Няшных котиков д.77</td>
+                  <td>petrov_cat</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="table" href="#">4</a>
+                  </td>
+                  <td>Сидоров</td>
+                  <td>Семен</td>
+                  <td>Зачепиловка, ул. Дымная д.34</td>
+                  <td>smoke_semen</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="table" href="#">5</a>
+                  </td>
+                  <td>Шариков</td>
+                  <td>Аристарх</td>
+                  <td>Бобруйск, ул. Заболотная д.27</td>
+                  <td>bobr_smin</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div><!-- Site footer -->
+    </div>
     <footer class="footer">
       <p>&copy; PyBursa, 2015</p>
     </footer>
