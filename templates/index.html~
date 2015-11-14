@@ -33,7 +33,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="active">
-            <a href="index.html">Main <span class="sr-only">(current)</span></a>
+            <a href="index.html">Main</a>
           </li>
           <li>
             <a href="contact.html">Contacts</a>
@@ -51,7 +51,7 @@
         курсов создать реальные проекты и получить практические навыки, применимые к работе. Домашние задания на наших курсах обязательны и их невыполнение
         приводит к исключению с курсов. Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые,
         но рабочие проекты.</p>
-        <p>Более подробную информацию вы можете получить по номерам указанным на странице <a class="text-primary" href="contact.html">контакты</a></p><br>
+        
         <h2 class="course">Program</h2>
         <div class="container">
           <div class="row">
@@ -88,6 +88,7 @@
         <p>&copy; PyBursa 2015</p>
       </footer>
     </div>
+
   </div><!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
   </script> <!-- Include all compiled plugins (below), or include individual files as needed -->   
