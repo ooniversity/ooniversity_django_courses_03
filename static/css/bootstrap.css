@@ -1582,7 +1582,7 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 15px;
+  padding-right: 100px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
@@ -5298,7 +5298,7 @@ a.thumbnail.active {
 .list-group-item {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 50px 50px;
   margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid #ddd;
