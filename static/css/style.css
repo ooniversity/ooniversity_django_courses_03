@@ -1,59 +1,56 @@
 body {
     background-image: url("../images/back.jpg");
 }
-
 nav {
     opacity: 0.4;
 }
 
+/*Blocks*/
 .jumbotron, .opct{
-    background-color: #222;
+    /*background-color: #222;*/
     border-color: #080808;
-    opacity: 0.4;
+    /*opacity: 0.4;*/
+    background: rgba(8,8,8,0.4);
     color: floralwhite;
+    border: none;
 }
 .antiopas{
     background-color: #222;
     border-color: #080808;
-    opacity: 1.0;
+    opacity: 1;
     color: white;
     border: none;
 }
-
-.antiopas p{
-
-    color: white;
-    font-size: 18px;
+.opct_avatar{
+    /*background-color: #222;*/
+    border-color: #080808;
+    /*opacity: 0.4;*/
+    background: rgba(8,8,8,0.1);
+    color: floralwhite;
+    border: none;
 }
 
-.navbar-brand {
-    background-image: url("../images/logo.png");
-
-}
-
-.navbar-header {
-    padding: 0 30px 0 30px;
-}
-
-.avatar {
-    height: 180px;
-    width: 180px;
-}
-
-.padd{
-   margin-left: 50px;
-}
-
-.skipe{
-   color: #FFF;
-}
-
-.phone{
-   color:  #FFF;
-}
-
-.name{
-   color:  #FFF;
-}
+/*Nav*/
+.navbar-header {    padding: 0 30px 0 30px;}
 
 
+/*tables*/
+.dark{    background-color: #080808;    opacity: 0.3; color:white; }
+.grades tr td,th{ padding: 0 20px 0 20px}
+.personal{width:50%;}
+
+/*img*/
+.opct-img{   opacity: 0.5;}
+.avatar {    height: 180px; width: 180px; }
+img{ opacity: 1; }
+.navbar-brand {    background-image: url("../images/logo.png");}
+
+
+/*text*/
+h2, h3{   color: #108475;    opacity: 0.5;}
+.padd{    margin-left: 20px;}
+.skipe{   color: #FFF;}
+.phone{   color:  #FFF;}
+.name{    color:  #FFF;}
+.antiopas p{    color: white;    font-size: 18px;}
+.opct-text, p{   opacity: 0.4;}
