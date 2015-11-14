@@ -1,0 +1,28 @@
+body {
+    background-image: url(../images/fon.jpg);
+}
+.jumbotron {
+    background-color: rgba(255, 255, 255, 0.9);     
+}
+.name {
+    text-shadow: 1px 1px 2px black;
+}
+.skype {
+    color: black;
+}
+.phone {
+    color: black;
+}
+.milo {
+    text-decoration: underline;
+    color: blue;
+}
+#director {
+    height: 160px
+}
+#founder {
+    height: 160px
+}
+#manager {
+    height: 160px
+}
