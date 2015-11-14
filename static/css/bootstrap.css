@@ -1,3 +1,9 @@
+/*!
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -64,25 +70,6 @@ mark {
 small {
   font-size: 80%;
 }
-.black {
-  color: #000;
-  padding-left: 40px;
-}
-.header {
-  font-size: 120%;
-  color: red;
-}
-.text {
-  font-size: 100%;
-}
-.code {
-  font-size: 90%;
-  font-family: italic;
-}
-.lorem {
-  font-family: italic;
-  font-size: 100%;
-}
 sub,
 sup {
   position: relative;
@@ -120,7 +107,6 @@ pre,
 samp {
   font-family: monospace, monospace;
   font-size: 1em;
-  font-family: italic;
 }
 button,
 input,
@@ -1455,7 +1441,6 @@ ol ol {
 dl {
   margin-top: 0;
   margin-bottom: 20px;
-  font-size: 10.5px;
 }
 dt,
 dd {
@@ -1463,8 +1448,6 @@ dd {
 }
 dt {
   font-weight: bold;
-  margin: .67em 0;
-  font-size: 2em;
 }
 dd {
   margin-left: 0;
@@ -4037,8 +4020,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-left: -1px;
 }
 .nav {
-  margin-top: 10px;
-  padding-left: 10px;
+  padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
