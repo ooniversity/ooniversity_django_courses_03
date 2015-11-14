@@ -4543,7 +4543,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
-  opacity: 0.75;
 }
 .navbar-default .navbar-brand {
   color: #777;
@@ -5010,7 +5009,6 @@ a.badge:focus {
   margin-bottom: 30px;
   color: inherit;
   background-color: #eee;
-
 }
 .jumbotron h1,
 .jumbotron .h1 {
