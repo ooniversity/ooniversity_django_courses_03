@@ -36,6 +36,7 @@
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href="index.html">Main</a></li>
             <li role="presentation"><a href="contact.html">Contacts</a></li>
+	<li role="presentation" ><a href="student_list.html">Students</a></li>
           </ul>
         </nav>
         
@@ -45,7 +46,7 @@
 <h1>HogwBursa</h1>        
 <h2>Description</h2>
         <p class="lead">Язык программирования Python (волш. Василиск) — это мощный инструмент для создания программ самого разнообразного назначения, доступный даже для маглов.  </p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Послать почтовую сову с заявкой прямо сейчас</a></p>
+        <p><a class="btn btn-lg btn-success" href="index.html" role="button">Послать почтовую сову с заявкой прямо сейчас</a></p>
       </div>
 
       <div class="row marketing">
