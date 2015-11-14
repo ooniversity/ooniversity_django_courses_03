@@ -1,0 +1,54 @@
+.container {
+    background-color: #eee;
+}
+
+.active {
+    color: #a1b2d3;
+    background-color: #623528;
+}
+
+.active a {
+    color: #985402;
+}
+
+.nav-tabs li a {
+  font-size: 1.5em;
+}
+
+.page-header {
+    background-color: #55AAAA;
+    padding: 5px;
+}
+
+.page-header h1 {
+    font-size: 2em;
+}
+
+.page-header h2 {
+    font-size: 2em;
+}
+
+.list-group-item {
+    background-color: #44AA44;
+}
+
+.btn-lg {
+    font-size: 0.75em;
+}
+
+.context-value {
+    font-size: 0.75em;
+}
+
+.navbar {
+    background-color: #ddd;
+}
+
+p {
+    color: #777;
+}
+
+.label {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
