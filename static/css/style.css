@@ -1,0 +1,53 @@
+body {
+  padding-top: 75px;
+}
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 14px;
+}
+.description {
+  text-align: left;
+  font-size: 10px;
+}
+h1.description {
+  font-size: 30px;
+  font-weight: bold;
+}
+.starter{
+  padding: 0px 50px;
+  text-align: justify;
+  font-size: 10px;
+}
+.about {
+  position: relative;
+  min-height: 1px;
+  padding-right: 70px;
+  padding-left: 50px;
+  text-align: justify;
+}
+.row {
+  text-align: left;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+.panel-default > .panel-heading {
+  color: #333;
+  background-color: #ADD8E6;
+  border-color: #ddd;
+}
+.panel-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+.panel-body {
+  padding: 15px;
+  background-color: #F0F8FF;
+}
+.footer {
+  text-align: left;
+  padding: 50px;
+}
