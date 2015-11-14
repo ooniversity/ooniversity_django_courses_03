@@ -3,43 +3,43 @@ body{
   padding-bottom: 40px;
 	background: red;
 }
-red{
+.red{
 	font-family: Florence, cursive;
 	color: red;
 }
-t_name{
+.t_name{
 	font-family: Arial;	
 	color: green;
 }
-t_skype{
+.t_skype{
 	font-family: Blippo;
 	color: green;
 }
-t_mail{
+.t_mail{
 	font-family: Arial, cursive;	
 	color: green;
 }
-t_tel{
+.t_tel{
 	font-family: "Courier New", Courier, monospace;	
 	color: green;
 }
-name{
+.name{
 	font-family: Arial;	
 	color: blue;
 }
-skype{
+.skype{
 	font-family: Blippo;
 	color: blue;
 }
-mail{
+.mail{
 	font-family: Arial, cursive;	
 	color: blue;
 }
-tel{
+.tel{
 	font-family: "Courier New", Courier, monospace;	
 	color: blue;
 }
-Title{
+.Title{
 	font-family: "Courier New", Courier, monospace;	
 	color: blue;
 }

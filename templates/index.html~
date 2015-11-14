@@ -7,7 +7,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 		<linc href="../static/css/style.css" rel="stylesheet">
 
     <title>Main</title>
@@ -56,6 +55,7 @@
 	<hr class="featurette-divider">
 	<div class="row featurette">
 	  <div class="col-md-7 col-md-push-1">
+			<h2>Description</h2>
 	    <h2 class="featurette-heading" align=center>Program <span class="text-muted">PyBursa</span></h2>
       <p class="lead">Курс подразумевает, что студенты уже освоили базовый python. 
 В рамках курса даются азы html/css, достаточные для формирования html страниц браузеру, но не достаточные для профессиональной верстки.
@@ -63,7 +63,7 @@
 Все разделы django будут освещены.</p>
 		</div>
     <div class="col-md-5">
-	    <img class="featurette-image img-responsive center-block" src="../static/images/python-logo.png" alt="Generic placeholder image">
+	    <img src="../static/images/python-logo.png" alt="Generic placeholder image">
     </div>
   </div>
 	<hr class="featurette-divider">
