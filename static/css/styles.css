@@ -61,3 +61,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .container{
   width:90%;
 }
+
+.main_item{
+  list-style-type: square;
+  font-weight: bold;
+}
+
+.period {
+  list-style: inherit;
+  list-style-type: circle;
+  margin-left: 20px;
+}
