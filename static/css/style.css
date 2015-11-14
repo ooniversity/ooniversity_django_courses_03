@@ -24,21 +24,4 @@
  
   background-color: #FAEBD7;
 }
-table.jewel {
-    width: 80%; 
-    
-    solid #111; 
-   
-   }
-table {
-    width: 300px; /* Ширина таблицы */
-    border: 1px solid green; /* Рамка вокруг таблицы */
-    margin: auto; /* Выравниваем таблицу по центру окна  */
-   }
-th {
-    background: #009383; 
-    color: #fff; 
-    text-align: left; 
-}
-tr.odd {
-    background: #ebd3d7; 
+
