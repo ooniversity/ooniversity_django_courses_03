@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Just+Me+Again+Down+Here);
+@import url(https://fonts.googleapis.com/css?family=Oxygen);
+
+.text-muted  {
+	font-size: 35px;
+	font-family: 'Just Me Again Down Here', cursive;
+	color: #306791;
+}
+
+.text-muted a {
+	text-decoration: none;
+}
+
+.text-muted a:hover {
+	color: #306791;
+}
+.header .nav {
+	font-size: 17px;
+	font-family: 'Oxygen', sans-serif;
+}
+
+.jumbotron {
+	background-color: #306791;
+	margin-top: 1%;
+	margin-bottom: 1px;
+}
+
+.jumbotron h1 {
+	color: #ffffff;
+	font-family: 'Oxygen', sans-serif;
+	font-size: 70px;
+}
+
+.jumbotron .lead  {
+	color: #CFDBE8;
+	font-family: 'Oxygen', sans-serif;
+}
+
+.jumbotron .btn {
+	background-color:  #38B878;
+	border-color:  #38B878;
+}
+
+.jumbotron .btn:active {
+	background-color:  #98D387;
+	border-color:  #98D387;
+}
+
+.learn-more h1 {
+	font-size: 30px;
+	font-family: 'Oxygen', sans-serif;
+	color: #306791;
+	margin: 1px;
+	text-align: center;
+}
+
+.col-md-4 h2 {
+	font-size: 21px;
+	font-family: 'Oxygen', sans-serif;
+	color: #AACEF3;
+	margin: 35px;
+	text-align: center;
+}
+
+.col-md-4 p {
+	font-size: 12px;
+	font-family: 'Oxygen', sans-serif;
+	color: #7A8B9D;
+	margin: 7%;
+	text-align: center;
+}
+
+.row {
+	border: 2px;
+	border-color: #CFDBE8;
+	border-top: 4px;
+}
+
+.footer p {
+	font-size: 12px;
+	font-family: 'Oxygen', sans-serif;
+	color: #7A8B9D;
+	margin: 7px;
+	text-align: center;
+}
+
+hr {
+	background-color: #eceff1;
+	height: 1px;
+}
+
+.col-md-4 p {
+	font-size: 12px;
+	font-family: 'Oxygen', sans-serif;
+	color: #7A8B9D;
+	margin: 2%;
+	text-align: center;
+}
+
