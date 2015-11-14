@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Contacts page</title>
+    <title>Student list</title>
 
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,51 +46,60 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="container">
-    <div class="jumbotron">
-        <h4 class="title">Director</h4>
 
-        <p>Name: Иванов Петр Алексеевич</p>
+<h4>Студенты Bursa</h4>
 
-        <p>Skype: petr_ivanov</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>Surname</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Skype</th>
+    </tr>
+    </thead>
 
-        <p class="email">Email: ivanov.petro@gmail.com</p>
+    <tbody>
+    <tr>
+        <td><a href="student_detail.html">1</a></td>
+        <td>Тимонов</td>
+        <td>Алексей</td>
+        <td>Харьков, Иванова 6</td>
+        <td>alex.timonov</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Иванов</td>
+        <td>Иван</td>
+        <td>Киев, Петрова 4</td>
+        <td>ivanov.ivan</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Аксенов</td>
+        <td>Илья</td>
+        <td>Москва, ул Слюсаренко 4</td>
+        <td>ak.illya</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Петров</td>
+        <td>Никита</td>
+        <td>Киев,Хрещатик 5</td>
+        <td>petrov.nil</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Тарасов</td>
+        <td>Андрей</td>
+        <td>Москва, красная площадь</td>
+        <td>andrew.tarasov</td>
+    </tr>
+    </tbody>
 
-        <p>Phone: 057-1234-567</p>
-    </div>
-</div>
-<div class="container">
-    <div class="jumbotron">
-        <h4>Manager</h4>
-
-        <p>Name: Иванов Петр Алексеевич</p>
-
-        <p>Skype: petr_ivanov</p>
-
-        <p class="email">Email: ivanov.petro@gmail.com</p>
-
-        <p>Phone: 057-1234-567</p>
-    </div>
-</div>
-<div class="container">
-    <div class="jumbotron">
-        <h4>Founder</h4>
-
-        <p>Name: Иванов Петр Алексеевич</p>
-
-        <p>Skype: petr_ivanov</p>
-
-        <p class="email">Email: ivanov.petro@gmail.com</p>
-
-        <p>Phone: 057-1234-567</p>
-    </div>
-</div>
-
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+</table>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../static/js/bootstrap.min.js"></script>
-<script>$('#example').tooltip(options)</script>
 </body>
 </html>
