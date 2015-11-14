@@ -19,16 +19,7 @@ body {
     color: #fff;
     margin: 0;
 }
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
+
 
 nav,
 section,
@@ -5006,7 +4997,7 @@ a.badge:focus {
   background-color: #fff;
 }
 .list-group-item {
-  float: center;
+  float: middle;
 }
 .list-group-item {
   margin-right:5px;
@@ -5575,7 +5566,7 @@ button.list-group-item-danger.active:focus {
   border-top-width: 0;
 }
 .list-group + .panel-footer {
-  border-top-width: 0;
+  border-top-width: ;
 }
 .panel > .table,
 .panel > .table-responsive > .table,
