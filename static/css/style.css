@@ -37,6 +37,11 @@ h1.descr {
   padding: 5px 10px;
   font-size: 16px;
 }
+.title
+{
+  font-size: 24px;
+  font-weight: bold;
+}
 .thumbnail .contact_caption {
   padding: 9px;
   color: #333;
