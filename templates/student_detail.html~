@@ -87,15 +87,7 @@
   </table>
 </div>
  
-<table class="table">
-<tr>
-<td colspan="2">Логотип</td>
-</tr>
-<tr>
-<th>1</th>
-<th>2</th>
-</tr>
- </table>
+
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
