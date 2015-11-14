@@ -1,6 +1,6 @@
-pre {font-size: 16px; font-family: Courier New}
+.text1 {font-size: 16px; font-family: Courier New}
 .jumbotron {padding-left: 1%; padding-right: 1%}
-#logo {height: 50px; width: 50px}
+.logo {height: 50px; width: 50px}
 .navbar-brand {padding-top: 2px; padding-left: 15px}
 .nav-pills {padding-top: 5px; padding-left: 60px}
 .active {font-weight: bold; font-family: Courier New; font-size: 18px}
