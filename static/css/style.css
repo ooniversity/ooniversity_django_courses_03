@@ -2,7 +2,7 @@
 	opacity: 0.7;
 }
 
-body {
+.back {
 	background-image: url("../images/back.png");
 }
 
@@ -19,10 +19,27 @@ body {
 	font-size: 16px;
 }
 
-.change:hover{
+.change:hover {
 	color: red;
+	text-shadow: 2px 2px 2px red;
 }
 
 .director {
 	font-weight: bold
+}
+
+.opa:hover {
+	opacity:0.8;
+}
+
+.just {
+	text-align: justify;
+}
+
+.shad {
+	text-shadow: 3px 3px 2px #333333;
+}
+
+.bord {
+	border: medium solid gray;
 }
