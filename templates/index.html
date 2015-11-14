@@ -5,72 +5,104 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <title>Main</title>
 
-    <title>Navbar Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="navbar.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!-- Bootstrap -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
   <body>
-
-    <div class="container">
-
-      <!-- Static navbar -->
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+            <a class="navbar-brand" href="index.html">
+              <img id="logo" alt="logo" src="../static/images/logo_itbursa.png"/>
+            </a>
           </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
+            <ul class="nav nav-pills">
+              <li role="presentation" class="active"><a class="active" href="index.html">Main</a></li>
+              <li role="presentation"><a class="passive" href="contact.html">Contacts</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
+        </div>
       </nav>
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h2>Курс по WEB-разработке</h2>
-        <p>Материалы станут доступны в субботу 07.11.2015 г. <br>
-Курс подразумевает, что студенты уже освоили базовый python. 
-В рамках курса даются азы html/css, достаточные для формирования html страниц браузеру, но не достаточные для профессиональной верстки.
-Глубина освоения django будет достаточной для самостоятельного написания web-проектов, которые содержат редактируемые страницы, структуру специфических данных, отображение их на фронтенде и создание-редактирование этих данных.
-Все разделы django будут освещены.</p>
+      <div class="container headline">
+        <div class="starter-template">
+          <h1>PyBursa</h1>
+          <h2>Description</h2>
+        </div>
       </div>
 
-    </div> <!-- /container -->
+      <div class="jumbotron">
+          <h4>OCTOBER 19, 2015</h4>
+          <p>
+            <pre>Добрый день, дорогие студенты!
+
+Сегодня вам стали доступны теоритические материалы первой недели, вы можете смотреть видео, проходить тесты на закрепление полученых знаний, обсуждать их на форуме.
+
+В среду, 21-го октября, мы встретимся на оффлайн-занятии, чтобы познакомиться, проверить что у всех настроена и работает Ubuntu, написать под нашим чутким руководством свой первый "Hello world!" :)
+
+Материал первой недели достаточно обширный, но у вас будет достаточно времени. Обратите внимание, что вместе с теоретическим материалом стали доступны тесты, которые необходимо пройти до конца дня пятницы, 23-го октября (23:59 UTC+3); начиная со второй недели, дедлайн прохождения тестов будет установлен стабильно на среду.
+
+20-го октября, во вторник, вам станет доступно первое контрольное задание (КЗ). Мы его вместе разберем и решим на практическом занятии в среду 21-го октября. Дедлайн выполнения первого КЗ - суббота, 24-го октября.
+
+23-го октября, в пятницу, станет доступно второе КЗ. Его дедлайн будет до конца дня 25 октября.
+
+Успехов в освоении основ Python!
+            </pre>
+          </p>
+        </div>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <div class="jumbotron">
+        <h4>OCTOBER 19, 2015</h4>
+        <p><pre>Уважаемые студенты!
+
+Внесены корректировки в тестовые задания:
+
+- № 17, 18 ПРАКТИЧЕСКОГО ЗАДАНИЯ №1_5: исправлена система проверки (количество попыток неограничено; если у Вас были ошибки в данных тестах - можете повторно запустить проверку)
+- № 2, 3, 9, 5 ПРАКТИЧЕСКОГО ЗАДАНИЯ №1_6_1: исправлена система проверки (количество попыток неограничено; если у Вас были ошибки в данных тестах - можете повторно запустить проверку)
+
+
+- № 3,12,15,16 ПРАКТИЧЕСКОГО ЗАДАНИЯ №1_3 : исправлена система проверки (количество попыток неограничено; если у Вас были ошибки в данных тестах - можете повторно запустить проверку)
+- ПРАКТИЧЕСКОЕ ЗАДАНИЕ №1_4 #2: увеличено количество попыток
+- ПРАКТИЧЕСКОЕ ЗАДАНИЕ №1_7 #2: увеличено количество попыток и уточнена постановка задачи.</pre></p>
+        </div>
+
+        <div class="jumbotron">
+        <h4>OCTOBER 22, 2015</h4>
+        <p><pre>Доступно второе контрольное задание!
+
+Сегодня (22.10.2015) стало доступно второе практическое задание.
+
+Времени для выполнения заданий КЗ № 2 у вас будет до полночи воскресения (25.10.2015 23:59); дедлайн выполнения заданий КЗ № 1, которые разбирались в среду на практическом оффлайн-занятии - полночь субботы (24.10.2015 23:59).
+
+Задание сложнее, чем первое, но основано на тех же принципах: использование типов данных, преобразование их, встроеные функции, применение операторов if и for.
+
+Принимайте во внимание полученый опыт с первого задания и мои комментарии с практического занятия в среду.
+
+Внимательно читайте условие. Теперь у вас будет 10 попыток на решение каждой задачки.
+
+Для выполнения задания необходимо писать питоновский код в поле для ввода, после чего нажать "Check". Код необходимо писать в общем виде, а не только для строки приведенной в примере.
+
+Система проверит правильность выполнения всех условий.
+
+Если не все условия выполнены - вы можете нажать на строку "See full output" и посмотреть детали о том, каким условиям ваше решение не соответствует.
+
+Если с первого раза решить правильно не получается, то рекомендую решение писать в локальном файле и экспериментировать, не сжигая попытки, после чего переносить правильное решение в систему.</pre></p>
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../static/js/bootstrap.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
