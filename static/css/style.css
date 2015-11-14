@@ -9,7 +9,7 @@ body {
   padding: 14px 24px;
   font-size: 14px;
 }
-.description {
+.descr {
   text-align: left;
   font-size: 10px;
 }
@@ -17,20 +17,19 @@ body {
   text-align: center;
   font-size: 30px;
 }  
-h1.description {
+h1.descr {
   font-size: 30px;
   font-weight: bold;
 }
-.starter{
-  padding: 0px 50px;
+.about{
+  padding: 0px 0px;
   text-align: justify;
   font-size: 10px;
 }
-.about {
-  position: relative;
+.program {
   min-height: 1px;
   padding-right: 70px;
-  padding-left: 50px;
+  padding-left: 60px;
   text-align: justify;
 }
 .row {
@@ -38,18 +37,14 @@ h1.description {
   padding: 5px 10px;
   font-size: 16px;
 }
-.panel-default > .panel-heading {
+.thumbnail .contact_caption {
+  padding: 9px;
   color: #333;
-  background-color: #ADD8E6;
-  border-color: #ddd;
 }
-.panel-title {
-  font-size: 20px;
-  font-weight: bold;
-}
-.panel-body {
-  padding: 15px;
-  background-color: #F0F8FF;
+.contact_caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: left;
 }
 .footer {
   text-align: left;
