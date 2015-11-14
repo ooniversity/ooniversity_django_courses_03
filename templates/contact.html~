@@ -36,13 +36,21 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="index.html">Main</a></li>
-            <li role="presentation"><a href="contact.html">Contacts</a></li>
+            <li role="presentation" ><a href="index.html">Main</a></li>
+            <li role="presentation" class="active"><a href="contact.html">Contacts</a></li>
+						<li role="presentation" ><a href="student_list.html">Students</a></li>
           </ul>
         </nav>
         
       </div>
 
+<tr>
+<th colspan="2">Логотип</th>
+</tr>
+<tr>
+<th>1</th>
+<th>2</th>
+</tr>
   
 <div class="page-header">
   <h1>Peritorum</h1>
