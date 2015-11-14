@@ -2,19 +2,11 @@
 {
 text-align : center;
 }
-.big-font
-{
-font-size: 80px;
-}
-.background-lemonchiffon
-{
-background: lemonchiffon; 
-}
+
 .background-image
 {
     background-image: url(../images/background.jpg);
-    /*background-size: 100%;*/
-   }
+}
 
 .transparant-background
 {
@@ -26,8 +18,17 @@ background-color: rgba(238, 238, 238 , 0.7);
 text-align : justify;
 }
 
-.color-headings
+.font-bold
 {
-color:#C0C0C0;
+    font-weight: bold;
 }
 
+.desription-color
+{
+    color: #5F9EA0;
+}
+
+.font-small-caps
+{
+    font-variant: small-caps;
+}
