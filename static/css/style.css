@@ -8,3 +8,34 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+
+.color_block {
+  border: 2px #808080 solid; /* Параметры рамки */
+  background: #e3ffec; /* Цвет фона */
+}
+
+em.bt, em.bt b, em.bb, em.bb b {
+  display: block; /* Блочный элемент */
+  height: 10px; /* Высота уголка */
+  font-size: 0; /* Размер шрифта */
+  background: url(images/corners.png) no-repeat; /* Путь к файлу с уголками */
+  position: relative; /* Относительное позиционирование */
+}
+
+em.bt {
+  top: -2px; /* Сдвигаем левый верхний уголок вверх */
+  left: -2px; /* Сдвигаем влево */
+}
+
+em.bt b {
+  background-position:  100% -10px; /* Рисунок сдвигается к следующему уголку */
+  left: 4px; /* Сдвигаем вправо */
+}
+
+em.bb { background-position: 0 -20px; top: 2px; left: -2px; }
+
+em.bb b { background-position: 100% -30px; left: 4px; }
+
+.color_block .block_content {
+  padding: 0 7px; /* Поля вокруг текста */
+}
