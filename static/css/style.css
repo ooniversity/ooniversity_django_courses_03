@@ -4,7 +4,7 @@
   background-color: #fff;
 }
 .list-group-a {
-  float: center;
+  float: right;
 }
 .list-group-a {
   margin-right:5px;
@@ -15,7 +15,7 @@
   background-color: #fff;
 }
 .list-group-b {
-  float: center;
+  float: right;
 }
 .list-group-b {
   margin-right:5px;
@@ -26,7 +26,7 @@
   background-color: #fff;
 }
 .list-group-c {
-  float: center;
+  float: right;
 }
 .list-group-c {
   margin-right:5px;
@@ -37,7 +37,7 @@
   background-color: #fff;
 }
 .list-group-d {
-  float: center;
+  float: right;
 }
 .list-group-d {
   margin-right:5px;
@@ -48,7 +48,7 @@
   background-color: #fff;
 }
 .list-group-e {
-  float: center;
+  float: right;
 }
 .list-group-e {
   margin-right:5px;
@@ -59,7 +59,7 @@
   background-color: #fff;
 }
 .list-group-f {
-  float: center;
+  float: right;
 }
 .list-group-f {
   margin-right:5px;
@@ -70,7 +70,7 @@
   background-color: #fff;
 }
 .list-group-g {
-  float: center;
+  float: right;
 }
 .list-group-g {
   margin-right:5px;
@@ -81,7 +81,7 @@
   background-color: #fff;
 }
 .list-group-h {
-  float: center;
+  float: right;
 }
 .list-group-h {
   margin-right:5px;
@@ -92,7 +92,7 @@
   background-color: #fff;
 }
 .list-group-i {
-  float: center;
+  float: right;
 }
 .list-group-i {
   margin-right:5px;
@@ -103,12 +103,12 @@
   background-color: #fff;
 }
 .list-group-j {
-  float: center;
+  float: right;
 }
 .list-group-j {
   margin-right:5px;
 }
-.linkc {text-align: left; bottom:0;}
+.jumbotron .container .head {color:#FFFFFF}
 .thumbnail .caption .D {color:red;}
 .thumbnail .caption .M {color:red;}
 .thumbnail .caption .F {color:red;}
