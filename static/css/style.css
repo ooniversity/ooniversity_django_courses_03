@@ -65,3 +65,21 @@ text-align: center;
 .alert-success{
 float: left;
 }
+
+.img-responsive{
+height: 250px;
+width: 180px;
+}
+
+.col-sm-4{
+padding-bottom: 25px;
+}
+
+.course{
+text-align: center;
+}
+
+.silka{
+padding-top: 30px;
+padding-bottom: 20px;
+}
