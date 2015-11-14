@@ -33,12 +33,13 @@ body {
 }
 .table {
   text-align: center;
+}
 #director {
-    height: 160px
+  height: 160px;
 }
 #founder {
-    height: 160px
+  height: 160px;
 }
 #manager {
-    height: 160px
+  height: 160px;
 }

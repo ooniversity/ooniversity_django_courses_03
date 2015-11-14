@@ -31,6 +31,8 @@ body {
   margin-top: 1px;
   text-align: center;
 }
+.table {
+  text-align: center;
 #director {
     height: 160px
 }
