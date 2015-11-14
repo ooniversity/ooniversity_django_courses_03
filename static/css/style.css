@@ -32,7 +32,7 @@ nav {
 
 /*Nav*/
 .navbar-header {    padding: 0 30px 0 30px;}
-
+.top_mass{ float: right; margin-top: 10px;}
 
 /*tables*/
 .dark{    background-color: #080808;    opacity: 0.3; color:white; }
