@@ -100,3 +100,7 @@ color: #fff;
 .left {
   text-align: left;
 }
+thead {
+  background-color: green;
+  color: #fff;
+}
