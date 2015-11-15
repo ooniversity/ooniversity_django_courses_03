@@ -5,6 +5,22 @@
 /*
  1.1) Homepage - common style
  ----------------------------------------*/
+ .table-nonfluid {
+   width: auto !important;
+}
+
+.stud {
+	color: white !important;;
+}
+
+.courus {
+	color: orange !important;;
+}
+
+.persn {
+	color: #8b9dc3 !important;;
+}
+
 p {
 	line-height: 24px;
 }

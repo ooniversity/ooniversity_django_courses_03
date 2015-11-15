@@ -49,17 +49,17 @@
 				var mapMarkers = {
 					"markers": [
 						{
-							"latitude": "48.85661",
-							"longitude":"2.35222",
-							"icon": "assets/img/pin.png",
-							"baloon_text": 'This is <strong>Texas</strong>'
+							"latitude": "49.444841",
+							"longitude":"32.056389",
+							"icon": "../static/images/pin.png",
+							"baloon_text": 'This is <strong>Боулинг :)</strong>'
 						}
 					]
 				};
 
 				$("#map").mapmarker({
 					zoom : 16,
-					center: "48.85661, 2.35222",
+					center: "49.444841, 32.056389",
 					dragging:1,
 					mousewheel:0,
 					markers: mapMarkers,
