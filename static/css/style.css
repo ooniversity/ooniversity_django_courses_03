@@ -89,5 +89,84 @@ hr {
 	height: 1px;
 }
 
+h4 {
+	color: #AACEF3;
+	text-align: center;
+}
+
+thead  {
+	background-color: #eceff1;
+	text-align: center;
+	color: #306791;
+	font-family: 'Oxygen', sans-serif;
+}
+
+.numbers {
+	text-align: center;
+}
+
+.skype {
+	text-align: center;
+}
+
+table {
+	text-align: left;
+	color: #7A8B9D;
+	height: 20%;
+	width: 40%;
+
+}
+
+tr:hover {
+	background-color: #eceff1;
+}
+
+.table-student table {
+	position: relative;
+	left: 5%;
+	text-align: left;
+	color: #7A8B9D;
+	height: 15%;
+	width: 30%;
+	bottom: 75px;
+}
+
+.data {
+	color: #306791;
+	text-align: left;
+}
+
+.rating table {
+	position: relative;
+	left: 67%;
+	bottom: 260px;
+	text-align: center;
+	color: #306791;
+	height: 15%;
+	width: 30%;
+	font-size: 20px;
+}
+
+.rating-tablo {
+	text-align: center;
+	color: #7A8B9D; 
+	font-size: 35px;
+}
+
+.rating tr:hover {
+	background-color: #fff;
+}
+
+caption {
+	text-align: left;
+	color: #306791;
+	font-size: 20px;
+}
+
+.progress-table {
+	position: relative;
+	bottom: 140px;
+}
+
 
 
