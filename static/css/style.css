@@ -42,7 +42,7 @@
 .topping_details {background-color:#EBEBE3;margin-top:35px;border:none;height:30px;}
 .page-header .person-head {color:#290701; margin-left:30px;margin-top:0px;}
 .below-person {color:#290701; margin-left:30px;}
-.self_photo {background-size:cover;background-repeat: 50% 0 no-repeat;border-radius:40px;margin-left:30px;height:300px;width:250px;}
+.self_photo {border-radius:40px;margin-left:30px;height:300px;width:250px;}
 .self_info {background-color:#EBEBE3;margin-top:30px; opacity:0.8;}
 .self_info_text{background-color:#EBEBE3 ;color:#290701;margin-left:30px; }
 .table-hover .head_self_table {background-color:#ECD92B;}
