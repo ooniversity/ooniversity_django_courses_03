@@ -12,7 +12,6 @@ body {
 .body1 {background-image:none;
 	background-color: #666666;
 	font-family: "Courier New", Courier New, monospace;
-	width: 60%
 }
 
 .navbar-logo {
@@ -84,8 +83,8 @@ body .font1 {color: #fff;
 	font-size: x-small;
 }
 
-#photo {height: 30%;
-	width: 30%;
+#photo {height: 15%;
+	width: 15%;
 }
 
 #my_h1 {font-size: 40px}
@@ -128,3 +127,19 @@ body .font1 {color: #fff;
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.navbar-header {
+    float: left;
+  }
