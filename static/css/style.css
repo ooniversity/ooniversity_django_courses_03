@@ -10,9 +10,9 @@ div.test2 {
 .color2 {
     color: black;
 }
-#test2 {
-    size: 150px;
-}
+.text {
+    text-align:  center;
+   }
 #test3 {
     size: 200px;
 }
@@ -22,9 +22,17 @@ div.test2 {
 #test5 {
     size: 100px;
 }
-.color.point {
-    color: yellow;
+.size {
+    border: solid 1px black;
+    max-width: 50%;
+    height: 30%;
 }
-.color.print {
-    color: yellow;
+.color3 {
+    color: blue;
+}
+.list {
+    background: yellow !important;
+}
+.container {
+    margin: 0px 52px 52px 52px;
 }
