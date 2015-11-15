@@ -32,7 +32,7 @@
 	    </div><!-- /.container-fluid -->
 	  </nav>
     <div class='container font1 body1' >
-      <h1>Eric Idle</span></h1>
+      <h1 id='my_h1'>Eric Idle</span></h1>
       <img src="../static/images/eric.jpg" alt="Eric Idle photo" id='photo'>
       <h3>Profile</h3>
       <p id='p1'> </p>
@@ -68,7 +68,7 @@
 								 </tr>
 				    </tbody>
 			</table>
-      <p> </p>
+      <p id='p1'> </p>
       <h3>Performance</h3>
       <table class="table table-bordered">
             <thead id='id3'>
