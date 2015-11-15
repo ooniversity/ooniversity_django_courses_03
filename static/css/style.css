@@ -1,7 +1,7 @@
 .text1 {font-size: 16px; font-family: Courier New}
 .jumbotron {padding-left: 1%; padding-right: 1%}
 .logo {height: 50px; width: 50px}
-img {height: 150px; width: 150px}
+img {height: 80px; width: 80px}
 .navbar-brand {padding-top: 2px; padding-left: 15px}
 .nav-pills {padding-top: 5px; padding-left: 60px}
 .active {font-weight: bold; font-family: Courier New; font-size: 18px}
@@ -22,3 +22,19 @@ h4 {font-weight: bold}
 .panel {width:70%;}
 .text2 {background: #00BFFF;font-style: italic}
 .text3 {background: #00BFFF;}
+
+#programm {text-align:center; font-weight: bold}
+#programm table{font-family:TahomaRegular;font-size:18px;width:1000px;margin:0 auto;border:#bdbdbd 1px solid;border-collapse:collapse}
+#programm table tbody tr th{text-align:center; padding-top:7px;padding-bottom:7px;vertical-align:middle;background:#446785;border:dashed 1px #bdbdbd;color:#FFF}
+#programm table tbody tr td{padding-top:33px;padding-bottom:33px;vertical-align:middle;border:dashed 1px #bdbdbd}
+#programm table tbody tr td:last-child{text-align:left}
+#programm table tbody tr th:first-child{width:106px}
+#programm table tbody tr th:last-child{width:515px}
+#programm table tbody tr td ul{display:inline-block}
+#programm table tbody tr td ul li{list-style:none;padding-left:77px}
+#programm table tbody tr td ul li.paddingLeft{list-style:none;padding-left:130px}
+#programm table tbody tr td p{padding-left:50px}
+#programm .number_cell{font-family:'trebuchet_msregular';font-size:26px}
+
+#table_contact th {text-align:left; font-size:24px; font-weight: bold; background: #00BFFF }
+.format_data {font-family: Courier New; text-align:left; vertical-align:middle; font-size:16px; font-weight: bold;}
