@@ -3,6 +3,9 @@
 	max-height: 160px;
 }
 
+.table.table-striped tr:hover{
+	background-color:#fcf8e3
+} 
 .marker {
 	font: bold italic 12pt sans-serif; 
 }
