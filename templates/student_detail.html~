@@ -10,7 +10,7 @@
     <link rel="icon" href="../../favicon.ico">
 		<linc href="../static/css/style.css" rel="stylesheet">
 
-    <title>Main</title>
+    <title>Student detail</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/carousel.css" rel="stylesheet">
+   
   </head>
 	<body>
 		<div class="navbar-wrapper">
@@ -56,7 +56,7 @@
 		<div class="col-md-10 col-md-push-1">
 		<h2 class="sub-header">Петрушенко Дмитрий</h2>
 			<div class="table-responsive">
-			  <table class="table"border=2>
+			  <table class="table" border=2>
 		      <tr>
 	          <th>Surname</th>
 	          <td>Петрушенко</td>
@@ -68,6 +68,14 @@
 	        <tr>
 						<th>Patronymic</th>
 						<td>Батькович</td>
+					</tr>
+					<tr>
+						<th>Rating</th>
+						<td>21</td>
+					</tr>
+					<tr>
+						<th>Average</th>
+						<td>99.9</td>
 					</tr>
 	        <tr>
 						<th>Birth Date</th>
