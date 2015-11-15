@@ -21,10 +21,6 @@ body {
 }
 p {
     display: block;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 1px;
 }
 .size {
     border: solid 1px black;
