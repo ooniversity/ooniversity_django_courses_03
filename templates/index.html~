@@ -25,7 +25,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/carousel.css" rel="stylesheet">
+   
   </head>
 <body>
 	<div class="navbar-wrapper">
@@ -43,7 +43,7 @@
 		      </div>
 		      <div id="navbar" class="navbar-collapse collapse">
 		        <ul class="nav navbar-nav">
-		  	      <li class="active"><a href="#">Main</a></li>
+		  	      <li class="active"><a href="index.html">Main</a></li>
 		          <li><a href="contact.html">Contacts</a></li>
 		          <li><a href="student_list.html">Students</a></li>
 		        </ul>
