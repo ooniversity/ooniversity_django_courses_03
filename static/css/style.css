@@ -56,6 +56,14 @@
 	color: blue;
 }
 
+.table-hover > tbody > tr:hover {
+	background-color: #ffb000;
+}
+
+.center {
+    text-align:  center;
+}
+
 .StudentTable {
 	margin:0px;padding:0px;
 	width:100%;
