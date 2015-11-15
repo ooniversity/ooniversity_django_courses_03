@@ -7,4 +7,13 @@
   background-color: lightgrey;
   border-color: #080808;
 }
-
+.style-thead{
+	background: rgba(135, 140, 123, 0.80);
+	
+}
+.style-thead2{
+	background: rgba(135, 140, 123, 0.20);
+}
+.style-thead3{
+	background: yellow;
+}
