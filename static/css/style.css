@@ -2,9 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,300,200,100,500,600,700,800,900');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
-/*
- 1.1) Homepage - common style
- ----------------------------------------*/
+
  .table-nonfluid {
    width: auto !important;
 }
@@ -186,9 +184,7 @@ p {
 #banner .tp-bullets {
 	display: none;
 }
-/*
- 1.2) Matrix Studio
- ----------------------------------------*/
+
 .creative_studio {
 	padding-bottom:0px;
 }
