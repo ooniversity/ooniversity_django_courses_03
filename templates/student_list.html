@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Contacts</title>
+    <title>Students</title>
 
     <!-- Bootstrap -->
     <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
-
+    <!-- <link href="../static/css/style.css" rel="stylesheet"> -->
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,53 +36,66 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="index.html">Main</a></li>
-        <li class="active"><a href="contact.html">Contacts</a></li>
-        <li><a href="student_list.html" >Students</a></li>
+        <li><a href="contact.html" >Contacts</a></li>
+        <li class="active"><a href="student_list.html" >Students</a></li>
 
-      
+        
         </li>
       </ul>
      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="../static/images/keanu.jpeg" alt="keanu">
-      <div class="caption">
-        <h3>Director</h3>
-        <h4>Name: Keanu Reaves"</h4>
-        <h4>Skype: KeanuReaves</h4>
-        <h4>Email: keanu@example.com</h4>
-        <h4>Phone: 999999999</h4>
-        </div>
-    </div>
-  </div>
-<div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="../static/images/clooney.jpeg" alt="clooney">
-      <div class="caption">
-        <h3>Manager</h3>
-        <h4>Name: George Klooney"</h4>
-        <h4>Skype: GeorgeClooney</h4>
-        <h4>Email: clooney@example.com</h4>
-        <h4>Phone: 8888888888</h4>
-      </div>
-  </div>
-</div>
-<div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="../static/images/pitt.jpeg" alt="pitt">
-      <div class="caption">
-        <h3>Founder</h3>
-        <h4>Name: Bred Pitt"</h4>
-        <h4>Skype: BredPitt</h4>
-        <h4>Email: pitt@example.com</h4>
-        <h4>Phone: 777777777</h4>
-      </div>
-    </div>
-</div>
+<h1>PyBursa</h1>
+  <table class="table">
+      <caption>Students list</caption>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Surname</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Skype</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><a href="student_detail.html">1</a></th>
+          <td>Vakulenko</td>
+          <td>Olena</td>
+          <td>Slatyne, Traktorniy lane, 7</td>
+          <td>olenka.vakulenko</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Belokon</td>
+          <td>Eugine</td>
+          <td>Slatyne, Traktorna Street, 15</td>
+          <td>belokon</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Persianova</td>
+          <td>Olena</td>
+          <td>Kharkiv, Ivanova Street, 36</td>
+          <td>persyanova</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Petrov</td>
+          <td>Peter</td>
+          <td>Kharkiv, Petrova Street, 6</td>
+          <td>petrov</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Sidorov</td>
+          <td>Igor</td>
+          <td>Kharkiv, Sidorova Street, 16</td>
+          <td>sidorov</td>
+        </tr>
+      </tbody>
+    </table>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
