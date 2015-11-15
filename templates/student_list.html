@@ -27,8 +27,14 @@
 	    text-align: left; /* Выравнивание по левому краю */
 	   }
 	</style>
-
-    <!-- Bootstrap -->
+	<style>
+		body{background-image: url('../static/images/pic2.jpg') !important;
+		background-repeat: none; 
+		background-attachment: fixed;
+		background-size: 100%; 
+		background-position: center top}
+	</style>
+	<!-- Bootstrap -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -68,16 +74,28 @@
 	  <!-- Default panel contents -->
 	  <div class="panel-heading">Students of ITBursa-2015</div>
 	  <div class="panel-body">
-	    <p>Students list</p>
+	    <p>This list provides extra references and information for students.</p>
 	  </div>
+	</div>  
+	<div class="row">
+	  <div class="col-lg-6">
+	    <div class="input-group">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">Go!</button>
+	      </span>
+	      <input type="text" class="form-control" placeholder="Search for...">
+	    </div><!-- /input-group -->
+	  </div><!-- /.col-lg-6 -->
+	</div>  
+	</div>
 
 	  <!-- Table -->
 	  <table class="table">
-	    <colgroup style="background-color: yellow"></colgroup>
-	    <colgroup style="background-color: yellow"></colgroup>
-	    <colgroup style="background-color: yellow"></colgroup>
-	    <colgroup style="background-color: yellow"></colgroup>
-	    <colgroup style="background-color: yellow"></colgroup>
+	    <colgroup style="background-color: silver"></colgroup>
+	    <colgroup style="background-color: silver"></colgroup>
+	    <colgroup style="background-color: silver"></colgroup>
+	    <colgroup style="background-color: silver"></colgroup>
+	    <colgroup style="background-color: silver"></colgroup>
 	    <tr>
 	        <th>No</th>
 	        <th>Surname</th>
@@ -85,11 +103,11 @@
 	        <th>Address</th>
 	        <th>Skype</th>
 	    </tr>
-	    <tr><td><a href="student_detail.html">1</a></td><td>Ivanov</td><td>Petr</td><td>12345</td><td>P.Ivanov</td></tr>
-	    <tr><td>2</td><td>Petrova</td><td>Anna</td><td>12345</td><td>A.Petrova</td></tr>
-	    <tr><td>3</td><td>Petrov</td><td>Ivan</td><td>12345</td><td>I.Petrov</td></tr>
-	    <tr><td>4</td><td>Kox</td><td>Irina</td><td>12345</td><td>I.Kox</td></tr>
-	    <tr><td>5</td><td>Sova</td><td>Tim</td><td>12345</td><td>T.Sova</td></tr>
+	    <tr><td><a href="student_detail.html">1</a></td><td>Ivanova</td><td>Anna</td><td>20A, Mira street, apt. 140, Kharkiv</td><td>A.Ivanova</td></tr>
+	    <tr><td>2</td><td>Petrov</td><td>Igor</td><td>15, Pushkinskaya street, apt. 114, Kharkiv</td><td>I.Petrov</td></tr>
+	    <tr><td>3</td><td>Klimov</td><td>Ivan</td><td>36, Sumskaya street, apt. 11, Kharkiv</td><td>I.Klimov</td></tr>
+	    <tr><td>4</td><td>Kox</td><td>Irina</td><td>201, Mira street, Kharkiv</td><td>I.Kox</td></tr>
+	    <tr><td>5</td><td>Sova</td><td>Tim</td><td>25, Sumskaya street, apt. 13, Kharkiv</td><td>T.Sova</td></tr>
 	  </table>
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
