@@ -9,3 +9,5 @@
 .list {text-align: left; border-style: solid; border-color: #DC143C; border-width: 1px; padding: 3px}
 .table2 {position: relative; left: 10px; background: #5F9EA0; border-style: ridge; border-color: #4682B4; width: 350px; height: 400px}
 .table3 {position: relative; left: 10px; background: #FFE4B5; border-style: ridge; border-color: #A9A9A9; width: 450px; height: 200px}
+.size {text-indent: 20px; color: #00008B}
+.size1 {text-indent: 10px; color: #0000CD}
