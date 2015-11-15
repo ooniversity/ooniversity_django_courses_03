@@ -1,0 +1,36 @@
+      <table class="table table-bordered">
+            <thead id='id3'>
+								<tr>
+									<th>Week</th>
+									<th>Topic</th>
+									<th>Control Type</th>
+									<th>Grade</th>
+								</tr>
+						</thead>
+    				<tbody id='id3'>
+								 <tr>
+									 <td rowspan='2'class='table2'>Week 1</td>
+									 <td rowspan='2'class='table2'>Основы Python</td>
+									 <td>Problem Task #1</td>
+									 <td>100%</td>
+								 </tr>
+								 <tr>
+									 <td>Tests</td>
+									 <td>100%</td>
+								 </tr>
+								 <tr>
+									 <td rowspan='2'class='table2'>Week 2</td>
+									 <td rowspan='2'class='table2'>Строки и итераторы</td>
+									 <td>Problem Task #2</td>
+									 <td>90%</td>
+								 </tr>
+								 <tr>
+									 <td>Tests</td>
+									 <td>80%</td>
+								 </tr>
+								 <tr>
+									 <td colspan='3'>Average Grade</td>
+									 <td>92,5%</td>
+								 </tr>
+						</tbody>
+			</table>
