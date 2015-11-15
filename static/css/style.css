@@ -1,7 +1,7 @@
 .color {
     color: red;
 }
-#test {
+color4 {
     color: green;
 }
 div.test2 {
@@ -13,14 +13,18 @@ div.test2 {
 .text {
     text-align:  center;
    }
-#test3 {
-    size: 200px;
+td, th {
+    padding: 0;
 }
-#test4 {
-    size: 100px;
+body {
+    background-color: #FFF;
 }
-#test5 {
-    size: 100px;
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 1px;
 }
 .size {
     border: solid 1px black;
@@ -28,7 +32,7 @@ div.test2 {
     height: 30%;
 }
 .color3 {
-    color: blue;
+    color: black;
 }
 .list {
     background: yellow !important;
