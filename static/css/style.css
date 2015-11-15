@@ -52,6 +52,10 @@
 	text-decoration: underline;
 }
 
+.bold {
+	font-weight: bold;
+}
+
 .blue {
 	font-weight: bold;
 	color: #aa5000;
