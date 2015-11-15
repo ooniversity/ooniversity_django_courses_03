@@ -1,6 +1,12 @@
 body.fon {background-image:url(../images/fon.png)}
 #backgr {background-image:url(../images/fon_main.png)}
+body.fonl {background-image:url(../images/fon_list.png)}
+body.fond {background-image:url(../images/fon_detail.png)}
 .jumbotron {background: opacity: 0}
 p.dline {line-height: 2}
 p.dline_1 {line-height: 1}
 h3.bold {font-weight: bold}
+.table1 {position: relative; left: 10px; background: #C0C0C0; border-style: ridge; border-color: #DC143C; width: 1000px; height: 300px}
+td.list {text-align: left; border-style: solid; border-color: #DC143C; border-width: 1px; padding: 3px}
+.table2 {position: relative; left: 10px; background: #5F9EA0; border-style: ridge; border-color: #4682B4; width: 350px; height: 400px}
+.table3 {position: relative; left: 10px; background: #FFE4B5; border-style: ridge; border-color: #A9A9A9; width: 450px; height: 200px}
