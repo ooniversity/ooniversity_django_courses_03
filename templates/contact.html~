@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python Course - Contacts</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+	<link href="../static/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		    <span class="sr-only">Toggle navigation</span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		  </button>
+		  <img src="../static/images/python.png" class="navbar-logo">
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+		    <li><a href="index.html">Main</a></li>
+		    <li class="active"><a href="contact.html">Contacts<span class="sr-only">(current)</span></a></li>
+        <li><a href="student_list.html">Students</a></li>
+		  </ul>
+		</div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+<div>
+  <div class="col-sm-6 col-md-4">
+    <div class="contact thumbnail">
+      <img src="../static/images/owl.jpg" alt="Founder photo" class='photo1 img-circle'>
+      <div class="caption">
+        <h3>Founder</h3>
+        <p>Name: <span><b>Pavel Obod</b></span></p>
+		<p>Skype: <span><b>pavel.obod</b></span></p>
+		<p>Email: <span><b>pavel.obod@gmail.com</b></span></p>
+		<p>Phone: <span><b>+3809567192639</b></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="col-sm-6 col-md-4">
+    <div class="contact thumbnail">
+      <img src="../static/images/fox.jpg" alt="Manager photo" class='photo2 img-circle'>
+      <div class="caption">
+        <h3>Manager</h3>
+        <p>Name: <span><b>Daria Mykhalevych</b></span></p>
+		<p>Skype: <span><b>daria.mykhalevych</b></span></p>
+		<p>Email: <span><b>daria.mykhalevych@gmail.com</b></span></p>
+		<p>Phone: <span><b>+3809567192639</b></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="col-sm-6 col-md-4">
+    <div class="contact thumbnail">
+      <img src="../static/images/raccoon1.jpg" alt="Director photo" class='photo3 img-circle'>
+      <div class="caption">
+        <h3>Director</h3>
+        <p>Name: <span><b>Alexey Radchenko</b></span></p>
+		<p>Skype: <span><b>alexey.radchenko</b></span></p>
+		<p>Email: <span><b>alexey.radchenko@gmail.com</b></span></p>
+		<p>Phone: <span><b>+3809567192639</b></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.js"></script>
+  </body>
+</html>
