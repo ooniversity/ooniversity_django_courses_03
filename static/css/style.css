@@ -11,7 +11,8 @@ body {
 
 body .body1 {background-image:none;
 	background-color: #666666;
-	font-family: "Courier New", Courier New, monospace;						 
+	font-family: "Courier New", Courier New, monospace;
+	width: 60%
 }
 
 .navbar-logo {
@@ -68,9 +69,23 @@ body .body1 {background-image:none;
   vertical-align: middle;
 }
 
-p {min-height: 1em;
+.table .table3 {
+	text-align: center;
+	font-size: large;
+	font-weight: 800;
+  line-height: 1.42857143;
+  vertical-align: middle;
+}
+
+#p1 {min-height: 1em;
 }
 
 body .font1 {color: #fff;
 	font-size: x-small;
 }
+
+#photo {height: 30%;
+	width: 30%;
+}
+
+#my_h1 {font-size: 40px}
