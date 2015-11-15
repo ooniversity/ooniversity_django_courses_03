@@ -1,9 +1,17 @@
 body {
-	background-image:url('../images/background.png');
-	background-repeat: no-repeat;
+	background-image:url('../images/background.jpg');
 	font-family: "Courier New", Courier New, monospace;
+	position: absolute; 
+	width: 100%; 
+	left: 0px; 
+	right: 0px; 
+	z-index: -1;
 	font-size: 30px;
-	background-size: cover;
+}
+
+body .body1 {background-image:none;
+	background-color: #666666;
+	font-family: "Courier New", Courier New, monospace;						 
 }
 
 .navbar-logo {
@@ -34,8 +42,8 @@ body {
 	font-size: 45%;
 }
 
-#id1 {background-color: rgba(0, 44, 179, 0.8);
-			color: #FFF 
+#id1 {background-color: rgba(255, 255, 102, 0.9);
+			color: rgb(40,40,40);
 }
 
 #id2 {font-size: 50%
@@ -44,5 +52,25 @@ body {
 #id3 {font-size: 150%
 }
 
-#id4 {font-size: 90%
+.table .table1 {
+	text-align: left;
+	font-size: large;
+	font-weight: 900;
+  line-height: 1.42857143;
+  vertical-align: middle;
+}
+
+.table .table2 {
+	text-align: left;
+	font-size: medium;
+	font-weight: 600;
+  line-height: 1.42857143;
+  vertical-align: middle;
+}
+
+p {min-height: 1em;
+}
+
+body .font1 {color: #fff;
+	font-size: x-small;
 }

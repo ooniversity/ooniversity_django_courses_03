@@ -26,6 +26,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.html">Main <span class="sr-only">(current)</span></a></li>
             <li><a href="contact.html">Contacts</a></li>
+            <li><a href="student_list.html">Students</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -33,10 +34,8 @@
 
     <div class="container" id='id1'>
       <h1>Добро пожаловать на сайт PyBursa</h1>
-      <div class="media-left media-middle">
-        <h2>Description</h2>
-        <h3>Описание курса</h3>
-      </div>
+      <h2>Description</h2>
+      <h3>Описание курса</h3>
       <div class="media-body" id='id2'>
         <p>На английском Python звучит как «пайтон», но среди программистов более распространено название «питон». А ведь происхождение слова не связано с пресмыкающимся. Автор языка Гвидо ван Россум назвал его в честь комедийного телешоу «Летающий цирк Монти Пайтона» (Monty Python’s Flying Circus).</p>
         <p>Для изучения Python не требуется специальных знаний. Достаточно владеть компьютером на уровне пользователя.
@@ -46,19 +45,49 @@
     </div>
 
     <div class="container" id='id1'>
-        <div class="media-left media-middle">
-          <h2>Program</h2>
+        <h2>Program</h2>
           <h3>Программа курса</h3>
-        </div>
         <div class="media-body" id='id2'>
-          <h4 id='id3'>Вы будете знать:</h4>
-          <ul>
-            <li>Основы Python</li>
-            <li>Строки и итераторы</li>
-            <li>Функции и модульность</li>
-            <li>Библиотеки и пакетный менеджер</li>
-            <li id='id4'>Классы и ООП, основы</li>
-          </ul>
+					<table class="table table-striped">
+						<thead>
+								<tr>
+									<th>№ п/п</th>
+									<th>Тема занятия</th>
+									<th>Что вы будете знать</th>
+								</tr>
+						</thead>
+						<tbody>
+								 <tr>
+									 <td class='table1'>1</td>
+									 <td class='table1'>Основы Python</td>
+									 <td> <ul>
+										      <li>zen, pep8, pylint, tools, IDE</li>
+										      <li>консоль, типы данных, операторы</li>
+										      <li>синтаксис управляющих конструкций (if, for...)</li>
+										      <li>исключения и разбор стектрейса</li>
+										      <li>кодировка в Python</li>
+										    </ul></td>
+								 </tr>
+								 <tr>
+									 <td class='table1'>2</td>
+									 <td class='table1'>Строки и итераторы</td>
+									 <td><ul>
+										      <li>работа со строками и итерируемыми типами</li>
+										      <li>запуск скрипта и параметры</li>
+										      <li>git http://try.github.com/levels/</li>
+										    </ul></td>
+								 </tr>
+								 <tr>
+									 <td class='table1'>3</td>
+									 <td class='table1'>Функции и модульность</td>
+									 <td><ul>
+										      <li>функции (def, lambda)</li>
+										      <li>генераторы списков</li>
+										      <li>модули, структура</li>
+										    </ul></td>
+								 </tr>
+						</tbody>
+					</table>
         </div>
       </div>
 
