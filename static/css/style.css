@@ -24,7 +24,6 @@ h4 {font-weight: bold}
 .panel {width:70%;}
 .text2 {background: #00BFFF;font-style: italic}
 .text3 {background: #00BFFF;}
-
 #programm {text-align:center; font-weight: bold}
 #programm table{font-family:TahomaRegular;font-size:18px;width:1000px;margin:0 auto;border:#bdbdbd 1px solid;border-collapse:collapse}
 #programm table tbody tr th{text-align:center; padding-top:7px;padding-bottom:7px;vertical-align:middle;background:#446785;border:dashed 1px #bdbdbd;color:#FFF}
@@ -37,7 +36,6 @@ h4 {font-weight: bold}
 #programm table tbody tr td ul li.paddingLeft{list-style:none;padding-left:130px}
 #programm table tbody tr td p{padding-left:50px}
 #programm .number_cell{font-family:'trebuchet_msregular';font-size:26px}
-
 #table_contact th {text-align:left; font-size:24px; font-weight: bold; background: #00BFFF }
 .format_data {font-family: Courier New; text-align:left; vertical-align:middle; font-size:16px; font-weight: bold;}
 #spisok {border-radius: 6px; width: 98%; margin: auto}
