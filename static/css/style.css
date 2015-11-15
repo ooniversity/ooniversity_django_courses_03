@@ -9,7 +9,7 @@ body {
 	font-size: 30px;
 }
 
-body .body1 {background-image:none;
+.body1 {background-image:none;
 	background-color: #666666;
 	font-family: "Courier New", Courier New, monospace;
 	width: 60%
@@ -89,3 +89,42 @@ body .font1 {color: #fff;
 }
 
 #my_h1 {font-size: 40px}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;}
+
+.img-circle {border-radius: 55%;}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: #528b8b;}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
