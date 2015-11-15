@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>iBursa students</title><!-- Bootstrap -->
+  <link href="../static/css/bootstrap.css" rel="stylesheet">
+  <link href="../static/css/style.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="back">
+  <div class="container center-block">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header"><button aria-controls="navbar"
+        aria-expanded="false" class="navbar-toggle collapsed" data-target=
+        "#navbar" data-toggle="collapse" type="button"><span class=
+        "sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+        <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+        <img hspace="10" src="../static/images/python-128.png" vspace="10"
+        width="30"></div>
+        <div class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">Main</a>
+            </li>
+            <li>
+              <a href="contact.html">Contacts</a>
+            </li>
+            <li>
+              <a href="student_list.html">Students</a>
+            </li>
+            <li class="active">
+              <a href="student_detail.html">Неплюев В.</a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container-fluid -->
+    </nav>
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <h2>Неплюев Вениамин</h2>
+      <img class="img-rounded" src="../static/images/nepluev.jpg" height="100" alt="Nepluev V."><br><br>
+      <div class="StudentTable">
+        <table class="table-hover">
+          <tr>
+            <td>Parameter</td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td>Surname</td>
+            <td>Неплюев</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Вениамин</td>
+          </tr>
+          <tr>
+            <td>Patronimyc</td>
+            <td>Альбертович</td>
+          </tr>
+          <tr>
+            <td>Birth date</td>
+            <td>Feb.19, 1976</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>г. Тюлячи, ул. Байдукова, дом 96, квартира 290</td>
+          <tr>
+            <td>e-mail</td>
+            <td>nepluy.v.kolodez@mail.ru</td>
+          </tr>
+          <tr>
+            <td>Skype</td>
+            <td>nepluy.v.kolodez</td>
+          </tr>
+          <tr>
+            <td>Average grade</td>
+            <td>85%</td>
+          </tr>
+          <tr>
+            <td>Rating</td>
+            <td>25</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div><!-- /container -->
+  <!-- Button trigger modal -->
+  <button class="btn btn-primary btn-lg center-block" data-target="#myModal"
+  data-toggle="modal" type="button">Student detail</button> <!-- Modal -->
+  <div aria-labelledby="myModalLabel" class="modal fade" id="myModal" role=
+  "dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button aria-label="Close" class="close" data-dismiss="modal" type=
+          "button"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title center" id="myModalLabel"><b>Student detail</b></h4>
+        </div>
+        <div class="modal-body">
+
+      <div class="StudentTable">
+        <table>
+          <tr>
+            <td>Course</td>
+            <td>Week</td>
+            <td>Control type</td>
+            <td>Grade</td>
+          </tr>
+          <tr>
+            <td rowspan="5">PY101 Introduction to Python</td>
+            <td rowspan="3">week 1</td>
+            <td>Tests</td>
+            <td>90%</td>
+          </tr>
+          <tr>
+            <td>Problem task #1</td>
+            <td>85%</td>
+          </tr>
+          <tr>
+            <td>Problem task #2</td>
+            <td>100%</td>
+          </tr>
+          <tr>
+          	<td rowspan="2">week 2</td>
+            <td>Tests</td>
+            <td>96%</td>
+          </tr>
+          <tr>
+            <td>Problem task #1</td>
+            <td>100%</td>
+          </tr>
+        </table>
+      </div>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal" type=
+          "button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src=
+  "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+  </script> 
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+   
+  <script src="../static/js/bootstrap.min.js">
+  </script>
+</body>
+</html>
