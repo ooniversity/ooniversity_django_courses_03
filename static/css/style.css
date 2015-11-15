@@ -52,17 +52,7 @@ body
 ||				3. Header
 ==================================================*/
 .header
-{
-	background: url('../images/multipage-header.jpg');
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	background-attachment: fixed;
-	height: 100vh;
-	color: #fff;
-	text-transform: uppercase;
 
-}
 			/*navbar*/
 .navbar-default .navbar-brand{
 	border: 1px solid #fff;
@@ -129,11 +119,7 @@ body
 	vertical-align: middle;
 	position: relative;
 }
-.header-table{
-	display: table;
-	height: 70vh;
-	width: 100%;
-}
+
 .header-title{
 	font-size: 50px;
 	letter-spacing: 10px;
@@ -233,20 +219,7 @@ body
 	overflow: hidden;
 	text-align: center;
 }
-.portfolio-img .port-item{
-	width: 100%;
-	height: auto;
-	transition: all .6s ease-in-out;
-}
-.portfolio-img:hover .portfolio-img-hover{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	transition: all .6s ease-in-out;
-	background: rgba(0, 0, 0, 0.5);
-}
+
 .portfolio-img-hover{
 
 }
@@ -257,9 +230,7 @@ body
 	display: inline-block;
 	padding-top: 25%;
 }
-.portfolio-img:hover .port-item{
-	transform: scale(1.1);
-}
+
 .portfolio-item-details{
 	margin: 20px 0px 50px; 
 }
