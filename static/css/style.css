@@ -229,3 +229,30 @@ footer a{
 .commands {
   margin-top: 150px;
 }
+
+.margin-top-block {
+  margin-top: 150px;
+}
+
+.detail-block {
+  margin-top: 70px;
+}
+
+.divider {
+  height: 2px;
+  overflow: hidden;
+  background-color: #303030;
+}
+
+.info-course li  {
+  background-color: #fff;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+}
+.info-course li  a:hover {
+  color: #843534;
+}
+.white {
+  background-color: #fff;
+}
