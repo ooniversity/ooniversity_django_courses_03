@@ -35,9 +35,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="/">Main</a></li>
-                    <li class="active"><a href="/contact/">Contacts</a></li>
+                    <li><a href="/contact/">Contacts</a></li>
                     <li><a href="/student_list/">Students</a></li>
-                    <li><a href="/instructors/">Instructors</a></li>
+                    <li class="active"><a href="/instructors/">Instructors</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -47,51 +47,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="dark-orange">Our command</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="../static/images/director.jpg" alt="image">
-                    <div class="caption">
-                        <h3 class="blue">Director</h3>
-                        <ul>
-                            <li>Name: <span class="red">Director</span></li>
-                            <li>Skype: <span class="green">Director.111</span></li>
-                            <li>Email: <span class="orange">example@gmail.com</span></li>
-                            <li>Phone: <span class="purple">0630000000</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="../static/images/manager.jpg" alt="image">
-                    <div class="caption">
-                        <h3 class="blue">Manager</h3>
-                        <ul>
-                            <li>Name: <span class="red">Manager</span></li>
-                            <li>Skype: <span class="green">Manager.111</span></li>
-                            <li>Email: <span class="orange">example@gmail.com</span></li>
-                            <li>Phone: <span class="purple">0630000000</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img src="../static/images/founder.jpg" alt="image">
-                    <div class="caption">
-                        <h3 class="blue">Founder</h3>
-                        <ul>
-                            <li>Name: <span class="red">Founder</span></li>
-                            <li>Skype: <span class="green">Founder.111</span></li>
-                            <li>Email: <span class="orange">example@gmail.com</span></li>
-                            <li>Phone: <span class="purple">0630000000</span></li>
-                        </ul>
-                    </div>
-                </div>
+                <h1 class="dark-orange">Instuctors</h1>
+                {% for poll in polls %}
+                    <p>{{ poll.name }} {{ poll.surname }}</p>
+                {% endfor %}
             </div>
         </div>
     </div>
