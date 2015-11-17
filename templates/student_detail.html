@@ -5,24 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hartsock William T.</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../static/images/favicon.ico" />
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
     <body class="sl-background">
     <!-- menu start -->  
         <nav class="navbar-fixed-top navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand" href="{% url 'index' %}">
                 <img class="sl-brand" alt="GodsBursa" src="../static/images/gb-logo.jpg">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a href="index.html">Main</a></li>
-                <li><a href="contact.html">Contacts</a></li>
-                <li><a href="student_list.html">Students</a></li>
+                <li><a href="{% url 'index' %}">Main</a></li>
+                <li><a href="{% url 'contact' %}">Contacts</a></li>
+                <li><a href="{% url 'student_list' %}">Students</a></li>
                 </li>
               </ul>
             </div>
@@ -83,7 +84,7 @@
              </table>     
             </div>
         	<div class="col-lg-4">
-                <img src="../static/images/students/01.jpg" alt="artsock William T. photo" class="pull-right img-responsive img-circle">
+                <img src="{% static 'images/students/01.jpg' %}" alt="artsock William T. photo" class="pull-right img-responsive img-circle">
             </div>
         </header>
     <div class="jumbotron">
@@ -135,7 +136,7 @@
     <div class="navbar-fixed-bottom row-fluid">
       <div class="panel-footer sl-footer">&copy; Stalker inc., 2015+</div>
     </div>
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>

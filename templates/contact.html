@@ -5,24 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contacts</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../static/images/favicon.ico" />
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
     <body class="sl-background">
     <!-- menu start -->  
         <nav class="navbar-fixed-top navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="index.html">
+              <a class="navbar-brand" href="{% url 'index' %}">
                 <img class="sl-brand" alt="GodsBursa" src="../static/images/gb-logo.jpg">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a href="index.html">Main</a></li>
-                <li class="active"><a href="contact.html">Contacts<span class="sr-only">(current)</span></a></li>
-                <li><a href="student_list.html">Students</a></li>
+                <li><a href="{% url 'index' %}">Main</a></li>
+                <li class="active"><a href="{% url 'contact' %}">Contacts<span class="sr-only">(current)</span></a></li>
+                <li><a href="{% url 'student_list' %}">Students</a></li>
               </ul>
             </div>
           </div>
@@ -34,7 +35,7 @@
        <div class="media">
           <div class="media-left">
             <a href="#">
-              <img class="media-object" src="../static/images/founder-ph.jpg" alt="Tony Stark">
+              <img class="media-object" src="{% static 'images/founder-ph.jpg' %}" alt="Tony Stark">
             </a>
           </div>
           <div class="media-body">
@@ -56,7 +57,7 @@
         <div class="media">
           <div class="media-left">
             <a href="#">
-              <img class="img-circle" src="../static/images/director-ph.jpg" alt="Thor">
+              <img class="img-circle" src="{% static 'images/director-ph.jpg' %}" alt="Thor">
             </a>
           </div>
           <div class="media-body">
@@ -70,7 +71,7 @@
           </div>
           <div class="media-left">
             <a href="#">
-              <img class="img-circle" src="../static/images/manager-ph.jpg" alt="Hulk">
+              <img class="img-circle" src="{% static 'images/manager-ph.jpg' %}" alt="Hulk">
             </a>
           </div>
           <div class="media-body">
@@ -88,7 +89,7 @@
     <div class="navbar-fixed-bottom row-fluid">
       <div class="panel-footer sl-footer">&copy; Stalker inc., 2015+</div>
     </div>
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>
