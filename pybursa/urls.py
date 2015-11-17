@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^contact/$', hello_python),
     url(r'^student_list/$', student_list),
     url(r'^student_detail/$', student_detail),
-    url(r'^instructors/$', 'polls.views.instructors_list'),
+    url(r'^polls/$', include('polls.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
 ]
