@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>PyBursa contacts</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="shortcut icon" href="../static/images/python.ico" type="image/x-icon">
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+    <link rel="shortcut icon" href="{% static 'images/python.ico' %}" type="image/x-icon">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
   </head>
   <body>
   <nav class="navbar navbar-inverse">
@@ -19,9 +23,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="index.html">Main</a></li>
-          <li class="active"><a href="contact.html">Contacts</a></li>
-          <li><a href="student_list.html">Students</a></li>
+          <li><a href="{% url'index' %}">Main</a></li>
+          <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+          <li><a href="{% url 'student_list' %}">Students</a></li>
           </li>
         </ul>
    
@@ -40,7 +44,7 @@
     <h3 id="team2">Именно они будут твоими проводниками в IT</h3>  <!-- Three columns of text below the carousel -->
     <div class="row">
       <div class="col-lg-4">
-        <img class="img-circle" src="../static/images/pavel.jpg" alt="Generic placeholder image" width="140" height="140">
+        <img class="img-circle" src="{% static 'images/pavel.jpg' %}" alt="Generic placeholder image" width="140" height="140">
         <h2 id="founder">Founder</h2>
         <p class="name">Name: Павел Обод</p>
         <p>Skype: azaless</p>
@@ -50,7 +54,7 @@
         
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img class="img-circle" src="../static/images/alena.jpg" alt="Generic placeholder image" width="140" height="140">
+        <img class="img-circle" src=".{% static 'images/alena.jpg' %}" alt="Generic placeholder image" width="140" height="140">
         <h2 id="manager">Manager</h2>
         <p class="name">Name: Алена Чайка</p>
         <p>Skype: alena.itbursa</p>
@@ -59,7 +63,7 @@
         
         </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <img class="img-circle" src="../static/images/daria.jpg" alt="Generic placeholder image" width="140" height="140">
+        <img class="img-circle" src="{% static 'images/daria.jpg' %}" alt="Generic placeholder image" width="140" height="140">
         <h2 id="director">Director</h2>
         <p class="name">Name: Дария Михалевич</p>
         <p>Skype: darka.darka.darka.darka</p>
@@ -73,6 +77,6 @@
   <div class="alert alert-warning" role="alert">Поторопись!</div><!-- /.row -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
 </html>
