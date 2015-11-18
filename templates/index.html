@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +7,8 @@
     <title>Home page</title>
         <meta name="description" content="">
 	<meta name="keywords" content="">
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -25,9 +27,9 @@
                     <h3 class="masthead-brand">PyBursa</h3>
                     <nav>
                         <ul class="nav masthead-nav">
-                            <li class="active"><a href="index.html"> Main </a></li>
-                            <li><a href="student_list.html"> Students </a></li>
-                            <li><a href="contact.html"> Contacts </a></li>
+                            <li class="active"><a href="{% url 'main' %}"> Main </a></li>
+                            <li><a href="{% url 'students_list' %}"> Students </a></li>
+                            <li><a href="{% url 'contact' %}"> Contacts </a></li>
                         </ul>
                     </nav>
                 </div>
@@ -111,7 +113,7 @@
 </footer>
 <!-- start scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="../static/js/bootstrap.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 <!--/ end scripts -->
 </body>
 </html>
