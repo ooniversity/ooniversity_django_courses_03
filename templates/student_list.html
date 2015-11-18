@@ -61,7 +61,7 @@
           </thead>
           <tbody>
             <tr>
-              <td scope="row"><a href="student_detail.html">1</a></td>
+              <td scope="row"><a href="{% url 'student_detail' %}">1</a></td>
               <td>Surname_1</td>
               <td>Name_1</td>
               <td>Address_1</th>
@@ -114,7 +114,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
     
   </body>
 </html>
