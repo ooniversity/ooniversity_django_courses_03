@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from polls.views import hello, contact, student, best
+from pybursa.views import hello, contact, student, best
 
 urlpatterns = patterns('',
     url(r'^polls/', include('polls.urls', namespace="polls")),
