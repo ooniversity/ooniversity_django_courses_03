@@ -6,8 +6,8 @@ def index(request):
 def contact(request):
 	return render(request, 'contact.html')
 
-def student(request):
+def student_list(request):
 	return render(request, 'student_list.html')
 
-def best(request):
+def student_detail(request):
 	return render(request, 'student_detail.html')
