@@ -8,17 +8,18 @@
     <title>HyperStudentsList</title>
 
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    {% load static from staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 
     
   </head>
   <body>
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="student_list.html">Students</a></li>
-      <li role="presentation"><a href="index.html">Main</a></li>
-      <li role="presentation"><a href="contact.html">Contacts</a></li>
+      <li role="presentation" class="active"><a href="{% url 'student_list' %}">Students</a></li>
+      <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+      <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
     </ul>
     <h2>Студенты PyBursa</h2>
     <p>Список студентов:</p>
@@ -30,7 +31,7 @@
         <th>Skype</th>
       <tbody>
         <tr class="active">
-          <td><a href="student_detail.html">1</a></td>
+          <td><a href="{% url 'student_detail' %}">1</a></td>
           <td>Faulkner</td>
           <td>William</td>
           <td>Украина, г.Харьков, ул. Пушкинская д.5 кв.1</td>
@@ -74,6 +75,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    {% load static from staticfiles %}
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
