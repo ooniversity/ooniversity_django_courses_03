@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Students</title>
-
+	{% load staticfiles %}
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,9 +28,9 @@
         </div>
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><a class="top_bar" href="index.html">Main</a></li>
-            <li><a class="top_bar" href="contact.html">Contacts</a></li>
-            <li class="active"><a class="top_bar" href="student_list.html">Students</a></li>
+            <li><a class="top_bar" href="{% url 'index' %}">Main</a></li>
+            <li><a class="top_bar" href="{% url 'contact' %}">Contacts</a></li>
+            <li class="active"><a class="top_bar" href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </div>
         </nav>
@@ -44,7 +44,8 @@
       <div class="page-header">
         <h1 class="descr">Студенты кypca PyBursa</h1>
         <div class="jumbotron">
-          <table class="my_table">
+		<div class="panel panel-default">
+          <table class="table my_table">
         <tbody>
         <tr class="t_head">
           <th>
@@ -65,7 +66,7 @@
         </tr>
         <tr>
           <td class="numbers">
-            <a href="student_detail.html">1</a>
+            <a href="{% url 'student_detail' %}">1</a>
           </td>
           <td>
             Дидиченко
@@ -236,6 +237,7 @@
         
         </tbody>
       </table>
+		</div>
         </div>
       </div>
     </div>
@@ -249,14 +251,14 @@
 
     <nav class="container">
     <ul class="pager">
-      <li class="previous"><a href="index.html"><span aria-hidden="true">&larr;</span>Main</a></li>
+      <li class="previous"><a href="{% url 'index' %}"><span aria-hidden="true">&larr;</span>Main</a></li>
       
     </ul>
     </nav>
-    -->
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
