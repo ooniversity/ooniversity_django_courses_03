@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
-def hello(request):
+def index(request):
 	return render(request, 'index.html')
 
-def hello_python(request):
+def contact(request):
 	return render(request, 'contact.html')
 
 def student_list(request):
