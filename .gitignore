@@ -1,4 +1,5 @@
-**.pyc
-*~
+# python precompiled files:
+*.pyc
 *.pyo
+*~
 .idea/
