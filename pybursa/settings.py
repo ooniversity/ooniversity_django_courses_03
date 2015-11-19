@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
+    'quadratic',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,6 +87,3 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-
-
-
