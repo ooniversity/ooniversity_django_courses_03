@@ -5,20 +5,18 @@ from django.views import generic
 
 from polls.models import Choice, Question
 
-
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
-           """Return the last five published questions."""
+        """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
-
 
 class ResultsView(generic.DetailView):
     model = Question
@@ -41,3 +39,11 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+
+def detail(request, question_id):
+    try:
+        question = Question.objects.get(pk=question_id)
+    except Question.DoesNotExist:
+        raise Http404("Question does not exist")
+    return render(request, 'polls/detail.html', {'question': question}
+

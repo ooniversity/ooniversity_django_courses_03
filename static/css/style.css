@@ -1,5 +1,5 @@
 #pb {color:#290701;}
-.topping_index {background-color:#EBEBE3;margin-top:35px;border:none;height:30px;}
+.topping_index {background-color:#EBEBE3;margin-top:20px;border:none;height:30px;}
 .des {color:#290701;}
 .panel-default .panel-heading .py_program {color:#290701;background-color:#f0ad4e;}
 .jumbotron .container .head {color:#290701;}
@@ -14,7 +14,8 @@
 .table-responsive .them {background-color:#D7D7D0; opacity:1;color:#290701;}
 
 
-.topping_contacts {background-color:#EBEBE3;margin-top:35px;border:none;height:30px;}
+
+.topping_contacts {background-color:#EBEBE3;margin-top:20px;border:none;height:30px;}
 .thumbnail .imgd {width:150px;height:160px;border-radius: 40px;}
 .thumbnail .imgm {width:150px;height:200px;border-radius: 40px;}
 .thumbnail .imgf {width:150px;height:160px;border-radius: 40px;}
@@ -28,7 +29,8 @@
 .page-header .contact-head {color:#290701; margin-left:30px;}
 .below-contact {color:#290701; margin-left:30px;}
 
-.topping_students {background-color:#EBEBE3;margin-top:35px;border:none;height:30px;}
+
+.topping_students {background-color:#EBEBE3;margin-top:20px;border:none;height:30px;}
 .page-header .student-head {color:#290701; margin-left:30px;}
 .below-header {color:#290701; margin-left:30px;}
 .panel-default .panel-heading .course_program {color:#290701;background-color:#f0ad4e;margin-left:15px;}
@@ -39,7 +41,8 @@
 
 
 
-.topping_details {background-color:#EBEBE3;margin-top:35px;border:none;height:30px;}
+
+.topping_details {background-color:#EBEBE3;margin-top:20px;border:none;height:30px;}
 .page-header .person-head {color:#290701; margin-left:30px;margin-top:0px;}
 .below-person {color:#290701; margin-left:30px;}
 .self_photo {border-radius:40px;margin-left:30px;height:300px;width:250px;}
