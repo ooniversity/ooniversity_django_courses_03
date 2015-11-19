@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Self_info</title>
+    <!-- Bootstrap -->
+    {% load staticfiles %}
++    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
++    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<hr class="topping_details"></hr>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+      <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index'%}">Main</a>
+      <a class="navbar-brand" href="{% url 'contact'%}">Contacts</a>
+      <a class="navbar-brand" href="{% url 'student_list'%}">Students</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="page-header">
+  <h1 class="person-head">Moroz Kostyantin</h1>
+</div>
+<img src="../static/images/myself.jpg" class="self_photo">
+<div class="self_info"><p class="self_info_text">About Student</p></div>  
+</div>
+<div class="study_table">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h2 class="self_course_program" >Student's card</h2></div>
+
+<table class="table table-hover">
+  <tr class="head_self_table"><td><h3>Name</h3></td><td><h3>Kostyantin</h3></td></tr>
+  <tr class="head_self_table"><td><h3>Surname</h3></td><td><h3>Moroz</h3></td></tr>
+<tr class="head_self_table"><td><h3>Patronymic</h3></td><td><h3>Igorevich</h3></td></tr>
+<tr class="head_self_table"><td><h3>Birth Date</h3></td><td><h3>October, 15</h3></td></tr>
+<tr class="head_self_table"><td><h3> Address</h3></td><td><h3>Ukraine, Kharkiv, Velika Kilceva str.</h3></td></tr>
+<tr class="head_self_table"><td><h3>E-mail</h3></td><td><h3>k_moroz@hotmail.com</h3></td></tr>
+<tr class="head_self_table"><td><h3>Skype</h3></td><td><h3>Kostyaf1777</h3></td></tr>
+</table>
+
+</div>
+</div>
+<div class="study_table">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h2 class="self_raiting" >Performance</h2></div>
+
+<table class="table table-responsive">
+  <tr class="raiting_head"><td><h3>Course</h3></td><td><h3>Week</h3></td><td><h3>Task</h3></td><td><h3>Average Grade</h3></td><td><h3>Rating</h3></td></tr>
+  <tr class="raiting_row"><td><h3>PY101</h3></td><td><h3>week1</h3></td><td><h3>Tests</h3></td><td><h3>100%</h3></td><td><h3>.</h3></td></tr>
+  <tr class="raiting_row"><td><h3>.</h3></td><td><h3>.</h3></td><td><h3>Problem Task 1</h3></td><td><h3>100%</h3></td><td><h3>.</h3></td></tr>
+  <tr class="raiting_row"><td><h3>.</h3></td><td><h3>.</h3></td><td><h3>Problem Task 2</h3></td><td><h3>100%</h3></td><td><h3>.</h3></td></tr>
+  <tr class="raiting_row"><td><h3>.</h3></td><td><h3>week2</h3></td><td><h3>Tests</h3></td><td><h3>100%</h3></td><td><h3>.</h3></td></tr>
+  <tr class="raiting_row"><td><h3>.</h3></td><td><h3>.</h3></td><td><h3>Problem Task 1</h3></td><td><h3>100%</h3></td><td><h3>.</h3></td></tr>
+  <tr class="raiting_row"><td><h3>.</h3></td><td><h3>.</h3></td><td><h3>Problem Task 2</h3></td><td><h3>100%</h3></td><td><h3>1200</h3></td></tr>
+</table>
+
+</div>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+  </body>
+</html>
+
