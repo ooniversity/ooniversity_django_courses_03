@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="../static/js/bootstrap.js"> </script>
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/style.css">
     <title>Student list</title>
+    {% load staticfiles %}
+    <script src="{% static 'js/bootstrap.js' %}"> </script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <div id="menu">
         <ul class="nav nav-pills">
-            <li role="presentation"><a href="index.html">Main</a></li>
-            <li role="presentation"><a href="contact.html">Contacts</a></li>
-            <li role="presentation"  class="active"><a href="student_list.html">Students</a></li>
+            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li role="presentation"  class="active"><a href="{% url 'student_list' %}">Students</a></li>
         </ul>
     </div>
     <div class="jumbotron">
@@ -32,7 +33,7 @@
             <th>Skype</th>
         </tr>
         <tr>
-            <td><a href="student_detail.html"> 1 </a></td>
+            <td><a href="{% url 'student_detail' %}"> 1 </a></td>
             <td>Alena</td>
             <td>Persianova</td>
             <td>Ukraine</td>

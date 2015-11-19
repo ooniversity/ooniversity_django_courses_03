@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="../static/js/bootstrap.js"> </script>
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-
     <title>Contact</title>
+
+    {% load staticfiles %}
+    <script src="{% static 'js/bootstrap.js' %}"> </script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
     <div id="menu">
         <ul class="nav nav-pills">
-            <li role="presentation"><a href="index.html">Main</a></li>
-            <li role="presentation" class="active"><a href="contact.html">Contacts</a></li>
-            <li role="presentation"><a href="student_list.html">Students</a></li>
+            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+            <li role="presentation"  class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li role="presentation"><a href="{% url 'student_list' %}">Students</a></li>
         </ul>
     </div>
 
