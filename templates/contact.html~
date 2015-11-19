@@ -26,7 +26,7 @@
     <div class="column">
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="{% static 'images/darka.jpg' %}" alt="center" width="50%" height="50%">
+          <img src="../static/images/darka.jpg" alt="center" width="50%" height="50%">
           <div class="caption">
             <div class="page-header">
               <h2>Дария Михалевич    <small>Manager</small>
@@ -42,7 +42,7 @@
     <div class="column">
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="{% static 'images/pasha.jpg' %}" alt="center" width="50%" height="50%">
+          <img src="../static/images/pasha.jpg" alt="center" width="50%" height="50%">
           <div class="caption">
             <div class="page-header">
               <h2>Павел Обод    <small>Founder</small>
@@ -57,7 +57,7 @@
     <div class="column">
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="{% static 'images/alena.jpg' %}" alt="center" width="50%" height="50%">
+          <img src="../static/images/alena.jpg" alt="center" width="50%" height="50%">
           <div class="caption">
             <div class="page-header">
               <h2>Татьяна Орехова    <small>Director</small>
@@ -71,6 +71,6 @@
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
   </body>
 </html>
