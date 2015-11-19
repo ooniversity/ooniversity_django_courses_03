@@ -4,7 +4,7 @@ from .views import index, contact, student_list, student_detail
 
 urlpatterns = [
     url(r'^$', index, name='index'),
-    url(r'^contact/$', contact , name='contact'),
+    url(r'^contact/$', contact, name='contact'),
     url(r'^student_list/$', student_list, name='student_list'),
     url(r'^student_detail/$', student_detail, name='student_detail'),
     url(r'^polls/', include('polls.urls', namespace="polls")),
