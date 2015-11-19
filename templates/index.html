@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="../static/js/bootstrap.js"> </script>
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-
     <title>INDEX</title>
+    {% load staticfiles %}
+    <script src="{% static 'js/bootstrap.js' %}"> </script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <div id="menu">
         <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="index.html">Main</a></li>
-            <li role="presentation"><a href="contact.html">Contacts</a></li>
-            <li role="presentation"><a href="student_list.html">Students</a></li>
+            <li role="presentation"  class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li role="presentation"><a href="{% url 'student_list' %}">Students</a></li>
         </ul>
     </div>
     <div class="jumbotron">
@@ -21,7 +21,7 @@
         <h2 class="center">Description</h2>
         <p class="center"> It is a very powerful and good courses </p>
         <p class="center">If you want to know all about Python - ask our expert!</p>
-        <p class="center"><a class="btn btn-primary btn-lg" href="contact.html" role="button">Ask </a></p>
+        <p class="center"><a class="btn btn-primary btn-lg" href="{% url 'contact' %}" role="button">Ask </a></p>
     </div>
     <div class="page-header">
         <h1 class="center"> <span class="label label-info">We are glad to see you on our site</span> </h1>
