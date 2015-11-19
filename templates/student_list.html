@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,8 +9,8 @@
 		<title>Students</title>
 
     <!-- Bootstrap -->
-		<link href="../static/css/bootstrap.css" rel="stylesheet">
-		<link href="../static/css/style.css" rel="stylesheet">
+		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,9 +23,9 @@
 		<nav class="navbar navbar-default navbar-static-top">
 	  		<div class="container">
 				<ul class="nav navbar-nav">
-			        <li><a href="index.html">Main</a></li>
-			        <li><a href="contact.html">Contacts</a></li>
-			        <li class="active"><a href="student_list.html">Students</a></li>
+			        <li><a href="{% url 'index' %}">Main</a></li>
+			        <li><a href="{% url 'contact' %}">Contacts</a></li>
+			        <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
 				</ul>
 	  		</div>
 		</nav>
@@ -32,17 +33,17 @@
 			<h2 class="course">Преподователи курса</h2>
 			<div class="row placeholders">
 				<div class="col-xs-6 col-sm-4 placeholder">
-					<img src='../static/images/prepod1.jpg' data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+					<img src="{% static 'images/prepod1.jpg' %}" data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
 					<h4>John Smith</h4>
 					<span class="text-muted">Python developer</span>
 				</div>
 				<div class="col-xs-6 col-sm-4 placeholder">
-					<img src='../static/images/prepod2.jpg' data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+					<img src="{% static 'images/prepod2.jpg' %}" data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
 					<h4>Nathaniel Black</h4>
 					<span class="text-muted">JS developer</span>
 				</div>
 				<div class="col-xs-6 col-sm-4 placeholder">
-					<img src='../static/images/prepod3.jpg' data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+					<img src="{% static 'images/prepod3.jpg' %}" data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
 					<h4>Chandler Bing</h4>
 					<span class="text-muted">PHP developer</span>
 				</div>   
@@ -89,7 +90,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><a href="student_detail.html">1</a></td>
+							<td><a href="{% url 'student_detail' %}">1</a></td>
 							<td>Petrov</td>
 							<td>Vladimir</td>
 							<td>Kharkiv, Dovgenko 32-214</td>
@@ -131,6 +132,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,8 +9,8 @@
     <title>Contacts</title>
 
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-		<link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,9 +23,9 @@
 		<nav class="navbar navbar-default navbar-static-top">
 			<div class="container">
 				<ul class="nav navbar-nav">
-					<li><a href="index.html">Main</a></li>
-					<li class="active"><a href="contact.html">Contacts</a></li>
-					<li><a href="student_list.html">Students</a></li>
+					<li><a href="{% url 'index' %}">Main</a></li>
+					<li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+					<li><a href="{% url 'student_list' %}">Students</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -40,7 +41,7 @@
 				<hr>
 				<h2 class='possition'>Director</h2>
 				<table class='table'>
-					<tr><td><img src='../static/images/manager.png'></td>
+					<tr><td><img src="{% static 'images/manager.png' %}"></td>
 					<td><p class='name'>Name: Anton Chehov</p>
 					<p class='name'>Skype: anton.chehov</p>
 					<p class='name'>Email: anton.chehov@gmail.com</p>
@@ -50,7 +51,7 @@
 			<div>
 				<h2 class='possition'>Manager</h2>
 				<table class='table'>
-					<tr><td><img src='../static/images/pic.jpg'></td>
+					<tr><td><img src="{% static 'images/pic.jpg' %}"></td>
 					<td><p class='name'>Name: Taras Bulba</p>
 					<p class='name'>Skype: taras.bulba</p>
 					<p class='name'>Email: taras.bulba@gmail.com</p>
@@ -60,7 +61,7 @@
 			<div>
 				<h2 class='possition'>Founder</h2>
 				<table class='table'>
-					<tr><td><img src='../static/images/image.jpg'></td>
+					<tr><td><img src="{% static 'images/image.jpg' %}"></td>
 					<td><p class='name'>Name: Lev Tolstoy</p>
 					<p class='name'>Skype: lev.tolstoy</p>
 					<p class='name'>Email: lev.tolstoy@gmail.com</p>
@@ -72,7 +73,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
 
