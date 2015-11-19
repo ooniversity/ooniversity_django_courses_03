@@ -1,19 +1,14 @@
 from django.shortcuts import render
 
-def hello(request):
+def index(request):
 	return render(request, 'index.html')
 
-def home(request):
-	return render(request, 'index.html')
-
-def contacts(request):
+def contact(request):
 	return render(request, 'contact.html')
 
-def students(request):
+def student_list(request):
 	return render(request, 'student_list.html')
 
-def student_details(request):
+def student_detail(request):
 	return render(request, 'student_details.html')
 
-def hello_python(request):
-	return HttpResponse("Hello Python!!!")

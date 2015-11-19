@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from pybursa.views import hello, hello_python, home, contacts, students, student_details
+from pybursa.views import index, contact, student_list, student_detail
 
 urlpatterns = patterns('',
     # Examples:
@@ -8,10 +8,10 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-	url(r'^main/$', home),
-	url(r'^contacts/$', contacts),
-	url(r'^students/$', students), 
-	url(r'^student_details/$', student_details),
+	url(r'^$', index, name='index'),
+	url(r'^contact/$', contact, name='contact'),
+	url(r'^student_list/$', student_list, name='student_list'), 
+	url(r'^student_detail/$', student_detail, name='student_detail'),
 	url(r'^polls/', include('polls.urls', namespace="polls")),
 )
 
