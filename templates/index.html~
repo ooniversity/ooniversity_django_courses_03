@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-	{% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +9,7 @@
     <meta name="author" content="">
 		<linc href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    <title>Contacts</title>
+    <title>Main</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -44,8 +43,8 @@
 		      </div>
 		      <div id="navbar" class="navbar-collapse collapse">
 		        <ul class="nav navbar-nav">
-		  	      <li><a href="{% url 'index' %}">Main</a></li>
-		          <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+		  	      <li class="active"><a href="{% url 'index' %}">Main</a></li>
+		          <li><a href="{% url 'contact' %}">Contacts</a></li>
 		          <li><a href="{% url 'student_list' %}">Students</a></li>
 		        </ul>
 		      </div>
@@ -53,42 +52,22 @@
 		  </nav>
 		</div>
 	</div>
-	
 	<hr class="featurette-divider">
-  <div class="row featurette">
-		<div class="col-md-7 col-md-push-1">
-	  	<h2 class="featurette-heading" align=center>Our contacts</h2>
-			<hr/>
-			<h2 class="red">Director</h2>
-			<img class="featurette-image img-responsive center-block" src="{% static 'images/avatar.png' %}" align=right>
-			<p class="t_name">Name:<span class="name">Pavel</span></p>
-			<p class="t_skype">Skype:<span class="skype">Pavel</span></p>
-			<p class="t_mail">Email:<span class="mail">adres_1@gmail.com</span></p>
-			<p class="t_tel">Phone:<span class="tel">0123456780</span></p>
-
-			<hr/>
-			<h2 class="red">Manager</h2>
-			<img class="featurette-image img-responsive center-block" src="{% static 'images/avatar.png' %}" align=right>
-			<p class="t_name">Name:<span class="name">Daria</span></p>
-			<p class="t_skype">Skype:<span class="skype">Daria</span></p>
-			<p class="t_mail">Email:<span class="mail">adres_2@gmail.com</span></p>
-			<p class="t_tel">Phone:<span class="tel">0123456788</span></p>
-
-			<hr/>
-			<h2 class="red">Founder</h2>
-			<img class="featurette-image img-responsive center-block" src="{% static 'images/avatar.png' %}" align=right>
-			<p class="t_name">Name:<span class="name">Noname</span></p>
-			<p class="t_skype">Skype:<span class="skype">Noname</span></p>
-			<p class="t_mail">Email:<span class="mail">adres_3@gmail.com</span></p>
-			<p class="t_tel">Phone:<span class="tel">0123456787</span></p>
+	<div class="row featurette">
+	  <div class="col-md-7 col-md-push-1">
+			<h2>Description</h2>
+	    <h2 class="featurette-heading" align=center>Program <span class="text-muted">PyBursa</span></h2>
+      <p class="lead">Курс подразумевает, что студенты уже освоили базовый python. 
+В рамках курса даются азы html/css, достаточные для формирования html страниц браузеру, но не достаточные для профессиональной верстки.
+Глубина освоения django будет достаточной для самостоятельного написания web-проектов, которые содержат редактируемые страницы, структуру специфических данных, отображение их на фронтенде и создание-редактирование этих данных.
+Все разделы django будут освещены.</p>
 		</div>
-	</div>
+    <div class="col-md-5">
+	    <img src="{% static 'images/python-logo.png' %}" alt="Generic placeholder image">
+    </div>
+  </div>
 	<hr class="featurette-divider">
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-   <script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="{% static 'js/vendor/holder.min.js' %}"></script>
@@ -96,4 +75,3 @@
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
   </body>
 </html>
-
