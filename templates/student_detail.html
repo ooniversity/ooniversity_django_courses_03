@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>Student</title>
+
+    <!-- Bootstrap -->
+		<link href="../static/css/bootstrap.css" rel="stylesheet">
+		<link href="../static/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-static-top">
+	  		<div class="container">
+				<ul class="nav navbar-nav">
+			        <li><a href="index.html">Main</a></li>
+			        <li><a href="contact.html">Contacts</a></li>
+			        <li class="active"><a href="student_list.html">Students</a></li>
+				</ul>
+	  		</div>
+		</nav>
+		<div class ='container'>
+			<div class="page-header">
+				<h2 class="course">Petrov Vladimir</h2>
+				<div class="alert alert-success" role="alert">
+					<p>Студент курса Pybursa</p>
+				</div>
+			</div>
+			<img src="../static/images/student.jpg">
+			<div>
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Общая информация</a></li>
+					<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Успеваемость</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="home">
+						<p>Владимир Петров является студентом PyBursa #2.</p>
+						<p>Проживает в городе Харьков.</p> 
+					</div>
+					<div role="tabpanel" class="tab-pane" id="profile">
+						<p class="text-nowrap">Владимир Петров окончил курсы со средним баллом 9.7</p>
+						<p>Его работы за время обучения можно посмотреть на его страничке GitHub</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Surname</th>
+							<th>Name</th>
+							<th>Patronymic</th>
+							<th>Birth Date</th>
+							<th>Address</th>
+							<th>E-mail</th>
+							<th>Skype</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Petrov</td>
+							<td>Vladimir</td>
+							<td>Vladimirovich</td>
+							<td>26.10.1982</td>
+							<td>Kharkiv, Dovgenko 32-214</td>
+							<td>vladimir.petrov@gmail.com</td>
+							<td>vladimir.petrov</td>
+						</tr>
+					</tbody>
+				</table>
+			
+			<hr>
+
+			<h3 class="text-center">Успеваемость и рейтинг</h3>
+
+			<div class="table-responsive">
+				<table class="table-condensed">
+					<thead>
+						<tr>
+							<th>Problem Task</th>
+							<th>Tests</th>
+							<th>Problem Task</th>
+							<th>Tests</th>
+							<th>Average Grade</th>
+							<th>Rating</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>97%</td>
+							<td>100%</td>
+							<td>98%</td>
+							<td>100%</td>
+							<td>98%</td>
+							<td>4</td>
+						</tr>
+					</tbody>
+				</table>
+			<p class='glyphicon-ok'>To get more ditails please connect with us</p>
+		</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../static/js/bootstrap.js"></script>
+  </body>
+</html>
