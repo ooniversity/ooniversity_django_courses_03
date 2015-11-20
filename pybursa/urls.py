@@ -3,9 +3,7 @@ from django.contrib import admin
 from pybursa.views import index, contact, student_list, student_detail
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'pybursa.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    
     url(r'^$', views.index, name='index'),
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^student_list/$', views.student_list, name='student_list'),
