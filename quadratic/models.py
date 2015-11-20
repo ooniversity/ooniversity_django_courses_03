@@ -34,15 +34,12 @@ class QuadraticEquation(object):
             c = self.data['c']
             self.data['d'] = b * b - 4 * a * c
             if self.data['d'] < 0:
-                self.result['description'] = 'Дискриминант меньше нуля,' + \
-                ' квадратное уравнение не имеет  действительных решений.'
+                self.result['description'] = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
             elif self.data['d'] == 0:
-                self.result['description'] = 'Дискриминант равен нулю,' + \
-                ' квадратное уравнение имеет один действительный корень:'
+                self.result['description'] = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:'
                 self.result['x1'] = - b / 2.0 / a
             elif self.data['d'] > 0:
-                self.result['description'] = 'Квадратное уравнение имеет' + \
-                ' два действительных корня:'
+                self.result['description'] = 'Квадратное уравнение имеет два действительных корня:'
                 self.result['x1'] = (-b + sqrt(self.data['d']))/ 2.0 / a   
                 self.result['x2'] = (-b - sqrt(self.data['d']))/ 2.0 / a 
         
