@@ -43,8 +43,7 @@ def results(request):
             break
     if d:
         data.update(get_quadratic ((data['a'], data['b'], data['c'])))
-        print data
+        data['discr'] = True
+    else:
+        data['discr'] = False
     return render_to_response('quadratic/results.html', data)
-
-#    return render_to_response('quadratic/results.html',
-#                               {'a': a, 'b': b, 'c' : c, 'm': 'rrrrrrrrrrrr'})
