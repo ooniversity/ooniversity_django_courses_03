@@ -11,8 +11,8 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 	  <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-    <script type="text/javascript" src="../static/js/mine.js"></script>
+    <script src="{% static 'assets/js/ie-emulation-modes-warning.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/mine.js' %}"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     
   </head>
@@ -86,10 +86,10 @@
       				<ul>
       					<ul>
       						<h3 class="end_of_course">По окончанию курсов вы будете точно...<h3>
-							<li>следовать zen-python, писать правильный python-код согласно лучшим практикам</li>
-							<li>разрабатывать серверный бекенд веб-приложений на современном языке</li>
-							<li>реализовывать и разворачивать полноценный веб-проект на python/django</li>
-							<li>Вложив средства в своё образование, Вы сможете окупить обучение уже на первой зарплате</li>
+      							<li>следовать zen-python, писать правильный python-код согласно лучшим практикам</li>
+      							<li>разрабатывать серверный бекенд веб-приложений на современном языке</li>
+      							<li>реализовывать и разворачивать полноценный веб-проект на python/django</li>
+      							<li>Вложив средства в своё образование, Вы сможете окупить обучение уже на первой зарплате</li>
       					</ul>
       				</ul>
       			</div>
@@ -154,9 +154,5 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
