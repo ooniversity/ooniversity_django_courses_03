@@ -3,14 +3,8 @@
 	font-family: Arial;
 	font: bold italic 120% serif;
 }
-.list{
-	font: normal small-caps 14px/16px fantasy;
-}
-.list2{
-	font: bold italic 110% serif;
-}
-.list3{
-	font: 12pt/10pt sans-serif;
+#student_name{
+	text-align:  center;
 }
 .pybursa{
     text-align:  center;
