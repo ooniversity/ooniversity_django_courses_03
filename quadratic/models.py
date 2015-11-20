@@ -8,7 +8,7 @@ class QuadraticEquation(object):
             try:
                 self.data[key] = int(self.data[key])
                 if self.data[key] == 0 and key=='a':
-                    self.errors[key] = 'коэффициент при первом слагаемом  уравнения не может быть равным нулю'
+                    self.errors[key] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
                     self.has_error = True 
             except:
                 self.errors[key] = 'коэффициент не целое число'
