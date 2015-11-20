@@ -44,10 +44,10 @@ def quadratic_results(request):
     if output_request['calculate']:
         output_request['D'] = output_request['b']**2 - 4*output_request['a']*output_request['c']
         if output_request['D'] > 0:
-            output_request['x1'] = (-output_request['b'] + math.sqrt(output_request['D']))/(2*output_request['a'])
-            output_request['x2'] = (-output_request['b'] - math.sqrt(output_request['D']))/(2*output_request['a'])
+            output_request['x1'] = float((-output_request['b'] + math.sqrt(output_request['D']))/(2*output_request['a']))
+            output_request['x2'] = float((-output_request['b'] - math.sqrt(output_request['D']))/(2*output_request['a']))
         elif output_request['D'] == 0:
-            output_request['x1'] = output_request['x2'] = -output_request['b'] / 2*output_request['a']
+            output_request['x1'] = output_request['x2'] = float(-output_request['b'] / 2*output_request['a'])
         elif output_request['D'] < 0:
             output_request['x1'] = complex((-output_request['b'] + cmath.sqrt(output_request['D']))/(2*output_request['a']))
             output_request['x2'] = complex((-output_request['b'] - cmath.sqrt(output_request['D']))/(2*output_request['a']))    
