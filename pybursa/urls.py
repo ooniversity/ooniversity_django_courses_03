@@ -11,7 +11,7 @@ urlpatterns = patterns(
 
     url(r'^admin/', include(admin.site.urls)),
     # url(r'^polls/', include('polls.urls', namespace="polls")),
-    url(r'^$', main_page, name='main'),
+    url(r'^$', index, name='index'),
     # url(r'^contacts/$', contact),
     url(r'^contact(?:s?)\b/$', contact, name='contact'),
     url(r'^student(?:s?)_list/$', student_list, name='student_list'),
