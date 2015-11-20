@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from pybursa.views import hello, hello_python, home, contacts, students, student_details
+from pybursa.views import index, contact, student_list, student_detail
 
 urlpatterns = patterns('',
     # Examples:
