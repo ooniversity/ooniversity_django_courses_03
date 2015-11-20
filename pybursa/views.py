@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.contrib.staticfiles import static
+from django.conf.urls.static import static
+
 
 def index(request):
-    return render(request, "{% url 'index' %}")
+    return render(request, "{% url 'pybursa:index' %}")
     #return render(request, "index.html")
     
     
