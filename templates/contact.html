@@ -7,9 +7,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Contacts</title>
     <!-- Bootstrap -->
-+    <link href="../static/css/bootstrap.css" rel="stylesheet">
-+    <link href="../static/css/style.css" rel="stylesheet">
-     <script src="../static/js/bootstrap.js/"></script>
+     {% load staticfiles %}
++   <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
++   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap.js'%}"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,9 +29,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Main</a>
-        <a class="navbar-brand" href="contact.html">Contacts</a>
-        <a class="navbar-brand" href="student_list.html">Students</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Main</a>
+      <a class="navbar-brand" href="{% url 'contact' %}">Contacts</a>
+      <a class="navbar-brand" href="{% url 'student_list' %}">Students</a>
       </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,7 +45,7 @@
      </div>
      <div class="col-sm-6 col-md-4">
      <div class="thumbnail">
-       <img class="imgd" src="../static/images/boss.jpg" alt="...">
+       <img class="imgd" src="{% static 'images/boss.jpg' %}" alt="...">
        <div class="caption">
          <h3 class="d">Director</h3>
           <p class="d1">Name: Алексей Радченко<br>
@@ -57,7 +58,7 @@
     </div>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img class="imgm" src="../static/images/manadg.jpg" alt="...">
+        <img class="imgm" src="{% static 'images/manadg.jpg' %}" alt="...">
         <div class="caption">
           <h3 class="m">Manager</h3>
           <p class = "m1">Name: Дария Михалевич<br>
@@ -70,7 +71,7 @@
     <div class="info">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img class="imgf" src="../static/images/founder.jpg" alt="...">
+        <img class="imgf" src="{% static 'images/founder.jpg' %}" alt="...">
         <div class="caption">
           <h3 class="f">Founder</h3>
           <p class= "f1">Name: Павел Обод<br>

@@ -7,9 +7,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Self_info</title>
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-+   <link href="../static/css/style.css" rel="stylesheet">
-    <script src="../static/js/bootstrap.js/"></script>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
++   <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap.js'%}"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,9 +29,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Main</a>
-      <a class="navbar-brand" href="contact.html">Contacts</a>
-      <a class="navbar-brand" href="student_list.html">Students</a>
+      <a class="navbar-brand" href="{% url 'index' %}">Main</a>
+      <a class="navbar-brand" href="{% url 'contact' %}">Contacts</a>
+      <a class="navbar-brand" href="{% url 'student_list' %}">Students</a>
     	</div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,7 +42,7 @@
 		<div class="page-header">
   		<h1 class="person-head">Moroz Kostyantin</h1>
 		</div>
-		<img src="../static/images/myself.jpg" class="self_photo">
+		<img src="{% static 'images/myself.jpg' %}" class="self_photo">
 		<div class="self_info"><p class="self_info_text">About Student</p></div>  
 		</div>
 		<div class="study_table">
