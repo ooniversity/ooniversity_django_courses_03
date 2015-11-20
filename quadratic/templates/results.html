@@ -1,10 +1,14 @@
 <h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
 
 <ul>
-{{ a }}
-{{ b }}
-{{ c }}
-	<li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
+	<li>a = {{ a }}</li>
+	<p>{{ mes_a }}</p>
+	<li>b = {{ b }}</li>
+	<p>{{ mes_b }}</p>
+	<li>c = {{ c }}</li>
+	<p>{{ mes_c }}</p>
 </ul>
+<div>{{ mes_discr }}</div>
+<div>{{ message }} {{ roots }}</div>
+
 

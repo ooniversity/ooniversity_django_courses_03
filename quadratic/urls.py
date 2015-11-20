@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, url
 from quadratic import views
+from django.http import HttpResponse
 
 urlpatterns = patterns('',
-	url(r'^(?P<a>\d+&<b>\d+&<c>\d+)/$', quadratic_results, name='results'),
+	#url(r'^$', 'Norm', name='home'),
+	url(r'^results/$', views.quadratic_results, name='results'),
 )
