@@ -8,17 +8,18 @@ def quadratic_results(request):
             content[key] = int(request.GET[key])
             content[key + '_type'] = 'integer'
         except ValueError:
-            if str(request.GET[key]):
-                content[key] = str(request.GET[key])
+            if request.GET[key] == '':
+                content[key] = ''
             else:
-                content[key] =''
-            content[key+'_status'] = 'str'
+                content[key] = str(request.GET[key])
+            content[key + '_type'] = 'string'
 
     a = content['a']
     b = content['b']
     c = content['c']
 
-    if map(lambda x: isinstance(x, int), (a, b, c)) and a != 0:
+    if all(map(lambda x: isinstance(x, int), (a, b, c))) and a != 0:
+
         content['square'] = b**2 - 4 * a * c
         if content['square'] > 0:
             content['x1'] = float((-b + content['square']**(1 / 2.0)) / (2 * a))
