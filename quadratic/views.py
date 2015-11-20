@@ -45,7 +45,7 @@ def quadratic_results(request):
 		else:
 			x1 = (-b + d**(1/2.0)) / 2*a
 			x2 = (-b - d**(1/2.0)) / 2*a
-			dictionary['discr'] = "Квадратное уравнение имеет два действительных корня: x1 = %s x2 = %s" % (float(x1), float(x2))
+			dictionary['discr'] = "Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" % (float(x1), float(x2))
 			dictionary.update(outp_d)
 			return render(request, 'results.html', dictionary)
 		
