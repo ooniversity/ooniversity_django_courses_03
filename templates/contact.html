@@ -9,20 +9,20 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>Contacts</title>
-
+    <title>Main</title>
+    
+    {% load staticfiles %}
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <!-- Bootstrap theme -->
     <!-- <link href="../static/css/bootstrap-theme.css" rel="stylesheet"> -->
 
     <!-- Custom styles for this template -->
-    <!-- <link href="../static/css/theme.css" rel="stylesheet"> -->
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../static/js/ie-emulation-modes-warning.js"></script>
+    <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -47,9 +47,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Main</a></li>
-            <li class="active"><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
+            <li><a href="{% url 'main' %}">Main</a></li>
+            <li class="/active/"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </div>
       </div>
@@ -73,7 +73,7 @@
                 <br><strong>Phone:</strong> +38 096 469 15 57
               </div>
               <div class="panel-body">
-                <img class="face" src="../static/images/darka.jpg"  alt="Daria Mykhalevych" style="width:90px;height:120px;">
+                <img class="face" src="{% static 'images/darka.jpg' %}"  alt="Daria Mykhalevych" style="width:90px;height:120px;">
               </div>
           </div>
         </div>
@@ -90,7 +90,7 @@
               <br><strong>Phone:</strong> +38 063 625 07 55
             </div> 
               <div class="panel-body">
-                <img class="face" src="../static/images/alena.jpg"  alt="Alyona Chaika" style="width:90px;height:120px;">
+                <img class="face" src="{% static 'images/alena.jpg' %}"  alt="Alyona Chaika" style="width:90px;height:120px;">
               </div>
           </div>
         </div>
@@ -107,7 +107,7 @@
               <br><strong>Phone:</strong> +38 096 469 15 56
             </div>
             <div class="panel-body">
-                <img class="face"  src="../static/images/pasha.jpg"  alt="Pavel Obod" style="width:90px;height:120px;" align="center" >
+                <img class="face" src="{% static 'images/pasha.jpg' %}"  alt="Pavel Obod" style="width:90px;height:120px;">
               </div>
           </div>
         </div>
@@ -115,14 +115,26 @@
       </div>
       
     </div>
+
+    </div>
+    
     <!-- Site footer -->
-    <footer class="footer">
-      <p>&copy; PyBursa 2015</p>
-    </footer>
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="col-sm-2 col-sm-offset-5">
+        <a class="navbar-brand" href="https://www.youtube.com/watch?v=KxmLNctBi10">&copy; PyBursa 2015</a>
+      </div>
+      <!--<div class="container">
+        <p class="navbar-text pull-left">&copy; PyBursa 2015</p>
+        <p class="navbar-text pull-right"> Butstrap 3
+          <a href="https://www.youtube.com/watch?v=KxmLNctBi10">tutorial</a>
+          and
+          <a href="https://www.youtube.com/user/CodersGuide">coder's guide</a>.-->
+        </p>
+      </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
