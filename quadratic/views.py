@@ -34,7 +34,7 @@ def get_quadratic (tpl):
 
     return data
 
-def results(request):
+def quadratic_results(request):
     d, keys = True, ('a','b','c')
     data = get_dict_from_request (keys, request.GET)
     for item in keys:
