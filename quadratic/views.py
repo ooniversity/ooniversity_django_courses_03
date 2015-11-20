@@ -25,7 +25,7 @@ def quadratic_results(request):
             context['x1'] = float((-b + context['dscrt']**0.5) / (2 * a))
             context['x2'] = float((-b - context['dscrt']**0.5) / (2 * a))
         elif context['dscrt'] == 0:
-            context['x1'] = context['x2'] = -b / (2 * a)
+            context['x1'] = context['x2'] = float(-b / (2 * a))
     else:
         context['dscrt'] = None
 
