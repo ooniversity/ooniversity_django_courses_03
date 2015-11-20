@@ -58,25 +58,12 @@
         <h3>{% if not has_error %}\({{a}}x^2 + {{b}}x + {{c}} = 0\){% endif %}</h3>
         
         <ul>
-          <li>a = {{a}} 
-          {% if a_error %}
-            <br> {{a_error}}
-          {% endif %}
-          </li>
-          <li>b = {{b}} 
-            {% if b_error %}
-            <br> {{b_error}}
-            {% endif %}
-          </li>
-          <li>c = {{c}} 
-          {% if c_error %}
-            <br> {{c_error}}
-          {% endif %}
-          </li>
+          <li>a = {{a}}{% if a_error %}<br>{{a_error}}{% endif %}</li>
+          <li>b = {{b}}{% if b_error %}<br>{{b_error}}{% endif %}</li>
+          <li>c = {{c}}{% if c_error %}<br>{{c_error}}{% endif %}</li>
         <ul> 
         {% if not has_error %}
-          <br>Дискриминант: {{d}}
-          <br>{{description}} {% if x1 and not x2 %}x1 = x2 = {{x1}}{% endif %}
+          <br>Дискриминант: {{d}}<br>{{description}} {% if x1 and not x2 %}x1 = x2 = {{x1}}{% endif %}
 {% if x1 and x2 %}x1 = {{x1}}, x2 = {{x2}}{% endif %}
         {% endif %}
       </div>
