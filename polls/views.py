@@ -1,15 +1,10 @@
+from django.http import HttpResponse, HttpResponseRedirect
+from django.template import RequestContext, loader
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
-
-from polls.models import Choice, Question
-
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
 from django.views import generic
-
 from polls.models import Choice, Question
+from django.core.urlresolvers import reverse
+
 
 
 class IndexView(generic.ListView):
@@ -29,6 +24,7 @@ class DetailView(generic.DetailView):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
+
 
 def vote(request, question_id):
     p = get_object_or_404(Question, pk=question_id)
