@@ -46,7 +46,7 @@
       <div class="thumbnail">
         <div class="row">
           <div class="col-sm-5 col-md-4">
-          <img alt="photo" src="../static/images/noimg.svg"
+          <img alt="photo" src="{% static 'images/noimg.svg' %}"
                 data-holder-rendered="true" style="height: 200px; width: 242px; display: block;">
           </div>  
           
