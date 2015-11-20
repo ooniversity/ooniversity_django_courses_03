@@ -1,0 +1,9 @@
+# python precompiled files:
+*.pyc
+*.pyo
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
