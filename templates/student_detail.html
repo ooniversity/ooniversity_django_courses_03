@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +8,22 @@
 <meta name="description" content="Выучить питон на PyBursa быстро и легко!">
 <meta name="keywords" content="питон, курсы, онлайн">
 <meta name="author" content="Олександр Кучеренко">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 <!-- Основной файл стилей -->
-<link href="../static/css/style.css" rel="stylesheet">
+<link href="{% static 'css/style.css'%}" rel="stylesheet">
 <!-- responsive stylesheet -->
-<link href="../static/css/responsive.css" rel="stylesheet">
+<link href="{% static 'css/responsive.css'%}" rel="stylesheet">
 <!-- Подключение иконок Font Awesome -->
-<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
 <!-- Подключение Bootstrap -->
-<link rel="stylesheet" href="../static/css/bootstrap.min.css">
-<link rel="stylesheet" href="../static/css/bootstrap-theme.css">
-<script src="../static/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+<link rel="stylesheet" href="{% static 'css/bootstrap-theme.css'%}">
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
 <!-- Дополнительный файл стилей -->
-<link href="../static/css/other.css" rel="stylesheet">
+<link href="{% static 'css/other.css'%}" rel="stylesheet">
 </head>
 <body>
-<div id="wrapper">
+< id="wrapper">
   <!--Начало секции Header -->
   <header id="header">
     <div class="primary-header">
@@ -55,10 +56,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <nav>
             <ul class="nav navbar-nav">
-              <li> <a href="index.html">Main </a> </li>
-              <li> <a href="student_list.html">Students </a> </li>
-              <li> <a href="contact.html">Contacts</a> </li>
-              <li> <a style="visibility: visible;" class="search-button" href="#"><i class="icon icon-Search">.</i></a> </li>
+              <li> <a href="{% url 'index' %}">Main </a> </li>
+              <li> <a href="{% url 'student_list' %}">Students </a> </li>
+              <li> <a href="{% url 'contact' %}">Contacts</a> </li>
+              <li> <a style="visibility: visible;" class="search-button" href={% url 'index' %}"><i class="icon icon-Search">.</i></a> </li>
             </ul>
             <div style="" class="bg-white hide-show-content no-display header-search-content">
               <form class="navbar-form vertically-absolute-middle">
@@ -77,9 +78,9 @@
 
   <!-- Site Content -->
   <div id="main">
-  <center><div class="teams"> 
+  <center><div class="teams">
   <h5 class="persn">Statham Jason</h5>
-  <img class="hvr-pulse-grow" src="../static/images/team4.jpg" alt="">
+  <img class="hvr-pulse-grow" src="{% static 'images/team4.jpg' %}" alt="">
     <div class="team-details">
                        <br>           
                     <button>Студент о себе</button>
@@ -172,9 +173,9 @@
             
         </tbody>
     </table>
-  </div></center>
+  </div></div>
                 
-  </div>
+  </center>
   <!-- site content end Here -->
 
  <!-- Footer Section Start Here -->
@@ -233,9 +234,9 @@
   <!-- End footer
 			================================================== -->
 </div>
-<script src="static/js/jquery.min.js"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
 
-<script type="text/javascript" src="static/js/owl.carousel.js"></script>
-<script type="text/javascript" src="static/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="{% static 'js/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
 </body>
 </html>

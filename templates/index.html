@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +8,19 @@
 <meta name="description" content="Выучить питон на PyBursa быстро и легко!">
 <meta name="keywords" content="питон, курсы, онлайн">
 <meta name="author" content="Олександр Кучеренко">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 <!-- Основной файл стилей -->
-<link href="../static/css/style.css" rel="stylesheet">
+<link href="{% static 'css/style.css'%}" rel="stylesheet">
 <!-- responsive stylesheet -->
-<link href="../static/css/responsive.css" rel="stylesheet">
+<link href="{% static 'css/responsive.css'%}" rel="stylesheet">
 <!-- Подключение иконок Font Awesome -->
-<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
 <!-- Подключение Bootstrap -->
-<link rel="stylesheet" href="../static/css/bootstrap.min.css">
-<link rel="stylesheet" href="../static/css/bootstrap-theme.css">
-<script src="../static/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+<link rel="stylesheet" href="{% static 'css/bootstrap-theme.css'%}">
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
 <!-- Дополнительный файл стилей -->
-<link href="../static/css/other.css" rel="stylesheet">
+<link href="{% static 'css/other.css'%}" rel="stylesheet">
 </head>
 <body>
 <div id="wrapper">
@@ -49,16 +50,16 @@
         <!-- Лого и меню сгрупированы для лучшего мобильного отображения -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Моб.  меню</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a href="index.html" class="col-xs-6 col-sm-2 navbar-brand" title="Добро пожаловать на PyBursa"><img class="wow bounceInDown" data-wow-duration="0.5s" data-wow-delay="0s" src="../static/images/logo.png" alt="PyBursa"></a> </div>
+          <a href="{% url 'index' %}" class="col-xs-6 col-sm-2 navbar-brand" title="Добро пожаловать на PyBursa"><img class="wow bounceInDown" data-wow-duration="0.5s" data-wow-delay="0s" src="../static/images/logo.png" alt="PyBursa"></a> </div>
 
         <!-- Меню -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <nav>
             <ul class="nav navbar-nav">
-              <li> <a href="index.html" class="active">Main </a> </li>
-              <li> <a href="student_list.html">Students </a> </li>
-              <li> <a href="contact.html">Contacts</a> </li>
-              <li> <a style="visibility: visible;" class="search-button" href="#"><i class="icon icon-Search"></i></a> </li>
+              <li> <a href="{% url 'index' %}" class="active">Main </a> </li>
+              <li> <a href="{% url 'student_list' %}">Students </a> </li>
+              <li> <a href="{% url 'contact' %}">Contacts</a> </li>
+              <li> <a style="visibility: visible;" class="search-button" href="{% url 'index' %}"><i class="icon icon-Search"></i></a> </li>
             </ul>
             <div style="" class="bg-white hide-show-content no-display header-search-content">
               <form class="navbar-form vertically-absolute-middle">
@@ -86,9 +87,9 @@
 						class="slider-1"
 						data-transition="random"
 						data-slotamount="7"
-						data-thumb="../static/images/slides/image1.jpg"
+						data-thumb="{% static 'images/slides/image1.jpg'%}"
 						> <img
-							src="../static/images/slides/image1.jpg"
+							src="{% static 'images/slides/image1.jpg'%}"
               alt="slider"
 							data-bgrepeat="no-repeat"
 							data-bgfit="cover"
@@ -120,9 +121,9 @@ WEB разработки </p>
 						class="slider-2"
 						data-transition="random"
 						data-slotamount="7"
-						data-thumb="../static/images/image2.jpg"
+						data-thumb="{% static 'images/image2.jpg'%}"
 						> <img
-							src="../static/images/slides/image2.jpg"
+							src="{% static 'images/slides/image2.jpg'%}"
               alt="slider2"
 							data-bgposition="left bottom"
 							data-kenburns="on"
@@ -154,9 +155,9 @@ WEB разработки </p>
 						class="slider-3"
 						data-transition="random"
 						data-slotamount="7"
-						data-thumb="../static/images/image3.jpg"
+						data-thumb="{% static 'images/image3.jpg'%}"
 						> <img
-							src="../static/images/slides/image3.jpg"
+							src="{% static 'images/slides/image3.jpg'%}"
               alt="slider3"
 							data-bgrepeat="no-repeat"
 							data-bgfit="cover"
@@ -210,7 +211,7 @@ WEB разработки </p>
     <!-- responsive design Start Here -->
     <section class="responsive-design">
       <div class="container">
-        <div class="items col-xs-12 col-sm-12 col-md-6 wow bounceInLeft" data-wow-duration="0.5s" data-wow-delay="0s"> <img src="../static/images/responsive.png" alt="Guido Van Rossum"> </div>
+        <div class="items col-xs-12 col-sm-12 col-md-6 wow bounceInLeft" data-wow-duration="0.5s" data-wow-delay="0s"> <img src="{% static 'images/responsive.png'%}" alt="Guido Van Rossum"> </div>
         <div class="items col-xs-12 col-sm-12 col-md-6 wow bounceInLeft" data-wow-duration="1s" data-wow-delay="0s">
           <div class="section-title col-md-12">
             <h2 class="title"> Program </h2>
@@ -255,11 +256,11 @@ WEB разработки </p>
           <h2 class="title"> We Worked With Awesome Clients </h2>
         </div>
         <div class="partner-list row" id="partner-list">
-          <div class="item"><a href="#"><img src="../static/images/client-logo-01.png" alt=""></a></div>
-          <div class="item"><a href="#"><img src="../static/images/client-logo-02.png" alt=""></a></div>
-          <div class="item"><a href="#"><img src="../static/images/client-logo-03.png" alt=""></a></div>
-          <div class="item"><a href="#"><img src="../static/images/client-logo-04.png" alt=""></a></div>
-          <div class="item"><a href="#"><img src="../static/images/client-logo-05.png" alt=""></a></div>
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-01.png'%}" alt=""></a></div>
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-02.png'%}" alt=""></a></div>
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-03.png'%}" alt=""></a></div>
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-04.png'%}" alt=""></a></div>
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-05.png'%}" alt=""></a></div>
         </div>
       </div>
     </section>
@@ -328,12 +329,12 @@ WEB разработки </p>
 </div>
 <script src="../static/js/jquery.min.js"></script>
 
-<script type="text/javascript" src="../static/js/owl.carousel.js"></script>
-<script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
-<script src="../static/js/jquery.themepunch.tools.min.js"></script> <!-- Revolution Slider Tools -->
-<script src="../static/js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="../static/js/jquery.prettyPhoto.js"></script>
-<script src="../static/js/wow.min.js"></script>
-<script type="text/javascript" src="../static/js/site.js"></script>
+<script type="text/javascript" src="{% static 'js/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script> <!-- Revolution Slider Tools -->
+<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/site.js' %}"></script>
 </body>
 </html>
