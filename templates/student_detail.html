@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,9 +10,10 @@
     <title>PyBursa - StudentInfo</title>
 
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/ico">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'images/favicon.ico'%}" type="image/ico">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,15 +27,15 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <img id="brico" alt="Brand" src="../static/images/bicon.png"/>     
+          <img id="brico" alt="Brand" src="{% static 'images/bicon.png'%}"/>     
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li  class="active"><a href="student_list.html">Students</a><span class="sr-only">(current)</span></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact'%}">Contacts</a></li>
+            <li  class="active"><a href="{% url 'student_list'%}">Students</a><span class="sr-only">(current)</span></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -41,7 +44,7 @@
       <div class ="jumbotron">
         <h2>Parker Peter</h2><hr>
         <div class "container">
-          <img class = "con-info" alt = "Peter Parke" src = "../static/images/spidey.jpg">
+          <img class = "con-info" alt = "Peter Parker" src = "{% static 'images/spidey.jpg'%}">
         </div>
         <div>
           <br>
@@ -117,6 +120,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{%static 'js/bootstrap.min.js'%}"></script>
   </body>
 </html>

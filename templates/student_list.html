@@ -1,4 +1,6 @@
+{% load staticfiles %}
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,9 +10,9 @@
     <title>PyBursa - Students</title>
 
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/ico">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'images/favicon.ico'%}" type="image/ico">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,9 +32,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li  class="active"><a href="student_list.html">Students</a><span class="sr-only">(current)</span></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li  class="active"><a href="{% url 'student_list' %}">Students</a><span class="sr-only">(current)</span></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -63,7 +65,7 @@
           </tr>
         </thead>
             <tr class = "oddtr">
-            <td><a href="student_detail.html">1</a></td>
+            <td><a href="{% url 'student_detail' %}">1</a></td>
             <td>Parker</td>
             <td>Peter</td>
             <td>New Wave street, 14</td>
