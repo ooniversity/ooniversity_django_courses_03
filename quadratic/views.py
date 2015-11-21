@@ -19,9 +19,9 @@ def validate_parameter(parameter):
         return_value="коэффициент не определен"
     return return_value
 
-def render_contex_parameter(parameter):
-    templ = Template("<p>{{parameter}}</p>")
-    cont_param = Context({'parameter': str(parameter)})
+def render_contex_parameter(input_parameter = "", parameter = ""):
+    templ = Template("{{input_parameter}}<p>{{parameter}}</p>")
+    cont_param = Context({'parameter': str(parameter), 'input_parameter': input_parameter})
     return templ.render(cont_param)
 
 def quadratic_results(request):
@@ -33,23 +33,23 @@ def quadratic_results(request):
     errors = False
 
     if isinstance(a, str):
-        par_a = render_contex_parameter(a)
+        par_a = render_contex_parameter(request.GET['a'], a)
         errors = True
     elif a == 0:
         a = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
-        par_a = render_contex_parameter(a)
+        par_a = render_contex_parameter(request.GET['a'], a)
         errors = True
     else:
         par_a = a
 
     if isinstance(b, str):
-        par_b = render_contex_parameter(b)
+        par_b = render_contex_parameter(request.GET['b'], b)
         errors = True
     else:
         par_b = b
 
     if isinstance(c, str):
-        par_c = render_contex_parameter(c)
+        par_c = render_contex_parameter(request.GET['c'], c)
         errors = True
     else:
         par_c = c
