@@ -15,5 +15,5 @@ def quadratic_results(request):
     print b
     print c
 
-    return render(request, 'results.html')
+    return render(request, 'results.html', {"a": a})
 
