@@ -39,9 +39,9 @@
         <h3 class="text-muted">Pybursa</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li><a href="/">Main</a></li>
-            <li><a href="/contact/">Contacts</a></li>
-            <li class="active"><a href="/student_list/">Students</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </nav>
       </div>
@@ -64,7 +64,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><a href="/student_detail/">1</a></td>
+          <td><a href="{% url 'student_detail' %}">1</a></td>
           <td>Persianova</td>
           <td>Olena</td>
           <td>Украина, г.Харьков, ул.Иванова, д.36, кв.3</td>
