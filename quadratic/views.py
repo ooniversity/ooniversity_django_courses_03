@@ -4,16 +4,17 @@ import math
 from django.shortcuts import render_to_response
 
 
-def quadrato(a, b, c):
-    pass
-
-
 def quadratic_results(request):
-    all_keys = request.GET.keys()
 
-    a = int(request.GET['a'])
-    b = int(request.GET['b'])
-    c = int(request.GET['c'])
+    open_get = request.GET
+
+    for key, value in open_get.items():
+        print(key,value)
+
+    a = float(int(request.GET['a']))
+    b = float(int(request.GET['b']))
+    c = float(int(request.GET['c']))
+
 
     discr = b ** 2 - 4 * a * c
     print("Дискриминант D = %.2f" % discr)
@@ -26,6 +27,7 @@ def quadratic_results(request):
             'a': a,
             'b': b,
             'c': c,
+
         }
     elif discr == 0:
         x = -b / (2 * a)
@@ -34,6 +36,7 @@ def quadratic_results(request):
             'a': a,
             'b': b,
             'c': c,
+
         }
     else:
         context = {
@@ -41,6 +44,7 @@ def quadratic_results(request):
             'a': a,
             'b': b,
             'c': c,
+
         }
 
     return render_to_response('results.html', context)
