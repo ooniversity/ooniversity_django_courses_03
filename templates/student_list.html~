@@ -34,9 +34,9 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" ><a href="index.html">Main</a></li>
-            <li role="presentation"><a href="contact.html">Contacts</a></li>
-						<li role="presentation" class="active"><a href="Student_list.html">Students</a></li>
+            <li role="presentation" ><a href="/">Main</a></li>
+            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+						<li role="presentation" class="active"><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </nav>
         
@@ -58,7 +58,7 @@
     <tr>
     <th>No</th><th>Surname</th><th>Name</th><th>Address</th><th>Skype</th>
    </tr>
-    <td><a href="student_detail.html">1</a></td><td>Щуцкая</td><td>Елена</td><td>Украина, Запорожье, Кремлевская, 109</td><td>e_realWizard</td></tr>
+    <td><a href="{% url 'student_detail' %}">1</a></td><td>Щуцкая</td><td>Елена</td><td>Украина, Запорожье, Кремлевская, 109</td><td>e_realWizard</td></tr>
    <tr>
     <td>2</td><td>Пузина</td><td>Екатерина</td><td>Украина, Запорожье, Ленина, 98/8</td><td>e.puzina</td>
    </tr>
