@@ -7,9 +7,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>student_list</title>
 
-    <!-- Bootstrap -->    
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,9 +30,9 @@
            <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Main<span class="sr-only">(current)</span></a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li class="active"><a href="student_list.html">Students</a></li>
+            <li><a href="{% url 'index' %}">Main<span class="sr-only">(current)</span></a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -57,7 +58,7 @@
             </thead>
             <tbody>
               <tr>
-                <td scope="row"><a href="student_detail.html">1</a></td>
+                <td scope="row"><a href="{% url 'student_detail' %}">1</a></td>
                 <td>Sinenkiy</td>
                 <td>Maxim</td>
                 <td>Украина, г.Харьков, ул.Блюхера, д.25б кв.3</td>
@@ -107,6 +108,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
