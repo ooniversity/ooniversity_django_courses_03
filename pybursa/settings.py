@@ -1,7 +1,9 @@
 """
 Django settings for pybursa project.
+
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
+
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
@@ -15,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9hu3lg7l8y2f$&lz^_j70zho&jg4gp!k5+pegig0ord2$od++4'
+SECRET_KEY = '5w48h%g+gq6u!o)of8cg=ne0jdv@136#-z@vfi4zf9n95cf2#k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
-    'quadratic',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,24 +50,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'pybursa.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
 
 WSGI_APPLICATION = 'pybursa.wsgi.application'
 
@@ -100,5 +83,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
