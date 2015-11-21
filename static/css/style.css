@@ -145,3 +145,10 @@ body .font1 {color: #fff;
 .navbar-header {
     float: left;
   }
+
+.simple {font-size: medium;
+  margin-bottom: 30px;
+}
+
+.center {text-align: center;
+}
