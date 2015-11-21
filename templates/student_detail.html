@@ -7,14 +7,13 @@
   
 
     <title>Linux_Bursa - Student's card</title>
-
+    {% load staticfiles %}
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="../static/css/animate.css" type="text/css">
-    <link rel="stylesheet" href="../static/css/style.css" type="text/css">
-    <link rel="stylesheet" href="../static/css/style.css" type="text/css">
-     <link rel="stylesheet" href="../css/creative.css" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/reative.css' %}" type="text/css">
 
 </head>
 
@@ -30,17 +29,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="index.html">Main</a>
+                <a class="navbar-brand page-scroll" href="{% url 'index' %}">Main</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                      <a href="contact.html">Contacts</a>
+                    <li class="active">
+                        <a class="page-scroll" a href="{% url 'contact' %}">Contacts</a>
                     </li>
-                    <li>  
-                      <a href="student_list.html">Students</a>
+                    <li>
+                      <a class="page-scroll" a href="{% url 'student_list' %}">Students</a>
                     </li>
                 </ul>
             </div>
