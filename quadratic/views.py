@@ -5,6 +5,9 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 
 
+def quadratic_start(request):
+    return render(request, 'results_start.html')
+
 def quadratic_results(request):
     print request.method
     a = int(request.GET['a'])
@@ -15,5 +18,7 @@ def quadratic_results(request):
     print b
     print c
 
-    return render(request, 'results.html', {"a": a})
+    return render(request, 'results.html', {"a": a, "b": b, "c": c})
+
+
 
