@@ -19,7 +19,6 @@ def quadratic_results(request):
     c = content['c']
 
     if all(map(lambda x: isinstance(x, int), (a, b, c))) and a != 0:
-
         content['square'] = b**2 - 4 * a * c
         if content['square'] > 0:
             content['x1'] = float((-b + content['square']**(1 / 2.0)) / (2 * a))
