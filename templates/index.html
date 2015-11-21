@@ -9,13 +9,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../static/images/favicon.ico">
-
-
+    {% load staticfiles %}
 
     <!-- Bootstrap core CSS -->
-    <link  rel="stylesheet" href="../static/css/bootstrap.css">
-     <link rel="stylesheet" href="../static/css/style.css" >
-
+ <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
   <title>Профессиональные Python; Django  курсы</title>
 
@@ -31,9 +30,9 @@
         </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html">Main</a></li>
-              <li class="active"><a href="contact.html">Contacts</a></li>
-              <li class="active"><a href="student_list.html">Students</a></li>
+		<li><a href="{% url 'home' %}">Main</a></li>
+                <li><a href="{% url 'contact' %}">Contacts</a></li>
+                <li><a href="{% url 'student_list' %}">Students</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -424,7 +423,7 @@
             </table>
           </div>
         </div>
-      <script src="../static/js/bootstrap.js"></script>
+      <script src="{% static 'js/bootstrap.js' %}"></script>
   </div>
 </div>
 
