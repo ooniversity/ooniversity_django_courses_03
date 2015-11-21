@@ -1,22 +1,23 @@
-﻿<!DOCTYPE html>
+﻿{%load staticfiles%}
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="AlexI">
-    <link rel="icon" href="../static/images/favicon.ico">
-     <link href="../static/css/bootstrap.css" rel="stylesheet">
-	 <link href="../static/css/style.css" rel="stylesheet">
-     <script src="../static/js/bootstrap.js"></script>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+     <link href="{%static 'css/bootstrap.css' %}" rel="stylesheet">
+	 <link href="{%static 'css/style.css' %}" rel="stylesheet">
+     <script src="{%static 'js/bootstrap.js' %}"></script>
     <title>Main</title>
   </head>
 
   <body>
     <div class="black">
       <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="index.html">Main</a></li>
-      <li role="presentation"><a href="contact.html">Contacts</a></li>
-	  <li role="presentation"><a href="student_list.html">Students</a></li>
+      <li role="presentation" class="active"><a href="{% url 'index'%}">Main</a></li>
+      <li role="presentation"><a href="{% url 'contact'%}">Contacts</a></li>
+	  <li role="presentation"><a href="{% url 'student_list'%}">Students</a></li>
       </ul>
 	 <h2 class="dl">PyBursa</h2> 
 	<h1>Description</h1>
