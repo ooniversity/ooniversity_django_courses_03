@@ -13,13 +13,13 @@ def quadratic_results(request):
         output_request['calculate'] = False
         output_request['a'] = input_request['a']
         if len(input_request.get('a')) == 0:
-            output_request['a_error'] = "коэффициент не определен"
+            output_request['a_error'] = "п╨п╬я█я└я└п╦я├п╦п╣п╫я┌ п╫п╣ п╬п©я─п╣п╢п╣п╩п╣п╫"
         elif not input_request['a'].isdigit():
-            output_request['a_error'] = "коэффициент не целое число"
+            output_request['a_error'] = "п╨п╬я█я└я└п╦я├п╦п╣п╫я┌ п╫п╣ я├п╣п╩п╬п╣ я┤п╦я│п╩п╬"
     finally:
         if input_request['a'].isdigit() and int(input_request['a']) == 0:
             output_request['calculate'] = False
-            output_request['a_error'] = "коэффициент при первом слагаемом уравнения не может быть равным нулю" 
+            output_request['a_error'] = "п╨п╬я█я└я└п╦я├п╦п╣п╫я┌ п©я─п╦ п©п╣я─п╡п╬п╪ я│п╩п╟пЁп╟п╣п╪п╬п╪ я┐я─п╟п╡п╫п╣п╫п╦я▐ п╫п╣ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ я─п╟п╡п╫я▀п╪ п╫я┐п╩я▌" 
 
     try:
         output_request['b'] = int(input_request['b'])
@@ -27,9 +27,9 @@ def quadratic_results(request):
         output_request['b'] = input_request['b']
         output_request['calculate'] = False
         if len(input_request.get('b')) == 0:
-            output_request['b_error'] = "коэффициент не определен"
+            output_request['b_error'] = "п╨п╬я█я└я└п╦я├п╦п╣п╫я┌ п╫п╣ п╬п©я─п╣п╢п╣п╩п╣п╫"
         elif not input_request['b'].isdigit():
-            output_request['b_error'] = "коэффициент не целое число"
+            output_request['b_error'] = "п╨п╬я█я└я└п╦я├п╦п╣п╫я┌ п╫п╣ я├п╣п╩п╬п╣ я┤п╦я│п╩п╬"
 
     try:
         output_request['c'] = int(input_request['c'])
@@ -37,9 +37,9 @@ def quadratic_results(request):
         output_request['c'] = input_request['c']
         output_request['calculate'] = False
         if len(input_request.get('c')) == 0:
-            output_request['c_error'] = "коэффициент не определен"
+            output_request['c_error'] = "п╨п╬я█я└я└п╦я├п╦п╣п╫я┌ п╫п╣ п╬п©я─п╣п╢п╣п╩п╣п╫"
         elif not input_request['c'].isdigit():
-            output_request['c_error'] = "коэффициент не целое число"  
+            output_request['c_error'] = "п╨п╬я█я└я└п╦я├п╦п╣п╫я┌ п╫п╣ я├п╣п╩п╬п╣ я┤п╦я│п╩п╬"  
 
     if output_request['calculate']:
         output_request['D'] = output_request['b']**2 - 4*output_request['a']*output_request['c']
@@ -53,4 +53,3 @@ def quadratic_results(request):
             output_request['x2'] = complex((-output_request['b'] - cmath.sqrt(output_request['D']))/(2*output_request['a']))    
 
     return render(request,'quadratic/results.html',output_request)
-
