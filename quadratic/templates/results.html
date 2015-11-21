@@ -1,0 +1,46 @@
+<!--quadratic/templates/results.html-->
+  <p> Квадратное уравнение a*x*x + b*x + c = 0</p>
+  <ul>
+    <li>
+      a = {{ a }} <br>
+      {% if a_equal_zero %}
+        {{ a_equal_zero }}
+      {% elif a_empty %}
+        {{ a_empty }}
+      {% elif a_not_int %}
+        {{ a_not_int }}
+      {% endif %}    
+
+    </li>
+    <li>
+      b = {{ b }} <br>
+      {% if b_empty %}
+        {{ b_empty }}
+      {% elif b_not_int %}
+        {{ b_not_int }}
+      {% endif %}    
+    </li>
+    <li>
+      c = {{ c }} <br>
+      {% if c_empty %}
+        {{ c_empty }}
+      {% elif c_not_int %}
+        {{ c_not_int }}
+      {% endif %}    
+    </li>
+    
+  </ul>
+  {% if d %}
+    <p>{{ d }}</p>
+    {% if d_less_zero %}
+      <p>{{ d_less_zero }}</p>
+    {% elif d_equal_zero %}
+      <p>{{ d_equal_zero }}</p>
+    {% elif d_norm %}
+      <p>{{ d_norm }}</p>
+    {% endif %}
+  {% endif %}
+
+
+
+  
