@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pybursa Main</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href='#'>
+            <img class="logo-minions" alt="Logo Pretty Minions" src="{% static 'images/logo.png' %}" height="45px" style="margin-top: -10px"></a>
+          </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li><a href= "{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'student_list' %}">Students</a></li>
+          </ul>
+        </div>
+      </nav>
+    <div class="container">
+      <h1>Description PyBursa</h1>
+    </div>
+    <div class="row">
+      <div class="container">
+        <p class="p2">Этот курс знакомит студентов с языком <span class="great">Python</span>. После завершения этого класса, студент сможет писать не тривиальные программы на <span class="great">Python</span>, касающиеся широкого спектра предметных областей. Темы включают языковые компоненты, <span class="great">среда разработки IDLE</span>, конструкции потока управления, строки ввода / вывода, коллекции, классы, модули и регулярные выражения.Курс дополнен многими лабораторными с использованием либо <span class="great">Linux или Windows</span>.</p>
+      </div>
+    </div>
+    <h1>Program</h1>
+    <table class='first_table'>
+      <tr>
+        <th class='first_th'>Занятие
+        </th>
+        <th class='first_th'>Тема
+        </th>
+        <th class='first_th'>Содержание
+        </th>
+      </tr>
+      <tr>
+        <td class="num">1
+        </td>
+        <td class='first_td'>Основы Python
+        </td>
+        <td class='first_td'>
+          <ul>
+            <li><code>zen</code>, <code>pep8</code>, <code>pylint</code>, tools, IDE</li>
+            <li>консоль, типы данных, операторы</li>
+            <li>синтаксис управляющих конструкций (if, for...)</li>
+            <li>исключения и разбор стектрейса</li>
+            <li>кодировка в Python</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="num">2
+        </td>
+        <td class='first_td'>Строки и итераторы
+        </td>
+        <td class='first_td'>
+          <ul>
+            <li>работа со строками и итерируемыми типами</li>
+            <li>запуск скрипта и параметры</li>
+            <li><p class="text-primary">git http://try.github.com/levels/</p></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td class="num">3
+        </td>
+        <td class='first_td'>Функции и модульность
+        </td>
+        <td class='first_td'>
+          <ul>
+            <li>функции (<code>def</code>, <code>lambda</code>)</li>
+            <li>генераторы списков</li>
+            <li>модули, структура</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="more">
+          <div class="alert alert-success" role="alert" class="text-capitalize">Дальше больше!
+          </div>
+        </td>
+      </tr>
+    </table>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>  
+</html>
