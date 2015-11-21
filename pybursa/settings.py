@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5w48h%g+gq6u!o)of8cg=ne0jdv@136#-z@vfi4zf9n95cf2#k'
+SECRET_KEY = '@81#*#1_lxsf4gh&ap7^67$qjj1lie4q8yluh&o4ur-py6zopx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'polls',
+	'polls',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -69,7 +69,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Kiev'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -82,5 +82,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'polls')]
+
