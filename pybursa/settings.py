@@ -1,11 +1,7 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
 """
 Django settings for pybursa project.
-
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
-
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
@@ -19,7 +15,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4(s)jwhpcs-uah0$*ww1jkp9&52#ru^=1)*gw4tlxjj&oxlk!5'
+SECRET_KEY = '9edy9tsm+2*0nfw-s(a*rfb71ra6ck71szy5b_m#yywp3k0a#q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -85,12 +81,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'templates'),
-)
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
