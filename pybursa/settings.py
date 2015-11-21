@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Django settings for pybursa project.
 
@@ -23,8 +25,6 @@ SECRET_KEY = '4(s)jwhpcs-uah0$*ww1jkp9&52#ru^=1)*gw4tlxjj&oxlk!5'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
-
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 ALLOWED_HOSTS = []
 
@@ -84,3 +84,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, 'templates'),
+)
