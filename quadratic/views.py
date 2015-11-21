@@ -7,12 +7,13 @@ from django.views import generic
 
 def quadratic_results(request):
     print request.method
-    #print request.GET['a']
-    #print request.GET['b']
-	
-	#c = print request.GET['c']
-	
-	
+    a = int(request.GET['a'])
+    b = int(request.GET['b'])
+    c = int(request.GET['c'])
+    
+    print a
+    print b
+    print c
 
     return render(request, 'results.html')
 
