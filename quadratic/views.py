@@ -7,14 +7,23 @@ from django.shortcuts import render_to_response
 def quadratic_results(request):
 
     open_get = request.GET
+    print(open_get)
 
     for key, value in open_get.items():
-        print(key,value)
+        if value.isdigit():
+            print('It is digit ', value)
+        if not value:
+            value = 'коэффициент не определен'
+            print(key, value)
+        elif isinstance(value, str):
+            value = 'коэффициент не целое число'
+            print(key, value)
 
-    a = float(int(request.GET['a']))
-    b = float(int(request.GET['b']))
-    c = float(int(request.GET['c']))
-
+    # value = 'коэффициент не определен'
+    # print(key + ' = ' + value)
+    a = 1
+    b = 1
+    c = 1
 
     discr = b ** 2 - 4 * a * c
     print("Дискриминант D = %.2f" % discr)
