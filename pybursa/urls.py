@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 import views
-
+import sys
 
 urlpatterns = patterns('',
     url(r'^polls/', include('polls.urls',namespace="polls")),
