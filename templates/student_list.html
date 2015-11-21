@@ -8,8 +8,9 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
     <title>Students</title>
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -25,9 +26,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li class="active"><a href="student_list.html">Students</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </div>
       </div>
@@ -49,7 +50,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row"><a class="table" href="student_detail.html">1</a></th>
+                  <th scope="row"><a class="table" href="{% url 'student_detail' %}">1</a></th>
                   <td>Stallman</td>
                   <td>Richard</td>
                   <td>Rivington Street 62/17, New York, 12841, USA</td>
@@ -98,7 +99,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
        
   </body>
 </html>
