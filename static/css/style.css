@@ -55,3 +55,4 @@ h2, h3{   color: #108475;    opacity: 0.5;}
 .name{    color:  #FFF;}
 .antiopas p{    color: white;    font-size: 18px;}
 .opct-text, p{   opacity: 0.4;}
+.errorMessage {color: tomato;}
