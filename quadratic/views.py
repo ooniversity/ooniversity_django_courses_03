@@ -55,13 +55,13 @@ def quadratic_results(request):
 			message = u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
 			roots = ''
 		elif discr == 0:
-			x1 = x2 = float(-b / (2.0*a))
+			x1 = x2 = round(float(-b / (2.0*a)),1)
 			message = u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:'
-			roots = 'x1 = x2 = %f' % x1
+			roots = 'x1 = x2 = %s' % x1
 		elif discr > 0:
-			x1 = float((-b + (b*b - 4*a*c)**(1/2.0)) / (2.0*a))
-			x2 = float((-b - (b*b - 4*a*c)**(1/2.0)) / (2.0*a))
+			x1 = round(float((-b + (b*b - 4*a*c)**(1/2.0)) / (2.0*a)), 1)
+			x2 = round(float((-b - (b*b - 4*a*c)**(1/2.0)) / (2.0*a)), 1)
 			message = u'Квадратное уравнение имеет два действительных корня:'
-			roots = 'x1 = %d, x2 = %f' % (x1, x2)
+			roots = 'x1 = %s, x2 = %s' % (x1, x2)
 	return render(request, 'results.html', {'a':a, 'b':b, 'c':c, 'discriminant':mes_discr, 'message':message, 'roots':roots, 'mes_a':mes_a, 'mes_b':mes_b, 'mes_c':mes_c})
 	
