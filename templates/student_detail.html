@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>Students detail</title>
 
+     {% load staticfiles %}
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <!--<link href="../static/css/bootstrap.css" rel="stylesheet">-->
+    <!--<link href="../static/css/style.css" rel="stylesheet">-->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 </head>
     <body>
@@ -18,9 +21,9 @@
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li ><a href="index.html">Main</a></li>
-                            <li><a href="contact.html">Contacts</a></li>
-                            <li class="active"><a href="student_list.html">Students</a></li>
+                           <li ><a href="{% url 'index' %}">Main</a></li>
+                            <li ><a href="{% url 'contact' %}">Contacts</a></li>
+                            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
                         </ul>
                         <p class="navbar-text navbar-right top_mass">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
                         <a href="#" class="top_mass" style="">Inbox <span class="badge">42</span></a>
@@ -63,8 +66,8 @@
                         <td>Week1</td>
                         <td>
                             <table>
-                                <tr><td>Tests</td></tr>
-                                <tr><td>Problem Task</td></tr>
+                                <tr><td class="table_td_padd">Tests</td></tr>
+                                <tr><td class="table_td_padd">Problem Task</td></tr>
                             </table>
                         </td>
                         <td>
@@ -95,8 +98,8 @@
                         <td>Week2</td>
                         <td>
                             <table>
-                                <tr><td>Tests</td></tr>
-                                <tr><td>Problem Task</td></tr>
+                                <tr><td class="table_td_padd">Tests</td></tr>
+                                <tr><td class="table_td_padd">Problem Task</td></tr>
                             </table>
                         </td>
                         <td>
@@ -128,6 +131,6 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="../static/js/bootstrap.js"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script>
     </body>
 </html>
