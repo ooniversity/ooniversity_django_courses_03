@@ -7,14 +7,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../static/images/favicon.ico">
 
     <title>Contacts</title>
-
+    {% load staticfiles %}
     <!-- Bootstrap core CSS -->
-     <link  rel="stylesheet" href="../static/css/bootstrap.css">
-     <link rel="stylesheet" href="../static/css/style.css" >
-
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
 
   <body>
@@ -28,9 +27,9 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">Main</a></li>
-               <li class="active"><a href="contact.html">Contacts</a></li>
-                <li class="active"><a href="student_list.html">Students</a></li>
+		    <li><a href="{% url 'home' %}">Main</a></li>
+                <li><a href="{% url 'contact' %}">Contacts</a></li>
+                <li><a href="{% url 'student_list' %}">Students</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -39,7 +38,8 @@
       	  <div class="row">
 
           <div class="col-lg-4">
-          <img class="img-circle" src="../static/images/Chet_Simpson.png" alt="Generic placeholder image" height="180" width="180">
+          <img class="img-circle" src="{% static 'images/Chet_Simpson.png' %}" alt="Generic placeholder image" height="180" width="180">
+
 
             <h2>Director</h2>
           <p >Name: Chet Simpson<br> Skype: Chet_Simpson<br> Email: <a href="mailto:c_simpson@gmail.com">c_simpson@gmail.com</a><br> Phone: 8 800 100 51 64</p>
@@ -47,13 +47,13 @@
 
 
         <div class="col-lg-4">
-          <img class="img-circle" src="../static/images/Orville_J._Simpson.png" alt="Generic placeholder image" height="180" width="180">
+          <img class="img-circle" src="{% static 'images/Orville_J._Simpson.png' %}" alt="Generic placeholder image" height="180" width="180">
           <h2>Manager</h2>
            <p>Name: Orville J. Simpson<br> Skype: J._Simpson<br> Email: <a href="mailto:j_simpson@gmail.com">j_simpson@gmail.com</a><br> Phone: 8 800 100 51 65</p>
 
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="../static/images/Eliza_Simpson.png" alt="Generic placeholder image" height="180" width="180">
+          <img class="img-circle" src="{% static 'images/Eliza_Simpson.png' %}" alt="Generic placeholder image" height="180" width="180">
           <h2>Founder</h2>
           <p>Name: Eliza Simpson<br> Skype: Eliza_Simpson<br> Email: <a href="mailto:e_simpson@gmail.com">e_simpson@gmail.com</a><br> Phone: 8 800 100 51 66</p>
 
@@ -67,7 +67,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
 

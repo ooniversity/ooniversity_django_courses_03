@@ -7,14 +7,11 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../static/images/favicon.ico">
-
+    {% load staticfiles %}
     <title>Students Detail</title>
-
-    <!-- Bootstrap core CSS -->
-     <link  rel="stylesheet" href="../static/css/bootstrap.css">
-     <link rel="stylesheet" href="../static/css/style.css" >
-
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
 
   <body>
@@ -26,9 +23,9 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">Main</a></li>
-          <li class="active"><a href="contact.html">Contacts</a></li>
-          <li class="active"><a href="student_list.html">Students</a></li>
+		<li><a href="{% url 'home' %}">Main</a></li>
+                <li><a href="{% url 'contact' %}">Contacts</a></li>
+                <li><a href="{% url 'student_list' %}">Students</a></li>
         </ul>
       </div>
     </div>
@@ -43,7 +40,7 @@
 <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img src="../static/images/bart.png" alt="...">
+        <img src="{% static 'images/bart.png' %}" alt="...">
           <div class="caption">
               <div class="panel panel-default">
                 <div class="panel-heading">Student`s card</div>
@@ -137,7 +134,7 @@
 </div>
       <nav>
         <ul class="pager">
-          <li class="previous"><a href="student_list.html"><span aria-hidden="true">&larr;</span> Older</a></li>
+          <li class="previous"><a href="{% url 'student_list' %}"><span aria-hidden="true">&larr;</span> Older</a></li>
         </ul>
       </nav>
     </div>
@@ -146,6 +143,6 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="../static/js/bootstrap.js"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 </body></html>
