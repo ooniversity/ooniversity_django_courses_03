@@ -1,4 +1,4 @@
-#!/home/olena/tutorial/pybursa/bin/python
+#!/home/olena/ooniversity_django_courses_03/venv/bin/python
 
 # -*- coding: utf-8 -*-
 import re

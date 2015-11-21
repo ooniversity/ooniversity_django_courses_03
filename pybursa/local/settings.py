@@ -1,1 +1,0 @@
-/home/olena/tutorial/pybursa/settings.py
