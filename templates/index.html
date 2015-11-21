@@ -12,10 +12,10 @@
 			<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
 		<title>PyBursa</title>
 		
-		<link rel="stylesheet" href="../static/css/section.css">
-		<link rel="stylesheet" href="../static/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../static/css/style.css">
-	    <link rel="stylesheet" href="../static/css/one-page.css">
+	    <link rel="stylesheet" href={% static "css/section.css" %}>
+		<link rel="stylesheet" href={% static "css/bootstrap.min.css" %}>
+	    <link rel="stylesheet" href={% static "css/style.css" %}>
+	    <link rel="stylesheet" href={% static "css/one-page.css" %}>
 
 
 	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -44,15 +44,15 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html">PyBursa</a>
+					<a class="navbar-brand" href="{% url 'index' %}">PyBursa</a>
 				</div> <!-- /.navbar-header -->
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="index.html">Main</a></li>
-						<li><a href="contact.html">Contacts</a></li>
-						<li><a href="student_list.html">Students</a></li>
+						<li class="active"><a href="{% url 'index' %}">Main</a></li>
+						<li><a href="{% url 'contact' %}">Contacts</a></li>
+						<li><a href="{% url 'student_list %}">Students</a></li>
 					</ul> <!-- /.nav -->
 			    </div><!-- /.navbar-collapse -->
 		  	</div><!-- /.container -->
@@ -82,7 +82,7 @@
 				<div class="underline purple"></div>
 				<div class="row">
 					<div class="">
-						<img src="../static/images/dixon.jpg" width="320" alt="service" class="service-img img-responsive">
+						<img src="{% static 'images/dixon.jpg' %}" width="320" alt="service" class="service-img img-responsive">
 					</div>
 					<div class="col-md-offset-4 col-md-8 col-sm-12 services">
 						<div class="row">
@@ -238,10 +238,10 @@
 	
 
 
-	<script src="../static/js/jquery-1.11.2.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/contact.js"></script>
-	<script src="../static/js/script.js"></script>
+	<script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/contact.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
 
 
 </body>
