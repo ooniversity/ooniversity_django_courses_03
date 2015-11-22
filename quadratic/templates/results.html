@@ -1,0 +1,13 @@
+<p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+<ul>
+	<li>a = {{ a }}</li>
+	{% if errors.a %}<p>{{ errors.a }}</p>{% endif %}
+	
+	<li>b = {{ b }}</li>
+	{% if errors.b %}<p>{{ errors.b }}</p>{% endif %}
+	<li>c = {{ c }}</li>
+	{% if errors.c %}<p>{{ errors.c }}</p>{% endif %}
+</ul>
+
+{% if not errors %}<p>Дискриминант: {{ descr }}</p>{% endif %}
+{% if not errors %}<p>{{ message }}</p>{% endif %}
