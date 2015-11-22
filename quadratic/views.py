@@ -5,9 +5,11 @@ from django.template import RequestContext, loader
 from django.http import HttpRequest
 
 def quadratic_results(request):
+    global context
+    global flag_calculate_D
     context = {}
     flag_calculate_D = {'a':True, 'b':True, 'c':True}
-    print flag_calculate_D
+
     try:
         a = request.GET['a']
     except:
@@ -22,42 +24,45 @@ def quadratic_results(request):
         c = None
 
 
-    if a == None or a == '':
-        context['a'] = ''
-        context['a_message'] = 'коэффициент не определен'
-        flag_calculate_D['a'] = False
-    elif not is_number(a):
-        context['a'] = a
-        context['a_message'] = 'коэффициент не целое число'
-        flag_calculate_D['a'] = False
-    elif int(a) == 0:
-        context['a'] = a
-        context['a_message'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-        flag_calculate_D['a'] = False
-    else:
-        context['a'] = int(a)
+    # if a == None or a == '':
+    #     context['a'] = ''
+    #     context['a_message'] = 'коэффициент не определен'
+    #     flag_calculate_D['a'] = False
+    # elif not is_number(a):
+    #     context['a'] = a
+    #     context['a_message'] = 'коэффициент не целое число'
+    #     flag_calculate_D['a'] = False
+    # elif int(a) == 0:
+    #     context['a'] = a
+    #     context['a_message'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+    #     flag_calculate_D['a'] = False
+    # else:
+    #     context['a'] = int(a)
+    check_input('a',a, True)
+    check_input('b',b)
+    check_input('c',c)
 
-    if b == None or b == '':
-        context['b'] = ''
-        context['b_message'] = 'коэффициент не определен'
-        flag_calculate_D['b'] = False
-    elif not is_number(b):
-        context['b'] = b
-        context['b_message'] = 'коэффициент не целое число'
-        flag_calculate_D['b'] = False
-    else:
-        context['b'] = int(b)
-
-    if c == None or c == '':
-        context['c'] = ''
-        context['c_message'] = 'коэффициент не определен'
-        flag_calculate_D['c'] = False
-    elif not is_number(c):
-        context['c'] = c
-        context['c_message'] = 'коэффициент не целое число'
-        flag_calculate_D['c'] = False
-    else:
-        context['c'] = int(c)
+    # if b == None or b == '':
+    #     context['b'] = ''
+    #     context['b_message'] = 'коэффициент не определен'
+    #     flag_calculate_D['b'] = False
+    # elif not is_number(b):
+    #     context['b'] = b
+    #     context['b_message'] = 'коэффициент не целое число'
+    #     flag_calculate_D['b'] = False
+    # else:
+    #     context['b'] = int(b)
+    #
+    # if c == None or c == '':
+    #     context['c'] = ''
+    #     context['c_message'] = 'коэффициент не определен'
+    #     flag_calculate_D['c'] = False
+    # elif not is_number(c):
+    #     context['c'] = c
+    #     context['c_message'] = 'коэффициент не целое число'
+    #     flag_calculate_D['c'] = False
+    # else:
+    #     context['c'] = int(c)
 
     if flag_calculate_D['a'] and flag_calculate_D['b'] and flag_calculate_D['c']:
         context['calculate_Done'] = True
@@ -87,3 +92,20 @@ def is_number(char):
     except:
         return_value = False
     return return_value
+
+def check_input(param, param_value, primary = False):
+    message = param+'_message'
+    if param_value == None or param_value == '':
+        context[param] = ''
+        context[message] = 'коэффициент не определен'
+        flag_calculate_D[param] = False
+    elif not is_number(param_value):
+        context[param] = param_value
+        context[message] = 'коэффициент не целое число'
+        flag_calculate_D[param] = False
+    elif int(param_value) == 0 and primary == True:
+        context[param] = param_value
+        context[message] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+        flag_calculate_D[param] = False
+    else:
+        context[param] = int(param_value)
