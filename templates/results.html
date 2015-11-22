@@ -78,24 +78,51 @@
   <!-- Site Content -->
   <div id="main">
 
-<center><h1>Решение квадратного уравнения</h1>
-    <ul>
-    <li>a = {{a}}</li>
-   {{error_a}}
-   <li>b = {{b}}</li>
-   {{error_b}}
-   <li>c = {{c}}</li>
-   {{error_c}}
-    </ul>
-    {%if d or resh%}
-    <strong>Дискриминант:</strong> {{d}}<br>
-    {{error_d}}<br>
-    {{resh}}
-    {%endif%}</center><br>
+<center><h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
+
+        <ul>
+            <li>
+                a = {{ a }}
+                {% if error_a %}
+                    <ul>
+                        <li>
+                            {{ error_a }}
+                        </li>
+                    </ul>
+                {% endif %}
+            </li>
+            <li>
+                b = {{ b }}
+                 {% if error_b %}
+                    <ul>
+                        <li>
+                            {{ error_b }}
+                        </li>
+                    </ul>
+                {% endif %}
+            </li>
+            <li>
+                c = {{ c }}
+                 {% if error_c %}
+                    <ul>
+                        <li>
+                            {{ error_c }}
+                        </li>
+                    </ul>
+                {% endif %}
+            </li>
+        </ul>
+
+
+
+    {% if discr or discr == 0%}
+        <h3>Дискриминант: {{ discr }}</h3>
+    {% endif %}
+    {% if result %}
+        <p>{{ result }}</p>
+    {% endif %}<br></center>
 
 </div>
-
-  </center>
   <!-- site content end Here -->
 
  <!-- Footer Section Start Here -->
