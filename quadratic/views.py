@@ -27,9 +27,9 @@ def quadratic_results(request):
     if a.replace('.', '').replace('-', '').isdigit() and float(a) != 0:
         if b.replace('.', '').replace('-', '').isdigit() and float(b) != 0:
             if c.replace('.', '').replace('-', '').isdigit() and float(c) != 0:
-                a = int(a)
-                b = int(b)
-                c = int(c)
+                a = float(a)
+                b = float(b)
+                c = float(c)
                 discr = b**2 - 4*a*c
                 if discr == 0:
                     income_values['d'] = str('Дискриминант: %d' % discr)
