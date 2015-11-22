@@ -21,4 +21,6 @@ urlpatterns = patterns(
     # url(r'^equation/$', equation, name='equation'),
     url(r'^quadratic/$', 'quadratic.views.equation', name='equation'),
     url(r'^quadratic/result(?:s?)\b/$', 'quadratic.views.quadratic_calc', name='result'),
+    # url(r'^quadratic/$', 'quadratic.views.equation'),
+    # url(r'^quadratic/result(?:s?)\b/$', 'quadratic.views.quadratic_calc'),
 )

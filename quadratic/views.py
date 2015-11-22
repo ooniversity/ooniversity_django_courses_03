@@ -14,7 +14,7 @@ def replacer(dictionary):
     return dictionary
 
 
-def quadratic(a=None, b=None, c=None):
+def quadratic_calc(a=None, b=None, c=None):
     errors = {'a': '', 'b': '', 'c': ''}
     get_dict = lambda: {'a': a, 'b': b, 'c': c, 'd': d, 'x1': x1, 'x2': x2, 'result': result, 'errors': errors}
 
@@ -58,8 +58,8 @@ def quadratic(a=None, b=None, c=None):
     return get_dict()
 
 
-def quadratic_calc(request):
-    result = quadratic(request.GET['a'], request.GET['b'], request.GET['c'])
+def quadratic_results(request):
+    result = quadratic_calc(request.GET['a'], request.GET['b'], request.GET['c'])
     return render(request, 'results.html', {'result': result})
 
 
