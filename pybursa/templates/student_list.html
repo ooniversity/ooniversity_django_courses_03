@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  	{% load staticfiles %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Student_list</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Students</title>
     <style type="text/css">
 	   TABLE { 
 	    width: 300px; /* Ширина таблицы */
@@ -28,14 +28,16 @@
 	   }
 	</style>
 	<style>
-		body{background-image: url('../static/images/pic4.jpg') !important;
+		body{background-image: url('../static/images/pic2.jpg') !important;
 		background-repeat: none; 
 		background-attachment: fixed;
 		background-size: 100%; 
 		background-position: center top}
 	</style>
-    <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -55,53 +57,64 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="index.html">ITBursa-2015</a>
+	      <a class="navbar-brand" href="{% url 'index' %}">ITBursa-2015</a>
 	    </div>
-	    
+
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li><a href="index.html">Main</a></li>
-	        <li><a href="contact.html">Contacts<span class="sr-only">(current)</span></a></li>
-	        <li><a href="student_list.html">Students<span class="sr-only">(current)</span></a></li>
+	        <li><a href="{% url 'index' %}">Main</a></li>
+	        <li><a href="{% url 'contact' %}">Contacts<span class="sr-only">(current)</span></a></li>
+	        <li class="active"><a href="{% url 'student_list' %}">Students<span class="sr-only">(current)</span></a></li>
 	        </li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
-	</nav>
-	<img src="../static/images/pic3.jpg" width="200px" height="200px" class="img-circle">		
-	<div class="jumbotron">
-	  <h1>Ivanova Anna</h1>
-	  <p>Student's card ITBursa</p>
-	   <!-- Table -->
+	</nav>	
+	<div class="panel panel-default">
+
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">Students of ITBursa-2015</div>
+	  <div class="panel-body">
+	    <p>This list provides extra references and information for students.</p>
+	  </div>
+	</div>  
+	<div class="row">
+	  <div class="col-lg-6">
+	    <div class="input-group">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">Go!</button>
+	      </span>
+	      <input type="text" class="form-control" placeholder="Search for...">
+	    </div><!-- /input-group -->
+	  </div><!-- /.col-lg-6 -->
+	</div>  
+	</div>
+
+	  <!-- Table -->
 	  <table class="table">
-	    <tr><td>Surname</td><td>Ivanova</td>
-	    <tr><td>Name</td><td>Anna</td>
-	    <tr><td>Patronymic</td><td>IvanovaA</td>
-	    <tr><td>Birth Date</td><td>28.01.1983</td>
-	    <tr><td>Address</td><td>20A, Mira street, apt. 140, Kharkiv</td>
-	    <tr><td>E-mail</td><td>Anna@ukr.net</td>
-	    <tr><td>Skype</td><td>A.Ivanova</td>	
-	  </table>
-	  <table class="table">
+	    <colgroup style="background-color: silver"></colgroup>
+	    <colgroup style="background-color: silver"></colgroup>
+	    <colgroup style="background-color: silver"></colgroup>
+	    <colgroup style="background-color: silver"></colgroup>
+	    <colgroup style="background-color: silver"></colgroup>
 	    <tr>
-	        <th>Course</th>
-	        <th>Week</th>
-	        <th>Control type</th>
-	        <th>Grade</th>
+	        <th>No</th>
+	        <th>Surname</th>
+	        <th>Name</th>
+	        <th>Address</th>
+	        <th>Skype</th>
 	    </tr>
-	    <tr><td><b>Python</b></td><td>Wee1</td><td>Problem Task</td><td>100%</td></tr>
-	    <tr><td></td><td>Wee1</td><td>Tests</td><td>100%</td></tr>
-	    <tr><td></td><td>Wee1</td><td>Average Grade</td><td>100%</td></tr>
-	    <tr><td></td><td>Wee1</td><td>Rating</td><td>100%</td></tr>
-	    <tr><td></td><td>Week2</td><td>Problem Task</td><td>100%</td></tr>
-	    <tr><td></td><td>Wee2</td><td>Tests</td><td>100%</td></tr>
+	    <tr><td><a href="{% url 'student_detail' %}">1</a></td><td>Ivanova</td><td>Anna</td><td>20A, Mira street, apt. 140, Kharkiv</td><td>A.Ivanova</td></tr>
+	    <tr><td>2</td><td>Petrov</td><td>Igor</td><td>15, Pushkinskaya street, apt. 114, Kharkiv</td><td>I.Petrov</td></tr>
+	    <tr><td>3</td><td>Klimov</td><td>Ivan</td><td>36, Sumskaya street, apt. 11, Kharkiv</td><td>I.Klimov</td></tr>
+	    <tr><td>4</td><td>Kox</td><td>Irina</td><td>201, Mira street, Kharkiv</td><td>I.Kox</td></tr>
+	    <tr><td>5</td><td>Sova</td><td>Tim</td><td>25, Sumskaya street, apt. 13, Kharkiv</td><td>T.Sova</td></tr>
 	  </table>
 	</div>
-	<img src="../static/images/img1.gif" width="100px" height="100px">	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
   </body>
-</html>	
+</html>
