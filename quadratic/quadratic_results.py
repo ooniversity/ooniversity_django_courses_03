@@ -23,7 +23,7 @@ def results(request):
     if (var_a.isdigit() is True and int(var_a) != 0) and var_b.isdigit() is True and var_c.isdigit() is True:
         d = int(var_b) ** 2 - 4 * int(var_a) * int(var_c)
     else:
-        d = '0'
+        d = None
 
     var_x = ''
     var_x1 = ''
