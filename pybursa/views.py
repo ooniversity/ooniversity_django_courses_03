@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.http import HttpResponse
 
 def index(request):
 	return render(request, 'index.html')
@@ -12,3 +12,4 @@ def student_list(request):
 
 def student_detail(request):
 	return render(request, 'student_detail.html')
+
