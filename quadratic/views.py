@@ -29,9 +29,9 @@ def quadratic_results(request):
                 a = int(a)
                 b = int(b)
                 c = int(c)
-                discr = str(b**2 - 4*a*c)
+                discr = b**2 - 4*a*c
                 if discr == 0:
-                    res['d'] = str('Дискриминант: %s' % discr)
+                    res['d'] = str('Дискриминант: %d' % discr)
                     x1 = str(-b/ 2*a)
                     res['x'] = str('Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' % x1)
                 if discr < 0:
