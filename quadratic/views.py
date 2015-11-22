@@ -10,6 +10,7 @@ def quadratic_results(request):
 	error_b = ""
 	error_c = ""
 	result = ''
+	result_d = ''
 	d=''
 	x = ''
 	y = ''
@@ -19,17 +20,18 @@ def quadratic_results(request):
 		b = int(b)
 		c = int(c)
 		d = b**2 - 4*a*c
+		result_d = 'Дискриминант: %d' %(d)
 		if d > 0:
 			x = (-b + d**(1/2.0))/(2*a)
 			y = (-b - d**(1/2.0))/(2*a)
 			#x=round(x, 1)
 			#y=round(y, 1)
-			result = 'Квадратное уравнение имеет два действительных корня: %d, %d' %(x, y)
+			result = 'Квадратное уравнение имеет два действительных корня: %s, %s' %(x, y)
 		elif d == 0:
-			x = (-b + d**(1/2))/(2*a)
+			x = (-b + d**(1/2.0))/(2*a)
 			#x=round(x, 1)
 			#y = ''
-			result = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень x1=x2: %d' %(x)
+			result = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень x1=x2: %s' %(x)
 		elif d < 0:
 			result = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
 	else:
@@ -56,4 +58,4 @@ def quadratic_results(request):
 		error_a = dic[a]
 		error_b = dic[b]
 		error_c = dic[c]
-	return render(request, 'results.html', {'a':a, 'b':b, 'c':c, 'd':d, 'result':result, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
+	return render(request, 'results.html', {'a':a, 'b':b, 'c':c, 'result_d':result_d, 'result':result, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
