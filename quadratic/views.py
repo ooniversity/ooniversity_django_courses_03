@@ -1,57 +1,62 @@
-# -*- coding:UTF-8 -*-
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
-import math
+from django.http import HttpResponseRedirect, HttpResponse
+
 
 
 def quadratic_results(request):
-    a = request.GET.get('a')
-    b = request.GET.get('b')
-    c = request.GET.get('c')
-    err_a, err_b, err_c = '', '', ''
-
     
+    a = request.GET['a']
+    a_error = ''
+
     if a:
         if a.replace("-", "").isdigit():
             if a == "0":
-                err_a = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
+                a_error = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
             else:
                 a = int(a)
         else:
-            err_a = "коэффициент не целое число"
+            a_error = "коэффициент не целое число"
     else:
-        err_a = "коэффициент не определен"
+        a_error="коэффициент не определен"
     
+    b = request.GET['b']
+    b_error = ""
+
     if b:
         if b.replace("-", "").isdigit():
             b = int(b)
         else:
-            err_b = "коэффициент не целое число"
+            b_error = "коэффициент не целое число"
     else:
-        err_b = "коэффициент не определен"
+        b_error="коэффициент не определен"
         
+    c = request.GET['c']
+    c_error = ""
+
     if c:
         if c.replace("-", "").isdigit():
             c = int(c)
         else:
-            err_c = "коэффициент не целое число"
+            c_error = "коэффициент не целое число"
     else:
-        err_c = "коэффициент не определен"
-
-    discr_string = ''
-    message = ''
+        c_error="коэффициент не определен"
+    strdiscr=''
+    message=''
+        
     
-    if not err_a and  not err_b and  not err_c:   
-        discr = b**2 - 4 * a * c;
-        discr_string = 'Дискриминант: % d' % discr
+    if not a_error and  not b_error and  not c_error:   
+        discr = b**2-4*a*c
+        strdiscr = 'Дискриминант: % d' % discr
         if discr < 0:
             message = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений'
-        elif discr == 0:
-            x = -b/(2*a)
+        elif discr==0:
+            x =  -b/2*a
             message = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x
         else:
-            x1 = (-b + discr**(1/2.0))/(2*a)
-            x2 = (-b - discr**(1/2.0))/(2*a)
-            message = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' %(x1, x2)
+            x1=(-b+ discr**(1/2.0))/(2*a)
+            x2=(-b- discr**(1/2.0))/(2*a)
+            message = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' %(x1,x2)
             
-    return render(request,'quadratic/results.html',{'a': a,'err_a': err_a,\
-                        'b': b,'err_b': err_b, 'c': c,'err_c': err_c,'d': discr_string,'msg':message })
+    return render(request,'quadratic/results.html',{'a': a,'a_error': a_error,'b': b,'b_error': b_error, 'c': c,'c_error': c_error,'d': strdiscr,'mes':message })
+    
