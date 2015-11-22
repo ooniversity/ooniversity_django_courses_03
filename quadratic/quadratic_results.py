@@ -36,12 +36,15 @@ def results(request):
         #exit()
     elif d == 0:
         var_x = -int(var_b) / 2 * int(var_a)
+        var_x = float(var_x)
 
     elif d > 0:
         var_b = int(var_b)
         var_a = int(var_a)
         var_x1 = (-var_b + d ** (1/2.0)) / (2 * var_a)
+        var_x1 = round(var_x1, 1)
         var_x2 = (-var_b - d ** (1/2.0)) / (2 * var_a)
+        var_x2 = round(var_x2, 1)
     #d = var_a + int(var_b) + int(var_c)
     #eq_ans = 'Result {0}'.format(s)
     #return HttpResponse(eq_ans)
