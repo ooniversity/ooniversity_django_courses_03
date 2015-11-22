@@ -48,28 +48,25 @@ def quadratic_results(request):
 
         if discr > 0:
             import math
-            x1 = (-b + math.sqrt(discr)) / (2 * a)
-            x2 = (-b - math.sqrt(discr)) / (2 * a)
+            lists_of_vars['x1'] = (-b + math.sqrt(discr)) / (2 * a)
+            lists_of_vars['x2'] = (-b - math.sqrt(discr)) / (2 * a)
         elif discr == 0:
-            x = -b / (2 * a)
+            lists_of_vars['x'] = -b / (2 * a)
             
         else:
             print("123")
-    else:
-        pass
 
-        #lists_of_vars['x'] = x
+        lists_of_vars['discr'] = discr
+
+        
+    
         
         
-        print lists_of_vars
-
 
 
 
     return render(request, 'results.html', {
         "lists_of_vars": lists_of_vars,
-        
-        
         })
 
 
