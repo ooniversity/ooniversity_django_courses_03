@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseNotFound
 
 
 # Create your views here.
@@ -16,3 +17,7 @@ def student_list(request):
 
 def student_detail(request):
     return render(request, 'student_detail.html')
+
+
+
+
