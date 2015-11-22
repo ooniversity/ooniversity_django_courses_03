@@ -5,55 +5,45 @@ from django.shortcuts import render_to_response
 
 
 def quadratic_results(request):
-
     open_get = request.GET
-    print(open_get)
-
+    context = {
+        'title': 'Решение квадратного уравнения'
+    }
     for key, value in open_get.items():
-        if value.isdigit():
-            print('It is digit ', value)
-        if not value:
-            value = 'коэффициент не определен'
-            print(key, value)
-        elif isinstance(value, str):
-            value = 'коэффициент не целое число'
-            print(key, value)
+        if value:
+            if not value.isdigit():
+                context[key] = value
+                context['error' + '_' + key] = 'коэффициент не целое число'
+            else:
+                context[key] = int(value)
 
-    # value = 'коэффициент не определен'
-    # print(key + ' = ' + value)
-    a = 1
-    b = 1
-    c = 1
+        else:
+            context[key] = value
+            context['error' + '_' + key] = 'коэффициент не определен'
 
-    discr = b ** 2 - 4 * a * c
-    print("Дискриминант D = %.2f" % discr)
-    if discr > 0:
-        import math
-        x1 = (-b + math.sqrt(discr)) / (2 * a)
-        x2 = (-b - math.sqrt(discr)) / (2 * a)
-        context = {
-            'title': 'Решение квадратного уравнения',
-            'a': a,
-            'b': b,
-            'c': c,
+    if isinstance(context['a'], int) and isinstance(context['b'], int) and isinstance(context['c'], int):
 
-        }
-    elif discr == 0:
-        x = -b / (2 * a)
-        context = {
-            'title': 'Решение квадратного уравнения',
-            'a': a,
-            'b': b,
-            'c': c,
+        if context['a'] <= 0:
+            context['error_a'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+        else:
+            discr = context['b'] ** 2 - 4 * context['a'] * context['c']
+            if discr > 0:
+                x1 = (-context['b'] + math.sqrt(discr)) / (2 * context['a'])
+                x2 = (-context['b'] - math.sqrt(discr)) / (2 * context['a'])
+                context['result'] = 'Квадратное уравнение имеет два действительных корня:' \
+                                    'x1 = %.2f, x2 = %.2f' % (x1, x2)
+            elif discr == 0:
+                x = -context['b'] / (2 * context['a'])
 
-        }
+                context['result'] = 'Дискриминант равен нулю, квадратное уравнение имеет' \
+                                    ' один действительный корень: x1 = x2 = %.2f' % x
+            else:
+
+                context['result'] = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+            context['discr'] = discr
+            print(context)
+            print(discr)
     else:
-        context = {
-            'title': 'Решение квадратного уравнения',
-            'a': a,
-            'b': b,
-            'c': c,
-
-        }
+        context
 
     return render_to_response('results.html', context)
