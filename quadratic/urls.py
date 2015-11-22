@@ -1,7 +1,8 @@
-﻿from django.conf.urls import url
+﻿from django.conf.urls import patterns, url
+import views
+from django.http import HttpResponse
 
-from . import views
-
-urlpatterns = [
-	url(r'^results/$', views.quadratic_results, name='quadratic_results'),
-]
+urlpatterns = patterns('',
+	#url(r'^$', 'Norm', name='home'),
+	url(r'^results/$', views.quadratic_results, name='results'),
+)
