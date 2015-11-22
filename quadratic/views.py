@@ -13,13 +13,13 @@ def quadratic(request):
         output_request['calculate'] = False
         output_request['a'] = input_request['a']
         if len(input_request.get('a')) == 0:
-            output_request['a_error'] = "non iditificate"
+            output_request['a_error'] = "коэффициент не определен"
         elif not input_request['a'].isdigit():
-            output_request['a_error'] = "is not digit"
+            output_request['a_error'] = "коэффициент не целое число"
     finally:
         if input_request['a'].isdigit() and int(input_request['a']) == 0:
             output_request['calculate'] = False
-            output_request['a_error'] = "it must be !=0" 
+            output_request['a_error'] = "коэффициент при первом слагаемом уравнения не может быть равным нулю" 
 
     try:
         output_request['b'] = int(input_request['b'])
@@ -27,9 +27,9 @@ def quadratic(request):
         output_request['b'] = input_request['b']
         output_request['calculate'] = False
         if len(input_request.get('b')) == 0:
-            output_request['b_error'] = "non idintificate"
+            output_request['b_error'] = "коэффициент не определен"
         elif not input_request['b'].isdigit():
-            output_request['b_error'] = "is not digit"
+            output_request['b_error'] = "коэффициент не целое число"
 
     try:
         output_request['c'] = int(input_request['c'])
@@ -37,9 +37,9 @@ def quadratic(request):
         output_request['c'] = input_request['c']
         output_request['calculate'] = False
         if len(input_request.get('c')) == 0:
-            output_request['c_error'] = "non idetificate"
+            output_request['c_error'] = "коэффициент не определен"
         elif not input_request['c'].isdigit():
-            output_request['c_error'] = "is not digit"  
+            output_request['c_error'] = "коэффициент не целое число"  
 
     if output_request['calculate']:
         output_request['D'] = output_request['b']**2 - 4*output_request['a']*output_request['c']
