@@ -1,8 +1,22 @@
+html {
+  overflow-y: scroll;
+}
+body {
+    overflow: scroll;
+    overflow-x: hidden;
+        }
+::-webkit-scrollbar{
+  width:0px;   // here actuall it exist but width is 0 so no one can see it 
+  background:transparent;
+} //end of the code here
+// this code for further customization of thumbs
+::-webkit-scrollbar-thumb{
+   background-color: rgba(0,0,0,0);
+}
 .logo {
   height: 40px;
   width: 40px;
   margin-top: -10px;
-  border: 0px solid black;
 }
 .navbar {
   background: rgb(226, 226, 226);
@@ -35,10 +49,10 @@
   background: linear-gradient(to bottom, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
 }
 .footer {
-  background: rgb(246, 246, 246);
-  background: -moz-linear-gradient(top, rgba(246, 246, 246, 1) 0%, rgba(225, 225, 225, 1) 49%, rgba(241, 241, 241, 1) 50%, rgba(255, 255, 255, 1) 100%);
-  background: -webkit-linear-gradient(top, rgba(246, 246, 246, 1) 0%, rgba(225, 225, 225, 1) 49%, rgba(241, 241, 241, 1) 50%, rgba(255, 255, 255, 1) 100%);
-  background: linear-gradient(to bottom, rgba(246, 246, 246, 1) 0%, rgba(225, 225, 225, 1) 49%, rgba(241, 241, 241, 1) 50%, rgba(255, 255, 255, 1) 100%);
+  background: rgb(254,254,254);
+  background: -moz-linear-gradient(top,  rgba(254,254,254,1) 0%, rgba(209,209,209,1) 49%, rgba(219,219,219,1) 50%, rgba(226,226,226,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(254,254,254,1) 0%,rgba(209,209,209,1) 49%,rgba(219,219,219,1) 50%,rgba(226,226,226,1) 100%);
+  background: linear-gradient(to bottom,  rgba(254,254,254,1) 0%,rgba(209,209,209,1) 49%,rgba(219,219,219,1) 50%,rgba(226,226,226,1) 100%);
 }
 .active > a {
   background: rgb(255, 255, 255);
@@ -135,4 +149,14 @@ tbody > tr > td:first-child {
   clear: both;
   margin: 20px 0 0 15px;
   ;
+}
+.msg_alert {
+  color: red;
+}
+#divider{
+  border-bottom: 1px dotted black;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  width : 45%;;
+  text-align: left;
 }
