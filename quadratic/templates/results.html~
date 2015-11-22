@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Equation</title>
+  <body>
+		<h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
+                <ul class="my_list">
+					<li>a = {{ a }}</li>
+{% if error1_a %}<p><strong>{{ error1_a }}</strong></p>{% endif %}
+{% if error2_a %}<p><strong>{{ error2_a }}</strong></p>{% endif %}
+{% if error3_a %}<p><strong>{{ error3_a }}</strong></p>{% endif %}
+					<li>b = {{ b }}</li>
+{% if error1_b %}<p><strong>{{ error1_b }}</strong></p>{% endif %}
+{% if error2_b %}<p><strong>{{ error2_b }}</strong></p>{% endif %}
+					<li>c = {{ c }}</li>
+{% if error1_c %}<p><strong>{{ error1_c }}</strong></p>{% endif %}
+{% if error2_c %}<p><strong>{{ error2_c }}</strong></p>{% endif %}
+				</ul>
+				<p>{{ d }}</p>
+				<p>{{ discr }}</p>
+  </body>
+</html>
