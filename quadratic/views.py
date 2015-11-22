@@ -1,30 +1,57 @@
-from django.shortcuts import render
+# -*- coding: utf-8 -*-
+import math
 
-from quadratic.models import QuadraticEquation
+from django.shortcuts import render_to_response
 
 
 def quadratic_results(request):
-    equation = {}
-    equation['a'] = request.GET.get('a', '')
-    equation['b'] = request.GET.get('b', '')
-    equation['c'] = request.GET.get('c', '')
+    open_get = request.GET
+    context = {
+        'title': 'Решатель квадратных уравнений'
+    }
+    for key, value in open_get.items():
+        if value:
+            if value[0] != '-':
+                if not value.isdigit():
+                    context[key] = value
+                    context['error' + '_' + key] = 'коэффициент не целое число'
+                else:
+                    context[key] = int(value)
+            else:
+                if not value[1:].isdigit():
+                    context[key] = value
+                    context['error' + '_' + key] = 'коэффициент не целое число'
+                else:
+                    context[key] = int(value)
 
-    equation = QuadraticEquation(equation)
+        else:
+            context[key] = value
+            context['error' + '_' + key] = 'коэффициент не определен'
 
-    params = {}
-    params['a'] = equation.data['a']
-    params['b'] = equation.data['b']
-    params['c'] = equation.data['c']
+    if isinstance(context['a'], int) and isinstance(context['b'], int) and isinstance(context['c'], int):
 
-    params['has_error'] = equation.has_error
+        if context['a'] == 0:
+            context['error_a'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+        else:
+            discr = context['b'] ** 2 - 4 * context['a'] * context['c']
+            if discr > 0:
+                x1 = (-context['b'] + math.sqrt(discr)) / (2 * context['a'])
+                x2 = (-context['b'] - math.sqrt(discr)) / (2 * context['a'])
 
-    params['a_error'] = equation.errors.get('a', None)
-    params['b_error'] = equation.errors.get('b', None)
-    params['c_error'] = equation.errors.get('c', None)
+                context['result'] = 'Квадратное уравнение имеет два действительных ' \
+                                    'корня: x1 = %.1f, x2 = %.1f' % (x1, x2)
+            elif discr == 0:
+                x = -context['b'] / (2 * context['a'])
 
-    params['d'] = equation.data.get('d', None)
-    params['description'] = equation.result.get('description', None)
-    params['x1'] = equation.result.get('x1', None)
-    params['x2'] = equation.result.get('x2', None)
+                context[
+                    'result'] = 'Дискриминант равен нулю, квадратное уравнение имеет ' \
+                                'один действительный корень: x1 = x2 = %.1f' % x
+            else:
 
-    return render(request, 'quadratic/results.html', params)
+                context['result'] = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+            context['discr'] = discr
+
+    else:
+        context
+
+    return render_to_response('results.html', context)
