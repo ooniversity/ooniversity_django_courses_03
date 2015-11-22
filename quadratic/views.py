@@ -29,6 +29,6 @@ def quadratic_results(request):
             eq['x1'] = float((-b + eq['discr']**(1 / 2.0)) / (2 * a))
             eq['x2'] = float((-b - eq['discr']**(1 / 2.0)) / (2 * a))
     else:
-        eq['disrcim'] = ''
+        eq['discr'] = ''
 
     return render(request, 'quadratic/results.html', eq)

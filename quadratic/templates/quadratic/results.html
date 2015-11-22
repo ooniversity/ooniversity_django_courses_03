@@ -72,10 +72,10 @@
 
 				    <table class="table table-hover">
 				     <tr class="headtable_student"><td><h4>Дискриминант: {{ discr }}</h4></td></tr>
-				     {% if disrcim == 0 %}
-				     <tr class="headtable_student"><td><h4>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 =  {{ x1 }}</h4></td></tr>
+				     {% if discr == 0 %}
+<tr class="headtable_student"><td><h4>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x1 }}</h4></td></tr>
              {% elif discr > 0 %}
-				     <tr class="headtable_student"><td><h4>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}</h5></td></tr>
+				     <tr class="headtable_student"><td><h4>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}</h4></td></tr>
 				     {% elif discr < 0 %}
 				     <tr class="headtable_student"><td><h4>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</h5></td></tr>
 				     {% endif %}
