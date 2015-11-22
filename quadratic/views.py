@@ -1,7 +1,7 @@
 # -*- coding:UTF-8 -*-
 from django.shortcuts import render
 
-def quadratic(request):
+def quadratic_results(request):
     import math, cmath
     input_request = request.GET.dict()
     output_request = {}
