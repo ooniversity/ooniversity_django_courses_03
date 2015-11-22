@@ -46,9 +46,10 @@ def quadratic_results(request):
             #c = ''
     
     if not errors:
-        descr = (b**2 - 4*a*c)**1/2.0
-        x1 = (-b + descr) / 2*a
-        x2 = (-b - descr) / 2*a
+        descr = (b**2 - 4*a*c)
+        if descr >= 0:
+            x1 = (-b + descr**0.5)/ 2*a
+            x2 = (-b - descr**0.5) / 2*a
     if descr<0: 
         message = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
     elif descr==0:
@@ -56,6 +57,6 @@ def quadratic_results(request):
     else:
         message = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (x1, x2)
     return render(request, 'results.html', {'message': message,'errors': errors, 
-        'x1': x1, 'x2': x2, 'a': a, 'b': b, 'c': c, 'descr': descr})
+        'x1': x1, 'x2': x2, 'a': a, 'b': b, 'c': c, 'descr': int(descr)})
 
 
