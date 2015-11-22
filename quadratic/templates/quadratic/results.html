@@ -1,23 +1,32 @@
-{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quadratic</title>
+    <title>Document</title>
 </head>
 <body>
-<p>Квадратное уравнение a*x*x + b*x + c = 0</p>
-<ul>
-<li>a = {{ a }}
-<i>{{ err_a}}</i></li>
-<li>b = {{ b }}
-<i>{{ err_b }}</i></li>
-<li>c = {{ c }}
-<i>{{ err_c }}</i></li>
-</ul>
-<div>{{ d }}</div>
+    <h1> Quadratic </h1>
+<div>Квадратное уравнение   ax<sup>2</sup> + bx + c = 0</div>
 <br>
+a = {{ a }} <br>
+{{ a_error }} <br>
+b = {{ b }} <br>
+{{ b_error }} <br>
+c = {{ c }} <br>
+{{ c_error }} <br>
 <br>
-<div>{{ msg }}</div>
+{% if calculate %}
+    {% if D > 0 %}
+        Дискриминант: {{ D }}<br>
+        Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}<br>        
+    {% elif D == 0 %}
+        Дискриминант: {{ D }} <br>
+        Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x1 }} <br>
+    {% elif D < 0 %}
+        Дискриминант: {{ D }} <br>
+        Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений. <br>
+<br>
+    {% endif %}
+{% endif %}
 </body>
 </html>
