@@ -37,9 +37,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{% templates 'index.html' %}">Main<span class="sr-only">(current)</span></a></li>
-        <li><a href="{% templates 'contact.html' %}">Contact</a></li>
-		<li><a href="{% templates 'student_list.html' %}">Student</a></li>
+        <li class="active"><a href="{% url 'index.html' %}">Main<span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'contact.html' %}">Contact</a></li>
+		<li><a href="{% url 'student_list.html' %}">Student</a></li>
      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
