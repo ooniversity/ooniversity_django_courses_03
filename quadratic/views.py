@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
 
-def get_dict_from_request (temp, item):
+def eq_diction(temp, item):
 
     eq_dict = {key+'_unit':'коэффициент не целое число' for key,value in item.items() if not value.strip('-').isdigit()}
     eq_dict.update({key:item[key] if key in item else '' for key in temp})
@@ -14,7 +14,7 @@ def get_dict_from_request (temp, item):
     eq_dict['a_unit'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю' if eq_dict['a'] == '0' else eq_dict['a_unit']
     return eq_dict
 
-def get_quadratic (temp):
+def roots_eq(temp):
     a, b, c = temp
     eq_dict = {}
     a = float(a)
@@ -36,13 +36,13 @@ def get_quadratic (temp):
 
 def quadratic_results(request):
     dsc, keys = True, ('a','b','c')
-    eq_dict = get_dict_from_request (keys, request.GET)
+    eq_dict = eq_diction(keys, request.GET)
     for i in keys:
         if eq_dict[i +'_unit']:
             dsc = False
             break
     if dsc:
-        eq_dict.update(get_quadratic ((eq_dict['a'], eq_dict['b'], eq_dict['c'])))
+        eq_dict.update(roots_eq((eq_dict['a'], eq_dict['b'], eq_dict['c'])))
         eq_dict['discr'] = True
     else:
         eq_dict['discr'] = False
