@@ -64,8 +64,8 @@ def quadratic_results(request):
                                   'x1 = x2 = %.1f') % x
         else:
             context['D'] = D
-            x1 = -context['b'] + D / (2 * context['a'])
-            x2 = -context['b'] + D / (2 * context['a'])
+            x1 = (-context['b'] + D ** (1/2.0)) / (2 * context['a'])
+            x2 = (-context['b'] - D ** (1/2.0)) / (2 * context['a'])
             context['solution'] =('Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f') % (x1, x2)
     return render(request, 'results.html', context)
 
