@@ -7,7 +7,7 @@ from django.http import HttpResponse
     #return HttpResponse("Hello, it is results - quadratic.")
     #return render(request, 'results.html')
 
-def results(request):
+def quadratic_results(request):
     if request.GET['a']:
         var_a = request.GET['a']
     else:
