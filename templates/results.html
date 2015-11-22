@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Student: Jason Statham</title>
+<title>Решение квадратного уравнения</title>
 <meta name="description" content="Выучить питон на PyBursa быстро и легко!">
 <meta name="keywords" content="питон, курсы, онлайн">
 <meta name="author" content="Олександр Кучеренко">
@@ -77,103 +77,24 @@
 
   <!-- Site Content -->
   <div id="main">
-  <center><div class="teams">
-  <h5 class="persn">Statham Jason</h5>
-  <img class="hvr-pulse-grow" src="{% static 'images/team4.jpg' %}" alt="">
-    <div class="team-details">
-                       <br>           
-                    <button>Студент о себе</button>
-                  <br>
-                </div></div><br><br>
-                <strong>Student's card</strong>
-                <br><br>
-                <div class="table-responsive">  <table class="table table-striped table-bordered table-nonfluid">
-        
-        <tbody>
-            <tr>
-                <td>Surname</td>
-                <td>Statham</td>
-            </tr>
-            <tr>
-                <td>Name</td>
-                <td>Jason</td>
-            </tr>
-            <tr>
-                <td>Patronymic</td>
-                <td>Ivanovich</td>
-            </tr>
-            <tr>
-                <td>Average Grade</td>
-                <td>99.9</td>
-            </tr>
-            <tr>
-                <td>Rating</td>
-                <td>77</td>
-            </tr>
-            <tr>
-                <td>Birth Date</td>
-                <td>11/09/1967</td>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td>Ukraine, Kharkov, st. Frankovskaya, 14, kv. 77</td>
-            </tr>
-            <tr>
-                <td>E-mail</td>
-                <td>jason_statham@bigmir.net</td>
-            </tr>
-            <tr>
-                <td>Skype</td>
-                <td>jason_statham</td>
-            </tr>
-        </tbody>
-    </table>
-  </div>
-  <strong>Perfomance</strong>
-  <br><br>
-  <div class="table-responsive">  <table class="table table-bordered table-nonfluid">
-        <thead>
-            <tr>
-                 <th>Course</th>
-                <th>Week</th>
-                <th>Control Type</th>
-                <th>Grade</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                
-                <td rowspan="5">Содержание курса PyBursa</td>
-                <td rowspan="3">Week 1</td>
-                <td>Tests</td>
-                <td>99%</td>
-            </tr>
-            <tr>
-                
-                <td>Problem Task #1</td>
-                <td>100%</td>
-            </tr>
-            <tr>
-               
-                <td>Problem Task #2</td>
-                <td>100%</td>
-            </tr>
-            <tr>
-                
-                <td rowspan="2">Week 2</td>
-                <td>Tests</td>
-                <td>100%</td>
 
-            </tr>
-            <tr>
-                <td>Problem Task #1</td>
-                <td>100%</td>
-            </tr>
-            
-        </tbody>
-    </table>
-  </div></div>
-                
+<center><h1>Решение квадратного уравнения</h1>
+    <ul>
+    <li>a = {{a}}</li>
+   {{error_a}}
+   <li>b = {{b}}</li>
+   {{error_b}}
+   <li>c = {{c}}</li>
+   {{error_c}}
+    </ul>
+    {%if d or resh%}
+    <strong>Дискриминант:</strong> {{d}}<br>
+    {{error_d}}<br>
+    {{resh}}
+    {%endif%}</center><br>
+
+</div>
+
   </center>
   <!-- site content end Here -->
 
@@ -183,7 +104,7 @@
       <div class="container">
         <div class="col-xs-12 col-sm-3 abt">
           <h5 class="title">Футер #1</h5>
-          
+
           <p>За стеклом лежал Питон,</p>
           <p>Большой и толстый, как батон.</p>
           <p>Вверх пополз,</p>
@@ -197,7 +118,7 @@
           <p>PyBursa Text</p>
           <p>PyBursa Text</p>
           <p>PyBursa Text</p>
-          
+
         </div>
         <div class="col-xs-12 col-sm-3 service">
           <h5 class="title">Футер #3</h5>
@@ -207,7 +128,7 @@
             <li>CRM Development</li>
             <li>Web Maintanance</li>
             <li>Search Engine Optimization</li>
-            
+
           </ul>
         </div>
         <div class="col-xs-12 col-sm-3 touch">
