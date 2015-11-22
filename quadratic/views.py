@@ -11,7 +11,7 @@ def quadratic_results(request):
 
     
     if a:
-        if a.isdigit():
+        if a.replace("-", "").isdigit():
             if a == "0":
                 err_a = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
             else:
@@ -22,7 +22,7 @@ def quadratic_results(request):
         err_a = "коэффициент не определен"
     
     if b:
-        if b.isdigit():
+        if b.replace("-", "").isdigit():
             b = int(b)
         else:
             err_b = "коэффициент не целое число"
@@ -30,7 +30,7 @@ def quadratic_results(request):
         err_b = "коэффициент не определен"
         
     if c:
-        if c.isdigit():
+        if c.replace("-", "").isdigit():
             c = int(c)
         else:
             err_c = "коэффициент не целое число"
