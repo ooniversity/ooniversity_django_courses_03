@@ -10,15 +10,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^quadratic/', include('quadratic.urls'), name = "quadratic")
+#    
 )
-
-
-"""
-    'http://127.0.0.1:8000/'                              =>  index                 => index                      => index.html
-
-    'http://127.0.0.1:8000/contact/'               => contact               => contact                  => contact.html
-
-    'http://127.0.0.1:8000/student_list/'        => student_list       => student_list           => student_list.html
-
-    'http://127.0.0.1:8000/student_detail/'   => student_detail   => student_detail      => student_detail.html
-"""
