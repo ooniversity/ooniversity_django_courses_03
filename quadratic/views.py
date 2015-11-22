@@ -7,6 +7,7 @@ def quadratic_results(request):
 	b = request.GET.get('b', '')
 	c = request.GET.get('c', '')
 	error_a = ""
+	error_o = ""
 	error_b = ""
 	error_c = ""
 	result = ''
@@ -38,7 +39,6 @@ def quadratic_results(request):
 	else:
 		list_int = [a, b, c]
 		if list_int[0] == '0':
-			dic[a] = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
 			for l in list_int[1:]:
 				if l == "":
 					dic[l] = "эффициент не определен"
@@ -46,7 +46,7 @@ def quadratic_results(request):
 					dic[l] = "коэффициент не целое число"
 				else:
 					dic[l] = ""
-			
+			error_o = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
 		else:
 			for l in list_int:
 				if l == "":
@@ -60,4 +60,4 @@ def quadratic_results(request):
 		error_a = dic[a]
 		error_b = dic[b]
 		error_c = dic[c]
-	return render(request, 'results.html', {'a':a, 'b':b, 'c':c, 'result_d':result_d, 'result':result, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
+	return render(request, 'results.html', {'a':a, 'b':b, 'c':c, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
