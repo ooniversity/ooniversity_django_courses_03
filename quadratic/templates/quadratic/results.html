@@ -25,16 +25,13 @@
   <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 </div>
 </div>
-<div class="container">
-<div class="jumbotron">
 <p>a = {{ a }} </p>
-<p><small>{{ coef_a_err }}</small></p>
+<p>{{ coef_a_err }}</p>
 <p>b = {{ b }} </p>
-<p><small>{{ coef_b_err }}</small> </p>
+<p>{{ coef_b_err }}</p>
 <p>c = {{ c }} </p>
-<p><small>{{ coef_c_err }}</small></p>
-</div>
-</div>
+<p>{{ coef_c_err }}</p>
+<br>
 {% if flag %}
     {% if d > 0 %}
     <br>
