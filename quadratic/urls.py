@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
 from quadratic import views
 
 urlpatterns = patterns('',
-	url(r'^results/', views.quadratic_results, name='quadratic_results'),
-	)
+    url(r'^results/$', views.quadratic_results, name='qer'),
+)
