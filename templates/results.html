@@ -1,4 +1,84 @@
-<h1>Решение квадратного уравнения</h1>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Решение квадратного уравнения</title>
+<meta name="description" content="Выучить питон на PyBursa быстро и легко!">
+<meta name="keywords" content="питон, курсы, онлайн">
+<meta name="author" content="Олександр Кучеренко">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+<!-- Основной файл стилей -->
+<link href="{% static 'css/style.css'%}" rel="stylesheet">
+<!-- responsive stylesheet -->
+<link href="{% static 'css/responsive.css'%}" rel="stylesheet">
+<!-- Подключение иконок Font Awesome -->
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+<!-- Подключение Bootstrap -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+<link rel="stylesheet" href="{% static 'css/bootstrap-theme.css'%}">
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<!-- Дополнительный файл стилей -->
+<link href="{% static 'css/other.css'%}" rel="stylesheet">
+</head>
+<body>
+  <!--Начало секции Header -->
+  <header id="header">
+    <div class="primary-header">
+      <div class="container">
+        <div class="row ">
+          <ul class="contact-detail2 col-sm-5 pull-left">
+            <li> <i class="fa fa-phone"> 38 (096) 469 15 57</i>  </li>
+            <li> <i class="fa fa-envelope-o"> daria.mykhalevych@gmail.com</i>  </li>
+          </ul>
+          <div class="social-links col-xs-12 col-sm-7 pull-right">
+            <ul class="social-icons hidden-xs pull-right">
+              <li> <i class="fa fa-facebook-square">.</i> </li>
+              <li> <i class="fa fa-twitter">.</i></li>
+              <li> <i class="fa fa-pinterest">.</i> </li>
+              <li> <i class="fa fa-vk">.</i> </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+
+        <!-- Лого и меню сгрупированы для лучшего мобильного отображения -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Моб.  меню</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a href="index.html" class="col-xs-6 col-sm-2 navbar-brand" title="Добро пожаловать на PyBursa"><img class="wow bounceInDown" data-wow-duration="0.5s" data-wow-delay="0s" src="../static/images/logo.png" alt="PyBursa"></a> </div>
+
+        <!-- Меню -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <nav>
+            <ul class="nav navbar-nav">
+              <li> <a href="{% url 'index' %}">Main </a> </li>
+              <li> <a href="{% url 'student_list' %}">Students </a> </li>
+              <li> <a href="{% url 'contact' %}">Contacts</a> </li>
+              <li> <a style="visibility: visible;" class="search-button" href={% url 'index' %}"><i class="icon icon-Search">.</i></a> </li>
+            </ul>
+            <div style="" class="bg-white hide-show-content no-display header-search-content">
+              <form class="navbar-form vertically-absolute-middle">
+                <div class="form-group">
+                  <input placeholder="Введите текст &amp; Нажмите Enter" class="form-control" id="s" name="s" value="" type="text">
+                </div>
+              </form>
+              <!--<button class="close"> <i class="fa fa-times"></i> </button>-->
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--Конец секции Header -->
+
+  <!-- Site Content -->
+  <div id="main">
+
+<center><h1>Решение квадратного уравнения</h1>
     <ul>
     <li>a = {{a}}</li>
    {{error_a}}
@@ -8,8 +88,75 @@
    {{error_c}}
     </ul>
     {%if d or resh%}
-    Дискриминант: {{d}}<br>
+    <strong>Дискриминант:</strong> {{d}}<br>
     {{error_d}}<br>
     {{resh}}
     {%endif%}</center><br>
 
+</div>
+
+  </center>
+  <!-- site content end Here -->
+
+ <!-- Footer Section Start Here -->
+  <footer id="footer">
+    <section class="footer">
+      <div class="container">
+        <div class="col-xs-12 col-sm-3 abt">
+          <h5 class="title">Футер #1</h5>
+
+          <p>За стеклом лежал Питон,</p>
+          <p>Большой и толстый, как батон.</p>
+          <p>Вверх пополз,</p>
+          <p>Затем вернулся,</p>
+          <p>Круглым бубликом свернулся. </p>
+           </div>
+        <div class="col-xs-12 col-sm-3 popular-post">
+          <h5 class="title">Футер #2</h5>
+          <p>PyBursa Text</p>
+          <p>PyBursa Text</p>
+          <p>PyBursa Text</p>
+          <p>PyBursa Text</p>
+          <p>PyBursa Text</p>
+
+        </div>
+        <div class="col-xs-12 col-sm-3 service">
+          <h5 class="title">Футер #3</h5>
+          <ul>
+            <li>Web Development</li>
+            <li>Software Development</li>
+            <li>CRM Development</li>
+            <li>Web Maintanance</li>
+            <li>Search Engine Optimization</li>
+
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-3 touch">
+          <h5 class="title">Футер #4</h5>
+          <p> <i class="fa fa-map-marker"> Где-то в Харькове...</i></p>
+          <p> <i class="fa fa-phone"> 38 (096) 469 15 57</i> </p>
+          <p> <i class="fa fa-envelope"> daria@gmail.com</i> </p>
+
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="container">
+          <div class="col-xs-12 col-sm-9 ">
+            <p> Copyright © AlexUA 2015-2016. All rights reserved. </p>
+          </div>
+          <div class="col-xs-12 col-sm-3 pull-right text-right">
+            <p> Created By : AlexUA </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <!-- End footer
+			================================================== -->
+</div>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'js/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+</body>
+</html>
