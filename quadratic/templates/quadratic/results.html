@@ -2,55 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>Quadratic</title>
 </head>
 <body>
-
-
-<h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
-
-        <ul>
-            <li>
-                a = {{ a }}
-                {% if error_a %}
-                    <ul>
-                        <li>
-                            {{ error_a }}
-                        </li>
-                    </ul>
-                {% endif %}
-            </li>
-            <li>
-                b = {{ b }}
-                 {% if error_b %}
-                    <ul>
-                        <li>
-                            {{ error_b }}
-                        </li>
-                    </ul>
-                {% endif %}
-            </li>
-            <li>
-                c = {{ c }}
-                 {% if error_c %}
-                    <ul>
-                        <li>
-                            {{ error_c }}
-                        </li>
-                    </ul>
-                {% endif %}
-            </li>
-        </ul>
-
-
-
-    {% if discr or discr == 0%}
-        <h3>Дискриминант: {{ discr }}</h3>
-    {% endif %}
-    {% if result %}
-        <p>{{ result }}</p>
-    {% endif %}
-
-
+<p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+<ul>
+<li>a = {{ a }}
+<i>{{ err_a}}</i></li>
+<li>b = {{ b }}
+<i>{{ err_b }}</i></li>
+<li>c = {{ c }}
+<i>{{ err_c }}</i></li>
+</ul>
+{{ d }}
+<br>
+<br>
+{{ msg }}
 </body>
 </html>
