@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="AlexI">
+    <title>Квадратное уравнение</title>
+  </head>
+  <body>
+    <p>Квадратное уравнение a*x*x + b*x +c = 0</p>
+  <ul>
+	  <li>a = {{ a }}</li>
+	  <li>b = {{ b }}</li>
+      <li>c = {{ c }}</li>
+  </ul>
+    {% if calculate_Done %}
+<p>Дискриминант: {{ D }}</p>
+    <p>{{ solution }}</p>
+  {% endif %}
+  </body>
+
