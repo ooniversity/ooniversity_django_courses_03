@@ -28,20 +28,19 @@ def quadratic(parametr_list):
         elif digit_coeff and key == "a" and int(parametr_list[key]) == 0:
             flag = False
             new_list[error] ='коэффициент при первом слагаемом уравнения не может быть равным нулю'
-        if flag:
-            a = int(parametr_list['a'])
-            b = int(parametr_list['b'])
-            c = int(parametr_list['c'])
-            D = b*b - 4*a*c
-            new_list['d'] = 'Дискриминант: ' + str(D)
-            if D < 0:
-                new_list['d_error'] = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-            elif D == 0:
-                x1 =(-b)/2.0*a
-                new_list['d_error'] = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = ' + str(round(x1,1))
-
-            else:
-                x1=(-b + math.sqrt(float(D)))/2.0*a
-                x2=(-b - math.sqrt(float(D)))/2.0*a
-                new_list['d_error'] = 'Квадратное уравнение имеет два действительных корня: x1 = '+str(round(x1,1))+", x2 = " +str(round(x2,1))
+    if flag:
+        a = int(parametr_list['a'])
+        b = int(parametr_list['b'])
+        c = int(parametr_list['c'])
+        D = b*b - 4*a*c
+        new_list['d'] = 'Дискриминант: ' + str(D)
+        if D < 0:
+            new_list['d_error'] = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+        elif D == 0:
+            x1 =(-b)/2.0*a
+            new_list['d_error'] = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = ' + str(round(x1,1))
+        else:
+            x1=(-b + math.sqrt(float(D)))/2.0*a
+            x2=(-b - math.sqrt(float(D)))/2.0*a
+            new_list['d_error'] = 'Квадратное уравнение имеет два действительных корня: x1 = '+str(round(x1,1))+", x2 = " +str(round(x2,1))
     return new_list
