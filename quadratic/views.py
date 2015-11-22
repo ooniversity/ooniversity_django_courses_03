@@ -1,13 +1,8 @@
 
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.template import RequestContext, loader
-from django.http import Http404
-from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
-from polls.models import Choice, Question
-from django.views import generic
+
 
 
 def quadratic_results(request):
@@ -60,7 +55,7 @@ def quadratic_results(request):
 		if discr < 0:
 			message = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений'
 		elif discr==0:
-			x = -b/(2*a)
+			x =  -b/2*a
 			message = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x
 		else:
 			x1=(-b+ discr**(1/2.0))/(2*a)
