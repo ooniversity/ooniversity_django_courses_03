@@ -45,7 +45,7 @@ def quadratic_results(request):
         discr_string = 'Дискриминант: % d' % discr
         if discr < 0:
             message = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений'
-        elif discr==0:
+        elif discr == 0:
             x = -b/(2*a)
             message = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x
         else:
@@ -54,4 +54,4 @@ def quadratic_results(request):
             message = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' %(x1, x2)
             
     return render(request,'quadratic/results.html',{'a': a,'err_a': err_a,\
-                        'b': b,'err_b': err_b, 'c': c,'err_c': err_c,'d': discr_string,'mes':message })
+                        'b': b,'err_b': err_b, 'c': c,'err_c': err_c,'d': discr_string,'msg':message })
