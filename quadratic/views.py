@@ -13,8 +13,8 @@ def discr(request, a, b, c):
 
 def deq(request, a, b):
     x = -float(b) / (2 * float(a))
-
-    t = u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' % x
+    x = round(x, 2)
+    t = u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %d' % float(x)
     return t
 
 
@@ -24,9 +24,9 @@ def dbig(request, a, b, c):
     c = float(c)
     x1 = (-b + ((b * b - 4 * a * c) ** (1 / 2.0))) / 2 * a
     x2 = (-b - ((b * b - 4 * a * c) ** (1 / 2.0))) / 2 * a
-    x1 = round(x1, 2)
-    x2 = round(x2, 2)
-    t = u'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s ' % (x1, x2)
+    x1 = str(round(x1, 2))
+    x2 = str(round(x2, 2))
+    t = u'Квадратное уравнение имеет два действительных корня: x1 = %s x2 = %s ' % (x1, x2)
     return t
 
 
@@ -53,7 +53,7 @@ def quadratic_results(request):
                 zn[t] = u'коэффициент не целое число'
                 err['flag'] = 1
 
-    if not err.values():
+    if err.values() == []:
         d = discr(request, a, b, c)
         zn['d'] = int(d)
         if zn['d'] == 0:
