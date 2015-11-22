@@ -16,4 +16,9 @@ urlpatterns = patterns(
     url(r'^contact(?:s?)\b/$', contact, name='contact'),
     url(r'^student(?:s?)_list/$', student_list, name='student_list'),
     url(r'^student_detail/$', student_detail, name='student_detail'),
+    #
+    # url(r'^result(?:s?)\b/$', quadratic_results, name='result'),
+    # url(r'^equation/$', equation, name='equation'),
+    url(r'^equation/$', 'quadratic.views.equation', name='equation'),
+    url(r'^equation/result(?:s?)\b/$', 'quadratic.views.quadratic_calc', name='result'),
 )
