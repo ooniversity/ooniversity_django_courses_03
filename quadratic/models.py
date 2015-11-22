@@ -39,7 +39,7 @@ class QuadraticEquation(object):
             elif self.data['d'] == 0:
                 self.result[
                     'description'] = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:'
-                self.result['x1'] = - b / 2.0 / a
+                self.result['x1'] = str(format(- b / 2.0 / a, '.2f'))
             elif self.data['d'] > 0:
                 self.result['description'] = 'Квадратное уравнение имеет два действительных корня:'
                 self.result['x1'] = (-b + sqrt(self.data['d'])) / 2.0 / a
