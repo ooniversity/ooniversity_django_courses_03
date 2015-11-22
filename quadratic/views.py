@@ -30,17 +30,19 @@ def quadratic_results(request):
             if discr > 0:
                 x1 = (-context['b'] + math.sqrt(discr)) / (2 * context['a'])
                 x2 = (-context['b'] - math.sqrt(discr)) / (2 * context['a'])
-                context['result'] = 'Квадратное уравнение имеет два действительных корня: x1 = %.2f, x2 = %.2f' % (x1, x2)
+
+                context['result'] = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (
+                x1, x2)
             elif discr == 0:
                 x = -context['b'] / (2 * context['a'])
 
-                context['result'] = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.2f' % x
+                context[
+                    'result'] = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x
             else:
 
                 context['result'] = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
             context['discr'] = discr
-            print(context)
-            print(discr)
+
     else:
         context
 
