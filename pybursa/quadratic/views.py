@@ -1,20 +1,46 @@
  
-from django.shortcuts import render
-from django.http import HttpResponse
-from quadratic import check_coef, solve_quadratic_equation, get_discr
+from django.conf.urls import patterns, include, url
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse
+from django.views import generic
 
-def results(request):
-    a = int(request.GET.get('a', ''))
-    b = int(request.GET.get('b', ''))
-    c = int(request.GET.get('c', ''))
-    text = 'Квадратное уравнение a*x*x + b*x + c = 0\n'
-    text += '\n• a = {0}'.format(a)
-    text += check_coef(a, isA = True)
-    text += '\n• b = {0}'.format(b)
-    text += check_coef(b)
-    text += '\n• c = {0}'.format(c)
-    text += check_coef(c)
-    if check_coef(a, isA = True) == '' and check_coef(b) == '' and check_coef(c) == '':
-        text += '\n\nДискриминант: {0}\n\n'.format(get_discr(a, b, c))
-        text += solve_quadratic_equation(a, b, c)
-    return HttpResponse (text, content_type="text/plain; charset=utf-8")
+
+def quadratic_start(request):
+    return render(request, 'results_start.html')
+
+
+def quadratic_results(request):
+    
+
+    def check_on_error(variable, zr_check=""):
+        
+        #print int(variable)
+        variable = ''.join(x for x in variable if x.isdigit())
+        
+        if variable == '0' and zr_check == 'a':
+            return "коэффициент при первом слагаемом уравнения не может быть равным нулю"
+
+        elif variable == '':
+            return "коэффициент не определен"
+        elif variable.isdigit() is False:
+            return "коэффициент не целое число"
+        
+        else:
+            return "absolute of %s is ok" % variable
+
+
+    a = str(request.GET['a'])
+    b = str(request.GET['b'])
+    c = str(request.GET['c'])
+
+
+    return render(request, 'results.html', {
+        "a": a,
+        "b": b,
+        "c": c,
+
+        "check_on_error_a": check_on_error(a, "a"),
+        "check_on_error_b": check_on_error(b),
+        "check_on_error_c": check_on_error(c)
+        })

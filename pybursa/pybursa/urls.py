@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'^quadratic/results/$', quadratic_results, name='quadratic_results'),
     
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^quadratic/start/$', quadratic_start, name='quadratic_start'),
 )
