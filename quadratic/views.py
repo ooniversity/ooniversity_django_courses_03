@@ -1,56 +1,33 @@
-# -*- coding:UTF-8 -*-
 from django.shortcuts import render
 
+
 def quadratic_results(request):
-    import math, cmath
-    input_request = request.GET.dict()
-    output_request = {}
-    output_request['calculate'] = True
+    value = {}
+    for key in request.GET.keys():
+        if request.GET[key] == '':
+            value[key] = ''
+            value[key + '_type'] = 'string'
+        else:
+            try:
+                value[key] = int(request.GET[key])
+                value[key + '_type'] = 'integer'
+            except Exception:
+                value[key] = str(request.GET[key])
+                value[key + '_type'] = 'string'
+                
 
-    try:
-        output_request['a'] = int(input_request['a'])
-    except:
-        output_request['calculate'] = False
-        output_request['a'] = input_request['a']
-        if len(input_request.get('a')) == 0:
-            output_request['a_error'] = "коэффициент не определен"
-        elif not input_request['a'].isdigit():
-            output_request['a_error'] = "коэффициент не целое число"
-    finally:
-        if input_request['a'].isdigit() and int(input_request['a']) == 0:
-            output_request['calculate'] = False
-            output_request['a_error'] = "коэффициент при первом слагаемом уравнения не может быть равным нулю" 
+    a = value['a']
+    b = value['b']
+    c = value['c']
 
-    try:
-        output_request['b'] = int(input_request['b'])
-    except:
-        output_request['b'] = input_request['b']
-        output_request['calculate'] = False
-        if len(input_request.get('b')) == 0:
-            output_request['b_error'] = "коэффициент не определен"
-        elif not input_request['b'].isdigit():
-            output_request['b_error'] = "коэффициент не целое число"
+    if all(map(lambda x: isinstance(x, int), (a, b, c))) and a != 0:
+        value['disrcim'] = b**2 - 4 * a * c
+        if value['disrcim'] > 0:
+            value['x1'] = float((-b + value['disrcim']**(1 / 2.0)) / (2 * a))
+            value['x2'] = float((-b - value['disrcim']**(1 / 2.0)) / (2 * a))
+        elif value['disrcim'] == 0:
+            value['x1'] = value['x2'] = float(-b / (2 * a))
+    else:
+        value['disrcim'] = ''
 
-    try:
-        output_request['c'] = int(input_request['c'])
-    except:
-        output_request['c'] = input_request['c']
-        output_request['calculate'] = False
-        if len(input_request.get('c')) == 0:
-            output_request['c_error'] = "коэффициент не определен"
-        elif not input_request['c'].isdigit():
-            output_request['c_error'] = "коэффициент не целое число"  
-
-    if output_request['calculate']:
-        output_request['D'] = output_request['b']**2 - 4*output_request['a']*output_request['c']
-        if output_request['D'] > 0:
-            output_request['x1'] = float((-output_request['b'] + math.sqrt(output_request['D']))/(2*output_request['a']))
-            output_request['x2'] = float((-output_request['b'] - math.sqrt(output_request['D']))/(2*output_request['a']))
-        elif output_request['D'] == 0:
-            output_request['x1'] = output_request['x2'] = float(-output_request['b'] / 2*output_request['a'])
-        elif output_request['D'] < 0:
-            output_request['x1'] = complex((-output_request['b'] + cmath.sqrt(output_request['D']))/(2*output_request['a']))
-            output_request['x2'] = complex((-output_request['b'] - cmath.sqrt(output_request['D']))/(2*output_request['a']))    
-
-    return render(request,'quadratic/results.html',output_request)
-
+    return render(request, 'quadratic/results.html', value)
