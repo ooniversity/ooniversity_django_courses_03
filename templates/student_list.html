@@ -13,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="{% static 'images/Other-python.ico' %}">
-  <title>PyBursa: Main page</title>
+  <title>PyBursa: Students list</title>
   <!-- Bootstrap core CSS -->
   <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
   <!-- Custom styles for this template -->
@@ -47,6 +47,7 @@
           <li><a href="{% url 'index' %}">Main</a></li>
           <li><a href="{% url 'contact' %}">Contacts</a></li>
           <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+          <li><a href="{% url 'results' %}">Equation</a></li>
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -69,7 +70,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="active row-link">
+          <tr class="active row-link" id="row1">
             <td><a href="{% url 'student_detail' %}">1</a></td>
             <td>Lykhomanov</td>
             <td>Ihor</td>
@@ -151,7 +152,7 @@
   <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
   <script>
     $('#row1').on('click', function() {
-      window.location = "student_detail.html";
+      window.location = "{% url 'student_detail' %}";
     });
   </script>
 </body>
