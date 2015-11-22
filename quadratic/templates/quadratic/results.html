@@ -25,29 +25,29 @@
   <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
 </div>
 </div>
-<div class="container">
-<div class="jumbotron">
 <p>a = {{ a }} </p>
-<p><small>{{ coef_a_err }}</small></p>
+<p>{{ coef_a_err }}</p>
 <p>b = {{ b }} </p>
-<p><small>{{ coef_b_err }}</small> </p>
+<p>{{ coef_b_err }}</p>
 <p>c = {{ c }} </p>
-<p><small>{{ coef_c_err }}</small></p>
+<p>{{ coef_c_err }}</p>
 <br>
 {% if flag %}
     {% if d > 0 %}
-        <p><small>Дискриминант:</small> {{ d }}</p>
-        <p><small>Квадратное уравнение имеет два действительных корня:</small> x1 = {{ x1 }}, x2 = {{ x2 }}</p>        
+    <br>
+        Дискриминант: {{ d }}<br>
+        Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}<br>
+        <br>        
     {% elif d == 0 %}
-        <p><small>Дискриминант:</small> {{ d }} </p>
-        <p><small>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:</small> x1 = x2 = {{ x }} </p>
+        Дискриминант:{{ d }} <br>
+        Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x }} <br>
+    <br>
     {% elif d < 0 %}
-        <p><small>Дискриминант:</small> {{ d }}</p>
-        <p><small>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</small></p>              
+        Дискриминант: {{ d }}<br>
+        Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.<br>              
+    <br>
     {% endif %}
 {% endif %}
-</div>
-</div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   {% load staticfiles %}
   <script src="{% static '../../../../static/js/jquery.min.js' %}"></script>
