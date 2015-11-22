@@ -1,20 +1,38 @@
 ﻿# -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.http import HttpResponse
-from quadratic import check_coef, solve_quadratic_equation, get_discr
+from django import forms
 
-def results(request):
-    a = request.GET.get('a', '')
-    b = request.GET.get('b', '')
-    c = request.GET.get('c', '')
-    text = 'Квадратное уравнение a*x*x + b*x + c = 0\n'
-    text += '\n• a = {0}'.format(a)
-    text += check_coef(a, isA = True)
-    text += '\n• b = {0}'.format(b)
-    text += check_coef(b)
-    text += '\n• c = {0}'.format(c)
-    text += check_coef(c)
-    if check_coef(a, isA = True) == '' and check_coef(b) == '' and check_coef(c) == '':
-        text += '\n\nДискриминант: {0}\n\n'.format(get_discr(a, b, c))
-        text += solve_quadratic_equation(a, b, c)
-    return HttpResponse (text, content_type="text/plain; charset=utf-8")
+
+class EquationForm(forms.Form):
+    a = forms.IntegerField()
+    b = forms.IntegerField()
+    c = forms.IntegerField()
+
+    def clean_a(self):
+        data = self.cleaned_data['a']
+        if data == 0:
+            raise forms.ValidationError("коэффициент при первом слагаемом не может быть равным 0")
+        return data
+
+    
+def quadratic_results(request):
+    form = EquationForm(request.GET or None)
+    if form.is_valid():
+        a=form.cleaned_data["a"]
+        roots, discr = get_roots(a=form.cleaned_data["a"],
+                                 b=form.cleaned_data["b"],
+                                 c=form.cleaned_data["c"])
+        return render(request,'results.html', {'roots':roots, 'discr':discr, 'form':form, 'a':a})
+    return render(request, 'results.html', {'form': form})
+
+
+def get_discr(a,b,c):
+    return b**2 - 4*a*c
+
+
+def get_roots(a, b, c):
+    roots = []
+    discr = get_discr(a, b, c)
+    if discr >= 0 and a != 0:
+        roots = [(-b + discr**(1/2.0))/(2*a), (-b - discr**(1/2.0))/(2*a)]
+    return roots, discr

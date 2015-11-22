@@ -1,25 +1,28 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-  <head>
-    <title>Квадратное уравнение</title>
-  </head>
-
-  <body>
-    <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+<head>
+  <meta charset="utf-8">    
+</head>
+<body>
+  <h1>Квадратное уравнение a*x**2 + b*x + c = 0</h1>
+  <div class="row">
     <form>
-      A: <input name="a" type="text" /> <br />
-      B: <input name="b" type="text" /> <br />
-      C: <input name="c" type="text" /> <br />
-      <input type="submit" />
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit">
     </form>
-    <ul>
-      <li>a = {{ a }} {% if a_error %}<br /><em>{{ a_error }}</em>{% endif %}</li>
-      <li>b = {{ b }} {% if b_error %}<br /><em>{{ b_error }}</em>{% endif %}</li>
-      <li>c = {{ c }} {% if c_error %}<br /><em>{{ c_error }}</em>{% endif %}</li>
-    </ul>
-    {% if not error %}
-      <p>Дискриминант: {{ d }}</p>
-      <p>{{ result_message }}</p>
-    {% endif %}
-  </body>
+  </div> 
+{% if a %}    
+  {% if discr > 0 %}
+    <h3>Дискриминант: {{discr}} </h3>
+    <h3>Квадратное уравнение имеет два действительных корня: х1 = {{roots.0}}, х2 = {{roots.1}} </h3>
+  {% elif discr == 0 %}
+    <h3>Дискриминант: {{discr}} </h3>
+    <h3>Квадратное уравнение имеет два равных действительных корня: х1 = х2 = {{roots.0}} </h3>
+  {% else %}
+    <h3>Дискриминант: {{discr}} </h3>
+    <h3>Квадратное уравнение не имеет действительных корней </h3>
+  {% endif %}
+{% endif %}  
+</body>
 </html>
