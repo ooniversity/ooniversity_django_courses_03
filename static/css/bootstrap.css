@@ -1592,6 +1592,10 @@ pre code {
 @media (min-width: 768px) {
   .container {
     width: 750px;
+    color:#290701;
+    opacity: 0.8;
+    background-color:#EBEBE3;
+    
   }
 }
 @media (min-width: 992px) {

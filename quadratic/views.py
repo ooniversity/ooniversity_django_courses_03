@@ -1,34 +1,51 @@
-from django.shortcuts import render
+# -*- coding: utf-8 -*- 
 
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+
+
+def get_dict_from_request (temp, item):
+
+    eq_dict = {key+'_unit':'коэффициент не целое число' for key,value in item.items() if not value.strip('-').isdigit()}
+    eq_dict.update({key:item[key] if key in item else '' for key in temp})
+    eq_dict.update({key+'_unit': 'коэффициент не определен' for key in temp if eq_dict[key] == ''})
+    eq_dict.update({key+'_unit': False for key in temp if key+'_unit' not in eq_dict})    
+    eq_dict['a_unit'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю' if eq_dict['a'] == '0' else eq_dict['a_unit']
+    return eq_dict
+
+def get_quadratic (temp):
+    a, b, c = temp
+    eq_dict = {}
+    a = float(a)
+    b = float(b)
+    c = float(c)
+    dsc = discr = b**2 - 4 * a * c;
+    eq_dict['dsc'] = int(dsc)
+    if dsc < 0:
+        eq_dict['dsc_unit'] = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+    elif dsc == 0:
+        x = -b / (2 * a)
+        eq_dict['dsc_unit'] = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' % x
+    else:
+        x1 = (-b + dsc ** (1/2.0)) / (2*a)
+        x2 = (-b - dsc ** (1/2.0)) / (2*a)
+        eq_dict['dsc_unit'] = 'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (x1, x2)
+
+    return eq_dict
 
 def quadratic_results(request):
-    eq = {}
-    for item in request.GET.keys():
-        if request.GET[item] == '':
-            eq[item] = ''
-            eq[item + '_unit'] = 'str'
-        else:
-            try:
-                eq[item] = int(request.GET[item])
-                eq[item + '_unit'] = 'int'
-            except Exception:
-                eq[item] = str(request.GET[item])
-                eq[item + '_unit'] = 'str'
-                
-
-    a = eq['a']
-    b = eq['b']
-    c = eq['c']
-
-    if all(map(lambda x: isinstance(x, int), (a, b, c))) and a != 0:
-
-        eq['discr'] = b**2 - 4 * a * c
-        if eq['discr'] == 0:
-            eq['x1'] = eq['x2'] = float(-b / (2 * a))
-        elif eq['discr'] > 0:
-            eq['x1'] = float((-b + eq['discr']**(1 / 2.0)) / (2 * a))
-            eq['x2'] = float((-b - eq['discr']**(1 / 2.0)) / (2 * a))
+    dsc, keys = True, ('a','b','c')
+    eq_dict = get_dict_from_request (keys, request.GET)
+    for i in keys:
+        if eq_dict[i +'_unit']:
+            dsc = False
+            break
+    if dsc:
+        eq_dict.update(get_quadratic ((eq_dict['a'], eq_dict['b'], eq_dict['c'])))
+        eq_dict['discr'] = True
     else:
-        eq['discr'] = ''
+        eq_dict['discr'] = False
+    return render_to_response('quadratic/results.html', eq_dict)
 
-    return render(request, 'quadratic/results.html', eq)
+
