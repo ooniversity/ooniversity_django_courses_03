@@ -38,14 +38,15 @@ def quadratic_results(request):
 	else:
 		list_int = [a, b, c]
 		if list_int[0] == '0':
-				dic[a] = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
-				for l in list_int[1:]:
-					if l == "":
-						dic[l] = "коэффициент не определен"
-					elif l.replace('-', '').isdigit() == False:
-						dic[l] = "коэффициент не целое число"
-					else:
-						dic[l] = ""
+			dic[a] = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
+			for l in list_int[1:]:
+				if l == "":
+					dic[l] = "эффициент не определен"
+				elif l.replace('-', '').isdigit() == False:
+					dic[l] = "коэффициент не целое число"
+				else:
+					dic[l] = ""
+			
 		else:
 			for l in list_int:
 				if l == "":
