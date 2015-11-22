@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,8 +8,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Korben Dallas</title>
     <!-- Bootstrap -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,21 +22,21 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{% url 'index'%}">
               <img class="logo" alt="logo" src="../static/images/logo_itbursa.png">
             </a>
           </div>
             <ul class="nav nav-pills">
-              <li role="presentation" class="passive"><a href="index.html">Main</a></li>
-              <li role="presentation" class="passive"><a href="contact.html">Contacts</a></li>
-              <li role="presentation" class="passive"><a href="student_list.html">Students</a></li>
+              <li role="presentation" class="passive"><a href="{% url 'index'%}">Main</a></li>
+              <li role="presentation" class="passive"><a href="{% url 'contact'%}">Contacts</a></li>
+              <li role="presentation" class="passive"><a href="{% url 'student_list'%}">Students</a></li>
             </ul>
         </div>
     </nav>
     <div class="row">
       <div id="student_detail" class="col-md-4">
         <h3>Korben Dallas</h3>
-        <p><img src="../static/images/Korben.jpg" alt="Korben"></p>
+        <p><img src="{% static 'images/Korben.jpg'%}" alt="Korben"></p>
         <p><a class="btn btn-default" role="button">Студент о себе&raquo;</a></p>
       </div>
       <div class="col-md-3 col-md-offset-5">
@@ -154,6 +155,6 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
+    <script src="{% static 'js/bootstrap.js'%}"></script>
   </body>
 </html>
