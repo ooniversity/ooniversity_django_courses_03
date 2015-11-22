@@ -23,34 +23,42 @@ def quadratic_results(request):
 
 
     if a == None or a == '':
-        context['a'] = 'коэффициент не определен'
+        context['a'] = ''
+        context['a_message'] = 'коэффициент не определен'
         flag_calculate_D['a'] = False
     elif not is_number(a):
-        context['a'] = 'коэффициент не целое число'
+        context['a'] = a
+        context['a_message'] = 'коэффициент не целое число'
         flag_calculate_D['a'] = False
     elif int(a) == 0:
-        context['a'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+        context['a'] = a
+        context['a_message'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
         flag_calculate_D['a'] = False
     else:
         context['a'] = int(a)
 
     if b == None or b == '':
-        context['b'] = 'коэффициент не определен'
+        context['b'] = ''
+        context['b_message'] = 'коэффициент не определен'
         flag_calculate_D['b'] = False
     elif not is_number(b):
-        context['b'] = 'коэффициент не целое число'
+        context['b'] = b
+        context['b_message'] = 'коэффициент не целое число'
         flag_calculate_D['b'] = False
     else:
         context['b'] = int(b)
 
     if c == None or c == '':
-        context['c'] = 'коэффициент не определен'
+        context['c'] = ''
+        context['c_message'] = 'коэффициент не определен'
         flag_calculate_D['c'] = False
     elif not is_number(c):
-        context['c'] = 'коэффициент не целое число'
+        context['c'] = ''
+        context['c_message'] = 'коэффициент не целое число'
         flag_calculate_D['c'] = False
     else:
         context['c'] = int(c)
+
     if flag_calculate_D['a'] and flag_calculate_D['b'] and flag_calculate_D['c']:
         context['calculate_Done'] = True
         D = context['b'] ** 2 - 4 * context['a'] * context['c']
