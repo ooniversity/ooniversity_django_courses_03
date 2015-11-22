@@ -12,31 +12,40 @@ def quadratic_start(request):
 
 def quadratic_results(request):
 
+    lists_of_vars = {}
 
 
 
-    def check_on_error(variable, zr_check=""):
-        variable = ''.join(x for x in variable if x.isdigit())
-        if variable == '0' and zr_check == 'a':
-            return "коэффициент при первом слагаемом уравнения не может быть равным нулю"
-        elif variable == '':
-            return "коэффициент не определен"
-        elif variable.isdigit() is False:
-            return "коэффициент не целое число"        
+    lists_of_vars['a'] = str(request.GET['a'])
+    lists_of_vars['b'] = str(request.GET['b'])
+    lists_of_vars['c'] = str(request.GET['c'])
+
+    for key, value in lists_of_vars.items():
+
+        value = ''.join(x for x in value if x.isdigit())
+        
+        if key == 'a' and value == '0':
+            lists_of_vars['a_msg'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
+        elif value == '':
+            lists_of_vars[key+'_msg'] = 'коэффициент не определен'
+        elif value.isdigit() is False:
+            lists_of_vars[key+'_msg'] = 'коэффициент не целое число'
+            break
         else:
-            return "absolute of %s is ok" % variable
+            lists_of_vars[key+'_msg'] = 'ок'
 
+    print lists_of_vars
+    if lists_of_vars['a_msg'] is 'ок' and \
+            lists_of_vars['b_msg'] is 'ок' and \
+            lists_of_vars['c_msg'] is 'ок':
 
-
-    def quadr_riv(a,b,c):
-        outpt_str = {}
-
-        if a == '0':
-            pass
-
+        print "ura"
+        a = int(lists_of_vars['a'])
+        b = int(lists_of_vars['b'])
+        c = int(lists_of_vars['c'])
 
         discr = b**2 - 4 * a * c;
-        
+
         if discr > 0:
             import math
             x1 = (-b + math.sqrt(discr)) / (2 * a)
@@ -46,34 +55,21 @@ def quadratic_results(request):
             
         else:
             print("123")
+    else:
+        pass
 
-        outpt_str['x1']=x1
-        outpt_str['x2']=x2
-        outpt_str['discr']=discr
-        return outpt_str
-
-    list1 = quadr_riv(int(request.GET['a']),
-                int(request.GET['b']),
-                int(request.GET['c']))
-
-    print list1
-    print list1['discr']
-
-    a = str(request.GET['a'])
-    b = str(request.GET['b'])
-    c = str(request.GET['c'])
+        #lists_of_vars['x'] = x
+        
+        
+        print lists_of_vars
 
 
 
 
     return render(request, 'results.html', {
-        "a": a,
-        "b": b,
-        "c": c,
-        "check_on_error_a": check_on_error(a, "a"),
-        "check_on_error_b": check_on_error(b),
-        "check_on_error_c": check_on_error(c),
-        "discr": list1['discr'],
+        "lists_of_vars": lists_of_vars,
+        
+        
         })
 
 

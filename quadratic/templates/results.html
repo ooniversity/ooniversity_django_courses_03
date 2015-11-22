@@ -3,15 +3,15 @@
 <pre>Квадратное уравнения: a*x*x + b*x +c = 0</pre>
 
 <pre>
-a = {{a}}
-{{check_on_error_a}}
-b = {{b}}
-{{check_on_error_b}}
-c = {{c}}
-{{check_on_error_c}}
+a = {{lists_of_vars.a}}
+{{lists_of_vars.a_msg}}
+b = {{lists_of_vars.b}}
+{{lists_of_vars.b_msg}}
+c = {{lists_of_vars.c}}
+{{lists_of_vars.c_msg}}
 
-{% if discr %}
-Дискриминант: {{discr}}
+{% if lists_of_vars.discr %}
+Дискриминант: {{lists_of_vars.discr}}
 {% endif %}
 
 
