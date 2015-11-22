@@ -53,7 +53,7 @@ def quadratic_results(request):
         context['c_message'] = 'коэффициент не определен'
         flag_calculate_D['c'] = False
     elif not is_number(c):
-        context['c'] = ''
+        context['c'] = c
         context['c_message'] = 'коэффициент не целое число'
         flag_calculate_D['c'] = False
     else:
