@@ -32,7 +32,7 @@
         <a class="navbar-brand" href="{% url 'index' %}">Main</a>
         <a class="navbar-brand" href="{% url 'contact' %}">Contacts</a>
         <a class="navbar-brand" href="{% url 'student_list' %}">Students</a>
-        <a class="navbar-brand" href="{% url 'results' %}">Eq_result</a>
+        <a class="navbar-brand" href="{% url 'results' %}">Quadratic</a>
       </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,44 +42,37 @@
     </nav>
     
     <div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<h3>Квадратное уравнение a*x*x + b*x + c = 0</h3>
-					<table class="table table-hover">
-				  <tr class="headtable_student"><td> a = {{ a }}</td></tr>
-				    {% if a_unit == 'str' and a == '' %} 
-				   <tr class="headtable_student"><td><h4>коэффициент не определен</h4></td></tr>
-				    {% elif a_unit == 'string' and a != '' %} 
-				    <tr class="headtable_student"><td><h4>коэффициент не целое число</h4></td></tr>
-				    {% elif a_unit == 'int' and a == 0 %}  
-				    <tr class="headtable_student"><td><h4>коэффициент при первом слагаемом уравнения не может быть равным нулю</h4></td></tr>
-				    {% endif %}
+     <h2>Quadratic Eq</h2>
+      <h3>a*x*x  +  b*x  +  c  =  0</h3>
+        <table class="table table-hover">
+          {% if a_unit %}
+              <tr class="head_self_table"><td><h3>a = {{ a }}</h3></td></tr>
+              <tr class="head_self_table"><td><h3>{{ a_unit }}</h3></td></tr>
+          {% else %}
+              <tr class="head_self_table"><td><h3>a = {{ a }}</h3></td></tr> 
+          {% endif %}
 
-				    <tr class="headtable_student"><td> b = {{ b }}</td></tr>
-				    {% if b_unit == 'str' and b == '' %} 
-				    <tr class="headtable_student"><td><h4>коэффициент не определен</h4></td></tr>
-				    {% elif b_unit == 'str' and b != '' %} 
-				    <tr class="headtable_student"><td><h4>коэффициент не целое число</h4></td></tr>
-				    {% endif %}
+          {% if b_unit %}
+              <tr class="head_self_table"><td><h3>b = {{ b }}</h3></td></tr> 
+              <tr class="head_self_table"><td><h3>{{ b_unit }}</h3></td></tr> 
+          {% else %}
+              <tr class="head_self_table"><td><h3>b = {{ b }}</h3></td></tr>
+          {% endif %}
 
-				    <tr class="headtable_student"><td> c = {{ c }}</td></tr>
-				    {% if c_unit == 'str' and c == '' %} 
-				    <tr class="headtable_student"><td><h4>коэффициент не определен</h4></td></tr>
-				    {% elif c_unit == 'str' and c != '' %} 
-				    <tr class="headtable_student"><td><h4>коэффициент не целое число</h4></td></tr>
-				    {% endif %}
-				    </table>
-
-				    <table class="table table-hover">
-				     <tr class="headtable_student"><td><h4>Дискриминант: {{ discr }}</h4></td></tr>
-				     {% if discr == 0 %}
-<tr class="headtable_student"><td><h4>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x1 }}</h4></td></tr>
-             {% elif discr > 0 %}
-				     <tr class="headtable_student"><td><h4>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}</h4></td></tr>
-				     {% elif discr < 0 %}
-				     <tr class="headtable_student"><td><h4>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</h5></td></tr>
-				     {% endif %}
-				    </table>
+          {% if c_unit %}
+              <tr class="head_self_table"><td><h3>c = {{ c }}</h3></td></tr>
+              <tr class="head_self_table"><td><h3>{{ c_unit }}</h3></td></tr>
+          {% else %}
+              <tr class="head_self_table"><td><h3>c = {{ c }}</h3></td></tr>
+          {% endif %}
+          </table>
+          <table class="table table-hover">
+          {% if discr %}
+              <tr class="head_self_table"><td><h3>Дискриминант: {{ dsc }}</h3></td></tr>
+              <tr class="head_self_table"><td><h3>{{ dsc_unit }}</h3></td></tr>
+          {% endif %}
+        </table>
+        </div><!-- /.container -->
 					
 				</div>
 			</div>
