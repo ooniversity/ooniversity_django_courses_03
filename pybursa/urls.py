@@ -4,7 +4,10 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from pybursa import views
 #from quadratic import views
-from quadratic.views import quadratic_results, quadratic_start
+from quadratic.quadratic_func import quadratic_func
+from quadratic.views import quadratic_start, quadratic_results
+
+
 
 
 urlpatterns = patterns('',

@@ -36,21 +36,21 @@
       <div class="starter-template">
        <h1><strong>Квадратное уравнения: a*x*x + b*x +c = 0</strong></h1>
 			<pre>
-			a = {{lists_of_vars.a}}
-			{{lists_of_vars.a_msg}}
-			b = {{lists_of_vars.b}}
-			{{lists_of_vars.b_msg}}
-			c = {{lists_of_vars.c}}
-			{{lists_of_vars.c_msg}}
-			{% if lists_of_vars.discr or lists_of_vars.discr == 0 %}
-			Дискриминант: {{lists_of_vars.discr}}
+			a = {{params.a}}
+			{{params.a_msg}}
+			b = {{params.b}}
+			{{params.b_msg}}
+			c = {{params.c}}
+			{{params.c_msg}}
+			{% if params.discr or params.discr == 0 %}
+			Дискриминант: {{params.discr}}
 			{% endif %}
-			{% if lists_of_vars.discr and lists_of_vars.discr < 0 %}
+			{% if params.discr and params.discr < 0 %}
 			Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.
-			{% elif lists_of_vars.x1 != lists_of_vars.x2 %}
-			Квадратное уравнение имеет два действительных корня: x1 = {{lists_of_vars.x1}}, x2 = {{lists_of_vars.x2}}
-			{% elif lists_of_vars.discr == 0 %}
-			Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{lists_of_vars.x}}
+			{% elif params.x1 != params.x2 %}
+			Квадратное уравнение имеет два дparamsействительных корня: x1 = {{params.x1}}, x2 = {{params.x2}}
+			{% elif params.discr == 0 %}
+			Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{params.x}}
 			{% endif %}
 			</pre>
         <script src=
