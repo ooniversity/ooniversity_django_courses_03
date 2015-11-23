@@ -9,8 +9,9 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <link href="http://getbootstrap.com/favicon.ico" rel="icon">
   <title>Contacts page</title>
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
-  <link href="../static/css/style.css" rel="stylesheet">
+  {% load staticfiles %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -18,13 +19,13 @@
       <nav>
         <ul class="nav nav-pills pull-right">
           <li role="presentation" class="text-left">
-            <a href="index.html">Main</a>
+            <a href="{% url 'index' %}">Main</a>
           </li>
           <li role="presentation" class="text-center">
-            <a href="student_list.html">Students</a>
+            <a href="{% url 'student_list' %}">Students</a>
           </li>
           <li role="presentation" class="text-right">
-            <a href="contact.html">Contacts</a>
+            <a href="{% url 'contact' %}">Contacts</a>
           </li>
         </ul>
       </nav>
@@ -40,7 +41,7 @@
         <table class="contacts_table">
         <tr>
         <td rowspan="2" class="contacts_td"><img class="contacts_image" src=
-      "../static/images/imagehere.jpg"></td>
+      "{% static 'images/imagehere.jpg' %}"></td>
           <td class="contacts_td">
           <ul>
           <li>Name: Ivan Bondarenko</li>
@@ -60,7 +61,7 @@
         <table class="contacts_table">
           <tr>
           <td rowspan="2" class="contacts_td"><img class="contacts_image" src=
-      "../static/images/imagehere.jpg"></td>
+      "{% static 'images/imagehere.jpg' %}"></td>
           <td class="contacts_td manager">
           <ul>
           <li>Name: Daria Mykhalevych</li>
@@ -79,7 +80,7 @@
         <table class="contacts_table">
         <tr>
         <td rowspan="2" class="contacts_td"><img class="contacts_image" src=
-      "../static/images/imagehere.jpg"></td>
+      "{% static 'images/imagehere.jpg' %}"></td>
           <td class="contacts_td">
           <ul>
           <li>Name: Pavel Obod</li>
@@ -101,8 +102,7 @@
     <p class="sr-only">Byrsa</p>
   </footer>
 
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="../static/js/bootstrap.js">
+  <script src="{% static 'js/bootstrap.min.js' %}">
   </script>
 </body>
 </html>

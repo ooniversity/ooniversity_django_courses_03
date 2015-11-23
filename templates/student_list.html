@@ -9,9 +9,10 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <link href="http://getbootstrap.com/favicon.ico" rel="icon">
   <title>Students</title>
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
-  <link href="../static/css/style.css" rel="stylesheet">
-  <script src="../static/js/bootstrap.min.js">
+  {% load staticfiles %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="{% static 'js/bootstrap.min.js' %}">
   </script>
 </head>
 <body>
@@ -20,13 +21,13 @@
       <nav>
         <ul class="nav nav-pills pull-right">
           <li role="presentation">
-            <a href="index.html">Main</a>
+            <a href="{% url 'index' %}">Main</a>
           </li>
           <li role="presentation">
-            <a href="student_list.html">Students</a>
+            <a href="{% url 'student_list' %}">Students</a>
           </li>
           <li role="presentation">
-            <a href="contact.html">Contacts</a>
+            <a href="{% url 'contact' %}">Contacts</a>
           </li>
         </ul>
       </nav>
@@ -51,7 +52,7 @@
         </tr>
         <tr>
           <td>
-            <a href="student_detail.html">1</a>
+            <a href="{% url 'student_detail' %}">1</a>
           </td>
           <td>Romanova</td>
           <td>Natalia</td>
@@ -105,8 +106,6 @@
 
   </div><!-- /container -->
   <footer class="footer">
-    </footer>
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <!-- <script src="../static/js/ie10-viewport-bug-workaround.js"></script>-->
+  </footer>
 </body>
 </html>

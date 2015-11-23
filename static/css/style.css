@@ -103,7 +103,9 @@ td {
 }
 
 .manager {
-  padding-left: 80px;
+  padding-left: 0px;
+  width: 515px;
+  height: 130px;
 }
 
 #header_sponsors_contacts {
