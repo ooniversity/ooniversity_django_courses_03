@@ -41,8 +41,10 @@ def quadratic_results(request):
 
         if discr > 0:
             import math
-            lists_of_vars['x1'] = (-b + math.sqrt(discr)) / (2 * a)
-            lists_of_vars['x2'] = (-b - math.sqrt(discr)) / (2 * a)
+            x1 = (-b + math.sqrt(discr)) / (2 * a)
+            x2 = (-b - math.sqrt(discr)) / (2 * a)
+            lists_of_vars['x1'] = round(x1, 1)
+            lists_of_vars['x2'] = round(x2, 1)
         elif discr == 0:
             lists_of_vars['x'] = -b / (2 * a)
             
