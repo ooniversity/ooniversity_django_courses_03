@@ -10,10 +10,19 @@ b = {{lists_of_vars.b}}
 c = {{lists_of_vars.c}}
 {{lists_of_vars.c_msg}}
 
-{% if lists_of_vars.discr %}
+{% if lists_of_vars.discr or lists_of_vars.discr == 0 %}
 Дискриминант: {{lists_of_vars.discr}}
 {% endif %}
 
+{% if lists_of_vars.discr and lists_of_vars.discr < 0 %}
+Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.
+
+{% elif lists_of_vars.x1 != lists_of_vars.x2 %}
+Квадратное уравнение имеет два действительных корня: x1 = {{lists_of_vars.x1}}, x2 = {{lists_of_vars.x2}}
+
+{% elif lists_of_vars.discr == 0 %}
+Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{lists_of_vars.x}}
+{% endif %}
 
 </pre>
 

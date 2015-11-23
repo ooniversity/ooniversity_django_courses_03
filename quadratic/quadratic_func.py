@@ -1,10 +1,4 @@
 # -*- coding: UTF-8 -*-
-from django.conf.urls import patterns, include, url
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
-from django.views import generic
-
 
 def quadratic_start(request):
     return render(request, 'results_start.html')
@@ -45,7 +39,7 @@ def quadratic_results(request):
             lists_of_vars['x2'] = (-b - math.sqrt(discr)) / (2 * a)
         elif discr == 0:
             lists_of_vars['x'] = -b / (2 * a)
-            
+
         if discr.is_integer():
             lists_of_vars['discr'] = int(discr)
         else:
@@ -54,4 +48,3 @@ def quadratic_results(request):
     return render(request, 'results.html', {
         "lists_of_vars": lists_of_vars,
         })
-
