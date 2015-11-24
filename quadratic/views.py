@@ -14,7 +14,6 @@ def quadratic_results(request):
             except Exception:
                 value[key] = str(request.GET[key])
                 value[key + '_type'] = 'string'
-                
 
     a = value['a']
     b = value['b']
