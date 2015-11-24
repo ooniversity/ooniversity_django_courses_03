@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<div class="row marketing">
+    <h1>Квадратное уравнение a*x*x + b*x + c = 0 </h1>
+
+    <div class="container">
+        <h3>{% if not error %}({{a}}x^2 + {{b}}x + {{c}} = 0){% endif %}</h3>
+        <ul>
+          <li role="presentation">a = {{a}}<br>{% if a_error %}{{a_error}}{% endif %}</li>
+          <li role="presentation">b = {{b}}<br>{% if b_error %}{{b_error}}{% endif %}</li>
+          <li role="presentation">c = {{c}}<br>{% if c_error %}{{c_error}}{% endif %}</li>
+        </ul>
+        {% if not error %}
+        <br>Дискриминант: {{d}}<br>
+        {{description}}
+        {% if x1 and not x2 %} x1 = x2 = {{x1}}
+        {% endif %}{% if x1 and x2 %} x1 = {{x1}}, x2 = {{x2}}
+        {% endif %}
+        {% endif %}
+      </div>
+</div>
