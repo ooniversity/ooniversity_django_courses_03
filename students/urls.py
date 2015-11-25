@@ -3,7 +3,7 @@ from django.contrib import admin
 from students.views import list_view, detail
 
 urlpatterns = patterns('',
-	url(r'^$', list_view),
+	#url(r'^$', list_view),
 	url(r'^(?P<student_id>\d)/$', detail, name="detail"),
 	url(r'^', list_view, name="list_view"),
 	
