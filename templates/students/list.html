@@ -30,7 +30,7 @@
     <br>
     
     <table class="table table-bordered">
-        <th>#</th>
+        
         <th>фамилия имя</th>
         <th>адрес</th>
         <th>skype</th>
@@ -38,20 +38,20 @@
         
       <tbody>
         {% for r in students %}
-          {% cycle "<tr><td>" "<tr><td>" "<tr><td>" "<tr><td>" "<tr><td>" %}
+          {% cycle "<tr><td>" "<tr><td>" "<tr><td>" "<tr><td>" %}
         
-            {{r.id}}</td>
-            <td><a href="{% url 'students:detail' r.id %}">{{r.surname}} {{ r.name }}</a></td>
+            
+            <a href="{% url 'students:detail' r.id %}">{{r.surname}} {{ r.name }}</a></td>
             <td>{{r.address}}</td>
             <td>{{r.skype}}</td>
             <td>
               <ul>
                 {% for g in r.courses.all %}
-                <li><a href="{% url 'courses:detail' g.id %}">{{ g.name }}</a></li>
+                  <li><a href="{% url 'courses:detail' g.id %}">{{ g.name }}</a></li>
                 {% endfor %}
               </ul>    
 
-          {% cycle "</td></tr>" "</td></tr>" "</td></tr>" "</td></tr>" "</td></tr>" %}
+          {% cycle "</td></tr>" "</td></tr>" "</td></tr>" "</td></tr>" %}
         {% endfor %}
         
 
