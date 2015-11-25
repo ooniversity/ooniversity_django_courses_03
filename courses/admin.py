@@ -4,7 +4,7 @@ from django.forms import widgets
 from courses.models import Course, Lesson
 from django.contrib.admin.widgets import FilteredSelectMultiple
 
-class LessonInline(admin.StackedInline):
+class LessonInline(admin.TabularInline):
 	model = Lesson
 	fields = [ 'subject', 'description' , 'order' ]
 
