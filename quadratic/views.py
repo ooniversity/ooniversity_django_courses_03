@@ -18,39 +18,45 @@ def quadratic_results(request):
 	error_mess1 = "коэффициент не целое число"
 	error_mess2 = "коэффициент не определен"
 	error_mess3 = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
-	
+	error_list = {}
 	try:
 		a = int(dictionary['a'])
 		b = int(dictionary['b'])
 		c = int(dictionary['c'])
 		d = get_discr(a, b, c)
-		outp_d = {'d': "Дискриминант: %s" %d}
+		dictionary['d'] = "Дискриминант: %s" %d
 		
 		if a == 0:
-			error_mess3_a = {'error_mess3_a': error_mess3}
-			dictionary.update(error_mess3_a)
+			dictionary['error_mess3_a'] = error_mess3
 			return render(request, 'results.html', dictionary)
 
 		if d < 0:
 			dictionary['discr'] = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
-			dictionary.update(outp_d)
 			return render(request, 'results.html', dictionary)
 
 		elif d == 0:
 			x = -b / 2*a
 			dictionary['discr'] = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s" % float(x)
-			dictionary.update(outp_d)
 			return render(request, 'results.html', dictionary)
 
 		else:
 			x1 = (-b + d**(1/2.0)) / 2*a
 			x2 = (-b - d**(1/2.0)) / 2*a
 			dictionary['discr'] = "Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" % (float(x1), float(x2))
-			dictionary.update(outp_d)
 			return render(request, 'results.html', dictionary)
 		
 
 	except ValueError:
+		for i in dictionary:
+			if dictionary.get(i).isalpha():
+				error_list['error_mess_'+i] = error_mess1
+		
+			if dictionary.get(i) == '':
+				error_list['error_mess_'+i] = error_mess2
+		dictionary.update(error_list)
+        return render(request, 'results.html', dictionary)
+
+'''
 		if dictionary['a'].isalpha():
 			dictionary['error_mess1_a'] = error_mess1
         if dictionary['b'].isalpha():
@@ -66,4 +72,4 @@ def quadratic_results(request):
             dictionary['error_mess2_c'] = error_mess2
 
         return render(request, 'results.html', dictionary)
-
+'''

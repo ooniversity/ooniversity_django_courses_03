@@ -36,7 +36,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a class="top_bar" href="{% url 'index' %}">Main</a></li>
               <li><a class="top_bar" href="{% url 'contact' %}">Contacts</a></li>
-              <li><a class="top_bar" href="{% url 'student_list' %}">Students</a></li>
+              <li><a class="top_bar" href="{% url 'students:list_view' %}">Students</a></li>
 			  <li><a class="top_bar" href="{% url 'calculate' %}">Equation</a></li>
             </ul>
           </div>
@@ -109,6 +109,7 @@
             трудно собрать общую картину.
           </p>
           <p>Мы предлагаем современные подходы к обучению! У нас Вы научитесь всему что понадобится для успешного старта карьеры в IT!</p>
+		
         </div>
       </div>
     </div>
@@ -120,7 +121,29 @@
           <p>Курсы будут проходить с 19 октября по 28 декабря.</br>
           Практические занятия в аудитории + онлайн лекции.</p>
           <p>Вы узнаете очень много нового о Веб-разработке! Создадите собственный проект, которым Вы будете гордиться!</p>
-          <div class="text-center"><a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a></div>
+			<div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  
+                  <!-- Table -->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Курс</th>
+                        <th>Описание</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+					{% for i in course %}
+                    <tr>
+                    <td><a href="{% url 'courses:detail' i.id %}">{{ i }}</a></td>
+					<td>{{ i.short_description }}</td>
+					</tr>
+					{% endfor %}
+                    </tbody>
+                  </table>
+
+          </div>
+
         </div>
       </div>
     </div>    
