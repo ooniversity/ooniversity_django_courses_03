@@ -37,7 +37,7 @@ def list_view(request):
      
     if  request.GET.get('course_id'): 
         course = request.GET.get('course_id')
-        st = Student.objects.filter(courses=course)
+        st = Student.objects.filter(courses__id=course)
         args['students'] = st    
     else:
                  
