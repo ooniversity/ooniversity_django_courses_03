@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from courses.models import Course
+
+def index_courses(request):
+	return render(request, 'index_courses.html', {'courses':Course})
 
 def index(request):
 	return render(request, 'index.html')
@@ -10,5 +14,6 @@ def student_list(request):
 	return render(request, 'student_list.html')
 
 def student_detail(request):
-	return render(request, 'student_details.html')
+	return render(request, 'student_detail.html')
+
 
