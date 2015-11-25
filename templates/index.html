@@ -29,27 +29,20 @@
         <th>Описание</th>
         
       <tbody>
-        <tr>
-          <td>
-            <a href="{% url 'courses:detail' 1 %}">Python&Django</a>
-          </td>
-          <td>Basic web development</td>
-        </tr>
-        <tr>
-          <td>
-            <a href="{% url 'courses:detail' 2 %}">JavaScript</a>
-          </td>
-          <td>Diving into JS</td>
-        </tr> 
-        <tr>
-          <td>
-            <a href="{% url 'courses:detail' 3 %}">HTML5</a>
-          </td>
-          <td>Уныло и ежедневно</td>
-        </tr>  
+        
+        {% for c in courses %}
+          {% cycle "<tr><td>" "<tr><td>" %}
+        
+            <a href="{% url 'courses:detail' c.id %}">{{c.name }}</a></td>
+            <td>{{ c.short_description }}
+            
+          {% cycle "</td></tr>" "</td></tr>" %}
+        {% endfor %}
+        
 
       </tbody>
     </table>
+        
     <div class="secret-zoo">
       <div class="container">
         <button type="button" class="btn btn-default" aria-label="Left Align">
