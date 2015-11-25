@@ -10,7 +10,7 @@ def detail(request, course_id):
     args['name'] = course.name
     args['description'] = course.description
     args['lesson1'] = Lesson.objects.filter(course__id=course_id)
-    args['crs_id'] = course_id
+    args['course_id'] = course_id
     #args['xuy'] = 'http://127.0.0.1:8000/students/?course_id={}'.format(course_id)
 
 
