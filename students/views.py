@@ -22,7 +22,7 @@ def list_view(request, course_id = None):
 def list_view(request):
     #return HttpResponse('course={}'.format(course_id))
     #print course_id
-    print request.GET
+    #print request.GET
     args = {}
     #a = request.GET.keys()
     #try: 
@@ -48,7 +48,7 @@ def list_view(request):
     return render(request, 'students/list.html', args)
 
 def detail(request, stud_id):
-    print stud_id
+    #print stud_id
     args={}
     args['stud_id'] = stud_id
     st = Student.objects.get(id=stud_id)
