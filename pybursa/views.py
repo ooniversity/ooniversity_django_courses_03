@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from courses.models import Course
 
 
@@ -17,11 +18,3 @@ def student_list(request):
 
 def student_detail(request):
     return render(request, 'student_detail.html')
-
-
-# def instructors_list(request):
-#     instructors = Instructor.objects.filter(is_active=True)
-#     return render(
-#         request, 'instructors_list.html',
-#         {'instructors': instructors}
-#     )
