@@ -1,8 +1,19 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from students.models import Student
-from django.views.generic import ListView, DetailView
 
+def list_view(request):
+    r = request.GET
+    if 'course_id' in r:
+        students=Student.objects.filter(courses=r['course_id'])
+    else:
+        students=Student.objects.all()
+    return render(request, 'students/list.html', {'students': students})
+
+
+def detail(request, pk):
+    return render(request, 'students/detail.html', { 'student' : Student.objects.get(id=pk)})
+
+"""
 class StudentListView(ListView):
     model = Student
     template_name = 'students/list.html'
@@ -21,3 +32,4 @@ class StudentListView(ListView):
 class StudentDetailView(DetailView):
     model = Student
     template_name = 'students/detail.html'
+"""
