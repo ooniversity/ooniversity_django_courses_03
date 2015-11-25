@@ -34,11 +34,12 @@ def list_view(request):
 
         
     #except:
-    try: 
-        cour = request.GET['course_id'] 
-        st = Student.objects.filter(courses__id=cour)
+     
+    if  request.GET.get('course_id'): 
+        course = request.GET.get('course_id')
+        st = Student.objects.filter(courses=course)
         args['students'] = st    
-    except:
+    else:
                  
         st = Student.objects.all()
         args['students'] = st
