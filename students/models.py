@@ -15,3 +15,5 @@ class Student(models.Model):
     def full_name(self):
         return self.name + " " + self.surname
 
+    def __unicode__(self):
+        return self.name + " " + self.surname
