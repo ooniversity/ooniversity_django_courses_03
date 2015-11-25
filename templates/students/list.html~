@@ -20,9 +20,9 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 			  <ul class="nav">
-			    <li class="active"><a href="{% url 'index_courses' %}">Главная</a></li>
+			    <li><a href="{% url 'index_courses' %}">Главная</a></li>
 			    <li><a href="{% url 'contact' %}">Контакты</a></li>
-			    <li><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Студенты</a></li>
+			    <li class="active"><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Студенты</a></li>
 			  </ul>
 			</div>
 		</div>
@@ -46,12 +46,12 @@
 						{% for st in students %}
 			      <tr>
 							<td>{{forloop.counter}}</td> 
-				      <td>{{st.name}} {{st.surname}}</td>
+				      <td><a href="{% url 'students:detail' st.id %}"{{st.name}} {{st.surname}}</td>
 							<td>{{st.address}}</td>
 							<td>{{st.skype}}</td>
 							<td>
 								{% for cour in st.courses.all %}								
-								<p><a href = "{% url 'courses:detail' %}?course_id={{cour.id}}">{{cour.name}}</p>
+								<p><a href = "{% url 'courses:detail' cour.id %}">{{cour.name}}</p>
 								{% endfor %}
 							</td>
 						</tr>

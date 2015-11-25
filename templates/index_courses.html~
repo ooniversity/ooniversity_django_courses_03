@@ -44,7 +44,7 @@
 						{% for cour in courses %}
 			      <tr>
 				      <td>
-								<a href = "{% url 'courses:detail' cour_id %}">{{cour.name}}</a>
+								<a href = "{% url 'courses:detail' cour.id %}">{{cour.name}}</a>
 							</td>
 							<td>
 								{{cour.short_description}}
