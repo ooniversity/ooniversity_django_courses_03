@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>HyperMainDetail</title>
+
+    <!-- Bootstrap -->
+    {% load static from staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+    
+  </head>
+  <body>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
+      <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+      <!--{% url 'students:list_view'  course_id=xuy as the_url %}-->
+      <!--<li role="presentation"><a href="{{ xuy|iriencode }}">Students</a></li>-->
+      <li role="presentation"><a href="{% url 'students:list_view' %}?course_id={{crs_id}}">Students</a></li>
+    </ul>
+    <h1>{{ name }}</h1>
+    <p>{{ description }}</p>
+    <br>
+    <br>
+    <h3>План курса </h3>
+    <table class="table table-bordered">
+        <th>№</th>
+        <th>Тема</th>
+        <th>Описание</th>
+        
+      <tbody>
+        {% for r in lesson1 %}
+          {% cycle "<tr><td>" "<tr><td>" "<tr><td>" %}
+        
+            {{r.order}}</td>
+            <td>{{r.subject}}</td>
+            <td>{{r.description}}
+          {% cycle "</td></tr>" "</td></tr>" "</td></tr>" %}
+        {% endfor %}
+        
+
+      </tbody>
+    </table>
