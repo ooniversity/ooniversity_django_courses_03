@@ -21,7 +21,8 @@
       <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
       <!--{% url 'students:list_view'  course_id=xuy as the_url %}-->
       <!--<li role="presentation"><a href="{{ xuy|iriencode }}">Students</a></li>-->
-      <li role="presentation"><a href="{% url 'students:list_view' %}?course_id={{crs_id}}">Students</a></li>
+      <li role="presentation"><a href="{% url 'students:list_view' %}?course_id={{ course_id }}">Students</a></li>
+      
     </ul>
     <h1>{{ name }}</h1>
     <p>{{ description }}</p>
@@ -29,7 +30,7 @@
     <br>
     <h3>План курса </h3>
     <table class="table table-bordered">
-        <th>№</th>
+        <th>#</th>
         <th>Тема</th>
         <th>Описание</th>
         
@@ -46,3 +47,5 @@
 
       </tbody>
     </table>
+  </body>
+</html>    

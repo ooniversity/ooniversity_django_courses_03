@@ -33,27 +33,27 @@
         
         
           <tr>
-            <td>Дата рождения</td>
+            <td>дата рождения</td>
             <td>{{ student.date_of_birth }}</td>
           </tr>
           <tr>
-            <td>Адрес</td>
+            <td>адрес</td>
             <td>{{ student.address }}</td>
           </tr>
           <tr>
-            <td>E-mail</td>
+            <td>почта</td>
             <td>{{ student.email }}</td>
           </tr>
           <tr>
-            <td>Skype</td>
+            <td>логин skype</td>
             <td>{{ student.skype }}</td>
           </tr>
           <tr>
-            <td>Телефон</td>
+            <td>телефон</td>
             <td>{{ student.phone }}</td>
           </tr>
           <tr>
-            <td>Курсы</td>
+            <td>курсы</td>
             <td>
               <ul>
                 {% for course in student.courses.all %}
@@ -66,3 +66,5 @@
       </tbody>
     </table> 
 
+  </body>
+</html>  
