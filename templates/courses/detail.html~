@@ -20,10 +20,10 @@
 		<div class="container">
 			<div class="navbar">
 				<div class="navbar-inner">
-		      <ul class="nav">
+		      <ul class="nav nav-pills">
 						<li><a href="{% url 'index_courses' %}">Главная</a></li>
 						<li><a href="{% url 'contact' %}">Контакты</a></li>
-						<li><a href="{% url 'students:list_view' %}?course_id={{course.id}} ">Студенты</a></li>
+						<li><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Студенты</a></li>
 					</ul>
 				</div>
 			</div>
