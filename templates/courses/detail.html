@@ -22,7 +22,7 @@
          <li><a href="{% url 'index' %}">Главная</a></li>
          
          <li><a href="{% url 'contact' %}">Контакты</a></li>
-         <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
+         <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}"">Студенты</a></li>
          
          </li>
         </ul>
@@ -33,24 +33,30 @@
   <div class="jumbotron">
     <div class="container">
       <div class="page-header">
-        <h1>ooniversity</h1>
-        <h3>Мы специализируемся на современных языках программирования, которые помогут Вам бытьв тренде разработки сегодня и завтра.<h3>
+      
+        <h1>{{ course }}</h1>
+        
+      
      </div>
+     <h3>{{ course.description }}<h3>
     </div>
   </div> 
-  <h2>Выбирай, на каком курсе хочешь учиться!</h2>
+  <h2>План курса</h2>
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Курс</th>
+        <th>№</th>
+        <th>Тема</th>
         <th>Описание</th>
       </tr>
     </thead>
     <tbody>
-      {% for course in courses %}
+      {% for lesson in lessons %}
         <tr>
-          <td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>
-          <td>{{ course.short_description }}</td>
+          <td>{{ lesson.order }}</td>
+          <td>{{ lesson.subject }}</td>
+          <td>{{ lesson.description }}</td>
+          
         
         </tr>
       {% endfor %}
