@@ -20,46 +20,50 @@
             </div>
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a class="top_bar" href="{% url 'index' %}">Main</a>
+                    <li class="active"><a class="top_bar" href="{% url 'index' %}">Главная</a>
                     </li>
-                    <li><a class="top_bar" href="{% url 'contact' %}">Contacts</a>
+                    <li><a class="top_bar" href="{% url 'contact' %}">Контакты</a>
                     </li>
-                    <li><a class="top_bar" href="{% url 'student_list' %}">Students</a>
+                    <li><a class="top_bar" href="{% url 'students:list_view' %}">Студенты</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container" id="sh1">
-        <h1><b>Description</b> <small><i>pyBursa</i></small></h1>
+        <h1><b>BestoftheBest</b> <small><i>itBursa</i></small></h1>
+        <p>Мы специализируемся на модных "языках" программирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий!!! </p>
     </div>
-    <div class="container">
-        <div class="content" id="desc-id">
-            <h3 class="tag-name"><span id="sh"><b><em>pyBursa</em></b></span> <span id="soho2">course</span></h3>
-            <p><span class="glyphicon glyphicon-scissors" aria-hidden="true"></span><i>Язык программирования <strong>Python</strong> — это мощный инструмент для создания программ самого разнообразного назначения, доступный даже для новичков. С его помощью можно решать задачи
-                различных типов.</i></p>
-            <p><span class="glyphicon glyphicon-scissors" aria-hidden="true"></span><i><strong>Python</strong> обладает некоторыми примечательными особенностями, которые обуславливают его широкое распространение.</i></p>
-            <p><span class="glyphicon glyphicon-scissors" aria-hidden="true"></span><i>К примеру, <strong>python</strong> интенсивно применяется IT-гигантами, такими как, например, Google и Yandex. К тому же простота и универсальность python делают его одним из лучших языков
-                программирования.</i>
-            </p>
-            <p><span class="glyphicon glyphicon-scissors" aria-hidden="true"></span><i>Таким образом, <strong>python</strong> подходит для решения львиной доли повседневных задач.</i></p>
-        </div>
         <div class="container" id="program">
-            <h1 class="text-center">Program</h1>
+            <h1>Выбирай на каком курсе ты хочешь учиться!</h1>
         </div>
-        <div class="content" id="text">
-            <p>
-                <img src="{% static 'images/cool.png' %}" alt="Учёные, находящиеся в состоянии аффекта" class="rightimg">
-                <b class="text-warning">В наших секретных лабораториях в рамках проекта &laquo;Python&raquo; разрабатывалось
-     ПО. В результате неудачного эксперимента большинство ученых, работавших 
-     над прибором, подверглись воздействию успеха, и они, находясь в состоянии 
-     аффекта, растащили прототип по деталям. Возможно, наши ученые до сих пор находятся в 
-     состоянии аффекта.</b>
-            </p>
+        <div class="container">
+        <div class="content" id="desc-id">
+            <h3 class="tag-name"><span id="sh"><b><em>itBursa</em></b></span> <span id="soho2">course</span></h3>
         </div>
+        <table class="table table-hover">
+        	<tr>
+        		<td>
+        			Курс
+        		</td>
+        		<td>
+        			Описание
+        		</td>
+        	</tr>
+        	{% for course in courses %}
+        	<tr>
+        		<td>     			
+       				 <a href="{% url 'courses:detail' course.id %}">{{ course }}</a>		 
+        		</td>      			
+        		<td>
+        			{{ course.short_description }}
+        		</td>	
+        	</tr>
+        	{% endfor %}
+		</table>
         <nav class="container">
             <ul class="pager">
-                <li class="next"><a href="{% url 'contact' %}">Contacts<span aria-hidden="true">&rarr;</span></a>
+                <li class="next"><a href="{% url 'contact' %}">Контакты<span aria-hidden="true">&rarr;</span></a>
                 </li>
             </ul>
         </nav>
