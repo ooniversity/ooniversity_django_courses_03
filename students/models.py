@@ -8,5 +8,10 @@ class Student(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=225)
-    skype = models.CharField(max_length=225)
+    skype = models.CharField(max_length=50)
     courses = models.ManyToManyField(Course)
+    def full_name(self):
+        return self.name + " " + self.surname
+    def __unicode__(self):
+        return self.name + " " + self.surname
+

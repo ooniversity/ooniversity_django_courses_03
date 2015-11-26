@@ -1,14 +1,14 @@
 from django.contrib import admin
 from courses.models import Course, Lesson
 
-class PostAdmin(admin.ModelAdmin):
-    class Media:
-        js = ('../static/js/bootstrap.js'
-              )
-        css = {
-               'all':('../static/css/bootstrap.css','../static/css/style.css')
-               }
+class LessonInline(admin.TabularInline):
+	model = Lesson
+	extra = 0
 
-admin.site.register(Course)
-admin.site.register(Lesson)
-# Register your models here.
+class CourseAdmin(admin.ModelAdmin):
+	search_fields = ['name']
+	inlines = [LessonInline]
+	list_display = ('name', 'short_description')
+
+admin.site.register(Course, CourseAdmin)
+
