@@ -3,8 +3,13 @@ from django.contrib import admin
 from .models import Student
 
 
+class StudentProfileInline(admin.StackedInline):
+    model = Student
+    filter_horizontal = ('courses',)
+
+
 @admin.register(Student)
-class ManageAuthors(admin.ModelAdmin):
+class ManageStudent(admin.ModelAdmin):
     list_display = ['name', 'surname', 'skype', 'phone']
     fieldsets = [
         (
@@ -17,6 +22,9 @@ class ManageAuthors(admin.ModelAdmin):
                 'fields': ['email', 'phone', 'address', 'skype']
             }
         ),
+        (
+            None, {'fields': ['courses']}
+        ),
     ]
-    filter_horizontal = ('courses',)
+    filter_horizontal = ['courses']
     ordering = ['name']

@@ -11,7 +11,7 @@ class Student(models.Model):
     phone = models.CharField('Телефон', max_length=30)
     address = models.CharField('Адрес', max_length=100)
     skype = models.CharField('skype', max_length=30)
-    courses = models.ManyToManyField(Course, verbose_name='Курсы')
+    courses = models.ManyToManyField(Course, verbose_name='Курсы', related_name="courses")
 
     def __unicode__(self):
-        return self.name
+        return '%s %s' % (self.name, ', '.join([c.name for c in self.courses.all()]))
