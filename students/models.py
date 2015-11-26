@@ -2,7 +2,7 @@ from django.db import models
 from courses.models import Course
 
 class Student(models.Model):
-	name = models.CharField(max_length=255)
+	name = models.CharField(max_length=280)
 	surname = models.CharField(max_length=255)
 	date_of_birth = models.DateField()
 	email = models.EmailField()
@@ -10,3 +10,8 @@ class Student(models.Model):
 	address = models.CharField(max_length=255)
 	skype = models.CharField(max_length=40)
 	courses = models.ManyToManyField(Course)
+	def full_name(self):
+		return self.name + " " + self.surname
+	def __unicode__(self):
+		return self.name + " " + self.surname
+
