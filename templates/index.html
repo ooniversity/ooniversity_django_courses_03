@@ -42,11 +42,11 @@
     </div>
     <div class="study_table">
       <div class="panel panel-default">
-        <div class="panel-heading"><h2 class="py_program">Запишись на следующий курс</h2></div>      
+        <div class="panel-heading"><h2 class="py_program">Запишись на курсы Попади в тренд современной WEB разработки</h2></div>      
           <table class="table table-hover">
             <tr class="course_table"><td><h3><b>Курс</b></h3></td><td><h3><b>Тема</b></h3></td><tr>
             {% for course in courses %}
-            <tr class="course_name"><td><a href="{% url 'courses:detail' course.id %}"><h3 class="course"><b>{{ course.name }}</b></h3></a></td><td><h3><b>{{ course.short_description }}</b></h3></td></tr>
+            <tr><td><a href="{% url 'courses:detail' course.id %}"><h3 class="course"><b>{{ course.name }}</b></h3></a></td><td><h3><b>{{ course.short_description }}</b></h3></td></tr>
             {% endfor %}
           </table>
         </div>
