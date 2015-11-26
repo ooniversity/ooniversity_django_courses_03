@@ -15,12 +15,10 @@ class Migration(migrations.Migration):
             model_name='course',
             name='description',
             field=models.TextField(null=True, blank=True),
-            preserve_default=True,
         ),
         migrations.AlterField(
             model_name='lesson',
             name='description',
             field=models.TextField(null=True, blank=True),
-            preserve_default=True,
         ),
     ]
