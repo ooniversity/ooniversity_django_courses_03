@@ -10,7 +10,7 @@
     <meta name="author" content="">
 		<linc href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    <title>Contacts</title>
+    <title>Student information</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">

@@ -44,7 +44,7 @@
 					<tbody>
 						{% for les in lessons %}
 			      <tr>
-							<td>{{forloop.counter}}</td> 
+							<td>{{les.order}}</td> 
 				      <td>{{les.subject}}</td>
 							<td>{{les.description}}</td>
 						</tr>
