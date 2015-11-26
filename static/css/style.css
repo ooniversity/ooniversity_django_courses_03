@@ -50,11 +50,15 @@ h1 {
 	color: #CC3300;
 }
 
-
-.list_student thead{
+table tr {
 	background: #fefcea; /* Для старых браузров */
-    /*background: linear-gradient(to bottom left, #fefcea, #5EE9F7);*/
+    background: linear-gradient(to left, #D8C2C2,#ACF7DF);
 }
+table thead tr{
+	background: #fefcea; /* Для старых браузров */
+    background: linear-gradient(to bottom left, #fefcea, #5EE9F7);
+}
+
 .list_student tbody td:first-child {
 	font-weight: bold;
 	text-align: center;
@@ -66,23 +70,21 @@ h1 {
 
 .list_student tbody tr{
 	background: #fefcea; /* Для старых браузров */
-    /*background: linear-gradient(to left, #E4DFB9,#11DEB8);*/
+    background: linear-gradient(to left, #E4DFB9,#11DEB8);
 }
 
 .list_student tbody tr:hover {
-	/*background: linear-gradient(to right, #E4DFB9,#11DEB8);*/
+	background: linear-gradient(to right, #E4DFB9,#11DEB8);
 }
 
-.student_detail table tr {
-	background: #fefcea; /* Для старых браузров */
-    /*background: linear-gradient(to left, #D8C2C2,#ACF7DF);*/
-}
+
+
 
 .perfomance thead tr {
 	background: #fefcea; /* Для старых браузров */
-    /*background: linear-gradient(to left, #1A6B10,#84D600);*/
+    background: linear-gradient(to left, #1A6B10,#84D600);
 }
 .perfomance tbody tr {
 	background: #fefcea; /* Для старых браузров */
-    /*background: linear-gradient(to left, #D8C2C2,#73B749);*/
+    background: linear-gradient(to left, #D8C2C2,#73B749);
 }
