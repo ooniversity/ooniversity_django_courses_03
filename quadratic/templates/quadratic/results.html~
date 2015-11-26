@@ -43,7 +43,7 @@
     
     <div class="container">
      <h2>Quadratic Eq</h2>
-      <h3>a*x*x + b*x + c = 0</h3>
+      <h3>a*x*x  +  b*x  +  c  =  0</h3>
         <table class="table table-hover">
           {% if a_unit %}
               <tr class="head_self_table"><td><h3>a = {{ a }}</h3></td></tr>
@@ -77,6 +77,7 @@
 				</div>
 			</div>
 		</div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

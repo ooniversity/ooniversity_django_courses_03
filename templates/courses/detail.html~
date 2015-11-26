@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Eq_result</title>
+    <title>PythonBursa</title>
     <!-- Bootstrap -->
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -29,10 +29,9 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{% url 'index' %}">Main</a>
-        <a class="navbar-brand" href="{% url 'contact' %}">Contacts</a>
-        <a class="navbar-brand" href="{% url 'student_list' %}">Students</a>
-        <a class="navbar-brand" href="{% url 'results' %}">Quadratic</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Главная</a>
+        <a class="navbar-brand" href="{% url 'contact' %}">Контакты</a>
+        <a class="navbar-brand" href="{% url 'students:list_view' %}?course_id={{courses.id}}">Студенты</a>
       </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,44 +39,34 @@
       </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    
-    <div class="container">
-     <h2>Quadratic Eq</h2>
-      <h3>a*x*x  +  b*x  +  c  =  0</h3>
-        <table class="table table-hover">
-          {% if a_unit %}
-              <tr class="head_self_table"><td><h3>a = {{ a }}</h3></td></tr>
-              <tr class="head_self_table"><td><h3>{{ a_unit }}</h3></td></tr>
-          {% else %}
-              <tr class="head_self_table"><td><h3>a = {{ a }}</h3></td></tr> 
-          {% endif %}
+    <div class="jumbotron">
+      <div class="container">
+	<div class="bursa">
+          <h1 id="pb" class="bursa">{{ courses.name }}</h1>
+          <h2 class="des">Описание курса</h2>
+          <p class="descr">{{ courses.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="course_id" >
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+      <div class="panel-heading"><h2 class="py_program"></h2></div>
 
-          {% if b_unit %}
-              <tr class="head_self_table"><td><h3>b = {{ b }}</h3></td></tr> 
-              <tr class="head_self_table"><td><h3>{{ b_unit }}</h3></td></tr> 
-          {% else %}
-              <tr class="head_self_table"><td><h3>b = {{ b }}</h3></td></tr>
-          {% endif %}
-
-          {% if c_unit %}
-              <tr class="head_self_table"><td><h3>c = {{ c }}</h3></td></tr>
-              <tr class="head_self_table"><td><h3>{{ c_unit }}</h3></td></tr>
-          {% else %}
-              <tr class="head_self_table"><td><h3>c = {{ c }}</h3></td></tr>
-          {% endif %}
-          </table>
-          <table class="table table-hover">
-          {% if discr %}
-              <tr class="head_self_table"><td><h3>Дискриминант: {{ dsc }}</h3></td></tr>
-              <tr class="head_self_table"><td><h3>{{ dsc_unit }}</h3></td></tr>
-          {% endif %}
-        </table>
-        </div><!-- /.container -->
-					
-				</div>
-			</div>
-		</div>
-
+            
+             
+  <!-- Table -->
+        <table class="table-responsive">
+                   
+          <tr class="headtable"><td><h3>#</h3></td><td><h3>Тема недели</h3></td><td><h3>Описание</h3></td><tr>
+              {% for lesson in lessons %}
+  <tr class="tablelist"><td><h3>{{ lesson.order }}</h3></td><td><div class="them"><h3>{{ lesson.subject }}</h3></div></td><td><h3>{{ lesson.description }}</h3></td></tr>
+            {% endfor %}
+         </table>
+       </div>
+</div>
+</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
