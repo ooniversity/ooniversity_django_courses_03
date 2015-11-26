@@ -15,6 +15,5 @@ class Migration(migrations.Migration):
             model_name='student',
             name='courses',
             field=models.ManyToManyField(to='courses.Course'),
-            preserve_default=True,
         ),
     ]
