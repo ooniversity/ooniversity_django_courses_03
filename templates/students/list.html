@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-		<linc href="{% static 'css/style.css' %}" rel="stylesheet">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <title>List</title>
 
@@ -17,48 +17,59 @@
    
   </head>
 	<body>
-		<div class="navbar">
-			<div class="navbar-inner">
-			  <ul class="nav">
-			    <li><a href="{% url 'index_courses' %}">Главная</a></li>
-			    <li><a href="{% url 'contact' %}">Контакты</a></li>
-			    <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
-			  </ul>
+		<div class="container">
+			<div class="navbar">
+				<div class="navbar-inner">
+		      <ul class="nav nav-pills">
+						<li><a href="{% url 'index_courses' %}">Главная</a></li>
+						<li><a href="{% url 'contact' %}">Контакты</a></li>
+						<li><a href="{% url 'students:list_view' %}">Студенты</a></li>
+					</ul>
+				</div>	
+			<div>
+		</div>
+		<div class="container">
+			<div class="hero-unit">
+				<h1>Список студентов</h1>
+			</div>
+			<div class="col-md-10 col-md-push-1">
+				<div class="table-responsive">
+					<table class="table" border=2>
+						<thead>
+						  <tr>
+								<th>#</th>
+						    <th>Фамилия имя</th>
+						    <th>Адрес</th>
+								<th>skype</th>
+								<th>курсы</th>
+						   </tr>
+						</thead>
+						<tbody>
+							{% for st in students %}
+					    <tr>
+								<td>{{forloop.counter}}</td> 
+						    <td><a href="{% url 'students:detail' st.id %}">{{st.name}} {{st.surname}}</td>
+								<td>{{st.address}}</td>
+								<td>{{st.skype}}</td>
+								<td>
+									{% for cour in st.courses.all %}								
+									<p><a href = "{% url 'courses:detail' cour.id %}">{{cour.name}}</p>
+									{% endfor %}
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
-		<div class="hero-unit">
-  		<h1>Список студентов</h1>
-		</div>
-		<div class="col-md-10 col-md-push-1">
-			<div class="table-responsive">
-				<table class="table" border=2>
-				  <thead>
-				    <tr>
-							<th>#</th>
-				      <th>Фамилия имя</th>
-				      <th>Адрес</th>
-							<th>skype</th>
-							<th>курсы</th>
-				     </tr>
-					</thead>
-					<tbody>
-						{% for st in students %}
-			      <tr>
-							<td>{{forloop.counter}}</td> 
-				      <td><a href="{% url 'students:detail' st.id %}">{{st.name}} {{st.surname}}</td>
-							<td>{{st.address}}</td>
-							<td>{{st.skype}}</td>
-							<td>
-								{% for cour in st.courses.all %}								
-								<p><a href = "{% url 'courses:detail' cour.id %}">{{cour.name}}</p>
-								{% endfor %}
-							</td>
-						</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-			</div>
-		</div>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="{% static 'js/vendor/holder.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+  
 	</body>
 </html>
 		
