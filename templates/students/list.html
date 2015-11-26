@@ -18,8 +18,6 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-  <div>
-  <div>
     <div class="navbar-wrapper">
       <div class="container">
         <nav class="navbar navbar-inverse navbar-static-top">
@@ -28,37 +26,41 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="{% url 'index' %}">Main</a></li>
                 <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li><a href="{% url 'student_list' %}">Students</a></li>
+                <li><a href="{% url 'students:list_view' %}">Students</a></li>
               </ul>
             </div>
           </div>
         </nav>
       </div>
     </div>
-<div>
-  <div class="container"></br></br></br></br></br>
-    <div class="jumbotron">
-          <h1>PyBursa</h1>
-          <p>Наша цель - научить вас языку Python</p>
-          <p>Научись или умри. Мы построили курсы с акцентом на практику</p>
-        </div>
-    <div class="table-responsive">
+    <div class="container">
+
+    <div class="container">
+    <h3>Students list</h3>
           <table class="table table-hover">
-            <caption>What do you want to know?</caption>
             <thead>
               <tr>
+                <th>Name and Surname</th>
+                <th>Address</th>
+                <th>Skype</th>
                 <th>Course</th>
-                <th>Description</th>
               </tr>
             </thead>
-            <tbody>
-                  {% for course in courses %}
+            <tbody></br></br></br>
+                {% for student in students %}
                     <tr>
-                      <td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>
-                      <td>{{ course.short_description }}</td>
+                        <td>{{ student.id }}</td>
+                        <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}<a></td>
+                        <td>{{ student.address }}</td>
+                        <td>{{ student.skype }}</td>
+                        <td>{% for course in student.courses.all %}
+                              <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                            {% endfor %}
+                        </td>
                     </tr>
-                  {% endfor %}
-                </tbody>
+                {% empty %}
+                      <h3>No students</h3>
+                {% endfor %}
             </tbody>
           </table>
         </div>
