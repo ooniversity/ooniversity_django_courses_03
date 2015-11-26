@@ -30,7 +30,6 @@
   		<h1>Список студентов</h1>
 		</div>
 		<div class="col-md-10 col-md-push-1">
-			<h2 class="sub-header">План Курса</h2>
 			<div class="table-responsive">
 				<table class="table" border=2>
 				  <thead>
