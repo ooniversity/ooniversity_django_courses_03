@@ -4,7 +4,7 @@ from courses.models import Course
 class Student(models.Model):
     name = models.CharField( max_length=225)
     surname = models.CharField(max_length=225)
-    birth_date = models.DateField()
+    date_of_birth = models.DateField()
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=225)
