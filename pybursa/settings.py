@@ -28,7 +28,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# -*- coding: utf-8 -*-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,7 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
-    'quadratic'
+    'quadratic',
+    'students',
+    'courses',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,7 +79,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
+LANGUAGE_CODE = 'ru-RU' 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
