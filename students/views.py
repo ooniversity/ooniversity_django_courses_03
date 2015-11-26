@@ -1,19 +1,12 @@
 from django.shortcuts import render
 from students.models import Student
-from courses.models import Course
 
 
 def list_view(request):
-    course_id = request.GET.get('course_id')
-    # print(course_id)
-    if course_id != None and course_id != '':
-        # course = Course.objects.get(id=course_id)
-        # student = Student.objects.all()
-        list_students = []
-        # for people in student:
-        #     if course in people.courses.all():
-        #         list_students.append(people)
-        return render(request, 'students/list.html', {'list_students': list_students})
+    reguest_course = request.GET
+    if 'course_id' in reguest_course:
+        list_students = Student.objects.filter(
+            courses=reguest_course['course_id'])
     else:
         list_students = Student.objects.all()
     return render(request, 'students/list.html', {'list_students': list_students})
