@@ -23,7 +23,7 @@
                     </li>
                     <li class="active"><a class="top_bar" href="{% url 'contact' %}">Contacts</a>
                     </li>
-                    <li><a class="top_bar" href="{% url 'student_list' %}">Students</a>
+                    <li><a class="top_bar" href="{% url 'students:list_view' %}">Students</a>
                     </li>
                 </ul>
             </div>
@@ -76,7 +76,7 @@
         <ul class="pager">
             <li class="previous"><a href="{% url 'index' %}"><span aria-hidden="true">&larr;</span>Main</a>
             </li>
-            <li class="next"><a href="{% url 'student_list' %}">Students<span aria-hidden="true">&rarr;</span></a>
+            <li class="next"><a href="{% url 'students:list_view' %}">Students<span aria-hidden="true">&rarr;</span></a>
             </li>
         </ul>
     </nav>
