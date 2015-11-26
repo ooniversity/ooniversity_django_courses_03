@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-		<linc href="{% static 'css/style.css' %}" rel="stylesheet">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     <title>Student information</title>
 
@@ -29,53 +29,64 @@
    
   </head>
 	<body>
-		<div class="navbar">
-			<div class="navbar-inner">
-			  <ul class="nav">
-			    <li><a href="{% url 'index_courses' %}">Главная</a></li>
-			    <li><a href="{% url 'contact' %}">Контакты</a></li>
-			    <li class="active"><a href="{% url 'students:list_view' %}">Студенты</a></li>
-			  </ul>
+		<div class="container">
+			<div class="navbar">
+				<div class="navbar-inner">
+		      <ul class="nav">
+						<li><a href="{% url 'index_courses' %}">Главная</a></li>
+						<li><a href="{% url 'contact' %}">Контакты</a></li>
+						<li><a href="{% url 'students:list_view' %}">Студенты</a></li>
+					</ul>
+				</div>	
 			</div>
 		</div>
-		<div class="hero-unit">
-  		<h1>{{student.name}} {{student.surname}}</h1>
-		</div>
-		<div class="col-md-10 col-md-push-1">
-			<h2 class="sub-header">Информация</h2>
-			<div class="table-responsive">
-				<table class="table" border=2>
-				  <thead>
-				    <tr>
-	          <th>дата рождения</th>
-	          <td>{{student.date_of_birth}}</td>
-					</tr>
-					<tr>
-						<th>адрес</th>
-						<td>{{student.address}}</td>
-					</tr>
-	        <tr>
-						<th>почта</th>
-						<td>{{student.email}}</td>
-					</tr>
-					<tr>
-						<th>логин skype</th>
-						<td>{{student.skype}}</td>
-					</tr>
-					<tr>
-						<th>телефон</th>
-						<td>{{student.phone}}</td>
-					</tr>
-					<tr>
-						<th>курсы</th>
-						<td>
-							{% for cour in student.courses.all %}								
-							<p><a href = "{% url 'courses:detail' cour.id %}">{{cour.name}}</p>
-							{% endfor %}
-						</td>
-					</tr>
-				</table>
+		<div class="container">
+			<div class="hero-unit">
+				<h1>{{student.name}} {{student.surname}}</h1>
+			</div>
+			<div class="col-md-10 col-md-push-1">
+				<h2 class="sub-header">Информация</h2>
+				<div class="table-responsive">
+					<table class="table" border=2>
+						<thead>
+						  <tr>
+			        <th>дата рождения</th>
+			        <td>{{student.date_of_birth}}</td>
+						</tr>
+						<tr>
+							<th>адрес</th>
+							<td>{{student.address}}</td>
+						</tr>
+			      <tr>
+							<th>почта</th>
+							<td>{{student.email}}</td>
+						</tr>
+						<tr>
+							<th>логин skype</th>
+							<td>{{student.skype}}</td>
+						</tr>
+						<tr>
+							<th>телефон</th>
+							<td>{{student.phone}}</td>
+						</tr>
+						<tr>
+							<th>курсы</th>
+							<td>
+								{% for cour in student.courses.all %}								
+								<p><a href = "{% url 'courses:detail' cour.id %}">{{cour.name}}</p>
+								{% endfor %}
+							</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
+		<script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="{% static 'js/vendor/holder.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+  
 	</body>
 </html>
