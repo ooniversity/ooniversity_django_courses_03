@@ -31,9 +31,7 @@
         </div>
     </nav>
     <div class="container" id="sto">
-        <h1><strong>Студенты курса <em>{{ courses.name }}</em></strong></h1>
-        <p class="lead"><strong>Наши студенты!!!</strong>
-        </p>
+        <h1><strong>Список студентов</strong></h1>
     </div>
     <table class="table table-hover">
         <tr>
@@ -41,16 +39,16 @@
                 #
             </td>
             <td>
-                Фамилия и имя
+                фамилия имя
             </td>
             <td>
-                Адрес
+                адрес
             </td>
             <td>
                 Skype
             </td>
             <td>
-                Курсы
+                курсы
             </td>
         </tr>
         {% for student in students %}
