@@ -9,6 +9,12 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = ['courses']
     filter_horizontal = ['courses']
 
+    fieldsets = [('Personal info', {'fields': ['name', 'surname', 'date_of_birth']}),
+                 ('Contact info', {'fields': [
+                  'email', 'phone', 'address', 'skype']}),
+                 (None, {'fields': ['courses']})
+                 ]
+
     def get_full_name(self, obj):
         return obj.name + " " + obj.surname
     get_full_name.short_description = "Full name"
