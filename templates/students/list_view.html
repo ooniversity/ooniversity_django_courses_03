@@ -39,7 +39,7 @@
             {% for man in students %}
             <tr>
               <td>{{forloop.counter}}</td> 
-              <td><a href = "{% url 'students:detail' man.id %}">{{man.surname}} {{man.name}}</a></td>
+              <td><p><a href = "{% url 'students:detail' man.id %}">{{man.surname}} {{man.name}}</a></p></td>
               <td>{{man.address}}</td>
               <td>{{man.skype}}</td>
               <td>{% for cour in man.courses.all %}                
@@ -53,4 +53,6 @@
       </div>
     </div>
   </body>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </html>
