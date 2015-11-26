@@ -5,7 +5,7 @@ from django.db import models
 
 class StudentAdmin(admin.ModelAdmin):
 	search_fields = ['surname', 'email']
-	list_display = ['full_name', 'email', 'skype']
+	list_display = ['name_surname', 'email', 'skype']
 	list_filter = [ 'courses' ]
 
 	def full_name(self, objct):
