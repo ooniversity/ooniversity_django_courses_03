@@ -16,15 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from .views import index, student_list, student_detail, contact
+from courses.views import list_view
 
 
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/', include('polls.urls', namespace="polls")),
-    url(r'^$', index, name='index'),
-    url(r'^student_list/$', student_list, name='student_list'),
-    url(r'^student_detail/$', student_detail, name='student_detail'),
+    url(r'^$', list_view, name='list_view'),
+    url(r'^courses/', include('courses.urls', namespace="courses")),
+    url(r'^students/', include('students.urls', namespace="courses")),
     url(r'^contact/$', contact, name='contact'),
-    url(r'^quadratic/', include('quadratic.urls')),
 ]

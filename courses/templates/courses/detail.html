@@ -1,0 +1,1020 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block banner %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card" style="background-color: rgba(255, 255,255, 0.90);">
+                    <div class="card-content">
+                        <div class="col l2 m3 s4">
+                            {% if 'Python' in course.name %}
+                                <img src="{% static 'img/badges_python.png' %}" class="responsive-img">
+                            {% elif 'Ruby' in course.name %}
+                                <img src="{% static 'img/badges_ruby.png' %}" class="responsive-img">
+                            {% elif 'Java' in course.name %}
+                                <img src="{% static 'img/badges_java.png' %}" class="responsive-img">
+                            {% elif 'Symfony' in course.name %}
+                                <img src="{% static 'img/badges_symfony.svg' %}" class="responsive-img">
+                            {% elif 'JsBursa' in course.name %}
+                                <img src="{% static 'img/badges_javascript.png' %}" class="responsive-img">
+                            {% endif %}
+                        </div>
+                        <div class="hide-on-med-and-up col s8">
+                            <h1 style="font-size:1.2rem;font-weight:400;">{{ course.name }}</h1>
+
+                        </div>
+                        <div class="col l10 m9 s12">
+                            <div class="hide-on-small-and-down">
+                                <h1 style="font-size:1.64rem;font-weight:400;">{{ course.name }}</h1>
+
+                            </div>
+                            <div class="divider" style="clear:both;"></div>
+                        </div>
+                        <div class="s12" style="clear:both;">
+                            <p class="center-align" style="color: rgba(0, 0, 0, 0.71); margin: 15px;">
+                                {{ course.description }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block list_courses %}
+    <div class="col s12">
+        <h5 class="text-primarycolor">Программа курса</h5>
+
+    </div>
+    <div class="col s12 l12">
+        {% if 'Python' in course.name %}
+            <table class="responsive-table bordered centered striped highlight">
+                <thead class="cyan">
+                <tr>
+                    <th data-field="nomber">
+                        ЗАНЯТИЕ
+                    </th>
+                    <th data-field="subject">
+                        ТЕМА
+                    </th>
+                    <th data-field="content">
+                        СОДЕРЖАНИЕ
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td class="number_cell">
+                        1
+                    </td>
+                    <td>
+                        Основы Python
+                    </td>
+                    <td>
+                        <ul>
+                            <li>zen, pep8, pylint, tools, IDE</li>
+                            <li>консоль, типы данных, операторы</li>
+                            <li>синтаксис управляющих конструкций (if, for...)</li>
+                            <li>исключения и разбор стектрейса</li>
+                            <li>кодировка в Python</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        2
+                    </td>
+                    <td>
+                        Строки и итераторы
+                    </td>
+                    <td>
+                        <ul>
+                            <li>работа со строками и итерируемыми типами</li>
+                            <li>запуск скрипта и параметры</li>
+                            <li>git http://try.github.com/levels/</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        3
+                    </td>
+                    <td>
+                        Функции и модульность
+                    </td>
+                    <td>
+                        <ul>
+                            <li>функции (def, lambda)</li>
+                            <li>генераторы списков</li>
+                            <li>модули, структура</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        4
+                    </td>
+                    <td>
+                        Библиотеки и пакетный менеджер
+                    </td>
+                    <td>
+                        <ul>
+                            <li>встроенные библиотеки http://docs.python.org/</li>
+                            <li>сторонние библиотеки (менеджер пакетов) PYPI</li>
+                            <li>PYTHONPATH и виртуальное окружение</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        5
+                    </td>
+                    <td>
+                        Классы и ООП, основы
+                    </td>
+                    <td>
+                        <ul>
+                            <li>синтаксис, атрибуты, методы, инстанцирование</li>
+                            <li>все объект, служебные методы</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        6
+                    </td>
+                    <td>
+                        Классы и ООП, возможности Python
+                    </td>
+                    <td>
+                        <ul>
+                            <li>инкапсуляция, наследование, полиморфизм</li>
+                            <li>переопределение методов</li>
+                            <li>super</li>
+                            <li>абстрактные классы</li>
+                            <li>статические методы</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        7
+                    </td>
+                    <td>
+                        Работа с файлами
+                    </td>
+                    <td>
+                        <ul>
+                            <li>запись и чтение файлов</li>
+                            <li>методы объектов-файлов</li>
+                            <li>csv, json</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        8
+                    </td>
+                    <td>
+                        Работа с датами
+                    </td>
+                    <td>
+                        <ul>
+                            <li>модуль datetime</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        9
+                    </td>
+                    <td>
+                        Основы html/css
+                    </td>
+                    <td>
+                        <ul>
+                            <li>html - теги и свойства</li>
+                            <li>css - свойства и селекторы</li>
+                            <li>каскадное переопределение свойств</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        10
+                    </td>
+                    <td>
+                        Основы JavaScript
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Зачем разработчику backend нужно знать js?</li>
+                            <li>DOM</li>
+                            <li>JS, jQuery, Ajax</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        11
+                    </td>
+                    <td>
+                        Основы Web, HTTP
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Django. “Hello world!”</li>
+                            <li>HTTP (GET, POST), (200, 404, 500), headers, cookies</li>
+                            <li>Инструменты отладки браузера (Firebug, Web Developer)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        12
+                    </td>
+                    <td>
+                        Django first steps
+                    </td>
+                    <td>
+                        <ul>
+                            <li>почему django?</li>
+                            <li>введение и описание фреймворка</li>
+                            <li>старт проекта</li>
+                            <li>команды manage.py</li>
+                            <li>django.contrib</li>
+                            <li>авторизация, django.contrib.auth</li>
+                            <li>админка</li>
+                            <li>статика</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        13
+                    </td>
+                    <td>
+                        Структура Web приложения
+                    </td>
+                    <td>
+                        <ul>
+                            <li>MVC</li>
+                            <li>Views</li>
+                            <li>роутинг урлов, передача параметров</li>
+                            <li>объект реквест</li>
+                            <li>объект респонс</li>
+                            <li>обработка реквеста, формирование респонса</li>
+                            <li>обработка и изменение хедеров</li>
+                            <li>мидлвар</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        14
+                    </td>
+                    <td>
+                        Работа с базами данных, ORM
+                    </td>
+                    <td>
+                        <ul>
+                            <li>модели и поля, типы полей и атрибуты</li>
+                            <li>связи между таблицами и проектирование БД</li>
+                            <li>миграции</li>
+                            <li>фикстуры</li>
+                            <li>QuerySet</li>
+                            <li>Raw-sql</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        15
+                    </td>
+                    <td>
+                        Кастомизация админки
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Класс админки</li>
+                            <li>настройка отображения виджетов</li>
+                            <li>кастомизация ItemView, ListView, редактирование в ListView</li>
+                            <li>Сортировка, фильтры, поиск admin actions, редактирование полей в ListView</li>
+                            <li>admin actions, редактирование полей в ListView</li>
+                            <li>Admin dashboard</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        16
+                    </td>
+                    <td>
+                        Язык шаблонов
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Синтаксис, логические конструкции</li>
+                            <li>наследование и includes</li>
+                            <li>Понятие контекста, контекст процессор</li>
+                            <li>теги и фильтры</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        17
+                    </td>
+                    <td>
+                        Forms
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Формы</li>
+                            <li>Типы полей</li>
+                            <li>Виджеты</li>
+                            <li>Атрибуты</li>
+                            <li>Валидация</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        18
+                    </td>
+                    <td>
+                        Class-based (Generic) Views
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Встроенные class-based views (TemplateView, ListView, ItemView)</li>
+                            <li>Использование форм с class-based views</li>
+                            <li>Миксины</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        19
+                    </td>
+                    <td>
+                        Реализация стандартных задач
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Отправка емейл</li>
+                            <li>Кеширование</li>
+                            <li>Интернационализация</li>
+                            <li>Signup/Login</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        20
+                    </td>
+                    <td>
+                        Средства отладки и тестирование
+                    </td>
+                    <td>
+                        <ul>
+                            <li>logging</li>
+                            <li>pdb</li>
+                            <li>debug toolbar</li>
+                            <li>extensions</li>
+                            <li>unit-tests</li>
+                            <li>selenium</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        21
+                    </td>
+                    <td>
+                        Деплоймент
+                    </td>
+                    <td>
+                        <ul>
+                            <li>nginx</li>
+                            <li>Управление статикой</li>
+                            <li>Деплоймент</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        {% elif 'Ruby' in course.name %}
+            <table class="responsive-table bordered centered striped highlight">
+                <thead class="red accent-4">
+                <tr>
+                    <th>Занятие</th>
+                    <th>Тема</th>
+                    <th>Содержание</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Вступление</td>
+                    <td>
+                        <ul>
+                            <li>Базовые конструкции языка</li>
+                            <li>Почему Ruby, Ruby on Rails - это круто, модно и востребовано</li>
+                            <li>Повтор HTML, CSS</li>
+                            <li>JavaScript - зачем он нужен веб-девелоперу</li>
+                            <li>Повтор принципов ООП на примере руби</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Hello, Ruby!</td>
+                    <td>
+                        <ul>
+                            <li>Обзор функционального подхода - proc, lambda</li>
+                            <li>Модули в руби и механизм mixins</li>
+                            <li>Работа со строками, массивами и хешами</li>
+                            <li>Введение в автотесты, Ценность TDD и BDD</li>
+                            <li>Git, Github и контроль версий как таковой</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>ActiveModel - Rails ORM</td>
+                    <td>
+                        <ul>
+                            <li>ActiveModel - Rails ORM (работа с базой данных)</li>
+                            <li>Повтор ООП - Шаблоны проектирования</li>
+                            <li>Работа с данными, CRUD</li>
+                            <li>Rspec - инструмент создания автотестов</li>
+                            <li>Шаблоны проектирования в ruby</li>
+                        </ul>
+                    </td>
+                </tr>
+                <!-- Следующая неделя-->
+                <tr>
+                    <td>4</td>
+                    <td>MVC</td>
+                    <td>
+                        <ul>
+                            <li>Понятие MVC</li>
+                            <li>Rails: Router, ActiveController</li>
+                            <li>REST, Nested Resources</li>
+                            <li>Этика и приемы командной работы на GitHub</li>
+                            <li>HTTP: request, response, headers. GET, POST, PUT, DELETE</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Rails: ActiveView, Helpers</td>
+                    <td>
+                        <ul>
+                            <li>Rails: ActiveView, Helpers</li>
+                            <li>Assets Pipeline</li>
+                            <li>Обзор использования jQuery в приложении</li>
+                            <li>Создание View, использование хелперов и javascript</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Аутентификация и авторизация</td>
+                    <td>
+                        <ul>
+
+                            <li>Аутентификация и авторизация пользователей
+                            </li>
+                            <li>Rails: generators</li>
+                            <li>Twitter Bootstrap и responsive web - кому и зачем это нужно</li>
+                            <li>Формы и Nested Forms</li>
+                            <li>Devise - гем для аутентификации</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Rails Environment</td>
+                    <td>
+                        <ul>
+                            <li>Rails Environment
+                            </li>
+                            <li>Convention over Configuration</li>
+                            <li>Rails Init Load Queue</li>
+                            <li>Rails Initializers</li>
+                            <li>Что скрывает в себе папка config в Rails проекте</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Паттерны и антипаттерны в мире Rails</td>
+                    <td>
+                        <ul>
+                            <li>Паттерны и антипаттерны в мире Rails</li>
+                            <li>Деплоймент: Capistrano, Heroku</li>
+                            <li>NewRelic, bullet и проблемы, которые они помогают найти</li>
+                            <li>Типы автотесты, покрытие тестами, метрики качества кода</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Cucumber, Capybara, Selenium</td>
+                    <td>
+                        <ul>
+                            <li>Интеграционное тестирование - Cucumber, Capybara, Selenium</li>
+                            <li>Debugging и оптимизация</li>
+                            <li>Отправка почты из приложения</li>
+                            <li>Ревью и критика учебных проектов</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        {% elif 'Java' in course.name %}
+            <table class="responsive-table bordered centered striped highlight">
+                <thead class="pink accent-3">
+                <tr>
+                    <th>
+                        ТЕМА
+                    </th>
+                    <th>
+                        СОДЕРЖАНИЕ
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        Основные понятия Java
+                    </td>
+                    <td>
+                        <ul>
+                            <li>обзор языка Java</li>
+                            <li>типы данных</li>
+                            <li>литералы</li>
+                            <li>операторы</li>
+                            <li>кодировки</li>
+                            <li>объектно-ориентированные возможности Java</li>
+                            <li>классы</li>
+                            <li>пакеты</li>
+                            <li>документирование кода</li>
+                            <li>вложенные классы</li>
+                            <li>абстрактные классы</li>
+                            <li>интерфейсы</li>
+                            <li>generics</li>
+                            <li>перечисления</li>
+                            <li>аннотации</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Обработка строк
+                    </td>
+                    <td>
+                        <ul>
+                            <li>строковые классы</li>
+                            <li>регулярные выражения</li>
+                            <li>i18n (интернационализация)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Потоки ввода/вывода. Файлы
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ввод/вывод</li>
+                            <li>байтовые и символьные потоки</li>
+                            <li>классы Scanner, Formatter</li>
+                            <li>класс File</li>
+                            <li>сериализация</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Обработка исключений
+                    </td>
+                    <td>
+                        <ul>
+                            <li>основы обработки исключений</li>
+                            <li>иерархия исключений</li>
+                            <li>блоки try-catch-finally/try-with-resources</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Коллекции
+                    </td>
+                    <td>
+                        <ul>
+                            <li>обзор коллекций</li>
+                            <li>итератор</li>
+                            <li>сравнение объектов</li>
+                            <li>компараторы</li>
+                            <li>работа с ассоциативными контейнерами</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Многопоточное программирование
+                    </td>
+                    <td>
+                        <ul>
+                            <li>понятие потока выполнения</li>
+                            <li>жизненный цикл потока</li>
+                            <li>управление потоками</li>
+                            <li>синхронизация потоков</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Сервлеты и JSP
+                    </td>
+                    <td>
+                        <ul>
+                            <li>сервлеты</li>
+                            <li>контейнер сервлетов</li>
+                            <li>обработка запроса</li>
+                            <li>структура WEB-приложения</li>
+                            <li>поддержка сессий</li>
+                            <li>cookies</li>
+                            <li>фильтры</li>
+                            <li>слушатели</li>
+                            <li>JSP</li>
+                            <li>директивы</li>
+                            <li>скриптовые элементы</li>
+                            <li>действия</li>
+                            <li>EL</li>
+                            <li>JSTL</li>
+                            <li>custom-теги</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        {% elif 'Symfony' in course.name %}
+            <table class="responsive-table bordered centered striped highlight">
+                <thead class="grey darken-4 white-text">
+                <tr>
+                    <th>
+                        ТЕМА
+                    </th>
+                    <th>
+                        СОДЕРЖАНИЕ
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        Повторение PHP
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Повторение основных конструкций языка.</li>
+                            <li>ООП.</li>
+                            <li>Паттерны.</li>
+                            <li>Понятие фреймворка.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        знакомство с Symfony
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Структура фреймворка.</li>
+                            <li>Компоненты.</li>
+                            <li>Понятие Бандла.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Composer
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Работа с Github при помощи Composer.</li>
+                            <li>Автозагрузка классов.</li>
+                            <li>Настройка проекта в Composer.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Роутинг
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Роутинг в Symfony.</li>
+                            <li>Форматы конфигурационных файлов.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Шаблонизатор Twig
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Понятие шаблонизатора.</li>
+                            <li>Возможности Twig.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Doctrine
+                    </td>
+                    <td>
+                        <ul>
+
+                            <li>Понятие ORM.</li>
+                            <li>Работа с базой данных в Symfony.</li>
+                            <li>Сущности.</li>
+                            <li>Репозитории.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Работа с консолью
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Команды консоли Symfony.</li>
+                            <li>Создание своих команд.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Dependency injection, Service container
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Организация связи между бандлами.</li>
+                            <li>Понятие сервиса.</li>
+                            <li>Передача параметров через конструктор.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Формы
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Работа с формами в Symfony.</li>
+                            <li>Валидация.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Авторизация
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Настройки безопасности в Symfony.</li>
+                            <li>Двухступенчатая авторизация.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Использование сторонних бандлов
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Подключение репозиториев GitHub.</li>
+                            <li>Использование сторонних бандлов в своем проекте.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        sonata-project, FOS, Knp.
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Разбор самых популярных расширений для Symfony.</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        {% elif 'JsBursa' in course.name %}
+            <table class="responsive-table bordered centered striped highlight">
+                <thead class="yellow accent-1">
+                <tr>
+                    <th>
+                        ЗАНЯТИЕ
+                    </th>
+                    <th>
+                        ТЕМА
+                    </th>
+                    <th>
+                        СОДЕРЖАНИЕ
+                    </th>
+                </tr>
+                <thead>
+                <tbody>
+                <tr>
+                    <td class="number_cell">
+                        1
+                    </td>
+                    <td>
+                        Введение, подмножества JavaScript, dev tools, code quality, html
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Hello World!</li>
+                            <li>Лексические структуры (литералы, зарезервированные слова, типы данных, значения,
+                                переменные)
+                            </li>
+                            <li>Выражения и операторы преобразование типов</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        2
+                    </td>
+                    <td>
+                        Функции и инструкции
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Инструкции-выражения</li>
+                            <li>Составные и пустые инструкции</li>
+                            <li>Инструкции-объявления</li>
+                            <li>Условные инструкции</li>
+                            <li>Циклы</li>
+                            <li>Переходы</li>
+                            <li>Прочие инструкции</li>
+                            <li>Итоговая таблица JavaScript-инструкций</li>
+                            <li>Определение функций</li>
+                            <li>Вызов функций</li>
+                            <li>Аргументы и параметры функций</li>
+                            <li>Функции как данные</li>
+                            <li>Функции как пространства имен</li>
+                            <li>Замыкания</li>
+                            <li>Свойства и методы функций и конструктор Function</li>
+                            <li>Функциональное программирование</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        3
+                    </td>
+                    <td>
+                        Объекты и массивы
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Создание объектов</li>
+                            <li>Получение и изменение свойств</li>
+                            <li>Удаление свойств</li>
+                            <li>Проверка существования свойств</li>
+                            <li>Перечисление свойств</li>
+                            <li>Методы чтения и записи свойств</li>
+                            <li>Атрибуты свойств</li>
+                            <li>Атрибуты объекта</li>
+                            <li>Сериализация объектов</li>
+                            <li>Методы класса Object</li>
+                            <li>Создание массивов</li>
+                            <li>Чтение и запись элементов массива</li>
+                            <li>Разреженные массивы</li>
+                            <li>Длина массива</li>
+                            <li>Добавление и удаление элементов массива</li>
+                            <li>Обход элементов массива</li>
+                            <li>Многомерные массивы</li>
+                            <li>Методы класса Array, определяемые стандартом ECMAScript 5</li>
+                            <li>Тип Array</li>
+                            <li>Объекты, подобные массивам</li>
+                            <li>Строки как массивы</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        4
+                    </td>
+                    <td>
+                        DOM, Events, Асинхронность
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Обзор модели DOM</li>
+                            <li>Выбор элементов документа</li>
+                            <li>Структура документа и навигация по документу</li>
+                            <li>Атрибуты</li>
+                            <li>Содержимое элемента</li>
+                            <li>Создание, вставка и удаление узлов</li>
+                            <li>Геометрия документа и элементов и прокрутка</li>
+                            <li>Другие особенности документов</li>
+                            <li>Типы событий</li>
+                            <li>Регистрация обработчиков событий</li>
+                            <li>Вызов обработчиков событий</li>
+                            <li>События загрузки документа</li>
+                            <li>События мыши</li>
+                            <li>События колесика мыши</li>
+                            <li>События механизма буксировки</li>
+                            <li>События ввода текста</li>
+                            <li>События клавиатуры</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        5
+                    </td>
+                    <td>
+                        Прототипное наследование, модульность, Require.js
+                    </td>
+                    <td>
+                        <ul>
+                            <li>ООП в js</li>
+                            <li>Архитектура больших приложений</li>
+                            <li>Модульность</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        6
+                    </td>
+                    <td>
+                        RIA, Ajax, $, loadesh templates, local storage, cookies, session
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Основы jQuery</li>
+                            <li>Методы чтения и записи объекта jQuery</li>
+                            <li>Изменение структуры документа</li>
+                            <li>Обработка событий с помощью библиотеки jQuery</li>
+                            <li>Реализация Ajax в библиотеке jQuery</li>
+                            <li>Вспомогательные функции</li>
+                            <li>Селекторы и методы выбора в библиотеке jQuery</li>
+                            <li>Одностраничные приложения</li>
+                            <li>Роутинг</li>
+                            <li>Динамическая подгрузка файлов</li>
+                            <li>Объекты localStorage и sessionStorage</li>
+                            <li>Сookies</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        7
+                    </td>
+                    <td>
+                        Backbone, MVC
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number_cell">
+                        8
+                    </td>
+                    <td>
+                        grunt, gulp, webpack
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Инфраструктура</li>
+                            <li>Сборка проекта</li>
+                            <li>Автоматизация рутины</li>
+                            <li>Контроль качества</li>
+                            <li>Построение процессов</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+

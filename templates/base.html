@@ -1,0 +1,217 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    <title></title>
+    <meta name="description" content=""/>
+
+    {#    <link rel="stylesheet" href="http://www.android-kiosk.com/wp-content/themes/androidkioskcom/style.css"#}
+    {#          type="text/css" media="screen,projection"/>#}
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/orbita.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed"
+          href="http://www.android-kiosk.com/wp-content/themes/androidkioskcom/images/favicon/apple-touch-icon-152x152.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage"
+          content="http://www.android-kiosk.com/wp-content/themes/androidkioskcom/images/favicon/mstile-144x144.png">
+    <link rel="icon"
+          href="http://www.android-kiosk.com/wp-content/themes/androidkioskcom/images/favicon/favicon-32x32.png"
+          sizes="32x32">
+
+    <!-- Android 5 Chrome Color -->
+    <meta name="theme-color" content="#7cb342">
+
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a id="logo-container" href="/" class="brand-logo waves-effect waves-light">
+                    <div class="hide-on-med-and-down">
+                        <img src="{% static 'img/logo_itbursa.png' %}"
+                             width="30" id="appicon">
+                        <span style="font-size: 22px;font-weight:300;">ITBursa</span>
+                    </div>
+                    <div class="hide-on-large-only">
+                        <span style="font-size: 22px;font-weight:300;">ITBursa</span>
+                    </div>
+                </a>
+
+
+                <ul id="menu-menu-1" class="right hide-on-med-and-down">
+                    <li id="menu-item-24"
+                        class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5 current_page_item menu-item-24">
+                        <a href="/">Главная</a></li>
+                    <li id="menu-item-999"
+                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-999"><a
+                            href="contact.html">Контакты</a>
+                    </li>
+                    <li id="menu-item-985"
+                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-985"><a
+                            href="student_list.html">Студенты</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav" style="left: -250px;">
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5 current_page_item menu-item-24">
+                        <a href="/">Главная</a></li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-999"><a
+                            href="student_list.html">Студенты</a></li>
+                </ul>
+
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-menu"></i></a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- start center banner -->
+
+<div id="index-banner">
+    <div class="section">
+        {% block banner %}
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card" style="background-color: rgba(255, 255,255, 0.90);">
+                        <div class="card-content">
+                            <div class="col l2 m3 s4">
+                                <img src="{% static 'img/logo_itbursa.png' %}" class="responsive-img">
+                            </div>
+                            <div class="hide-on-med-and-up col s8">
+                                <h1 style="font-size:1.2rem;font-weight:400;">Learn with ItBursa</h1>
+
+                            </div>
+                            <div class="col l10 m9 s12">
+                                <div class="hide-on-small-and-down">
+                                    <h1 style="font-size:1.64rem;font-weight:400;">Learn with ItBursa</h1>
+
+                                </div>
+                                <div class="divider" style="clear:both;"></div>
+                            </div>
+                            <div class="s12" style="clear:both;">
+                                <p class="center-align" style="color: rgba(0, 0, 0, 0.71); margin: 15px;">Курсы ItBursa
+                                    начали работу в 2014 году. Мы специализируемся на «модных» языках программирования.
+                                    Принципиальное наше отличие от других курсов – максимум практики и жесткая система
+                                    обязательных домашних заданий. Преподаватели – опытные практикующие разработчики,
+                                    они помогают участникам в ходе курсов создать реальные проекты и получить
+                                    практические навыки, применимые к работе. Домашние задания на наших курсах
+                                    обязательны и их невыполнение приводит к исключению с курсов. Таким образом, мы
+                                    готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать
+                                    пусть простые, но рабочие проекты.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+</div>
+<!--/ end center banner -->
+
+<!-- start section -->
+
+<div class="section no-pad-top no-pad-bot">
+    <div class="container">
+        <div class="row">
+            {% block list_courses %}{% endblock %}
+        </div>
+    </div>
+</div>
+
+<!--/ end section -->
+
+<!-- start footer -->
+
+<footer style="margin-top:0px;" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Get in touch</h5>
+
+                <form class="col s12" action="contact.php" method="post" id="contactForm">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="mdi-account-circle prefix white-text"></i>
+                            <input id="name" name="name" type="text" class="validate white-text">
+                            <label for="name" class="white-text">Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="mdi-email prefix white-text"></i>
+                            <input id="email" name="email" type="email" class="validate white-text">
+                            <label for="email" class="white-text">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="mdi-pencil prefix white-text"></i>
+                            <textarea id="message" name="message" class="materialize-textarea white-text"
+                                      style="padding-bottom: 0px;"></textarea>
+                            <label for="message" class="white-text">Message</label>
+                        </div>
+                        <div class="input-field col s12 offset-m6 m6 l12">
+                            <img src="http://www.android-kiosk.com/wp-content/themes/androidkioskcom/captcha.php"
+                                 class="right" width="45px" style="margin-top:-20px;">
+                            <i class="mdi-pencil prefix white-text"></i>
+                            <input type="text" name="captcha" id="captcha" maxlength="6" size="6"
+                                   class="validate white-text">
+                            <label for="captcha" class="white-text">Image Verification</label>
+                        </div>
+                        <div class="col offset-s7 s5">
+                            <button class="btn waves-effect waves-light white light-green-text text-darken-2 right"
+                                    type="submit">Send
+                                <i class="mdi-send right text-darken-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col offset-l2 l6 s12" style="text-align: right;">
+                <h5 class="white-text">Contact</h5>
+                <ul>
+                    <li><span class="white-text">ProCo IT<br>Unit 3 Castle Road, Chelston Business Park, Wellington, Somerset, TA21 9JQ, UK</span>
+                    </li>
+                    <li><a href="mailto:support@android-kiosk.com" class="white-text"
+                           style="">support@android-kiosk.com</a></li>
+                    <li><span class="white-text" style="">Tel: +44 (0)7793224070</span></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.procoit.kioskbrowser"><img
+                            alt="Get it on Google Play"
+                            src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png"></a></li>
+                    <li><a href="mailto:support@android-kiosk.com" target="_blank"><i class="fa fa-envelope fa-2x right"
+                                                                                      style="color:white;margin-top:10px;"></i></a><a
+                            href="http://www.youtube.com/channel/UCIRzVcBrPTMfCDYQfZJhm6A" target="_blank"><i
+                            class="fa fa-youtube fa-2x right" style="color:white; margin-top:10px"></i></a><a
+                            href="http://plus.google.com/+ProCoIT" target="_blank"><i
+                            class="fa fa-google-plus fa-2x right" style="color:white;margin-top:10px;"></i></a></li>
+                    <!--<li><div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/u/0/112075968512143653723" data-rel="publisher"></div></li>-->
+                </ul>
+                <span class="white-text right"
+                      style="font-size:0.7em;clear:both;">Android is a trademark of Google Inc.</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <span class="white-text">© 2015 <a href="http://www.proco-it.com" class="white-text" target="_blank">ProCo
+                IT</a></span>
+            <a class="white-text right" href="http://www.android-kiosk.com/privacy-and-cookie-policy/">Privacy &amp;
+                Cookies Policy</a>
+        </div>
+    </div>
+</footer>
+
+<!--/ end footer -->
+
+<!-- start scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="{% static 'js/materialize.min.js' %}"></script>
+<!--/ end scripts -->
+</body>
+</html>

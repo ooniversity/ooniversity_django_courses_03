@@ -1,0 +1,35 @@
+#logo-container img{
+    margin-bottom: -8px;
+}
+
+nav {
+    color: #fff;
+    background-color: #689f38;
+    width: 100%;
+}
+
+#index-banner {
+    background-image: url('../img/bg_creative.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 450px;
+}
+
+footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: #689f38;
+}
+
+footer .footer-copyright {
+    font-weight: 300;
+}
+
+footer .footer-copyright {
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(51, 51, 51, 0.08);
+}
