@@ -37,7 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
-    'quadratic'
+    'quadratic',
+    'courses',
+    'students'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,7 +72,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'EET'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
