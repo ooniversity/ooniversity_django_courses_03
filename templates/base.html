@@ -17,14 +17,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon-precomposed"
-          href="http://www.android-kiosk.com/wp-content/themes/androidkioskcom/images/favicon/apple-touch-icon-152x152.png">
-    <meta name="msapplication-TileColor" content="#FFFFFF">
-    <meta name="msapplication-TileImage"
-          content="http://www.android-kiosk.com/wp-content/themes/androidkioskcom/images/favicon/mstile-144x144.png">
-    <link rel="icon"
-          href="http://www.android-kiosk.com/wp-content/themes/androidkioskcom/images/favicon/favicon-32x32.png"
-          sizes="32x32">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicons/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicons/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicons/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicons/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicons/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicons/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicons/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicons/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'img/favicons/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicons/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicons/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'img/favicons/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Android 5 Chrome Color -->
     <meta name="theme-color" content="#7cb342">
@@ -55,9 +64,11 @@
                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-999"><a
                             href="contact.html">Контакты</a>
                     </li>
+                    {% block change_link %}
                     <li id="menu-item-985"
                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-985"><a
-                            href="student_list.html">Студенты</a></li>
+                            href="{% url 'students:list_view' %}">Студенты</a></li>
+                    {% endblock %}
                 </ul>
                 <ul id="nav-mobile" class="side-nav" style="left: -250px;">
                     <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5 current_page_item menu-item-24">

@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^$', list_view, name='list_view'),
     url(r'^courses/', include('courses.urls', namespace="courses")),
-    url(r'^students/', include('students.urls', namespace="courses")),
+    url(r'^students/', include('students.urls', namespace="students")),
     url(r'^contact/$', contact, name='contact'),
 ]

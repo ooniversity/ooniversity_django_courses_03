@@ -1,22 +1,20 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block banner %}{% endblock %}
+
 {% block list_courses %}
     <div class="col s12">
-        <h5 class="text-primarycolor">Спеши!!!</h5>
+        <h5 class="text-primarycolor">Список студентов</h5>
 
-        <p class="text-primarycolor">Ближайшие доступные курсы</p>
     </div>
     <div class="col s12 l12">
 
-        <table class="responsive-table bordered centered striped highlight">
+        <table class="responsive-table highlight">
             <thead>
             <tr>
-                <th data-field="number">№</th>
-                <th data-field="name">Фамилия Имя</th>
-                <th data-field="address">Адрес</th>
-                <th data-field="skype">Skype</th>
-                <th data-field="courses">Курсы</th>
+                <th data-field="name">Курс</th>
+                <th data-field="descr">Описание</th>
             </tr>
             </thead>
 
