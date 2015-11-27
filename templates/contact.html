@@ -4,21 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load staticfiles %}
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <link rel="icon" href="../static/images/logo.ico">
+    <link rel="icon" href="{% static 'images/logo.ico' %}">
 
     <title>PyBursa - Contacts</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/cover.css" rel="stylesheet">
+    <link href="{% static 'css/cover.css' %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../static/js/ie-emulation-modes-warning.js"></script>
+    <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -41,47 +42,42 @@
               <nav>
                 <ul class="nav masthead-nav">
 
-                  <li><a href="index.html">Main</a></li>
-                  <li class = "active"><a href="contact.html">Contacts</a></li>
-                  <li><a href="student_list.html">Students</a></li>
+                  <li><a href="{% url 'index' %}">Main</a></li>
+                <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+                <li><a href="{% url 'student_list' %}">Students</a></li>
                 </ul>
               </nav>
             </div>
           </div>
 
-          <div class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-
-          </div>
 
         <div class="row">
               <div class="col-lg-4">
-                <img class="img-circle" src="../static/images/director.jpg" alt="Generic placeholder image" width="160" height="140">
+                <img class="img-circle" src="{% static 'images/director.jpg' %}" alt="Generic placeholder image" width="160" height="140">
                 <h2>Director</h2>
                 <p>Name: Mike Corleone</p>
                 <p>skype: donMike</p>
                 <p>email: Mike.Corleone@good.fa</p>
                 <p>Phone: 1234567890</p>
-                <p><a class="btn btn-default" href="../static/images/oops.jpg" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-default" href="{% static 'images/oops.jpg' %}" role="button">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
               <div class="col-lg-4">
-                <img class="img-circle" src="../static/images/manager.jpg" alt="Generic placeholder image" width="160" height="140">
+                <img class="img-circle" src="{% static 'images/manager.jpg' %}" alt="Generic placeholder image" width="160" height="140">
                 <h2>Manager</h2>
                 <p>Name: Tony Montana</p>
                 <p>skype: TonyMontana</p>
                 <p>email: Tony.Montana@scar.fe</p>
                 <p>Phone: 764576</p>
-                <p><a class="btn btn-default" href="../static/images/oops.jpg" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-default" href="{% static ' images/oops.jpg' %}" role="button">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
               <div class="col-lg-4">
-                <img class="img-circle" src="../static/images/director.png" alt="Generic placeholder image" width="160" height="140">
+                <img class="img-circle" src="{% static 'images/director.png' %}" alt="Generic placeholder image" width="160" height="140">
                 <h2>Founder</h2>
                 <p>Name: Vittorio Carleone</p>
                 <p>skype: DonVito</p>
                 <p>email: Vittorio72@good.fa</p>
                 <p>Phone: go skype</p>
-                <p><a class="btn btn-default" href="../static/images/oops.jpg" role="button">View details &raquo;</a></p>
+                <p><a class="btn btn-default" href="{% static 'images/oops.jpg' %}" role="button">View details &raquo;</a></p>
               </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
@@ -103,10 +99,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../static/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
 
 
 </body></html>
