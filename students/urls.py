@@ -8,4 +8,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'pybursa.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     # url(r'^$', views.index, name='index'),
+    url(r'^$', views.list_view, name = "list_view"),
+    url(r'^(?P<student_id>\d+)/$', views.detail, name = "detail"),
 )
