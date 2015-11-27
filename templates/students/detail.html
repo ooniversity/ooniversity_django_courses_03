@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Python course</title>
+    <title>Student</title>
 	{% load staticfiles %}
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -78,7 +78,7 @@
 					</tr>
 					
 					<tr>
-					<td>Курсы</td><td>{% for k in student.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k }}</a><br>{% endfor %}</td>
+					<td>Курсы</td><td>{% for k in student.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a><br>{% endfor %}</td>
 					
 					</tr>
 					
