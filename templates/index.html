@@ -50,7 +50,7 @@
         <li class="active"><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
         <!--<li><a href="{% url 'student_list' %}">Students</a></li>--> 
-        <li><a href="{% url 'students:students' %}">Students</a></li>
+        <li><a href="{% url 'students:list' %}">Students</a></li>
       
       </ul>
      
@@ -81,7 +81,7 @@
 <tr>
  <th>Курс</th><th>Описание</th>
 {% for i in name_course %}
-<tr><td><a href="{% url 'courses:courses' i.id %}">{{i}}</a></td><td>{{i.description}} </td></tr>
+<tr><td><a href="{% url 'courses:detail' i.id %}">{{i}}</a></td><td>{{i.description}} </td></tr>
 {% endfor %}
 </tr>
 </table>

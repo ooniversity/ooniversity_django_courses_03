@@ -6,6 +6,7 @@ from courses import views
 
 urlpatterns = patterns('',
     
-    url(r'^([0-9]+)/$', views.courses, name='courses'),
+    url(r'^([0-9]+)/$', views.courses, name='detail'),
+    
    
 )
