@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load staticfiles %}
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <link rel="icon" href="{% static 'images/logo.ico' %}">
+    <link rel="icon" href="{% static images/logo.ico %}">
 
     <title>PyBursa - Home</title>
 
@@ -39,9 +39,9 @@
               <img class="img-circle" src="{% static 'images/cover.jpg' %}" align="left" width="160" height="140" alt = "Logo">
               <nav>
                 <ul class="nav masthead-nav">
-                  <li class="active"><a href="{% url 'index' %}">Main</a></li>
-                    <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li><a href="{% url 'students:list_view' %}">Students</a></li>
+                    <li class="active"><a href="{% url 'index' %}">Main</a></li>
+                <li><a href="{% url 'contact' %}">Contacts</a></li>
+                <li><a href="{% url 'students:list_view' %}">Students</a></li>
                 </ul>
               </nav>
             </div>
@@ -54,7 +54,7 @@
                     <p>Zапишись на курсы Python! * Попади в тренд современной  WEB разработки!</p>
                 </div>
                 <div class="list-of-courses">
-    <h3> One shoot, one course</h3>
+    <h3> Choose your future right --NOW--!</h3>
     <table>
       <tr>
         <th class="head-name">Курс</th>
@@ -80,7 +80,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
 
 
 </body></html>
