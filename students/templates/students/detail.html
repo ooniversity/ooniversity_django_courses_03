@@ -68,7 +68,7 @@
 
 {% for course in i.courses.all %}
 <tr >
-<td>{{forloop.counter}}</td>
+<td>{{i.orderr}}</td>
 <td></td>
 <td></td><td></td>
 <td><a href="{% url 'courses:courses' course.id %}">{{course}}</a></td>

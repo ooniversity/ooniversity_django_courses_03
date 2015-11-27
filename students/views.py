@@ -19,5 +19,5 @@ def students(request):
 
 def list_view(request, id_student):
 	n_student = Student.objects.filter(id=id_student)
-	return render(request,'students/list_view.html',{'name_student': n_student[0]})
+	return render(request,'students/list.html',{'name_student': n_student[0]})
 	
