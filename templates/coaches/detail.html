@@ -34,10 +34,16 @@
           </div>
           <div class="container">
             <ul class="nav navbar-nav">
-              <li><a class="top_bar" href="{% url 'index' %}">Main</a></li>
+              <!-- Вариант для проверялки -->
+              <li><a href="{% url 'index' %}">Main</a></li>
+              <li><a href="{% url 'contact' %}">Contacts</a></li>
+              <li><a href="{% url 'students:list_view' %}">Students</a></li>
+			  <li><a href="{% url 'calculate' %}">Equation</a></li>
+			  <!-- Оригинал -->
+			  <!--<li><a class="top_bar" href="{% url 'index' %}">Main</a></li>
               <li><a class="top_bar" href="{% url 'contact' %}">Contacts</a></li>
               <li><a class="top_bar" href="{% url 'students:list_view' %}">Students</a></li>
-			  <li><a class="top_bar" href="{% url 'calculate' %}">Equation</a></li>
+			  <li><a class="top_bar" href="{% url 'calculate' %}">Equation</a></li>-->
             </ul>
           </div>
         </div>
@@ -86,7 +92,7 @@
 					<td>Преподаватель на курсах</td>
 					<td>{% for i in course %}
 					<a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a> 						студенты курса 
-					<a class="top_bar" href="{% url 'students:list_view' %}?course_id={{ i.id }}">
+					<a href="{% url 'students:list_view' %}?course_id={{ i.id }}">
 					<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
 					</a>
 					<br>{% endfor %}</td>
@@ -96,7 +102,7 @@
 					<td>Ассистент на курсах</td><td>
 					{% for k in assist %}
 					<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a> 						студенты курса 
-					<a class="top_bar" href="{% url 'students:list_view' %}?course_id={{ k.id }}">
+					<a href="{% url 'students:list_view' %}?course_id={{ k.id }}">
 					<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
 					</a>
 					<br>{% endfor %}</td>
