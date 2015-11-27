@@ -43,7 +43,7 @@
        
         <li><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li class="active"><a href="{% url 'students:students'%}">Students</a></li>
+        <li><a href="{% url 'students:students' %}">Students</a></li>
       </ul>
       </li>
       </ul>
@@ -63,12 +63,12 @@
 {% for i in name_stud %}
 <tr >
 <td>1</td>
-<td><a href = "{% url 'students:students' i.id %}">{{i}} {{i.surname}}</a></td>
+<td><a href="{% url 'students:students' i.id %}">{{i}} {{i.surname}}</a></td>
 <td>{{i.address}}</td><td>{{i.skype}}</td>
 
 {% for course in i.courses.all %}
 <tr >
-<td>1</td>
+<td>{{forloop.counter}}</td>
 <td></td>
 <td></td><td></td>
 <td><a href="{% url 'courses:courses' course.id %}">{{course}}</a></td>
