@@ -34,10 +34,10 @@
           </div>
           <div class="container">
             <ul class="nav navbar-nav">
-              <li><a href="{% url 'index' %}">Main</a></li>
-              <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
-			  <li><a href="{% url 'calculate' %}">Equation</a></li>
+				<li><a href="{% url 'index' %}">Main</a></li>
+				<li><a href="{% url 'contact' %}">Contacts</a></li>
+				<li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
+				<li><a href="{% url 'calculate' %}">Equation</a></li>
             </ul>
           </div>
         </div>
@@ -54,7 +54,7 @@
           <h3>{{course.description}}</h3>
           
         </div>
-<!--
+
 		<hr>
 		<h1 class="descr">Преподаватели</h1>
 		<hr>
@@ -86,7 +86,7 @@
 			<div class="panel panel-default">
                   <!-- Default panel contents -->
                   <!-- Table -->
-                 <!-- <table class="table">
+                 <table class="table">
                     <thead>
                       <tr>
 						<th>Ассистент</th>
@@ -108,7 +108,7 @@
 
           
       		</div>
--->
+
 		<hr>
 		<h1 class="descr">План курса</h1>
 		<hr>
