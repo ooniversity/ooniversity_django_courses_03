@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'n8mkmmmjgbh0u2bg%&)%_2$_lz8b)^a+v*53kcz8acc0t0y(^4'
+SECRET_KEY = 'a=ql2+*21lld6n#hirqkyh+ae@*0y&f)*!d1*xpx-%5hyxltx2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -27,6 +27,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
 
 # Application definition
 
@@ -38,7 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
-    'quadratic',
+    'courses',
+    'students'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,7 +73,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
