@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Студент</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img class="logo" src="{% static 'images/logpy.jpg' %}" />
+            </div>
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'index' %}">Главная</a>
+                    </li>
+                    <li><a href="{% url 'contact' %}">Контакты</a>
+                    </li>
+                    <li><a href="{% url 'students:list_view' %}">Студенты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% for coach in coaches %}
+    <div class="container" id="mark">
+        <h1>{{ coach.full_name }}</h1>
+        	
+    </div>
+    <div class="mytable">
+        <table>
+            <tr>
+                <td>
+                    дата рождения
+                </td>
+                <td>
+                    {{ coach.date_of_birth }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    адрес
+                </td>
+                <td>
+                    {{ coach.address }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    почта
+                </td>
+                <td>
+                    {{ coach.user.email }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    логин skype
+                </td>
+                <td>
+                    {{ coach.skype }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    телефон
+                </td>
+                <td>
+                    {{ coach.phone }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    курсы учитель
+                </td>
+                <td>
+                    {% for course in courses %}
+						<a href="{% url 'courses:detail' coach.id %}">{{ course.name }}</a></br>Студенты курса
+						<a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span></a></br>
+					{% endfor %}
+                </td>
+            </tr>
+            <tr>
+            	<td>
+            		курсы ассистент
+            	</td>
+            	<td>
+            		{% for assistant in assistants %}
+					<a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a></br>студенты курса 
+					<a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}">
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span></a></br>	
+					{% endfor %}
+            	</td>
+            </tr>
+        </table>
+    </div>
+  	{% endfor %}
+    <nav class="container">
+        <ul class="pager">
+            <li class="previous"><a href="{% url 'index' %}"><span aria-hidden="true">&larr;</span>Главная</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</body>
+
+</html>
+
