@@ -11,9 +11,9 @@
 <body>
     <div id="menu">
         <ul class="nav nav-pills">
-            <li role="presentation"  class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
             <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-            <li role="presentation"><a href="{% url 'students' %}">Students</a></li>
+            <li role="presentation"class="active"><a href="{% url 'students' %}">Students</a></li>
         </ul>
     </div>
     <div class="jumbotron">
@@ -21,7 +21,7 @@
         <h1 class="center">Students list</h1>
     </div>
     <table class="table">
-        <caption>План курса {{ course_id }}</caption>
+        <caption>Студенты курса</caption>
         <tr>
             <th>#</th>
             <th>Name, Surname</th>
@@ -29,11 +29,17 @@
             <th>Skype</th>
             <th>Courses</th>
         </tr>
-            {% for less in lesson %}
+            {% for student in students %}
             <tr>
-                <td> {{ less.order }} </td>
-                <td> {{ less.subject }}</td>
-                <td> {{ less.description }} </td>
+                <td> {{ student.id }} </td>
+                <td><a href="students/{{ student.id }}">{{ student.name }}, {{ student.surname }}</a></td>
+                <td> {{ student.address }} </td>
+                <td> {{ student.skype }} </td>
+                <td>
+                    {% for course in student.courses.all %}
+                        <a href="courses/{{ course.id }}">{{ course.name }}</a>
+                    {% endfor %}
+                </td>
             </tr>
             {% endfor %}
     </table>
