@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Courses info</title>
+    <title>Students</title>
     {% load staticfiles %}
     <script src="{% static 'js/bootstrap.js' %}"> </script>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -11,22 +11,23 @@
 <body>
     <div id="menu">
         <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
-            <li role="presentation"> <a href="{% url 'contact' %}">Contacts</a></li>
-            <li role="presentation"> <a href="{% url 'students'%}?course_id={{ item.id }}">Students</a></li>
+            <li role="presentation"  class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li role="presentation"><a href="{% url 'students' %}">Students</a></li>
         </ul>
     </div>
     <div class="jumbotron">
-        <h1 class="center">{{ item.name }}</h1>
-        <p class="center"> {{ item.description }}</p>
+        <h1 class="center">Students list</h1>
     </div>
-        <table class="table">
-            <caption>План курса</caption>
-            <tr>
-                <th>#</th>
-                <th>Тема</th>
-                <th>Описание</th>
-            </tr>
+    <table class="table">
+        <caption>План курса {{ course_id }}</caption>
+        <tr>
+            <th>#</th>
+            <th>Name, Surname</th>
+            <th>Address</th>
+            <th>Skype</th>
+            <th>Courses</th>
+        </tr>
             {% for less in lesson %}
             <tr>
                 <td> {{ less.order }} </td>
@@ -34,6 +35,6 @@
                 <td> {{ less.description }} </td>
             </tr>
             {% endfor %}
-        </table>
+    </table>
 </body>
 </html>
