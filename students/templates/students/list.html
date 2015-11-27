@@ -62,17 +62,29 @@
  </tr> 
 {% for i in name_stud %}
 <tr >
-<td>1</td>
+<td>{{forloop.counter}}</td>
 <td><a href="{% url 'students:detail' i.id %}">{{i}} {{i.surname}}</a></td>
 <td>{{i.address}}</td><td>{{i.skype}}</td>
 
 {% for course in i.courses.all %}
+ {% ifequal forloop.counter 1 %}
+    <td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td>
+ {% else %}
+     <tr>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td>
+     </tr>
+ {% endifequal %}
+<!--
 <tr >
-<td>{{i.orderr}}</td>
+<td>{{i.order}}</td>
 <td></td>
 <td></td><td></td>
 <td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td>
- </tr>
+ </tr>-->
 {% endfor %}
 
 
