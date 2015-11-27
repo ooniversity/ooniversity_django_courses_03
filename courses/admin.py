@@ -2,6 +2,7 @@
 from django.contrib import admin
 from courses.models import Course, Lesson
 from django.forms import widgets
+from coaches.models import Coach
 # -*- coding: utf-8 -*-
 class LessonInline(admin.TabularInline):
     extra = 0
