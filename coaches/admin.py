@@ -1,6 +1,5 @@
 from django.contrib import admin
 from coaches.models import Coach
-from django.contrib.auth.models import User
 
 class CoachAdmin(admin.ModelAdmin):
 	list_display = ('first_name', 'last_name', 'gender', 'skype', 'description')
@@ -13,5 +12,3 @@ class CoachAdmin(admin.ModelAdmin):
 	def last_name(self, objct): return objct.user.last_name
 
 admin.site.register(Coach, CoachAdmin)
-admin.site.unregister(User)
-admin.site.register(User)
