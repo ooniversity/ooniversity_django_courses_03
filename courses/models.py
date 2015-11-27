@@ -12,7 +12,7 @@ class Course(models.Model):
 
 
 class Lesson(models.Model):
-    subject = modelsCharField(max_length=100)
+    subject = models.CharField(max_length=100)
     description = models.TextField()
     course = models.ForeignKey(Course)
     order = models.PositiveIntegerField()
