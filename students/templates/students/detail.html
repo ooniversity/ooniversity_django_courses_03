@@ -82,7 +82,7 @@
                   {% else %}
                     <tr>
                       <td></td>
-                      <td><a href="{% url 'courses:courses' course.id %}">{{course}}</a></td>
+                      <td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td>
                     </tr>
                       {% endifequal %}
                 {% endfor %}
