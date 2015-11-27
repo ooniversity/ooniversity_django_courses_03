@@ -36,7 +36,7 @@
             <ul class="nav navbar-nav">
               <li><a class="top_bar" href="{% url 'index' %}">Main</a></li>
               <li><a class="top_bar" href="{% url 'contact' %}">Contacts</a></li>
-              <li><a class="top_bar" href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
+              <li><a class="top_bar" href="{% url 'students:list_view' %}">Students</a></li>
 			  <li><a class="top_bar" href="{% url 'calculate' %}">Equation</a></li>
             </ul>
           </div>
@@ -44,114 +44,81 @@
       </nav>
     </div>
     </div>  
-      
-    
-      
-    <div class="container students">
-      <div class="page-header">
-        <h1 class="descr">{{course}}</h1>
-        <div class="jumbotron">
-          <h3>{{course.description}}</h3>
-          
-        </div>
-		<hr>
-		<h1 class="descr">Преподаватели</h1>
-		<hr>
 
-			<div class="panel panel-default">
-                  
-                  <table class="table">
-                    <thead>
-                      <tr>
-						<th>Учитель</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    <td>
+      
+	<div class="container students">
+      <div class="page-header">
+      	<h1 class="top1">{{ coach.first_name }} {{ coach.last_name }}</h1>
+		<div class="jumbotron">
 			<div class="coach_img">
-			{% if course.coach.gender == "M"  %}
+			{% if coach.gender == "M"  %}
 			<img src="{% static 'images/top2.png' %}" alt="..." class="img-circle">
 			{% else %}
 			<img src="{% static 'images/top1.png' %}" alt="..." class="img-circle">	{% endif %}
 			</div>
-<p><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name }} {{ course.coach.last_name }}</a></p><p>{{ course.coach.description }}</p></td>
-					</tr>
-                    </tbody>
-                  </table>
-
-          
-      		</div>
-			<div class="panel panel-default">
-                  <!-- Default panel contents -->
-                  <!-- Table -->
-                  <table class="table">
-                    <thead>
-                      <tr>
-						<th>Ассистент</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    <td>
-					<div class="coach_img">
-					{% if course.assistant.gender == "M"  %}
-					<img src="{% static 'images/top2.png' %}" alt="..." class="img-circle">
-					{% else %}
-					<img src="{% static 'images/top1.png' %}" alt="..." class="img-circle">	{% endif %}
-					</div>
-					<p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a></p><p>{{ course.assistant.description }}</p></td>
-					</tr>
-                    </tbody>
-                  </table>
-
-          
-      		</div>
-		<hr>
-		<h1 class="descr">План курса</h1>
-		<hr>
-		<div class="jumbotron">
-
 			<div class="panel panel-default">
                   <!-- Default panel contents -->
                   
                   <!-- Table -->
                   <table class="table">
-                    <thead>
-                      <tr>
-						<th>#</th>
-                        <th>Тема</th>
-                        <th>Описание</th>
-                      </tr>
-                    </thead>
+                    
                     <tbody>
 					
-                    {% for i in course.lesson_set.all %}
+                    
                     <tr>
-                    <td>{{ i.order }}</td>
-					<td>{{ i.subject }}</td>
-					<td>{{ i.description|linebreaksbr }}</td>
+                    <td>Дата рождения</td><td>{{ coach.date_of_birth }}</td>
 					</tr>
-					{% endfor %}
+					<tr>
+					<tr>
+					<td>Адрес</td><td>{{ coach.address }}</td>
+					</tr>
+					<tr>
+					<td>Почта</td><td>{{ coach.user.email }}</td>
+					</tr>
+					<tr>
+					<td>Skype</td><td>{{ coach.skype }}</td>
+					</tr>
+					<tr>
+					<td>Телефон</td><td>{{ coach.phone }}</td>
+					</tr>
+					
+					<tr>
+					<td>Преподаватель на курсах</td>
+					<td>{% for i in course %}
+					<a href="{% url 'courses:detail' i.id %}">{{ i.name }}</a> 						студенты курса 
+					<a class="top_bar" href="{% url 'students:list_view' %}?course_id={{ i.id }}">
+					<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+					</a>
+					<br>{% endfor %}</td>
+					
+					</tr>
+					<tr>
+					<td>Ассистент на курсах</td><td>
+					{% for k in assist %}
+					<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a> 						студенты курса 
+					<a class="top_bar" href="{% url 'students:list_view' %}?course_id={{ k.id }}">
+					<span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+					</a>
+					<br>{% endfor %}</td>
+					
+					</tr>
 					
                     </tbody>
                   </table>
 
           </div>
-		
-          <div class="text-center"><a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a></div>
         </div>
 
       </div>
+
     </div>    
     
-   
     <nav class="container">
-      <ul class="pager">
-        <li class="next"><a href="{% url 'contact' %}">Contacts<span aria-hidden="true">&rarr;</span></a></li>
-      </ul>
+    <ul class="pager">
+      <li class="previous"><a href="{% url 'contact' %}"><span aria-hidden="true">&larr;</span>Сontacts</a></li>
+      
+    </ul>
     </nav>
-    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
