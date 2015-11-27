@@ -78,7 +78,7 @@
 					</tr>
 					
 					<tr>
-					<td>Курсы</td><td>{% for k in student.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k }}</a><br>{%endfor%}</td>
+					<td>Курсы</td><td>{% for k in student.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k }}</a><br>{% endfor %}</td>
 					
 					</tr>
 					
