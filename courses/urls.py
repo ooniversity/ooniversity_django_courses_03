@@ -3,6 +3,6 @@ from django.contrib import admin
 from courses import views
 
 urlpatterns = patterns('',
-    url(r'^(?P<course_id>[1-9]+)/', views.detail, name="courses"),
+    url(r'^(?P<course_id>[1-9]+)/', views.detail, name="detail"),
     url(r'^admin/', include(admin.site.urls)),
 )

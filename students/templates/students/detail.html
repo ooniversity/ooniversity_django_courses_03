@@ -38,7 +38,7 @@
           <ul class="nav navbar-nav font-bold">
             <li><a href="/">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:students' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
           </ul>
         </div>
       </div>
@@ -78,7 +78,7 @@
               <td>Courses</td>
                 {% for course in student.courses.all %}
                   {% ifequal forloop.counter 1 %}
-                  <td><a href="{% url 'courses:courses' course.id %}">{{course}}</a></td>
+                  <td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td>
                   {% else %}
                     <tr>
                       <td></td>
