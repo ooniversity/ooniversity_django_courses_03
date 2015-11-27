@@ -33,7 +33,6 @@
     {% for coach in coaches %}
     <div class="container" id="mark">
         <h1>{{ coach.full_name }}</h1>
-        	
     </div>
     <div class="mytable">
         <table>
@@ -81,27 +80,29 @@
                 <td>
                     курсы учитель
                 </td>
+
                 <td>
                     {% for course in courses %}
-						<a href="{% url 'courses:detail' coach.id %}">{{ course.name }}</a>Студенты курса
-						<a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicons glyphicons-rugby"></span></a></br>
-					{% endfor %}
+                    <a href="{% url 'courses:detail' coach.id %}">{{ course.name }}</a>Студенты курса
+                    <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicons glyphicons-rugby"></span></a> {% endfor %}
                 </td>
+
             </tr>
             <tr>
-            	<td>
-            		курсы ассистент
-            	</td>
-            	<td>
-            		{% for assistant in assistants %}
-					<a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a>студенты курса
-					<a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"><span class="glyphicons glyphicons-rugby"></span></a></br>	
-					{% endfor %}
-            	</td>
+                <td>
+                    курсы ассистент
+                </td>
+
+                <td>
+                    {% for assistant in assistants %}
+                    <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a>студенты курса
+                    <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"><span class="glyphicons glyphicons-rugby"></span></a> {% endfor %}
+                </td>
+
             </tr>
         </table>
     </div>
-  	{% endfor %}
+    {% endfor %}
     <nav class="container">
         <ul class="pager">
             <li class="previous"><a href="{% url 'index' %}"><span aria-hidden="true">&larr;</span>Главная</a>
@@ -114,4 +115,3 @@
 </body>
 
 </html>
-
