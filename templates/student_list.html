@@ -7,8 +7,8 @@
     <title>List</title>
 	{% load staticfiles %}
 
-    <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
-    <link href="{%static 'css/style.css'%}" rel="stylesheet">
+    <link href={%static 'css/bootstrap.css'%} rel="stylesheet">
+    <link href={%static 'css/style.css'%} rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,8 +18,8 @@
 	  
     <![endif]-->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{%static 'js/jquery.min.js'%}"></script>
-    <script src="{%static 'js/bootstrap.min.js'%}"></script>
+    <script src={%static 'js/jquery.min.js'%}></script>
+    <script src={%static 'js/bootstrap.min.js'%}></script>
   </head>
   <body>
 	<nav class="navbar navbar-default">
@@ -32,25 +32,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{% url 'student_list'%}">Brand</a>
+      <a class="navbar-brand" href={% url 'student_list'%}>Brand</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="{% url 'index'%}">Main</a></li>
-        <li> <a href="{% url 'contact'%}">Contacts</a></li>
-		<li class="active"><a href="{% url 'student_list'%}">Students</a></li>
+        <li><a href={% url 'index'%}>Main</a></li>
+        <li> <a href={% url 'contact'%}>Contacts</a></li>
+		<li class="active"><a href={% url 'student_list'%}>Students</a></li>
         <li class="dropdown">
-          <a href="{% url 'student_list'%}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href={% url 'student_list'%} class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{% url 'student_list'%}">Action</a></li>
-            <li><a href="{% url 'student_list'%}">Another action</a></li>
-            <li><a href="{% url 'student_list'%}">Something else here</a></li>
+            <li><a href={% url 'student_list'%}>Action</a></li>
+            <li><a href={% url 'student_list'%}>Another action</a></li>
+            <li><a href={% url 'student_list'%}>Something else here</a></li>
             
-            <li><a href="{% url 'student_list'%}">Separated link</a></li>
+            <li><a href={% url 'student_list'%}>Separated link</a></li>
             
-            <li><a href="{% url 'student_list'%}">One more separated link</a></li>
+            <li><a href={% url 'student_list'%}>One more separated link</a></li>
           </ul>
         </li>
       </ul>
@@ -61,15 +61,15 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'student_list'%}">Link</a></li>
+        <li><a href={% url 'student_list'%}>Link</a></li>
         <li class="dropdown">
-          <a href="{% url 'student_list'%}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href={% url 'student_list'%} class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{% url 'student_list'%}">Action</a></li>
-            <li><a href="{% url 'student_list'%}">Another action</a></li>
-            <li><a href="{% url 'student_list'%}">Something else here</a></li>
+            <li><a href={% url 'student_list'%}>Action</a></li>
+            <li><a href={% url 'student_list'%}>Another action</a></li>
+            <li><a href={% url 'student_list'%}>Something else here</a></li>
             
-            <li><a href="{% url 'student_list'%}">Separated link</a></li>
+            <li><a href={% url 'student_list'%}>Separated link</a></li>
           </ul>
         </li>
       </ul>
@@ -97,11 +97,11 @@
 			</thead>
 			<tbody>
 				<tr class = "style-thead3">
-					<td><a href="{% url 'student_detail'%}">1</a></td>
-					<td><a href="{% url 'student_detail'%}">Surname1</a></td>
-					<td><a href="{% url 'student_detail'%}">Name1</a></td>
-					<td><a href="{% url 'student_detail'%}">Address1</a></td>
-					<td><a href="{% url 'student_detail'%}">Skype1</a></td>
+					<td><a href={% url 'student_detail'%}>1</a></td>
+					<td><a href={% url 'student_detail'%}>Surname1</a></td>
+					<td><a href={% url 'student_detail'%}>Name1</a></td>
+					<td><a href={% url 'student_detail'%}>Address1</a></td>
+					<td><a href={% url 'student_detail'%}>Skype1</a></td>
 				</tr>
 				<tr class = "style-thead">
 					<td>2</td>
