@@ -1,0 +1,21 @@
+<meta charset="utf-8">
+<h1>Quadratic Equation</h1>
+<div>
+	<p>Квадратное уравление: a*x^2 + b*x + c = 0 </p>
+		{% csrf_token %}
+	<ul>
+		<li>a = {{ value_a }}
+		{% if error_a %}<br />{{ error_a }}{% endif %} </li>
+		<li>b = {{ value_b }}
+		{% if error_b %}<br />{{ error_b }}{% endif %}</li>
+		<li>c = {{ value_c }}
+		{% if error_c %}<br />{{ error_c }}{% endif %}</li>
+	</ul>
+
+	{% if disc_eq %} <div>
+		<p>Дискриминант: {{ disc_eq }}</p>
+		<p> {{ disc_text }} 
+		</p> 
+		</div>
+	{% endif %}
+</div>
