@@ -9,6 +9,6 @@ urlpatterns = patterns('',
     #url(r'^([0-9]+)/$', views.students, name='students'),
     #url(r'^(?P<course_id>\d+)$', views.students, name='students'),
     #url(r'^(?P<id_c>)$',views.students, name='students'),
-    url(r'^$',views.students, name='list'),
-    url(r'^([0-9]+)/$', views.list_view, name='detail'),
+    url(r'^$',views.list_view, name='list_view'),
+    url(r'^([0-9]+)/$', views.detail, name='detail'),
 )

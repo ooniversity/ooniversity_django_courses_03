@@ -9,7 +9,7 @@ from django.views import generic
 
 
 
-def students(request):
+def list_view(request):
 	try:
 		id_course= request.GET['course_id']
 		n_student = Student.objects.filter(courses=id_course)
@@ -17,7 +17,7 @@ def students(request):
 		n_student = Student.objects.all()
 	return render(request,'students/list.html',{'name_stud': n_student})
 
-def list_view(request, id_student):
+def detail(request, id_student):
 	n_student = Student.objects.filter(id=id_student)
 	return render(request,'students/detail.html',{'name_student': n_student[0]})
 	
