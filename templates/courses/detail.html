@@ -38,7 +38,6 @@
 
       <div class="starter-template">
         <div class="container">
-        {% block content %}
               <h2>{{ course.name }} course details</h2>
               <h3>{{ course.description }}</h3>
               <h3>Course plan</h3>
@@ -63,7 +62,24 @@
                 </tbody>
               </table>
               </br>
-        {% endblock %}
+              <h3>Coach</h3>
+               <table class="table">
+                  <thead>
+                    <tr><th><br><a href="{% url 'coaches:detail' coach.id %}">{{ coach.user.get_full_name }}</a></br></th></tr>
+                  </thead>
+                  <tbody>   
+                        <tr><td>{{ coach.description }}</td></tr>
+                  </tbody>
+                </table>
+              <h3>Assistant</h3>
+               <table class="table">
+                  <thead>
+                    <tr><th><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user.get_full_name }}</a></th></tr>
+                  </thead>
+                  <tbody>   
+                        <tr><td>{{ course.assistant.description }}</td></tr>
+                  </tbody>
+                </table>
       </div>
     </div><!-- /.container -->
 
