@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
+    <title>Students {{course.name}}</title>
 	{% load staticfiles %}
 
     <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
@@ -37,9 +37,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href={% url 'index'%}>Main</a></li>
-        <li><a href="{% url 'contact'%}">Contacts</a></li>
-		<li><a href="{% url 'students:list_view'%}">Students</a></li>
+        <li><a href={% url 'index'%}>Main</a></li>
+        <li><a href={% url 'contact'%}>Contacts</a></li>
+		<li><a href={% url 'students:list_view'%}>Students</a></li>
         <li class="dropdown">
           <a href={% url 'index'%} class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -81,27 +81,35 @@
 
  
 
-  <h2 class = "style-thead3">Description  of ItBursa courses</h2>
-  <p class = "style-thead2">Some description of ItBursa courses</p>
-  <p><a class="btn btn-primary btn-lg" href="http://itbursa.com/about_us" role="button">Learn more</a></p>
-</div>
- <h2 class = "style-thead3">Description  of ItBursa courses</h2>
+  <h2 class = "style-thead3">Students {{course.name}}</h2>
+
   <table class="table ">
 			<thead>
 				<tr class = "style-thead">
 				
-					<th>Course</th>
-					<th>Description</th>
+					<th>#</th>
+					<th>Surnme Name</th>
+					<th>Address</th>
+					<th>Skype</th>
+					<th>Courses</th>
 				
 				</tr>
 			</thead>
 			<tbody>
-			{% for course in courses %}
+			{% for student in students %}
+			
 				<tr class = "style-thead3">
-					<td><a href="/courses/{{course.id}}/">{{course.name}}</a></td>
-					<td>{{course.short_description}}</td>
-					
+					<td>{{student.id}} </td>
+					<td><a href={% url 'students:detail' student.id %}>{{student.surname}} {{student.name}}</a></td>
+					<td>{{student.address}}</td>
+					<td>{{student.skype}}</td>
+					<td>
+					{% for course in student.courses.all %}
+						<a href = {% url 'courses:detail' course.id %}>{{course.name}}, </a>
+					{% endfor %}
+					</td>
 				</tr>
+			
 			{% endfor %}
 			</tbody>
 		</table>

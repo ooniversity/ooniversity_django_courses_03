@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
+    <title>{{course.name}}</title>
 	{% load staticfiles %}
 
     <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet">
@@ -37,9 +37,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href={% url 'index'%}>Main</a></li>
+        <li><a href={% url 'index'%}>Main</a></li>
         <li><a href="{% url 'contact'%}">Contacts</a></li>
-		<li><a href="{% url 'students:list_view'%}">Students</a></li>
+		<li><a href="/students/?course_id={{course.id}}">Students</a></li>
         <li class="dropdown">
           <a href={% url 'index'%} class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -81,27 +81,28 @@
 
  
 
-  <h2 class = "style-thead3">Description  of ItBursa courses</h2>
-  <p class = "style-thead2">Some description of ItBursa courses</p>
-  <p><a class="btn btn-primary btn-lg" href="http://itbursa.com/about_us" role="button">Learn more</a></p>
-</div>
- <h2 class = "style-thead3">Description  of ItBursa courses</h2>
+  <h2 class = "style-thead3">{{course.name}}</h2>
+  <p class = "style-thead2">{{course.description}}</p>
+ <h2 class = "style-thead3">Course lessons</h2>
   <table class="table ">
 			<thead>
 				<tr class = "style-thead">
 				
-					<th>Course</th>
+					<th>#</th>
+					<th>Lesson</th>
 					<th>Description</th>
 				
 				</tr>
 			</thead>
 			<tbody>
-			{% for course in courses %}
+			{% for lesson in lessons %}
+			{% if lesson.course.name == course.name%}
 				<tr class = "style-thead3">
-					<td><a href="/courses/{{course.id}}/">{{course.name}}</a></td>
-					<td>{{course.short_description}}</td>
-					
+					<td>{{lesson.order}}</td>
+					<td>{{lesson.subject}}</td>
+					<td>{{lesson.description}}</td>
 				</tr>
+			{%endif%}	
 			{% endfor %}
 			</tbody>
 		</table>
