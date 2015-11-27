@@ -2,9 +2,9 @@
 from django.db import models
 
 class Course(models.Model):
-    name = models.CharField(max_length = 255, help_text = u'название')
-    short_description = models.CharField(max_length = 255, help_text = u'краткое описание', null = True, blank = True)
-    description = models.TextField(help_text = u'полное описание', null = True, blank = True)
+    name = models.CharField(max_length = 255, help_text = u'название', verbose_name = u'Name')
+    short_description = models.CharField(max_length = 255, help_text = u'краткое описание')
+    description = models.TextField(help_text = u'полное описание')
     def __unicode__(self):
         return self.name
 
