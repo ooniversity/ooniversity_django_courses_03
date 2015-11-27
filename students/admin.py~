@@ -13,6 +13,6 @@ class StudentAdmin(admin.ModelAdmin):
 	list_display = ('full_name', 'email', 'skype')
 
 
-admin.site.register(Student)
+admin.site.register(Student, StudentAdmin)
 
 

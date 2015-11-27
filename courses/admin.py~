@@ -10,6 +10,5 @@ class CourseAdmin(admin.ModelAdmin):
 	inlines = [LessonInline]
 	list_display = ('name', 'short_description')
 
-admin.site.register(Course)
-admin.site.register(Lesson)
+admin.site.register(Course, CourseAdmin)
 
