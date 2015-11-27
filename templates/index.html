@@ -38,11 +38,11 @@
         <table class="table" border=2>
          
             <tr>
-              <th>Курс</th>
-              <th>Описание</th>
+              <th>Курс
+              </th>
+              <th>Описание
+              </th>
             </tr>
-          
-          
             {% for cour in courses %}
             <tr>
               <td><a href = "{% url 'courses:detail' cour.id %}">{{cour.name}}</a>
