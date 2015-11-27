@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student detail</title>
+    {% load staticfiles %}
+    <script src="{% static 'js/bootstrap.js' %}"> </script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="menu">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
+        </ul>
+    </div>
+     <div class="jumbotron">
+        <h2 class="center">{{ student.name }} {{ student.surname }}</h2>
+    </div>
+    <table class="table">
+        <tr>
+            <th>Дата рождения</th>
+            <th>Адрес</th>
+            <th>Почта</th>
+            <th>Логин Skype</th>
+            <th>Телефон</th>
+            <th>Курсы</th>
+        </tr>
+        <tr>
+            <td>{{ student.date_of_birth }}</td>
+            <td>{{ student.address }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.skype }}</td>
+            <td>{{ student.phone }}</td>
+            <td>
+            {% for course in student.courses.all %}
+                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+            {% endfor %}
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
