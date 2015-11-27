@@ -83,8 +83,8 @@
                 </td>
                 <td>
                     {% for course in courses %}
-						<a href="{% url 'courses:detail' coach.id %}">{{ course.name }}</a></br>
-						<a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты курса</a></br>
+						<a href="{% url 'courses:detail' coach.id %}">{{ course.name }}</a>Студенты курса
+						<a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicons glyphicons-rugby"></span></a></br>
 					{% endfor %}
                 </td>
             </tr>
@@ -94,8 +94,8 @@
             	</td>
             	<td>
             		{% for assistant in assistants %}
-					<a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a></br>
-					<a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}">студенты курса</a></br>	
+					<a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a>студенты курса
+					<a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"><span class="glyphicons glyphicons-rugby"></span></a></br>	
 					{% endfor %}
             	</td>
             </tr>
