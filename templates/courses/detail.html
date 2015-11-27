@@ -32,8 +32,25 @@
     </nav>
     <div class="jumbotron">
   <h1>{{ courses.name }}</h1>
-  <p>{{ courses.description}}</p>
-  
+  <p>{{ courses.description}}</p>  
+	</div>
+	<h2>Преподаватели</h2>
+	<div class="panel panel-success">
+  	<div class="panel-heading">Учитель</div>
+  	<div class="panel-body">
+    <a href="{% url 'coaches:detail' courses.coach.id %}">{{ courses.coach.full_name }}</a></br>
+    <p>{{ courses.coach.description }}</p>
+  	</div>
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h3 class="panel-title">Ассистент</h3>
+  </div>
+  <div class="panel-body">
+    <a href="{% url 'coaches:detail' courses.assistant.id %}">{{ courses.assistant.full_name }}</a></br>
+    <p>{{ courses.assistant.description }}</p>
+  </div>
 </div>
     <h2>План курса</h2>
     <table class="table table-hover">
