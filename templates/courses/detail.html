@@ -25,23 +25,25 @@
 				<ul class="nav navbar-nav">
 			        <li class="active"><a href="{% url 'index' %}">Main</a></li>
 			        <li><a href="{% url 'contact' %}">Contacts</a></li>
-			        <li><a href="{% url 'students:students' %}">Students</a></li>
+			        <li><a href="{% url 'students:students' %}?course_id={{ course.id }}">Students</a></li>
 			        <li><a href="{% url 'results' %}">Quadratic</a></li>
 				</ul>
 	  		</div>
 		</nav>
 		<div class ='container'>
-			<h2 class='possition'>ItBursa</h2>
+			<h2 class='possition'>PyBursa</h2>
 			<div class='jumbotron'>
-				<p class='text'>PyBursa courses can be easy to pick up whether you're a first time programmer or you're experienced with other languages.</p>
-				<p class='text2'>The online conferences and meetups, collaborates on code, and much more. Online videos will help you along the way, and the mailing lists will keep you in touch.</p>
+				<h2>{{ course.name }}</h2>
+				<h3>{{ course.description }}</h3>
 			</div>
-			<h2 class='possition'>Our courses</h2>
 			<div class='grey'>
 				<table class='table'>
 					<tr class='title_table'><th>Lesson</th><th>Theme</th>
-					{% for course in courses %}
-						<tr><td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td><td>{{ course.short_description }}</tr>
+					{% for lesson in lessons %}
+						<tr>
+							<td>{{ lesson.order }}</td>
+							<td>{{ lesson.subject }}</td>
+							<td>{{ lesson.description }}</td>
 					{% endfor %}
 				</table>
 			</div>
