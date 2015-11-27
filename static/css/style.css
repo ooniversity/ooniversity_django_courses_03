@@ -1,5 +1,6 @@
 body {
 	background-image:url('../images/background.jpg');
+	background-size: cover;
 	font-family: "Courier New", Courier New, monospace;
 	position: absolute; 
 	width: 100%; 
@@ -44,6 +45,7 @@ body {
 
 #id1 {background-color: rgba(255, 255, 102, 0.9);
 			color: rgb(40,40,40);
+      font-size: 50%;
 }
 
 #id2 {font-size: 50%
@@ -148,7 +150,20 @@ body .font1 {color: #fff;
 
 .simple {font-size: medium;
   margin-bottom: 30px;
+  font-style: italic;
+  font-size: 50%;
 }
 
 .center {text-align: center;
+}
+
+#id4 {background-color: rgba(255, 255, 102, 0.9);
+  color: rgb(40,40,40);
+  font-size: medium;
+}
+
+.table-bordered {
+  border: 1px solid #442d25;;
+  border-bottom-width: 2px;
+  border-collapse: collapse;
 }

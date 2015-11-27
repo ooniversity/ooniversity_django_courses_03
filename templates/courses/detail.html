@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>IT Courses - Main</title>
+    <title>Курс {{my_course.name}}</title>
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -29,35 +29,38 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}?course_id={{ my_course.id }}">Students</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="container" id='id1'>
-      <h1>BEST IT</h1>
-      <p class=simple>Добро пожаловать на страницу нашей ИТ школы. Мы научим вас программировать с нуля. Обучаясь онлайн у профессионалов, вы быстро достигнете результатов. Наши выпускники сейчас работают в большинстве крупных ИТ компаний города.</p>
-      <h3 class=h3>Мы предлагаем обучение по таким направлениям</h3>
-    </div>
-
-    <div class="container" id='id1'>
+		<div class="jumbotron container">
+			<h1>Детали курса {{my_course.name}}</h1>
+			<p class='simple'>{{my_course.description}}</p>
+		</div>
+    <div class="container">
+        <div id='id1'>
+        <h3 class='center'>План курса</h3>
 					<table class="table table-striped">
-						<thead>
-								<tr>
-									<th>Курс</th>
-									<th>Описание</th>
-								</tr>
-						</thead>
-						<tbody>
-              {% for course in all_courses %}
-              <tr>
-                <td><a href="{% url 'courses:detail' course.id%}">{{course.name}}</a></td>
-                <td>{{course.short_description}}</td>
-              </tr>
-              {% endfor %}
-						</tbody>
+								<thead>
+				          <tr>
+					          <th>#</th>
+					          <th>Тема</th>
+					          <th>Описание</th>
+				          </tr>
+		            </thead>
+						    <tbody>
+								  {% for i in my_lessons %}
+								  <tr>
+									  <td>{{i.order}}</td>
+									  <td>{{i.subject}}</td>
+									  <td>{{i.description}}</td>
+								  </tr>
+								  {% endfor %}
+						    </tbody>
 					</table>
+        </div>
       </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
