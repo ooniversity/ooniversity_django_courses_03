@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Python Course - Main</title>
+    <title>IT Courses - Main</title>
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -29,69 +29,35 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'student_list' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
     <div class="container" id='id1'>
-      <h1>Добро пожаловать на сайт PyBursa</h1>
-      <h2>Description</h2>
-      <h3>Описание курса</h3>
-      <div class="media-body" id='id2'>
-        <p>На английском Python звучит как «пайтон», но среди программистов более распространено название «питон». А ведь происхождение слова не связано с пресмыкающимся. Автор языка Гвидо ван Россум назвал его в честь комедийного телешоу «Летающий цирк Монти Пайтона» (Monty Python’s Flying Circus).</p>
-        <p>Для изучения Python не требуется специальных знаний. Достаточно владеть компьютером на уровне пользователя.
-Благодаря своим неоспоримым достоинствам язык широко востребован на рынке. Среди компаний, которые его используют: Google, Dropbox, Yandex, Intel, Cisco, Hewlett-Packard, IBM. На Python разрабатывались Ubuntu, BitTorrent и YouTube.</p>
-         <p>Длительность курса: 36 ч.</p>
-      </div>
+      <h1>BEST IT</h1>
+      <p>Добро пожаловать на страницу нашей ИТ школы. Мы научим вас программировать с нуля. Обучаясь онлайн у профессионалов, вы быстро достигнете результатов. Наши выпускники сейчас работают в большинстве крупных ИТ компаний города.</p>
+      <h3 class=h3>Мы предлагаем обучение по таким направлениям</h3>
     </div>
 
     <div class="container" id='id1'>
-        <h2>Program</h2>
-        <h3>Программа курса</h3>
-        <div class="media-body" id='id2'>
 					<table class="table table-striped">
 						<thead>
 								<tr>
-									<th>№ п/п</th>
-									<th>Тема занятия</th>
-									<th>Что вы будете знать</th>
+									<th>Курс</th>
+									<th>Описание</th>
 								</tr>
 						</thead>
 						<tbody>
-								 <tr>
-									 <td class='table1'>1</td>
-									 <td class='table1'>Основы Python</td>
-									 <td> <ul>
-										      <li>zen, pep8, pylint, tools, IDE</li>
-										      <li>консоль, типы данных, операторы</li>
-										      <li>синтаксис управляющих конструкций (if, for...)</li>
-										      <li>исключения и разбор стектрейса</li>
-										      <li>кодировка в Python</li>
-										    </ul></td>
-								 </tr>
-								 <tr>
-									 <td class='table1'>2</td>
-									 <td class='table1'>Строки и итераторы</td>
-									 <td><ul>
-										      <li>работа со строками и итерируемыми типами</li>
-										      <li>запуск скрипта и параметры</li>
-										      <li>git http://try.github.com/levels/</li>
-										    </ul></td>
-								 </tr>
-								 <tr>
-									 <td class='table1'>3</td>
-									 <td class='table1'>Функции и модульность</td>
-									 <td><ul>
-										      <li>функции (def, lambda)</li>
-										      <li>генераторы списков</li>
-										      <li>модули, структура</li>
-										    </ul></td>
-								 </tr>
+              {% for course in all_courses %}
+              <tr>
+                <td><a href="{% url 'courses:detail' course.id%}">{{course.name}}</a></td>
+                <td>{{course.short_description}}</td>
+              </tr>
+              {% endfor %}
 						</tbody>
 					</table>
-        </div>
       </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->

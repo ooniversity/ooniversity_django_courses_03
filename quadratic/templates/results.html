@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quadratic equation</title>
+  </head>
+  <body>
+    <h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
+    <ul>
+			<li>a = {{a}}
+			{% if a_bad %}<br/>{{a_bad}}{% endif %} </li>
+			<li>b = {{b}}</li>
+			{% if b_bad %}<br/>{{b_bad}}{% endif %} </li>
+			<li>c = {{c}}</li>
+			{% if c_bad %}<br/>{{c_bad}}{% endif %} </li>
+		</ul>
+		{% if d_bad %}<p>Дискриминант: {{d}}</p>{% endif %}
+		{% if d_bad %}<br/>{{d_bad}}{% endif %}
+  </body>
