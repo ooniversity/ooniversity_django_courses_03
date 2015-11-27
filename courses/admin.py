@@ -12,5 +12,8 @@ class CourseAdmin(admin.ModelAdmin):
     inlines = [LessonInline]
     search_fields = ['name']
 
+
+
+
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson)
