@@ -37,7 +37,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href={% url 'index'%}>Main</a></li>
+        <li><a href={% url 'index'%}>Main</a></li>
         <li><a href="{% url 'contact'%}">Contacts</a></li>
 		<li><a href="{% url 'students:list_view'%}">Students</a></li>
         <li class="dropdown">
@@ -98,7 +98,7 @@
 			<tbody>
 			{% for course in courses %}
 				<tr class = "style-thead3">
-					<td><a href="/courses/{{course.id}}/">{{course.name}}</a></td>
+					<td><a href={% url 'courses:detail' course.id %}>{{course.name}}</a></td>
 					<td>{{course.short_description}}</td>
 					
 				</tr>
