@@ -55,7 +55,59 @@
           
         </div>
 
-		
+		<hr>
+		<h1 class="descr">Преподаватели</h1>
+		<hr>
+
+			<div class="panel panel-default">
+                  
+                  <table class="table">
+                    <thead>
+                      <tr>
+						<th>Учитель</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td>
+			<div class="coach_img">
+			{% if course.coach.gender == "M"  %}
+			<img src="{% static 'images/top2.png' %}" alt="..." class="img-circle">
+			{% else %}
+			<img src="{% static 'images/top1.png' %}" alt="..." class="img-circle">{% endif %}
+			</div>
+<p><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.first_name }} {{ course.coach.last_name }}</a></p><p>{{ course.coach.description }}</p></td>
+					</tr>
+                    </tbody>
+                  </table>
+
+          
+      		</div>
+			<div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <!-- Table -->
+                 <table class="table">
+                    <thead>
+                      <tr>
+						<th>Ассистент</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td>
+					<div class="coach_img">
+					{% if course.assistant.gender == "M"  %}
+					<img src="{% static 'images/top2.png' %}" alt="..." class="img-circle">
+					{% else %}
+					<img src="{% static 'images/top1.png' %}" alt="..." class="img-circle">	{% endif %}
+					</div>
+					<p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.first_name }} {{ course.assistant.last_name }}</a></p><p>{{ course.assistant.description }}</p></td>
+					</tr>
+                    </tbody>
+                  </table>
+
+          
+      		</div>
 
 		<hr>
 		<h1 class="descr">План курса</h1>
