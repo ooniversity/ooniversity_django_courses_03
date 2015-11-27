@@ -2,36 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="748ada63-ee43-4d47-8de8-7141d5969b36" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/students/detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/students/list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/urls.py" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\admin.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\migrations\0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\migrations\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\models.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\templates\polls\detail.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\templates\polls\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\templates\polls\results.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\tests.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\urls.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\polls\views.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\templates\courses.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\templates\student_detail.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\templates\student_list.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\templates\students.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/README.md" afterPath="$PROJECT_DIR$/templates/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/courses/admin.py" afterPath="$PROJECT_DIR$/courses/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/contact.html" afterPath="$PROJECT_DIR$/templates/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/courses/detail.html" afterPath="$PROJECT_DIR$/templates/courses/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/courses/models.py" afterPath="$PROJECT_DIR$/courses/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pybursa/settings.py" afterPath="$PROJECT_DIR$/pybursa/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/courses/urls.py" afterPath="$PROJECT_DIR$/courses/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pybursa/urls.py" afterPath="$PROJECT_DIR$/pybursa/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/courses/views.py" afterPath="$PROJECT_DIR$/courses/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pybursa/views.py" afterPath="$PROJECT_DIR$/pybursa/views.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/migrations/0001_initial.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/courses/migrations/0002_auto_20151127_2344.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/migrations/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/admin.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/models.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/tests.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/students/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pybursa.iws" />
@@ -561,7 +539,13 @@
       <option name="project" value="LOCAL" />
       <updated>1448657541022</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add second app">
+      <created>1448662642481</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1448662642481</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -572,7 +556,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2543021" sideWeight="0.5025674" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32952693" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" x="542" y="156" width="816" height="393" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.32952693" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" x="542" y="156" width="816" height="393" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19412725" sideWeight="0.49743262" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -607,7 +591,8 @@
     <MESSAGE value="change ending in results" />
     <MESSAGE value="change type to float" />
     <MESSAGE value="before second app" />
-    <option name="LAST_COMMIT_MESSAGE" value="before second app" />
+    <MESSAGE value="add second app" />
+    <option name="LAST_COMMIT_MESSAGE" value="add second app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
