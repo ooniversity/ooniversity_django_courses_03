@@ -39,7 +39,6 @@
       <ul class="nav navbar-nav">
         <li><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <!--<li><a href="% url 'student_list' %}">Students</a></li>-->
         <li><a href="{% url 'students:students'%}">Students</a></li>
       
       </ul>
@@ -56,62 +55,41 @@
     </ul>
 </nav>
 <div class="center">
-<h1>Olena Persianova</h1> </div>
+<h1>{{name_student}} {{name_student.surname}}</h1> </div>
 <!-- Table class="table align-justify "-->
 <table class="table-color" border="1" cellpadding="10">
 
-<tr > 
-<td class="bold">Surname</a></td>
-<td>Persianova</td>
-</tr>
-<tr > 
-<td class="bold">Name</a></td>
-<td>Olena</td>
-</tr>
-<tr > 
-<td class="bold">Patronymic</a></td>
-<td>Olena</td>
-</tr>
-<tr > 
-<td class="bold">Birth Date</a></td>
-<td>10.10.2000</td>
-</tr>
-<tr > 
-<td class="bold">Address</a></td>
-<td>Kharkov</td>
-</tr>
-<tr > 
-<td class="bold"> E-mail</a></td>
-<td>o.pers@gmail.com</td>
-</tr>
-<tr > 
-<td class="bold">Skype</a></td>
-<td>OlenaPersanova</td>
-</tr>
-<tr > 
-<td class="bold"> Average Grade</a></td>
-<td>100</td>
-</tr>
-<tr > 
-<td class="bold">Rating</a></td>
-<td>20</td>
-</tr>
-  </table>    
-<h4 class="center">Performance</h4>
-<table  class="jewel" >
-<tr>
- <th>Course</th><th>Week</th><th>ControlType</th><th>Grade</th>
- </tr> 
-<tr > 
-<td rowspan="2" >Python</a></td>
-<td rowspan="2" >Week1</td><td>Tests</td><td>100%</td>
-</tr>
-<tr > 
-<td>Problem Task</td><td>100%</td>
-</tr>
 
+<tr > 
+<td class="bold">дата рождения</a></td>
+<td>{{name_student.date_of_birth}}</td>
+</tr>
+<tr > 
+<td class="bold">адрес</a></td>
+<td>{{name_student.address}}</td>
+</tr>
+<tr > 
+<td class="bold">почта</a></td>
+<td>{{name_student.email}}</td>
+</tr>
+<tr > 
+<td class="bold">логин Skype</a></td>
+<td>{{name_student.skype}}</td>
+</tr>
+<tr > 
+<td class="bold">телефон</a></td>
+<td>{{name_student.phone}}</td>
+</tr>
+{% for course in name_student.courses.all %}
+<tr > 
+<td class="bold">курсы</a></td>
 
+<td>{{course}}</td>
+
+</tr>
+{% endfor %}
   </table>    
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

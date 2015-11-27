@@ -5,5 +5,5 @@ from quadratic import views
 
 urlpatterns = patterns('',
    	url(r'^results/', views.quadratic_results, name='quadratic_results'),
-   	url(r'^admin/', include(admin.site.urls)),
+   	#url(r'^admin/', include(admin.site.urls)),
 )
