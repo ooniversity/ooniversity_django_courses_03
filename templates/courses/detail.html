@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>ITBursa main page</title>
+    <title>ITBursa detail</title>
     <style> 
       body{background-image: url('../static/images/pic4.jpg') !important;
       background-repeat: none; 
@@ -28,7 +28,7 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -51,26 +51,31 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
-<div class="jumbotron">
-  <div class="container">
-  <h1>Description</h1>
-  <h2>Program</h2>
-  <p> Python is a widely used general-purpose, high-level programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code.</p>
-  <p> Ruby is a dynamic, reflective, object-oriented, general-purpose programming language.</p>
-  <p> Enroll in the latest online IT courses covering important topics in software engineering.</p>
-  <p><a class="btn btn-primary btn-lg" href="contact.html" role="button">Learn more</a></p>
-  </div>
-</div>
-<div class="jumbotron">
-  <div class="container">
-    <img src="{% static 'images/pic.jpg' %}" class="img-responsive" alt="Responsive image">
-    <p>Courses can be taken in any order. If current dates are unavailable, please check back often as they are always being added.</p> 
-  </div>
-</div>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static "js/bootstrap.js" %}"></script>
+  </nav>
+  <div class="col-md-10 col-md-push-1">
+  <h1>{{course}}</h1>
+  <h2>{{course.description}}</h2>
+  <h2>Courses plan</h2>
+      <div class="table-responsive">
+        <table class="table" border=2>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Courses</th>
+              <th>Description</th>
+             </tr>
+          </thead>
+          <tbody>
+            {% for les in lessons %}
+            <tr>
+              <td>{{forloop.counter}}</td> 
+              <td>{{les.subject}}</td>
+              <td>{{les.description}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
