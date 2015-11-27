@@ -1,4 +1,11 @@
 #pb { color:#290701; }
+#button {float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
 .topping_index { background-color:#EBEBE3;margin-top:20px;border:none;height:30px; }
 .des { color:#290701; } 
 .jumbotron .container .descr{ color:#EBEBE3; background-color:#290701; }
@@ -34,6 +41,7 @@
 .info {background-color:#EBEBE3;opacity:0.8;}
 .page-header .contact-head {color:#290701; margin-left:30px;}
 .below-contact {color:#290701; margin-left:30px;}
+
 
 
 .topping_students {background-color:#EBEBE3;margin-top:20px;border:none;height:30px;}

@@ -17,9 +17,9 @@
           <div class="navbar-header">
             <button type="button"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             </button>
-            <a href="{% url 'index' %}">Главная</a>
-            <a href="{% url 'contact' %}">Контакты</a>
-            <a href="{% url 'students:list_view' %}?course_id={{courses.id}}">Студенты</a>
+            <li id="button"><a href="{% url 'index' %}">Главная</a></li>
+            <li id="button"><a href="{% url 'contact' %}">Контакты</a></li>
+            <li id="button"><a href="{% url 'students:list_view' %}?course_id={{courses.id}}">Студенты</a></li>
           </div>
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        </div>
