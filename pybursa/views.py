@@ -5,11 +5,14 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from polls.models import Choice, Question
 from django.views import generic
+from courses.models import Course
 
 
 def index(request):
-	return render(request,'index.html')
-	
+	n_course = Course.objects.all()
+	return render(request,'index.html',{'name_course': n_course})
+
+
 def contact(request):
 	return render(request,'contact.html')
 	
