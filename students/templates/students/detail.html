@@ -102,10 +102,14 @@
 					<td>{{student.skype}}</td>
 				</tr>
 				<tr class = "style-thead3">
+					<td>Phone</td>
+					<td>{{student.phone}}</td>
+				</tr>
+				<tr class = "style-thead3">
 					<td>Courses</td>
 					<td>
 					{% for course in courses %}
-						<a href = {% url 'courses:detail' course.id %}>{{course.name}}, </a>
+						<a href={% url 'courses:detail' course.id %}>{{course.name}}, </a>
 					{% endfor %}
 					</td>
 				</tr>
