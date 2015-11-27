@@ -27,7 +27,40 @@
     <h1>{{ name }}</h1>
     <p>{{ description }}</p>
     <br>
+    <h3>Преподаватели</h3>
     <br>
+    
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h6 class="panel-title">Учитель</h6>
+      </div>
+      <div class="panel-body">
+      <a href="{% url 'coaches:detail' coach.id %}">{{ coach.name }} {{ coach.surname }}</a>
+      </div>
+      <div class="panel-footer">
+        {{ coach.description }}
+      </div>
+    </div>
+    
+
+    <br>
+    
+    
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h6 class="panel-title">Ассистент</h6>
+      </div>
+      <div class="panel-body">
+      <a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.name }} {{ assistant.surname }}</a>
+      </div>
+      <div class="panel-footer">
+        {{ assistant.description }}
+      </div>
+
+    </div>
+
+
+
     <h3>План курса </h3>
     <table class="table table-bordered">
         <th>#</th>
