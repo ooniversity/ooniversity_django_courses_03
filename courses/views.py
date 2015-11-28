@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from courses.models import Course, Lesson
+from coaches.models import Coach
 
 def detail(request, course_id):
     my_course = Course.objects.get(pk=course_id)
