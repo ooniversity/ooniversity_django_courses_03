@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    {% load staticfiles %}
+    <!-- Bootstrap -->
+    <!--<link href="../static/css/bootstrap.css" rel="stylesheet">-->
+    <!--<link href="../static/css/style.css" rel="stylesheet">-->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'courses:index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li ><a href="{% url 'students:list_view' %}">Students</a></li>
+          </ul>
+            <p class="navbar-text navbar-right top_mass">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+            <a href="#"  class="top_mass">Inbox <span class="badge">42</span></a>
+
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron  ">
+        <h2 class="title">Hello, PyBursa!</h2>
+        <h3>Description</h3>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum augue sit
+            amet justo efficitur bibendum. Curabitur lacus odio, luctus quis mauris ut,
+            finibus cursus nulla. Duis iaculis tortor ac nisl porttitor placerat.
+            Sed vel nisl convallis, rutrum felis eu, mollis ex. Curabitur pellentesque magna et
+            faucibus imperdiet. Quisque sed felis sem. Vestibulum elementum dui enim, non
+            maximus lacus condimentum sit amet. Cras pellentesque imperdiet sapien efficitur
+            varius."
+        </p>
+
+        <h3>List of courses</h3>
+         <table class="table opct-img">
+            <tr class="dark">
+                <th>Cours</th>
+                <th>Description</th>
+            </tr>
+            {% for cours in courses_list %}
+                <tr>
+                    <td><a href="{% url 'courses:course_detail' course_id=cours.id %}">{{ cours }}</a></td>
+                    <td>{{ cours.description }}</td>
+                </tr>
+            {% endfor %}
+          </table>
+
+
+    </div>
+</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>

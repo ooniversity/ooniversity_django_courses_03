@@ -8,8 +8,13 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # Student
-    url(r'^$', views.index, name='index'),
     url(r'^contact/', views.contact, name='contact'),
     url(r'^student_list/', views.student_list, name='student_list'),
     url(r'^student_detail/', views.student_detail, name='student_detail'),
+
+    #Courses
+     url(r'^', include('courses.urls', namespace="courses")),
+
+    #Students
+     url(r'^students/', include('students.urls', namespace="students")),
 )

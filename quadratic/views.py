@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from django.template import RequestContext, loader
 
+
 def quadratic_results(request):
     # data = {'a' : request.GET['a'], 'b' : request.GET['b'], 'c' : request.GET['c'] };
     error = ''

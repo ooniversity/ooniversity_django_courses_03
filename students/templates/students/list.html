@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+
+    {% load staticfiles %}
+    <!-- Bootstrap -->
+    <!--<link href="../static/css/bootstrap.css" rel="stylesheet">-->
+    <!--<link href="../static/css/style.css" rel="stylesheet">-->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li ><a href="{% url 'courses:index' %}">Main</a></li>
+                            <li ><a href="{% url 'contact' %}">Contacts</a></li>
+                            <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
+                        </ul>
+                        <p class="navbar-text navbar-right top_mass">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+                        <a href="#"  class="top_mass" >Inbox <span class="badge">42</span></a>
+                    </div>
+                </div>
+            </nav>
+            <div class="jumbotron ">
+               <!--<h2>Курс PyBursa</h2>-->
+               <!--<div class="panel panel-default">-->
+                    <!-- Default panel contents -->
+                   <h3>List of students</h3>
+                 <!--<div class="panel-heading antiopas dark"></div>-->
+
+                            <!-- Table -->
+                            <table class="table opct-img">
+                                <tr class="dark">
+                                    <th>Name Surname</th>
+                                    <th>Address</th>
+                                    <th>Skype</th>
+                                    <th>Courses</th>
+                                </tr>
+                                {% for student in students_list %}
+                                <tr>
+                                    <td><a href="{% url 'students:student_detail' student_id=student.id %}">{{ student.name }} {{ student.surname  }}</a></td>
+                                    <td>student.address</td>
+                                    <td>student.skype</td>
+                                    <td>
+                                        <table>
+                                            {% for course in student.courses.all  %}
+                                                <tr><td><a href="{% url 'courses:course_detail' course_id=course.id %}">{{ course }}</a></td></tr>
+                                            {% endfor %}
+                                        </table>
+                                    </td>
+                                </tr>
+                                {%  endfor %}
+
+                            </table>
+
+                <nav>
+                    <ul class="pagination">
+                        <li class="dark"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li class="dark"><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                        <li class="dark"><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                        <li class="dark"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span>                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+         <script src="{% static 'js/bootstrap.js' %}"></script>
+    </body>
+</html>
