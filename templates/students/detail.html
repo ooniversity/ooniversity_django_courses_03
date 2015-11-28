@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Список студентов круса "{{course.name}}"</title>
+    <title>Детали студента</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
@@ -31,38 +31,38 @@
           <ul class="nav nav-pills">
             <li role="presentation" class="active"><a href="{% url 'index_course' %}">Главная</a></li>
             <li role="presentation" class="passive"><a href="{% url 'contact' %}">Контакты</a></li>
-            <li role="presentation" class="passive"><a href="#">Студенты</a></li>
+            <li role="presentation" class="passive"><a href="{% url 'students:list_view'%}">Студенты</a></li>
           </ul>
       </div>
       <div class="container-fluid">
-        <h3>Список студентов</h3>
+        <h3>{{student.name}}{{' '}}{{student.surname}}</h3>
       </div>
-      <div id="spisok">
+      <div id="spisok" class="col-md-6">
         <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th id="students_detail">#</th>
-              <th>Фамилия Имя</th>
-              <th>адрес</th>
-              <th>skype</th>
-              <th>Курсы</th>
-            </tr>
-          </thead>
           <tbody>
-            {%for st in students_list_course %}
-              <tr>
-                <td id="students_detail">{{forloop.counter}}</td>
-                <td>{{st.surname}}{{' '}}{{st.name}}</td>
-                <td>{{st.address}}</td>
-                <td>{{st.skype}}</td>
-                <td>
-                  {% for cour in st.courses.all %}
-                  <ul>{{cour.name}}</ul>
-                  {% endfor %}
-                </td>
-              </tr>
-            {% endfor %}
-          </tbody>
+            <tr>
+              <td>Дата рождения</td><td>{{student.date_of_birth}}</td>
+            </tr>
+            <tr>
+              <td>адрес</td><td>{{student.address}}</td>
+            </tr>
+            <tr>
+              <td>почта</td><td>{{student.email}}</td>
+            </tr>
+            <tr>
+              <td>Логин skype</td><td>{{student.skype}}</td>
+            </tr>
+            <tr>
+              <td>телефон</td><td>{{student.phone}}</td>
+            </tr>
+            <tr>
+              <td>Курсы</td>
+              <td>{% for i in student.courses.all %}
+                    <p><a href="{% url 'courses:detail' i.id %}">{{i.name}}</a></p>
+                  {%endfor%}
+              </td>
+            </tr>
+           </tbody>
         </table>
       </div>
 
