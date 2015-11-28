@@ -47,6 +47,7 @@
           <li><a href="{% url 'index' %}">Главная</a></li>
           <li><a href="{% url 'contact' %}">Контакты</a></li>
           <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
+          <!-- <li><a href="{% url 'results' %}">Equation</a></li> -->
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -57,20 +58,20 @@
     <div class="page-header">
       <h1>{{ course.name }}</h1>
     </div>
-    <p class="text-justify">{{ course.description }}</p>
+    <p class="text-justify">{{ course.description}}</p>
     <br>
     <h2>План курса</h2>
     <div class="table-responsive">
        <table class="table table-bordered table-condensed">
     <thead>
-      <tr>
+        <tr>
           <th class="text-center wide5">#</th>
           <th class="text-center wide28">Тема</th>
           <th class="text-center">Описание</th>
         </tr>
     </thead>
     <tbody>
-    {% for lesson in lessons %}
+    {% for lesson in lessons%}
     <tr>
     <td>{{ lesson.order }}</td><td>{{ lesson }}</a></td><td>{{ lesson.description }}</td>
     <tr>
