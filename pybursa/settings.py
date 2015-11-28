@@ -40,6 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'quadratic',
+    'students',
+    'courses',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -90,3 +92,7 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+
+
+

@@ -33,24 +33,5 @@ $(document).ready(function() {
 
     document.onscroll = scroll;
 
-    $('.testimonial-owl').owlCarousel({
-        items: 1
-    });
-
-    $('.add-owl').owlCarousel({
-        items: 4,
-        nav: true,
-        navText: false,
-        dots: false,
-        loop: true
-    });
-
-    $('.twitter-owl').owlCarousel({
-        items: 1,
-        nav: true,
-        navText: false,
-        dots: false,
-        loop: true
-    });
 
 });
