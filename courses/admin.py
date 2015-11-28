@@ -1,11 +1,15 @@
 from django.contrib import admin
 import models
 
+admin.site.register(models.Course, CourseAdmin)
+admin.site.register(models.Lesson)
 
-from courses.models import Course
-from courses.models import Lesson
+class CourseAdmin(admin.ModelAdmin):
+    inlines = [LessonInline]
+    search_fields = ['name']
+    list_display = ('name', 'short_description')
 
-
-admin.site.register(Course)
-admin.site.register(Lesson)
-
+class LessonInline(admin.TabularInline):
+    extra = 0
+    model = models.Lesson
+    
