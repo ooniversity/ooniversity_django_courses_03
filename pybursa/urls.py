@@ -3,11 +3,10 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.shortcuts import render
 from pybursa import views
-#from quadratic import views
+
 from quadratic.quadratic_func import quadratic_func
 from quadratic.views import quadratic_start, quadratic_results
-
-
+from courses.models import Course, Lesson, Student
 
 
 urlpatterns = patterns('',
@@ -19,6 +18,9 @@ urlpatterns = patterns('',
 
     url(r'^quadratic/results/$', quadratic_results, name='quadratic_results'),
     url(r'^quadratic/start/$', quadratic_start, name='quadratic_start'),
+
+	url(r'^courses/', include('courses.urls', namespace='courses')),
+    #url(r'^students/', include('students.urls', namespace='students')),
 
     url(r'^admin/', include(admin.site.urls)),
 )
