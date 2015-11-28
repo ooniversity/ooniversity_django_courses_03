@@ -11,4 +11,3 @@ class CourseAdmin (admin.ModelAdmin):
     inlines = [LessonInline]
 
 admin.site.register(Course, CourseAdmin)
-# Register your models here.

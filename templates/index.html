@@ -40,7 +40,7 @@
                         <a class="page-scroll" a href="{% url 'contact' %}">Contacts</a>
                     </li>
                     <li>
-                      <a class="page-scroll" a href="{% url 'student_list' %}">Students</a>
+                      <a href="{% url 'students:list_view' %}">Students</a>
                     </li>
                 </ul>
             </div>
@@ -63,12 +63,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Linux_Bursa Program:</h2>
-                    <hr class="primary">
-                    <p>Ready to start your next project with linux?</p>
-                    <h2 class="section-heading">Description:</h2>
-                    <hr class="primary">
-                    <p>Part One:<br>Intro to linux<br>Filesystem ext4<br>Command line in linux<br>Coming soon...<br><br></p>
+                    <h2 class="section-heading">Courses:</h2>
+                    <div class="table-responsive">
+  <table class="table table-hover table-bordered">
+      <thead>
+        <tr class="success">
+          <td><strong>Course</strong></td>
+          <td><strong>Short description</strong></td>
+        </tr>
+      </thead>
+      <tbody>
+       {% if gc %}
+        {% for course in gc %}
+        <tr>
+          <td><a href="{% url 'courses:detail' course.id %}"> {{ course.name }} </a></td>
+          <td>{{ course.short_description }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+      </tbody>
+     </table>
+  </div>
                 </div>
             </div>
         </div>

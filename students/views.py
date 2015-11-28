@@ -15,3 +15,4 @@ def detail(request, student_id):
     sd = Student.objects.get(id=student_id)
     return render(request,'students/detail.html', {'student_detail': sd} )
 
+
