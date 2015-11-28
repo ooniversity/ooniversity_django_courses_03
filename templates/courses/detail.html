@@ -23,7 +23,7 @@
             "icon-bar"></span> <span class="icon-bar"></span></button>
           <a href="{% url 'index' %}">Main</a>
           <a href="{% url 'contact' %}">Contacts</a>
-          <a href="{% url 'students:list_view'%}?course_id={{ item.id }}">Students</a>
+          <a href="{% url 'students:list_view'%}?course_id={{ science.id }}">Students</a>
           <a href="{% url 'quadratic_start' %}">QE</a>
         </div>
       </div>
@@ -34,8 +34,8 @@
 
 
     <div class="jumbotron">
-        <h1 class="center">{{ item.name }}</h1>
-        <p class="center"> {{ item.description }}</p>
+        <h1 class="center">{{ science.name }}</h1>
+        <p class="center"> {{ science.description }}</p>
     </div>
         <table class="table">
             <tr>
@@ -43,7 +43,7 @@
                 <th>Topic</th>
                 <th>Description</th>
             </tr>
-            {% for less in lesson %}
+            {% for less in lst_of_science %}
             <tr>
                 <td> {{ less.order }} </td>
                 <td> {{ less.subject }}</td>

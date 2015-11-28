@@ -19,3 +19,4 @@ class Student(models.Model):
         return self.name + ' ' + self.surname
 
     full_name = property(fullname)
+    
