@@ -43,34 +43,20 @@
         <p><a class="btn btn-lg btn-success" href="/" role="button">Послать почтовую сову с заявкой прямо сейчас</a></p>
       </div>
 
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Program</h4>
-						<ol>
-							<li>Основы магии Python </li>
-							<li>Строки и итераторы</li>
-							<li>Функции и модульность</li>
-							<li>Библиотеки и пакетный менеджер</li>
-							<li>Классы и ООП, основы</li>
-							<li>Классы и ООП, возможности Python </li>
-							<li>Работа с файлами</li>
-							<li>Основы html/css  </li>
-							<li>Структура Web приложения </li>
-							<li>Полёты на мётлах </li>
 
-
-
-
-          	</ol><p>Наш девиз «Dormiens nunquam titillandus coluber!»</p>
-
-          
+     <div class="jumbotron">
+<h3>Kurs</h3>
+ <table>
+ <tr>  <th>Курс </th> <th>Описание</th> </tr>
+ 
+	{% for course in courses %} 
+	 <tr> <td><a href="{% url 'courses:detail' course.id %}">{{course}} </a> </td> <br> <td>{{course.short_description}} </td></tr>
+	{% endfor %}
+  
+ </table>
+         
         </div>
       </div>
-
-      <footer class="footer">
-       
-      </footer>
-
     </div> <!-- /container -->
 
 
