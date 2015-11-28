@@ -4,8 +4,8 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 from courses.models import Course
 
-def index_course(request):
-    return render(request, 'index_course.html', {'courses':Course.objects.all()})
+def course(request):
+    return render(request, 'course.html', {'courses':Course.objects.all()})
 
 def contact(request):
     return render(request,'contact.html')
