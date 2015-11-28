@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Академия Щ.И.Т - Контакты</title>
+    <title>Академия Щ.И.Т - Студенты</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -25,58 +25,49 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <img id="brico" alt="Brand" src="../static/images/bricon.png"/>     
+          <img id="brico" alt="Brand" src="{% static 'images/bricon.png' %}"/>     
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'index'%}">Main</a></li>
-            <li class="active"><a href="{% url 'contact' %}">Contacts</a><span class="sr-only">(current)</span></li>
+            <li class="active"><a href="{% url 'index' %}">Main</a><span class="sr-only">(current)</span></li>
+            <li><a href="{% url 'contact'%}">Contacts</a></li>
             <li><a href="{% url 'students:list_view' %}">Students</a></li>
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-    </nav>
-    <div class= "container">
-      <div class ="jumbotron">
-        <h1>Our contacts</h1><hr>
-        <div class = "well">
-          <table class = "contacts" cellpadding = "100">
-          <tr>
-          <th class = "conth">
-           <h2 class = "contact-header"> Director</h2>
-          <p class = "condata"><img class = "con-info" alt = "director" src ="{% static 'images/director.jpg' %}"/></br>
-            Name: Nickolas Fury </br>
-            Skype: nick_fury </br>
-            Email: director@shield.ru </br>
-            Phone: 144 - 78 - 92 </br>
-          </p></th>
-          <th class = "conth">
-          <h2 class = "contact-header"> Manager</h2>
-          <p class = "condata"><img class = "con-info"alt = "manager" src ="{% static 'images/manager.jpg'%}"/></br>
-          Name: Pepper Potts </br>
-            Skype: ppots </br>
-            Email: rescue@stark.com </br>
-            Phone: 932 - 12 - 12 </br>
-          </p></th>
-          
-          <th class = "conth">
-          <h2 class = "contact-header"> Founder</h2>
-          <p class = "condata"><img class = "con-info" alt = "founder" src ="{% static 'images/founder.jpg'%}"/></br>
-          Name: Tony Stark </br>
-            Skype: ironman14 </br>
-            Email: iam@ironman.ru </br>
-            Phone: 233 - 65 - 29 </br>
-          </p></th>          
-          </tr>
-        </table>
-        </div>
-      </div>
+    </nav>    
+     <div class= "container">    
+      <div class="jumbotron">
+      <h2>Список студентов</h2><hr>
+     <h3></h3>
+    <table class = "course_info">
+        <tr class = "oddtr">
+        <td>#</td>
+        <td class = "first_td">Фамилия Имя</td>
+        <td class = "second_td">Адрес</td>
+        <td class = "second_td">Skype</td>
+        <td class = "first_td">курсы</td>
+
+      </tr>
+      {% for student in student %}
+        <tr>
+          <td>{{student.id}}</td>
+          <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{student.name}}</td>
+          <td>{{ student.address }}</td>
+          <td>{{ student.skype }}</td>
+          <td>{%for course in student.courses.all%}
+          <a href="{% url 'courses:detail' course.id %}"> {{ course.name }}</a><br />
+          {% endfor %}</td>
+        </tr>
+      {% endfor %}
+    </table>  
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
   </body>
 </html>
