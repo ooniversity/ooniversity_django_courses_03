@@ -7,21 +7,18 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('coaches', '0002_auto_20151128_1754'),
-        ('courses', '0001_initial'),
+        ('courses', '0003_auto_20151127_1649'),
     ]
 
     operations = [
-        migrations.AddField(
+        migrations.AlterField(
             model_name='course',
             name='assistant',
             field=models.ForeignKey(related_name='assistant_courses', blank=True, to='coaches.Coach', null=True),
-            preserve_default=True,
         ),
-        migrations.AddField(
+        migrations.AlterField(
             model_name='course',
             name='coach',
             field=models.ForeignKey(related_name='coach_courses', blank=True, to='coaches.Coach', null=True),
-            preserve_default=True,
         ),
     ]
