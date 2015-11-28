@@ -17,6 +17,5 @@ class Migration(migrations.Migration):
             model_name='coach',
             name='user',
             field=models.OneToOneField(default=1, to=settings.AUTH_USER_MODEL),
-            preserve_default=False,
         ),
     ]
