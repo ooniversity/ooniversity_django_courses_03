@@ -69,29 +69,27 @@
   </div>
   <h1>ITBursa-2015</h1>
   <h2>Choose your course</h2>
-  <div class="col-md-10 col-md-push-1">
     <div class="table-responsive">
-      <table class="table" border=2>
-           
-          <tr>
-            <th>Сourse
-            </th>
-            <th>Description
-            </th>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr class="success">
+            <td><strong>Course</strong></td>
+            <td><strong>Short description</strong></td>
           </tr>
-          {% for cour in courses %}
-          <tr>
-            <td><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a>
-            </td>
-            <td>{{cour.short_description}}
-            </td>
-          </tr>
-          {% endfor %}
-            
+        </thead>
+        <tbody>
+        {% for cour in courses %}
+        <tr>
+          <td><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a>
+          </td>
+          <td>{{cour.short_description}}
+          </td>
+        </tr>
+        {% endfor %} 
+        </tbody>    
       </table>
     </div>
-  </div>
-</div>  
+  </div>  
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
