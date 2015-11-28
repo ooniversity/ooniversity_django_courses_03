@@ -1,0 +1,60 @@
+<html>
+	<head>
+    {% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static "/css/bootstrap.min.css" %}">
+		<title>Students</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href={% url 'index' %}>Main</a></li>
+            <li><a href={% url 'students:students' %}>Students</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+			<div class="col-md-6">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name Surname</th>
+                <th>Address</th>
+                <th>Skype</th>
+								<th>Courses</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for student in student_list %}
+                <tr>
+                	<td>{{student.id}}</td>
+                  <td><a href={% url 'students:detail' student.id%}>{{ student.full_name }}</a></td>
+                  <td>{{student.address}}</td>
+									<td>{{student.skype}}</td>
+									<td> 
+										{% for course in student.courses.all %}
+											<a href={% url 'courses:detail' course.id%}>{{course.name}}</a> <br/>
+										{% endfor %}
+									 </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+		</table>
+
+	</body>
+
+</html>
