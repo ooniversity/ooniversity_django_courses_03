@@ -1,12 +1,17 @@
-# -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render
 
-from .models import Course
+from courses.models import Course
 
 
 def detail(request, course_id):
-    course = get_object_or_404(Course, pk=course_id)
-    context = {
-        'course': course,
-    }
-    return render_to_response('courses/detail.html', context)
+    courses = Course.objects.get(id=course_id)
+    lessons = courses.lesson_set.all()
+    coaches = courses.coach.user.get_full_name()
+    assistants = courses.assistant.user.get_full_name()
+    return render(request,
+                  'courses/detail.html', {
+                      'courses': courses,
+                      'lessons': lessons,
+                      'coaches': coaches,
+                      'assistants': assistants
+                  })

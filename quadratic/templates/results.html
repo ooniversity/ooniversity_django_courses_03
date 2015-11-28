@@ -7,41 +7,40 @@
 <body>
 
 
-<h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
+<h1>Квадратное уравнение ax^2 + bx + c = 0</h1>
 
+<ul>
+    <li>
+        a = {{ a }}
+        {% if error_a %}
         <ul>
             <li>
-                a = {{ a }}
-                {% if error_a %}
-                    <ul>
-                        <li>
-                            {{ error_a }}
-                        </li>
-                    </ul>
-                {% endif %}
-            </li>
-            <li>
-                b = {{ b }}
-                {% if error_b %}
-                    <ul>
-                        <li>
-                            {{ error_b }}
-                        </li>
-                    </ul>
-                {% endif %}
-            </li>
-            <li>
-                c = {{ c }}
-                {% if error_c %}
-                    <ul>
-                        <li>
-                            {{ error_c }}
-                        </li>
-                    </ul>
-                {% endif %}
+                {{ error_a }}
             </li>
         </ul>
-
+        {% endif %}
+    </li>
+    <li>
+        b = {{ b }}
+        {% if error_b %}
+            <ul>
+            <li>
+                {{ error_b }}
+            </li>
+            </ul>
+        {% endif %}
+    </li>
+    <li>
+        c = {{ c }}
+        {% if error_c %}
+            <ul>
+            <li>
+                {{ error_c }}
+            </li>
+        </ul>
+        {% endif %}
+    </li>
+</ul>
 
 
 {% if discr or discr == 0 %}

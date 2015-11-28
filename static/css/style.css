@@ -1,35 +1,47 @@
-#logo-container img {
-    margin-bottom: -8px;
+body {
+    background-color: white;
 }
 
-nav {
-    color: #fff;
-    background-color: #689f38;
-    width: 100%;
+a:hover {
+    border: 5px solid #F2F2F2;
 }
 
-#index-banner {
-    background-image: url('../img/bg_creative.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    min-height: 450px;
+.description {
+    color: red;
 }
 
-footer {
-    margin-top: 20px;
-    padding-top: 20px;
-    background-color: #689f38;
+.program {
+    color: green;
 }
 
-footer .footer-copyright {
-    font-weight: 300;
+a {
+    color: #000060;
+    font-weight: bold;
 }
 
-footer .footer-copyright {
-    overflow: hidden;
-    height: 50px;
-    line-height: 50px;
-    color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(51, 51, 51, 0.08);
+.help-block {
+    color: red;
 }
+
+.checkbox {
+    float: left;
+}
+
+.text-info {
+    color: blue;
+}
+
+input[type=button], input[type=submit], button {
+    background: url(images/btn-verzend.jpg) no-repeat;
+    width: 91px;
+    height: 35px;
+    line-height: 35px;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.text-warning {
+    text-align: left;
+}
+

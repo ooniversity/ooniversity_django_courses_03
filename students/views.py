@@ -1,26 +1,18 @@
-# -*- coding: utf-8 -*-
+from django.shortcuts import render
 
-from django.shortcuts import render_to_response, get_object_or_404
-
-from .models import Student
+from students.models import Student
 
 
 def list_view(request):
-    try:
-        course_id = request.GET['course_id']
-        all_students = Student.objects.filter(courses__exact=course_id)
-    except:
-        all_students = Student.objects.all().order_by('id')
-
-    context = {
-        'all_students': all_students
-    }
-    return render_to_response('students/list.html', context)
+    reguest_course = request.GET
+    if 'course_id' in reguest_course:
+        list_students = Student.objects.filter(
+            courses=reguest_course['course_id'])
+    else:
+        list_students = Student.objects.all()
+    return render(request, 'students/list.html', {'list_students': list_students})
 
 
 def detail(request, student_id):
-    student = get_object_or_404(Student, pk=student_id)
-    context = {
-        'student': student,
-    }
-    return render_to_response('students/detail.html', context)
+    student = Student.objects.get(id=student_id)
+    return render(request, 'students/detail.html', {'student': student})
