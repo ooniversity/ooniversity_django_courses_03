@@ -4,6 +4,7 @@ from courses.models import Course, Lesson
 
 class LessonInline(admin.StackedInline):
     model = Lesson
+    extra = 0
 
 
 class CourseAdmin(admin.ModelAdmin):
