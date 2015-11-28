@@ -52,7 +52,7 @@
 							<td>
 								{% for course in student.courses.all %}
 									{% if course in student.courses.all %}
-										{{ course.name }}
+										<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
 									{% endif %}
 								{% endfor %}
 							</td>
