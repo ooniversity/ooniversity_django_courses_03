@@ -1,10 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block banner %}{% endblock %}
+
+{% block list_courses %}
+    <div class="col s12">
+        <h5 class="text-primarycolor">{{ student.name }} {{ student.surname }}</h5>
+
+    </div>
+    <div class="col s12 l12">
+
+        <div class="card-panel">
+            <span class="card-title grey-text"></span>
+
+            <div class="row">
+                <div class="col s12">
+                    <table class="responsive-table highlight">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Дата рождения
+                                </td>
+                                <td>
+                                    {{ student.date_of_birth }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Адрес
+                                </td>
+                                <td>
+                                    {{ student.address }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Почта
+                                </td>
+                                <td>
+                                    {{ student.email }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Логин/Skype
+                                </td>
+                                <td>
+                                    {{ student.skype }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Телефон
+                                </td>
+                                <td>
+                                    {{ student.phone }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Курсы
+                                </td>
+                                <td>
+                                    <ul>
+                                        {% for course in student.courses.all %}
+                                        <li><a href="{% url 'courses:detail' course.id %}"> {{ course }} </a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -8,7 +8,7 @@ class Course(models.Model):
     short_description = models.CharField('Краткле описание', max_length=250)
     description = models.TextField('Описание', blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
