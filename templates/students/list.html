@@ -30,63 +30,41 @@
       </div>
     </nav>
     <div class="jumbotron">
-      <div class="container">
-        <h2>PyBursa students list</h2>
-        <h6>group started Nov 19, 2015</h6>
-      </div>
+
       <div class="container" role="main">
-        <h2>Program</h2>
+
         <div class="table-responsive">
-          <table class="table table-striped" width="10">
-            <tbody>
-              <tr>
-                <th>N</th>
-                <th>surname</th>
-                <th>name</th>
-                <th>address</th>
-                <th>skype</th>
-              </tr>
-              <tr>
+          
+
+           <div class="jumbotron">
+        <h1 class="center">Students list</h1>
+    </div>
+    <table class="table">
+        <caption>Студенты курса</caption>
+        <tr>
+            <th>N</th>
+            <th>name surname</th>
+            <th>address</th>
+            <th>skype</th>
+            <th>courses</th>
+        </tr>
+            {% for student in students %}
+            <tr>
+                <td> {{ student.id }} </td>
+                <td><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
+                <td> {{ student.address }} </td>
+                <td> {{ student.skype }} </td>
                 <td>
-                  <a href="{% url 'student_detail' %}">1</a>
+                    {% for course in student.courses.all %}
+                        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                    {% endfor %}
                 </td>
-                <td>Narendra</td>
-                <td>Modi</td>
-                <td>2820 Church Street Atwater, CA 95301</td>
-                <td>narendra_modi</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jeff</td>
-                <td>Bezos</td>
-                <td>7252 Cedar Court Dorchester Center, MA
-                  02124
-                </td>
-                <td>jeff_bezos</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Jamie</td>
-                <td>Dimon</td>
-                <td>3093 6th Street WestErie, PA 16506</td>
-                <td>jamie_dimon</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Rex</td>
-                <td>Tillerson</td>
-                <td>106 Queen Street Ogden, UT 84404</td>
-                <td>rex_tillerson</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Mario</td>
-                <td>Draghi</td>
-                <td>240 Roosevelt Avenue Butler, PA 16001</td>
-                <td>mario_draghi</td>
-              </tr>
-            </tbody>
-          </table>
+            </tr>
+            {% endfor %}
+    </table>
+
+
+
         </div>
       </div>
       <script src=
