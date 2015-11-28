@@ -1,270 +1,63 @@
-{% load staticfiles %}
 <!DOCTYPE html>
-<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
-<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html class="noIE" lang="en-US">
-<!--<![endif]-->
-	<head>
-		<!-- meta -->
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-			<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
-		<title>PyBursa</title>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main</title>
+    {% load staticfiles %}
+  </head>
+  <body class="sl-background">
+    <!-- menu start -->  
+    <nav class="navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            <img class="sl-brand" alt="GodsBursa" src="{% static 'images/gb-logo.jpg' %}">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'index' %}">Main<span class="sr-only">(current)</span></a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- menu end -->  
+    <div class="slash-div">
+    <h2>God's Bursa<br><small>just the best courses in entire Universe</small></h2>
+      <div style="container">
+        Lorem ipsum dolor sit amet.<br>
+        Lorem ipsum dolor sit amet.<br><br>
+        Lorem ipsum dolor.<br>
+      </div>  
+        <br>
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+              <tr class="success">
+                <td><strong>Course</strong></td>
+                <td><strong>Short description</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+             {% if gc %} 
+              {% for course in gc %}
+              <tr>
+                <td><a href="{% url 'courses:detail' course.id %}"> {{ course.name }} </a></td>
+                <td>{{ course.short_description }}</td>
+              </tr>
+              {% endfor %}
+              {% endif %}  
+            </tbody>
+           </table>
+        </div>
 
-		<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-	    <link rel="stylesheet" href="{% static "css/section.css" %}">
-	    <link rel="stylesheet" href="{% static "css/one-page.css" %}">
-
-
-	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-			<!--[if lt IE 9]>
-				<script src="assets/js/html5shiv.js"></script>
-				<script src="assets/js/respond.js"></script>
-			<![endif]-->
-
-			<!--[if IE 8]>
-		    	<script src="assets/js/selectivizr.js"></script>
-		    <![endif]-->
-	</head>
-
-<body>
-
-<!-- Home -->
-	<section class="header" id="header">
-		
-		<nav class="navbar navbar-default">
-			<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="{% url "index" %}">PyBursa</a>
-				</div> <!-- /.navbar-header -->
-
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="active"><a href="{% url "index" %}">Main</a></li>
-						<li><a href="{% url "contact" %}">Contacts</a></li>
-						<li><a href="{% url "student_list" %}">Students</a></li>
-					</ul> <!-- /.nav -->
-			    </div><!-- /.navbar-collapse -->
-		  	</div><!-- /.container -->
-		</nav>
-		<div class="container">
-			<div class="header-table">
-				<div class="header-wrapper">
-					<h1 class="header-title">
-						PyBursa - python courses
-					</h1>
-					<p class="header-subtitle">
-						since 2013
-					</p>
-				</div> <!-- /.header-wrapper -->
-			</div>
-		</div> <!-- /.container -->
-	</section> <!-- /#header -->
-	
-<div>
-<!-- Our Services -->
-	<section class="service" id="service">
-		<div class="container">
-			<div class="_section-wrapper">
-				<h2 class="section-title black">
-					Program
-				</h2> <!-- /.section-title -->
-				<div class="underline purple"></div>
-				<div class="row">
-					<div class="">
-						<img src="{% static "images/dixon.jpg" %}" width="320" alt="service" class="service-img img-responsive">
-					</div>
-					<div class="col-md-offset-4 col-md-8 col-sm-12 services">
-						<div class="row">
-							<div class="col-xs-6 col-sm-4">
-								<div class="service-item">
-									<h3 class="section-item-title">
-										python basics
-									</h3>
-									<p class="section-item-detail">
-										The Earth was small, light blue, and so touchingly alone, our home that must be so painful.
-									</p>
-								</div> <!-- /.service-item -->
-							</div>
-							<div class="col-xs-6 col-sm-4">
-								<div class="service-item">
-									<h3 class="section-item-title">
-										line and iterators
-									</h3>
-									<p class="section-item-detail">
-										The Earth was small, light blue, and so touchingly alone, our home that must be so painful.
-									</p>
-								</div> <!-- /.service-item -->
-							</div>
-							<div class="col-xs-6 col-sm-4">
-								<div class="service-item">
-									<h3 class="section-item-title">
-										features and modularity
-									</h3>
-									<p class="section-item-detail">
-										The Earth was small, light blue, and so touchingly alone, our home that must be so painful.
-									</p>
-								</div> <!-- /.service-item -->
-							</div>
-							<div class="col-xs-6 col-sm-4">
-								<div class="service-item">
-									<h3 class="section-item-title">
-										Working with Files
-									</h3>
-									<p class="section-item-detail">
-										The Earth was small, light blue, and so touchingly alone, our home that must be so painful.
-									</p>
-								</div> <!-- /.service-item -->
-							</div>
-							<div class="col-xs-6 col-sm-4">
-								<div class="service-item">
-									<h3 class="section-item-title">
-										basics of javascript
-									</h3>
-									<p class="section-item-detail">
-										The Earth was small, light blue, and so touchingly alone, our home that must be so painful.
-									</p>
-								</div> <!-- /.service-item -->
-							</div>
-							<div class="col-xs-6 col-sm-4">
-								<div class="service-item">
-									<h3 class="section-item-title">
-										 Django first steps 
-									</h3>
-									<p class="section-item-detail">
-										The Earth was small, light blue, and so touchingly alone, our home that must be so painful. PyBursa.
-									</p>
-								</div> <!-- /.service-item -->
-							</div>
-						</div> <!-- /.row -->
-					</div> <!-- /.col-md-6 -->
-				</div> <!-- /.row -->
-			</div> <!-- /.section-wrapper -->
-		</div> <!-- /.container -->
-	</section> <!-- /.service -->
-
-
-
-
-<!-- Note -->
-	<section class="note purple">
-		<div class="container section-wrapper text-center">
-			<h2>Decription</h2>
-			<p class="quote">
-				“Можно читать тонны ресурсов по веб-программированию на Python - и
-				не научиться ничему, потому что знания, которые вы не успели применить,
-				очень быстро забываются. ”
-			</p> <!-- /.quote -->
-			<div class="quoter">Alexei Radchenko</div>
-		</div> <!-- /.container -->
-	</section> <!-- /.note -->
-</div>
-
-<!-- Fan Facts -->
-	<section class="fun">
-		<div class="container section-wrapper">
-		<h2 class="section-title black">
-				Fun Facts
-			</h2> <!-- /.section-title -->
-			<div class="underline purple"></div>	
-			<div class="row">
-				<div class="col-sm-3 col-xs-6">
-					<div class="fun-box">
-						<div class="number">
-							1956628
-						</div>
-						<div class="number-title">
-							lines of code
-						</div>
-					</div> <!-- /.fun-box -->
-				</div> <!-- /.col-md-3 -->
-				<div class="col-sm-3 col-xs-6">
-					<div class="fun-box">
-						<div class="number">
-							1437
-						</div>
-						<div class="number-title">
-							cups of coffee
-						</div>
-					</div> <!-- /.fun-box -->
-				</div> <!-- /.col-md-3 -->
-				<div class="col-sm-3 col-xs-6">
-					<div class="fun-box">
-						<div class="number">
-							150
-						</div>
-						<div class="number-title">
-							projects done
-						</div>
-					</div> <!-- /.fun-box -->
-				</div> <!-- /.col-md-3 -->
-				<div class="col-sm-3 col-xs-6">
-					<div class="fun-box">
-						<div class="number">
-							505
-						</div>
-						<div class="number-title">
-							satisfied students
-						</div>
-					</div> <!-- /.fun-box -->
-				</div> <!-- /.col-md-3 -->
-			</div> <!-- /.row -->
-		</div> <!-- /.container -->
-	</section> <!-- /.fun -->
-{% if courses_list %}
-        <!-- Table -->
-        <table class="table table-striped table-bordered">
-        <thead>
-        <tr>
-        <th>Course Name</th>
-        <th>Course Short Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for course in courses_list %}
-        <tr>
-        <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
-        <td>{{ course.short_description }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-        </table>
-
-      {% else %}
-        <p>No courses are available.</p>
-      {% endif %}
+        </div>    
     </div>
-
-<!-- Footer -->
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="copy">
-						Copyright &copy; 2015 Padafa Evgeniy
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	
-
-
-	<script src="{% static "js/jquery-1.11.2.min.js" %}"></script>
-    <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <script src="{% static "js/contact.js" %}"></script>
-	<script src="{% static "js/script.js" %}"></script>
-
-
-</body>
+    </div>
+    </div>
+  </body>
 </html>

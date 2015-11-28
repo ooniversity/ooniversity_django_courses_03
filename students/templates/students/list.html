@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main</title>
+    {% load staticfiles %}
+
+  </head>
+  <body >
+    <!-- menu start -->  
+    <nav >
+      <div >
+        <div >
+          <a  href="{% url 'index' %}">
+            <img  alt="GodsBursa" src="{% static 'images/gb-logo.jpg' %}">
+          </a>
+        </div>
+        <div  id="bs-example-navbar-collapse-1">
+          <ul >
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- menu end -->  
+    <div >
+    <h2> Student's list: </h2>
+    <br>
+      <div >
+        <table >
+            <thead>
+              <tr>
+                <td><strong>ID</strong></td>
+                <td><strong>Full name</strong></td>
+                <td><strong>Address</strong></td>
+                <td><strong>Skype</strong></td>
+                <td><strong>Assigned courses</strong></td>  
+              </tr>
+            </thead>
+            <tbody>
+             {% if students_list %} 
+              {% for student in students_list %}
+              <tr>
+                <td>{{ student.id }} </td>
+                <td><a href="{% url 'students:detail' student.id %}">{{ student.full_name }}</a></td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.skype }}</td>
+                <td>
+                   {% for course in student.courses.all %}
+                        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                   {% endfor %}
+                </td>               
+              </tr>
+              {% endfor %}
+              {% endif %}  
+            </tbody>
+           </table>
+      </div>        
+
+
+    </div>
+
+  </body>
+</html>

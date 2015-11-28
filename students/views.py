@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from django.views import generic
-
 from students.models import Student
+from courses.models import Course
 
 
-class DetailView(generic.DetailView):
-    model = Student
-    template_name = 'students/detail.html'
+def list_view(request):
+    q = request.GET.get('course_id', None)
+    if q:
+        sl = Student.objects.filter(courses = Course.objects.get(id = q))
+    else:
+        sl = Student.objects.all()
+    cl = Course.objects.all()
+    return render(request,'students/list.html', {'students_list' : sl, 'courses_list' : cl})
 
-class ListView(generic.ListView):
-    template_name = 'students/list.html'
-    context_object_name = 'students_list'
-
-    def get_queryset(self):
-        """Return the last five published questions."""
-        return Student.objects.all()
+def detail(request, student_id):
+    sd = Student.objects.get(id=student_id)
+    return render(request,'students/detail.html', {'student_detail': sd} )
