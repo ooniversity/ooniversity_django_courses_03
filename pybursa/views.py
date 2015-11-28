@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from quadratic.models import QuadraticCalc
+from courses.models import Course, Lesson
+from students.models import Student
 
 def index(request):
-    return render(request, 'index.html')
+    courses = Course.objects.all()
+    return render(request, 'index.html', {'courses': courses})
 
 def contact(request):
     return render(request, 'contact.html')

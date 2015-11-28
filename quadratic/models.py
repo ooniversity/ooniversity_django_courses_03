@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 
-# Create your models here.
-from django.db import models
 from math import sqrt
 
 class QuadraticCalc(object):
+
     def __init__(self, data):
         self.data = data
         self.error = False
@@ -15,7 +14,6 @@ class QuadraticCalc(object):
         self.validation('b')
         self.validation('c')
         self.calculate()
-
 
     def validation(self, inpt):
         if self.data[inpt]:
@@ -30,7 +28,6 @@ class QuadraticCalc(object):
         else:
             self.errors[inpt] =  'коэффициент не определен'
             self.error = True
-
 
     def calculate(self):
         if not self.error:

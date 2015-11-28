@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from pybursa.views import index, contact, student_list, student_detail, quadratic_results
+from pybursa import views
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,6 +10,8 @@ urlpatterns = patterns('',
     url(r'^student_list/', student_list, name='student_list'),
     url(r'^student_detail/', student_detail, name='student_detail'),
     url(r'^quadratic/results/$', quadratic_results, name='results'),
+    url(r'^courses/', include('courses.urls', namespace="courses")),
+    url(r'^students/', include('students.urls', namespace="students")),
     # url(r'^index/', index, name='index'),
     # url(r'^$', 'pybursa.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),

@@ -39,37 +39,47 @@
     </div>
     <div class="jumbotron">
       <div class="text-center">
-        <h1>PyBursa</h1>
-        <h4>Description</h4>
+
+        <p><h2 class="text-center">Student list:</h2></p>
+
       </div>
-      <p class="lead">The course starts by overviewing Python, and then goes on
-      to study Python's collections - Lists, Tuples and Dictionaries etc. We
-      introduce the development environments and other resources available, and
-      take a look with practical exercises at test procedures and good code
-      design.</p>
+
     </div>
     <div class="row marketing">
-      <div class="col-lg-6">
-        <p><h2 class="text-center">Courses:</h2></p>
-      </div>
 
 
       <div class="col-lg-6">
             <table>
-            <tr class="table_head dark_grey_row">
-            <td>Course</td>
-            <td>Short description</td>
-            </tr>
 
-            {% for course in courses %}
+        <tr class="table_head dark_grey_row">
 
-            <tr>
-            <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
-            <td><p>{{ course.short_description }}</p></td>
-            </tr>
+          <td>#</td>
+          <td>Surnme Name</td>
+          <td>Address</td>
+          <td>Skype</td>
+          <td>Courses</td>
 
-             {% endfor %}
-            </table>
+        </tr>
+
+
+      {% for student in students %}
+
+        <tr class = "style-thead3">
+          <td>{{student.id}} </td>
+          <td><a href={% url 'students:detail' student.id %}>{{student.surname}} {{student.name}}</a></td>
+          <td>{{student.address}}</td>
+          <td>{{student.skype}}</td>
+          <td>
+          {% for course in student.courses.all %}
+            <a href={% url 'courses:detail' course.id %}>{{course.name}}; </a>
+          {% endfor %}
+          </td>
+        </tr>
+
+      {% endfor %}
+
+    </table>
+
       </div>
 
 
