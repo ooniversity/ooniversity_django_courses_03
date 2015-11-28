@@ -44,7 +44,7 @@
     <nav role="navigation">
         <div class="container">
             <div class="nav-wrapper">
-                <a id="logo-container" href="/" class="brand-logo waves-effect waves-light">
+                <a id="logo-container" href="{% url 'index' %}" class="brand-logo waves-effect waves-light">
                     <div class="hide-on-med-and-down">
                         <img src="{% static 'img/logo_itbursa.png' %}"
                              width="30" id="appicon">
@@ -57,7 +57,7 @@
 
                 <ul id="slide-out" class="side-nav">
                     <li>
-                        <a href="{% url 'list_view' %}">Главная</a>
+                        <a href="{% url 'index' %}">Главная</a>
                     </li>
                     <li>
                         <a href="{% url 'contact' %}">Контакты</a>
@@ -70,7 +70,7 @@
                 </ul>
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <a href="/">Главная</a>
+                        <a href="{% url 'index' %}">Главная</a>
                     </li>
                     <li>
                         <a href="{% url 'contact' %}">Контакты</a>
