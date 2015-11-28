@@ -23,35 +23,38 @@
   <li role="presentation"><a href="#">PyBursa</a></li>
   <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
   <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-  <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
+  <li role="presentation"><a href={% url 'students:list_view' %}?course_id={{ courses.id }}>Students</a></li>
 </ul>
 <div class="container">
 <div class="jumbotron">
-  <h2>Web ooniversity</h2>
-  <p> We specialize on 'popular' programming languages. <br> We preach max practice and strict system of home tasks.</p>
+  <h2>{{ courses.name }}</h2>
+  <p>{{ courses.description }}</p>  
 </div>
 </div>
 
 <div class="container">
 <div class="table-responsive">
+<h3> Course Lessons </h3>     
   <table class="table table-hover table-bordered">
-    <tr>
-      <td> <b>CourseName<b> <td>
-      <td> <b>Description<b> <td>
-    </tr>  
-    <tr class="info"> 
-      <td><a href="{% url 'courses:detail' 1 %}">{{ courses.0.name }}</a><td>
-      <td> {{ courses.0.short_description }} <td>  
-    </tr>
-    <tr> 
-      <td><a href="{% url 'courses:detail' 2 %}"> {{ courses.1.name }}</a><td>
-      <td> {{ courses.1.short_description }} <td>  
-    </tr>
-    <tr class="info"> 
-      <td><a href="{% url 'courses:detail' 3 %}"> {{ courses.2.name }}</a><td>
-      <td> {{ courses.2.short_description }} <td>  
-    </tr>  
-  </table>   
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Lesson</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for lesson in lessons %}
+    {% if lesson.course.name == courses.name %} 
+      <tr>
+        <td>{{ lesson.order }}</td>
+        <td>{{ lesson.subject }}</td>
+        <td>{{ lesson.description }}</td>
+      </tr>
+    {% endif %}  
+    {% endfor %}    
+    </tbody>    
+  </table>
 </div>
 </div>
 
