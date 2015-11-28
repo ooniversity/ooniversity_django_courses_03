@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'gntqft^ormuefxuz%ss3iprixwmao#f9-3fia31sr(m9id6b06'
+SECRET_KEY = 'xu1&h)c4#(qhsu1n6lcb^%n+e41nrwu(dcg5la_c5jazs7q=d8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,9 +36,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'instructors',
     'polls',
     'quadratic',
+    'courses',
+    'students',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -69,9 +70,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'us-US'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -84,5 +85,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+TEMPLATE_DIRS=(os.path.join(BASE_DIR, 'templates'), )
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
