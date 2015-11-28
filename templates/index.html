@@ -79,9 +79,33 @@
           <em class="bb"><b>&nbsp;</b></em>
         </div>
 
+    </div>
 
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">The list of available courses</div>
+      {% if courses_list %}
+        <!-- Table -->
+        <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+        <th>Course Name</th>
+        <th>Course Short Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for course in courses_list %}
+        <tr>
+        <td>{{ course.name }}</td>
+        <td>{{ course.short_description }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
 
-
+      {% else %}
+        <p>No courses are available.</p>
+      {% endif %}
     </div>
 
       <footer>
