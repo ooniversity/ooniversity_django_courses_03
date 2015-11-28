@@ -109,6 +109,7 @@ body {
 }
 tbody > tr > td:first-child {
   text-align: center;
+  vertical-align: middle;
 }
 #scard > tbody > tr > td {
   text-align: left;
@@ -160,3 +161,30 @@ tbody > tr > td:first-child {
   width : 45%;;
   text-align: left;
 }
+
+/*
+tbody > tr > td > a {
+  font-size: 0.9em;
+}
+*/
+
+thead > tr > th {
+  background: #fefcea;
+  background: -moz-linear-gradient(top,  #fefcea 0%, #f1da36 100%);
+  background: -webkit-linear-gradient(top,  #fefcea 0%,#f1da36 100%);
+  background: linear-gradient(to bottom,  #fefcea 0%,#f1da36 100%);
+  text-align: center;
+}
+
+.wide28 {
+  width:28%;
+}
+
+.wide5 {
+  width:5%;
+}
+
+tbody > tr > td {
+  vertical-align:middle !important;
+}
+
