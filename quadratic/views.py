@@ -1,49 +1,67 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.http import HttpResponse
+import math
+
+
+def replacer(dictionary):
+    for item in dictionary.keys():
+        if not dictionary[item]:
+            dictionary[item] = 'коэффициент не определен'
+        elif dictionary[item].isdigit():
+            dictionary[item] = ''
+        else:
+            dictionary[item] = 'коэффициент не целое число'
+    return dictionary
+
+
+def quadratic_calc(a=None, b=None, c=None):
+    errors = {'a': '', 'b': '', 'c': ''}
+    get_dict = lambda: {'a': a, 'b': b, 'c': c, 'd': d, 'x1': x1, 'x2': x2, 'result': result, 'errors': errors}
+
+    try:
+        a, b, c = int(a), int(b), int(c)
+    except ValueError:
+        x1, x2, d = None, None, None
+        result = None
+        errors = replacer({'a': a, 'b': b, 'c': c})
+        return get_dict()
+
+    try:
+        d = round((math.pow(b, 2) - 4 * a * c), 2)
+
+        if d > 0:
+            x1 = round(((-b + math.sqrt(d)) / (2.0 * a)), 2)
+            x2 = round(((-b - math.sqrt(d)) / (2.0 * a)), 2)
+            result = [
+                'Дискриминант: {0}'.format(d),
+                'Квадратное уравнение имеет два действительных корня: x1 = {0}, x2 = {1}'.format(x1, x2),
+            ]
+        elif d == 0:
+            x1 = x2 = round((-b / (2.0 * a)), 2)
+            result = [
+                'Дискриминант: {0}'.format(d),
+                'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {0}'.format(
+                    x1),
+            ]
+        elif d < 0:
+            x1, x2 = None, None
+            result = [
+                'Дискриминант: {0}'.format(d),
+                'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.',
+            ]
+
+    except ZeroDivisionError:
+        errors = {'a': 'коэффициент при первом слагаемом уравнения не может быть равным нулю', 'b': '', 'c': ''}
+        x1, x2, d = None, None, None
+        result = None
+
+    return get_dict()
+
 
 def quadratic_results(request):
-	a = request.GET['a']
-	b = request.GET['b']
-	c = request.GET['c']
-	error_1 = "коэффициент не определен"
-	error_2 = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
-	error_3 = "коэффициент не целое число"
-	data = {'a' : a, 'b' : b, 'c' : c}
+    result = quadratic_calc(request.GET['a'], request.GET['b'], request.GET['c'])
+    return render(request, 'results.html', {'result': result})
 
-	def error_check(arg):
-		out =None
-		if arg == '':
-			out = error_1
-		elif arg.replace('.', '').replace('-', '').isdigit() == False:
-			out = error_3
-		elif arg[0] != '-' and not arg.isdigit():
-			out = error_3	
-		return out
-		
-	def discr(a, b, c):
-		d = pow(b, 2) - 4*a*c
-		return d
 
-	if error_check(a) is not None:
-		data['error_a'] = error_check(a)
-	elif int(a) == 0:
-		data['error_a'] = error_2
-	if error_check(b) is not None:
-		data['error_b'] = error_check(b)
-	if error_check(c) is not None:
-		data['error_c'] = error_check(c)
-	if not (data.get('error_a') or data.get('error_b') or data.get('error_c')):
-		d = discr(int(a), int(b), int(c))
-		data['print_d'] = "Дискриминант: %(d)d" % { 'd':d }
-		if d < 0:
-			data['d_out'] = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
-		if d == 0:
-			x = -int(b) / 2*int(a)
-			data['d_out'] = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s" % float(x)
-		if d > 0:
-			x1 = (-int(b) + d ** (1/2.0)) / 2*int(a)
-			x2 = (-int(b) - d ** (1/2.0)) / 2*int(a)
-			data['d_out'] = "Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" % (float(x1), float(x2))
-	return render(request, 'results.html', data)
-	
+def equation(request):
+    return render(request, 'equation.html')

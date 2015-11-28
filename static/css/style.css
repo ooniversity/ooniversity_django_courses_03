@@ -1,5 +1,5 @@
 body {
-  padding-top: 75px;
+  padding-top: 20px;
 }
 .jumbotron {
   text-align: center;
@@ -9,53 +9,83 @@ body {
   padding: 14px 24px;
   font-size: 14px;
 }
-.descr {
+.footer {
+  text-align: center;
+  height: 25px;
+}
+.course {
   text-align: left;
   font-size: 10px;
 }
-.contact {
-  text-align: center;
-  font-size: 30px;
-}  
-h1.descr {
-  font-size: 30px;
+h1.course {
+  font-size: 32px;
   font-weight: bold;
 }
-.about{
-  padding: 0px 0px;
-  text-align: justify;
-  font-size: 10px;
+
+h2.course {
+  font-size: 20px;
+  font-weight: bold;
 }
-.program {
-  min-height: 1px;
-  padding-right: 70px;
-  padding-left: 60px;
-  text-align: justify;
+
+h3.course {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+p.course {
+  font-size: 14px;
+}
+
+
+ul.course {
+  list-style-type: none;
+}
+li.course {
+  font-weight: bold;
+  padding: 15px;
+  font-size: 18px;
+}
+ol.course {
+  font-weight: normal;
+  font-variant:normal;
+  font-size: 14px;
+}
+.footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
 }
 .row {
   text-align: left;
   padding: 5px 10px;
-  font-size: 16px;
+  font-size: 14px;
 }
-.title
+.panel-title
 {
-  font-size: 24px;
+  font-size: 14px;
   font-weight: bold;
 }
-.thumbnail .contact_caption {
-  padding: 9px;
-  color: #333;
+.face {
+  margin: 0px auto;
+  display: block;
 }
-.contact_caption {
-  padding-top: 8px;
-  padding-bottom: 8px;
+.starter-regullar{
+  padding: 0px 70px;
   text-align: left;
+  font-size: 10px;
 }
-.footer {
-  text-align: left;
-  padding: 50px;
+.custom-header {
+  padding: 0px 80px;
 }
 .table {
   text-align: left;
-  background-color: #F0F8FF;
+}
+a.table {
+  color: black;
+  font-size: 14px;
+  font-weight: normal;
+}
+tr.generic {
+  background-color: aliceblue;
 }
