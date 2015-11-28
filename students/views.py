@@ -12,5 +12,4 @@ class ListView(generic.ListView):
     context_object_name = 'students_list'
 
     def get_queryset(self):
-        """Return the last five published questions."""
         return Student.objects.all()

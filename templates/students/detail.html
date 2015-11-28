@@ -47,7 +47,7 @@
           <ul class="nav navbar-nav">
             <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li class="active"><a href="{% url 'student_list' %}">Students</a></li>
+            <li class="active"><a href="{% url 'students:list' %}">Students</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -56,7 +56,7 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1 class="starter-template">Gubkina Anna</h1>
+        <h1 class="starter-template">{{ student.name }} {{ student.surname }}</h1>
 
       </div>
 
@@ -67,39 +67,30 @@
       <tbody>
       <tr>
       <td>Surname</td>
-      <td>Gubkina</td>
+      <td>{{ student.surname }}</td>
       </tr>
       <tr>
       <td>Name</td>
-      <td>Anna</td>
+      <td>{{ student.name }}</td>
       </tr>
-      <tr>
-      <td>Patronymic</td>
-      <td>Sergeevna</td>
-      </tr>
-      <tr>
       <td>Birth Date</td>
-      <td>15 February 1980</td>
+      <td>{{ student.date_of_birth }}</td>
       </tr>
       <tr>
       <td>Address</td>
-      <td>Kharkov, Ivanova, 1</td>
+      <td>{{ student.address }}</td>
       </tr>
       <tr>
       <td>E-mail</td>
-      <td>agubkina@gmail.com</td>
+      <td>{{ student.email }}</td>
       </tr>
       <tr>
       <td>Skype</td>
-      <td>a_gubkina</td>
+      <td>{{ student.skype }}</td>
       </tr>
       <tr>
-      <td>Average Grade</td>
-      <td>4.8</td>
-      </tr>
-      <tr>
-      <td>Rating</td>
-      <td>35</td>
+      <td>Phone</td>
+      <td>{{ student.phone }}</td>
       </tr>
       </tbody>
       </table>
