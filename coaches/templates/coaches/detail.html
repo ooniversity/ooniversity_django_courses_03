@@ -63,7 +63,7 @@
                                <td><strong>Teacher in:</strong></td>
                                <td>
                                    {% for teacher in teacher_in %}
-                                      <a href="{% url 'courses:detail' teacher.id %}">{{ teacher.name }}</a> (students <a href="{% url 'students:list_view' %}?course_id={{ teacher.id }}"> list </a>)
+                                      <a href="{% url 'courses:detail' teacher.id %}">{{ teacher.name }}</a> students list: <a href="{% url 'students:list_view' %}?course_id={{ teacher.id }}"> <span class="glyphicon glyphicon-education" aria-hidden="true"></span> </a> <br>
                                    {% endfor %}
                                </td>                
                             </tr>
@@ -71,7 +71,7 @@
                                <td><strong>Assistant in:</strong></td>
                                <td>
                                    {% for assistant in assistant_in %}
-                                      <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a> (students  <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"> list</a>)
+                                      <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a> students list: <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"> <span class="glyphicon glyphicon-education" aria-hidden="true"></span> </a> <br>
                                     {% endfor %}
                                 </td>                
                             </tr>
