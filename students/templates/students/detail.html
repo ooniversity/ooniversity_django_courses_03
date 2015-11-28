@@ -40,7 +40,7 @@
       </div>
     </nav>
     <div class="container">
-      <h1 class="top1">{{ student.surname }} {{ student.name }}</h1>
+      <h1> {{ student.surname }} {{ student.name }} </h1>
       <div class="thumbnail">
         <div class="row">
           <div class="col-md-12 lead">
@@ -56,27 +56,27 @@
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
                     <table class="table table-bordered">
-                          <th scope="row">дата рождения</th>
+                          <th>дата рождения</th>
                           <td>{{ student.date_of_birth|date:"N d, Y" }}</td>
                         </tr>
                         <tr>
-                          <th scope="row">адрес</th>
+                          <th>адрес</th>
                           <td>{{ student.address }}</td>
                         </tr>
                         <tr>
-                          <th scope="row">почта</th>
+                          <th>почта</th>
                           <td>{{ student.email }}</td>
                         </tr>
                         <tr>
-                          <th scope="row">Skype</th>
+                          <th>Skype</th>
                           <td>{{ student.skype }}</td>
                         </tr>
                         <tr>
-                          <th scope="row">телефон</th>
+                          <th>телефон</th>
                           <td>{{ student.phone }}</td>
                         </tr>
                         <tr>
-                          <th scope="row">курсы</th>
+                          <th>курсы</th>
                           <td>{% for course in student.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>{% endfor %}</td>
                         </tr>
                         
