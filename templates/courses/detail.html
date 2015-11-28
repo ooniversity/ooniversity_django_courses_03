@@ -31,10 +31,16 @@
 	  		</div>
 		</nav>
 		<div class ='container'>
-			<h2 class='possition'>PyBursa</h2>
+			<h2 class='possition' align="center">ItBursa</h2>
 			<div class='jumbotron'>
 				<h2>{{ course.name }}</h2>
 				<h3>{{ course.description }}</h3>
+			</div>
+			<div text-align='center'>
+				<h2 align="center">Преподователь курса</h2>
+				<h3 align="center"><a href="{% url 'coaches:detail' c %}">{{ coach }}</a></h3>
+				<h2 align="center">Ассистент курса</h2>
+				<h3 align="center"><a href="{% url 'coaches:detail' c %}">{{ assistant }}</a></h3>
 			</div>
 			<div class='grey'>
 				<table class='table'>
