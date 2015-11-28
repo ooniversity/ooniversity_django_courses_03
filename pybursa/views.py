@@ -1,14 +1,12 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 
 from courses.models import Course
 
 
 def index(request):
-    list_courses = Course.objects.all().order_by('name')
-    context = {
-        'list_courses': list_courses,
-    }
-    return render_to_response('courses/list_courses.html', context)
+    courses = Course.objects.all()
+    return render(request, 'index.html', {'courses': courses})
+
 
 def contact(request):
-    return render_to_response('contact.html')
+    return render(request, 'contact.html')

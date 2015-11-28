@@ -1,21 +1,24 @@
-# -*- coding: utf-8 -*-
 from django.db import models
+
+from coaches.models import Coach
 
 
 class Course(models.Model):
-    name = models.CharField('Название курса', max_length=100)
-    slug = models.SlugField('URL', unique=True)
-    short_description = models.CharField('Краткле описание', max_length=250)
-    description = models.TextField('Описание', blank=True)
+    name = models.CharField(max_length=255)
+    short_description = models.CharField(max_length=20)
+    description = models.TextField(null=True, blank=True)
+    coach = models.ForeignKey(
+        Coach, null=True, blank=True, related_name='coach_courses')
+    assistant = models.ForeignKey(
+        Coach, null=True, blank=True, related_name='assistant_courses')
 
     def __unicode__(self):
         return self.name
 
 
 class Lesson(models.Model):
-    subject = models.CharField('Тема', max_length=150)
-    slug = models.SlugField('URL', unique=True)
-    description = models.TextField('Описание', blank=True)
+    subject = models.CharField(max_length=255)
+    description = models.TextField(null=True, blank=True)
     course = models.ForeignKey(Course)
     order = models.PositiveIntegerField()
 
