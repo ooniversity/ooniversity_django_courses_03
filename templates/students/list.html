@@ -64,7 +64,7 @@
           {% for item in students_list %}
           <tr>
             <td>{{ forloop.counter }}</td>
-            <td><a href="{% url 'students:detail' pk=item.id %}">{{ item.name }} {{ item.surname }}</a></td>
+            <td><a href="{% url 'students:detail' pk=item.id %}">{{ item.surname }} {{ item.name }}</a></td>
             <td>{{ item.address }}</td>
             <td>{{ item.skype }}</td>
 
