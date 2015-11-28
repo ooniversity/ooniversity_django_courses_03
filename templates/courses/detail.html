@@ -64,7 +64,7 @@
       <tbody>
           {% for item in course_object.lesson_set.all %}
           <tr>
-            <td>{{ forloop.counter }}</td>
+            <td>{{ item.order }}</td>
             <td>{{ item.subject }}</td>
             <td>{{ item.description }}</td>
           </tr>
