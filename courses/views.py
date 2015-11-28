@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.views import generic
 
 from courses.models import Course, Lesson
 
 
-class DetailView(generic.DetailView):
-    model = Course
-    template_name = 'courses/detail.html'
+def detail (request, course_id):
+       cd = Course.objects.get(id=course_id)
+       ll = Lesson.objects.filter(course=course_id) 
+       return render (request, 'courses/detail.html',  {'course_detail': cd, 'lessons_list': ll})
 

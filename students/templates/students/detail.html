@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main</title>
+    {% load staticfiles %}
+  </head>
+  <body >
+    <!-- menu start -->  
+    <nav >
+      <div >
+        <div >
+          <a  href="{% url 'index' %}">
+            <img  src="{% static 'images/gb-logo.jpg' %}">
+          </a>
+        </div>
+        <div  id="bs-example-navbar-collapse-1">
+          <ul >
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- menu end -->  
+    <div>
+    <h2> {{ student_detail.full_name }} <br>
+    <small>student's card </small></h2>
+    <br>
+      <div >
+        <table >
+                <tbody>
+                    <tr>
+                       <td><strong>Birthday</strong></td>
+                       <td>{{ student_detail.date_of_birth }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Address</strong></td>
+                       <td>{{ student_detail.address }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>E-mail</strong></td>
+                       <td>{{ student_detail.email }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Skype</strong></td>
+                       <td>{{ student_detail.skype }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Phone</strong></td>
+                       <td>{{ student_detail.phone }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Assigned courses</strong></td>
+                       <td>
+                           {% for course in student_detail.courses.all %}
+                                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                           {% endfor %}
+                        </td>                
+                    </tr>
+                  </tbody>
+             </table>     
+        </div>        
+    </div>  
+  </body>
+</html>
