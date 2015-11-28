@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^student_detail/', views.student_detail, name='student_detail'),
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^courses/', include('courses.urls', namespace="courses")),    
+    url(r'^courses/', include('courses.urls', namespace="courses")),
     url(r'^students/', include('students.urls', namespace="students")),
+    url(r'^coaches/', include('coaches.urls', namespace="coaches")),
 )
