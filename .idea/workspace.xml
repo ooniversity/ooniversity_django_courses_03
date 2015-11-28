@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="748ada63-ee43-4d47-8de8-7141d5969b36" name="Default" comment="selector_delete">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/coaches/migrations/0001_initial.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/courses/migrations/0003_auto_20151128_1820.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/coaches/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/coaches/detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/coaches/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/coaches/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/coaches/views.py" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\quadratic\admin.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\quadratic\models.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\quadratic\templates\results.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\quadratic\urls.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\quadratic\views.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/courses/detail.html" afterPath="$PROJECT_DIR$/templates/courses/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/courses/models.py" afterPath="$PROJECT_DIR$/courses/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pybursa/settings.py" afterPath="$PROJECT_DIR$/pybursa/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pybursa/urls.py" afterPath="$PROJECT_DIR$/pybursa/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/courses/views.py" afterPath="$PROJECT_DIR$/courses/views.py" />
+    <list default="true" id="748ada63-ee43-4d47-8de8-7141d5969b36" name="Default" comment="add_coaches_app">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coaches/models.py" afterPath="$PROJECT_DIR$/coaches/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\quadratic\__init__.py" afterPath="$PROJECT_DIR$/coaches/__init__.py" />
-      <change type="MOVED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\quadratic\migrations\__init__.py" afterPath="$PROJECT_DIR$/coaches/migrations/__init__.py" />
-      <change type="MOVED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\quadratic\tests.py" afterPath="$PROJECT_DIR$/coaches/tests.py" />
     </list>
     <ignored path="pybursa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,21 +92,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/coaches/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3788301">
+            <state vertical-scroll-proportion="-19.038462">
               <caret line="49" column="98" selection-start-line="49" selection-start-column="98" selection-end-line="49" selection-end-column="98" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/coaches/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.75064933">
+              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -208,12 +188,12 @@
         <option value="$PROJECT_DIR$/courses/models.py" />
         <option value="$PROJECT_DIR$/coaches/admin.py" />
         <option value="$PROJECT_DIR$/courses/views.py" />
-        <option value="$PROJECT_DIR$/coaches/models.py" />
         <option value="$PROJECT_DIR$/coaches/urls.py" />
         <option value="$PROJECT_DIR$/pybursa/urls.py" />
         <option value="$PROJECT_DIR$/templates/courses/detail.html" />
         <option value="$PROJECT_DIR$/coaches/views.py" />
         <option value="$PROJECT_DIR$/templates/coaches/detail.html" />
+        <option value="$PROJECT_DIR$/coaches/models.py" />
       </list>
     </option>
   </component>
@@ -270,6 +250,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ooniversity_django_courses_03" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pybursa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ooniversity_django_courses_03" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coaches" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -607,7 +601,13 @@
       <option name="project" value="LOCAL" />
       <updated>1448718898504</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add_coaches_app">
+      <created>1448741089951</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1448741089951</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -615,6 +615,7 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2543021" sideWeight="0.5025674" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32952693" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" x="525" y="292" width="816" height="393" />
@@ -628,7 +629,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25189108" sideWeight="0.5073069" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967373" sideWeight="0.4969743" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967373" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -659,7 +659,8 @@
     <MESSAGE value="admin_config" />
     <MESSAGE value="caption_delete" />
     <MESSAGE value="selector_delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="selector_delete" />
+    <MESSAGE value="add_coaches_app" />
+    <option name="LAST_COMMIT_MESSAGE" value="add_coaches_app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1048,16 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coaches/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/courses/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1084,9 +1075,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/coaches/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3788301">
+        <state vertical-scroll-proportion="-19.038462">
           <caret line="49" column="98" selection-start-line="49" selection-start-column="98" selection-end-line="49" selection-end-column="98" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coaches/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75064933">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
