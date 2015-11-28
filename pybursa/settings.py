@@ -50,9 +50,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'django_site.urls'
+ROOT_URLCONF = 'pybursa.urls'
 
-WSGI_APPLICATION = 'django_site.wsgi.application'
+WSGI_APPLICATION = 'pybursa.wsgi.application'
 
 
 # Database
