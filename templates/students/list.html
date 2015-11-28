@@ -41,9 +41,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Главная</a></li>
-            <li><a href="{% url 'contact' %}">Контакты</a></li>
-            <li class="active"><a href="{% url 'students:list_view' %}">Студенты</a></li>
+            <li><a href='{% url 'index' %}'>Главная</a></li>
+            <li><a href='{% url 'contact' %}'>Контакты</a></li>
+            <li class="active"><a href='{% url 'students:list_view' %}'>Студенты</a></li>
             <!-- <li><a href="{% url 'results' %}">Equation</a></li> -->
           </ul>
         </div>
@@ -71,12 +71,12 @@
               {% for student in students_list %}
                 <tr>
                   <td>{{ student.id }} </td>
-                  <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
+                  <td><a href='{% url 'students:detail' student.id %}'>{{ student.surname }} {{ student.name }}</a></td>
                   <td>{{ student.address }}</td>
                   <td>{{ student.skype }}</td>
                   <td>
                     {% for course in student.courses.all %}
-                      <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                      <a href='{% url 'courses:detail' course.id %}'>{{ course.name }}</a><br>
                     {% endfor %}
                   </td>
                 </tr>
