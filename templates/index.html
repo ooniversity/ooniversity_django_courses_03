@@ -49,7 +49,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'student_list' %}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
             <li><a href="{% url 'equation' %}">Equotion</a></li>
           </ul>
         </div>
@@ -59,160 +59,30 @@
     <div class="container theme-showcase" role="main">
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1 class="course">Description</h1>
+        <h1 class="course">Ooniversity</h1>
         <p class="starter-regullar">This course introduces the student to the Python language. Upon completion of this class, the student will be able to write non trivial 
         Python programs dealing with a wide variety of subject matter domains.
         </p>
-        <h1 class="course">Program</h1>
-        <ul class="course">
-          <li class="course">Chapter 1: An Introduction to Python
-            <ol class="course">
-              <li>Introduction</li>
-              <li>A Brief History of Python</li>
-              <li>Python Versions</li>
-              <li>Installing Python</li>
-              <li>Environment Variables</li>
-              <li>Executing Python from the Command Line</li>
-              <li>IDLE</li>
-              <li>Editing Python Files</li>
-              <li>Python Documentation</li>
-              <li>Getting Help</li>
-              <li>Dynamic Types</li>
-              <li>Python Reserved Words</li>
-              <li>Naming Conventions</li>
-            </ol>
-          </li>
-          <li class="course">Chapter 2: Basic Python Syntax
-            <ol class="course">
-              <li>Basic Syntax</li>
-              <li>Comments</li>
-              <li>String Values</li>
-              <li>String Methods</li>
-              <li>The <tt>format</tt> Method</li>
-              <li>String Operators</li>
-              <li>Numeric Data Types</li>
-              <li>Conversion Functions</li>
-              <li>Simple Output</li>
-              <li>Simple Input</li>
-              <li>The <tt>%</tt> Method</li>
-              <li>The <tt>print</tt> Function</li>
-            </ol>
-          </li>
-          <li class="course">Chapter 3: Language Components
-            <ol class="course">
-              <li>Indenting Requirements</li>
-              <li>The <tt>if</tt> Statement</li>
-              <li>Relational and Logical Operators</li>
-              <li>Bit Wise Operators</li>
-              <li>The <tt>while</tt> Loop</li>
-              <li><tt>break</tt> and <tt>continue</tt></li>
-              <li>The <tt>for</tt> Loop</li>
-            </ol>
-          </li>
-          <li class="course">Chapter 4: Collections
-            <ol class="course">
-              <li>Introduction</li>
-              <li>Lists</li>
-              <li>Tuples</li>
-              <li>Sets</li>
-              <li>Dictionaries</li>
-              <li>Sorting Dictionaries</li>
-              <li>Copying Collections</li>
-              <li>Summary</li>
-            </ol>
-          </li>
-          <li class="course">Chapter 5: Functions
-            <ol class="course">
-              <li>Introduction</li>
-              <li>Defining Your Own Functions</li>
-              <li>Parameters</li>
-              <li>Function Documentation</li>
-              <li>Keyword and Optional Parameters</li>
-              <li>Passing Collections to a Function</li>
-              <li>Variable Number of Arguments</li>
-              <li>Scope</li>
-              <li>Functions - "First Class Citizens"</li>
-              <li>Passing Functions to a Function</li>
-              <li><tt>map</tt></li>
-              <li><tt>filter</tt></li>
-              <li>Mapping Functions in a Dictionary</li>
-              <li>Lambda</li>
-              <li>Inner Functions</li>
-              <li>Closures</li>
-            </ol>
-          </li>
-          <li class="course">Chapter 6: Modules
-            <ol class="course">
-              <li>Modules</li>
-              <li>Standard Modules - <tt>sys</tt></li>
-              <li>Standard Modules - <tt>math</tt></li>
-              <li>Standard Modules - <tt>time</tt></li>
-              <li>The <tt>dir</tt> Function</li>
-            </ol>
-          </li>
-          <li class="course">Chapter 7: Exceptions
-            <ol class="course">
-              <li>Errors</li>
-              <li>Runtime Errors</li>
-              <li>The Exception Model</li>
-              <li>Exception Hierarchy</li>
-              <li>Handling Multiple Exceptions</li>
-              <li><tt>raise</tt></li>
-              <li><tt>assert</tt></li>
-            </ol>
-          </li>
-          <li class="course">Chapter 8: Input and Output
-            <ol class="course">
-              <li>Introduction</li>
-              <li>Data Streams</li>
-              <li>Creating Your Own Data Streams</li>
-              <li>Access Modes</li>
-              <li>Writing Data to a File</li>
-              <li>Reading Data From a File</li>
-              <li>Additional File Methods</li>
-              <li>Using Pipes as Data Streams</li>
-              <li>Handling IO Exceptions</li>
-              <li>Working with Directories</li>
-              <li>Metadata</li>
-              <li>The <tt>pickle</tt> Module</li>
-            </ol>
-          </li>
-          <li class="course">Chapter 9: Classes in Python
-            <ol class="course">
-              <li>Classes in Python</li>
-              <li>Principles of Object Orientation</li>
-              <li>Creating Classes</li>
-              <li>Instance Methods</li>
-              <li>File Organization</li>
-              <li>Special Methods</li>
-              <li>Class Variables</li>
-              <li>Inheritance</li>
-              <li>Polymorphism</li>
-              <li>Type Identification</li>
-              <li>Custom Exception Classes</li>
-            </ol>
-          </li>
-          <li class="course">Chapter 10: Regular Expressions
-            <ol class="course">
-              <li>Introduction</li>
-              <li>Simple Character Matches</li>
-              <li>Special Characters</li>
-              <li>Character Classes</li>
-              <li>Quantifiers</li>
-              <li>The Dot Character</li>
-              <li>Greedy Matches</li>
-              <li>Grouping</li>
-              <li>Matching at Beginning or End</li>
-              <li>Match Objects</li>
-              <li>Substituting</li>
-              <li>Splitting a String</li>
-              <li>Compiling Regular Expressions</li>
-              <li>Flags</li>
-            </ol>
-          </li>
-      </ul>
-      
-      </div>
+        <h1 class="course">It's time to choise.</h1>
+        <div class="bs-example" data-example-id="simple-table">
+          <table class="table table-striped table table-bordered">
+            <caption>Courses list.</caption>
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for course in courses %}
+              <tr>
+                <th scope="row"><a class="table" href="{% url 'courses:detail' course.id %}">{{ course }}</a></th>
+                <td>{{ course.short_description }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div><!-- /example -->
       
       
     </div>

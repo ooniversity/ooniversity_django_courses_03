@@ -21,6 +21,22 @@ h1.course {
   font-size: 32px;
   font-weight: bold;
 }
+
+h2.course {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h3.course {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+p.course {
+  font-size: 14px;
+}
+
+
 ul.course {
   list-style-type: none;
 }

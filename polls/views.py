@@ -12,7 +12,7 @@ from .models import Question, Choice
 
 """
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return HttpResponse("Hello, world. You're at the cources index.")
 
 
 def index(request):
@@ -23,7 +23,7 @@ def index(request):
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    template = loader.get_template('polls/index.html')
+    template = loader.get_template('cources/index.html')
     context = RequestContext(request, {
         'latest_question_list': latest_question_list,
     })
@@ -34,7 +34,7 @@ def index(request):
 def index(request):
     latest_question_list = Question.objects.all().order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
-    return render(request, 'polls/index.html', context)
+    return render(request, 'cources/index.html', context)
 
 
 def detail(request, question_id):
@@ -58,19 +58,19 @@ def detail(request, question_id):
         question = Question.objects.get(pk=question_id)
     except Question.DoesNotExist:
         raise Http404
-    return render(request, 'polls/detail.html', {'question': question})
+    return render(request, 'cources/detail.html', {'question': question})
 
 
 
 
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/detail.html', {'question': question})
+    return render(request, 'cources/detail.html', {'question': question})
 """
 
 
 class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
+    template_name = 'cources/index.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
@@ -80,12 +80,12 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Question
-    template_name = 'polls/detail.html'
+    template_name = 'cources/detail.html'
 
 
 class ResultsView(generic.DetailView):
     model = Question
-    template_name = 'polls/results.html'
+    template_name = 'cources/results.html'
 
 def vote(request, question_id):
     p = get_object_or_404(Question, pk=question_id)
@@ -93,7 +93,7 @@ def vote(request, question_id):
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'polls/detail.html', {
+        return render(request, 'cources/detail.html', {
             'question': p,
             'error_message': "You didn't select a choice.",
         })
@@ -103,9 +103,9 @@ def vote(request, question_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+        return HttpResponseRedirect(reverse('cources:results', args=(p.id,)))
 
 
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/results.html', {'question': question})
+    return render(request, 'cources/results.html', {'question': question})
