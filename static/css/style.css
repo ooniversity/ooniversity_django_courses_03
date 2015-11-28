@@ -1,0 +1,59 @@
+.first-p{
+	font-size: 12px;
+	font-family: Arial;
+	font: bold italic 120% serif;
+}
+#student_name{
+	text-align:  center;
+}
+.pybursa{
+    text-align:  center;
+}
+div div ul li{
+	font: bold italic 110% serif;
+}
+.description2{
+	font-variant: small-caps;
+	font: bold italic 230% serif;
+}
+.program{
+	font-variant: small-caps;
+	font: bold italic 230% serif;
+}
+.pybursa_project{
+	font-variant: small-caps;
+	font: bold italic 330% serif;
+	text-align:  center;
+}
+.footer_div{
+	background: #fc0;
+}
+.end_of_course{
+	font-family: Arial;
+	text-align:  center;
+}
+.founder{
+	background: #fc0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 10px;
+}
+.director{
+	background: #fc0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 10px;
+}
+.manager{
+	background: #fc0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 10px;
+}
+.alert1{
+	padding: 10px;
+	text-align:  center;
+}
+.alert2{
+	padding: 10px;
+}
+.hide{
+	display:none;
+}

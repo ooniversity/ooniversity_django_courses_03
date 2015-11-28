@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <title>Contact</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script type="text/javascript" src="../static/js/mine.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'index' %}">Main</a></li>
+                <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+                <li><a href="{% url 'student_list' %}">Students</a><li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div></br></br></br></br></br>
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="../static/images/darka.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2 class="manager">Manager</h2>
+          <ul>
+            <li>Name: Дария Михалевич</li>
+            <li>Skype: darka.darka.darka.darka.</li>
+            <li>Email: daria.mykhalevych@gmail.com</li>
+            <li>Phone: +38 096 469 15 57</li>
+          </ul>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="../static/images/pasha.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2 class="founder">Founder</h2>
+          <ul>
+            <li>Name: Павел Обод</li>
+            <li>Skype: azaless</li>
+            <li>Email: itbursa100@gmail.com</li>
+            <li>Phone: +38 096 469 15 57</li>
+          </ul>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="../static/images/alena.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2 class="director">Director</h2>
+          <ul>
+            <li>Name: Алена Чайка</li>
+            <li>Skype: alena.itbursa</li>
+            <li>Email: alena.itbursa@gmail.com</li>
+            <li>Phone: +38 063 625 07 55</li>
+          </ul>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+      <!-- FOOTER -->
+      <footer>
+          
+      </footer>
+
+    </div><!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
