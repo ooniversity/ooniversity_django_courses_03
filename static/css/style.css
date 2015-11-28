@@ -1,44 +1,35 @@
-body {
-   background-color: white;
+#logo-container img {
+    margin-bottom: -8px;
 }
 
-a:hover {
-  border: 5px solid #F2F2F2;
+nav {
+    color: #fff;
+    background-color: #689f38;
+    width: 100%;
 }
 
-.description {
-color: red;
+#index-banner {
+    background-image: url('../img/bg_creative.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 450px;
 }
 
-.program {
-color: green;
+footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: #689f38;
 }
 
-a {color:#000060; font-weight: bold;}
-
-.help-block {
-  color:red;
+footer .footer-copyright {
+    font-weight: 300;
 }
 
-.checkbox {
-    float: left;
+footer .footer-copyright {
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(51, 51, 51, 0.08);
 }
-
-.text-info {
-   color: blue;
-}
-
-input[type=button],input[type=submit],button{
-    background:url(images/btn-verzend.jpg) no-repeat;
-    width:91px;
-    height:35px;
-    line-height:35px;
-    border:none;
-    color:#FFF;
-    cursor:pointer;
-}
-
-.text-warning {
-  text-align: left;
-}
-
