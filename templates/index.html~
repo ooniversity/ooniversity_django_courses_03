@@ -38,7 +38,7 @@
         <li class="active"><a href="/index/">Main<span class="sr-only">(current)</span></a></li>
         <li><a href="/contact/">Contact</a></li>
 		<li><a href="/student_list/">Student</a></li>
-		<li><a href="/quadratic/results/">Quadratic</a></li>
+		<li><a href="/quadratic/">Quadratic</a></li>
      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -68,25 +68,6 @@
 		
 
 
-</div>
-<div class="table-responsive">
-        <table class="table table-bordered table-condensed">
-          <thead>
-            <tr>
-              <th class="text-center">Курс</th>
-              <th class="text-center">Описание</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for course in courses %}
-              <tr>
-                <td><a href="{'courses:detail' course.id}">{{ course.name }}</a></td>
-                <td>{{ course.short_description }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
 </div>
 		
 		
