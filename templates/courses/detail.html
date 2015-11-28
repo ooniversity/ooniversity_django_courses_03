@@ -4,12 +4,12 @@
 {% block change_link %}
     <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
 {% endblock %}
+
 {% block change_link_mobi %}
     <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
 {% endblock %}
 
 {% block banner %}
-
     <div class="container">
         <div class="row">
             <div class="col s12">
@@ -49,12 +49,11 @@
             </div>
         </div>
     </div>
-
 {% endblock %}
+
 {% block list_courses %}
     <div class="col s12">
         <h5 class="text-primarycolor">Программа курса</h5>
-
     </div>
     <div class="col s12 l12">
         {% if 'Python' in course.name %}
