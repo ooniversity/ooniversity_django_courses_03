@@ -78,7 +78,7 @@
                         </tr>
                         <tr>
                             <td>курсы ассистент</td>
-                            <td></td>
+                            <td>{% for assistant_course in assistant_courses %}{{ assistant_course.name }}{% endfor %}</td>
                         </tr>
                         
                     </tbody>
