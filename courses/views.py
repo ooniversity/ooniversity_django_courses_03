@@ -8,4 +8,4 @@ def detail(request, course_id):
 
        lessons = Lesson.objects.filter(course=course_id) 
 
-       return render(request, 'courses/detail.html',  {'course': course_id, 'lessons': lessons})
+       return render(request, 'courses/detail.html',  {'courses': course_id, 'lessons': lessons})
