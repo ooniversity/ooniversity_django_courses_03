@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block banner %}{% endblock %}
+
+{% block list_courses %}
+    <div class="col s12">
+        <h5 class="text-primarycolor">Список студентов</h5>
+
+    </div>
+    <div class="col s12 l12">
+
+        <div class="card-panel">
+            <span class="card-title grey-text"></span>
+
+            <div class="row">
+                <div class="col s12">
+                    <table class="responsive-table highlight">
+                        <thead>
+                        <tr>
+                            <th data-field="number">№</th>
+                            <th data-field="name">Фамилия Имя</th>
+                            <th data-field="address">Адрес</th>
+                            <th data-field="skype">Skype</th>
+                            <th data-field="courses">Курсы</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for student in all_students %}
+                            <tr>
+                                <td>{{ student.id }}</td>
+                                <td>
+                                    <a href="{% url 'students:detail' student.id %}"> {{ student.surname }} {{ student.name }} </a>
+                                </td>
+                                <td>{{ student.address }}</td>
+                                <td>{{ student.skype }}</td>
+{#                                <td>{{ student.courses.all }}</td>#}
+                                <td>
+                                    <ul>
+                                        {% for course in student.courses.all %}
+                                        <li><a href="{% url 'courses:detail' course.id %}"> {{ course }} </a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
