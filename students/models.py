@@ -14,4 +14,5 @@ class Student(models.Model):
     courses = models.ManyToManyField(Course, verbose_name='Курсы', related_name="courses")
 
     def __unicode__(self):
-        return '%s %s' % (self.name, self.surname)
+        full_name = '%s %s' % (self.name, self.surname)
+        return full_name
