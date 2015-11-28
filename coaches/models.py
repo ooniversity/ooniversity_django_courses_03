@@ -10,6 +10,8 @@ class Coach(models.Model):
 	skype = models.CharField(max_length = 255)
 	description = models.TextField()
 	
+	def email(self):
+		return self.user.email
 	def name(self):
 		return self.user.first_name
 	def surname(self):

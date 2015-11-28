@@ -11,7 +11,14 @@ class UserAdmin(admin.ModelAdmin):
 	list_filter = (('is_staff', admin.BooleanFieldListFilter),)
 	fields = ['username', 'password', 'first_name', 'last_name', 'email', 'is_staff']
 
+	def gender(self, obj):
+		return obj.coach.gender
+
+	def skype(self, obj):
+		return obj.coach.skype
 	
+	def description(self, obj):
+		return obj.coach.description
 
 
 admin.site.register(Coach, CoachAdmin)
