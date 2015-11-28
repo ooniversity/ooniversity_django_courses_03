@@ -2122,10 +2122,10 @@ else {
             else { // Handle Expandables
                 $panel_headers.filter('.active').each(function () {
                     expandableOpen($(this));
-                });
+        });
             }
 
-        });
+    });
     };
 
     $(document).ready(function () {
@@ -2338,7 +2338,7 @@ else {
                                     hideDropdown();
                                     $(document).unbind('click.' + activates.attr('id') + ' touchstart.' + activates.attr('id'));
                                 }
-                            });
+            });
                         }
                     }
                 });
@@ -2348,7 +2348,7 @@ else {
             // Listen to open and close event - useful for select component
             origin.on('open', function (e, eventType) {
                 placeDropdown(eventType);
-            });
+    });
             origin.on('close', hideDropdown);
 
 
@@ -2435,7 +2435,7 @@ else {
                     complete: function () {
                         if (typeof(options.ready) === "function") {
                             options.ready();
-                        }
+            }
                     }
                 });
             }
@@ -2450,7 +2450,7 @@ else {
                     complete: function () {
                         if (typeof(options.ready) === "function") {
                             options.ready();
-                        }
+            }
                     }
                 });
             }
@@ -2493,7 +2493,7 @@ else {
                         // Call complete callback
                         if (typeof(options.complete) === "function") {
                             options.complete();
-                        }
+            }
                         $overlay.remove();
                         _stack--;
                     }
@@ -2512,7 +2512,7 @@ else {
                             }
                             $overlay.remove();
                             _stack--;
-                        }
+            }
                     }
                 );
             }
@@ -2684,7 +2684,7 @@ else {
                                         complete: function () {
                                             doneAnimating = true;
                                         }
-                                    }
+                }
                                 );
                         } // End Complete
                     }); // End Velocity
@@ -2801,7 +2801,7 @@ else {
 
                         // Remove overflow overrides on ancestors
                         ancestorsChanged.css('overflow', '');
-                    }
+            }
                 });
 
             }
@@ -2865,7 +2865,7 @@ else {
             $(window).resize(function () {
                 window_width = $(window).width();
                 updateParallax(false);
-            });
+        });
 
         });
 
@@ -3011,7 +3011,7 @@ else {
                     if (scrollbarHeight === 0) {
                         scrollbarHeight = 15;
                         $this.find('.indicator').css('bottom', scrollbarHeight);
-                    }
+        }
                     $this.height($(this).height() + scrollbarHeight);
                 }
             });
@@ -3221,7 +3221,7 @@ else {
                         }
                     });
                 }
-            });
+        });
         });
     };
 
@@ -3649,6 +3649,7 @@ else {
     }, 20);
 
 
+
     function createToast(html) {
 
         // Create toast
@@ -3845,7 +3846,7 @@ else {
                                         menu_id.removeAttr('style');
                                         menu_id.css('width', options.menuWidth);
                                     }
-                                }
+                }
                             });
                     }
                 }
@@ -4385,7 +4386,7 @@ else {
                     $(this).siblings('label, i').removeClass('active');
                 }
             });
-        };
+    };
 
         // Text based inputs
         var input_selector = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], textarea';
@@ -4415,13 +4416,13 @@ else {
                     if ($(this).attr('value') === '') {
                         $(this).siblings('label, i').removeClass('active');
                     }
-                });
+        });
 
                 // Reset select
                 formReset.find('select.initialized').each(function () {
                     var reset_text = formReset.find('option[selected]').text();
                     formReset.siblings('input.select-dropdown').val(reset_text);
-                });
+        });
             }
         });
 
@@ -4760,7 +4761,7 @@ else {
                             options.find('li').removeClass('active');
                             $(this).toggleClass('active');
                             $curr_select.siblings('input.select-dropdown').val($(this).text());
-                        }
+            }
 
                         activateOption(options, $(this));
                         $curr_select.find('option').eq(i).prop('selected', true);
@@ -5329,7 +5330,7 @@ else {
                             complete: function () {
                                 $(this).css({display: 'none'});
                             }
-                        }
+            }
                     );
                 }
                 else if ($(e.target).is($('.card .activator')) ||
@@ -5345,7 +5346,7 @@ else {
 
             $('.card-reveal').closest('.card').css('overflow', 'hidden');
 
-        });
+    });
 
     });
 }(jQuery));
@@ -5354,7 +5355,7 @@ else {
 
         $(document).on('click.chip', '.chip .material-icons', function (e) {
             $(this).parent().remove();
-        });
+    });
 
     });
 }(jQuery));
@@ -5430,7 +5431,7 @@ else {
         $(document).on('mouseenter.fixedActionBtn', '.fixed-action-btn:not(.click-to-toggle)', function (e) {
             var $this = $(this);
             openFABMenu($this);
-        });
+    });
         $(document).on('mouseleave.fixedActionBtn', '.fixed-action-btn:not(.click-to-toggle)', function (e) {
             var $this = $(this);
             closeFABMenu($this);
@@ -5445,7 +5446,7 @@ else {
             } else {
                 openFABMenu($menu);
             }
-        });
+    });
 
     });
 
@@ -5637,7 +5638,7 @@ else {
                                     }
                                 });
                             }
-                        });
+            });
                     }
                     else {
                         $this.velocity({
@@ -5711,9 +5712,9 @@ else {
                                 var callbackFunc = new Function(callback);
                                 callbackFunc();
                                 value.done = true;
-                            }
+                }
                         }
-                    }
+            }
                 }
             }
         }, 100);
@@ -6017,12 +6018,12 @@ else {
                                 // Trigger the key movement action.
                                 if (keycodeToMove) {
                                     PickerConstructor._.trigger(P.component.key.go, P, [PickerConstructor._.trigger(keycodeToMove)])
-                                }
+                            }
 
                                 // On “enter”, if the highlighted item isn’t disabled, set the value and close.
                                 else if (!P.$root.find('.' + CLASSES.highlighted).hasClass(CLASSES.disabled)) {
                                     P.set('select', P.component.item.highlight).close()
-                                }
+                            }
                             }
 
 
@@ -6129,7 +6130,7 @@ else {
                             if (thingItem in P.component.item) {
                                 if (thingValue === undefined) thingValue = null
                                 P.component.set(thingItem, thingValue, options)
-                            }
+                        }
 
                             // Then, check to update the element value and broadcast a change.
                             if (thingItem == 'select' || thingItem == 'clear') {
@@ -6137,7 +6138,7 @@ else {
                                 val(thingItem == 'clear' ? '' : P.get(thingItem, SETTINGS.format)).
                                 trigger('change')
                             }
-                        }
+                    }
 
                         // Render a new picker.
                         P.render()
@@ -6165,7 +6166,7 @@ else {
                     if (thing == 'valueSubmit') {
                         if (P._hidden) {
                             return P._hidden.value
-                        }
+                    }
                         thing = 'value'
                     }
 
@@ -6184,7 +6185,7 @@ else {
                                     P.component,
                                     [format, thingValue]
                                 ) : ''
-                        }
+                    }
                         return P.component.get(thing)
                     }
                 }, //get
@@ -6215,14 +6216,14 @@ else {
                             // If it was an internal binding, prefix it.
                             if (internal) {
                                 thingName = '_' + thingName
-                            }
+                        }
 
                             // Make sure the thing methods collection exists.
                             STATE.methods[thingName] = STATE.methods[thingName] || []
 
                             // Add the method to the relative method collection.
                             STATE.methods[thingName].push(thingMethod)
-                        }
+                    }
                     }
 
                     return P
@@ -6239,7 +6240,7 @@ else {
                         thingName = names[i]
                         if (thingName in STATE.methods) {
                             delete STATE.methods[thingName]
-                        }
+                    }
                     }
                     return P
                 },
@@ -6255,7 +6256,7 @@ else {
                             methodList.map(function (method) {
                                 PickerConstructor._.trigger(method, P, [data])
                             })
-                        }
+                    }
                     }
                     _trigger('_' + name)
                     _trigger(name)
@@ -6286,11 +6287,11 @@ else {
 
                             // The picker box class
                             CLASSES.box
-                        ),
+                    ),
 
                         // Picker wrap class
                         CLASSES.wrap
-                    ),
+                ),
 
                     // Picker frame class
                     CLASSES.frame
@@ -6532,7 +6533,7 @@ else {
                 else {
                     P.open()
                 }
-            }
+        }
         }
 
 
@@ -6545,7 +6546,7 @@ else {
             // If it’s a focus event, add the “focused” class to the root.
             if (event.type == 'focus') {
                 P.$root.addClass(CLASSES.focused)
-            }
+        }
 
             // And then finally open the picker.
             P.open()
@@ -6593,7 +6594,7 @@ else {
         // For IE.
         if (element.currentStyle) {
             theme = element.currentStyle[prop]
-        }
+    }
 
         // For normal browsers.
         else if (window.getComputedStyle) {
@@ -6749,10 +6750,10 @@ else {
         },
 
 
-        /**
-         * Create ARIA attribute strings.
-         */
-        ariaAttr: ariaAttr
+    /**
+     * Create ARIA attribute strings.
+     */
+    ariaAttr: ariaAttr
     } //PickerConstructor._
 
 
@@ -6770,7 +6771,7 @@ else {
             // If the picker is requested, return the data object.
             if (options == 'picker') {
                 return componentData
-            }
+        }
 
             // If the component data exists and `options` is a string, carry out the action.
             if (componentData && typeof options == 'string') {
@@ -6784,9 +6785,9 @@ else {
                 var $this = $(this)
                 if (!$this.data(name)) {
                     new PickerConstructor(this, name, Component, options)
-                }
+            }
             })
-        }
+    }
 
         // Set the defaults.
         $.fn[name].defaults = Component.defaults
@@ -6797,8 +6798,8 @@ else {
         if ($.isPlainObject(attribute)) {
             for (var key in attribute) {
                 ariaSet(element, key, attribute[key])
-            }
         }
+    }
         else {
             ariaSet(element, attribute, value)
         }
@@ -6831,6 +6832,7 @@ else {
         } catch (err) {
         }
     }
+
 
 
 // Expose the picker constructor.
@@ -6953,7 +6955,7 @@ else {
                     {interval: timeChange}
                 )
                 this.render()
-            }
+        }
         }
 
 
@@ -7023,10 +7025,10 @@ else {
         else if (type.match(/^(flip|min|max|disable|enable)$/)) {
             if (calendarItem.select && calendar.disabled(calendarItem.select)) {
                 calendar.set('select', calendarItem.select, options)
-            }
+        }
             if (calendarItem.highlight && calendar.disabled(calendarItem.highlight)) {
                 calendar.set('highlight', calendarItem.highlight, options)
-            }
+        }
         }
 
         return calendar
@@ -7102,9 +7104,9 @@ else {
             createDate = function (date) {
                 if (date === true || $.isArray(date) || _.isDate(date)) {
                     return calendar.create(date)
-                }
-                return date
             }
+                return date
+        }
 
         // Create objects if possible.
         if (!_.isInteger(from)) {
@@ -7125,7 +7127,7 @@ else {
         return {
             from: createDate(from),
             to: createDate(to)
-        }
+    }
     } //DatePicker.prototype.createRange
 
 
@@ -7200,7 +7202,7 @@ else {
             if (options && options.nav && viewsetObject && viewsetObject.month !== targetMonth) {
                 targetYear = viewsetObject.year
                 targetMonth = viewsetObject.month
-            }
+        }
 
             // Figure out the expected target year and month.
             targetDateObject = new Date(targetYear, targetMonth + ( options && options.nav ? options.nav : 0 ), 1)
@@ -7218,7 +7220,7 @@ else {
             }
 
             value = [targetYear, targetMonth, targetDate]
-        }
+    }
 
         return value
     } //DatePicker.prototype.navigate
@@ -7253,7 +7255,7 @@ else {
         // If it's an integer, get a date relative to today.
         else if (_.isInteger(value)) {
             value = calendar.now(type, value, {rel: value})
-        }
+    }
 
         return value
     } ///DatePicker.prototype.measure
@@ -7375,7 +7377,7 @@ else {
                 // If we’ve reached both limits, just break out of the loop.
                 if (reachedMin && reachedMax) {
                     break
-                }
+            }
 
 
                 // Finally, create the shifted date using the interval and keep looping.
@@ -7495,7 +7497,7 @@ else {
             // If there's no month index, add it to the date object
             if (!dateObject.mm && !dateObject.m) {
                 dateObject.m = collection.indexOf(word) + 1
-            }
+        }
 
             // Return the length of the word.
             return word.length
@@ -7584,7 +7586,7 @@ else {
                 return calendar.formats.toArray(formatString).map(function (label) {
                     return _.trigger(calendar.formats[label], calendar, [0, itemObject]) || label.replace(/^!/, '')
                 }).join('')
-            }
+        }
         }
     })() //DatePicker.prototype.formats
 
@@ -7610,7 +7612,7 @@ else {
             ( _.isDate(two) || $.isArray(two) )
         ) {
             return calendar.create(one).pick === calendar.create(two).pick
-        }
+    }
 
         // When we’re working with range objects, compare the “from” and “to”.
         if ($.isPlainObject(one) && $.isPlainObject(two)) {
@@ -7633,7 +7635,7 @@ else {
         if (_.isInteger(one) && ( _.isDate(two) || $.isArray(two) )) {
             one = one % 7 + firstDay
             return one === calendar.create(two).day + 1
-        }
+    }
         if (_.isInteger(two) && ( _.isDate(one) || $.isArray(one) )) {
             two = two % 7 + firstDay
             return two === calendar.create(one).day + 1
@@ -7642,7 +7644,7 @@ else {
         // When we’re working with range objects, check if the ranges overlap.
         if ($.isPlainObject(one) && $.isPlainObject(two)) {
             return calendar.overlapRanges(one, two)
-        }
+    }
 
         return false
     }
@@ -7694,7 +7696,7 @@ else {
                     if (calendar.isDateExact(unitToDisable, disabledItems[index])) {
                         matchFound = true
                         break
-                    }
+                }
                 }
 
                 // If nothing was found, add the validated unit to the collection.
@@ -7706,7 +7708,7 @@ else {
                         ( $.isPlainObject(unitToDisable) && unitToDisable.from && unitToDisable.to )
                     ) {
                         disabledItems.push(unitToDisable)
-                    }
+                }
                 }
             })
         }
@@ -7760,14 +7762,14 @@ else {
                         matchFound = disabledItems[index] = null
                         isExactRange = true
                         break
-                    }
+                }
 
                     // When an overlapped match is found, add the “inverted” state to it.
                     else if (calendar.isDateOverlap(disabledUnit, unitToEnable)) {
                         if ($.isPlainObject(unitToEnable)) {
                             unitToEnable.inverted = true
                             matchFound = unitToEnable
-                        }
+                    }
                         else if ($.isArray(unitToEnable)) {
                             matchFound = unitToEnable
                             if (!matchFound[3]) matchFound.push('inverted')
@@ -7776,7 +7778,7 @@ else {
                             matchFound = [unitToEnable.getFullYear(), unitToEnable.getMonth(), unitToEnable.getDate(), 'inverted']
                         }
                         break
-                    }
+                }
                 }
 
                 // If a match was found, remove a previous duplicate entry.
@@ -7784,7 +7786,7 @@ else {
                     if (calendar.isDateExact(disabledItems[index], unitToEnable)) {
                         disabledItems[index] = null
                         break
-                    }
+                }
                 }
 
                 // In the event that we’re dealing with an exact range of dates,
@@ -7793,14 +7795,14 @@ else {
                     if (calendar.isDateOverlap(disabledItems[index], unitToEnable)) {
                         disabledItems[index] = null
                         break
-                    }
+                }
                 }
 
                 // If something is still matched, add it into the collection.
                 if (matchFound) {
                     disabledItems.push(matchFound)
                 }
-            })
+        })
         }
 
         // Return the updated collection.
@@ -7918,11 +7920,11 @@ else {
                                     'value=' + loopedMonth +
                                     ( viewsetObject.month == loopedMonth ? ' selected' : '' ) +
                                     (
-                                        (
-                                            ( viewsetObject.year == minLimitObject.year && loopedMonth < minLimitObject.month ) ||
-                                            ( viewsetObject.year == maxLimitObject.year && loopedMonth > maxLimitObject.month )
-                                        ) ?
-                                            ' disabled' : ''
+                                    (
+                                        ( viewsetObject.year == minLimitObject.year && loopedMonth < minLimitObject.month ) ||
+                                        ( viewsetObject.year == maxLimitObject.year && loopedMonth > maxLimitObject.month )
+                                    ) ?
+                                        ' disabled' : ''
                                     )
                                 ]
                             }
@@ -8005,7 +8007,7 @@ else {
                             ( isOpen ? '' : 'disabled' ) + ' ' + _.ariaAttr({controls: calendar.$node[0].id + '_table'}) + ' ' +
                             'title="' + settings.labelYearSelect + '"'
                         )
-                    }
+                }
                 }
 
                 // Materialize modified
@@ -8040,7 +8042,7 @@ else {
                 // Date presentation View
                 'div',
                 _.node(
-                    'div',
+                'div',
                     createWeekdayLabel(),
                     "picker__weekday-display"
                 ) +
@@ -8086,67 +8088,67 @@ else {
                                 var shiftDateBy = settings.firstDay && calendar.create([viewsetObject.year, viewsetObject.month, 1]).day === 0 ? -7 : 0
 
                                 return [
-                                    _.group({
-                                        min: DAYS_IN_WEEK * rowCounter - viewsetObject.day + shiftDateBy + 1, // Add 1 for weekday 0index
-                                        max: function () {
-                                            return this.min + DAYS_IN_WEEK - 1
-                                        },
-                                        i: 1,
-                                        node: 'td',
-                                        item: function (targetDate) {
+                        _.group({
+                            min: DAYS_IN_WEEK * rowCounter - viewsetObject.day + shiftDateBy + 1, // Add 1 for weekday 0index
+                            max: function () {
+                                return this.min + DAYS_IN_WEEK - 1
+                            },
+                            i: 1,
+                            node: 'td',
+                            item: function (targetDate) {
 
-                                            // Convert the time date from a relative date to a target date.
-                                            targetDate = calendar.create([viewsetObject.year, viewsetObject.month, targetDate + ( settings.firstDay ? 1 : 0 )])
+                                // Convert the time date from a relative date to a target date.
+                                targetDate = calendar.create([viewsetObject.year, viewsetObject.month, targetDate + ( settings.firstDay ? 1 : 0 )])
 
-                                            var isSelected = selectedObject && selectedObject.pick == targetDate.pick,
-                                                isHighlighted = highlightedObject && highlightedObject.pick == targetDate.pick,
-                                                isDisabled = disabledCollection && calendar.disabled(targetDate) || targetDate.pick < minLimitObject.pick || targetDate.pick > maxLimitObject.pick,
-                                                formattedDate = _.trigger(calendar.formats.toString, calendar, [settings.format, targetDate])
+                                var isSelected = selectedObject && selectedObject.pick == targetDate.pick,
+                                    isHighlighted = highlightedObject && highlightedObject.pick == targetDate.pick,
+                                    isDisabled = disabledCollection && calendar.disabled(targetDate) || targetDate.pick < minLimitObject.pick || targetDate.pick > maxLimitObject.pick,
+                                    formattedDate = _.trigger(calendar.formats.toString, calendar, [settings.format, targetDate])
 
-                                            return [
-                                                _.node(
-                                                    'div',
-                                                    targetDate.date,
-                                                    (function (klasses) {
+                                return [
+                                    _.node(
+                                        'div',
+                                        targetDate.date,
+                                        (function (klasses) {
 
-                                                        // Add the `infocus` or `outfocus` classes based on month in view.
-                                                        klasses.push(viewsetObject.month == targetDate.month ? settings.klass.infocus : settings.klass.outfocus)
+                                            // Add the `infocus` or `outfocus` classes based on month in view.
+                                            klasses.push(viewsetObject.month == targetDate.month ? settings.klass.infocus : settings.klass.outfocus)
 
-                                                        // Add the `today` class if needed.
-                                                        if (nowObject.pick == targetDate.pick) {
-                                                            klasses.push(settings.klass.now)
-                                                        }
+                                            // Add the `today` class if needed.
+                                            if (nowObject.pick == targetDate.pick) {
+                                                klasses.push(settings.klass.now)
+                                            }
 
-                                                        // Add the `selected` class if something's selected and the time matches.
-                                                        if (isSelected) {
-                                                            klasses.push(settings.klass.selected)
-                                                        }
+                                            // Add the `selected` class if something's selected and the time matches.
+                                            if (isSelected) {
+                                                klasses.push(settings.klass.selected)
+                                            }
 
-                                                        // Add the `highlighted` class if something's highlighted and the time matches.
-                                                        if (isHighlighted) {
-                                                            klasses.push(settings.klass.highlighted)
-                                                        }
+                                            // Add the `highlighted` class if something's highlighted and the time matches.
+                                            if (isHighlighted) {
+                                                klasses.push(settings.klass.highlighted)
+                                            }
 
-                                                        // Add the `disabled` class if something's disabled and the object matches.
-                                                        if (isDisabled) {
-                                                            klasses.push(settings.klass.disabled)
-                                                        }
+                                            // Add the `disabled` class if something's disabled and the object matches.
+                                            if (isDisabled) {
+                                                klasses.push(settings.klass.disabled)
+                                            }
 
-                                                        return klasses.join(' ')
-                                                    })([settings.klass.day]),
-                                                    'data-pick=' + targetDate.pick + ' ' + _.ariaAttr({
-                                                        role: 'gridcell',
-                                                        label: formattedDate,
-                                                        selected: isSelected && calendar.$node.val() === formattedDate ? true : null,
-                                                        activedescendant: isHighlighted ? true : null,
-                                                        disabled: isDisabled ? true : null
-                                                    })
-                                                ),
-                                                '',
-                                                _.ariaAttr({role: 'presentation'})
-                                            ] //endreturn
-                                        }
-                                    })
+                                            return klasses.join(' ')
+                                        })([settings.klass.day]),
+                                        'data-pick=' + targetDate.pick + ' ' + _.ariaAttr({
+                                            role: 'gridcell',
+                                            label: formattedDate,
+                                            selected: isSelected && calendar.$node.val() === formattedDate ? true : null,
+                                            activedescendant: isHighlighted ? true : null,
+                                            disabled: isDisabled ? true : null
+                                        })
+                                    ),
+                                    '',
+                                    _.ariaAttr({role: 'presentation'})
+                                ] //endreturn
+                            }
+                        })
                                 ] //endreturn
                             }
                         })
@@ -8256,7 +8258,7 @@ else {
                 buttonClear: prefix + 'button--clear',
                 buttonToday: prefix + 'button--today',
                 buttonClose: prefix + 'button--close'
-            }
+        }
         }
     })(Picker.klasses().picker + '__')
 
@@ -8317,7 +8319,7 @@ else {
         var inputHasInvalidClass = $input.hasClass('invalid');
         if (isValidLength && inputHasInvalidClass) {
             $input.removeClass('invalid');
-        }
+    }
         else if (!isValidLength && !inputHasInvalidClass) {
             $input.removeClass('valid');
             $input.addClass('invalid');
