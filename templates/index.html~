@@ -28,9 +28,9 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="/">Main</a></li>
-            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-	<li role="presentation" ><a href="{% url 'student_list' %}">Students</a></li>
+            <li class="active"><a href="/">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+	<li><a href="{% url 'student_list' %}">Students</a></li>
           </ul>
         </nav>
         
@@ -50,7 +50,7 @@
  <tr>  <th>Курс </th> <th>Описание</th> </tr>
  
 	{% for course in courses %} 
-	 <tr> <td><a href="{% url 'courses:detail' course.id %}">{{course}} </a> </td> <br> <td>{{course.short_description}} </td></tr-->
+	 <tr> <td><a href="{% url 'courses:detail' course.id %}">{{course}} </a> </td> <br> <td>{{course.short_description}} </td></tr>
 	{% endfor %}
   
  </table>
