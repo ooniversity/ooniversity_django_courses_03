@@ -1,19 +1,23 @@
+# -*- coding: utf-8 -*-
 from django.contrib import admin
 
-from courses.models import Course, Lesson
+from .models import Course, Lesson
 
 
 class LessonInline(admin.TabularInline):
     model = Lesson
-    fields = ['subject', 'description', 'order']
-    extra = 0
+    extra = 1
 
 
+@admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ['name', 'short_description']
-    search_fields = ['name']
     inlines = [LessonInline]
+    list_display = ['name', 'short_description']
+    prepopulated_fields = {'slug': ['name']}
+    ordering = ['name']
 
-
-admin.site.register(Course, CourseAdmin)
-admin.site.register(Lesson)
+# @admin.register(Lesson)
+# class LessonAdmin(admin.ModelAdmin):
+#     list_display = ['subject', 'course']
+#     prepopulated_fields = {'slug': ['subject']}
+#     ordering = ['order']
