@@ -78,9 +78,7 @@
                         </tr>
                         <tr>
                             <td>курсы ассистент</td>
-                             <td>{% for assistant in assistants %}
-                    <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a>студенты курса
-                    <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"><span class="glyphicons glyphicons-rugby"></span></a> {% endfor %}</td>
+                            <td></td>
                         </tr>
                         
                     </tbody>
