@@ -1,176 +1,66 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Contacts page</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-</head>
-<body class="color-black">
+{% block banner %}{% endblock %}
 
-<div class="site-wrapper">
+{% block list_courses %}
+    <div class="col s12">
+        <h5 class="text-primarycolor">Организаторы: </h5>
+    </div>
+    <div class="col s12 l12">
 
-    <div class="site-wrapper-inner">
+        <div class="card-panel">
+            <span class="card-title grey-text"></span>
 
-        <div class="cover-container">
-
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand">PyBursa</h3>
-                    <nav>
-                        <ul class="nav masthead-nav">
-                             <li><a href="{% url 'index' %}"> Main </a></li>
-                            <li><a href="{% url 'student_list' %}"> Students </a></li>
-                            <li class="active"><a href="{% url 'contact' %}"> Contacts </a></li>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="center promo card-panel">
+                        <h2>Director</h2>
+                        <ul>
+                            <li>Name:</li>
+                            <li>Frank Sinatra</li>
+                            <li>Phone:</li>
+                            <li>0800-123-45-67</li>
+                            <li>Email:</li>
+                            <li>info@domain.com</li>
+                            <li>Skype:</li>
+                            <li>franki.sin</li>
                         </ul>
-                    </nav>
-                </div>
-            </div>
-
-
-             <div class="jumbotron commands">
-                 <div class="container">
-                     <img src="{% static 'images/Shocked-Pups.jpg' %}">
-                 </div>
-             </div>
-
-            <div class="inner cover">
-
-                <!-- Example row of columns -->
-                <div class="row">
-                    <div class="col-lg-4">
-                        <img class="img-circle"
-                             src="{% static 'images/McCTpH_E.jpg' %}"
-                             alt="Generic placeholder image" width="140" height="140">
-
-                        <h2 class="deep-orange-darken-1">Director</h2>
-
-                        <dl>
-                            <dt>Name: </dt>
-                            <dd>Frank Sinatra</dd>
-                            <dt>Phone: </dt>
-                            <dd>0800-123-45-67</dd>
-                            <dt>Email: </dt>
-                            <dd>info@domain.com</dd>
-                            <dt>Skype: </dt>
-                            <dd>franki.sin</dd>
-                        </dl>
-
-                        <h6>It is PyBursa, baby</h6>
-
-
                     </div>
-                    <!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                        <img class="img-circle"
-                             src="{% static 'images/6ec195d634dc1f56d1970d8750a8945008bc3389.jpg' %}"
-                             alt="Generic placeholder image" width="140" height="140">
+                </div>
 
-                        <h2 class="green">Manager</h2>
-
-                        <dl>
-                            <dt>Name: </dt>
-                            <dd>Frank Sinatra</dd>
-                            <dt>Phone: </dt>
-                            <dd>0800-123-45-67</dd>
-                            <dt>Email: </dt>
-                            <dd>info@domain.com</dd>
-                            <dt>Skype: </dt>
-                            <dd>franki.sin</dd>
-                        </dl>
-
-
+                <div class="col s12 m4">
+                    <div class="center promo card-panel">
+                        <h2>Manager</h2>
+                        <ul>
+                            <li>Name:</li>
+                            <li>Frank Sinatra</li>
+                            <li>Phone:</li>
+                            <li>0800-123-45-67</li>
+                            <li>Email:</li>
+                            <li>info@domain.com</li>
+                            <li>Skype:</li>
+                            <li>franki.sin</li>
+                        </ul>
                     </div>
-                    <!-- /.col-lg-4 -->
-                    <div class="col-lg-4">
-                        <img class="img-circle"
-                             src="{% static 'images/python.png' %}"
-                             alt="Generic placeholder image" width="140" height="140">
+                </div>
 
-                        <h2 class="red">Founder</h2>
-
-                        <dl>
-                            <dt>Name: </dt>
-                            <dd>Frank Sinatra</dd>
-                            <dt>Phone: </dt>
-                            <dd>0800-123-45-67</dd>
-                            <dt>Email: </dt>
-                            <dd>info@domain.com</dd>
-                            <dt>Skype: </dt>
-                            <dd>franki.sin</dd>
-                        </dl>
-
-
+                <div class="col s12 m4">
+                    <div class="center promo card-panel">
+                        <h2>Founder</h2>
+                        <ul>
+                            <li>Name:</li>
+                            <li>Frank Sinatra</li>
+                            <li>Phone:</li>
+                            <li>0800-123-45-67</li>
+                            <li>Email:</li>
+                            <li>info@domain.com</li>
+                            <li>Skype:</li>
+                            <li>franki.sin</li>
+                        </ul>
                     </div>
-                    <!-- /.col-lg-4 -->
                 </div>
-
-            </div>
-
-            <hr>
-
-            <div class="inner cover">
-                <div class="form-group has-success has-feedback">
-                    <label class="control-label" for="inputSuccess2">Input with success</label>
-                    <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
-                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
-                </div>
-                <div class="form-group has-warning has-feedback">
-                    <label class="control-label" for="inputWarning2">Input with warning</label>
-                    <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status">
-                    <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
-                    <span id="inputWarning2Status" class="sr-only">(warning)</span>
-                </div>
-                <div class="form-group has-error has-feedback">
-                    <label class="control-label" for="inputError2">Input with error</label>
-                    <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status">
-                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                    <span id="inputError2Status" class="sr-only">(error)</span>
-                </div>
-                <div class="form-group has-success has-feedback">
-                    <label class="control-label" for="inputGroupSuccess1">Input group with success</label>
-
-                    <div class="input-group">
-                        <span class="input-group-addon">@</span>
-                        <input type="text" class="form-control" id="inputGroupSuccess1"
-                               aria-describedby="inputGroupSuccess1Status">
-                    </div>
-                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                    <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<div class="jumbotron alert-success">
-    <div class="row">
-        <div class="container">
-            <div class="divider">
-                <h4 class="alert-info">Этот блок существует на средства вырученые от продажи велика</h4>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="inner">
-        <button class="btn btn-default cyan" type="submit">Нажпи меня</button>
-        <input class="btn btn-default purple-lighten-3" type="button" value="Жми меня полностью">
-        <input class="btn btn-default green" type="submit" value="Перейдем?">
-    </div>
-</div>
-
-<!-- start scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<!--/ end scripts -->
-</body>
-</html>
+{% endblock %}

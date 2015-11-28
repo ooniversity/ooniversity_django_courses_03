@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from .views import index, student_list, student_detail, contact
+from .views import contact
 from courses.views import list_view
 
 
