@@ -33,6 +33,43 @@
 				<h1>{{ course.name }}</h1>
 				<p>{{ course.description }}</p>
 			</div>
+			
+			<div class="col-md-10 col-md-push-1">
+				<h2 class="sub-header">Преподаватели</h2>
+				<div class="table-responsive">
+					<table class="table" border=2>
+						<thead>
+						  <tr>
+								<th>Учитель</th>
+							</tr>
+						</thead>	
+						<tbody>
+							<tr>
+								<td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.name}} {{course.coach.surname}}</a>
+									<br/>
+									<p>{{course.coach.description}}</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table" border=2>
+						<thead>
+						  <tr>
+								<th>Ассистент</th>
+							</tr>
+						</thead>	
+						<tbody>
+							<tr>
+								<td><a href="{% url 'coaches:detail' cour.assistant.id %}">{{course.assistant.name}} {{course.assistant.surname}}</a>
+									<br/>
+									<p>{{course.assistant.description}}</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+							
 			<div class="col-md-10 col-md-push-1">
 				<h2 class="sub-header">План Курса</h2>
 				<div class="table-responsive">
