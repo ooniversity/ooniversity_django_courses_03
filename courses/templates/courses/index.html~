@@ -1,0 +1,9 @@
+{% if courses %}
+    <ul>
+    {% for lesson in courses %}
+        <li><a href="{% url 'coursess:detail' lesson.id %}">{{ lesson.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

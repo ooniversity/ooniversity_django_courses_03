@@ -31,9 +31,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'student_list' %}">Students</a></li>
+            <li><a href="{% url 'sstudents:list_view' %}">Students</a></li>
           </ul>
         </div>
       </div>
@@ -54,30 +54,16 @@
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>#</th>
-              <th>description</th>
+              <th>Курс</th>
+              <th>описание</th>
              </tr>
           </thead>
           <tbody>
+{% for course in courses %}
             <tr>
-              <th scope="row">week 1</th>
-              <td>
-                <ul>
-                    <li>item 1</li>
-                    <li>item 2</li>
-                </ul>  
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">week 2</th>
-              <td>
-                <ul>
-                  <li>item 1</li>
-                  <li>item 2</li>
-                  <li>item 3</li>
-                  <li>item 4</li>
-                </ul>
-              </td>
+              <th scope="row"><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></th>
+              <td>{{course.short_description}}</td>
+{% endfor %}
             </tr>
            </tbody>
         </table>

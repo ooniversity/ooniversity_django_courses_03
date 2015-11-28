@@ -11,9 +11,11 @@ urlpatterns = patterns('',
     #kz_3_2
     url(r'^$', index, name="index"),
     url(r'^contact/$', contact, name="contact"),
-    url(r'^student_list/$', student_list, name="student_list"),
-    url(r'^student_detail/$', student_detail, name="student_detail"),
+    #url(r'^student_list/$', student_list, name="student_list"),
+    #url(r'^student_detail/$', student_detail, name="student_detail"),
     #kz_4
     url(r'^quadratic/', quadratic_results, name='results'),
-       
+    #kz_5
+    url(r'^courses/', include('courses.urls', namespace="courses")),
+    url(r'^students/', include('students.urls', namespace="students"))   
 )

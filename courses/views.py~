@@ -1,0 +1,8 @@
+from django.shortcuts import render
+from django.views import generic
+
+from courses.models import Course, Lesson
+
+def detail(generic.DetailView):
+    model = Lesson
+    template_name = 'courses/detail.html'
