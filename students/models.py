@@ -11,5 +11,8 @@ class Student(models.Model):
     skype = models.CharField(max_length=75)
     courses = models.ManyToManyField(Course)
 
+    def full_name(self):
+        return self.name + ' ' + self.surname
+
     def __unicode__(self):
         return self.name + ' ' + self.surname
