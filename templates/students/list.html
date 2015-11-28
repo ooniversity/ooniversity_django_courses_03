@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main</title>
+    <title>Students</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet"> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,9 +37,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <!--<li class="active"><a href="  ">Main</a></li> -->
+        <li ><a href=" {% url 'courses:main' %} ">Main</a></li>
         <li><a href=" {% url 'contact' %}" >Contacts</a></li>
-        <li><a href=" {% url 'student_list' %}" >Students</a></li>
+        <li class="active"><a href="" >Students</a></li>
         
         </li>
       </ul>
@@ -50,14 +50,37 @@
 <ol class="breadcrumb">
   <li>Main</a></li>
 </ol>
-  <div class="container">
-    <div class="jumbotron">
-      <h1 class="description">Description </h1>
-      <h2 class="course">PyBursa </h2>
-      <h3 class="program">Program </h3>
-      <p id="topic1">Topic #1</p>
-      <p id="topic2">Topic #2</p>
-      <p id="topic3">Topic #3</p>
+      <h2>Список студентов</h2>
+      <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Фамилия, имя</th>
+          <th>Адрес</th>
+          <th>skype</th>
+          <th>Курсы</th>
+        </tr>
+        </tr>
+      </thead>
+      <tbody>
+          {% for item in students_list %}
+          <tr>
+          <td>{{ forloop.counter }}</td>
+          <td><a href="{% url 'students:detail' pk=item.id %}">{{ item.name }} {{ item.surname }}</a></td>
+          <td>{{ item.address }}</td>
+          <td>{{ item.skype }}</td>
+
+          <td>
+          {% for i in item.courses.all %}
+          <p><a href="{% url 'courses:detail' pk=i.id %}">{{ i }}</a></p>
+          {% endfor %}
+          </td>
+
+
+          {% endfor %}
+         </tr> 
+      </tbody>
+    </table>
     </div>
   </div>
 

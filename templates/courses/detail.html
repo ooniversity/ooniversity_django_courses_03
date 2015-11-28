@@ -37,9 +37,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <!--<li class="active"><a href="  ">Main</a></li> -->
+        <li><a href=" {% url 'courses:main' %} ">Main</a></li>
         <li><a href=" {% url 'contact' %}" >Contacts</a></li>
-        <li><a href=" {% url 'student_list' %}" >Students</a></li>
+        <li><a href=" {% url 'students:list_view' %}?course_id={{course_object.id}} " >Students</a></li>
         
         </li>
       </ul>
@@ -52,12 +52,28 @@
 </ol>
   <div class="container">
     <div class="jumbotron">
-      <h1 class="description">Description </h1>
-      <h2 class="course">PyBursa </h2>
-      <h3 class="program">Program </h3>
-      <p id="topic1">Topic #1</p>
-      <p id="topic2">Topic #2</p>
-      <p id="topic3">Topic #3</p>
+      <h1 class="description">{{ course_object.name }} </h1>
+      <h2 class="course">{{ course_object.description }}</h2>
+      <h3 class="program">План курса</h3>
+      <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Тема</th>
+          <th>Описание</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for item in course_object.lesson_set.all %}
+          <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ item.subject }}</td>
+          <td>{{ item.description }}</td>
+    
+          {% endfor %}
+         </tr> 
+      </tbody>
+    </table>
     </div>
   </div>
 

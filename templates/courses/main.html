@@ -37,10 +37,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <!--<li class="active"><a href="  ">Main</a></li> -->
+        <li class="active"><a href="  ">Main</a></li> 
         <li><a href=" {% url 'contact' %}" >Contacts</a></li>
-        <li><a href=" {% url 'student_list' %}" >Students</a></li>
-        
+        <li><a href=" {% url 'students:list_view' %}" >Students</a></li>
+      
         </li>
       </ul>
      
@@ -52,12 +52,26 @@
 </ol>
   <div class="container">
     <div class="jumbotron">
-      <h1 class="description">Description </h1>
-      <h2 class="course">PyBursa </h2>
-      <h3 class="program">Program </h3>
-      <p id="topic1">Topic #1</p>
-      <p id="topic2">Topic #2</p>
-      <p id="topic3">Topic #3</p>
+      <h1 class="description">Ooniversity </h1>
+      <h2 class="course">Мы специализируемся на "модных" языках программирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий. </h2>
+      <h3 class="program">Выбирай, на каком курсе ты хочешь учиться!</h3>
+      <table class="table">
+      <thead>
+        <tr>
+          <th>Курс</th>
+          <th>Описание</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for item in courses %}
+          <tr>
+          <td><a href="{% url 'courses:detail' pk=item.id %}">{{ item.name }}</a></td>
+          <td>{{ item.description }}</td>
+    
+          {% endfor %}
+         </tr> 
+      </tbody>
+    </table>
     </div>
   </div>
 
