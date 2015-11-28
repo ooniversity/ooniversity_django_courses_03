@@ -35,6 +35,44 @@
           </div>
         </div>
       </div>
+<div class="page-header">
+                               
+    	<h1 class="student-head2">Преподаватели</h1>
+        <p class="below-header2">ooniversity</p>                         
+  	</div>
+      <div class="study_table">
+		  <div class="panel panel-default">
+  	    <div class="panel-heading"><h2 class="course_program" >Учитель</h2></div>
+          <table class="table table-hover">
+            <tr><td><h3>
+            <a href="{% url 'coaches:detail' courses.coach.id %}">{{ courses.coach.last_name }} {{ courses.coach.first_name }}</a></br>
+					              
+            </h3></td></tr>
+            <tr><td><h3>
+                        {{ courses.coach.coach.description }}
+            </h3></td></tr>
+            
+  
+          </table>
+        </div>
+      </div>
+<div class="study_table">
+		  <div class="panel panel-default">
+  	    <div class="panel-heading"><h2 class="course_program" >Ассистент</h2></div>
+          <table class="table table-hover">
+            <tr><td><h3>
+            <a href="{% url 'coaches:detail' courses.assistant.id %}">{{ courses.assistant.last_name }} {{ courses.assistant.first_name }}</a></br>
+					              
+            </h3></td></tr>
+            <tr><td><h3>
+                        {{ courses.assistant.coach.description }}
+            </h3></td></tr>
+            
+  
+          </table>
+        </div>
+      </div>
+      
       <div class="course_id" >
         <div class="panel panel-default">
           <div class="panel-heading"><h2 class="py_program"></h2></div>
