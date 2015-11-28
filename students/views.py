@@ -5,7 +5,7 @@ import models
 def list_view(request):
     try:
         course_id = request.GET['course_id']
-        students = models.Student.objects.filter(courses__id=course_id)
+        students = models.Student.objects.filter(courses__id=course_id).order_by('id')
     except:
         students = models.Student.objects.all()
 
