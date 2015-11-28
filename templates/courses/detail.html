@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    {% load staticfiles %}
+    <script src="{% static 'js/bootstrap.js' %}"> </script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>  
+            </button>
+            <a class="navbar-brand" href="#">ITBursa</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{% url 'index' %}">Main</a></li>
+                    <li><a href="{% url 'contact' %}">Contacts</a></li>
+                    <li><a href="{% url 'students:list_view' %}">Students</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container theme-showcase">
+        <div class="jumbotron">
+            <h1 class="course">ITBursa</h1>
+            {% block content %}
+            <h2 class="course">{{ course.name }} course details</h2>
+            <p class="course">{{ course.description }}</p>
+            <h2 class="course">План курса</h2>
+            <table class="table table-striped table table-bordered">
+                <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>Тема</th>
+                    <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>   
+                    {% for lesson in lessons%}
+                        <tr>
+                            <td>{{ lesson.order }}</td>
+                            <td>{{ lesson.subject }}</td>
+                            <td>{{ lesson.description }}</td>
+                        </tr>
+                    {% empty %}
+                        <h3>Not found!</h3>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endblock %}
+        </div>
+    </div>
+        
+    <footer class="footer">
+        <p>&copy; ITBursa 2015</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>
