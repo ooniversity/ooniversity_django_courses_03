@@ -10,7 +10,7 @@ class StudentAdmin(admin.ModelAdmin):
 
     fieldsets = [
         ('Personal info', {'fields': ['name', 'surname', 'date_of_birth']}),
-        ('Contact info',  {'fields': ['email', 'phone', 'address', 'skype']}),
+        ('Contact info',  {'fields': ['email', 'phone', 'address', 'skype', 'courses']}),
     ]
     filter_horizontal = ('courses',)
 
