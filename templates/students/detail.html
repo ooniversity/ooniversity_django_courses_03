@@ -40,8 +40,6 @@
         <li><a href=" {% url 'courses:main' %}">Main</a></li>
         <li><a href=" {% url 'contact' %}" >Contacts</a></li>
         <li><a href=" {% url 'students:list_view' %}" >Students</a></li>
-        
-        </li>
       </ul>
      
     </div><!-- /.navbar-collapse -->
@@ -81,27 +79,6 @@
             {% endfor %}
           </td>
         </tr>
-        
-      </tbody>
-
-
-      <tbody>
-          {% for item in students_list %}
-          <tr>
-          <td>{{ forloop.counter }}</td>
-          <td><a href="{% url 'students:detail' pk=item.id %}">{{ item.name }} {{ item.surname }}</a></td>
-          <td>{{ item.address }}</td>
-          <td>{{ item.skype }}</td>
-
-          <td>
-          {% for i in item.courses.all %}
-          <p>{{ i }}</p>
-          {% endfor %}
-          </td>
-
-
-          {% endfor %}
-         </tr> 
       </tbody>
     </table>
     </div>

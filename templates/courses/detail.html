@@ -40,15 +40,13 @@
         <li><a href=" {% url 'courses:main' %} ">Main</a></li>
         <li><a href=" {% url 'contact' %}" >Contacts</a></li>
         <li><a href=" {% url 'students:list_view' %}?course_id={{course_object.id}} " >Students</a></li>
-        
-        </li>
       </ul>
      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <ol class="breadcrumb">
-  <li>Main</a></li>
+  <li>Main</li>
 </ol>
   <div class="container">
     <div class="jumbotron">
@@ -66,12 +64,11 @@
       <tbody>
           {% for item in course_object.lesson_set.all %}
           <tr>
-          <td>{{ forloop.counter }}</td>
-          <td>{{ item.subject }}</td>
-          <td>{{ item.description }}</td>
-    
+            <td>{{ forloop.counter }}</td>
+            <td>{{ item.subject }}</td>
+            <td>{{ item.description }}</td>
+          </tr>
           {% endfor %}
-         </tr> 
       </tbody>
     </table>
     </div>
