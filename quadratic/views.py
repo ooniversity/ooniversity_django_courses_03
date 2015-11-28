@@ -9,7 +9,7 @@ def quadratic_results(request):
     a = request.GET.get('a')
     if a==u'0':
         errors['a'] = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
-        #a = ''
+
     elif a and a[0] == '-' and a[1:].isdigit():
         a = int(request.GET.get('a'))
     elif a.isdigit():
@@ -19,7 +19,7 @@ def quadratic_results(request):
             errors['a'] = "коэффициент не определен"
         else:
             errors['a'] = "коэффициент не целое число"
-            #a = ''
+
 
     b = request.GET.get('b')
     if b and b[0] == '-' and b[1:].isdigit():
@@ -31,7 +31,7 @@ def quadratic_results(request):
             errors['b'] = "коэффициент не определен"
         else:
             errors['b'] = "коэффициент не целое число"
-            #b = ''
+
 
     c = request.GET.get('c')
     if c and c[0] == '-' and c[1:].isdigit():
@@ -43,7 +43,7 @@ def quadratic_results(request):
             errors['c'] = "коэффициент не определен"
         else:
             errors['c'] = "коэффициент не целое число"
-            #c = ''
+
 
     if not errors:
         descr = (b**2 - 4*a*c)

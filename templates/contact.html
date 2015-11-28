@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,13 +8,13 @@
 
       <title>JSBursa contact</title>
 
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
     </head>
   <body>
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse">
       <div class="container-fluid">
 
         <div class="navbar-header">
@@ -23,21 +24,20 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="{% url 'index' %}">JSBursa</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li>
-              <a href="{% url 'index' %}">Main</a>
+              <a href="{% url 'courses:list_view' %}">Main</a>
             </li>
 
             <li class="active">
-              <a href="{% url 'contact' %}">Contacts</a>
+              <a href="{% url 'contact' %}">Contact</a>
             </li>
 
             <li>
-              <a href="{% url 'student_list' %}">Students</a>
+              <a href="{% url 'students:list_view' %}">Students</a>
             </li>
 
           </ul>
