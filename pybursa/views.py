@@ -5,7 +5,9 @@ from django.views import generic
 
 
 def index(request):
-    return render(request, 'index.html')
+    list_of_courses = Course.objects.all()
+    params = {'list_of_courses': list_of_courses}
+    return render(request, 'index.html', params)
 
 def contact(request):
     return render(request, 'contact.html')

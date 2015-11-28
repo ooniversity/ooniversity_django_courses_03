@@ -52,6 +52,23 @@
           jQuery, Ajax, HTTP, Firebug, Web Developer, MVC, QuerySet, Raw-sql
           unit-tests, selenium, nginx etc. You will defenetly enjoy it!
         </p>
+        
+          <table class="table">
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+            {% if list_of_courses %}
+              {% for params in list_of_courses %}
+                <tr>
+                  <td><a href="{% url 'courses:detail' params.id %}">{{ params.name }}</a></td>
+                  <td>{{ params.short_description }}</td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+          </table>
+
+
         <p><a class="btn btn-primary btn-lg" href="http://pybursa.com/"
           role="button">official site &gt;</a></p>
       </div>
