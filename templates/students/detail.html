@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main</title>
+    <title>Список студентов круса "{{course.name}}"</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
@@ -21,42 +21,45 @@
     <![endif]-->
   </head>
   <body>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'index_course' %}">
-              <img class="logo" alt="logo" src="{% static 'images/logo_itbursa.png' %}">
-            </a>
-          </div>
-            <ul class="nav nav-pills">
-              <li role="presentation" class="active"><a href="{% url 'index_course' %}">Главная</a></li>
-              <li role="presentation" class="passive"><a href="{% url 'contact' %}">Контакты</a></li>
-              <li role="presentation" class="passive"><a href="#">Студенты</a></li>
-            </ul>
-        </div>
-      </nav>
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <div class="jumbotron">
-          <h1>PyBursa Ltd.</h1>
-          <p>The Best Company of The Best Companies in Ukraine</p>
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'index_course' %}">
+            <img class="logo" alt="logo" src="{% static 'images/logo_itbursa.png' %}">
+          </a>
         </div>
+          <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="{% url 'index_course' %}">Главная</a></li>
+            <li role="presentation" class="passive"><a href="{% url 'contact' %}">Контакты</a></li>
+            <li role="presentation" class="passive"><a href="#">Студенты</a></li>
+          </ul>
       </div>
       <div class="container-fluid">
-        <h3>Choose your side, Padavan!</h3>
+        <h3>Список студентов</h3>
       </div>
       <div id="spisok">
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Курс</th>
-              <th>Описание</th>
+              <th id="students_detail">#</th>
+              <th>Фамилия Имя</th>
+              <th>адрес</th>
+              <th>skype</th>
+              <th>Курсы</th>
             </tr>
           </thead>
           <tbody>
-            {%for i in courses %}
+            {%for st in students_list_course %}
               <tr>
-              <td><a href="{% url 'courses:detail' i.id%}">{{i.name}}</a></td>
-                <td>{{i.short_description}}</td>
+                <td id="students_detail">{{forloop.counter}}</td>
+                <td>{{st.surname}}{{' '}}{{st.name}}</td>
+                <td>{{st.address}}</td>
+                <td>{{st.skype}}</td>
+                <td>
+                  {% for cour in st.courses.all %}
+                  <ul>{{cour.name}}</ul>
+                  {% endfor %}
+                </td>
               </tr>
             {% endfor %}
           </tbody>

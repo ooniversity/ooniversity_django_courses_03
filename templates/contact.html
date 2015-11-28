@@ -25,14 +25,14 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'index'%}">
+            <a class="navbar-brand" href="{% url 'index_course' %}">
               <img class="logo" alt="logo" src="{% static 'images/logo_itbursa.png'%}">
             </a>
           </div>
             <ul class="nav nav-pills">
-              <li role="presentation" class="passive"><a href="{% url 'index'%}">Main</a></li>
-              <li role="presentation" class="active"><a href="{% url 'contact'%">Contacts</a></li>
-              <li role="presentation" class="passive"><a href="{% url 'student_list'%}">Students</a></li>
+              <li role="presentation" class="passive"><a href="{% url 'index_course' %}">Главная</a></li>
+              <li role="presentation" class="active"><a href="{% url 'contact'%">Контакты</a></li>
+              <li role="presentation" class="passive"><a href="#">Студенты</a></li>
             </ul>
         </div>
       </nav>

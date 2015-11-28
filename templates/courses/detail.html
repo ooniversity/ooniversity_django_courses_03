@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main</title>
+    <title>Course detail</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
@@ -21,20 +21,48 @@
     <![endif]-->
   </head>
   <body>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'courses: detail' %}">
-              <img class="logo" alt="logo" src="{% static 'images/logo_itbursa.png' %}">
-            </a>
-          </div>
-            <ul class="nav nav-pills">
-              <li role="presentation" class="active"><a href="{% url 'courses: detail' %}">Главная</a></li>
-              <li role="presentation" class="passive"><a href="#">Контакты</a></li>
-              <li role="presentation" class="passive"><a href="#">Студенты</a></li>
-            </ul>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'index_course' %}">
+            <img class="logo" alt="logo" src="{% static 'images/logo_itbursa.png' %}">
+          </a>
         </div>
-      </nav>
+          <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="{% url 'index_course' %}">Главная</a></li>
+            <li role="presentation" class="passive"><a href="{% url 'contact' %}">Контакты</a></li>
+            <li role="presentation" class="passive"><a href="{% url 'students:detail' course.id%}">Студенты</a></li>
+          </ul>
+      </div>
+      <div class="col-md-12" >
+        <div class="jumbotron">
+          <h1>{{course.name}}</h1>
+          <p>{{course.short_description}}</p>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <h3>План курса</h3>
+      </div>
+      <div id="spisok">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Курс</th>
+              <th>Описание</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for les in lesson %}
+              <tr>
+                <td>{{les.order}}</td>
+                <td>{{les.subject}}</td>
+                <td>{{les.description}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
 
 
 
