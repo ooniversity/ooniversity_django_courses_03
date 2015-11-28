@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="748ada63-ee43-4d47-8de8-7141d5969b36" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/courses/admin.py" afterPath="$PROJECT_DIR$/courses/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/students/admin.py" afterPath="$PROJECT_DIR$/students/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/admin/base_site.html" afterPath="$PROJECT_DIR$/templates/admin/base_site.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/students/list.html" afterPath="$PROJECT_DIR$/templates/students/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/students/models.py" afterPath="$PROJECT_DIR$/students/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/courses/detail.html" afterPath="$PROJECT_DIR$/templates/courses/detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pybursa.iws" />
@@ -34,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base_site.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base_site.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/admin/base_site.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2951389">
+            <state vertical-scroll-proportion="-3.2692308">
               <caret line="5" column="75" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="75" />
               <folding />
             </state>
@@ -54,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/students/list.html">
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/courses/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6153846">
-              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+            <state vertical-scroll-proportion="1.2986112">
+              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -178,7 +172,6 @@
         <option value="$PROJECT_DIR$/templates/README.md" />
         <option value="$PROJECT_DIR$/students/urls.py" />
         <option value="$PROJECT_DIR$/templates/students/detail.html" />
-        <option value="$PROJECT_DIR$/templates/courses/detail.html" />
         <option value="$PROJECT_DIR$/templates/contact.html" />
         <option value="$PROJECT_DIR$/pybursa/urls.py" />
         <option value="$PROJECT_DIR$/pybursa/settings.py" />
@@ -188,6 +181,7 @@
         <option value="$PROJECT_DIR$/students/admin.py" />
         <option value="$PROJECT_DIR$/courses/admin.py" />
         <option value="$PROJECT_DIR$/templates/admin/base_site.html" />
+        <option value="$PROJECT_DIR$/templates/courses/detail.html" />
       </list>
     </option>
   </component>
@@ -563,7 +557,13 @@
       <option name="project" value="LOCAL" />
       <updated>1448664230365</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="admin_config">
+      <created>1448717675270</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1448717675270</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -571,6 +571,7 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2543021" sideWeight="0.5025674" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32952693" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" x="542" y="156" width="816" height="393" />
@@ -584,7 +585,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25189108" sideWeight="0.5073069" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967373" sideWeight="0.4969743" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967373" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -612,7 +612,8 @@
     <MESSAGE value="add second app" />
     <MESSAGE value="add_all_files" />
     <MESSAGE value="remove_polls" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove_polls" />
+    <MESSAGE value="admin_config" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin_config" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -928,14 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/courses/detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/students/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.615385">
@@ -1022,8 +1015,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/base_site.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2951389">
+        <state vertical-scroll-proportion="-3.2692308">
           <caret line="5" column="75" selection-start-line="5" selection-start-column="75" selection-end-line="5" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/courses/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2986112">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
           <folding />
         </state>
       </provider>
