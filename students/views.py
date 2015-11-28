@@ -3,7 +3,7 @@ from courses.models import Course
 from students.models import Student
 
 # Create your views here.
-def students(request):
+def list_view(request):
 	if request.GET.get('course_id'):
 		course = Course.objects.get(id = request.GET.get('course_id'))
 		students = Student.objects.filter(courses = request.GET.get('course_id'))
