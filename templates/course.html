@@ -23,26 +23,25 @@
   <body>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'index_course' %}">
+          <div class="navbar-header navbar-brand">
+            <a href="{% url 'course' %}">
               <img class="logo" alt="logo" src="{% static 'images/logo_itbursa.png' %}">
             </a>
           </div>
             <ul class="nav nav-pills">
-              <li role="presentation" class="active"><a href="{% url 'index_course' %}">Главная</a></li>
+              <li role="presentation" class="active"><a href="{% url 'course' %}">Главная</a></li>
               <li role="presentation" class="passive"><a href="{% url 'contact' %}">Контакты</a></li>
               <li role="presentation" class="passive"><a href="{% url 'students:list_view'%}">Студенты</a></li>
             </ul>
         </div>
       </nav>
-      <div class="container-fluid">
-        <div class="jumbotron">
-          <h1>PyBursa Ltd.</h1>
-          <p>The Best Company of The Best Companies in Ukraine</p>
-        </div>
+      <div class="jumbotron">
+        <h1>PyBursa Ltd.</h1>
+        <p>The Best Company of The Best Companies in Ukraine</p>
       </div>
-      <div class="container-fluid">
-        <h3>Choose your side, Padavan!</h3>
+
+      <div class="page-header container-fluid">
+        <h3>Choose your site, Padavan!</h3>
       </div>
       <div id="spisok">
         <table class="table table-bordered">

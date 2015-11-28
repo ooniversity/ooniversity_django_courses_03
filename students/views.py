@@ -11,10 +11,10 @@ def list_view(request):
         for person in students_list:
             if course in person.courses.all():
                 students_list_course.append(person)
-        return render(request, 'students/list.html', {'course': course, 'students_list_course': students_list_course})
+        return render(request, 'students/list.html', {'students_list_course': students_list_course})
     else:
         students_list_course = Student.objects.all()
-        return render(request, 'students/list.html', {'course': '', 'students_list_course': students_list_course})
+        return render(request, 'students/list.html', {'students_list_course': students_list_course})
 
 def detail(request, student_id):
     student = Student.objects.get(id = student_id)
