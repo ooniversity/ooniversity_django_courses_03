@@ -34,41 +34,38 @@
             <li role="presentation" class="passive"><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Студенты</a></li>
           </ul>
       </div>
-      <div class="col-md-12" >
-        <div class="page-header">
-          <h1>{{course.name}}</h1>
-        </div>
-        <div class="jumbotron">
-          <p>{{course.description}}</p>
-        </div>
+    </nav>
+    <div class="col-md-12" >
+      <div class="page-header">
+        <h1>{{course.name}}</h1>
       </div>
-      <div class="container-fluid">
-        <h3>План курса</h3>
+      <div class="jumbotron">
+        <p>{{course.description}}</p>
       </div>
-      <div id="spisok">
-        <table class="table table-bordered">
-          <thead>
+    </div>
+    <div class="container-fluid">
+      <h3>План курса</h3>
+    </div>
+    <div id="spisok">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Тема</th>
+            <th>Описание</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for les in lesson %}
             <tr>
-              <th>#</th>
-              <th>Тема</th>
-              <th>Описание</th>
+              <td>{{les.order}}</td>
+              <td>{{les.subject}}</td>
+              <td>{{les.description}}</td>
             </tr>
-          </thead>
-          <tbody>
-            {%for les in lesson %}
-              <tr>
-                <td>{{les.order}}</td>
-                <td>{{les.subject}}</td>
-                <td>{{les.description}}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-
-
-
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

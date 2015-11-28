@@ -31,44 +31,41 @@
           <ul class="nav nav-pills">
             <li role="presentation" class="active"><a href="{% url 'course' %}">Главная</a></li>
             <li role="presentation" class="passive"><a href="{% url 'contact' %}">Контакты</a></li>
-            <li role="presentation" class="passive"><a href="{% url 'students:list_view'%}">Студенты</a></li>
+            <li role="presentation" class="passive"><a href="{% url 'students:list_view' %}">Студенты</a></li>
           </ul>
       </div>
-      <div class="container-fluid">
-        <h3>{{student.name}}{{' '}}{{student.surname}}</h3>
-      </div>
-      <div id="spisok" class="col-md-6">
-        <table class="table table-bordered">
-          <tbody>
-            <tr>
-              <td>Дата рождения</td><td>{{student.date_of_birth}}</td>
-            </tr>
-            <tr>
-              <td>адрес</td><td>{{student.address}}</td>
-            </tr>
-            <tr>
-              <td>почта</td><td>{{student.email}}</td>
-            </tr>
-            <tr>
-              <td>Логин skype</td><td>{{student.skype}}</td>
-            </tr>
-            <tr>
-              <td>телефон</td><td>{{student.phone}}</td>
-            </tr>
-            <tr>
-              <td>Курсы</td>
-              <td>{% for i in student.courses.all %}
-                    <p><a href="{% url 'courses:detail' i.id %}">{{i.name}}</a></p>
-                  {%endfor%}
-              </td>
-            </tr>
-           </tbody>
-        </table>
-      </div>
-
-
-
-
+    </nav>
+    <div class="container-fluid">
+      <h3>{{student.name}}{{' '}}{{student.surname}}</h3>
+    </div>
+    <div id="spisok" class="col-md-6">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>Дата рождения</td><td>{{student.date_of_birth}}</td>
+          </tr>
+          <tr>
+            <td>адрес</td><td>{{student.address}}</td>
+          </tr>
+          <tr>
+            <td>почта</td><td>{{student.email}}</td>
+          </tr>
+          <tr>
+            <td>Логин skype</td><td>{{student.skype}}</td>
+          </tr>
+          <tr>
+            <td>телефон</td><td>{{student.phone}}</td>
+          </tr>
+          <tr>
+            <td>Курсы</td>
+            <td>{% for i in student.courses.all %}
+                  <p><a href="{% url 'courses:detail' i.id %}">{{i.name}}</a></p>
+                {%endfor%}
+            </td>
+          </tr>
+         </tbody>
+      </table>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

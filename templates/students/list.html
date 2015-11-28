@@ -34,41 +34,38 @@
             <li role="presentation" class="passive"><a href="{% url 'students:list_view'%}">Студенты</a></li>
           </ul>
       </div>
-      <div class="container-fluid">
-        <h3>Список студентов</h3>
-      </div>
-      <div id="spisok">
-        <table class="table table-bordered">
-          <thead>
+    </nav>
+    <div class="container-fluid">
+      <h3>Список студентов</h3>
+    </div>
+    <div id="spisok">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th id="students_detail">#</th>
+            <th>Фамилия Имя</th>
+            <th>адрес</th>
+            <th>skype</th>
+            <th>Курсы</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for st in students_list_course %}
             <tr>
-              <th id="students_detail">#</th>
-              <th>Фамилия Имя</th>
-              <th>адрес</th>
-              <th>skype</th>
-              <th>Курсы</th>
+              <td id="students_detail">{{forloop.counter}}</td>
+              <td><a href="{% url 'students:detail' st.id %}">{{st.surname}}{{' '}}{{st.name}}</a></td>
+              <td>{{st.address}}</td>
+              <td>{{st.skype}}</td>
+              <td>
+                {% for cour in st.courses.all %}
+                  <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a></p>
+                {% endfor %}
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {%for st in students_list_course %}
-              <tr>
-                <td id="students_detail">{{forloop.counter}}</td>
-                <td><a href="{% url 'students:detail' st.id %}">{{st.surname}}{{' '}}{{st.name}}</a></td>
-                <td>{{st.address}}</td>
-                <td>{{st.skype}}</td>
-                <td>
-                  {% for cour in st.courses.all %}
-                    <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a></p>
-                  {% endfor %}
-                </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-
-
-
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
