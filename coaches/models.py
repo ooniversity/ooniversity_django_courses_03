@@ -21,4 +21,4 @@ class Coach(models.Model):
     surname = property(lastname)
 
     def __unicode__(self):
-        return self.user.first_name
+        return self.user.username
