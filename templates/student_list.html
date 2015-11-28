@@ -1,0 +1,165 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students list to PyBursa</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+<body class="color-black">
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <div class="masthead clearfix">
+                <div class="inner">
+                    <h3 class="masthead-brand">PyBursa</h3>
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li><a href="{% url 'index' %}"> Main </a></li>
+                            <li class="active"><a href="{% url 'student_list' %}"> Students </a></li>
+                            <li><a href="{% url 'contact' %}"> Contacts </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <hr class="detail-block text-info">
+
+            <div id="margin-top-block" class="inner cover">
+
+                <!-- Example row of columns -->
+                <div class="row">
+                    <h1>Студенты курса PyBursa, поток №_1</h1>
+
+                    <p>
+                        <span>
+                            Students of the course PyBursa, flow №_1 set in October 2015
+                        </span>
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr class="active text-info">
+                                <th class="text-center">No</th>
+                                <th class="text-center">Surname</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Address</th>
+                                <th class="text-center">Skype</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="success text-danger">
+                                <th scope="row">
+                                    <a href="{% url 'student_detail' %}">1</a>
+                                </th>
+                                <td>Русанов</td>
+                                <td>Дмитрий</td>
+                                <td>Украина, город Николаев, пр-т. Мира 64 б</td>
+                                <td>rus-nik2007</td>
+                            </tr>
+                            <tr class="warning text-success">
+                                <th scope="row">2</th>
+                                <td>Ivanov</td>
+                                <td>Ivan</td>
+                                <td>Украина, город Винница, ул. Паровозная 64 б</td>
+                                <td>ivashka</td>
+                            </tr>
+                            <tr class="danger text-info">
+                                <th scope="row">3</th>
+                                <td>Stepanov</td>
+                                <td>Stepan</td>
+                                <td>Украина, город Николаев, ул. Лазурная 64 б</td>
+                                <td>stepashka</td>
+                            </tr>
+                            <tr class="info black">
+                                <th scope="row">4</th>
+                                <td>Stepanov</td>
+                                <td>Stepan</td>
+                                <td>Украина, город Николаев, ул. Лазурная 64 б</td>
+                                <td>stepashka</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Stepanov</td>
+                                <td>Stepan</td>
+                                <td>Украина, город Николаев, ул. Лазурная 64 б</td>
+                                <td>stepashka</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>Stepanov</td>
+                                <td>Stepan</td>
+                                <td>Украина, город Николаев, ул. Лазурная 64 б</td>
+                                <td>stepashka</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>Stepanov</td>
+                                <td>Stepan</td>
+                                <td>Украина, город Николаев, ул. Лазурная 64 б</td>
+                                <td>stepashka</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>Stepanov</td>
+                                <td>Stepan</td>
+                                <td>Украина, город Николаев, ул. Лазурная 64 б</td>
+                                <td>stepashka</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>Stepanov</td>
+                                <td>Stepan</td>
+                                <td>Украина, город Николаев, ул. Лазурная 64 б</td>
+                                <td>stepashka</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td>Stepanov</td>
+                                <td>Stepan</td>
+                                <td>Украина, город Николаев, ул. Лазурная 64 б</td>
+                                <td>stepashka</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="deep-orange-darken-1">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="hidden"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- FOOTER -->
+<footer>
+    <p>© 2015 Company, Inc.</p>
+</footer>
+
+<!-- start scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!--/ end scripts -->
+</body>
+</html>
