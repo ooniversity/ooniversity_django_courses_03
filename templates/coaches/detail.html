@@ -75,10 +75,27 @@
                 </tr>
                 <tr>
                     <td>курсы учитель</td>
-                    <td></td>
+                    <td>
+                        <div class="col-sm-10 bgr">
+                            {% for course in coach.coach_courses.all %}
+                                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                                students<a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span
+                                    class="glyphicon glyphicon-hand-right red" aria-hidden="true"></span></a></br>
+                            {% endfor %}
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>курсы ассистент</td>
+                    <td>
+                        <div class="col-sm-10 bgr">
+                            {% for course in coach.assistant_courses.all %}
+                                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                                students<a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span
+                                    class="glyphicon glyphicon-hand-right red" aria-hidden="true"></span></a></br>
+                            {% endfor %}
+                        </div>
+                    </td>
                 </tr>
 
                 </tbody>
