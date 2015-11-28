@@ -38,33 +38,55 @@
           <ul class="nav navbar-nav font-bold">
             <li><a href="/">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}{{course}}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}{{course_par}}">Students</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-      <div class="container">
-        <div class="jumbotron transparant-background">
-          <h2>{{course_name}}</h2>
-          <p>{{course_description}}</p>
-          <div class="panel panel-default transparant-background">
-            <table class="table table-striped text-align-justify">
+    <div class="container">
+      <div class="jumbotron transparant-background">
+        <h2>{{course.name}}</h2>
+        <p>{{course.description}}</p>
+        <div class="panel panel-default transparant-background">
+          <table class="table table-striped text-align-justify">
+          <tr>
+            <td>#</td>
+            <td>Lesson</td>
+            <td>Description</td>
+            </tr>
+          {% for lesson in course_lessons %}
             <tr>
-              <td>#</td>
-              <td>Lesson</td>
-              <td>Description</td>
-              </tr>
-            {% for lesson in course_lessons %}
-              <tr>
-              <td>{{forloop.counter}}</td>
-              <td>{{lesson}}</td><td>{{lesson.description}}</td>
-              </tr>
-            {% endfor %}
-            </table>
-          </div>
+            <td>{{forloop.counter}}</td>
+            <td>{{lesson}}</td><td>{{lesson.description}}</td>
+            </tr>
+          {% endfor %}
+          </table>
         </div>
       </div>
+    </div>
+
+    <div class="container">
+      <!--<div class="jumbotron transparant-background">-->
+        <div class="panel panel-primary transparant-background">
+          <div class="panel-heading">
+            Course coach
+          </div>
+          <div class="panel-body">
+            <p><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach}}</a></p>
+            <p>{{course.coach.description}}</p>
+          </div>
+        </div>
+        <div class="panel panel-primary transparant-background">
+          <div class="panel-heading">
+            Course assistant
+        </div>
+        <div class="panel-body">
+          <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant}}</a></p>
+          <p>{{course.assistant.description}}</p>
+        </div>
+      <!--</div>-->
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
