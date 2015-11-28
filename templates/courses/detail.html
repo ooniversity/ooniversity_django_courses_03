@@ -52,10 +52,10 @@
         {%for lesson in course.lesson_set.all%}
           <tr>
             <td>
-              {{forloop.counter}}
+              {{lesson.order}}
             </td>
             <td>
-              {{lesson.theme}}
+              {{lesson.subject}}
             </td>
             <td>
               {{lesson.description|truncatechars:200}}
