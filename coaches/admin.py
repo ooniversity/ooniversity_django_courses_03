@@ -3,7 +3,7 @@ from coaches.models import Coach
 from django.contrib.auth.models import User
 
 class CoachAdmin(admin.ModelAdmin):
-	list_display = ['name', 'surname', 'gender', 'skype', 'description']
+	list_display = ['name', 'surname', 'gender', 'email', 'skype', 'description']
 	list_filter = (('user__is_staff', admin.BooleanFieldListFilter),)
 
 class UserAdmin(admin.ModelAdmin):
