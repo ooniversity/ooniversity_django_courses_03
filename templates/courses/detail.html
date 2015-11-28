@@ -31,7 +31,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a class="navbar-brand" href="index">Главная</a></li>
               <li><a class="navbar-brand" href="contact">Контакты</a></li>
-              <li><a class="navbar-brand" href="student_list">Студенты</a></li>
+              <li><a href="{% url 'students:list_view' %}?course_id={{courses.id}}">Студенты</a></li>
               </ul>
           </div> 
         </div> 
@@ -52,15 +52,19 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th class="col_first">Курс</th>
-            <th class="col_second">Описание</th>
+            <th>#</th>
+            <th>Тема</th>
+            <th>Описание</th>
           </tr>
         </thead>
         <tbody>
-            <tr>
-              <td><a href="/courses/{{ c.id}}/">{{ c.name }}</a></td>
-              <td>{{ lessons }}</td>
-            </tr>
+          {% for lesson in lessons %}
+          <tr>
+              <td>{{ lesson.order }}</td>
+              <td>{{ lesson.subject }}</td>
+              <td>{{ lesson.description }}</td>
+          </tr>
+          {% endfor %}
         </tbody>
       </table>
       {{ courses.test }}
