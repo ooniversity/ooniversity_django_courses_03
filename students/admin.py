@@ -1,8 +1,10 @@
 from django.contrib import admin
-
 import models
-from students.models import Course
-# Register your models here.
 
 
-admin.site.register(models.Student)
+class StudentAdmin(admin.ModelAdmin):
+    list_filter = ['courses']
+    
+
+
+admin.site.register(models.Student, StudentAdmin)
