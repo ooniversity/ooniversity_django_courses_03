@@ -8,8 +8,6 @@ from courses.models import Course, Lesson
 
 def detail(request, course_id):
     course = Course.objects.get(id=course_id)
-    course_name = course.name
-    course_description = course.description
     course_lessons = Lesson.objects.filter(course_id = course_id)
     course_par = "?course_id=" + course_id
-    return render(request, 'courses/detail.html', {'course_lessons': course_lessons, 'course_name':course_name, 'course_description':course_description,'course': course_par})
+    return render(request, 'courses/detail.html', {'course_lessons': course_lessons, 'course': course, 'course_par': course_par})
