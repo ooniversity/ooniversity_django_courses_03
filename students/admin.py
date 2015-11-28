@@ -7,7 +7,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = ['courses']
 
     fieldsets = [('Personal Info', {'fields': ['name', 'surname', 'date_of_birth']}), ('Contact Info', {'fields': ['email', 'phone', 'address', 'skype', 'courses']})]
-    raw_id_fields = ['courses']
+    filter_horizontal = ['courses']
 
     def full_name(self, obj):
      	return ("%s %s" % (obj.name, obj.surname))
