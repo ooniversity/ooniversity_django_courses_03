@@ -61,7 +61,8 @@
             {% if list_of_courses %}
               {% for params in list_of_courses %}
                 <tr>
-                  <td><a href="{% url 'courses:detail' params.id %}">{{ params.name }}</a></td>
+                  <td> <a href="courses/{{ params.id }}"> {{ params.name }} </a> </td>
+
                   <td>{{ params.short_description }}</td>
                 </tr>
               {% endfor %}
@@ -112,9 +113,7 @@
         </div>
       </div>
       <div class="media">
-        <iframe allowfullscreen="true" frameborder="0" height="350" src=
-          "http://coub.com/embed/acw5gmi?muted=false&autostart=true&originalSize=false&hideTopBar=true&startWithHD=true"
-          width="320"></iframe>
+        
       </div>
     </div>
     <div class="container" role="main">
