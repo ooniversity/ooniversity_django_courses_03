@@ -1,10 +1,13 @@
 from django.shortcuts import render
-import models
-
+from courses.models import Course, Lesson
+from coaches.models import Coach
 
 def detail(request, num):
-    item = models.Course.objects.get(id=num)
-    lesson = models.Lesson.objects.filter(course=models.Course.objects.filter(id=num))
-    return render(request, 'courses\detail.html', {'item': item, 'lesson': lesson})
-
-
+    item = Course.objects.get(id=num)
+    lesson = Lesson.objects.filter(course=Course.objects.filter(id=num))
+    coaches = Coach.objects.filter(coach_courses=num)
+    assistants = Coach.objects.filter(assistant_courses=num)
+    return render(request, 'courses\detail.html', {'item': item, 'lesson': lesson,
+                                                   'coaches': coaches, 'assistants': assistants
+                                                   }
+                  )
