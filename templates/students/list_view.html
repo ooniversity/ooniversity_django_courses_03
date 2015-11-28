@@ -26,7 +26,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="{% url 'index' %}">Main</a></li>
                 <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li><a href="{% url 'students:list' %}">Students</a></li>
+                <li><a href="{% url 'students:list_view' %}">Students</a></li>
               </ul>
             </div>
           </div>
@@ -42,6 +42,7 @@
               <table class="table">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>Name_Surname</th>
                     <th>Address</th>
                     <th>Skype</th>
