@@ -15,6 +15,5 @@ class Migration(migrations.Migration):
             model_name='lesson',
             name='subject',
             field=models.CharField(default=1, max_length=255),
-            preserve_default=False,
         ),
     ]
