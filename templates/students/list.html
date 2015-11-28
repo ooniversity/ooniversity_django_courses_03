@@ -40,15 +40,13 @@
         <li ><a href=" {% url 'courses:main' %} ">Main</a></li>
         <li><a href=" {% url 'contact' %}" >Contacts</a></li>
         <li class="active"><a href=" {% url 'students:list_view' %}" >Students</a></li>
-        
-        </li>
       </ul>
      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 <ol class="breadcrumb">
-  <li>Main</a></li>
+  <li>Main</li>
 </ol>
       <h2>Список студентов</h2>
       <table class="table">
@@ -65,20 +63,18 @@
       <tbody>
           {% for item in students_list %}
           <tr>
-          <td>{{ forloop.counter }}</td>
-          <td><a href="{% url 'students:detail' pk=item.id %}">{{ item.name }} {{ item.surname }}</a></td>
-          <td>{{ item.address }}</td>
-          <td>{{ item.skype }}</td>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'students:detail' pk=item.id %}">{{ item.name }} {{ item.surname }}</a></td>
+            <td>{{ item.address }}</td>
+            <td>{{ item.skype }}</td>
 
-          <td>
-          {% for i in item.courses.all %}
-          <p><a href="{% url 'courses:detail' pk=i.id %}">{{ i }}</a></p>
+            <td>
+              {% for i in item.courses.all %}
+                <p><a href="{% url 'courses:detail' pk=i.id %}">{{ i }}</a></p>
+              {% endfor %}
+            </td>
+          </tr> 
           {% endfor %}
-          </td>
-
-
-          {% endfor %}
-         </tr> 
       </tbody>
     </table>
     </div>
