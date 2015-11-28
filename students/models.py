@@ -12,4 +12,4 @@ class Student(models.Model):
 	courses = models.ManyToManyField(Course)
 
 	def __unicode__(self):
-		return self.name
+		return self.name +" " + self.surname
