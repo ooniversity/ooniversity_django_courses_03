@@ -1,8 +1,6 @@
 from django.conf.urls import patterns, include, url
 from students import views
 
-urlpatterns = patterns(
-    '',
+urlpatterns = patterns('',
     url(r'^$', views.list_view, name='list_view'),
-    url(r'(?P<student_id>[0-9]+)/$', views.detail, name='detail')
-)
+    url(r'(?P<student_id>[0-9]+)/$', views.detail, name='detail'))
