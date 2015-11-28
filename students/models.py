@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from courses.models import Course
 
@@ -15,4 +16,5 @@ class Student (models.Model):
         return self.name
 
     def full_name(self):
-        return "{} {}".format(self.name, self.surname)
+        full_name = "%s %s" % (self.name, self.surname)
+        return full_name
