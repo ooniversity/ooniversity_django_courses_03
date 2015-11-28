@@ -11,17 +11,17 @@ def list_view(request):
 
     if get_course_id:
 
-        students_list = Student.objects.filter(courses = Course.objects.get(id = get_course_id))
+        students_list = Student.objects.filter(courses=Course.objects.get(id=get_course_id))
 
     else:
 
         students_list = Student.objects.all()
 
-    return render(request,'students/list.html', {'students_list':students_list, 'courses_list':courses_list})
+    return render(request,'students/list.html', {'students_list': students_list, 'courses_list': courses_list})
 
 
 def detail(request, student_id):
 
     student_details = Student.objects.get(id=student_id)
 
-    return render(request,'students/detail.html', {'student_details':student_details} )
+    return render(request,'students/detail.html', {'student_details': student_details})
