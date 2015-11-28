@@ -15,3 +15,7 @@ class Student(models.Model):
 
     def __unicode__(self):
         return "{} {}".format(self.name, self.surname)
+
+    def full_name(self):
+        return "{} {}".format(self.name, self.surname)
+    full_name.short_description = 'Full name'
