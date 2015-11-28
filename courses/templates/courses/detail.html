@@ -33,6 +33,27 @@
     <h2> {{ course_detail.name }} </h2>
     {{ course_detail.description }}
     <br>
+    <h3> Course trainers:</h3>
+    <br>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Teacher</h3>
+            </div>
+            <div class="panel-body">
+              <a href="{% url 'coaches:detail' course_detail.coach.id %}"> {{ course_detail.coach.user.first_name }}  {{ course_detail.coach.user.last_name }} </a> <br><br>
+               {{ course_detail.coach.description }}
+            </div>
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Assistant</h3>
+            </div>
+            <div class="panel-body">
+               <a href="{% url 'coaches:detail' course_detail.assistant.id %}"> {{ course_detail.assistant.user.first_name }}  {{ course_detail.assistant.user.last_name }} </a> <br><br>
+               {{ course_detail.assistant.description }}
+            </div>
+        </div>
+    <br>
     <h3> Course detailed plan (lessons): </h3>
     <br>
 
