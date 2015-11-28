@@ -6,8 +6,8 @@ class StudentAdmin(admin.ModelAdmin):
     list_display = ['full_name' , 'email', 'skype']
     list_filter = ['courses']
 
-    fieldsets = [('Personal Info', {'fields': ['name', 'surname', 'date_of_birth']}), 
-    ('Contact Info', {'fields': ['email', 'phone', 'address', 'skype']}), 
+    fieldsets = [('Personal info', {'fields': ['name', 'surname', 'date_of_birth']}), 
+    ('Contact info', {'fields': ['email', 'phone', 'address', 'skype']}), 
     (None, {'fields': ['courses']})]
     filter_horizontal = ['courses']
 
