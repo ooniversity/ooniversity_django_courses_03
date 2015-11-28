@@ -6798,3 +6798,15 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.blog-footer {
+    padding: 40px 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+}
+.first{
+  border: 2px;
+  border-color: green;
+}

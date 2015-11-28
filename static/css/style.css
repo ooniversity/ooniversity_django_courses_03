@@ -1,100 +1,75 @@
-body {
-  padding-top: 20px;
+img.logo {
+    height: 45px;
+    margin-top: -10%
 }
-
-.footer {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  margin-top: 40px;
-  border-top: 1px solid #eee;
-}
-
-/* Main marketing message and sign up button */
 .jumbotron {
-  text-align: center;
-  background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.7); 
+    
 }
-.first_block {
- text-align: center;
-background-color: #5cb85c;
-color: #fff;
+body {
+    background-image: url(../images/fon.jpg);
 }
-.jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
+.photo {
+    opacity: 1;
+    padding-top: 25px;
 }
-
-/* Customize the nav-justified links to be fill the entire space of the .navbar */
-
-.nav-justified {
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+#dir {
+    height: 300px
 }
-.nav-justified > li > a {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  margin-bottom: 0;
-  font-weight: bold;
-  color: #777;
-  text-align: center;
-
-  background-repeat: repeat-x; /* Repeat the gradient */
-  border-bottom: 1px solid #777;
+#manager {
+    height: 250px
 }
-.nav-justified > .active > a,
-.nav-justified > .active > a:hover,
-.nav-justified > .active > a:focus {
-  background-color: #ddd;
-  background-image: none;
-
+.name {
+    color: red;
 }
-.nav-justified > li:first-child > a {
-  border-radius: 5px 5px 0 0;
+.skype {
+    color: blue;
 }
-.nav-justified > li:last-child > a {
-  border-bottom: 0;
-  border-radius: 0 0 5px 5px;
+.phone {
+    text-decoration: underline;
 }
-
-@media (min-width: 768px) {
-  .nav-justified {
-    max-height: 52px;
-  }
-  .nav-justified > li > a {
-    border-right: 1px solid #777;
-    border-left: 1px solid #fff;
-  }
-  .nav-justified > li:first-child > a {
-    border-left: 0;
-    border-radius: 5px 0 0 5px;
-  }
-  .nav-justified > li:last-child > a {
-    border-right: 0;
-    border-radius: 0 5px 5px 0;
-  }
+.tdfunc {
+    font: 18pt serif;
+    text-align: center;
 }
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .masthead,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0;
-  }
+.first {
+    color: blue;
+    vertical-align: middle;
 }
-.text-muted {
-  color: #5cb85c;
+.glav {
+    text-decoration: underline;
+    color: red
 }
-.col-lg-4 b {
-  color: red;
+.newfooter {
+    background-color: black;
+    text-align: center;
 }
-.left {
-  text-align: left;
+.firma {
+    color: green;
 }
-thead {
-  background-color: #5cb85c;
-  color: #fff;
+#prava {
+    text-shadow: 1px 1px 2px black, 0 0 1em red;
+}
+.contact {
+    color: red;
+    text-decoration: underline;
+    font: 16pt serif;
+}
+.courses {
+    color: yellow;
+    text-shadow: 1px 1px 2px black, 0 0 1em red;
+    text-decoration: underline;
+    font: 16pt serif;
+}
+.avatar{
+height: 160px;
+float: left;
+margin-bottom: 15px
+}
+.tbl{
+    border:1px double black;
+}
+tr.pod:nth-child(odd){
+    background-color: rgba(253, 255, 220, 0.6);    
+    color: black
 }
