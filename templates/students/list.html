@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Students</title>
+
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  </head>
+  <body>
+        <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+        <div class="collapse navbar-collapse test2" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="{% url 'courses:list_view' %}">Main</a>
+        </li>
+
+        <li>
+          <a href="{% url 'contact' %}">Contact</a>
+        </li>
+
+        <li class="active">
+          <a href="{% url 'students:list_view' %}">Students</a>
+        </li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+
+  <h2>Список студентов</h2>
+      <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Фамилия, имя</th>
+          <th>Адрес</th>
+          <th>skype</th>
+          <th>Курсы</th>
+        </tr>
+        </tr>
+      </thead>
+      <tbody>
+          {% for item in students_list %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'students:detail' pk=item.id %}">{{ item.name }} {{ item.surname }}</a></td>
+            <td>{{ item.address }}</td>
+            <td>{{ item.skype }}</td>
+
+            <td>
+              {% for i in item.courses.all %}
+                <p><a href="{% url 'courses:detail' pk=i.id %}">{{ i }}</a></p>
+              {% endfor %}
+            </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+</div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="{% static 'courses/bootstrap.js' %}"></script>
+  </body>
+</html>
