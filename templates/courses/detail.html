@@ -26,10 +26,10 @@
           <div class="container">
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url 'index' %}">Main</a></li>
-                <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Students</a><li>
-              </ul>
+            <li class="active"><a href="{% url 'index' %}">Main</a><li>
+            <li><a href="{% url 'contact' %}">Contacts</a><li>
+            <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a><li>
+
             </div>
           </div>
         </nav>
@@ -45,23 +45,25 @@
         <th>Theme</th>
         <th>Description</th>
       </tr>
-    </thead>
-    <tbody></br></br></br></br></br>
-      {%for lesson in course.lesson_set.all%}
-        <tr>
-          <td>
-            {{forloop.counter}}
-          </td>
-          <td>
-            {{lesson.theme}}
-          </td>
-          <td>
-            {{lesson.description|truncatechars:200}}
-          </td>
-        </tr>
-      {%endfor%}
-    </tbody>
-  </table>
+    </thead></br></br></br>
+      <tbody>
+        <h2>{{ course.name }} course details</h2>
+        <h3>{{ course.description }}</h3>
+        {%for lesson in course.lesson_set.all%}
+          <tr>
+            <td>
+              {{forloop.counter}}
+            </td>
+            <td>
+              {{lesson.theme}}
+            </td>
+            <td>
+              {{lesson.description|truncatechars:200}}
+            </td>
+          </tr>
+        {%endfor%}
+      </tbody>
+    </table>
   </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
