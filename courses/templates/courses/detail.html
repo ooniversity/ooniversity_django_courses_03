@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Академия Щ.И.Т - Главная</title>
+    <title>Академия Щ.И.Т - Инфо о курсе</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -32,29 +32,31 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'index' %}">Main</a><span class="sr-only">(current)</span></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+            <li><a href="{% url 'contact'%}">Contacts</a></li>
+            <li><a href="{% url 'students:list_view'%}?course_id={{course.id}}">Students</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>    
      <div class= "container">    
       <div class="jumbotron">
-      <h2>Добро пожаловать в Академию Щ.И.Т.</h2><hr>
-      <p>Вступай в ряды всемирной организации по борьбе с преступностью!</p>
-      <p>Хочешь стать мстителем? Узнать тайну личности Человека-Паука? Примерить костюм железного человека? Вступай к нам!</p>
-      </div>    
-      <h3>Выбери курс:</h3>
+      <h2>{{ course.name }}</h2><hr>
+      <p>{{ course.description }}</p>
+     <h3>План курса:</h3>
     <table class = "course_info">
         <tr class = "oddtr">
+        <td>#</td>
         <td class = "first_td">Курс</td>
         <td class = "second_td">Описание</td>
       </tr>
-      {% for each_course in course %}
+      {% for each_lesson in lesson %}
+      {% if each_lesson.course.name = course.name %}
         <tr>
-          <td><a href="{% url 'courses:detail' each_course.id %}"> {{ each_course.name }}</a></td>
-          <td>{{ each_course.short_description }}</td>
+          <td>{{ each_lesson.order }}</td>
+          <td>{{ each_lesson.subject }}</td>
+          <td>{{ each_lesson.description }}</td>
         </tr>
+      {% endif %}
       {% endfor %}
     </table>  
     </div>

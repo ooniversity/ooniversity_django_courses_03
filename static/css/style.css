@@ -67,3 +67,19 @@ thead{
 	border:2px solid white;
 	padding-left: 5px;
 }
+h2{
+	font-size: xxlarge;
+	font-weight: 800;
+}
+.course_info {
+	width:99%;
+
+}
+.course_info td{
+		border-bottom:1px solid grey;
+		padding: 5px;
+}
+
+.course_info .first_td{
+	width:25%;
+}
