@@ -21,6 +21,3 @@ class Coach(models.Model):
     def last_name(self):
         return self.user.last_name
     last_name.short_description = 'Surname'
-    
-    def email(self):
-        return self.user.email
