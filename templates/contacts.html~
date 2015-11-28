@@ -4,10 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Contacts</title>
-        {% load static from staticfiles %}
-	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
-  <script src="{% static 'css/style.css'%}"></script>
+	<link rel="stylesheet" href="../static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <script src="../static/js/bootstrap.js"></script>
 </head>
 
 <body>
@@ -16,12 +15,12 @@
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-            <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
-            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li role="presentation"><a href="index.html">Main</a></li>
+            <li role="presentation"><a href="student_list.html">Students</a></li>
+            <li role="presentation"><a href="contacts.html">Contacts</a></li>
           </ul>
         </nav>
-        <h1 class="text-muted"><a href="{% url 'index' %}">PyBursa</a></h1>
+        <h1 class="text-muted"><a href="index.html">PyBursa</a></h1>
       </div>
    
 	
