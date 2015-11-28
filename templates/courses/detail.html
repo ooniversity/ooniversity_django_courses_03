@@ -48,7 +48,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="{% url 'index' %}">Main</a></li>
-            <li class="/active/"><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
             <li><a href="{% url 'students:list_view' %}">Students</a></li>
             <li><a href="{% url 'equation' %}">Equotion</a></li>
           </ul>
@@ -57,69 +57,42 @@
     </nav>
 
     <div class="container theme-showcase" role="main">
-
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Director</h3>
-            </div>
-            <div class="panel-body">
-                <br><strong>Name:</strong> Daria Mykhalevych
-                <br><strong>Email:</strong> daria.mykhalevych@gmail.com
-                <br><strong>Skype:</strong> darka.darka.darka.darka
-                <br><strong>Phone:</strong> +38 096 469 15 57
-              </div>
-              <div class="panel-body">
-                <img class="face" src="{% static 'images/darka.jpg' %}"  alt="Daria Mykhalevych" style="width:90px;height:120px;">
-              </div>
-          </div>
-        </div>
-      
-        <div class="col-sm-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Manager</h3>
-            </div>
-            <div class="panel-body">
-              <br><strong>Name:</strong> Alyona Chaika
-              <br><strong>Email:</strong> alena.itbursa@gmail.com
-              <br><strong>Skype:</strong> alena.itbursa
-              <br><strong>Phone:</strong> +38 063 625 07 55
-            </div> 
-              <div class="panel-body">
-                <img class="face" src="{% static 'images/alena.jpg' %}"  alt="Alyona Chaika" style="width:90px;height:120px;">
-              </div>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Founder</h3>
-            </div>
-            <div class="panel-body">
-              <br><strong>Name:</strong> Pavel Obod
-              <br><strong>Email:</strong> itbursa100@gmail.com
-              <br><strong>Skype:</strong> azaless
-              <br><strong>Phone:</strong> +38 096 469 15 56
-            </div>
-            <div class="panel-body">
-                <img class="face" src="{% static 'images/pasha.jpg' %}"  alt="Pavel Obod" style="width:90px;height:120px;">
-              </div>
-          </div>
-        </div>
-          
+        <h1 class="course">Ooniversity</h1>
+             {% block content %}
+              <h2 class="course">{{ course.name }} course details</p>
+              <p class="course">{{ course.description }}</h3>
+              <h2 class="course">Course plan</h3>
+              <br>
+              <table class="table table-striped table table-bordered">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Lesson</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>   
+				  {% for lesson in lessons%}
+                    <tr>
+                      <td>{{ lesson.order }}</td>
+                      <td>{{ lesson.subject }}</td>
+                      <td>{{ lesson.description }}</td>
+                    </tr>
+                  {% empty %}
+                    <h3>Not found!</h3>
+                  {% endfor %}
+                </tbody>
+              </table>
+              </br>
+        {% endblock %}
       </div>
       
-    </div>
-
+      
     </div>
     
-    <!-- Site footer -->
+   <!-- Site footer -->
     <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="col-sm-3 col-sm-offset-5">
         <a class="navbar-brand" href="https://www.youtube.com/watch?v=KxmLNctBi10">&copy; PyBursa 2015</a>
@@ -133,6 +106,8 @@
         </p>
       </div>
     </div>
+    
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
