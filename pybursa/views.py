@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from courses.models import Course
 
 def index(request):
-    return render(request,'index.html')
+    data_course = Course.objects.all()
+    return render(request,'index.html', {'course': data_course})
 
 def contact(request):
     return render(request,'contact.html')
