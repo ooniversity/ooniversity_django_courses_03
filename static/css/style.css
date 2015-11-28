@@ -102,6 +102,12 @@ td {
   padding-top: 15px;
 }
 
+.manager {
+  padding-left: 0px;
+  width: 515px;
+  height: 130px;
+}
+
 #header_sponsors_contacts {
   text-align: center;
   color: #38300A;

@@ -39,37 +39,51 @@
     </div>
     <div class="jumbotron">
       <div class="text-center">
-        <h1>PyBursa</h1>
-        <h4>Description</h4>
+
+        <p><h2 class="text-center">Student details</h2></p>
+
       </div>
-      <p class="lead">The course starts by overviewing Python, and then goes on
-      to study Python's collections - Lists, Tuples and Dictionaries etc. We
-      introduce the development environments and other resources available, and
-      take a look with practical exercises at test procedures and good code
-      design.</p>
+
     </div>
     <div class="row marketing">
-      <div class="col-lg-6">
-        <p><h2 class="text-center">Courses:</h2></p>
-      </div>
 
 
-      <div class="col-lg-6">
-            <table>
-            <tr class="table_head dark_grey_row">
-            <td>Course</td>
-            <td>Short description</td>
-            </tr>
+<h2 class = "style-thead3">{{student.name}} {{student.surname}}</h2>
 
-            {% for course in courses %}
+  <table class="table ">
+      <tbody>
+        <tr class = "style-thead3">
+          <td>Birth Date</td>
+          <td>{{student.date_of_birth}}</td>
+        </tr>
+        <tr class = "style-thead3">
+          <td>Address</td>
+          <td>{{student.address}}</td>
+        </tr>
+        <tr class = "style-thead3">
+          <td>Email</td>
+          <td>{{student.email}}</td>
+        </tr>
+        <tr class = "style-thead3">
+          <td>Skype</td>
+          <td>{{student.skype}}</td>
+        </tr>
+        <tr class = "style-thead3">
+          <td>Phone</td>
+          <td>{{student.phone}}</td>
+        </tr>
+        <tr class = "style-thead3">
+          <td>Courses</td>
+          <td>
+          {% for course in courses %}
+          <a href={% url 'courses:detail' course.id %}>{{course.name}} </br></a>
+          {% endfor %}
+          </td>
+        </tr>
 
-            <tr>
-            <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
-            <td><p>{{ course.short_description }}</p></td>
-            </tr>
 
-             {% endfor %}
-            </table>
+      </tbody>
+    </table>
       </div>
 
 
