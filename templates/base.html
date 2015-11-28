@@ -60,7 +60,7 @@
                         <a href="/">Главная</a>
                     </li>
                     <li>
-                        <a href="contact.html">Контакты</a>
+                        <a href="{% url 'contact' %}">Контакты</a>
                     </li>
                     {% block change_link_mobi %}
                     <li>
@@ -73,7 +73,7 @@
                         <a href="/">Главная</a>
                     </li>
                     <li>
-                        <a href="contact.html">Контакты</a>
+                        <a href="{% url 'contact' %}">Контакты</a>
                     </li>
                     {% block change_link %}
                     <li>
@@ -154,7 +154,6 @@
             <div class="col l6 s12">
                 <h5 class="white-text">Задайте вопрос</h5>
                 <form class="col s12" action="/" method="post" id="contactForm">
-                    {% csrf_token %}
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="mdi-account-circle prefix white-text"></i>
