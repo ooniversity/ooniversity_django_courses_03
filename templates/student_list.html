@@ -7,20 +7,20 @@
     <title>Students</title>
     {% load staticfiles %}
   </head>
-    <body class="sl-background">
+    <body>
     <!-- menu start -->  
-        <nav class="navbar-fixed-top navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="{% url 'index' %}">
-                <img class="sl-brand" alt="GodsBursa" src="../static/images/gb-logo.jpg">
+        <nav >
+          <div >
+            <div>
+              <a  href="{% url 'index' %}">
+                py
               </a>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
+            <div >
+              <ul >
                 <li><a href="{% url 'index' %}">Main</a></li>
                 <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li class="active"><a href="{% url 'students:list_view' %}">Students<span class="sr-only">(current)</span></a></li>
+                <li ><a href="{% url 'students:list_view' %}">Student</a></li>
                 </li>
               </ul>
             </div>
@@ -28,12 +28,12 @@
         </nav>
     <!-- menu end -->  
     <!-- main students-list -->  
-    <div class="slash-div">
+    <div >
     <h2> Lorem ipsum dolor sit amet. <br><small> Lorem ipsum dolor sit amet.</small></h2>
-    <div class="table-responsive">
-        <table class="table table-hover table-bordered">
+    <div >
+        <table >
             <thead>
-              <tr class="success">
+              <tr >
                 <td><strong>No</strong></td>
                 <td><strong>Surname</strong></td>
                 <td><strong>Name</strong></td>
