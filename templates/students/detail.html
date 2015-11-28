@@ -11,9 +11,9 @@
 <body>
     <div id="menu">
         <ul class="nav nav-pills">
-            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-            <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
         </ul>
     </div>
      <div class="jumbotron">
@@ -36,7 +36,7 @@
             <td>{{ student.phone }}</td>
             <td>
             {% for course in student.courses.all %}
-                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
             {% endfor %}
             </td>
         </tr>
