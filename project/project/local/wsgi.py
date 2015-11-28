@@ -1,0 +1,1 @@
+/home/parallels/Dropbox/Python/PyBursa/Project/project/project/wsgi.py
