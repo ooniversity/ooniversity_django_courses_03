@@ -58,9 +58,9 @@
               <br>
 
                 <div class="table-responsive">
-                  <table class="table table-hover">
+                  <table class="table table-bordered">
                       <thead>
-                        <tr class="success">
+                        <tr class="success" style="color: #505050">
                           <td><strong>ID</strong></td>
                           <td><strong>Subject</strong></td>
                           <td><strong>Description</strong></td>
@@ -72,7 +72,7 @@
                         <tr>
                           <td>{{ lesson.order }} </td>
                           <td>{{ lesson.subject }}</td>
-                          <td>{{ lesson.description }}</td>
+                          <td align="left">{{ lesson.description }}</td>
                         </tr>
                         {% endfor %}
                         {% endif %}
