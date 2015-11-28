@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
+__author__ = 'dimon'
 from django.conf.urls import patterns, url
 
 from .views import quadratic_results
 
 urlpatterns = patterns('',
-                       url(r'results/$', quadratic_results, name='results'),
+                       # ex: /polls/
+                       url(r'results/$', quadratic_results, name='result'),
+
                        )
