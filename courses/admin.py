@@ -1,9 +1,6 @@
 from django.contrib import admin
 import models
 
-admin.site.register(models.Course, CourseAdmin)
-admin.site.register(models.Lesson)
-
 class CourseAdmin(admin.ModelAdmin):
     inlines = [LessonInline]
     search_fields = ['name']
@@ -12,4 +9,6 @@ class CourseAdmin(admin.ModelAdmin):
 class LessonInline(admin.TabularInline):
     extra = 0
     model = models.Lesson
-    
+
+admin.site.register(models.Course, CourseAdmin)
+admin.site.register(models.Lesson)    
