@@ -35,21 +35,25 @@
     	  </div>
       </div>
     </nav>
-  	<div class="page-header">
+    <div class="page-header">
       <h1 class="student-head">Студенты ITBursa</h1>
       	<p class="below-header">Список студентов учащихся в ooniversity</p>
   	</div>
-		<div class="study_table">
-		  <div class="panel panel-default">
+	  <div class="study_table2">
+       <div class="panel panel-default">
   	    <div class="panel-heading"><h2 class="course_program" >Курс 2015</h2></div>
 		      <table class="table table-hover">
   		      <tr class="headtable_student"><td><h3>No</h3></td><td><h3>Фамилия Имя</h3></td><td><h3>Адрес</h3></td><td><h3>Skype</h3></  td><td><h3>Курсы</h3></td><tr>            
-            {% for student in students_on_course %}
-            <tr ><td><h3>{{student.id}}</h3></td><td><h3><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name}}</a></h3></td><td><h3>{{student.address}}</h3></td><td><h3>{{student.skype}}</h3></td><td><h3>{% for course in student.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}{% endfor %}</a></h3></td></tr>
-            {% endfor %}   
+            
+            <tr ><td><h3>{{coaches.id}}</h3></td><td><h3><a href="{% url 'students:detail' student.id %}"></a></h3></td><td><h3>{{coaches.address}}</h3></td><td><h3></h3></td><td><h3><a href="{% url 'courses:detail' course.id %}"></a></h3></td></tr>
+             
 			    </table>
         </div>
       </div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </body>
+</html>
+                        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </body>
 </html>
