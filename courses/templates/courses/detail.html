@@ -52,11 +52,29 @@
             <div class="header-content-inner">
               <div class="slash-div">
               <h2> {{ course_detail.name }} </h2>
+              
               {{ course_detail.description }}
-              <br>
-              <h3> Course detailed plan (lessons): </h3>
-              <br>
 
+                <table class="table table-bordered">
+                    <thead>
+                      <col width="50%">
+                      <tr class="success" style="color: #505050">
+                        <td><strong>Coach:</strong></td>
+                        <td><strong>Assistant:</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td> <a href="{% url 'coaches:detail' course_detail.coach.id %}"> {{ course_detail.coach.user.first_name }}  {{ course_detail.coach.user.last_name }} </a> <br><br>
+               {{ course_detail.coach.description }}</td>
+                        <td><a href="{% url 'coaches:detail' course_detail.assistant.id %}"> {{ course_detail.assistant.user.first_name }}  {{ course_detail.assistant.user.last_name }} </a> <br><br>
+               {{ course_detail.assistant.description }}</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  <h3> Course detailed plan (lessons): </h3>
                 <div class="table-responsive">
                   <table class="table table-bordered">
                       <thead>
@@ -83,6 +101,7 @@
               </div>
             </div>
         </div>
+
     </header>
     <!-- jQuery -->
     <script src="../static/js/jquery.js"></script>
@@ -97,6 +116,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../static/js/creative.js"></script>
+
 </body>
 
 </html>
