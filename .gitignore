@@ -1,5 +1,4 @@
 *.pyc
 *.pyo
 *~
-lib/*
-bin/*
+site
