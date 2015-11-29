@@ -17,5 +17,8 @@ class Coach(models.Model):
     def get_last_name(self):
         return self.user.last_name
 
+    def get_email(self):
+        return self.user.email
+
     def __unicode__(self):
         return self.user.first_name
