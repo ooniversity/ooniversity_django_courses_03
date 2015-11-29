@@ -1,11 +1,15 @@
 from django.db import models
-from students.models import Student
+from django.contrib.auth.models import User
 
+#from django.contrib.auth import User
+
+#from students.models import Student
+#from django.contrib.auth import User
 
 class Coach(models.Model):
     user=models.OneToOneField(User)
     date_of_birth=models.DateField()
-    gender=models.CharField(max_length=1
+    gender=models.CharField(max_length=1,
         choices=(('M', 'Male'),('F', 'Female')))
     phone=models.CharField(max_length=255)
     address=models.CharField(max_length=255)
