@@ -13,4 +13,4 @@ def detail(request, course_id):
 	as_descr = course.assistant.description
 	a = course.assistant.id
 	return render(request, 'courses/detail.html', 
-		{'course':course, 'lessons':lessons, 'coach':coach, 'assistant':assistant, 'c':c, 'coach_descr':coach_descr, 'as_descr':as_descr})
+		{'course':course, 'lessons':lessons, 'coach':coach, 'assistant':assistant, 'c':c, 'coach_descr':coach_descr, 'as_descr':as_descr, 'a':a})
