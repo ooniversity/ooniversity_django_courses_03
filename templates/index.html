@@ -69,14 +69,15 @@
             </tr>
           </thead>
           <tbody>
-            {% for cour in courses %}
-            <tr>
-              <td><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a>
-              </td>
-              <td>{{cour.short_description}}</td>
-            </tr>
-            {% endfor %}
-            </tbody>    
+            {% if gc %} 
+              {% for course in gc %}
+              <tr>
+                <td><a href="{% url 'courses:detail' course.id %}"> {{ course.name }} </a></td>
+                <td>{{ course.short_description }}</td>
+              </tr>
+              {% endfor %}
+            {% endif %}  
+          </tbody>
         </table>
       </div>  
     </div>  
