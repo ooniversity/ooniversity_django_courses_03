@@ -6,11 +6,13 @@ import os
 # Create your views here.
 
 def detail(request, request_id):
+    course_id = Course.objects.get(id=request_id)
     result = {
-    	'item': Course.objects.get(id=request_id),
-    	'course': Course.objects.get(id=request_id),
+    	'course': course_id,
     	'lessons': Lesson.objects.filter(course=request_id),
-    	'coaches': Coach.objects.filter(coach_courses=request_id),
-    	'assistants': Coach.objects.filter(assistant_courses=request_id)}
-
+    	'coach': course_id.coach.full_name(),
+	   	'assistant': course_id.assistant.full_name(),
+	   	'coach_id': course_id.coach.id,
+	   	'assistant_id':course_id.assistant.id,
+	}
     return render(request, os.path.join('courses', 'detail.html'), result)

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>{{course.name}}</title>
     {% load staticfiles %}
-    <script src="{% static 'js/bootstrap.js' %}"> </script>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src={% static 'js/bootstrap.js' %} rel="stylesheet"> </script>
+    <link  href={% static 'css/bootstrap.css' %} rel="stylesheet">
+    <link  href={% static 'css/style.css' %} rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -40,10 +40,10 @@
         <div class= "jumbotron container">
             <h2>Teachers</h2> 
             <h3>Coach</h3>
-            <h4><a href={% url 'coaches:detail' coach.id %}>{{coach.full_name}}</a></h4>
+            <h4><a href="{% url 'coaches:detail' coach_id %}">{{ coach }}</a></h4>
             <h6>{{coach.description}}</h6>
             <h3>Assistant</h3>
-            <h4><a href={% url 'coaches:detail' assistant.id %}>{{assistant.full_name}}</a></h4>
+            <h4><a href="{% url 'coaches:detail' assistant_id %}">{{ assistant }}</a></h4>
             <h6>{{assistant.description}}</h6>
         </div>
         <h2 class="descr">План курса</h2>
