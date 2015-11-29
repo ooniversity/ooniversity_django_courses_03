@@ -3,7 +3,6 @@ from courses.models import *
 
 def index(request):
     result = {'courses': Course.objects.all()}
-    print(result)
     return render(request, 'index.html', result)
 
 def contact(request):

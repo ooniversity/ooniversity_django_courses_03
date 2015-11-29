@@ -50,12 +50,12 @@
               </tr>
             </thead>
             <tbody>
-              {% for course in courses %}
+            {% for course in courses %}
               <tr>
-                <th scope="row"><a class="table" href="{% url 'courses:detail' course.id %}">{{ course }}</a></th>
+                <th scope="row"><a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></th>
                 <td>{{ course.short_description }}</td>
               </tr>
-              {% endfor %}
+            {% endfor %}
             </tbody>
           </table>
         </div>
