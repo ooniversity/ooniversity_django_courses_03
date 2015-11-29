@@ -6,10 +6,10 @@ class Coach(models.Model):
 	user = models.OneToOneField(User)
 	date_of_birth = models.DateField()
 	gender = models.CharField(max_length=1, choices = (('M', 'Male'), ('F', 'Female')))
-	phone = models.CharField(max_length = 150)
-	address = models.CharField(max_length = 150)
-	skype = models.CharField(max_length = 150)
-	desciption = models.TextField()
+	phone = models.CharField(max_length = 255)
+	address = models.CharField(max_length = 255)
+	skype = models.CharField(max_length = 255)
+	description = models.TextField()
 
 	def __unicode__(self):
 		return self.user.username
