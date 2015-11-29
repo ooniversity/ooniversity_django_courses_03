@@ -26,11 +26,11 @@
   <div class= "jumbotron container">
     <h2>Teachers</h2> 
     <h3>Coach</h3>
-    <h4><a href={% url 'coaches:detail' coach.id %}>{{coach.Name}} {{coach.Surname}}</a></h4>
+    <h4><a href={% url 'coaches:detail' coach.id %}>{{coach.first_name}} {{coach.last_name}}</a></h4>
     <h6>{{coach.description}}</h6>
     <h3>Assistant</h3>
-    <h4><a href={% url 'coaches:detail' assistent.id %}>{{assistent.Name}} {{assistent.Surname}}</a></h4>
-    <h6>{{assistent.description}}</h6>
+    <h4><a href={% url 'coaches:detail' assistant.id %}>{{assistant.first_name}} {{assistant.last_name}}</a></h4>
+    <h6>{{assistant.description}}</h6>
   </div>
   <div class="jumbotron container">
     <h2>Course lessons</h2>
