@@ -44,7 +44,9 @@
                                             {% for course in coach.coach_courses.all  %}
                                                 <tr>
                                                     <td>
-                                                        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">{{ course }} (students list)
+                                                        <a href="{% url 'courses:course_detail' course_id=course.id %}">{{ course }}</a>
+                                                        course students
+                                                        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
                                                             <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
                                                         </a>
                                                     </td>
@@ -59,7 +61,9 @@
                                             {% for course in coach.assistant_courses.all  %}
                                                 <tr>
                                                     <td>
-                                                        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">{{ course }} (students list)
+                                                        <a href="{% url 'courses:course_detail' course_id=course.id %}">{{ course }}</a>
+                                                        course students
+                                                        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
                                                             <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
                                                         </a>
                                                     </td>
