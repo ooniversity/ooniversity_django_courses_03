@@ -29,9 +29,9 @@
         <nav>
           
             <ul class="nav nav-pills pull-right">
-              <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
-              <li role="presentation"><a href="{% url 'contact' %}"> Contacts</a></li>
-              <li role="presentation"><a href="{% url 'students:list_view' %}?course_id={{course_id}}"> Students</a></li>
+              <li><a href="{% url 'index' %}">Main</a></li>
+              <li><a href="{% url 'contact' %}"> Contacts</a></li>
+              <li><a href="{% url 'students:list_view' %}?course_id={{course_id}}"> Students</a></li>
             </ul>
           
         </nav>
@@ -52,7 +52,40 @@
           
         </div>
 
-    
+    <h2 class="descr">Преподаватели</h2>
+        <div class="panel panel-default">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Учитель</th>
+              </tr>
+            </thead>  
+            <tbody>
+              <tr>
+                <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.name}} {{course.coach.surname}}</a>
+                  <br/>
+                  <p>{{course.coach.description}}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Ассистент</th>
+              </tr>
+            </thead>  
+            <tbody>
+              <tr>
+                <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.name}} {{course.assistant.surname}}</a>
+                  <br/>
+                  <p>{{course.assistant.description}}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
     <hr>
     <h1 class="descr">План курса</h1>
@@ -64,30 +97,25 @@
         <table class="table">
             <thead>
               <tr>
-                <th>#</th>
+                  <th>#</th>
                   <th>Тема</th>
-                    <th>Описание</th>
+                  <th>Описание</th>
               </tr>
-                    </thead>
+            </thead>
                       <tbody>
           
                         {% for i in course.lesson_set.all %}
                         <tr>
-                        <td>{{ i.order }}</td>
-                        <td>{{ i.subject }}</td>
-                        <td>{{ i.description|linebreaksbr }}</td>
+                          <td>{{ i.order }}</td>
+                          <td>{{ i.subject }}</td>
+                          <td>{{ i.description|linebreaksbr }}</td>
                         </tr>
                         {% endfor %}
           
-                    </tbody>
+                      </tbody>
         </table>
 
-      </div>
-              
-        </div>
-
-      </div>
-    </div>    
+       
 
       </div>
     </div>    
