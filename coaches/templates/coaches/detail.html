@@ -39,51 +39,54 @@
     </nav>
     <div class="container">
         <div class="jumbotron">
-            <h2>{{ course_detail.name }}</h2>
-            <p>{{ course_detail.description }}</p>
-
-            <h3> Преподаватели: </h3>
-
-            <h4>Учитель</h4>
-             <a href="{% url 'coaches:detail' course_detail.coach.id %}"> {{ course_detail.coach }} </a>
-            <h6>{{ course_detail.coach.description }}</h6>
-
-
-            <h4>Ассистент</h4>
-            <a href="{% url 'coaches:detail' course_detail.assistant.id %}"> {{ course_detail.assistant }} </a>
-            <h6>{{ course_detail.assistant.description }}</h6>
-
-            <h3> План курса: </h3>
-
             <div class="detail">
+                <h2>{{ coach_detail.user.first_name}} {{coach_detail.user.last_name }}</h2>
                 <table class="table">
-                    <thead>
-                    <tr class="success">
-                        <td><strong>№</strong></td>
-                        <td><strong>Тема</strong></td>
-                        <td><strong>Описание</strong></td>
-                    </tr>
-                    </thead>
                     <tbody>
-                    {% if lessons_list %}
-                    {% for lesson in lessons_list %}
                     <tr>
-                        <td>{{ lesson.order }}</td>
-                        <td>{{ lesson.subject }}</td>
-                        <td>{{ lesson.description }}</td>
+                        <th>дата рождения</th>
+                        <td>{{ coach_detail.date_of_birth }}</td>
                     </tr>
-                    {% endfor %}
-                    {% endif %}
+                    <tr>
+                        <th>Адрес</th>
+                        <td>{{ coach_detail.address }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>почта</strong></th>
+                        <td>{{ coach_detail.user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>логин Skype</strong></th>
+                        <td>{{ coach_detail.skype }}</td>
+                    </tr>
+                    <tr>
+                        <th>телефон</th>
+                        <td>{{ coach_detail.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>курсы учитель</th>
+                        <td>
+                            {% for teacher in teacher_in %}
+                            <a href="{% url 'courses:detail' teacher.id %}">{{ teacher.name }}</a> students list: <a
+                                href="{% url 'students:list_view' %}?course_id={{ teacher.id }}"> <span
+                                class="glyphicon glyphicon-education" aria-hidden="true"></span> </a> <br>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>курсы ассистент</th>
+                        <td>
+                            {% for assistant in assistant_in %}
+                            <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a> students list: <a
+                                href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"> <span
+                                class="glyphicon glyphicon-education" aria-hidden="true"></span> </a> <br>
+                            {% endfor %}
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
-</div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{% static 'js/bootstrap.js' %}"></script>
 </body>
 </html>
