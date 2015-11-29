@@ -45,23 +45,21 @@
 
        <div class="jumbotron">
       
-        <h1>{{ course.name }}</h1>
-      
-        
+      <h1>{{ course.name }}</h1>
       <p>{{ course.description }}</p>
-       {% if coach %}
+       {% if course.coach %}
        <div>
          
-            <h3>Coach</h3>
-            <h4><a href={% url 'coaches:detail' coach.id %}>{{coach.full_name}}</a></h4>
-            <p>{{coach.description}}</p>
+            <h3>Учитель</h3>
+            <h4><a href={% url 'coaches:detail' course.coach.id %}>{{course.coach.full_name}}</a></h4>
+            <p>{{course.coach.description}}</p>
           
        {% endif %}
-       {% if assistant %}
+       {% if course.assistant %}
          
-            <h3>Assistant</h3>
-            <h4><a href={% url 'coaches:detail' assistant.id %}>{{assistant.full_name}}</a></h4>
-            <p>{{assistant.description}}</p>
+            <h3>Ассистент</h3>
+            <h4><a href={% url 'coaches:detail' course.assistant.id %}>{{course.assistant.full_name}}</a></h4>
+            <p>{{course.assistant.description}}</p>
            
        <div>
        {% endif %}
