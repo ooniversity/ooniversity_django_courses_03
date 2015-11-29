@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
+    <title>Teacher {{teacher.Surname}} {{teacher.Name}}</title>
 	{% load staticfiles %}
 
     <link href={%static 'css/bootstrap.css'%} rel="stylesheet">
@@ -23,19 +23,13 @@
 
 	<nav class="navbar navbar-default">
   
-    <!-- Brand and toggle get grouped for better mobile display -->
-    
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    
       <ul class="nav navbar-nav">
         <li><a href={% url 'index'%}>Main</a></li>
         <li><a href={% url 'contact'%}>Contacts</a></li>
 		<li><a href={% url 'students:list_view'%}>Students</a></li>
-        
+       
       </ul>
-      
- 
+
 </nav>
     <div>
 
@@ -43,33 +37,52 @@
 
  
 
-  <h2 class = "style-thead3">Description  of ItBursa courses</h2>
-  <p class = "style-thead2">Some description of ItBursa courses</p>
-  <p><a class="btn btn-primary btn-lg"  role="button">Learn more</a></p>
-</div>
-<div class="jumbotron container">
- <h2 class = "style-thead3">Description  of ItBursa courses</h2>
+  <h2 class = "style-thead3">{{teacher.Name}} {{teacher.Surname}}</h2>
+
   <table class="table ">
-			<thead>
-				<tr class = "style-thead">
-				
-					<th>Course</th>
-					<th>Description</th>
-				
-				</tr>
-			</thead>
 			<tbody>
-			{% for course in courses %}
 				<tr class = "style-thead3">
-					<td><a href={% url 'courses:detail' course.id %}>{{course.name}}</a></td>
-					<td>{{course.short_description}}</td>
-					
+					<td>Birth Date</td>
+					<td>{{teacher.date_of_birth}}</td>
 				</tr>
-			{% endfor %}
+				<tr class = "style-thead3">
+					<td>Address</td>
+					<td>{{teacher.address}}</td>
+				</tr>
+				<tr class = "style-thead3">
+					<td>Email</td>
+					<td>{{teacher.Email}}</td>
+				</tr>
+				<tr class = "style-thead3">
+					<td>Skype</td>
+					<td>{{teacher.skype}}</td>
+				</tr>
+				<tr class = "style-thead3">
+					<td>Phone</td>
+					<td>{{teacher.phone}}</td>
+				</tr>
+				<tr class = "style-thead3">
+					<td>Courses as Coach</td>
+					<td>
+					{% for course in course_coach %}
+						<a href={% url 'courses:detail' course.id %}>{{course.name}} <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></a>
+					{% endfor %}
+					</td>
+				</tr>
+				<tr class = "style-thead3">
+					<td>Courses as Assistent</td>
+					<td>
+					{% for course in course_assistent %}
+						<a href={% url 'courses:detail' course.id %}>{{course.name}} <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></a>
+					{% endfor %}
+					</td>
+				</tr>
+			
+			
 			</tbody>
 		</table>
 
- </div>
+ 
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     

@@ -30,7 +30,7 @@
       </ul>
    
 </nav>
-    <div>
+    
 
    <div class="jumbotron container">
 
@@ -38,8 +38,19 @@
 
   <h2 class = "style-thead3">{{course.name}}</h2>
   <p class = "style-thead2">{{course.description}}</p>
+  </div>
+  <div class= "jumbotron container">
+  <h2 class = "style-thead3">Teachers</h2> 
+  <h3 class = "style-thead3">Coach</h3>
+  <h4 class = "style-thead3"><a href={% url 'coaches:detail' coach.id %}>{{coach.Name}} {{coach.Surname}}</a></h4>
+  <h6 class = "style-thead3">{{coach.description}}</h6>
+  <h3 class = "style-thead3">Assistant</h3>
+  <h4 class = "style-thead3"><a href={% url 'coaches:detail' assistent.id %}>{{assistent.Name}} {{assistent.Surname}}</a></h4>
+  <h6 class = "style-thead3">{{assistent.description}}</h6></div>
+  
+  <div class="jumbotron container">
  <h2 class = "style-thead3">Course lessons</h2>
-  <table class="table ">
+ <table class="table ">
 			<thead>
 				<tr class = "style-thead">
 				
@@ -51,17 +62,17 @@
 			</thead>
 			<tbody>
 			{% for lesson in lessons %}
-			{% if lesson.course.name == course.name%}
+			
 				<tr class = "style-thead3">
 					<td>{{lesson.order}}</td>
 					<td>{{lesson.subject}}</td>
 					<td>{{lesson.description}}</td>
 				</tr>
-			{%endif%}	
+			
 			{% endfor %}
 			</tbody>
 		</table>
-
+</div>
  
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
