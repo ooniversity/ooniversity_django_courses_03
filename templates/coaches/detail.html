@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block banner %}{% endblock %}
+
+{% block list_courses %}
+    <div class="col s12">
+        <h5 class="text-primarycolor">{{ coach.user.first_name }} {{ coach.user.last_name }}</h5>
+
+    </div>
+    <div class="col s12 l12">
+
+        <div class="card-panel">
+            <span class="card-title grey-text"></span>
+
+            <div class="row">
+                <div class="col s12">
+                    <table class="responsive-table highlight">
+                        <tbody>
+                        <tr>
+                            <td>
+                                Дата рождения
+                            </td>
+                            <td>
+                                {{ coach.date_of_birth }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Адрес
+                            </td>
+                            <td>
+                                {{ coach.address }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Почта
+                            </td>
+                            <td>
+                                {{ coach.user.email }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Логин/Skype
+                            </td>
+                            <td>
+                                {{ coach.skype }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Телефон
+                            </td>
+                            <td>
+                                {{ coach.phone }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Курсы/Преподователь
+                            </td>
+                            <td>
+                                {% for course in coach_on_courses %}
+                                    <div class="row">
+                                        <a class="waves-effect waves-light btn" href="{% url 'courses:detail' course.id %}">{{ course }}</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
+                                    </div>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Курсы/Ассистент
+                            </td>
+                            <td>
+                                {% for course in assistant_on_courses %}
+                                    <div class="row">
+                                        <a class="waves-effect waves-light btn" href="{% url 'courses:detail' course.id %}">{{ course }}</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
+                                    </div>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

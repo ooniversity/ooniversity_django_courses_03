@@ -9,8 +9,8 @@ class StudentProfileInline(admin.StackedInline):
 
 
 @admin.register(Student)
-class ManageStudent(admin.ModelAdmin):
-    list_display = ['name', 'surname', 'skype', 'phone']
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ['full_name', 'email', 'skype']
     fieldsets = [
         (
             'Personal info:', {
@@ -27,4 +27,6 @@ class ManageStudent(admin.ModelAdmin):
         ),
     ]
     filter_horizontal = ['courses']
+    list_filter = ['courses']
     ordering = ['name']
+    search_fields = ['surname', 'email']
