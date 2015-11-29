@@ -40,7 +40,7 @@
       </div>
     </nav>
     <div class="container">
-      <h1> {{teacher.full_name}}</h1>
+      <h1> {{coach.full_name}}</h1>
       <div class="thumbnail">
         <div class="row">
           <div class="col-md-12 lead">
@@ -57,23 +57,23 @@
                   <div class="panel-body">
                     <table>
                           <th>дата рождения</th>
-                          <td>{{ teacher.date_of_birth }}</td>
+                          <td>{{ coach.date_of_birth }}</td>
                         </tr>
                         <tr>
                           <th>адрес</th>
-                          <td>{{ teacher.address }}</td>
+                          <td>{{ coach.address }}</td>
                         </tr>
                         <tr>
                           <th>почта</th>
-                          <td>{{ teacher.email }}</td>
+                          <td>{{ coach.email }}</td>
                         </tr>
                         <tr>
                           <th>Skype</th>
-                          <td>{{ teacher.skype }}</td>
+                          <td>{{ coach.skype }}</td>
                         </tr>
                         <tr>
                           <th>телефон</th>
-                          <td>{{ teacher.phone }}</td>
+                          <td>{{ coach.phone }}</td>
                         </tr>
                         {% if course_coach %}
                         <tr>
