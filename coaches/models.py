@@ -23,4 +23,4 @@ class Coach(models.Model):
         return self.user.is_staff
 
     def __unicode__(self):
-        return self.user.first_name
+        return self.user.username
