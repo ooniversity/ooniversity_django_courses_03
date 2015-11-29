@@ -25,7 +25,6 @@ class Migration(migrations.Migration):
                 ('courses', models.ManyToManyField(to='courses.Course')),
             ],
             options={
-                'db_table': 'student',
             },
             bases=(models.Model,),
         ),
