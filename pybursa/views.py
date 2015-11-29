@@ -6,7 +6,7 @@ from students.models import Student
 
 def index(request):
     courses = Course.objects.all()
-    return render(request, 'index.html', {'courses': courses})
+    return render(request, 'index.html', {"courses": courses})
 
 def contact(request):
     return render(request, 'contact.html')
