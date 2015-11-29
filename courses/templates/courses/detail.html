@@ -1,81 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{course.name}}</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{course.name}}</title>
 	{% load staticfiles %}
-
-    <link href={%static 'css/bootstrap.css'%} rel="stylesheet">
-    <link href={%static 'css/style.css'%} rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <link href={%static 'css/bootstrap.css'%} rel="stylesheet">
+  <link href={%static 'css/style.css'%} rel="stylesheet">
 	<script src={%static 'js/jquery.min.js'%}></script>
-    <script src={%static 'js/bootstrap.min.js'%}></script>
-  </head>
-  <body>
-
-<nav class="navbar navbar-default">
-  
-      <ul class="nav navbar-nav">
-        <li><a href={% url 'index'%}>Main</a></li>
-        <li><a href={% url 'contact'%}>Contacts</a></li>
-		<li><a href={% url 'students:list_view'%}?course_id={{course.id}}>Students</a></li>
-      </ul>
-   
-</nav>
-    
-
-   <div class="jumbotron container">
-
- 
-
-  <h2 class = "style-thead3">{{course.name}}</h2>
-  <p class = "style-thead2">{{course.description}}</p>
+  <script src={%static 'js/bootstrap.min.js'%}></script>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li><a href={% url 'index'%}>Main</a></li>
+      <li><a href={% url 'contact'%}>Contacts</a></li>
+      <li><a href={% url 'students:list_view'%}?course_id={{course.id}}>Students</a></li>
+    </ul>
+  </nav>
+  <div class="jumbotron container">
+    <h2>{{course.name}}</h2>
+    <p>{{course.description}}</p>
   </div>
   <div class= "jumbotron container">
-  <h2 class = "style-thead3">Teachers</h2> 
-  <h3 class = "style-thead3">Coach</h3>
-  <h4 class = "style-thead3"><a href={% url 'coaches:detail' coach.id %}>{{coach.Name}} {{coach.Surname}}</a></h4>
-  <h6 class = "style-thead3">{{coach.description}}</h6>
-  <h3 class = "style-thead3">Assistant</h3>
-  <h4 class = "style-thead3"><a href={% url 'coaches:detail' assistent.id %}>{{assistent.Name}} {{assistent.Surname}}</a></h4>
-  <h6 class = "style-thead3">{{assistent.description}}</h6></div>
-  
+    <h2>Teachers</h2> 
+    <h3>Coach</h3>
+    <h4><a href={% url 'coaches:detail' coach.id %}>{{coach.Name}} {{coach.Surname}}</a></h4>
+    <h6>{{coach.description}}</h6>
+    <h3>Assistant</h3>
+    <h4><a href={% url 'coaches:detail' assistent.id %}>{{assistent.Name}} {{assistent.Surname}}</a></h4>
+    <h6>{{assistent.description}}</h6>
+  </div>
   <div class="jumbotron container">
- <h2 class = "style-thead3">Course lessons</h2>
- <table class="table ">
+    <h2>Course lessons</h2>
+    <table class="table ">
 			<thead>
-				<tr class = "style-thead">
-				
+				<tr>
 					<th>#</th>
 					<th>Lesson</th>
 					<th>Description</th>
-				
 				</tr>
 			</thead>
 			<tbody>
 			{% for lesson in lessons %}
-			
-				<tr class = "style-thead3">
+        <tr>
 					<td>{{lesson.order}}</td>
 					<td>{{lesson.subject}}</td>
 					<td>{{lesson.description}}</td>
 				</tr>
-			
 			{% endfor %}
 			</tbody>
 		</table>
-</div>
- 
-    
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    
-  </body>
+  </div>
+</body>
 </html>
