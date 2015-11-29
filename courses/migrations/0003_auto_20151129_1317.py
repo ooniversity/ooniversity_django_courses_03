@@ -22,6 +22,6 @@ class Migration(migrations.Migration):
             model_name='course',
             name='coach',
             field=models.ForeignKey(related_name='coach_courses', to='coaches.Coach', null=True),
-            preserve_default=True,
+            
         ),
     ]
