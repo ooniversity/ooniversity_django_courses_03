@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>{{ student_object.surname }}</title>
+    <title>{{ coach_object.surname }}</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -72,19 +72,23 @@
           <td>{{ coach_object.skype }}</td>
         </tr>
         <tr>
+          {% if coach_object.coach_courses.all %}
           <th scope="row">курсы учитель</th>
           <td>
             {% for i in coach_object.coach_courses.all %}
               <p><a href='{% url 'courses:detail' pk=i.id %}'>{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"><span class='glyphicon glyphicon-new-window'></span></a></p>
             {% endfor %}
+            {% endif %}
           </td>
         </tr>
         <tr>
+              {% if coach_object.assistant_courses.all %}
           <th scope="row">курсы ассистент</th>
           <td>
-            {% for i in coach_object.assistant_courses.all %}
+              {% for i in coach_object.assistant_courses.all %}
               <p><a href='{% url 'courses:detail' pk=i.id %}'>{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"> <span class='glyphicon glyphicon-new-window'></span></a></p>
             {% endfor %}
+            {% endif %}
           </td>
         </tr>
       </tbody>
