@@ -53,14 +53,14 @@
        <div>
          
             <h3>Coach</h3>
-            <h4><a href={% url 'coaches:detail' coach.id %}>{{coach.name}} {{coach.surname}}</a></h4>
+            <h4><a href={% url 'coaches:detail' coach.id %}>{{coach.full_name}}</a></h4>
             <p>{{coach.description}}</p>
           
        {% endif %}
        {% if assistant %}
          
             <h3>Assistant</h3>
-            <h4><a href={% url 'coaches:detail' assistant.id %}>{{assistant.name}} {{assistant.surname}}</a></h4>
+            <h4><a href={% url 'coaches:detail' assistant.id %}>{{assistant.full_name}}</a></h4>
             <p>{{assistant.description}}</p>
            
        <div>
