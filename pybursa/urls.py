@@ -17,4 +17,7 @@ urlpatterns = patterns('',
 
     #Students
      url(r'^students/', include('students.urls', namespace="students")),
+
+    #Coaches
+     url(r'^coaches/', include('coaches.urls', namespace="coaches")),
 )
