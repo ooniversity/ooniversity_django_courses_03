@@ -40,7 +40,7 @@
       </div>
     </nav>
     <div class="container">
-      <h1> {{coach.full_name}}</h1>
+      <h1>{{ coach.user.first_name }} {{ coach.user.last_name }}</h1>
       <div class="thumbnail">
         <div class="row">
           <div class="col-md-12 lead">
@@ -78,13 +78,13 @@
                         {% if course_coach %}
                         <tr>
                           <th>курсы учитель</th>
-                          <td>{% for course in course_coach %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a><br>{% endfor %}</td>
+                          <td>{% for course in coach.coach_courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a><br>{% endfor %}</td>
                         </tr>
                         {% endif %}
                         {% if course_assistant %}
                         <tr>
                           <th>курсы ассистент</th>
-                          <td>{% for course in course_assistant %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a><br>{% endfor %}</td>
+                          <td>{% for course in coach.assistant_courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a><br>{% endfor %}</td>
                         </tr>
                         {% endif %}
                     </table>
