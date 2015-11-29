@@ -6,10 +6,7 @@ def list_view(request):
     try:
         qs= request.GET
         course = get_object_or_404(Course, pk=qs['course_id'])
-        student_courses={}
         students = Student.objects.filter(courses__id = qs['course_id'])
-        for index, student in enumerate(students):
-            student_courses[index] = Course.objects.filter(student__id = student.id)
         return render (request, 'students/list_view.html',{'course':course, 'students': students,})
     except:
         student_courses={}

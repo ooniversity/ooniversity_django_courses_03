@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{student.name}} {{student.surname}}</title>
+    <title>Teacher {{teacher.Surname}} {{teacher.Name}}</title>
 	{% load staticfiles %}
 
     <link href={%static 'css/bootstrap.css'%} rel="stylesheet">
@@ -37,35 +37,43 @@
 
  
 
-  <h2 class = "style-thead3">{{student.name}} {{student.surname}}</h2>
+  <h2 class = "style-thead3">{{teacher.Name}} {{teacher.Surname}}</h2>
 
   <table class="table ">
 			<tbody>
 				<tr class = "style-thead3">
 					<td>Birth Date</td>
-					<td>{{student.date_of_birth}}</td>
+					<td>{{teacher.date_of_birth}}</td>
 				</tr>
 				<tr class = "style-thead3">
 					<td>Address</td>
-					<td>{{student.address}}</td>
+					<td>{{teacher.address}}</td>
 				</tr>
 				<tr class = "style-thead3">
 					<td>Email</td>
-					<td>{{student.email}}</td>
+					<td>{{teacher.Email}}</td>
 				</tr>
 				<tr class = "style-thead3">
 					<td>Skype</td>
-					<td>{{student.skype}}</td>
+					<td>{{teacher.skype}}</td>
 				</tr>
 				<tr class = "style-thead3">
 					<td>Phone</td>
-					<td>{{student.phone}}</td>
+					<td>{{teacher.phone}}</td>
 				</tr>
 				<tr class = "style-thead3">
-					<td>Courses</td>
+					<td>Courses as Coach</td>
 					<td>
-					{% for course in courses %}
-						<a href={% url 'courses:detail' course.id %}>{{course.name}} </a>
+					{% for course in course_coach %}
+						<a href={% url 'courses:detail' course.id %}>{{course.name}} <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></a>
+					{% endfor %}
+					</td>
+				</tr>
+				<tr class = "style-thead3">
+					<td>Courses as Assistent</td>
+					<td>
+					{% for course in course_assistent %}
+						<a href={% url 'courses:detail' course.id %}>{{course.name}} <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></a>
 					{% endfor %}
 					</td>
 				</tr>
