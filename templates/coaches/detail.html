@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Detail</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand" href='#'>
+          <img class="logo-minions" alt="Logo Pretty Minions" src="{% static 'images/logo.png' %}" height="45px" style="margin-top: -10px"></a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'index' %}">Main</a></li>
+          <li><a href="{% url 'contact' %}">Contacts</a></li>
+          <li><a href="{% url 'students:list_view' %}">Students</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="column">
+      <div class="container">
+        <div class="column">
+      <div class="col-md-10 col-md-push-1">
+        <h2 class="sub-header">{{coach.full_name}}</h2>
+        <div class="table-responsive">
+          <table class="table" border=2>
+             <tr>
+                  <th>дата рождения
+                  </th>
+                  <td>{{coach.date_of_birth}}
+                  </td>
+                </tr>
+                <tr>
+                  <th>адрес
+                  </th>
+                  <td>{{coach.address}}
+                  </td>
+                </tr>
+                <tr>
+                  <th>почта
+                  </th>
+                  <td>{{coach.email}}
+                  </td>
+                </tr>
+                <tr>
+                  <th>логин skype
+                  </th>
+                  <td>{{coach.skype}}
+                  </td>
+                </tr>
+                <tr>
+                  <th>телефон
+                  </th>
+                  <td>{{coach.phone}}
+                  </td>
+                </tr>
+                <tr>
+                  <th>курсы учитель
+                  </th>
+                  <td>{% for course in coach.courses_coach %}
+                    <p><a href="{% url 'courses:detail' course.id %}">{{ course }}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-share-alt"></span></a></p>
+                    {% endfor %}</td>
+                  </td>
+                </tr>
+                <tr>
+                  <th>курсы ассистент
+                  </th>
+                  <td>{% for course in coach.courses_assistant %}
+                    <p><a href="{% url 'courses:detail' course.id %}"> {{ course }}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-share-alt"></span></a></p>
+                    {% endfor %}
+                  </td>
+                </tr>
+          </table>
+        </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>  
+</html>

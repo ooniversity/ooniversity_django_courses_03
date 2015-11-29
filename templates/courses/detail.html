@@ -26,7 +26,26 @@
     <div class="col-md-10 col-md-push-1">
       <h1>{{course}}</h1>
       <h2>{{course.description}}</h2>
-      <h2>План Курса</h2>
+      <div class="container">
+      <div class="col-md-12">
+        <h2>Преподаватели</h2>
+        {% if coach %}
+        <h3>Учитель</h3>
+        <h3><a href="{% url 'coaches:detail' coach.id %}">{{coach.fio}}</a></h3>
+        <p>{{coach.description}}</p>
+        {% endif %}
+        </div>
+      </div>
+      <div class="container">
+      <div class="col-md-12">
+        {% if assistant %}
+        <h3>Ассистент</h3>
+        <h3><a href="{% url 'coaches:detail' assistant.id %}">{{assistant.fio}}</a></h3>
+        <p>{{assistant.description}}</p>
+        {% endif %}
+        </div>
+      </div>
+      <h3>План Курса</h3>
       <div class="table-responsive">
         <table class="table" border=2>
           <thead>
