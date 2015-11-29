@@ -39,8 +39,10 @@
 			<div text-align='center'>
 				<h2 align="center">Преподователь курса</h2>
 				<h3 align="center"><a href="{% url 'coaches:detail' c %}">{{ coach }}</a></h3>
+				<p>{{ coach_descr }}</p>
 				<h2 align="center">Ассистент курса</h2>
 				<h3 align="center"><a href="{% url 'coaches:detail' c %}">{{ assistant }}</a></h3>
+				<p>{{ as_descr }}</p>
 			</div>
 			<div class='grey'>
 				<table class='table'>
