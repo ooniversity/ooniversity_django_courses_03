@@ -18,6 +18,16 @@ body {
   width: 40px;
   margin-top: -10px;
 }
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+table, td {
+    border: 1px solid rgba(255,255,255,50);
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    padding: 5px;
+}
 .navbar {
   background: rgb(226, 226, 226);
   background: -moz-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
