@@ -36,10 +36,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'cources',
     'quadratic',
     'courses',
     'students',
+    'coaches',
 )
 
 MIDDLEWARE_CLASSES = (
