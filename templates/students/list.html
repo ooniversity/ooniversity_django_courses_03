@@ -1,68 +1,83 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pybursa contact</title>
-    {% load staticfiles %}
+    <title>ITBursa detail</title>
+    <style> 
+      body{background-image: url('../static/images/pic4.jpg') !important;
+      background-repeat: none; 
+      background-attachment: fixed;
+      background-size: 100%; 
+      background-position: center top}
+    </style>
+
+    <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
   </head>
   <body>
+    <!-- menu start -->   
     <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'index' %}">ITBursa-2015</a>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'index' %}">ITBursa-2015</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+          </ul>
+        </div>
       </div>
-      
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="{% url 'index' %}">Main</a></li>
-          <li><a href="{% url 'contact' %}">Contacts</a></li>
-          <li><a href="{% url 'students:list_view' %}">Students</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
     </nav>
-    <div class="col-md-10 col-md-push-1">
-      <h2 class="sub-header">Список Студентов</h2>
+    <!-- menu end --> 
+    <div class="slash-div">
+    <h2> Student's list: </h2>
+    <br>
       <div class="table-responsive">
-        <table class="table" border=2>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Фамилия Имя</th>
-              <th>адрес</th>
-              <th>skype</th>
-              <th>курсы</th>
-             </tr>
-          </thead>
-          <tbody>
-            {% for man in students %}
-            <tr>
-              <td>{{forloop.counter}}</td> 
-              <td><p><a href="{% url 'students:detail' man.id %}">{{man.surname}} {{man.name}}</a></p></td>
-              <td>{{man.address}}</td>
-              <td>{{man.skype}}</td>
-              <td>{% for cour in man.courses.all %}                
-                <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</p>
-                {% endfor %}
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+        <table class="table table-hover table-bordered">
+            <thead>
+              <tr class="success">
+                <td><strong>ID</strong></td>
+                <td><strong>Full name</strong></td>
+                <td><strong>Address</strong></td>
+                <td><strong>Skype</strong></td>
+                <td><strong>Assigned courses</strong></td>  
+              </tr>
+            </thead>
+            <tbody>
+             {% if students_list %} 
+              {% for student in students_list %}
+              <tr>
+                <td>{{ student.id }} </td>
+                <td><a href="{% url 'students:detail' student.id %}">{{ student.full_name }}</a></td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.skype }}</td>
+                <td>
+                   {% for course in student.courses.all %}
+                        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                   {% endfor %}
+                </td>               
+              </tr>
+              {% endfor %}
+              {% endif %}  
+            </tbody>
+           </table>
+      </div>        
     </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
-  <script src="{% static 'js/jquery.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </html>
+     
