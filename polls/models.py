@@ -1,3 +1,4 @@
+'''
 from django.db import models
 from django.db import models
 from django.utils import timezone
@@ -25,3 +26,4 @@ class Choice(models.Model):
         return self.choice_text
 
 # Create your models here.
+'''
