@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://getbootstrap.com/examples/jumbotron-narrow/ -->
+<html lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <link href="http://getbootstrap.com/favicon.ico" rel="icon">
+  <title>Main page</title>
+  {% load staticfiles %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="{% static 'js/bootstrap.min.js' %}">
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation">
+            <a href="{% url 'index' %}">Main</a>
+
+          </li>
+          <li role="presentation">
+            <a href="{% url 'students:list_view'%}">Students</a>
+          </li>
+          <li role="presentation">
+            <a href="{% url 'contact' %}">Contacts</a>
+          </li>
+          <li role="presentation">
+            <a href="{% url 'results' %}">Quadratic Calc</a>
+          </li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">ItBursa</h3>
+    </div>
+    <div class="jumbotron">
+      <div class="text-center">
+        <h1>PyBursa</h1>
+        <h4>Description</h4>
+      </div>
+      <p class="lead">The course starts by overviewing Python, and then goes on
+      to study Python's collections - Lists, Tuples and Dictionaries etc. We
+      introduce the development environments and other resources available, and
+      take a look with practical exercises at test procedures and good code
+      design.</p>
+    </div>
+    <div class="row marketing">
+      <div class="col-lg-6">
+        <p><h2 class="text-center">Courses:</h2></p>
+      </div>
+
+
+      <div class="col-lg-6">
+            <table>
+            <tr class="table_head dark_grey_row">
+            <td>Course</td>
+            <td>Short description</td>
+            </tr>
+
+            {% for course in courses %}
+
+            <tr>
+            <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
+            <td><p>{{ course.short_description }}</p></td>
+            </tr>
+
+             {% endfor %}
+            </table>
+      </div>
+
+
+    </div>
+
+  </div><!-- /container -->
+  <footer class="footer">
+    </footer>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <!-- <script src="../static/js/ie10-viewport-bug-workaround.js"></script>-->
+</body>
+</html>
