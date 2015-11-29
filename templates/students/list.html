@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+      <title>Bursa: main</title>
+        {% load staticfiles %}
+    <style>
+      body {
+      background-image: url({% static 'images/13.jpg'%}) ; /* Путь к фоновому изображению */
+      background-color: #c7b39b; /* Цвет фона */
+      }
+    </style>
+    
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    
+
+
+  <div class= "container">
+      <div class="header clearfix">
+
+        <nav>
+          
+            <ul class="nav nav-pills pull-right">
+              <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+              <li role="presentation"><a href="{% url 'contact' %}"> Contacts</a></li>
+              <li role="presentation" class="active"><a href="{% url 'students:list_view' %}"> Students</a></li>
+            </ul>
+          
+        </nav>
+        <h2 >PyBursa </h2>
+      </div>
+    </div>
+  </div>
+    <div class= "container">
+      <div class="jumbotron">
+      
+
+    
+    <h3 class="descr">Студенты курсов</h3>
+   
+    <div class="jumbotron">
+
+      <div class="panel panel-default">
+                  
+                  <table class="table">
+                    
+                    <table class="table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Фамилия и имя</th>
+                        <th>Адрес</th>
+                        <th>Skype</th>
+                        <th>Курсы</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+          
+                    {% for i in students %}
+                    <tr>
+                    <td>{{ i.id }}</td>
+                    <td><a href="{% url 'students:detail' i.id %}">{{ i.surname }} {{ i.name }}</a></td>
+                    <td>{{ i.address }}</td>
+                    <td>{{ i.skype }}</td>
+                    <td>{% for k in i.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a><br>{% endfor %}</td>
+          
+                    </tr>
+                    {% endfor %}
+          
+                    </tbody>
+                  </table>
+          
+                    </tbody>
+                  </table>
+
+          </div>
+    
+          
+        
+        </div>
+
+      </div>
+    </div>    
+
+      </div>
+    </div>    
+    
+   
+    
+    
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+  </body>

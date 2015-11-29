@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+     
+    
+    <title>Bursa: contacts</title>
+        {% load staticfiles %}
+    <style>
+      body {
+      background-image: url({% static 'images/13.jpg'%}) ; /* Путь к фоновому изображению */
+      background-color: #c7b39b; /* Цвет фона */
+      }
+    </style>
+    
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+    
+  </head>
+  <body>
+         
+    <div class= "container">
+      <div class="header clearfix">
+
+        <nav>
+          
+            <ul class="nav nav-pills pull-right">
+              <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+              <li role="presentation" class="active"><a href="{% url 'contact' %}"> Contacts</a></li>
+              <li role="presentation"><a href="{% url 'students:list_view' %}"> Students</a></li>
+            </ul>
+          
+        </nav>
+        <h2 >PyBursa </h2>
+      </div>
+    </div>
+        <h1 class="text-muted"><b>Contacts</b></h1>
+      </div>
+    </div>
+    <div class="container">  
+      <div class="jumbotron">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">Director</h2>
+          </div>
+
+          <div class="panel-body">
+            <img src="../static/images/dir.jpg"  align="left" height="230" width= "230">
+            <p><b>Name</b> :Gregorsz Brzebrzheshchikevich </p>
+            <p><b>Skype</b> :Gregorsz_Brzebrzheshchikevich </p>
+            <p><b>Email</b> :Gregorsz_Brzebrzheshchikevich@gmail.com </p>
+            <p><b>Phone</b> :8-800-88-00 </p>
+          </div> 
+        </div>
+      </div>      
+    </div>
+    
+    <div class="container">  
+      <div class="jumbotron">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">Founder</h2>
+          </div>
+
+          <div class="panel-body">
+            <img src="../static/images/founder.png"  align="left" height="250" width= "230">
+            <p><b>Name</b> :Gregorsz Brzebrzheshchikevich </p>
+            <p><b>Skype</b> :Gregorsz_Brzebrzheshchikevich </p>
+            <p><b>Email</b> :Gregorsz_Brzebrzheshchikevich@gmail.com </p>
+            <p><b>Phone</b> :8-800-88-00 </p>
+          </div> 
+        </div>
+      </div>      
+    </div>
+
+    <div class="container">  
+      <div class="jumbotron">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 class="panel-title">Manager</h2>
+          </div>
+
+          <div class="panel-body">
+            <img src="../static/images/manager.jpg"  align="left" height="230" width= "230">
+            <p><b>Name</b> :Gregorsz Brzebrzheshchikevich </p>
+            <p><b>Skype</b> :Gregorsz_Brzebrzheshchikevich </p>
+            <p><b>Email</b> :Gregorsz_Brzebrzheshchikevich@gmail.com </p>
+            <p><b>Phone</b> :8-800-88-00 </p>
+          </div> 
+        </div>
+      </div>      
+    </div>
+    <div class="hide">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
+        <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
+        <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
+        <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+      </ul>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+  
+  </body>
+</html>

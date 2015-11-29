@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+      <title>Bursa: main</title>
+        {% load staticfiles %}
+    <style>
+      body {
+      background-image: url({% static 'images/13.jpg'%}) ; /* Путь к фоновому изображению */
+      background-color: #c7b39b; /* Цвет фона */
+      }
+    </style>
+    
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    
+
+
+  <div class= "container">
+      <div class="header clearfix">
+
+        <nav>
+          
+            <ul class="nav nav-pills pull-right">
+              <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
+              <li role="presentation"><a href="{% url 'contact' %}"> Contacts</a></li>
+              <li role="presentation"><a href="{% url 'students:list_view' %}"> Students</a></li>
+            </ul>
+          
+        </nav>
+        <h2 >PyBursa </h2>
+      </div>
+    </div>
+  </div>
+    <div class= "container">
+      <div class="jumbotron">
+     
+    <h3 class="descr">Студент</h3>
+        <div class="container">
+      <div class="hero-unit">
+        <h2>{{student.name}} {{student.surname}}</h2>
+      </div>
+    
+    <div class="jumbotron">
+
+      <div class="panel panel-default">
+                  
+                  <table class="table">
+                    
+                    <tbody>
+          
+                    
+                    <tr>
+                    <td>Дата рождения</td><td>{{ student.date_of_birth }}</td>
+          </tr>
+          <tr>
+          <tr>
+          <td>Адрес</td><td>{{ student.address }}</td>
+          </tr>
+          <tr>
+          <td>Почта</td><td>{{ student.email }}</td>
+          </tr>
+          <tr>
+          <td>Skype</td><td>{{ student.skype }}</td>
+          </tr>
+          <tr>
+          <td>Телефон</td><td>{{ student.phone }}</td>
+          </tr>
+          
+          <tr>
+          <td>Курсы</td><td>{% for k in student.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a><br>{% endfor %}</td>
+          
+          </tr>
+          
+                    </tbody>
+                  </table>
+
+          </div>
+    
+          
+        
+        </div>
+
+      </div>
+    </div>    
+
+      </div>
+    </div>    
+    
+   
+    
+    
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+  </body>
