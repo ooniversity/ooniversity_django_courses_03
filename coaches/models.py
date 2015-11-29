@@ -22,8 +22,7 @@ class Coach (models.Model):
 
     def _full_name(self):
         return '{0} {1}'.format(self.user.first_name, self.user.last_name)
-
-full_name = property(_full_name)
+    full_name = property(_full_name)
 
     def email(self):
         return self.user.email
