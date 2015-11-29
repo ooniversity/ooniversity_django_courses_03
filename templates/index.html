@@ -59,21 +59,34 @@
               <th>Description</th>
             </tr>
             {% if list_of_courses %}
-              {% for params in list_of_courses %}
+              {% for i in list_of_courses %}
                 <tr>
-                  <td> <a href="courses/{{ params.id }}"> {{ params.name }} </a> </td>
-
-                  <td>{{ params.short_description }}</td>
+                  <td> <a href="courses/{{ i.id }}"> {{ i.name }} </a> </td>
+                  <td>{{ i.short_description }}</td>
                 </tr>
               {% endfor %}
             {% endif %}
           </table>
+<h2>Our stuff:</h2>
+{% for i in coaches %}
+    <div class="well well-sm">
+    <h3> <a href="coaches/{{ i.id }}">{{ i.get_first_name }} {{i.get_last_name}}</a></h3>
+        <p> {{ i.description }} </p>
+    </div>
+{% endfor %}
+
 
 
         <p><a class="btn btn-primary btn-lg" href="http://pybursa.com/"
           role="button">official site &gt;</a></p>
       </div>
     </div>
+
+
+
+
+
+
     <div class="row">
       <div class="col-md-9">
         <div class="container" role="main">
