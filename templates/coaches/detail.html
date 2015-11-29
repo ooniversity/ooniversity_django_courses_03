@@ -49,13 +49,13 @@
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Student card
+                      Coach
                     </a>
                   </h4>
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
-                    <table class>
+                    <table>
                           <th>дата рождения</th>
                           <td>{{ teacher.date_of_birth }}</td>
                         </tr>
@@ -75,15 +75,18 @@
                           <th>телефон</th>
                           <td>{{ teacher.phone }}</td>
                         </tr>
+                        {% if course_coach %}
                         <tr>
                           <th>курсы учитель</th>
-                          <td>{% for course in course_coach %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a><br>{% endfor %}</td>
+                          <td>{% for course in course_coach %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a><br>{% endfor %}</td>
                         </tr>
+                        {% endif %}
+                        {% if course_assistant %}
                         <tr>
                           <th>курсы ассистент</th>
-                          <td>{% for course in course_assistant %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a><br>{% endfor %}</td>
+                          <td>{% for course in course_assistant %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href={% url 'students:list_view'%}?course_id={{course.id}}><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></a><br>{% endfor %}</td>
                         </tr>
-                        
+                        {% endif %}
                     </table>
                   </div>
                 </div>
