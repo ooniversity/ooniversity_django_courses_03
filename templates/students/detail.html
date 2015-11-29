@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Course_info</title>
+    <title>Student_info</title>
     <!-- Bootstrap -->
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -23,24 +23,24 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
     	<div class="container-fluid">
         <div class="navbar-header">
-          <button type="button"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          </button>
-          <li id="button"><a href="{% url 'index' %}">Главная</a></li>
-          <li id="button"><a href="{% url 'contact' %}">Контакты</a></li>
-          <li id="button"><a href="{% url 'students:list_view' %}">Студенты</a></li>
-    	    </div>
-    	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="navbar-brand">
+            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'contact' %}">Контакты</a>
+            <a href="{% url 'students:list_view' %}">Студенты</a>
+           </ul>  
+    	   </div>
+    	   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     	  </div>
       </div>
 		</nav>
   	<div class="page-header">
-                                    {% for student in students_on_course %}
-    	<h1 class="student-head">{{ student.first_name}} {{student.surname }}</h1>
+                               {% for student in students_on_course %}
+    	<h1 class="student-head">{{ student.name}} {{student.surname }}</h1>
         <p class="below-header">Выпуск 2015</p>                         
   	</div>
 		<div class="study_table2">
 		  <div class="panel panel-default">
-  	    <div class="panel-heading"><h2 class="course_program" >информация о учителе</h2></div>
+  	    <div class="panel-heading"><h2 class="course_program" >информация о студенте</h2></div>
           <table class="table table-hover">
             <tr><td><h3>
                         дата рождения
