@@ -1,11 +1,19 @@
 from django.shortcuts import render
 from courses.models import Course, Lesson
+from coaches.models import Coach
 
-def detail(request, course_id):
-  course = Course.objects.get(id=course_id)
-  lessons = Lesson.objects.all()
-  topics = []
-  for les in lessons:
-    if les.course == course:
-      topics.append(les)
-  return render(request, 'courses/detail.html', {'course':course, 'lessons':topics})
+
+
+def detail(request,sid):
+    coach={}
+    assistant={}
+    course=Course.objects.get(id=sid)
+    coach['fio']=course.coach.user.get_full_name()
+    assistant['fio']=course.assistant.user.get_full_name()
+    coach['id']=course.coach.id
+    assistant['id']=course.assistant.id
+    coach['description']=course.coach.description
+    assistant['description']=course.assistant.description
+    lessons=Lesson.objects.filter(course_id=sid)
+    return render(request, 'courses/detail.html', {"lessons": lessons,"course":course,'coach':coach,'assistant':assistant})
+
