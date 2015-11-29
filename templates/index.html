@@ -21,11 +21,11 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          </button>
-          <a href="{% url 'index' %}">Главная</a>
-          <a href="{% url 'contact' %}">Контакты</a>
-          <a href="{% url 'students:list_view' %}">Студенты</a>
+          <ul class="navbar-brand">
+            <a href="{% url 'index' %}">Главная</a>
+          	<a href="{% url 'contact' %}">Контакты</a>
+          	<a href="{% url 'students:list_view' %}">Студенты</a>
+          </ul>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         </div>
@@ -46,7 +46,7 @@
           <table class="table table-hover">
             <tr class="course_table"><td><h3><b>Курс</b></h3></td><td><h3><b>Тема</b></h3></td><tr>
             {% for course in courses %}
-            <tr><td><a href="{% url 'courses:detail' course.id %}"><h3 class="course"><b>{{ course.name }}</b></h3></a></td><td><h3><b>{{ course.short_description }}</b></h3></td></tr>
+            <tr><td><a href="{% url 'courses:detail' course.id %}"><h3 class="course"><b>{{ course }}</b></h3></a></td><td><h3><b>{{ course.short_description }}</b></h3></td></tr>
             {% endfor %}
           </table>
         </div>

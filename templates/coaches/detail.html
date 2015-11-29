@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Student_info</title>
+    <title>Coach_info</title>
     <!-- Bootstrap -->
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -24,67 +24,77 @@
     	<div class="container-fluid">
         <div class="navbar-header">
           <ul class="navbar-brand">
-            <a href="{% url 'index' %}">Главная</a>
-            <a href="{% url 'contact' %}">Контакты</a>
-            <a href="{% url 'students:list_view' %}">Студенты</a>
-           </ul>  
-    	   </div>
-    	   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <a href="{% url 'index' %}">Главная</a>
+          <a href="{% url 'contact' %}">Контакты</a>
+          <a href="{% url 'students:list_view' %}">Студенты</a>
+          </ul>
+    	    </div>
+    	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     	  </div>
       </div>
 		</nav>
   	<div class="page-header">
-                               {% for student in students_on_course %}
-    	<h1 class="student-head">{{ student.name}} {{student.surname }}</h1>
+                               {% for coach in coaches %}
+    	<h1 class="student-head">{{ coach.get_full_name }}</h1>
         <p class="below-header">Выпуск 2015</p>                         
   	</div>
 		<div class="study_table2">
 		  <div class="panel panel-default">
-  	    <div class="panel-heading"><h2 class="course_program" >информация о студенте</h2></div>
+  	    <div class="panel-heading"><h2 class="course_program" >информация об учителе</h2></div>
           <table class="table table-hover">
             <tr><td><h3>
                         дата рождения
             </h3></td>
             <td><h3>
-                        {{ student.date_of_birth }}
+                        {{ coach.date_of_birth }}
             </h3></td></tr>
             <tr><td><h3>
-                        адрес
+                        email
             </h3></td>
             <td><h3>
-                        {{ student.address }}
+                        {{ coach.user.email }}
             </h3></td></tr>
             <tr><td><h3>
-                         email
+                        телефон
             </h3></td>
             <td><h3>
-                        {{ student.email }}
+                        {{ coach.phone }}
+            </h3></td></tr>
+            <tr><td><h3>
+                         адрес
+            </h3></td>
+            <td><h3>
+                        {{ coach.address }}
             </h3></td></tr>
             <tr><td><h3>
                          skype
             </h3></td>
             <td><h3>
-                        {{ student.skype }}
+                        {{ coach.skype }}
+                        {% endfor %}
             </h3></td></tr>
             <tr><td><h3>
-                         телефон
+                         курсы учитель
             </h3></td>
             <td><h3>
-                        {{ student.phone }}
+                        {% for course in coach_course %}
+            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>Студенты курса
+            <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicons glyphicons-person"></span>></a></br>
+                        {%endfor %}
             </h3></td></tr>
             <tr><td><h3>
-                         курсы
+                         курсы ассистент
             </h3></td>
             <td><h3>
-                        {% for course in student.courses.all %}
-            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></br>
-					              {% endfor %}
+                        {% for assistant in assistant_course %}
+            <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a>Студенты курса
+            <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"><span class="glyphicons glyphicons-person"></span>></a></br>
+                        {%endfor %}
             </h3></td></tr>
-  
           </table>
         </div>
       </div>
-                        {% endfor %}
+                        
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </body>
 </html>
