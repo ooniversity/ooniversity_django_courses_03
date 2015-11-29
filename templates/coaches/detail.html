@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Coach Detail</title>
+  {% load static from staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+	<script src="{% static 'css/style.css'%}"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
+          <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
+          <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+        </ul>
+      </nav>
+      <h1 class="text-muted"><a href="{% url 'index' %}">PyBursa</a></h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="learn-more">
+	  <div class="container">
+	    <div class="row">
+    	  <h1>PyBursa Coach</h1>
+    	</div>
+    	  <h4>Detail Information</h4>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <h1 class="course">{{coaches.user.get_full_name}}</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Birthd Date</td>
+                    <td>{{ coaches.date_of_birth }}</td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>{{ coaches.address }}</td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>{{ coaches.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>Skype</td>
+                    <td>{{ coaches.skype }}</td>
+                  </tr>
+                  <tr>
+                    <td>Phone</td>
+                    <td>{{ coaches.phone }}</td>
+                  </tr>
+                  <tr>
+                    <td>Courses Coach</td>
+                    <td>
+                      {% for c in courses %}
+                      <a href="{% url 'courses:detail' c.id %}">{{ c.name }}</a>
+                      Students of Courses
+                      <a href="{% url 'students: list_views' %} ?course_id={{c.id}}"><span class="glyphicon glyphicon-new-window"</span></a>
+                      {% endfor %}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Courses Assistant</td>
+                    <td>
+                      {% for a in assistants %}
+                      <a href="{% url 'courses:detail' a.id %}">{{ a.name }}</a>
+                      Students of Courses
+                      <a href="{% url 'students: list_views' %} ?course_id={{a.id}}"><span class="glyphicon glyphicon-new-window"</span></a>
+                      {% endfor %}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <hr>
+
+	<div class="container">
+	  <div class="row">
+	    <footer class="footer">
+        <p>Copyright © 2015 PyBursa, Inc. All Rights Reserved</p>
+      </footer>
+	  </div>
+	</div>
+
+</body>
+</html>

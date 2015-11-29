@@ -1,11 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.http import HttpResponse
-#from django.shortcuts import render
 from pybursa import views
 from quadratic.views import quadratic_results
-
-
 
 urlpatterns = patterns('',
 
@@ -18,6 +15,7 @@ urlpatterns = patterns('',
     
     url(r'courses/', include('courses.urls', namespace="courses")),
     url(r'students/', include('students.urls', namespace="students")),
+    url(r'^coaches/', include('coaches.urls', namespace="coaches")),
     
 
     url(r'^polls/', include('polls.urls', namespace="polls")),
