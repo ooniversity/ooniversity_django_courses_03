@@ -4,8 +4,8 @@ from coaches.models import Coach
 
 # Create your models here.
 class Course(models.Model):
-    class Meta():
-        db_table = 'courses'
+    # class Meta():
+    #    db_table = 'courses'
 
     name = models.CharField(max_length=255)
     short_description = models.CharField(max_length=255)

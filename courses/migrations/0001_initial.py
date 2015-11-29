@@ -22,7 +22,6 @@ class Migration(migrations.Migration):
                 ('coach', models.ForeignKey(related_name='coach_courses', blank=True, to='coaches.Coach', null=True)),
             ],
             options={
-                'db_table': 'courses',
             },
             bases=(models.Model,),
         ),
