@@ -1,11 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-#from django.contrib.auth import User
-
-#from students.models import Student
-#from django.contrib.auth import User
-
 class Coach(models.Model):
     user=models.OneToOneField(User)
     date_of_birth=models.DateField()

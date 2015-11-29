@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="Orest Stetsiak" name="author">
+    <title>Student details</title>
+    <link href="{% static 'images/favicon.png' %}" rel="icon">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" class=
+            "navbar-toggle collapsed" data-target="#navbar" data-toggle=
+            "collapse" type="button"><span class="sr-only">Toggle
+          navigation</span> <span class="icon-bar"></span> <span class=
+            "icon-bar"></span> <span class="icon-bar"></span></button>
+          <a href="{% url 'index' %}">Main</a>
+          <a href="{% url 'contact' %}">Contacts</a>
+          <a href="{% url 'students:list_view'%}?course_id={{ science.id }}">Students</a>
+          <a href="{% url 'quadratic_start' %}">QE</a>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="jumbotron">
+   
+      <div class="container" role="main">
+
+
+    <div class="jumbotron">
+        <h1 class="center">{{ science.name }}</h1>
+        <p class="center"> {{ science.description }}</p>
+    </div>
+        <table class="table">
+            <tr>
+                <th>first_name</th>
+                <th>last_name</th>
+                <th>bday</th>
+                <th>email</th>
+                <th>cell</th>
+                <th>adress</th>                
+            </tr>
+
+            {% for i in coaches %}
+            <tr>
+                <td> {{ i.get_first_name }} </td>
+                <td> {{ i.get_last_name }}</td>
+                <td> {{ i.date_of_birth }} </td>
+                <td> {{ i.email }} </td>
+                <td> {{ i.phone }} </td>
+                <td> {{ i.address }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        </div>
+      </div>
+    
+    <script src=
+      "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="../static/js/bootstrap.js"></script>
+  </body>
+</html>
