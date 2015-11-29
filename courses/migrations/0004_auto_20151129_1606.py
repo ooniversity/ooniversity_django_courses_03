@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             model_name='course',
             name='assistent',
             field=models.ForeignKey(related_name='assistant_courses', blank=True, to='coaches.Coach', null=True),
-            preserve_default=True,
+            
         ),
         migrations.AlterField(
             model_name='course',
