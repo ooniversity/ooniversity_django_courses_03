@@ -64,8 +64,8 @@
                             <td>
                                 {% for course in coach_on_courses %}
                                     <div class="row">
-                                        <a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
-                                        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'courses:detail' course.id %}">{{ course }}</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
                                     </div>
                                 {% endfor %}
                             </td>
@@ -77,8 +77,8 @@
                             <td>
                                 {% for course in assistant_on_courses %}
                                     <div class="row">
-                                        <a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
-                                        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'courses:detail' course.id %}">{{ course }}</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
                                     </div>
                                 {% endfor %}
                             </td>
