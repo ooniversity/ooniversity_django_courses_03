@@ -19,6 +19,9 @@ class Coach (models.Model):
     
     def name(self):
         return self.user.first_name
+
+    def full_name(self):
+        return '{0} {1}'.format(self.user.first_name, self.user.last_name)
     
     def email(self):
         return self.user.email
