@@ -48,6 +48,22 @@
 
       <h1 class="description">{{ course_object.name }} </h1>
       <h2 class="course">{{ course_object.description }}</h2>
+      <h3>Преподаватели</h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">Учитель</div>
+      <div class="panel-body">
+          <p><b><a href="{% url 'coaches:detail' pk=course_object.coach.id %}">{{ course_object.coach.user.first_name }} {{ course_object.coach.user.last_name }}</a></b></p>
+          <p>{{ course_object.coach.description }}</p>
+      </div>
+      </div>
+      <div class="panel panel-default">
+      <div class="panel-heading">Ассистент</div>
+      <div class="panel-body">
+        <p><b><a href="{% url 'coaches:detail' pk=course_object.assistant.id %}">{{ course_object.assistant.user.first_name }} {{ course_object.assistant.user.last_name }}</a></b></p>
+        <p>{{ course_object.assistant.description }}</p>
+    </div>
+  </div>
+
       <h3 class="program">План курса</h3>
       <table class="table">
       <thead>
@@ -67,6 +83,7 @@
           {% endfor %}
       </tbody>
     </table>
+  </div>
 </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="{% static 'courses/bootstrap.js' %}"></script>
