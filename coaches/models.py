@@ -5,7 +5,8 @@ from students.models import Student
 class Coach(models.Model):
     user=models.OneToOneField(User)
     date_of_birth=models.DateField()
-    gender= 'M'- 'Male', 'F' - 'Female')
+    gender=models.CharField(max_length=1
+        choices=(('M', 'Male'),('F', 'Female')))
     phone=models.CharField(max_length=255)
     address=models.CharField(max_length=255)
     skype=models.CharField(max_length=255)
