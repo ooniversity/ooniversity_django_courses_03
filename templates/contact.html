@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>iBursa Contacts</title><!-- Bootstrap -->
+  {% load staticfiles %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="back">
+  <div class="container center-block">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header"><button aria-controls="navbar"
+        aria-expanded="false" class="navbar-toggle collapsed" data-target=
+        "#navbar" data-toggle="collapse" type="button"><span class=
+        "sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+        <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+        <img hspace="10" src="{% static 'images/python-128.png' %}" vspace="10"
+        width="30"></div>
+        <div class="navbar-collapse collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="{% url 'index' %}">Main</a>
+            </li>
+            <li class="active">
+              <a href="{% url 'contact' %}">Contacts</a>
+            </li>
+            <li>
+              <a href="{% url 'students:list_view' %}">Students</a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container-fluid -->
+    </nav>
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="transparent">
+    <div class="jumbotron">
+      <h1 class="change shad">iBursa</h1>
+      <h2 class="change">Contacts</h2>
+      <hr>
+      <ul>
+        <li>
+          <h3 class="director change text-uppercase">Director</h3>
+        </li>
+        <li style="list-style: none">
+          <img class="img-rounded opa" height="150" src="{% static 'images/tim-cook.png' %}">
+          <ul>
+            <li><b>Name:</b> Tim Cook</li>
+            <li><b>Skype:</b> timcook</li>
+            <li><b>Email:</b> <span class="under"> timcook@apple.com</span></li>
+            <li><b>Phone:</b> +1 555 55 555 75</li>
+          </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+          <h3 class="director change text-uppercase">Manager</h3>
+        </li>
+        <li style="list-style: none">
+          <img class="img-rounded opa" height="150" src="{% static 'images/eddy_cue.png' %}">
+          <ul>
+            <li><b>Name:</b> Eddy Cue</li>
+            <li><b>Skype:</b> eddy.cue</li>
+            <li><b>Email:</b> <span class="blue"> eddy.cue@apple.com</span></li>
+            <li><b>Phone:</b> +1 555 55 555 76</li>
+          </ul>
+        </li>
+      </ul>
+      <hr>
+      <ul>
+        <li>
+          <div class="change">
+          <div class="director">
+            <h3 class="text-uppercase">Founder</h3>
+          </div>
+          </div>
+        </li>
+        <li style="list-style: none">
+          <img class="img-rounded opa" height="150" src="{% static 'images/steve.png' %}">
+          <ul>
+            <li><b>Name:</b> Steve Jobs</li>
+            <li><b>Skype:</b> ---</li>
+            <li><b>Email:</b> ---</li>
+            <li><b>Phone:</b> ---</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    </div>
+    </div>
+  </div>
+
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#myModal">
+        Launch demo modal
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+  <!-- /container -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src=
+  "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+  </script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+  <script src="{% static 'js/bootstrap.min.js' %}">
+  </script>
+</body>
+</html>
