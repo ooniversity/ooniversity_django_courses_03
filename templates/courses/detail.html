@@ -44,29 +44,25 @@
     <div class="container">
 
        <div class="jumbotron">
-      <div class="container">
+      
         <h1>{{ course.name }}</h1>
-      </div>
+      
         
       <p>{{ course.description }}</p>
        {% if coach %}
-       <div class="thumbnail">
-         <div class="col-md-8">
-            <div class="caption">
+       <div>
+         
             <h3>Coach</h3>
             <h4><a href={% url 'coaches:detail' coach.id %}>{{coach.name}} {{coach.surname}}</a></h4>
             <p>{{coach.description}}</p>
-            </div>
-          </div>
+          
        {% endif %}
        {% if assistant %}
-         <div class="col-md-8">
-            <div class="caption">
+         
             <h3>Assistant</h3>
             <h4><a href={% url 'coaches:detail' assistant.id %}>{{assistant.name}} {{assistant.surname}}</a></h4>
             <p>{{assistant.description}}</p>
-            </div>
-          </div>
+           
        <div>
        {% endif %}
     </div>
