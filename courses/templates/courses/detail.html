@@ -39,7 +39,26 @@
             faucibus imperdiet. Quisque sed felis sem. Vestibulum elementum dui enim, non
             maximus lacus condimentum sit amet. Cras pellentesque imperdiet sapien efficitur
             varius."
-        </p>
+        </p><br><br>
+
+        <!--Teachers list-->
+
+        <h3>Teacher</h3>
+        <table class="table opct-img">
+            <tr><td><a href="{% url 'coaches:detail' coach_id=course.coach.user.id %}">{{ course.coach.user.first_name}} {{ course.coach.user.last_name}}</a></td></tr>
+            <tr><td>{{ course.coach.description }}</td></tr>
+            <!--<tr><td>{{ lesson.id}}</td></tr>        -->
+        </table>
+
+        <h3>Assistant</h3>
+        <table class="table opct-img">
+            <tr><td><a href="{% url 'coaches:detail' coach_id=course.assistant.user.id %}">{{ course.assistant.user.first_name}} {{ course.assistant.user.last_name}}</a></td></tr>
+            <tr><td>{{ course.assistant.description }}</td></tr>
+            <!--<tr><td>{{ lesson.id}}</td></tr>        -->
+        </table><br><br>
+
+
+        <!--Lessons plane-->
 
         <h3>Courses Lessons Plane</h3>
          <table class="table opct-img">
