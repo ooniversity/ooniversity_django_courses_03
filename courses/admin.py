@@ -13,7 +13,8 @@ class CourseAdmin(admin.ModelAdmin):
     inlines = [LessonInline]
     list_display = ['name', 'short_description']
     prepopulated_fields = {'slug': ['name']}
-    ordering = ['name']
+    ordering = ['id']
+    search_fields = ['name']
 
 
 # @admin.register(Lesson)

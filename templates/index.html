@@ -9,12 +9,10 @@
     <title></title>
     <meta name="description" content=""/>
 
-    {#    <link rel="stylesheet" href="http://www.android-kiosk.com/wp-content/themes/androidkioskcom/style.css"#}
-    {#          type="text/css" media="screen,projection"/>#}
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/orbita.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicons/apple-icon-57x57.png' %}">
@@ -133,6 +131,12 @@
     </div>
 </div>
 <!--/ end center banner -->
+
+<!-- start block coach -->
+
+{% block coach %}{% endblock %}
+
+<!--/ end block coach -->
 
 <!-- start section -->
 

@@ -13,6 +13,8 @@ class Student(models.Model):
     skype = models.CharField('skype', max_length=30)
     courses = models.ManyToManyField(Course, verbose_name='Курсы', related_name="courses")
 
-    def __unicode__(self):
-        full_name = '%s %s' % (self.name, self.surname)
-        return full_name
+    def get_full_name(self):
+        """ Returns the person's full name."""
+        return '%s %s' % (self.name, self.surname)
+
+    full_name = property(get_full_name)

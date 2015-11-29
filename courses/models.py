@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from coaches.models import Coach
 
 
 class Course(models.Model):
@@ -7,6 +8,8 @@ class Course(models.Model):
     slug = models.SlugField('URL', unique=True)
     short_description = models.CharField('Краткле описание', max_length=250)
     description = models.TextField('Описание', blank=True)
+    coach = models.ForeignKey(Coach, blank=True, null=True, related_name='coach_courses')
+    assistant = models.ForeignKey(Coach, blank=True, null=True, related_name='assistant_courses')
 
     def __unicode__(self):
         return self.name
