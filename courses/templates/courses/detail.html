@@ -28,9 +28,31 @@
         
       </div>
     
+</div>
 <h1>{{course.name}}</h1> 
 <p class="lead">{{course.description}} </p>
-      <div class="jumbotron">
+
+ <div class="panel panel-primary transparant-background">
+          <div class="panel-heading">
+            Учитель курса
+          </div>
+          <div class="panel-body">
+            <p><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach}}</a></p>
+            <p>{{course.coach.description}}</p>
+          </div>
+        </div>
+ </div>
+
+ <div class="panel panel-primary transparant-background">
+          <div class="panel-heading">
+           Ассистент курса
+          </div>
+          <div class="panel-body">
+            <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant}}</a></p>
+            <p>{{course.assistant.description}}</p>
+          </div>
+        </div>
+   <div class="jumbotron">
 <h3>План курса</h3> 
 
 <table>
@@ -40,6 +62,8 @@
 	{% endfor %}
       </div>
 </table>
+
+
       <footer class="footer">
        
       </footer>
