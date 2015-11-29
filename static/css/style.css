@@ -179,10 +179,10 @@ tbody > tr > td > a {
 */
 
 thead > tr > th {
-  background: #fefcea;
-  background: -moz-linear-gradient(top,  #fefcea 0%, #f1da36 100%);
-  background: -webkit-linear-gradient(top,  #fefcea 0%,#f1da36 100%);
-  background: linear-gradient(to bottom,  #fefcea 0%,#f1da36 100%);
+  background: rgb(254,253,242);
+  background: -moz-linear-gradient(top,  rgba(254,253,242,1) 0%, rgba(247,233,133,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(254,253,242,1) 0%,rgba(247,233,133,1) 100%);
+  background: linear-gradient(to bottom,  rgba(254,253,242,1) 0%,rgba(247,233,133,1) 100%);
   text-align: center;
 }
 
@@ -199,5 +199,5 @@ tbody > tr > td {
 }
 div.table-responsive.col-md-6 > img {
   border: 3px solid rgba(240,240,240,50);
-  margin-left: 18px;
+  margin-left: 6px;
 }
