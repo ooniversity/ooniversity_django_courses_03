@@ -13,6 +13,4 @@ def detail(request, coache_id):
         'coach_on_courses': coach_on_courses,
         'assistant_on_courses': assistant_on_courses,
     }
-    print(coach_on_courses, 'coach')
-    print(assistant_on_courses, 'assist')
     return render_to_response('coaches/detail.html', context)
