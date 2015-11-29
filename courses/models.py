@@ -5,7 +5,7 @@ from django.db import models
 class Course(models.Model):
 
     name = models.CharField(max_length=255)
-    short_description  = models.CharField(max_length=2048)
+    short_description = models.CharField(max_length=2048)
     description = models.TextField()
 
     def __unicode__(self):

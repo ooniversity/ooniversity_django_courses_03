@@ -36,7 +36,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/index/">Main<span class="sr-only">(current)</span></a></li>
-        <li><a href="/contact/">Contact</a></li>
+        <li><a href="{% url 'contact'  %}">Contact</a></li>
 		<li><a href="/student_list/">Student</a></li>
 		<li><a href="/quadratic/results/">Quadratic</a></li>
      </ul>
@@ -73,15 +73,19 @@
         <table class="table table-bordered table-condensed">
           <thead>
             <tr>
+                <th class="text-center">id</th>
               <th class="text-center">Курс</th>
               <th class="text-center">Описание</th>
+                <th class="text-center">Описание</th>
             </tr>
           </thead>
           <tbody>
             {% for course in courses %}
               <tr>
-                <td><a href="{'courses:detail' course.id}">{{ course.name }}</a></td>
+              <td>{{ course.id }}</td>
+                <td><a href="/courses/{{course.id}} ">{{ course.name }}</a></td>
                 <td>{{ course.short_description }}</td>
+                <td>{{ course }}</td>
               </tr>
             {% endfor %}
           </tbody>
