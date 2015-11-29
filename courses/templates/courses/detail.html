@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main</title>
+  </head>
+  <body>
+          <a href="{% url 'index' %}">
+            py
+          </a>
+
+          <ul>
+            <li><a href="{% url 'index' %}">Main</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
+            <li><a href="{% url 'students:list_view' %}?course_id={{ course_detail.id }}">Students</a></li>
+          </ul>
+
+
+    <h2> {{ course_detail.name }} </h2>
+    {{ course_detail.description }}
+    <br>
+    <h3> Course trainers:</h3>
+    <br>
+    <h3>Teacher</h3>
+    <a href="{% url 'coaches:detail' course_detail.coach.id %}"> {{ course_detail.coach.user.first_name }}  {{ course_detail.coach.user.last_name }} </a> <br><br>
+    {{ course_detail.coach.description }}
+    <h3>Assistant</h3>
+    assistant.user.last_name }} </a> <br><br>
+    {{ course_detail.assistant.description }}
+    <br>
+    <h3> Course detailed plan (lessons): </h3>
+    <br>
+        <table>
+            <thead>
+              <tr >
+                <td><strong>ID</strong></td>
+                <td><strong>Subject</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+             {% if lessons_list %} 
+              {% for lesson in lessons_list %}
+              <tr>
+                <td>{{ lesson.order }} </td>
+                <td>{{ lesson.subject }}</td>
+                <td>{{ lesson.description }}</td>
+              </tr>
+              {% endfor %}
+              {% endif %}  
+            </tbody>
+           </table>       
+  </body>
+</html>
