@@ -7,32 +7,31 @@
     <title>Main</title>
   </head>
   <body>
-    <!-- menu start -->  
-    <nav>
-      <div>
-        <div>
           <a href="{% url 'index' %}">
-            <img>
+            py
           </a>
-        </div>
-        <div>
+
           <ul>
             <li><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
             <li><a href="{% url 'students:list_view' %}?course_id={{ course_detail.id }}">Students</a></li>
           </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- menu end -->  
-    <div >
+
+
     <h2> {{ course_detail.name }} </h2>
     {{ course_detail.description }}
     <br>
+    <h3> Course trainers:</h3>
+    <br>
+    <h3>Teacher</h3>
+    <a href="{% url 'coaches:detail' course_detail.coach.id %}"> {{ course_detail.coach.user.first_name }}  {{ course_detail.coach.user.last_name }} </a> <br><br>
+    {{ course_detail.coach.description }}
+    <h3>Assistant</h3>
+    assistant.user.last_name }} </a> <br><br>
+    {{ course_detail.assistant.description }}
+    <br>
     <h3> Course detailed plan (lessons): </h3>
     <br>
-
-      <div >
         <table>
             <thead>
               <tr >
@@ -52,9 +51,6 @@
               {% endfor %}
               {% endif %}  
             </tbody>
-           </table>
-      </div>        
-
-    </div>  
+           </table>       
   </body>
 </html>
