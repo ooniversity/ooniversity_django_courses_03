@@ -6,5 +6,5 @@ def detail(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     lessons = Lesson.objects.filter(course_id = course_id)
     coach = Coach.objects.get(coach_courses = course_id)
-    assistent = Coach.objects.get(assistant_courses = course_id)
-    return render (request, 'courses/detail.html',{'course':course,'lessons':lessons, 'coach': coach, 'assistent':assistent})
+    assistant = Coach.objects.get(assistant_courses = course_id)
+    return render (request, 'courses/detail.html',{'course':course,'lessons':lessons, 'coach': coach, 'assistant':assistant})

@@ -13,7 +13,10 @@ class Coach (models.Model):
 	    return self.user.username
     def Surname(self):
         return self.user.last_name
+    last_name = property(Surname)
     def Name(self):
         return self.user.first_name
+    first_name = property(Name)
     def Email(self):
         return self.user.email
+    email = property(Email)
