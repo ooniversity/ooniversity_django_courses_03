@@ -1,3 +1,5 @@
+# -*- coding:UTF-8 -*-
+
 from django.shortcuts import render
 from students.models import Student
 from courses.models import Course

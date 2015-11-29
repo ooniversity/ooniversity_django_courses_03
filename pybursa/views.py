@@ -1,3 +1,5 @@
+# -*- coding:UTF-8 -*-
+
 from django.shortcuts import get_object_or_404, render
 from courses.models import Course, Lesson
 from students.models import Student
