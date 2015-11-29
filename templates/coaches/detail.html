@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Course detail</title>
+    <title>Детали преподавателя</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
@@ -31,66 +31,53 @@
           <ul class="nav nav-pills">
             <li role="presentation" class="active"><a href="{% url 'index' %}">Главная</a></li>
             <li role="presentation" class="passive"><a href="{% url 'contact' %}">Контакты</a></li>
-            <li role="presentation" class="passive"><a href="{% url 'students:list_view' %}?course_id={{course.id}}">Студенты</a></li>
+            <li role="presentation" class="passive"><a href="{% url 'students:list_view' %}">Студенты</a></li>
           </ul>
       </div>
     </nav>
-    <div class="col-md-12" >
-      <div class="jumbotron">
-        <div class="page-header">
-          <h1>{{course.name}}</h1>
-        </div>
-        <p>{{course.description}}</p>
-      </div>
-    </div>
-    <div id="coach" class="container-fluid">
-      <div class="page-header">
-        <h3>Преподаватели</h3>
-      </div>
-      <table class="table table-bordered">
-        <thead>
-          <tr><td>Учитель</td></tr>
-        </thead>
-        <tbody>
-        <tr><td>
-          <h4><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.name}} {{course.coach.surname}}</a></h4>
-          <p>{{course.coach.description}}</p>
-        </td></tr>
-        </tbody>
-      </table>
-      <table class="table table-bordered">
-        <thead>
-          <tr><td>Ассистент</td></tr>
-        </thead>
-        <tbody>
-        <tr><td>
-          <h4><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.name}} {{course.assistant.surname}}</a></h4>
-          <p>{{course.assistant.description}}</p>
-        </td></tr>
-        </tbody>
-      </table>
-    </div>
     <div class="container-fluid">
-      <h3>План курса</h3>
+      <h3>{{coach.name}}{{' '}}{{coach.surname}}</h3>
     </div>
-    <div id="spisok">
+    <div id="spisok" class="col-md-6">
       <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Тема</th>
-            <th>Описание</th>
-          </tr>
-        </thead>
         <tbody>
-          {%for les in lesson %}
-            <tr>
-              <td>{{les.order}}</td>
-              <td>{{les.subject}}</td>
-              <td>{{les.description}}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
+          <tr>
+            <td>дата рождения</td><td>{{coach.date_of_birth}}</td>
+          </tr>
+          <tr>
+            <td>адрес</td><td>{{coach.address}}</td>
+          </tr>
+          <tr>
+            <td>почта</td><td>{{coach.email}}</td>
+          </tr>
+          <tr>
+            <td>логин skype</td><td>{{coach.skype}}</td>
+          </tr>
+          <tr>
+            <td>телефон</td><td>{{coach.phone}}</td>
+          </tr>
+          {% if who_coach %}
+          <tr>
+            <td>курсы учитель</td>
+            <td>
+              {% for course in who_coach%}
+                <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>  студенты курса  <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
+              {%endfor%}
+            </td>
+          </tr>
+          {%endif%}
+          {% if who_assistant %}
+          <tr>
+            <td>курсы ассистент</td>
+            <td>
+              {% for course in who_assistant %}
+                <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a>  студенты курса  <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></p>
+              {%endfor%}
+            </td>
+          </tr>
+          {%endif%}
+
+         </tbody>
       </table>
     </div>
 

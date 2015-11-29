@@ -1,6 +1,5 @@
-body {background-color: #eee }
 .text1 {font-size: 16px; font-family: Courier New}
-.jumbotron {padding-left: 1%; padding-right: 1%}
+.jumbotron {padding-left: 3%; padding-right: 3%}
 .logo {height: 50px; width: 50px}
 .contact_photo a img {height: 80px; width: 80px}
 .navbar-brand {padding-top: 2px; padding-left: 15px}
@@ -18,7 +17,7 @@ h4 {font-weight: bold}
 .table {border:2px;}
 .name {width: 25%}
 .skype {width: 25%}
-.email {width: 25%}
+.email {widthco: 25%}
 .phone {width: 25%}
 .panel-body {background: #00BFFF;}
 .panel {width:70%;}
@@ -55,3 +54,4 @@ h4 {font-weight: bold}
 #res_controls table thead {background-color: #4682B4; color: white; font-weight: bold}
 #res_controls table tbody {background-color: #5F9EA0}
 #students_detail {text-align:center}
+#coach table thead {background-color: #8FBC8F; font-weight: bold}
