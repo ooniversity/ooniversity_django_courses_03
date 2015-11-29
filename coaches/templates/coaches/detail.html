@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Академия Щ.И.Т - Инфо о курсе</title>
+    <title>Академия Щ.И.Т - Инфо о студенте</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -33,52 +33,33 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'index' %}">Main</a><span class="sr-only">(current)</span></li>
             <li><a href="{% url 'contact'%}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view'%}?course_id={{course.id}}">Students</a></li>
+            <li><a href="{% url 'students:list_view' %}">Students</a></li>
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>    
      <div class= "container">    
       <div class="jumbotron">
-      <h2>{{ course.name }}</h2><hr>
-      <p>{{ course.description }}</p>
-     </div>
+      <h2>{{ coach.get_name }} {{ coach.get_lastname }}</h2><hr>
+     <h3></h3>
+    <table class= "course_info">
+        <tr><td>Дата Рождения</td><td>{{ coach.date_of_birth}}</td></tr>
+          <tr><td>Адрес</td><td>{{ coach.address }}</td></tr>
+          <tr><td>Почта</td><td>{{ coach.user.email }}</td></tr>
+          <tr><td>Логин skype</td><td>{{ coach.skype }}</td></tr>
+          <tr><td>Телефон</td><td>{{ coach.phone }}</td></tr>
+          <tr><td>Курсы учитель</td>
+          <td>{% for course in iamcoach %} 
+          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href="{% url 'students:list_view'%}?course_id={{ course.id }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a><br />
+          {% endfor %}</td></tr>
+          <tr><td>Курсы ассистент</td>
+          <td>{% for course in iamassistant %}
+          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href="{% url 'students:list_view'%}?course_id={{ course.id }}"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a> <br />
+          {% endfor %}</td></tr>        
 
-     <h3>Преподаватели</h3>
-      <div class="panel panel-default">
-        <div class="panel-heading">Учитель</div>
-        <div class="panel-body">
-        <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.get_name }} {{ course.coach.get_lastname }}</a><br /><br />
-        {{ course.coach.description }}
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Ассистент</div>
-        <div class="panel-body">
-        {{ course.assistant.get_name }} {{ course.assistant.get_lastname }}<br /><br />
-        {{ course.assistant.description }}
-        </div>
-      </div>
-
-
-     <h3>План курса:</h3>
-    <table class = "course_info">
-        <tr class = "oddtr">
-        <td>#</td>
-        <td class = "first_td">Курс</td>
-        <td class = "second_td">Описание</td>
-      </tr>
-      {% for each_lesson in lesson %}
-      {% if each_lesson.course.name = course.name %}
-        <tr>
-          <td>{{ each_lesson.order }}</td>
-          <td>{{ each_lesson.subject }}</td>
-          <td>{{ each_lesson.description }}</td>
-        </tr>
-      {% endif %}
-      {% endfor %}
     </table>  
-    <br />
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
