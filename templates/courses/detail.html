@@ -54,12 +54,12 @@
        <div>
          
             <h3>Учитель</h3>
-            <h4><a href={% url 'coaches:detail' course.coach.id %}>{{course.coach.full_name}}</a></h4>
+            <h4><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.full_name}}</a></h4>
             <p>{{course.coach.description}}</p>
           
      
             <h3>Ассистент</h3>
-            <h4><a href={% url 'coaches:detail' course.assistant.id %}>{{course.assistant.full_name}}</a></h4>
+            <h4><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.full_name}}</a></h4>
             <p>{{course.assistant.description}}</p>
            
        </div>
