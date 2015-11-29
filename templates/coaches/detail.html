@@ -48,34 +48,42 @@
 <ol class="breadcrumb">
   <li>Main</a></li>
 </ol>
-      <h2>{{student_object.name }} {{student_object.surname }}</h2>
+      <h2>{{coach_object.user.first_name }} {{coach_object.user.last_name }}</h2>
       <table class="table">
       <tbody>
         <tr>
           <th scope="row">дата рождения</th>
-          <td>{{ student_object.date_of_birth }}</td>
+          <td>{{ coach_object.date_of_birth }}</td>
         </tr>
         <tr>
           <th scope="row">email</th>
-          <td>{{ student_object.email }}</td>
+          <td>{{ coach_object.email }}</td>
         </tr>
         <tr>
           <th scope="row">телефон</th>
-          <td>{{ student_object.phone }}</td>
+          <td>{{ coach_object.phone }}</td>
         </tr>
         <tr>
           <th scope="row">адрес</th>
-          <td>{{ student_object.address }}</td>
+          <td>{{ coach_object.address }}</td>
         </tr>
         <tr>
           <th scope="row">skype</th>
-          <td>{{ student_object.skype }}</td>
+          <td>{{ coach_object.skype }}</td>
         </tr>
         <tr>
-          <th scope="row">курсы</th>
+          <th scope="row">курсы учитель</th>
           <td>
-            {% for i in student_object.courses.all %}
-              <p><a href="{% url 'index:detail' pk=i.id %}">{{ i }}</a></p>
+            {% for i in coach_object.coach_courses.all %}
+              <p><a href='{% url 'courses:detail' pk=i.id %}'>{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"><span class='glyphicon glyphicon-new-window'></span></a></p>
+            {% endfor %}
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">курсы ассистент</th>
+          <td>
+            {% for i in coach_object.assistant_courses.all %}
+              <p><a href='{% url 'courses:detail' pk=i.id %}'>{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"> <span class='glyphicon glyphicon-new-window'></span></a></p>
             {% endfor %}
           </td>
         </tr>

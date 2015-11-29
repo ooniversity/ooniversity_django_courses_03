@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from courses.models import Course
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
