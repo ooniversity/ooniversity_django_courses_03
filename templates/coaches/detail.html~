@@ -33,23 +33,23 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="hero-unit">
-				<h1>{{teacher.name}} {{teacher.surname}}</h1>
+			<div class="page-header">
+				<h2>{{teacher.name}} {{teacher.surname}}</h2>
+				<h4>Информация:</h4>
 			</div>
-			<div class="col-md-10 col-md-push-1">
-				<h2 class="sub-header">Информация</h2>
-				<div class="table-responsive">
-					<table class="table" border=2>
+			<div class="row">
+				<div class="col-md-7">
+					<table class="table table-striped" border=2>
 						<thead>
-						  <tr>
-			        <th>дата рождения</th>
-			        <td>{{teacher.date_of_birth}}</td>
+							<tr>
+				      <th>дата рождения</th>
+				      <td>{{teacher.date_of_birth}}</td>
 						</tr>
 						<tr>
 							<th>адрес</th>
 							<td>{{teacher.address}}</td>
 						</tr>
-			      <tr>
+				    <tr>
 							<th>почта</th>
 							<td>{{teacher.email}}</td>
 						</tr>
@@ -66,7 +66,7 @@
 							<th>курсы учитель</th>
 							<td>
 								{% for course in course_where_coach %}								
-								<p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a> студенты курса<a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a></p>
+								<p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a></p>
 								{% endfor %}
 							</td>
 						</tr>

@@ -33,23 +33,23 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="hero-unit">
-				<h1>{{teacher.name}} {{teacher.surname}}</h1>
+			<div class="page-header">
+				<h2>{{teacher.name}} {{teacher.surname}}</h2>
+				<h4>Информация:</h4>
 			</div>
-			<div class="col-md-10 col-md-push-1">
-				<h2 class="sub-header">Информация</h2>
-				<div class="table-responsive">
-					<table class="table" border=2>
+			<div class="row">
+				<div class="col-md-7">
+					<table class="table table-striped">
 						<thead>
-						  <tr>
-			        <th>дата рождения</th>
-			        <td>{{teacher.date_of_birth}}</td>
+							<tr>
+				      <th>дата рождения</th>
+				      <td>{{teacher.date_of_birth}}</td>
 						</tr>
 						<tr>
 							<th>адрес</th>
 							<td>{{teacher.address}}</td>
 						</tr>
-			      <tr>
+				    <tr>
 							<th>почта</th>
 							<td>{{teacher.email}}</td>
 						</tr>
