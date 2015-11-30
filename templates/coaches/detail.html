@@ -96,8 +96,18 @@
           </td>
           <td>
             {% for i in is_coach %}
-            <a href="{% url 'courses:detail' i.id%}"> {{ i.name }} </a>
-            {% endfor %}<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+            <a href="{% url 'courses:detail' i.id%}"> {{ i.name }}</a> студенты <a href="{% url 'students:list_view'%}?course_id={{ i.id }}"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span></a><br>
+            {% endfor %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            курсы ассистент
+          </td>
+          <td>
+            {% for i in is_assistant %}
+            <a href="{% url 'courses:detail' i.id%}"> {{ i.name }}</a> студенты <a href="{% url 'students:list_view'%}?course_id={{ i.id }}"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span></a><br>
+            {% endfor %}
           </td>
         </tr>
       </table>
