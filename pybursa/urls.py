@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.http import HttpResponse
 from django.shortcuts import render
 from pybursa import views
@@ -11,6 +12,9 @@ from polls.views import polls_results
 urlpatterns = patterns('',
 
 =======
+=======
+
+>>>>>>> 7bad2329d865c7a6a913ed8f751121e0c20131e2
 from pybursa import views
 
 
@@ -23,6 +27,7 @@ urlpatterns = patterns('',
     url(r'^student_list/$', views.student_list, name='student_list'),
     url(r'^student_detail/$', views.student_detail, name='student_detail'),
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     url(r'^polls/results/$', polls_results, name='polls_results'),
 
@@ -30,7 +35,10 @@ urlpatterns = patterns('',
 )
 =======
     
+=======
+>>>>>>> 7bad2329d865c7a6a913ed8f751121e0c20131e2
     url(r'^courses/', include('courses.urls', namespace="courses")),
     url(r'^students/', include('students.urls', namespace="students")),
+    url(r'^coaches/', include('coaches.urls', namespace="coaches")),
 )
 >>>>>>> bd2f98b40b2d5840ac070cb0260c3db1ea6b1992
