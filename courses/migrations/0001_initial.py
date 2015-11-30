@@ -16,10 +16,9 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=255)),
                 ('short_description', models.CharField(max_length=255)),
-                ('description', models.TextField()),
+                ('description', models.TextField(max_length=255)),
             ],
             options={
-                'db_table': 'courses',
             },
             bases=(models.Model,),
         ),
@@ -28,12 +27,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('subject', models.CharField(max_length=255)),
-                ('description', models.TextField()),
+                ('description', models.TextField(max_length=255)),
                 ('order', models.PositiveIntegerField()),
                 ('course', models.ForeignKey(to='courses.Course')),
             ],
             options={
-                'db_table': 'lesson',
             },
             bases=(models.Model,),
         ),

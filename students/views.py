@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from students.models import Student
+from students.models import *
+from courses.models import *
 import os
 
 
@@ -11,16 +12,15 @@ def list_view(request):
     else:
         result = Student.objects.all()
     return render(
-        request,
-        os.path.join('students', 'list.html'),
-        {'students': result}
-    )
+                  request,
+                  os.path.join('students', 'list.html'),
+                  {'students': result}
+                  )
 
 
 def detail(request, student_id):
-    result = {'student': Student.objects.get(id=student_id)}
-    return render(
-        request,
-        os.path.join('students', 'detail.html'),
-        result
-    )
+    result = {
+      'student': Student.objects.get(id=student_id),
+      'course': Course.objects.get(id=student_id)
+      }
+    return render(request, os.path.join('students', 'detail.html'), result)
