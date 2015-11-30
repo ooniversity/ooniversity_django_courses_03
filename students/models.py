@@ -4,8 +4,8 @@ from courses.models import Course
 
 # Create your models here.
 class Student(models.Model):
-    class Meta():
-        db_table = 'student'
+    # class Meta():
+    #    db_table = 'student'
 
     name = models.CharField(max_length=255)
     surname = models.CharField(max_length=255)
