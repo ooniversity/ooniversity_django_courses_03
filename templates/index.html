@@ -1,0 +1,382 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>PyBursa - Профессиональные Python & Django  курсы</title>
+<meta name="description" content="Выучить питон на PyBursa быстро и легко!">
+<meta name="keywords" content="питон, курсы, онлайн">
+<meta name="author" content="Олександр Кучеренко">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+<!-- Основной файл стилей -->
+<link href="{% static 'css/style.css'%}" rel="stylesheet">
+<!-- responsive stylesheet -->
+<link href="{% static 'css/responsive.css'%}" rel="stylesheet">
+<!-- Подключение иконок Font Awesome -->
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+<!-- Подключение Bootstrap -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+<link rel="stylesheet" href="{% static 'css/bootstrap-theme.css'%}">
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<!-- Дополнительный файл стилей -->
+<link href="{% static 'css/other.css'%}" rel="stylesheet">
+</head>
+<body>
+<div id="wrapper">
+  <!--Начало секции Header -->
+  <header id="header">
+    <div class="primary-header">
+      <div class="container">
+        <div class="row ">
+          <ul class="contact-detail2 col-sm-5 pull-left">
+            <li> <i class="fa fa-phone"> 38 (096) 469 15 57</i>  </li>
+            <li> <i class="fa fa-envelope-o"> daria.mykhalevych@gmail.com</i>  </li>
+          </ul>
+          <div class="social-links col-xs-12 col-sm-7 pull-right">
+            <ul class="social-icons hidden-xs pull-right">
+              <li> <i class="fa fa-facebook-square">.</i> </li>
+              <li> <i class="fa fa-twitter">.</i></li>
+              <li> <i class="fa fa-pinterest">.</i> </li>
+              <li> <i class="fa fa-vk">.</i> </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+
+        <!-- Лого и меню сгрупированы для лучшего мобильного отображения -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Моб.  меню</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a href="{% url 'index' %}" class="col-xs-6 col-sm-2 navbar-brand" title="Добро пожаловать на PyBursa"><img class="wow bounceInDown" data-wow-duration="0.5s" data-wow-delay="0s" src="../static/images/logo.png" alt="PyBursa"></a> </div>
+
+        <!-- Меню -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <nav>
+            <ul class="nav navbar-nav">
+              <li> <a href="{% url 'index' %}" class="active">Main </a> </li>
+              <li><a href="{% url 'students:list_view' %}">Students</a></li>
+              <li> <a href="{% url 'contact' %}">Contacts</a> </li>
+              <li> <a style="visibility: visible;" class="search-button" href="{% url 'index' %}"><i class="icon icon-Search"></i></a> </li>
+            </ul>
+            <div style="" class="bg-white hide-show-content no-display header-search-content">
+              <form class="navbar-form vertically-absolute-middle">
+                <div class="form-group">
+                  <input placeholder="Введите текст &amp; Нажмите Enter" class="form-control" id="s" name="s" value="" type="text">
+                </div>
+              </form>
+              <!--<button class="close"> <i class="fa fa-times"></i> </button>-->
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--Конец секции Header -->
+
+  <!-- Site Content -->
+  <div id="main">
+    <!-- #banner -->
+    <section id="banner">
+      <div class="banner-container">
+        <div class="banner">
+          <ul>
+            <li
+						class="slider-1"
+						data-transition="random"
+						data-slotamount="7"
+						data-thumb="{% static 'images/slides/image1.jpg'%}"
+						> <img
+							src="{% static 'images/slides/image1.jpg'%}"
+              alt="slider"
+							data-bgrepeat="no-repeat"
+							data-bgfit="cover"
+                            data-bgposition="top left"
+							data-kenburns="on"
+							data-duration="2000"
+							data-ease="Power4.easeInOut"
+							data-bgfitend="100"
+							data-bgpositionend="center top">
+
+              <!-- .banner-txt -->
+              <div
+							class="caption fadeIn lfl banner-txt col-lg-5 tp-resizeme"
+							data-x="600"
+							data-y="35"
+							data-speed="700"
+							data-start="1700"
+							data-easing="easeOutBack">
+                <h1 class="courus">PyBursa Courses<br>
+                  <span>инновационные технологии</span> </h1>
+                <p>  Попади в тренд современной <br>
+WEB разработки </p>
+                <button>Записаться</button>
+              </div>
+              <!-- /.banner-txt -->
+
+            </li>
+            <li
+						class="slider-2"
+						data-transition="random"
+						data-slotamount="7"
+						data-thumb="{% static 'images/image2.jpg'%}"
+						> <img
+							src="{% static 'images/slides/image2.jpg'%}"
+              alt="slider2"
+							data-bgposition="left bottom"
+							data-kenburns="on"
+							data-duration="2000"
+							data-ease="Power4.easeInOut"
+							data-bgfit="200"
+							data-bgfitend="100"
+							data-bgpositionend="center top">
+              <div
+							class="caption skewfromright  bold-innovation-slider-caption tp-resizeme"
+							data-x="450"
+							data-y="100"
+							data-speed="600"
+							data-start="1700"
+							data-easing="easeOutBack">
+                <h1>Online PyBursa</h1>
+              </div>
+              <div
+							class="caption randomrotate light-innovation-slider-caption tp-resizeme"
+							data-x="450"
+							data-y="200"
+							data-speed="500"
+							data-start="2200"
+							data-easing="easeOutBack">
+                <button>Начать</button>
+              </div>
+            </li>
+<li
+						class="slider-3"
+						data-transition="random"
+						data-slotamount="7"
+						data-thumb="{% static 'images/image3.jpg'%}"
+						> <img
+							src="{% static 'images/slides/image3.jpg'%}"
+              alt="slider3"
+							data-bgrepeat="no-repeat"
+							data-bgfit="cover"
+                            data-bgposition="top left"
+							data-kenburns="on"
+							data-duration="2000"
+							data-ease="Power4.easeInOut"
+							data-bgfitend="100"
+							data-bgpositionend="center top">
+
+              <!-- .banner-txt -->
+              <div
+							class="caption fadeIn lfl banner-txt col-lg-5 tp-resizeme"
+							data-x="600"
+							data-y="180"
+							data-speed="700"
+							data-start="1700"
+							data-easing="easeOutBack">
+                <h1 class="courus">PyBursa<br>
+                  <span>лучшие онлайн курсы</span> </h1>
+                <p> Надоело собирать знания по крупицам? </p>
+                <button>Записаться</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- /#banner -->
+
+    <!-- creative studio Start Here -->
+    <section class="creative_studio">
+      <div class="container">
+        <div class="col-xs-12">
+          <div class="sec-title text-center">
+            <h1>We are a PyBursa</h1>
+            <h2>Description</h2>
+          </div>
+          <div class="article-list wow bounceInDown" data-wow-duration="0.5s" data-wow-delay="0s">
+           
+            <p> Pybursa is a great place where you can learn basic Python and Django framework. Also you will be up to date with big number of useful tools/technologies such a pep8, CLI, git, csv, json, JS, jQuery, Ajax, HTTP, Firebug, Web Developer, MVC, QuerySet, Raw-sql unit-tests, selenium, nginx etc. You will defenetly enjoy it!</p>
+            <a class="btn blue wow bounceInLeft" data-wow-duration="1s" data-wow-delay="0s" href="http://pybursa.com">PURCHASE NOW</a><a class="btn orange learn wow bounceInRight" data-wow-duration="1s" data-wow-delay="0s" href="http://pybursa.com">learn more</a> </div>
+        </div>
+      </div>
+    </section>
+    <!-- creative studio end Here -->
+
+    <!-- Our Partner Section Start Here-->
+    <section class="partner-site">
+      <div class="container">
+        <div class="sec-title text-center">
+          <h2 class="title"> Ooniversity</h2>
+        </div>
+          <div class="article-list wow bounceInDown" data-wow-duration="0.5s" data-wow-delay="0s">
+
+            <p> Ooniversity is an education company. But not one in the way you might think. We're committed to building the best learning experience inside and out, making Ooniversity the best place for our team to learn, teach, and create the learning experience of the future.</p>
+</div>
+
+      </div>
+    </section>
+    <!-- Our Partner Section End Here-->
+
+          <!-- Our Partner Section Start Here-->
+    <section class="partner-site">
+      <div class="container">
+        <div class="sec-title text-center">
+          <h3>Join our courses!</h3>
+        </div>
+<center><div class="table-responsive">  <table class="table table-striped table-bordered table-nonfluid">
+
+        <tbody>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+            {% if all_courses %}
+              {% for course in all_courses %}
+                <tr>
+                  <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
+                  <td>{{ course.short_description }}</td>
+                </tr>
+              {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+  </div></center>
+
+      </div>
+    </section>
+    <!-- Our Partner Section End Here-->
+    
+
+    <!-- responsive design Start Here -->
+    <section class="responsive-design">
+      <div class="container">
+        <div class="items col-xs-12 col-sm-12 col-md-6 wow bounceInLeft" data-wow-duration="0.5s" data-wow-delay="0s"> <img src="{% static 'images/responsive.png'%}" alt="Guido Van Rossum"> </div>
+        <div class="items col-xs-12 col-sm-12 col-md-6 wow bounceInLeft" data-wow-duration="1s" data-wow-delay="0s">
+          <div class="section-title col-md-12">
+            <h2 class="title"> Program </h2>
+          </div>
+          <div class="responsive-list ">
+            <div class="items col-xs-12 col-sm-12 col-md-12">
+              <!-- Title And Content -->
+              <span class="icon icon-DesktopMonitor"></span>
+              <div class="content">
+                <h5 class="title">Основы Python</h5>
+                <ul>
+                                <li>zen, pep8, pylint, tools, IDE</li>
+                                <li>консоль, типы данных, операторы</li>
+                                <li>синтаксис управляющих конструкций (if, for...)</li>
+                                <li>исключения и разбор стектрейса</li>
+                                <li>кодировка в Python</li>
+                            </ul>
+                <a href="#" class="read-more">Read more...</a> </div>
+            </div>
+            <div class="items col-xs-12 col-sm-12 col-md-12">
+              <!-- Title And Content -->
+              <span class="icon icon-Layers"></span>
+              <div class="content">
+                <h5 class="title">Строки и итераторы</h5>
+                <ul>
+                                <li>работа со строками и итерируемыми типами</li>
+                                <li>запуск скрипта и параметры</li>
+                                <li>git http://try.github.com/levels/</li>
+                            </ul>
+                <a href="#" class="read-more">Read more...</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- responsive design end Here -->
+ 
+    <!-- Our Partner Section Start Here-->
+    <section class="partner-site">
+      <div class="container">
+        <div class="sec-title text-center">
+          <h2 class="title"> We Worked With Awesome Clients </h2>
+        </div>
+        <div class="partner-list row" id="partner-list">
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-01.png'%}" alt=""></a></div>
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-02.png'%}" alt=""></a></div>
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-03.png'%}" alt=""></a></div>
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-04.png'%}" alt=""></a></div>
+          <div class="item"><a href="#"><img src="{% static 'images/client-logo-05.png'%}" alt=""></a></div>
+        </div>
+      </div>
+    </section>
+    <!-- Our Partner Section End Here-->
+    <!-- purchase now Start Here -->
+
+    <!-- purchase now end Here -->
+  </div>
+  <!-- site content end Here -->
+
+ <!-- Footer Section Start Here -->
+  <footer id="footer">
+    <section class="footer">
+      <div class="container">
+        <div class="col-xs-12 col-sm-3 abt">
+          <h5 class="title">Футер #1</h5>
+          
+          <p>За стеклом лежал Питон,</p>
+          <p>Большой и толстый, как батон.</p>
+          <p>Вверх пополз,</p>
+          <p>Затем вернулся,</p>
+          <p>Круглым бубликом свернулся. </p>
+           </div>
+        <div class="col-xs-12 col-sm-3 popular-post">
+          <h5 class="title">Футер #2</h5>
+          <p>PyBursa Text</p>
+          <p>PyBursa Text</p>
+          <p>PyBursa Text</p>
+          <p>PyBursa Text</p>
+          <p>PyBursa Text</p>
+          
+        </div>
+        <div class="col-xs-12 col-sm-3 service">
+          <h5 class="title">Футер #3</h5>
+          <ul>
+            <li>Web Development</li>
+            <li>Software Development</li>
+            <li>CRM Development</li>
+            <li>Web Maintanance</li>
+            <li>Search Engine Optimization</li>
+            
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-3 touch">
+          <h5 class="title">Футер #4</h5>
+          <p> <i class="fa fa-map-marker"> Где-то в Харькове...</i></p>
+          <p> <i class="fa fa-phone"> 38 (096) 469 15 57</i> </p>
+          <p> <i class="fa fa-envelope"> daria@gmail.com</i> </p>
+
+        </div>
+      </div>
+      <div class="copyright">
+        <div class="container">
+          <div class="col-xs-12 col-sm-9 ">
+            <p> Copyright © AlexUA 2015-2016. All rights reserved. </p>
+          </div>
+          <div class="col-xs-12 col-sm-3 pull-right text-right">
+            <p> Created By : AlexUA </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+  <!-- End footer
+			================================================== -->
+</div>
+<script src="../static/js/jquery.min.js"></script>
+
+<script type="text/javascript" src="{% static 'js/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script> <!-- Revolution Slider Tools -->
+<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/site.js' %}"></script>
+</body>
+</html>
