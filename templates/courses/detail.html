@@ -26,8 +26,8 @@
         "#navbar" data-toggle="collapse" type="button"><span class=
         "sr-only">Toggle navigation</span> <span class="icon-bar"></span>
         <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-        <img hspace="10" src="{% static 'images/python-128.png' %}" vspace="10"
-        width="30"></div>
+        <a href="{% url 'index' %}"><img hspace="10" src="{% static 'images/python-128.png' %}" vspace="10"
+        width="30"></a></div>
         <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav">
             <li>
@@ -81,7 +81,7 @@
         </tr>
         <tr>
           <td>
-            <a href="{% url 'coaches:detail' course.coach.id%}">{{ course.coach }}</a>
+            <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.get_name }} {{ course.coach.get_surname }}</a>
             <br>
             {{ course.coach.description }}
           </td>
@@ -98,7 +98,7 @@
         </tr>
         <tr>
           <td>
-            <a href="{% url 'coaches:detail' course.assistant.id%}">{{ course.assistant }}</a>
+            <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.get_name }} {{ course.assistant.get_surname }}</a>
             <br>
             {{ course.assistant.description }}
           </td>

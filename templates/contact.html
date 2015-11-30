@@ -25,18 +25,18 @@
         "#navbar" data-toggle="collapse" type="button"><span class=
         "sr-only">Toggle navigation</span> <span class="icon-bar"></span>
         <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-        <img hspace="10" src="../static/images/python-128.png" vspace="10"
-        width="30"></div>
+        <a href="{% url 'index' %}"><img hspace="10" src="../static/images/python-128.png" vspace="10"
+        width="30"></a></div>
         <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav">
             <li>
-              <a href="index.html">Main</a>
+              <a href="{% url 'index' %}">Главная</a>
             </li>
             <li class="active">
-              <a href="contact.html">Contacts</a>
+              <a href="{% url 'contact' %}">Контакты</a>
             </li>
             <li>
-              <a href="student_list.html">Students</a>
+              <a href="{%url 'students:list_view' %}">Студенты</a>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -132,9 +132,9 @@
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src=
   "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-  </script> 
+  </script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-   
+
   <script src="../static/js/bootstrap.min.js">
   </script>
 </body>
