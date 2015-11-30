@@ -9,8 +9,8 @@
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
     <title>Contacts</title>
     {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href={% static 'css/bootstrap.css' %} rel="stylesheet">
+    <link href={% static 'css/style.css' %} rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-fixed-top navbar-inverse">
@@ -26,7 +26,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href={% url 'index' %}>Главная</a></li>
             <li class="active"><a href="{% url 'contact' %}">Контакты</a></li>
             <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
           </ul>
@@ -37,7 +37,7 @@
     <div class="row">
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="{% static 'images/darka.jpg' %}" alt="Daria Mykhalevych" style="heigth:100px;width:140px;">
+          <img src={% static 'images/darka.jpg' %} alt="Daria Mykhalevych" style="heigth:100px;width:140px;">
           <div class="contact_caption">
             <div>
               <h3 class="title">Director</h3>
@@ -51,7 +51,7 @@
       </div>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="{% static 'images/alena.jpg' %}" alt="Alyona Chaika" style="heigth:100px;width:148px;">
+          <img src={% static 'images/alena.jpg' %} alt="Alyona Chaika" style="heigth:100px;width:148px;">
           <div class="contact_caption">
             <div>
               <h3 class="title">Manager</h3>
@@ -65,7 +65,7 @@
       </div>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="{% static 'images/pasha.jpg' %}" alt="Pavel Obod" style="heigth:100px;width:200px;">
+          <img src={% static 'images/pasha.jpg' %} alt="Pavel Obod" style="heigth:100px;width:200px;">
           <div class="contact_caption">
             <div>
               <h3 class="title">Founder</h3>
@@ -87,7 +87,7 @@
     </div> 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src={% static 'js/bootstrap.js' %}></script>
     
   </body>
 </html>
