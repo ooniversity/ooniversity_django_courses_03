@@ -6,8 +6,9 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>iBursa</title><!-- Bootstrap -->
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
-  <link href="../static/css/style.css" rel="stylesheet">
+  {% load staticfiles %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -25,99 +26,51 @@
         "#navbar" data-toggle="collapse" type="button"><span class=
         "sr-only">Toggle navigation</span> <span class="icon-bar"></span>
         <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-        <img hspace="10" src="../static/images/python-128.png" vspace="10"
+        <img hspace="10" src="{% static 'images/python-128.png' %}" vspace="10"
         width="30"></div>
         <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav">
             <li class="active">
-              <a href="index.html">Main</a>
+              <a href="{% url 'index' %}">Главная</a>
             </li>
             <li>
-              <a href="contact.html">Contacts</a>
+              <a href="{% url 'contact' %}">Контакты</a>
             </li>
             <li>
-              <a href="student_list.html">Students</a>
+              <a href="{% url 'students:list_view' %}">Студенты</a>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
     </nav>
     <!-- Main component for a primary marketing message or call to action -->
-    <div class="transparent">
     <div class="jumbotron">
-      <h1 class="change shad">iBursa</h1>
-      <h2 class="change">Description</h2>
-      <div class="opa">
-      <p class="just">This course introduces the student to the Python language. Upon
-      completion of this class, the student will be able to write non trivial
-      Python programs dealing with a wide variety of subject matter domains.
-      Topics include language components, the IDLE environment, control flow
-      constructs, strings, I/O, collections, classes, modules, and regular
-      expressions. The course is supplemented with many hands on labs using
-      either Linux or Windows.</p>
-      </div>
+      <h1 class="shad">iBursa</h1>
+      <h2>Description</h2>
+      <p class="just">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
       <hr>
-      <div class="change">
-      <h2 class="text-uppercase">Program</h2>
-      </div>
-      <ul class="list1">
-        <li class="zagolovok1">Chapter 1: An Introduction to Python
-          <ol class="spisok1">
-            <li>Introduction</li>
-            <li>A Brief History of Python</li>
-            <li>Python Versions</li>
-            <li>Installing Python</li>
-            <li>Environment Variables</li>
-            <li>Executing Python from the Command Line</li>
-            <li>IDLE</li>
-            <li>Editing Python Files</li>
-            <li>Python Documentation</li>
-            <li>Getting Help</li>
-            <li>Dynamic Types</li>
-            <li>Python Reserved Words</li>
-            <li>Naming Conventions</li>
-          </ol>
-        </li>
-        <li class="zagolovok1">Chapter 2: Basic Python Syntax
-          <ol class="spisok1">
-            <li>Basic Syntax</li>
-            <li>Comments</li>
-            <li>String Values</li>
-            <li>String Methods</li>
-            <li>The <tt>format</tt> Method</li>
-            <li>String Operators</li>
-            <li>Numeric Data Types</li>
-            <li>Conversion Functions</li>
-            <li>Simple Output</li>
-            <li>Simple Input</li>
-            <li>The <tt>%</tt> Method</li>
-            <li>The <tt>print</tt> Function</li>
-          </ol>
-        </li>
-        <li class="zagolovok1">Chapter 3: Language Components
-          <ol class="spisok1">
-            <li>Indenting Requirements</li>
-            <li>The <tt>if</tt> Statement</li>
-            <li>Relational and Logical Operators</li>
-            <li>Bit Wise Operators</li>
-            <li>The <tt>while</tt> Loop</li>
-            <li><tt>break</tt> and <tt>continue</tt></li>
-            <li>The <tt>for</tt> Loop</li>
-          </ol>
-        </li>
-        <li class="zagolovok1">Chapter 4: Collections
-          <ol class="spisok1">
-            <li>Introduction</li>
-            <li>Lists</li>
-            <li>Tuples</li>
-            <li>Sets</li>
-            <li>Dictionaries</li>
-            <li>Sorting Dictionaries</li>
-            <li>Copying Collections</li>
-            <li>Summary</li>
-          </ol>
-        </li>
-      </ul>
+      <h2>Выбери курс для себя!</h2>
+      <div class="StudentTable">
+      <table class="table-hover">
+        <tr>
+          <td>Курс</td>
+          <td>Описание</td>
+        </tr>
+        {% for i in courses_list %}
+        <tr>
+          <td>
+            <a href="/courses/{{ i.id }}/">{{ i.name }}</a>
+          </td>
+          <td>
+            {{i.short_description}}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
     </div>
     </div>
     </div>
@@ -125,37 +78,14 @@
 
 
 
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg center-block" data-toggle="modal" data-target="#myModal">
-        Launch demo modal
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src=
   "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-  </script> 
+  </script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-   
-  <script src="../static/js/bootstrap.min.js">
+
+  <script src="{% static 'js/bootstrap.min.js' %}">
   </script>
 </body>
 </html>
