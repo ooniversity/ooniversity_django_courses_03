@@ -15,13 +15,13 @@ class Migration(migrations.Migration):
             name='Student',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('name', models.CharField(max_length=255)),
-                ('surname', models.CharField(max_length=255)),
+                ('name', models.CharField(max_length=100)),
+                ('surname', models.CharField(max_length=100)),
                 ('date_of_birth', models.DateField()),
                 ('email', models.EmailField(max_length=75)),
-                ('phone', models.CharField(max_length=255)),
+                ('phone', models.CharField(max_length=50)),
                 ('address', models.CharField(max_length=255)),
-                ('skype', models.CharField(max_length=255)),
+                ('skype', models.CharField(max_length=50)),
                 ('courses', models.ManyToManyField(to='courses.Course')),
             ],
             options={
