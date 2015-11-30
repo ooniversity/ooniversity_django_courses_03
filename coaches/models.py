@@ -13,7 +13,7 @@ class Coach(models.Model):
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=255)
     skype = models.CharField(max_length=255)
-    desciption = models.TextField()
+    description = models.TextField()
 
     def __unicode__(self):
         return self.user.first_name
@@ -25,7 +25,7 @@ class Coach(models.Model):
         return self.user.last_name
 
     def full_name(self):
-        full_name = '%s %s' % (self.user.first_name, self.user.last_name)
+        full_name = '{0} {1}'.format(self.user.first_name, self.user.last_name)
         return full_name
 
     def email(self):
