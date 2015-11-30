@@ -12,7 +12,6 @@ class Course(models.Model):
     def __unicode__(self):
         return self.name
 
-
 class Lesson(models.Model):
     """Course class"""
     subject = models.CharField(max_length=255)
