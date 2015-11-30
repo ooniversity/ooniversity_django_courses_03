@@ -4,7 +4,6 @@ from courses.models import Course
 def index(request):
     gcourses = Course.objects.all()
     return render(request,'index.html', {'gc': gcourses})
-
     
 def contact(request):
     return render(request, 'contact.html')
