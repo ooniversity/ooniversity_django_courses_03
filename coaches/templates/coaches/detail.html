@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>detail</title>
+    <!-- Bootstrap -->
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="wrapper">
+    <div class="header container">
+        <h1>OONIVERSITY</h1>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'index' %}">Main<span class="sr-only">(current)</span></a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'students:list_view' %}?course_id={{ course_detail.id }}">Students</a></li>
+                    <li><a href="{% url 'students:list_view' %}?course_id={{ course_detail.id }}">Students</a></li>
+                    <li class="active"><a href="#">detail</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="detail">
+                <h2>{{ coach_detail.user.first_name}} {{coach_detail.user.last_name }}</h2>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>дата рождения</th>
+                        <td>{{ coach_detail.date_of_birth }}</td>
+                    </tr>
+                    <tr>
+                        <th>Адрес</th>
+                        <td>{{ coach_detail.address }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>почта</strong></th>
+                        <td>{{ coach_detail.user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th><strong>логин Skype</strong></th>
+                        <td>{{ coach_detail.skype }}</td>
+                    </tr>
+                    <tr>
+                        <th>телефон</th>
+                        <td>{{ coach_detail.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th>курсы учитель</th>
+                        <td>
+                            {% for teacher in teacher_in %}
+                            <a href="{% url 'courses:detail' teacher.id %}">{{ teacher.name }}</a> students list: <a
+                                href="{% url 'students:list_view' %}?course_id={{ teacher.id }}"> <span
+                                class="glyphicon glyphicon-education" aria-hidden="true"></span> </a> <br>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>курсы ассистент</th>
+                        <td>
+                            {% for assistant in assistant_in %}
+                            <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a> students list: <a
+                                href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"> <span
+                                class="glyphicon glyphicon-education" aria-hidden="true"></span> </a> <br>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
