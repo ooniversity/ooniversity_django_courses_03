@@ -18,4 +18,17 @@ from courses.models import Course
 
 def detail(request, coach_id):
     coach = models.Coach.objects.get(id = coach_id)
-    return render(request, 'coaches/detail.html', {'coach': coach})
+    is_coach = is_assistant = []
+    for i in Course.objects.all():
+        if i.coach == coach:
+            is_coach.append(i)
+        if i.assistant == coach:
+            is_assistant.append(i)
+    print is_coach
+    print is_assistant
+
+    return render(request, 'coaches/detail.html', {
+            "is_coach": is_coach,
+            "is_assist": is_assistant,
+            "coach": coach
+            })

@@ -92,11 +92,11 @@
         </tr>
         <tr>
           <td>
-            курсы
+            курсы учитель
           </td>
           <td>
-            {% for course in coach.courses.all %}
-            <a href="{% url 'courses:detail' course.id%}"> {{ course.name }} </a>
+            {% for i in is_coach %}
+            <a href="{% url 'courses:detail' i.id%}"> {{ i.name }} </a>
             {% endfor %}<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
           </td>
         </tr>

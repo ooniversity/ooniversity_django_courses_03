@@ -81,7 +81,7 @@
         </tr>
         <tr>
           <td>
-            <font color="blue"><b>{{ course.coach }} </b></font>
+            <a href="{% url 'coaches:detail' course.coach.id%}">{{ course.coach }}</a>
             <br>
             {{ course.coach.description }}
           </td>
@@ -98,7 +98,7 @@
         </tr>
         <tr>
           <td>
-            <font color="blue"><b>{{ course.assistant }} </b></font>
+            <a href="{% url 'coaches:detail' course.assistant.id%}">{{ course.assistant }}</a>
             <br>
             {{ course.assistant.description }}
           </td>
