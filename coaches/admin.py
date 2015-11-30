@@ -8,4 +8,3 @@ class CoachAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Coach, CoachAdmin)
-
