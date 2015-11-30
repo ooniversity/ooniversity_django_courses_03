@@ -14,8 +14,8 @@ def detail(request, request_id):
         'assistant': course.assistant.full_name(),
         'coach_id': course.coach.id,
         'assistant_id':course.assistant.id,
-        'coach_desc': course.coach.desciption,
-        'assistant_desc':course.assistant.desciption,
+        'coach_desc': course.coach.description,
+        'assistant_desc':course.assistant.description,
     }
     return render(
         request,
