@@ -17,9 +17,17 @@ class Migration(migrations.Migration):
             name='assistant',
             field=models.ForeignKey(related_name=b'assistant_courses', blank=True, to='coaches.Coach', null=True),
             
+<<<<<<< HEAD
+        ),
+=======
+>>>>>>> d29a2005ff16dd5d7232794b3ab2558d6a5e2802
         migrations.AddField(
             model_name='course',
             name='coach',
             field=models.ForeignKey(related_name=b'coach_courses', blank=True, to='coaches.Coach', null=True),
             
+<<<<<<< HEAD
+        ),
+=======
+>>>>>>> d29a2005ff16dd5d7232794b3ab2558d6a5e2802
     ]
