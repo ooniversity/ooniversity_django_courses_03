@@ -21,7 +21,7 @@ urlpatterns = patterns(
     # url(r'^student_detail/$', student_detail, name='student_detail'),
     url(r'^student(?:s?)/', include('students.urls', namespace='students')),
     url(r'^coaches/', include('coaches.urls', namespace='coaches')),
-    #
+
     # url(r'^result(?:s?)\b/$', quadratic_results, name='result'),
     # url(r'^equation/$', equation, name='equation'),
     url(r'^quadratic/$', 'quadratic.views.equation', name='equation'),

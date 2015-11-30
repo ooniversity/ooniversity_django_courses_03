@@ -5,9 +5,17 @@ import os
 
 # Create your views here.
 def detail(request, request_id):
+    course = Course.objects.get(id=request_id)
+    lesson = Lesson.objects.filter(course=request_id)
     result = {
-        'course': Course.objects.get(id=request_id),
-        'lessons': Lesson.objects.filter(course=request_id)
+        'course': course,
+        'lessons': lesson,
+        'coach': course.coach.full_name(),
+        'assistant': course.assistant.full_name(),
+        'coach_id': course.coach.id,
+        'assistant_id':course.assistant.id,
+        'coach_desc': course.coach.desciption,
+        'assistant_desc':course.assistant.desciption,
     }
     return render(
         request,
