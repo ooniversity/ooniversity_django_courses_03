@@ -12,10 +12,10 @@ def list_view(request):
         students = models.Student.objects.all()
         selection = False
 
-    return render(request, 'course_students.html', {'students': students,
+    return render(request, 'list.html', {'students': students,
         'selection': selection})
 
 
 def detail(request, student_id):
     student = models.Student.objects.get(id = student_id)
-    return render(request, 'student_details.html', {'student': student})
+    return render(request, 'detail.html', {'student': student})

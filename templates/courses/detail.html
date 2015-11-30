@@ -30,14 +30,14 @@
         width="30"></div>
         <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav">
-            <li class="active">
+            <li>
               <a href="{% url 'index' %}">Главная</a>
             </li>
             <li>
               <a href="{% url 'contact' %}">Контакты</a>
             </li>
             <li>
-              <a href="{% url 'students:list_view' %}">Студенты</a>
+              <a href="{% url 'students:list_view'%}?course_id={{ course.id }}">Студенты</a>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -45,47 +45,70 @@
     </nav>
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <h1 class="shad">iBursa</h1>
-      <h2>Description</h2>
-      <p class="just">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <h1 class="shad">{{ course.name }}</h1>
+      <h2></h2>
+      <p class="just">{{ course.description }}</p>
       <hr>
-      <h2>Выбери курс для себя!</h2>
-      <div class="StudentTable">
+    <div class="StudentTable">
       <table class="table-hover">
         <tr>
-          <td>Курс</td>
+          <td>#</td>
+          <td>Тема</td>
           <td>Описание</td>
         </tr>
-        {% for i in courses_list %}
+        {% for i in course.lesson_set.all %}
         <tr>
           <td>
-            <a href="/courses/{{ i.id }}/">{{ i.name }}</a>
+            {{ i.order }}
           </td>
           <td>
-            {{i.short_description}}
+            {{i.subject}}
+          </td>
+          <td>
+            {{ i.description }}
           </td>
         </tr>
         {% endfor %}
       </table>
     </div>
+    <br>
+    <h2>Преподаватели</h2>
+    <div class="StudentTable">
+      <div class="StudentTable">
+      <table class="table-hover">
+        <tr>
+          <td>Учитель</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="{% url 'coaches:detail' course.coach.id%}">{{ course.coach }}</a>
+            <br>
+            {{ course.coach.description }}
+          </td>
+        </tr>
+      </table>
+      </div>
     </div>
+    <br>
+    <div class="StudentTable">
+      <div class="StudentTable">
+      <table class="table-hover">
+        <tr>
+          <td>Ассистент</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="{% url 'coaches:detail' course.assistant.id%}">{{ course.assistant }}</a>
+            <br>
+            {{ course.assistant.description }}
+          </td>
+        </tr>
+      </table>
     </div>
-  </div><!-- /container -->
+  </div>
 
 
 
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src=
-  "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-  </script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-
-  <script src="{% static 'js/bootstrap.min.js' %}">
-  </script>
 </body>
 </html>

@@ -30,7 +30,7 @@
         width="30"></div>
         <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav">
-            <li class="active">
+            <li>
               <a href="{% url 'index' %}">Главная</a>
             </li>
             <li>
@@ -45,31 +45,61 @@
     </nav>
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <h1 class="shad">iBursa</h1>
-      <h2>Description</h2>
-      <p class="just">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <h1 class="shad">{{ student.name }} {{ student.surname }}</h1>
+      <h2></h2>
       <hr>
-      <h2>Выбери курс для себя!</h2>
       <div class="StudentTable">
       <table class="table-hover">
         <tr>
-          <td>Курс</td>
-          <td>Описание</td>
+          <td>
+            Дата рождения
+          </td>
+          <td>
+            {{ student.date_of_birth }}
+          </td>
         </tr>
-        {% for i in courses_list %}
         <tr>
           <td>
-            <a href="/courses/{{ i.id }}/">{{ i.name }}</a>
+            Адрес
           </td>
           <td>
-            {{i.short_description}}
+            {{ student.address }}
           </td>
         </tr>
-        {% endfor %}
+        <tr>
+          <td>
+            Почта
+          </td>
+          <td>
+            {{ student.email }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            логин skype
+          </td>
+          <td>
+            {{ student.skype }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            телефон
+          </td>
+          <td>
+            {{ student.phone }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            курсы
+          </td>
+          <td>
+            {% for course in student.courses.all %}
+            <a href="{% url 'courses:detail' course.id%}"> {{ course.name }} </a>
+            {% endfor %}
+          </td>
+        </tr>
       </table>
     </div>
     </div>

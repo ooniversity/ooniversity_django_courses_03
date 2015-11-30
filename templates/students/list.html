@@ -30,7 +30,7 @@
         width="30"></div>
         <div class="navbar-collapse collapse" id="navbar">
           <ul class="nav navbar-nav">
-            <li class="active">
+            <li>
               <a href="{% url 'index' %}">Главная</a>
             </li>
             <li>
@@ -45,29 +45,37 @@
     </nav>
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <h1 class="shad">iBursa</h1>
-      <h2>Description</h2>
-      <p class="just">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <h1 class="shad">Список студентов</h1>
+      <h2></h2>
       <hr>
-      <h2>Выбери курс для себя!</h2>
       <div class="StudentTable">
       <table class="table-hover">
         <tr>
-          <td>Курс</td>
-          <td>Описание</td>
+          <td>#</td>
+          <td>Фамилия Имя</td>
+          <td>адрес</td>
+          <td>Skype</td>
+          <td>курсы</td>
         </tr>
-        {% for i in courses_list %}
+        {% for student in students %}
         <tr>
           <td>
-            <a href="/courses/{{ i.id }}/">{{ i.name }}</a>
+            {{ student.id }}
           </td>
           <td>
-            {{i.short_description}}
+            <a href="{% url 'students:detail' student.id%}"> {{ student.surname }} {{ student.name }} </a>
           </td>
+          <td>
+            {{ student.address }}
+          </td>
+          <td>
+            {{ student.skype }}
+          </td>
+            <td>
+              {% for course in student.courses.all %}
+                <a href="{% url 'courses:detail' course.id%}"> {{ course.name }} </a>
+              {% endfor %}
+            </td>
         </tr>
         {% endfor %}
       </table>
