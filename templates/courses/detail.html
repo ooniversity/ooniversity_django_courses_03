@@ -29,32 +29,27 @@
       </div>
     </nav>
     <div class="jumbotron">
-   
       <div class="container" role="main">
-
-
-    <div class="jumbotron">
-        <h1 class="center">{{ science.name }}</h1>
-        <p class="center"> {{ science.description }}</p>
-    </div>
-        <table class="table">
-            <tr>
-                <th>N</th>
-                <th>Topic</th>
-                <th>Description</th>
-            </tr>
-            {% for less in lst_of_science %}
-            <tr>
-                <td> {{ less.order }} </td>
-                <td> {{ less.subject }}</td>
-                <td> {{ less.description }} </td>
-            </tr>
-            {% endfor %}
-        </table>
-
+        <div class="jumbotron">
+          <h1 class="center">{{ science.name }}</h1>
+          <p class="center"> {{ science.description }}</p>
         </div>
+        <table class="table">
+          <tr>
+            <th>N</th>
+            <th>Topic</th>
+            <th>Description</th>
+          </tr>
+          {% for less in lst_of_science %}
+          <tr>
+            <td> {{ less.order }} </td>
+            <td> {{ less.subject }}</td>
+            <td> {{ less.description }} </td>
+          </tr>
+          {% endfor %}
+        </table>
       </div>
-    
+    </div>
     <script src=
       "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
     <script src="../static/js/bootstrap.js"></script>

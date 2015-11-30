@@ -30,41 +30,34 @@
       </div>
     </nav>
     <div class="jumbotron">
-
       <div class="container" role="main">
-
         <div class="table-responsive">
-          
-
-           <div class="jumbotron">
-        <h1 class="center">Students list</h1>
-    </div>
-    <table class="table">
-        <caption>students</caption>
-        <tr>
-            <th>N</th>
-            <th>name surname</th>
-            <th>address</th>
-            <th>skype</th>
-            <th>courses</th>
-        </tr>
+          <div class="jumbotron">
+            <h1 class="center">Students list</h1>
+          </div>
+          <table class="table">
+            <caption>students</caption>
+            <tr>
+              <th>N</th>
+              <th>name surname</th>
+              <th>address</th>
+              <th>skype</th>
+              <th>courses</th>
+            </tr>
             {% for student in students %}
             <tr>
-                <td> {{ student.id }} </td>
-                <td><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
-                <td> {{ student.address }} </td>
-                <td> {{ student.skype }} </td>
-                <td>
-                    {% for course in student.courses.all %}
-                        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
-                    {% endfor %}
-                </td>
+              <td> {{ student.id }} </td>
+              <td><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
+              <td> {{ student.address }} </td>
+              <td> {{ student.skype }} </td>
+              <td>
+                {% for course in student.courses.all %}
+                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                {% endfor %}
+              </td>
             </tr>
             {% endfor %}
-    </table>
-
-
-
+          </table>
         </div>
       </div>
       <script src=
