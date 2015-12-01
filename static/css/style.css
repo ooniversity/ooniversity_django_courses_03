@@ -34,6 +34,9 @@ table.jewel {
     border:solid #009383; 
    
    }
+.width {
+    width: 80%; /* Ширина таблицы */
+    }
 table {
     width: 300px; /* Ширина таблицы */
     border: 1px solid green; /* Рамка вокруг таблицы */
