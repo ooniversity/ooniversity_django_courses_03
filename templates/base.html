@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load staticfiles %}
+    <script src="{% static 'js/bootstrap.js' %}"> </script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block menu %}
+    <div id="menu">
+        <ul class="nav nav-pills">
+            <li role="presentation" class = {% block active_menu_main %}{% endblock %}>
+                <a href="{% url 'index' %}">Main</a></li>
+            <li role="presentation" class = {% block active_menu_contacts %}{% endblock %}>
+                <a href="{% url 'contact' %}">Contacts</a></li>
+            <li role="presentation" class = {% block active_menu_students %}{% endblock %}>
+                <a href="{% url 'students:list_view'%}">Students</a></li>
+        </ul>
+    </div>
+    {% endblock %}
+    {% block content %}{% endblock %}
+    {% include 'include/footer.html' %}
+</body>
+</html>

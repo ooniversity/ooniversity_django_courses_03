@@ -1,39 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>INDEX</title>
-    {% load staticfiles %}
-    <script src="{% static 'js/bootstrap.js' %}"> </script>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div id="menu">
-        <ul class="nav nav-pills">
-            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-            <li role="presentation"><a href="{% url 'students:list_view'%}">Students</a></li>
-        </ul>
-    </div>
-    <div class="jumbotron">
-        <h1 class="center">Welcome to PyBursa!!!</h1>
-        <p class="center">
-            It is a very powerful and good courses
-        </p>
-    </div>
-        <table class="table">
-            <caption>Check the course from our list</caption>
-            <tr>
-                <th>Название</th>
-                <th>Описание</th>
-            </tr>
-            {% for item in items %}
-            <tr>
-                <td> <a href="courses/{{ item.id }}"> {{ item.name }} </a> </td>
-                <td>{{ item.short_description }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Index{% endblock %}
+{% block active_menu_main %}active{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="center">Welcome to PyBursa!!!</h1>
+        <p class="center">It is a very powerful and good courses</p>
+</div>
+<table class="table">
+    <caption>Check the course from our list</caption>
+    <tr>
+        <th>Название</th>
+        <th>Описание</th>
+    </tr>
+    {% for item in items %}
+    <tr>
+        <td> <a href="courses/{{ item.id }}"> {{ item.name|upper }} </a> </td>
+        <td>{{ item.short_description|title }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
