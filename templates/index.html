@@ -1,29 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.html" %}
+
+
+{% block title %}PyBursa - Главная{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock nav_class_index %}
+
+
+{% block content %}
+
+
+{% load static from staticfiles %}
+
+  
+{% include "include/inc_jumbo.html" %}
+
+   
     
-    <title>HyperMain</title>
-
-    <!-- Bootstrap -->
-    {% load static from staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-
-    
-  </head>
-  <body>
-    <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
-      <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-      <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
-    </ul>
-    <h1>PyBursa</h1>
-    <h4>Синдром введения в Web Development</h4>
-    <br>
     <table class="table table-bordered">
         <th>Курс</th>
         <th>Описание</th>
@@ -33,8 +26,8 @@
         {% for c in courses %}
           {% cycle "<tr><td>" "<tr><td>" %}
         
-            <a href="{% url 'courses:detail' c.id %}">{{c.name }}</a></td>
-            <td>{{ c.short_description }}
+            <a href="{% url 'courses:detail' c.id %}">{{c.name|upper }}</a></td>
+            <td>{{ c.short_description|title }}
             
           {% cycle "</td></tr>" "</td></tr>" %}
         {% endfor %}
@@ -135,11 +128,5 @@
         <span class="input-group-addon" id="basic-addon3">https://example.com/users/</span>
         <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
       </div>
-  </div>         
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+  </div>
+{% endblock content %}         

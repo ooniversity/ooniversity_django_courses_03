@@ -1,65 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>HyperMainDetail</title>
-
-    <!-- Bootstrap -->
-    {% load static from staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% extends "base.html" %}
 
 
-    
-  </head>
-  <body>
-    <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
-      <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-      <!--{% url 'students:list_view'  course_id=xuy as the_url %}-->
-      <!--<li role="presentation"><a href="{{ xuy|iriencode }}">Students</a></li>-->
-      <li role="presentation"><a href="{% url 'students:list_view' %}?course_id={{ course_id }}">Students</a></li>
-      
-    </ul>
-    <h1>{{ name }}</h1>
-    <p>{{ description }}</p>
-    <br>
-    <h3>Преподаватели</h3>
-    <br>
-    
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <h6 class="panel-title">Учитель</h6>
-      </div>
-      <div class="panel-body">
-      <a href="{% url 'coaches:detail' coach.id %}">{{ coach.name }} {{ coach.surname }}</a>
-      </div>
-      <div class="panel-footer">
-        {{ coach.description }}
-      </div>
+{% block title %}PyBursa - Информация о курсе{% endblock title %}
+
+
+
+
+
+{% block content %}
+
+
+{% load static from staticfiles %}
+
+    <div class="jumbotron">
+      <h1>{{ name }}</h1>
+      <p>{{ description|truncatechars:32 }}</p>
     </div>
-    
-
+   <h3>Преподаватели</h3>
     <br>
     
-    
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h6 class="panel-title">Ассистент</h6>
-      </div>
-      <div class="panel-body">
-      <a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.name }} {{ assistant.surname }}</a>
-      </div>
-      <div class="panel-footer">
-        {{ assistant.description }}
-      </div>
-
-    </div>
+    {% include "include/inc_instructor.html" with block_title="Учитель" instructor=coach %}
 
 
+    {% include "include/inc_instructor.html" with block_title="Ассистент" instructor=assistant %}
 
     <h3>План курса </h3>
     <table class="table table-bordered">
@@ -80,5 +43,4 @@
 
       </tbody>
     </table>
-  </body>
-</html>    
+{% endblock content %}

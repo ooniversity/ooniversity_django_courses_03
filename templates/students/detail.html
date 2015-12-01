@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>HyperStudents</title>
-
-    <!-- Bootstrap -->
-    {% load static from staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% extends "base.html" %}
 
 
-    
-  </head>
-  <body>
+{% block title %}PyBursa - Информация о студенте{% endblock title %}
 
 
+{% block nav_class_students %}active{% endblock nav_class_students %}
 
-    <ul class="nav nav-tabs">
-      <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-      <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-      <li role="presentation" class = "active"><a href="{% url 'students:list_view'  %}">Students</a></li>
-    </ul>
+
+{% block content %}
+
+
+{% load static from staticfiles %}
 
 
     <h2>{{ student.surname }} {{ student.name }}</h2>
@@ -67,6 +54,4 @@
         
       </tbody>
     </table> 
-
-  </body>
-</html>  
+{% endblock content %}
