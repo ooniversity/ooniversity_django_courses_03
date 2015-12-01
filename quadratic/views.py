@@ -1,32 +1,44 @@
 from django.shortcuts import render
+from django import forms
+
+
+class QuadraticForm(forms.Form):
+    a = forms.FloatField()
+    b = forms.FloatField()
+    c = forms.FloatField()
 
 
 def quadratic_results(request):
-    value = {}
+    form = QuadraticForm()
+    context = {}
     for key in request.GET.keys():
         if request.GET[key] == '':
-            value[key] = ''
-            value[key + '_type'] = 'string'
+            context[key] = ''
+            context[key + '_type'] = 'string'
         else:
             try:
-                value[key] = int(request.GET[key])
-                value[key + '_type'] = 'integer'
+                context[key] = int(request.GET[key])
+                context[key + '_type'] = 'integer'
             except Exception:
-                value[key] = str(request.GET[key])
-                value[key + '_type'] = 'string'
+                context[key] = str(request.GET[key])
+                context[key + '_type'] = 'string'
 
-    a = value['a']
-    b = value['b']
-    c = value['c']
+    a = context['a']
+    b = context['b']
+    c = context['c']
 
     if all(map(lambda x: isinstance(x, int), (a, b, c))) and a != 0:
-        value['disrcim'] = b**2 - 4 * a * c
-        if value['disrcim'] > 0:
-            value['x1'] = float((-b + value['disrcim']**(1 / 2.0)) / (2 * a))
-            value['x2'] = float((-b - value['disrcim']**(1 / 2.0)) / (2 * a))
-        elif value['disrcim'] == 0:
-            value['x1'] = value['x2'] = float(-b / (2 * a))
+        context['disrcim'] = b**2 - 4 * a * c
+        if context['disrcim'] > 0:
+            context['x1'] = float(
+                (-b + context['disrcim']**(1 / 2.0)) / (2 * a))
+            context['x2'] = float(
+                (-b - context['disrcim']**(1 / 2.0)) / (2 * a))
+        elif context['disrcim'] == 0:
+            context['x1'] = context['x2'] = float(-b / (2 * a))
     else:
-        value['disrcim'] = ''
+        context['disrcim'] = ''
 
-    return render(request, 'quadratic/results.html', value)
+    context['form'] = form
+
+    return render(request, 'quadratic/results.html', context)
