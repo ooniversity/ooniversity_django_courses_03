@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Equation</title>
+  <body>
+		<h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
+		<form>
+		  {{ form.as_p }}
+		  <input type="submit" value="Решить" />
+		</form>
+{% if error_2 = a %}<p><strong>коэффициент при первом слагаемом уравнения не может быть равным нулю</strong></p>{% endif %}
+<p>Дискриминант: {{ d }}</p>
+{% if d == True%}
+{% if 0 > d %}<p><strong>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</strong></p>
+{% elif d == 0 %}<p><strong>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x1 }}</strong></p>
+{% else %}<p><strong>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}</strong></p>
+{% endif %}
+{% endif %}
+  </body>
+</html>

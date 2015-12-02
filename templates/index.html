@@ -1,39 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main | PyBursa</title>
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-</head>
 
-<body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <img class="logo" src="{% static 'images/logpy.jpg' %}" />
-            </div>
-            <div class="container">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'index' %}">Главная</a>
-                    </li>
-                    <li><a href="{% url 'contact' %}">Контакты</a>
-                    </li>
-                    <li><a href="{% url 'students:list_view' %}">Студенты</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container" id="sh1">
-        <h1><b>BestoftheBest</b> <small><i>itBursa</i></small></h1>
-        <p>Мы специализируемся на модных "языках" программирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий!!! </p>
-    </div>
+{% block title %}Главная{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block content %}
+
+
+{% include "courses/include/inc_BestoftheBest.html" %}
         <div class="container" id="program">
             <h1>Выбирай на каком курсе ты хочешь учиться!</h1>
         </div>
@@ -53,10 +30,10 @@
         	{% for course in courses %}
         	<tr>
         		<td>     			
-       				 <a href="{% url 'courses:detail' course.id %}">{{ course }}</a>		 
+       				 <a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a>		 
         		</td>      			
         		<td>
-        			{{ course.short_description }}
+        			{{ course.short_description|title }}
         		</td>	
         	</tr>
         	{% endfor %}
@@ -67,7 +44,5 @@
                 </li>
             </ul>
         </nav>
-</body>
-
-</html>
+{% endblock content %}
 

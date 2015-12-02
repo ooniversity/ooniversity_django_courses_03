@@ -1,35 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contacts</title>
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-</head>
 
-<body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <img class="logo" src="{% static 'images/logpy.jpg' %}" />
-            </div>
-            <div class="container">
-                <ul class="nav navbar-nav">
-                    <li><a class="top_bar" href="{% url 'index' %}">Главная</a>
-                    </li>
-                    <li class="active"><a class="top_bar" href="{% url 'contact' %}">Контакты</a>
-                    </li>
-                    <li><a class="top_bar" href="{% url 'students:list_view' %}">Студенты</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="jumbotron" id="boom">
+{% load staticfiles %}
+
+
+{% block title %}Контакты{% endblock title %}
+
+
+{% block nav_class_contact %}active{% endblock %}
+
+
+{% block content %}
+<div class="jumbotron" id="boom">
         <div class="container">
             <div class="row" id="rombo">
                 <div class="col-lg-4">
@@ -70,7 +52,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <nav class="container">
         <ul class="pager">
@@ -80,11 +61,4 @@
             </li>
         </ul>
     </nav>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-</body>
-
-</html>
-
+{% endblock content %}
