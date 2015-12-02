@@ -27,11 +27,11 @@ def quadratic_results(request):
                 elif int(args['discriminant']) == 0:
                     args['x1'] = (-data['b']) / (2.0 * data['a'])
 
-        return render(request, 'results.html', args)
+        return render(request, 'quadratic/results.html', args)
     else:
         args['form'] = QuadraticForm()
 
-        return render(request, 'results.html', args)
+        return render(request, 'quadratic/results.html', args)
 
 
 def quadratic_results_old(request):
