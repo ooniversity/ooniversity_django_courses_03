@@ -13,6 +13,10 @@ p + p {
 h1 {
 	text-align: center;
 }
+
+img {
+	margin-bottom: 20px;
+}
 .navbar-brand {
 	padding: 0;
 }

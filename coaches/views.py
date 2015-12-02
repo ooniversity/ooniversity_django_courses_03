@@ -5,10 +5,10 @@ from courses.models import Course
 
 def detail(request, pk):
     coaches = Coach.objects.get(id=pk)
+    context = {'coaches': coaches}
 
-    courses = Course.objects.filter(coach=pk)
-    assistants = Course.objects.filter(assistant=pk)
-    return render(request, 'coaches/detail.html', {
-        'coaches': coaches,
-        'courses': courses,
-        'assistants': assistants})
+    coach_courses = Course.objects.filter(coach=pk)
+    assistants_courses = Course.objects.filter(assistant=pk)
+    context['coach_courses'] = coach_courses
+    context['assistants_courses'] = assistants_courses
+    return render(request, 'coaches/detail.html', context)
