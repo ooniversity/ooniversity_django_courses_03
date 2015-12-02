@@ -32,12 +32,13 @@
 				<p><strong>{{ error_mess_c }}</strong></p>
 				{% endif %}
 				</ul>
-{% endcomment %}
+
 				{% if not error %}
 				<p>{{ d }}</p>
 				<p>{{ result_message }}</p>
 <!--		<p>Введите параметры:</p> -->
 				{% endif %}
+{% endcomment %}
 				<form action="{% url 'results' %}">
           {{ form.as_p }}
 					<input type="submit" value="Решить"/>
