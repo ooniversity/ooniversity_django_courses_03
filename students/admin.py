@@ -1,5 +1,5 @@
 from django.contrib import admin
-from students.models import Student
+from students.models import Student, CourseApplication
 
 class StudentAdmin(admin.ModelAdmin):
 	search_fields = ['surname', 'email']
@@ -15,4 +15,5 @@ class StudentAdmin(admin.ModelAdmin):
 	
 
 admin.site.register(Student, StudentAdmin)
+admin.site.register(CourseApplication)
 #admin.site.register(Student)

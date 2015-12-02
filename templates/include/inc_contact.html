@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<div class="col-md-4">
+	<img src="{% static '' %}{{ block_image }}" alt="..." class="img-circle">
+	<div class="caption">
+		<h2 class="dolgnosti">{{ block_title }}</h2>
+		<p>
+			<span class="spa">Name: </span>{{ block_name }}</br>
+			<span class="spa">Skype: </span>{{ block_skype }}</br>
+			<span class="spa">Email: </span>{{ block_email }}</br>
+			<span class="spa">Phone: </span>{{ block_phone }}</br>
+		</p>
+		<div>
+			<a href="#" class="btn btn-primary" role="button">Send email</a>
+		</div>
+	</div>
+</div>
+

@@ -34,6 +34,7 @@
 .descr, .conts{
 	text-align: center;
 	font-weight: bold;
+  
 }
 
 .py{
@@ -57,13 +58,16 @@
 	font-size: 18pt;
 }
 .students{
+  font-weight: bold;
 	padding-top: 80px;
 }
 
 .top1{
+  font-weight: bold;
 	text-align: left;
 }
 .about_me{
+  font-weight: bold;
 	text-align: left;
 	margin-right: 45px;
   margin-left: 45px;
@@ -80,7 +84,17 @@
 	padding-bottom: 20px;
 }
 
-
+.background_body{
+    /*background-image: url();
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;*/
+  background: url("../images/background.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 
 /* TABLE
@@ -129,6 +143,7 @@ table tbody tr th{
 	
 	*/
 }
+
 table tbody tr td{
 	vertical-align:middle;
 	border:#bdbdbd 1px solid;
@@ -144,15 +159,15 @@ table tbody tr td{
 	
 	*/
 }
-
+/*
 .my_table tr td:first-child{
 	padding-right: 15px;
 	padding-left: 15px;
 }
 .my_table tr:nth-child(2n) {
-    background: #e2e2e2; /* Цвет фона */
+    background: #e2e2e2; /* Цвет фона 
    } 
-
+*/
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -192,7 +207,7 @@ table tbody tr td{
 }
 @media (min-width: 1200px) {
   .carousel, .carousel .item, .carousel-inner > .item > img {
-    height: 800px;
+    height: 900px;
   }
 }
 /* CUSTOMIZE THE NAVBAR

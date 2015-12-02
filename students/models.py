@@ -11,7 +11,18 @@ class Student(models.Model):
 	skype = models.CharField(max_length=255)
 	courses = models.ManyToManyField(Course)
 	
-
 	def full_name(self):
 		return '%s %s' % (self.name, self.surname)
 
+
+class CourseApplication(models.Model):
+	name = models.CharField(max_length=255)
+	email = models.EmailField()
+	course = models.ForeignKey(Course)
+	package = models.CharField(max_length=50, choices=(
+		('standart', 'Standart'),
+		('gold', 'Gold'),
+		('vip', 'VIP')))
+	subscribe = models.BooleanField()
+	comment = models.TextField(blank=True)
+	is_active = models.BooleanField(default=True)

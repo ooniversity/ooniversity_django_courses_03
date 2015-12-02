@@ -11,6 +11,7 @@ class Coach(models.Model):
 	address = models.CharField(max_length=255)
 	skype = models.CharField(max_length=50)
 	description = models.TextField()
+	#image = models.ImageField(upload_to="images", blank=True, null=True)
 
 	def __unicode__(self):
 		return self.user.username

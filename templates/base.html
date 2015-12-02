@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+				<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>{% block title %}Python course{% endblock title %}</title>
+	
+				<!-- Bootstrap -->
+		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet">
+	</head>
+
+    <!-- NAVBAR
+================================================== -->
+  <body {% block body_class %}class="background_body"{% endblock body_class %}>
+		<div class="navbar-wrapper">
+			<div class="container">
+				<nav class="navbar navbar-inverse">
+					<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<a class="navbar-brand" href="#"></a>
+						</div>
+						<div class="container">
+							<ul class="nav navbar-nav">
+							<!-- Вариант для проверялки -->
+							<li class="{% block index_is_active %}{% endblock %}">
+							<a href="{% url 'index' %}">Main</a></li>
+							<li class="{% block contact_is_active %}{% endblock %}">
+							<a href="{% url 'contact' %}">Contacts</a></li>
+							<li class="{% block students_is_active %}{% endblock %}">
+							<a href="{% url 'students:list_view' %}{% block link_to_st %}{% endblock link_to_st %}">Students</a></li>
+							<li class="{% block calculate_is_active %}{% endblock %}">
+							<a href="{% url 'calculate' %}">Equation</a></li>
+		<!-- Оригинал -->
+		<!--<li class="active"><a class="top_bar" href="{% url 'index' %}">Main</a></li>
+		<li><a class="top_bar" href="{% url 'contact' %}">Contacts</a></li>
+		<li><a class="top_bar" href="{% url 'students:list_view' %}">Students</a></li>
+		<li><a class="top_bar" href="{% url 'calculate' %}">Equation</a></li>-->
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>  
+      <!-- Carousel
+    ================================================== -->
+    {% block carousel %}     
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				  <!-- Indicators -->
+				  
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<img class="first-slide" src="{% static 'images/intro1.jpg' %}" alt="First slide">
+					<div class="container">
+						<div class="carousel-caption">
+							<h1>Учитесь вместе с нами!</h1>
+								<p><a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<img class="second-slide" src="{% static 'images/intro2.jpg' %}" alt="Second slide">
+						<div class="container">
+							<div class="carousel-caption">
+								<h1>Развивайтейсь вместе с нами!</h1>
+									<p><a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a></p>
+							</div>
+						</div>
+				</div>
+				<div class="item">
+					<img class="third-slide" src="{% static 'images/intro3.jpg' %}" alt="Third slide">
+						<div class="container">
+							<div class="carousel-caption">
+								<h1>Работайте в команде!</h1>
+									<p><a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a></p>
+							</div>
+						</div>
+				</div>
+			</div>
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+    <!-- /.carousel -->
+    {% endblock carousel %}     
+    
+    {% block content %}{% endblock content %}
+
+ 
+    <nav class="container">
+		  <ul class="pager">
+        {% block previous %}
+			  <li class="previous">
+				  <a href="{% url 'index' %}"><span aria-hidden="true">&larr;</span>Main</a>
+			  </li>
+        {% endblock previous %}
+        {% block next %}
+        <li class="next">
+				  <a href="{% url 'contact' %}">Сontacts<span aria-hidden="true"></span>&rarr;</a>
+			  </li>
+        {% endblock next %}
+		  </ul>
+	  </nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="{% static 'js/bootstrap.js' %}"></script>
+  </body>
+</html>

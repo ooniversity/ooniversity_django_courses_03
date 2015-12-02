@@ -1,75 +1,108 @@
 # -*- coding: utf-8 -*- 
 from django.shortcuts import render
-from django.http import HttpResponse
+from quadratic.forms import QuadraticForm
 
 def calculate(request):
-	return render(request, 'results.html')
+	form = QuadraticForm()
+	return render(request, 'results.html', {'form': form})
+'''
+class Coefficient(object):
+	
+	def __init__(self, name, value):
+		self.name = name
+		self.value = value
+		self.value_int = None
+		self.error_message = None
+
+	def is_valid(self):
+		if not self.value:
+			self.error_message = "коэффициент не определен"
+			return False
+
+		try:
+			self.value_int = int(self.value)
+		except ValueError:
+			self.error_message = "коэффициент не целое число"
+			return False
+
+		if self.name == 'a' and self.value_int == 0:
+			self.error_message = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
+			return False
+		return True
+'''
+
+def get_discr(a, b, c):
+	d = b**2 - 4*a*c
+	return d
+
+
+def get_eq_root(a, b, d, order=1):
+	if order == 1:
+		x = (-b + d**(1/2.0)) / 2*a
+	else:
+		x = (-b - d**(1/2.0)) / 2*a
+	return x
+
+'''
+def quadratic_results(request):
+	form = QuadraticForm()
+	print form.clean_a
+	context = {'error': False}
+	for name_value in ['a', 'b', 'c']:
+		coefficient = Coefficient(name_value, request.GET.get(name_value, ''))
+		if coefficient.is_valid():
+			context[name_value] = coefficient.value_int
+		else:
+			context['error'] = True
+			context['error_mess_' + name_value] = coefficient.error_message
+			context[name_value] = coefficient.value
+
+	if not context['error']:
+		a = context['a']
+		b = context['b']
+		c = context['c']
+		d = get_discr(a, b, c)
+		if d < 0:
+			result_message = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+		elif d == 0:
+			x = get_eq_root(a, b, d)
+			result_message = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {}" .format(x)
+		else:
+			x1 = get_eq_root(a, b, d)
+			x2 = get_eq_root(a, b, d, order=2)
+			result_message = "Квадратное уравнение имеет два действительных корня: x1 = {}, x2 = {}" .format(x1, x2)
+		
+		context.update({'d': 'Дискриминант: %d' %d, 'result_message': result_message})
+	context['form'] = form
+	return render(request, 'results.html', context)
+'''
 
 def quadratic_results(request):
-	yravnenie = "Квадратное уравнение a*x*x + b*x + c = 0"
-	def get_discr(a, b, c):
-		d = b**2 - 4*a*c
-		return d
 	
-	r = request.GET
-	
-	dictionary = {'a': str(r['a']), 'b': str(r['b']), 'c': str(r['c'])}
+	context = {}
+	form = QuadraticForm()
+	if request.method == 'GET':
+		form = QuadraticForm(request.GET)
+		if form.is_valid():
+			a = form.cleaned_data['a']
+			b = form.cleaned_data['b']
+			c = form.cleaned_data['c']
+			d = get_discr(a, b, c)
 
-	error_mess1 = "коэффициент не целое число"
-	error_mess2 = "коэффициент не определен"
-	error_mess3 = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
-	error_list = {}
-	try:
-		a = int(dictionary['a'])
-		b = int(dictionary['b'])
-		c = int(dictionary['c'])
-		d = get_discr(a, b, c)
-		dictionary['d'] = "Дискриминант: %s" %d
+			if d < 0:
+				result_message = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+			elif d == 0:
+				x = get_eq_root(a, b, d)
+				result_message = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {}" .format(x)
+			else:
+				x1 = get_eq_root(a, b, d)
+				x2 = get_eq_root(a, b, d, order=2)
+				result_message = "Квадратное уравнение имеет два действительных корня: x1 = {}, x2 = {}" .format(x1, x2)
 		
-		if a == 0:
-			dictionary['error_mess3_a'] = error_mess3
-			return render(request, 'results.html', dictionary)
+			context.update({'d': 'Дискриминант: %d' %d, 'result_message': result_message})
 
-		if d < 0:
-			dictionary['discr'] = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
-			return render(request, 'results.html', dictionary)
+	return render(request, 'results.html', {'form': form, 'context': context})
 
-		elif d == 0:
-			x = -b / 2*a
-			dictionary['discr'] = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s" % float(x)
-			return render(request, 'results.html', dictionary)
 
-		else:
-			x1 = (-b + d**(1/2.0)) / 2*a
-			x2 = (-b - d**(1/2.0)) / 2*a
-			dictionary['discr'] = "Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" % (float(x1), float(x2))
-			return render(request, 'results.html', dictionary)
-		
 
-	except ValueError:
-		for i in dictionary:
-			if dictionary.get(i).isalpha():
-				error_list['error_mess_'+i] = error_mess1
-		
-			if dictionary.get(i) == '':
-				error_list['error_mess_'+i] = error_mess2
-		dictionary.update(error_list)
-        return render(request, 'results.html', dictionary)
 
-'''
-		if dictionary['a'].isalpha():
-			dictionary['error_mess1_a'] = error_mess1
-        if dictionary['b'].isalpha():
-            dictionary['error_mess1_b'] = error_mess1
-        if dictionary['c'].isalpha():
-            dictionary['error_mess1_c'] = error_mess1
-
-        if dictionary['a']=='':
-            dictionary['error_mess2_a'] = error_mess2
-        if dictionary['b']=='':
-            dictionary['error_mess2_b'] = error_mess2
-        if dictionary['c']=='':
-            dictionary['error_mess2_c'] = error_mess2
-
-        return render(request, 'results.html', dictionary)
-'''
