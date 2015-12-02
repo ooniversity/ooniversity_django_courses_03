@@ -1,51 +1,21 @@
-{% extends "base.html" %}
-{% load staticfiles %}
-
-
-{% block title %}Equation{% endblock title %}
-
-
-{% block calculate_is_active %}active{% endblock %}
-
-
-{% block carousel %}{% endblock carousel %}
-
-
-{% block content %} 
-	<div class="container students">
-    <div class="page-header">
-      <h1 class="top1">Equation</h1>
-      <div class="jumbotron">
-        <h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
-{% comment %}
-				<ul class="my_list">
-				<li>a = {{ a }}</li>
-				{% if error_mess_a %}
-				<p><strong>{{ error_mess_a }}</strong></p>
-				{% endif %}
-				<li>b = {{ b }}</li>
-				{% if error_mess_b %}
-				<p><strong>{{ error_mess_b }}</strong></p>
-				{% endif %}
-				<li>c = {{ c }}</li>
-				{% if error_mess_c %}
-				<p><strong>{{ error_mess_c }}</strong></p>
-				{% endif %}
-				</ul>
-
-				{% if not error %}
-				<p>{{ d }}</p>
-				<p>{{ result_message }}</p>
-<!--		<p>Введите параметры:</p> -->
-				{% endif %}
-{% endcomment %}
-				<form action="{% url 'results' %}">
-          {{ form.as_p }}
-					<input type="submit" value="Решить"/>
-				</form>
-				<p>{{ context.d }}</p>
-				<p>{{ context.result_message }}</p>
-      </div>
-    </div>
-  </div>
-{% endblock content %} 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Basic page for Django course">
+    <meta name="author" content="Ivan Tarasenko">
+    <title>Quadratic</title>
+  </head>
+  <body>
+    <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+			<form>
+        {{ form.as_p }}
+			  <input type="submit" value="Решить"/>
+			</form>
+			<p>{{ context.d }}</p>
+			<p>{{ context.result_message }}</p>
+	</body>
+</html>
+      

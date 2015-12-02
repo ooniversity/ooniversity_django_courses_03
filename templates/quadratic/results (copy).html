@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}Equation{% endblock title %}
+
+
+{% block calculate_is_active %}active{% endblock %}
+
+
+{% block carousel %}{% endblock carousel %}
+
+
+{% block content %} 
+	<div class="container students">
+    <div class="page-header">
+      <h1 class="top1">Equation</h1>
+      <div class="jumbotron">
+        <h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
+				<form>
+          {{ form.as_p }}
+					<input type="submit" value="Решить"/>
+				</form>
+				<p>{{ context.d }}</p>
+				<p>{{ context.result_message }}</p>
+      </div>
+    </div>
+  </div>
+{% endblock content %} 
