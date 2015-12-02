@@ -9,53 +9,31 @@
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/starter-template.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet"> -->
   </head>
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Main</a><li>
-            <li><a href="{% url 'contact' %}">Contacts</a><li>
-            <li><a href="{% url 'student_list' %}">Students</a><li>
-            <li class="active"><a href="{% url 'results' %}">Results</a><li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
-         <h2>Equation</h2>
-         <h3>a*x*x + b*x + c = 0</h3>
+     <div class="container">
+       <h2>Equation</h2>
+       <h3>a*x*x + b*x + c = 0</h3>
+       <form method="get">
+            <p>{{ form.as_p }}</p>
+            <input type="submit" value="Submit" />
+       </form>
+        <br />
          <ul>
-          {% if a_err %}
-              <li class="list"><p>a = {{ a }} <br>{{ a_err }}</br></p></li>
-          {% else %}
-              <li class="list"><p>a = {{ a }}</p></li>
-          {% endif %}
+            {% if a_err %}
+                <li class="list"><p>a = {{ a }} <br>{{ a_err }}</br></p></li>
+            {% endif %}
 
-          {% if b_err %}
-              <li class="list"><p>b = {{ b }} <br>{{ b_err }}</br></p></li>
-          {% else %}
-              <li class="list"><p>b = {{ b }}</p></li>
-          {% endif %}
+            {% if b_err %}
+                <li class="list"><p>b = {{ b }} <br>{{ b_err }}</br></p></li>
+            {% endif %}
 
-          {% if c_err %}
-              <li class="list"><p>c = {{ c }} <br>{{ c_err }}</br></p></li>
-          {% else %}
-              <li class="list"><p>c = {{ c }}</p></li>
-          {% endif %}
+            {% if c_err %}
+                <li class="list"><p>c = {{ c }} <br>{{ c_err }}</br></p></li>
+            {% endif %}
           </ul>
           {% if discr %}
               <h3>Дискриминант: {{ d }}</h3>
