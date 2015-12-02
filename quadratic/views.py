@@ -21,26 +21,28 @@ def quadratic_results(request):
                         'b'] ** 2 - 4 * data['a'] * data['c']
 
                     if args['discriminant'] > 0:
-                        #args['x1'] = (-data['b'] + args['discriminant']
-                                      #** (1 / 2.0)) / (2 * data['a'])
-                        x1 = (-data['b'] + args['discriminant']
+                        args['x1'] = (-data['b'] + args['discriminant']
                                       ** (1 / 2.0)) / (2 * data['a'])
-                        args['x1'] = round(x1,1)
+                        #x1 = (-data['b'] + args['discriminant']
+                                      #** (1 / 2.0)) / (2 * data['a'])
+                        #args['x1'] = round(x1,1)
                         
-                        #args['x2'] = (-data['b'] - args['discriminant']
-                                      #** (1 / 2.0)) / (2 * data['a'])
-                        x2 = (-data['b'] - args['discriminant']
+                        args['x2'] = (-data['b'] - args['discriminant']
                                       ** (1 / 2.0)) / (2 * data['a'])
-                        args['x2'] = round(x2,1)
+                        #x2 = (-data['b'] - args['discriminant']
+                                      #** (1 / 2.0)) / (2 * data['a'])
+                        #args['x2'] = round(x2,1)
                     elif int(args['discriminant']) == 0:
-                        #args['x1'] = (-data['b']) / (2.0 * data['a'])
-                        x1 = (-data['b']) / (2.0 * data['a'])
-                        args['x1'] = round(x1,1)
+                        args['x1'] = (-data['b']) / (2.0 * data['a'])
+                        #x1 = (-data['b']) / (2.0 * data['a'])
+                        #args['x1'] = round(x1,1)
 
             #return render(request, 'quadratic/results.html', args)
         else:
             args['form'] = QuadraticForm()
-
+    else:
+         args['form'] = QuadraticForm()       
+    
     return render(request, 'quadratic/results.html', args)
 
 
