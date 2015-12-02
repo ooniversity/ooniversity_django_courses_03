@@ -18,14 +18,14 @@
       <div class="bursa">
         <h1 id="pb" class="bursa">{{ courses.name }}</h1>
         {% if courses.name == "Python Bursa" %}
-        <div class="index-logo">
+        <div class="details-logo">
             <img class="logo-pybursa" src="{% static 'images/pblogo.jpg' %}" alt="...">
           </div>
         {% elif courses.name == "Java Bursa" %}
         <div class="index-logo">
-            <img class="logo-itbursa" src="{% static 'images/pjlogo.png' %}" alt="...">
+            <img class="logo-itbursa" src="{% static 'images/jlogo.png' %}" alt="...">
           </div>
-        {% elif courses.name == "Ruby on Rails" %}
+        {% else %}
         <div class="index-logo">
             <img class="logo-itbursa" src="{% static 'images/rlogo.jpg' %}" alt="...">
           </div>
