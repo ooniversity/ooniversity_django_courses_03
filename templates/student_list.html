@@ -37,7 +37,7 @@
       <ul class="nav navbar-nav">
         <li><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li class="active"><a href="{% url 'student_list' %}">Students <span class="sr-only">(current)</span></a></li>        
+        <li class="active"><a href="{% url 'students:student_list' %}">Students <span class="sr-only">(current)</span></a></li>        
           </ul>
         </li>
       </ul>
@@ -55,22 +55,11 @@
   <table class="table">
   <TR>
                 <TD>No</TD> <TD>Surname</TD> <TD>Name</TD> <TD>Address</TD> <TD>Skype</TD>
-        </TR>
+        </TR>{% for student in students %}
         <TR>
-                <TD><li><a href="{% url 'student_detail' %}">1</a></li></TD> <TD>Persianova</TD> <TD>Olena</TD> <TD>Украина, г.Харьков, ул. Иванова,д.36,кв.3</TD> <TD>olena.persianova</TD>
-        </TR>
-        <TR>
-                <TD>2</TD> <TD>Shulga</TD> <TD>Marina</TD> <TD>Украина, г.Харьков, ул. Иванова,д.5,кв.6</TD> <TD>M.Shulga</TD>
-        </TR>
-        <TR>
-                <TD>3</TD> <TD>Polishchuk</TD> <TD>Volodymyr</TD> <TD>Украина, г.Харьков, ул. Иванова,д.5,кв.16</TD> <TD>V.Polishchuk</TD>
-        </TR>
-        <TR>
-                <TD>4</TD> <TD>Zhlobinskii</TD> <TD>Pavel</TD> <TD>Украина, г.Харьков, ул. Иванова,д.5,кв.11</TD> <TD>P.Zhlobinskii</TD>
-        </TR>
-        <TR>
-                <TD>5</TD> <TD>Zhuvanov</TD> <TD>Yaroslav</TD> <TD>Украина, г.Харьков, ул. Иванова,д.5,кв.20</TD> <TD>Y.Zhuvanov</TD>
-        </TR>
+                <TD><li><a href="{% url 'courses:detail' course.id %}">{{ student.id }}</a></li></TD> <TD>{{ student.surname }}</TD> <TD>{{ student.name }}</TD> <TD>{{ student.address }}</TD> <TD>{{ student.skype }}</TD>
+        </TR>{% endfor %}
+        
 </table> 
 </div>
 </div>
