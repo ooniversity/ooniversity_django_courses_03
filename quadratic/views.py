@@ -1,12 +1,44 @@
 # -*- coding: utf-8 -*
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from quadratic.forms import QuadraticForm
 
 
 def quadratic_results(request):
+    args = {}
+    if request.GET.get('a') != None:
+
+        form = QuadraticForm(request.GET)
+        args['form'] = QuadraticForm(request.GET)
+        if form.is_valid():
+
+            if form.clean_a():
+
+                data = form.cleaned_data
+
+                args['discriminant'] = data[
+                    'b'] ** 2 - 4 * data['a'] * data['c']
+
+                if args['discriminant'] > 0:
+                    args['x1'] = (-data['b'] + args['discriminant']
+                                  ** (1 / 2.0)) / (2 * data['a'])
+                    args['x2'] = (-data['b'] - args['discriminant']
+                                  ** (1 / 2.0)) / (2 * data['a'])
+                elif int(args['discriminant']) == 0:
+                    args['x1'] = (-data['b']) / (2.0 * data['a'])
+
+        return render(request, 'results.html', args)
+    else:
+        args['form'] = QuadraticForm()
+
+        return render(request, 'results.html', args)
+
+
+def quadratic_results_old(request):
     print request.GET
     print request.GET['a']
     args = {}
+    args['form'] = QuadraticForm()
     args['a'] = request.GET['a']
     try:
         args['a'] = int(request.GET['a'])
@@ -57,7 +89,7 @@ def quadratic_results(request):
 
         elif d == 0:
             print -b
-            #print 
+            # print
             x1 = x2 = (-b) / (2.0 * a)
             args[
                 'd_equal_zero'] = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {}'.format(x1)
