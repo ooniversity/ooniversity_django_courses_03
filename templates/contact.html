@@ -1,55 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    
-    <title>ItBursa contacts</title>
+{% extends "base.html" %}
 
 {% load staticfiles %}
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-   
-  </head>
 
-  <body>
+{% block title %}ItBursa contacts{% endblock %}
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
-    <div class="container">
-      
+{% block navbar %}
+    {% include "inc_navbar.html" with active_page='contact' %}
+{% endblock navbar %}
+
+
+{% block content %}
+   <div class="container">
       <div class="thumbnail">
         <div class="row">
           <div class="col-sm-5 col-md-4">
           <img alt="photo" src="{% static 'images/noimg.svg' %}"
                 data-holder-rendered="true" style="height: 200px; width: 242px; display: block;">
-          </div>  
-          
+          </div>
           <div class="col-md-8">
             <div class="caption">
             <h3>Director</h3>
@@ -59,7 +28,6 @@
             <p>Phone: d_phone</p>
             </div>
           </div>
-          
         </div>
       </div>
       <div class="thumbnail">
@@ -67,8 +35,7 @@
           <div class="col-sm-5 col-md-4">
           <img alt="photo" src="{% static 'images/noimg.svg' %}"
                 data-holder-rendered="true" style="height: 200px; width: 242px; display: block;">
-          </div>  
-          
+          </div>
           <div class="col-md-8">
             <div class="caption">
             <h3>Manager</h3>
@@ -78,16 +45,13 @@
             <p>Phone: m_phone</p>
             </div>
           </div>
-          
         </div>
       </div>
       <div class="thumbnail">
         <div class="row">
           <div class="col-sm-5 col-md-4">
-          <img class ="img-responsive" alt="photo" src="{% static 'images/noimg.svg' %}"
-                >
-          </div>  
-          
+          <img class ="img-responsive" alt="photo" src="{% static 'images/noimg.svg' %}">
+          </div>
           <div class="col-md-8">
             <div class="caption">
             <h3>Founder</h3>
@@ -97,23 +61,7 @@
             <p>Phone: f_phone</p>
             </div>
           </div>
-          
         </div>
       </div>
-    </div>      
-
-   <footer class="footer">
-      <div class="container">
-        <p class="text-muted">2015 footer</p>
-      </div>
-    </footer> 
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.min.js'%}"></script>
-    
-  </body>
-</html>
+    </div>
+{% endblock content %}
