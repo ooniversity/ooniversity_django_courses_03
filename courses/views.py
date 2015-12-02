@@ -8,7 +8,7 @@ def detail(request, courses_id):
         lessons = courses.lesson_set.all()
         return render(request, 'courses/detail.html', { 
                       'courses':courses , 
-                      'lessons':lessons, 
+                      'lessons':lessons,
                       })
     except ObjectDoesNotExist:
         achtung = "Houston, we have a problem with id = {0} exist yet.".format(courses_id) 
