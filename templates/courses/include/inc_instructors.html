@@ -1,0 +1,5 @@
+{% if instructor %}
+  <h3>{{ block_title }}</h3>
+  <h3><a href="{% url 'coaches:detail' instructor.id %}">{{instructor.fio}}</a></h3>
+  <p>{{instructor.description}}</p>
+{% endif %}
