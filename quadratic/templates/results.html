@@ -1,45 +1,29 @@
 <!--quadratic/templates/results.html-->
-  <p> Квадратное уравнение a*x*x + b*x + c = 0</p>
-  <ul>
-    <li>
-      a = {{ a }} <br>
-      {% if a_equal_zero %}
-        {{ a_equal_zero }}
-      {% elif a_empty %}
-        {{ a_empty }}
-      {% elif a_not_int %}
-        {{ a_not_int }}
-      {% endif %}    
+<p> Квадратное уравнение a*x*x + b*x + c = 0</p>
+<br>
+<form>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="Submit" value="Решить">  
+</form>
 
-    </li>
-    <li>
-      b = {{ b }} <br>
-      {% if b_empty %}
-        {{ b_empty }}
-      {% elif b_not_int %}
-        {{ b_not_int }}
-      {% endif %}    
-    </li>
-    <li>
-      c = {{ c }} <br>
-      {% if c_empty %}
-        {{ c_empty }}
-      {% elif c_not_int %}
-        {{ c_not_int }}
-      {% endif %}    
-    </li>
-    
-  </ul>
-  {% if d %}
-    <p>{{ d }}</p>
-    {% if d_less_zero %}
-      <p>{{ d_less_zero }}</p>
-    {% elif d_equal_zero %}
-      <p>{{ d_equal_zero }}</p>
-    {% elif d_norm %}
-      <p>{{ d_norm }}</p>
-    {% endif %}
+
+{% if discriminant %}
+  <p>Дискриминант: {{ discriminant }}</p>
+  
+  {% if discriminant < 0 %}
+    <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
+  
+  {% else %}
+    <p>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}</p>    
+  
   {% endif %}
+
+{% elif discriminant == 0 %}
+    <p>Дискриминант: {{ discriminant }}</p>
+    <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x1 }}</p>    
+{% endif %}
+
 
 
 
