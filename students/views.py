@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render, redirect
+from django.core.context_processors import csrf
+from django.shortcuts import render, redirect, render_to_response
 from django.http import HttpResponse
 #from courses.models import Course, Lesson
 from students.models import Student
@@ -47,8 +48,9 @@ def create(request):
             return redirect('students:list_view')
     else:    
         form = StudentModelForm()
-        args['form'] = form
-        return render(request, 'students/add.html', args)
+    args.update(csrf(request))
+    args['form'] = form
+    return render_to_response('students/add.html', args)
 
 def edit(request, stud_id):
     args = {}
