@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}PyBursa{% endblock title %}
-{% block spec_link %}<a href="{% url 'students:list_view' %}?course_id={{ course.id }}">{% endblock spec_link %}
+{% block spec_link %}<a href="{% url 'students:list' %}?course_id={{ course.id }}">{% endblock spec_link %}
 {% block content %}
     {% include "courses/include/detail_include.html" %}
     <h1>{{ course }}</h1>

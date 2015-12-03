@@ -22,7 +22,7 @@
          <li class="{% block blow_main %}{% endblock blow_main %}"><a href="{% url 'index' %}">Главная</a></li>
          
          <li class="{% block blow_contact %}{% endblock blow_contact %}"><a href="{% url 'contact' %}">Контакты</a></li>
-         <li class="{% block blow_students %}{% endblock blow_students %}">{% block spec_link %}<a href="{% url 'students:list_view' %}">{% endblock spec_link %}Студенты</a></li>
+         <li class="{% block blow_students %}{% endblock blow_students %}">{% block spec_link %}<a href="{% url 'students:list' %}">{% endblock spec_link %}Студенты</a></li>
          
          </li>
         </ul>
@@ -30,35 +30,8 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-{% block content %}
-  <div class="jumbotron">
-    <div class="container">
-      <div class="page-header">
-        <h1>ooniversity</h1>
-        <h3>Мы специализируемся на современных языках программирования, которые помогут Вам бытьв тренде разработки сегодня и завтра.<h3>
-     </div>
-    </div>
-  </div> 
-  <h2>Выбирай, на каком курсе хочешь учиться!</h2>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Курс</th>
-        <th>Описание</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for course in courses %}
-        <tr>
-          <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
-          <td>{{ course.short_description|title }}</td>
-        
-        </tr>
-      {% endfor %}
-     </tbody>
-  </table>
-
-{% endblock content %}   
+{% block content %}{% endblock content %}
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
