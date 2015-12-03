@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*
 from django.shortcuts import render, redirect
 from django import forms
 from django.contrib import messages
@@ -70,6 +71,17 @@ def edit(request, pk):
     else:
         form = StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
+
+
+def remove(request, pk):
+    student = Student.objects.get(id=pk)
+    if request.method == "POST":
+        student.delete()
+        messages.success(request, 'Student %s %s has been successfully remove.' % (student.name, student.surname))
+        return redirect('students:list_view')
+    return render(request, 'students/remove.html', {'student': student})
+
+
 # def apply_to_course(request):
 #     if request.method == 'POST':
 #         form = CourseApplicationForm(request.POST)
