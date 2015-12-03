@@ -1,9 +1,11 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
+
+{% block title %}{{ coach.user.first_name }} {{ coach.user.last_name }}{% endblock %}
 
 {% block banner %}{% endblock %}
 
-{% block list_courses %}
+{% block content %}
     <div class="col s12">
         <h5 class="text-primarycolor">{{ coach.user.first_name }} {{ coach.user.last_name }}</h5>
 
@@ -22,7 +24,7 @@
                                 Дата рождения
                             </td>
                             <td>
-                                {{ coach.date_of_birth }}
+                                {{ coach.date_of_birth|date:'d F, Y' }}
                             </td>
                         </tr>
                         <tr>
