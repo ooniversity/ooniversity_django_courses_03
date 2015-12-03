@@ -1,18 +1,27 @@
-<h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
+{% extends "base.html" %}
 
-<ul>
+
+{% block title %}Results{% endblock title %}
+
+
+{% block active_quadratic %}active{% endblock active_quadratic %}
+
+
+{% block content %}
+<div class="container">
+	<h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
 	<form method="get">
-	{{ form.as_p }}
-	<input type="submit">
-	<li>a = {{ a }}</li>
-	<p>{{ mes_a }}</p>
-	<li>b = {{ b }}</li>
-	<p>{{ mes_b }}</p>
-	<li>c = {{ c }}</li>
-	<p>{{ mes_c }}</p>
+		{{ form.as_p }}
+		<input type="submit" value="Решить">
+		<br />
+		<br />
+		{% if d %}
+		<p><strong>{{ d }}</strong></p>
+		<p><strong>{{ message }}</strong></p>
+		{% endif %}
 	</form>
-</ul>
-<div>{{ discriminant }}</div>
-<div>{{ message }} {{ roots }}</div>
+</div>
+{% endblock content %}
+
 
 
