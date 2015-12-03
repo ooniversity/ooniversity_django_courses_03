@@ -1,37 +1,41 @@
 {% extends "base.html" %}
 
 
+{% load staticfiles %}
+
+
 {% block title %}Courses{% endblock %}
 
 
-{% block nav_main %}active{% endblock %}
+{% block navigation_main %}active{% endblock %}
 
 
 {% block content %}
 
   <div class="container"></br></br></br></br></br>
 
-{% include "inc_index.html" only%}
+{% include "index_include.html" only%}
 
-  <div class="container">
-    <h3>Courses Program</h3>
-    <br>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Course</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for course in courses %}
-            <tr>
-              <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
-              <td>{{ course.short_description|title }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </br>
-  </div>
+<div class="container">
+        <h3>Courses Program</h3>
+        <br>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for course in courses %}
+                <tr>
+                  <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
+                  <td>{{ course.short_description|title }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </br>
+      </div>
+    </div>
 {% endblock content %}
