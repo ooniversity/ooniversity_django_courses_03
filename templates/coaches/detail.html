@@ -8,9 +8,7 @@
 {% block nav_main %}active{% endblock %}
 
 
-{% block content %}
-    <div class="container">
-
+{% block content %}<div class="container">
       <div class="starter-template">
         <div class="container">
               <h2>{{ coach.user.first_name }} {{coach.user.last_name}}</h2>
@@ -61,5 +59,4 @@
               </table>
               </br>
       </div>
-    </div><!-- /.container -->
-{% endblock content %}
+    </div>{% endblock content %}
