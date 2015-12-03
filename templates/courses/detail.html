@@ -31,7 +31,7 @@
 
 {% for i in name_lesson %}
   <tr>
-    <td>{{ forloop.counter }}</td><td>{{ i }}</a></td><td>{{ i.description|truncatechars:32 }}</td>
+    <td>{{ forloop.counter }}</td><td>{{ i }}</a></td><td>{{ course.description|truncatechars:32 }}</td>
   </tr>
 {% endfor %}
 </table>    
