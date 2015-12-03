@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
+
 {% load staticfiles %}
 
 
-{% block title %}<title>ooniversity-courses_details</title>{% endblock %}
+{% block title %}<title>ooniversity-courses_details</title>{% endblock title %}
+
+
+{% block nav_brand_courses %}?course_id={{courses.id}}{% endblock %}
     
 
 {% block content %}
