@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from students.models import Student
+from django.contrib import messages
+from students.forms import *
 
 def list_view(request):
     r = request.GET
@@ -8,6 +10,20 @@ def list_view(request):
     else:
         students=Student.objects.all()
     return render(request, 'students/list_view.html', {'students': students})
+
+
+def create(request):
+    print request.POST
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST)
+        if form.is_valid():
+            application = form.save()
+            mess = "Student {} {} has been successfully added.".format(request.POST['name'], request.POST['surname'])
+            messages.success(request, mess)
+            return redirect('students:list_view')
+    else:
+        form = StudentModelForm()
+    return render(request, 'students/add.html', {'form': form})
 
 
 def detail(request, pk):
