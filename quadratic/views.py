@@ -1,5 +1,6 @@
 # -*- coding:UTF-8 -*-
 from django.shortcuts import render
+from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
     import math, cmath
@@ -51,6 +52,8 @@ def quadratic_results(request):
         elif output_request['D'] < 0:
             output_request['x1'] = complex((-output_request['b'] + cmath.sqrt(output_request['D']))/(2*output_request['a']))
             output_request['x2'] = complex((-output_request['b'] - cmath.sqrt(output_request['D']))/(2*output_request['a']))    
-
+    form01 = QuadraticForm()
+    output_request['formq'] = form01
+    print output_request
     return render(request,'quadratic/results.html',output_request)
 
