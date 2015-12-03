@@ -34,37 +34,22 @@
         </div>
       </nav>
 
-     <div class="container">
-       <h2>Equation</h2>
-       <h3>a*x*x + b*x + c = 0</h3>
-       <form method="get">
-            <p>{{ form.as_p }}</p>
-            <input type="submit" value="Решить" />
-       </form>
-        <br />
-         <ul>
-            {% if a_err %}
-                <li class="list"><p>a = {{ a }} <br>{{ a_err }}</br></p></li>
-            {% endif %}
+  <div class="container">
+ <p> Квадратное уравнение a*x*x + b*x + c = 0 </p>  
+  <form method="get">
+  {% csrf_token %}
+  {{form.as_p}}
+    <input type="submit" value="Решить" />
+  </form>
+  
+  {% if discriminant or discriminant == 0 %}
+  <p>Дискриминант: {{ discriminant }}</p>
+  {% endif %}
 
-            {% if b_err %}
-                <li class="list"><p>b = {{ b }} <br>{{ b_err }}</br></p></li>
-            {% endif %}
-
-            {% if c_err %}
-                <li class="list"><p>c = {{ c }} <br>{{ c_err }}</br></p></li>
-            {% endif %}
-          </ul>
-          {% if discr %}
-              <h3>Дискриминант: {{ d }}</h3>
-              <p>{{ d_mess }}</p>
-          {% endif %}
-     </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+  {% if message %}
+  <p>{{ message }}</p>
+  {% endif %}
+  </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </body>
