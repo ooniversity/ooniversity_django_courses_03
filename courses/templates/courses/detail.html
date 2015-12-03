@@ -1,78 +1,37 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+
+{% block title %}PyBursa Course_Detail{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block url_student %}{% url 'students:list_view' %}{{ id_c }}{% endblock url_student %}
+
+
+{% block content %}
+<h1>{{ course.name }}</h1> 
+<p class="lead">{{ course.description|truncatechars:32 }} </p>
+
+{% include "include/instructor_include.html" with block_title="Учитель" instructor=course.coach %}
+
+
+{% include "include/instructor_include.html" with block_title="Ассистент курса" instructor=course.assistant %}
    
-    <title>detail</title>
-   <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}"  rel="stylesheet">
-      
-  </head>
-
-  <body>
-<div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li class="active"><a href="/">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-	<li><a href="{% url 'students:list_view' %}{{id_c}}">Students</a></li>
-          </ul>
-        </nav>
-        
-      </div>
-    
+<div class="jumbotron">
+  <h3>План курса</h3> 
+  <table class = 'table'>
+  <tr>  <th># </th> <th>Тема </th> <th>Описание</th> </tr>
+    {% for lesson in name_lesson %} 
+      <tr><td>{{ lesson.order }}</td> 
+      <td>{{ lesson.subject }}</td>  
+      <td>{{ lesson.description }}</td></tr>
+    {% endfor %}
+  </table>
 </div>
-<h1>{{course.name}}</h1> 
-<p class="lead">{{course.description}} </p>
+</div>
+{% endblock content %}  
 
- <div class="panel panel-primary transparant-background">
-          <div class="panel-heading">
-            Учитель курса
-          </div>
-          <div class="panel-body">
-            <p><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach}}</a></p>
-            <p>{{course.coach.description}}</p>
-          </div>
-        </div>
- </div>
-
- <div class="panel panel-primary transparant-background">
-          <div class="panel-heading">
-           Ассистент курса
-          </div>
-          <div class="panel-body">
-            <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant}}</a></p>
-            <p>{{course.assistant.description}}</p>
-          </div>
-        </div>
-   <div class="jumbotron">
-<h3>План курса</h3> 
-
-<table>
- <tr>  <th># </th> <th>Тема </th> <th>Описание</th> </tr>
-    	{% for lesson in name_lesson %} 
-	 <tr> <td>{{lesson.order}}  </td> <td>{{lesson.subject}}  </td>  <td>{{lesson.description}} </td></tr>
-	{% endfor %}
-      </div>
-</table>
-
-
-      <footer class="footer">
-       
-      </footer>
-
-    </div> <!-- /container -->
-
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-</html>
+     
 ﻿
