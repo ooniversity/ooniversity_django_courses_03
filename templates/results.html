@@ -17,15 +17,22 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="{% url 'index' %}">Main</a></li>
+          <li><a href="{% url 'index' %}">Main</a></li> 
           <li><a href= "{% url 'contact' %}">Contacts</a></li>
           <li><a href="{% url 'student_list' %}">Students</a></li>
         </ul>
       </div>
     </nav>
     <div class="container">
-      <h1>Квадратное уравнение a*x*x + b*x + c = 0
-      </h1>
+      <h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
+
+
+      <form>
+        коэффициент a: <input name="a" type="text" /><br/>
+        коэффициент b: <input name="b" type="text" /><br/>
+        коэффициент c: <input name="c" type="text" /><br/>
+        <input type="submit" />
+      </form>
       a = {{a}}<br>
       <br>
       {{answer_a}}<br>

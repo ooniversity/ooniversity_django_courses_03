@@ -19,3 +19,5 @@ class Coach(models.Model):
 
     def last_name(self):
         return self.user.last_name
+    class Meta:
+        verbose_name_plural='Coaches'
