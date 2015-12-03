@@ -1,9 +1,8 @@
 <h1> Quadratic </h1>
 <div> Calculating ax<sup>2</sup> + bx + c = 0</div>
 <br>
-<form action="/quadratic/result" method="get">
-    {% csrf_token %}
-    {{ formq.as_p }}
+<form method="get">
+    {{ form.as_p }}
     <input type="submit" value="Решить" />
 </form>
 
