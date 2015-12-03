@@ -1,83 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>detail</title>
-    <!-- Bootstrap -->
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-<body>
-<div class="wrapper">
-    <div class="header container">
-      <h1>OONIVERSITY</h1>
-    </div>
-    <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li><a href="{% url 'index' %}">Main<span class="sr-only">(current)</span></a></li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>
-{#          <li><a href="{% url 'students:list_view' %}?course_id={{ course_detail.id }}">Students</a></li>#}
-          <li><a href="{% url 'students:list_view' %}">Students</a></li>
-        </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-    </nav>
-    <div class="container">
-      <div class="jumbotron">
+{% extends "base.html" %}
 
-<div class="detail">
-    <table class="table">
-        <thead>
-        <tr class="success">
-            <td><strong>№</strong></td>
-            <td><strong>фамилия имя</strong></td>
-            <td><strong>адрес</strong></td>
-            <td><strong>skype</strong></td>
-            <td><strong>курсы</strong></td>
-        </tr>
-        </thead>
-        <tbody>
-        <h2>Список студентов</h2>
-        {% if students_list %}
+{% block title %}students{% endblock title %}
+
+{% block nav_class_students %}active{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="detail">
+        <table class="table">
+            <thead>
+            <tr class="success">
+                <td><strong>№</strong></td>
+                <td><strong>фамилия имя</strong></td>
+                <td><strong>адрес</strong></td>
+                <td><strong>skype</strong></td>
+                <td><strong>курсы</strong></td>
+            </tr>
+            </thead>
+            <tbody>
+            <h2>Список студентов</h2>
+            {% if students_list %}
             {% for student in students_list %}
-                <tr>
-                    <td>{{ student.id }} </td>
-                    <td><a href="{% url 'students:detail' student.id %}">{{ student.full_name }} </a></td>
-                    <td>{{ student.address }}</td>
-                    <td>{{ student.skype }}</td>
-                    <td>
-                        {% for course in student.courses.all %}
-                            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
-                        {% endfor %}
-                    </td>
-                </tr>
+            <tr>
+                <td>{{ student.id }}</td>
+                <td><a href="{% url 'students:detail' student.id %}">{{ student.full_name }} </a></td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.skype }}</td>
+                <td>
+                    {% for course in student.courses.all %}
+                    <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                    {% endfor %}
+                </td>
+            </tr>
             {% endfor %}
-        {% endif %}
-        </tbody>
-    </table>
-</div>
-      </div>
+            {% endif %}
+            </tbody>
+        </table>
     </div>
-  </div>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{% static 'js/bootstrap.js' %}"></script>
-</body>
-</html>
+</div>
+{% endblock %}
