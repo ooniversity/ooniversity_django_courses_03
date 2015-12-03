@@ -17,13 +17,13 @@ s{% extends "base.html" %}
 		<form method="get">
 			{{ form.as_p }}
 			<input type="submit" value="Решить">
-			<br />
-			<br />
-			{% if d %}
-			<p><strong>{{ d }}</strong></p>
-			<p><strong>{{ message }}</strong></p>
-			{% endif %}
 		</form>
+		<br />
+		<br />
+		{% if d %}
+		<p><strong>{{ d }}</strong></p>
+		<p><strong>{{ message }}</strong></p>
+		{% endif %}
 	</div>
 </div>
 {% endblock content %}
