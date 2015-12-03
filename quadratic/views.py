@@ -4,18 +4,25 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from quadratic import quadratic_func
+from django import forms
+from forms import QuadraticForm
+
 
 def quadratic_start(request):
     return render(request, 'results_start.html')
 
 def quadratic_results(request):
-    lists_of_vars = {}
-    lists_of_vars['a'] = str(request.GET['a'])
-    lists_of_vars['b'] = str(request.GET['b'])
-    lists_of_vars['c'] = str(request.GET['c'])
+    context={}
+    print type(context)
+    form = QuadraticForm()
+    context['form'] = form
 
-    quadratic_func.quadratic_func(lists_of_vars)
+    #print request.POST
+    print form
+    #lists_of_vars['a'] = str(request.GET['a'])
+    #lists_of_vars['b'] = str(request.GET['b'])
+    #lists_of_vars['c'] = str(request.GET['c'])
 
-    return render(request, 'results.html', {
-        "params": lists_of_vars,
-        })
+    #quadratic_func.quadratic_func(lists_of_vars)
+
+    return render(request, 'results.html', context)
