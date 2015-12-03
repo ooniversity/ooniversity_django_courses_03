@@ -10,14 +10,14 @@
 {% block active_contact %}active{% endblock active_contact %}
 
 
-{% block link_students %}?course_id={{ course.id }}{% endblock %}
+{% block link_students %}?course_id={{ course.id }}{% endblock link_students %}
 
 
 {% block content %}
   <div class="container theme-showcase" role="main">
       <div class="jumbotron">
         <h2 class="course">{{ course.name }}</h2>
-        {{ course.description|truncatechars:32 }}
+        {{ course.description|truncatechars:35 }}
       </div>
   </div>
 
