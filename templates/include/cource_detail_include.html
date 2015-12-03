@@ -1,0 +1,3 @@
+{% for course in student.courses.all %}
+<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+{% endfor %}
