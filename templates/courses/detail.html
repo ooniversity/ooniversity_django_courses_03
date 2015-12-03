@@ -1,7 +1,13 @@
 {% extends "base.html" %}
+
+{% load staticfiles %}
+
 {% block title %}PyBursa{% endblock title %}
+
 {% block spec_link %}<a href="{% url 'students:list' %}?course_id={{ course.id }}">{% endblock spec_link %}
+
 {% block content %}
+
     {% include "courses/include/detail_include.html" %}
     <h1>{{ course }}</h1>
     <h3>{{ course.description|truncatechars:32 }}<h3> 
