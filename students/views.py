@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django import forms
 from django.contrib import messages
 
-from students.models import Student, CourseApplication
+from students.models import Student
 from courses.models import Course
 
 

@@ -17,14 +17,14 @@ class Student(models.Model):
         return self.name
 
 
-class CourseApplication(models.Model):
-    name = models.CharField(max_length=255)
-    email = models.EmailField()
-    course = models.ForeignKey(Course)
-    package = models.CharField(max_length=16, choices=(
-        ('standart', 'standart'),
-        ('gold', 'Gold'),
-        ('vip', 'VIP')), default='standart')
-    news_subscribe = models.BooleanField(default=True)
-    comment = models.TextField()
-    is_active = models.BooleanField(default=True)
+# class CourseApplication(models.Model):
+#     name = models.CharField(max_length=255)
+#     email = models.EmailField()
+#     course = models.ForeignKey(Course)
+#     package = models.CharField(max_length=16, choices=(
+#         ('standart', 'standart'),
+#         ('gold', 'Gold'),
+#         ('vip', 'VIP')), default='standart')
+#     news_subscribe = models.BooleanField(default=True)
+#     comment = models.TextField()
+#     is_active = models.BooleanField(default=True)
