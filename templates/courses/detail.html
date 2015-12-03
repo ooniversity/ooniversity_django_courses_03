@@ -40,7 +40,7 @@
 							<tr>
 								<td><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.name }} {{ course.assistant.surname }}</a>
 									<br/>
-									<p>{{ course.assistant.description|truncatechars:32 }}</p>
+									<p>{{ course.assistant.description }}</p>
 								</td>
 							</tr>
 						</tbody>
