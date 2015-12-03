@@ -1,37 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hartsock William T.</title>
-    {% load staticfiles %}
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-    <body class="sl-background">
-    <!-- menu start -->  
-        <nav class="navbar-fixed-top navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="{% url 'index' %}">
-                <img class="sl-brand" alt="GodsBursa" src="{% static 'images/gb-logo.jpg' %}">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a href="{% url 'index' %}">Main</a></li>
-                <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li><a href="{% url 'student_list' %}">Students</a></li>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-    <!-- menu end -->  
-    <!-- main student details -->  
-    <div class="slash-div">
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Hartsock William T.{% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
     <h2>Hartsock William T.<br><small>student's card</small></h2>
     <div class="container">
         <header class="row">
@@ -131,12 +107,4 @@
         </table>
      </div>
     </div>
-    </div>
-    <!-- end of student's details --> 
-    <div class="navbar-fixed-bottom row-fluid">
-      <div class="panel-footer sl-footer">&copy; Stalker inc., 2015+</div>
-    </div>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}

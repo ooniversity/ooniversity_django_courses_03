@@ -1,38 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contacts</title>
-    {% load staticfiles %}
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-    <body class="sl-background">
-    <!-- menu start -->  
-        <nav class="navbar-fixed-top navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="{% url 'index' %}">
-                <img class="sl-brand" alt="GodsBursa" src="../static/images/gb-logo.jpg">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a href="{% url 'index' %}">Main</a></li>
-                <li class="active"><a href="{% url 'contact' %}">Contacts<span class="sr-only">(current)</span></a></li>
-                <li><a href="{% url 'students:list_view' %}">Students</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-    <!-- menu end -->  
-    <!-- main contact -->  
-    <div class="slash-div">
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}Contacts{% endblock title %}
+
+
+{% block nav_contacts %}class="active"{% endblock %}
+
+
+{% block content %}
       <div class="container" align="center"> 
-       <div class="media">
+        <div class="media">
           <div class="media-left">
             <a href="#">
               <img class="media-object" src="{% static 'images/founder-ph.jpg' %}" alt="Tony Stark">
@@ -44,16 +22,17 @@
                 Name:   Tony Stark<br>
                 Skype:  redironman<br>
                 Email:  ironmain@google.com<br>
-                Phone:  +1234567890<br></div>
+                Phone:  +1234567890<br>
               </div>
-          </div>
-        </div>
-        <!-- main contact end + splitter -->  
-        <div class="progress">
-          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-          </div>
-        </div>
-        <!-- other contacts --> 
+           </div>
+         </div>
+      </div>
+      <!-- main contact end + splitter -->  
+      <div class="progress">
+       <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+       </div>
+       </div>
+       <!-- other contacts --> 
         <div class="media">
           <div class="media-left">
             <a href="#">
@@ -85,11 +64,4 @@
           </div>
         </div>
     </div>
-    <!-- end of contacts --> 
-    <div class="navbar-fixed-bottom row-fluid">
-      <div class="panel-footer sl-footer">&copy; Stalker inc., 2015+</div>
-    </div>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}
