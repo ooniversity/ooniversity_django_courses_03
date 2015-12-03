@@ -17,7 +17,7 @@
   <div class="container theme-showcase" role="main">
       <div class="jumbotron">
         <h2 class="course">{{ course.name }}</h2>
-        {{ course.description|truncatechars:32 }}
+        {{ course.description }}
       </div>
   </div>
 
