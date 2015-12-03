@@ -2,10 +2,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from quadratic.forms import QuadraticForm
+
 def quadratic_results(request): 
     form = QuadraticForm()
     res={}   
-    if request.GET:
+    if request.method == 'GET':
         form = QuadraticForm(request.GET)
         if form.is_valid():
             a = form.cleaned_data['a']
@@ -25,8 +26,9 @@ def quadratic_results(request):
                 x2 = str((-b - discr ** (1/2.0)) / 2*a)
                 res['x'] = str('Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (x1, x2))
    
-       
+        #else:
+            #form = QuadraticForm()       
     res['form'] = form
-    return render(request,'results.html',res)
+    return render(request,'quadratic/results.html',res)
 
    
