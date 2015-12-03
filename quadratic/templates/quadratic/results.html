@@ -1,18 +1,3 @@
-{% extends "base.html" %}
-
-
-{% load static from staticfiles %}
-
-
-{% block title %}Results{% endblock %}
-
-
-{% block active_index %}active{% endblock %}
-
-
-{% block content %}
-</br></br></br></br></br>
-<div class="container">
  <p> Квадратное уравнение a*x*x + b*x + c = 0 </p>
   
   <form method="get">
@@ -28,5 +13,3 @@
   {% if message %}
   <p>{{ message }}</p>
   {% endif %}
-
-{% endblock content %}
