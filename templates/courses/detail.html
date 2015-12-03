@@ -6,10 +6,7 @@
 {% block title %}<title>ooniversity-courses_details</title>{% endblock %}
 
 
-{% block nav_brand_index %}active{% endblock %}
-
-
-{% block students %}<li class="{% block nav_brand_students %}{% endblock %}"><a href="{% url 'students:list_view' %}?course_id={{courses.id}}">Студенты</a></li>{% endblock %} 
+{% block nav_course_id %}?course_id={{courses.id}}{% endblock %}
     
 
 {% block content %}
@@ -19,20 +16,19 @@
         <h1 id="pb" class="bursa">{{ courses.name }}</h1>
         {% if courses.name == "Python Bursa" %}
         <div class="details-logo">
-            <img class="logo-pybursa" src="{% static 'images/pblogo.jpg' %}" alt="...">
-          </div>
+          <img class="logo-pybursa" src="{% static 'images/pblogo.jpg' %}" alt="...">
+        </div>
         {% elif courses.name == "Java Bursa" %}
         <div class="index-logo">
-            <img class="logo-itbursa" src="{% static 'images/jlogo.png' %}" alt="...">
-          </div>
+          <img class="logo-itbursa" src="{% static 'images/jlogo.png' %}" alt="...">
+        </div>
         {% else %}
         <div class="index-logo">
-            <img class="logo-itbursa" src="{% static 'images/rlogo.jpg' %}" alt="...">
-          </div>
+          <img class="logo-itbursa" src="{% static 'images/rlogo.jpg' %}" alt="...">
+        </div>
         {% endif %}
         <h2 class="des">Описание курса</h2>
-          <p class="descr">{{ courses.description|truncatechars:32 }}
-          </p>
+          <p class="descr">{{ courses.description|truncatechars:32 }}</p>
       </div>
     </div>
   </div>
