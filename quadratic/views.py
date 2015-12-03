@@ -12,7 +12,6 @@ def quadratic_results(request):
             a = form.cleaned_data['a']
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']
-            context['discrim'] = b * b - 4 * a * c
 
             context['disrcim'] = b ** 2 - 4 * a * c
             if context['disrcim'] > 0:
