@@ -1,29 +1,13 @@
-<html>
-	<head>
-    {% load staticfiles %}
-		<link rel="stylesheet" type="text/css" href="{% static "/css/bootstrap.min.css" %}">
-		<title>Course main page</title>
-	</head>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href={% url 'index' %}>Main</a></li>
-            <li><a href={% url 'students:students' %}>Students</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-		<div class="container theme-showcase" role="main">
-					<div class="jumbotron">
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}<title>Course detail</title>{% endblock title%}
+
+{% block nav-class-index %}active{% endblock nav-class-index %}
+
+{% block content %}
+		<div class="jumbotron">
 						<div class="container">
 							<h1>{{ course.name }}</h1>	
 							<p>{{ course.description }} </p>
@@ -43,7 +27,7 @@
           </div>
 
 						<p>Course plan</p>
-						<table>
+						<table class="table table-striped">
 							<thead>
               <tr>
                 <th>#</th>
@@ -60,7 +44,7 @@
                 </tr>
               {% endfor %}
             </tbody>
-
 						</table>
 		</div>
 </html>
+{% endblock content %}
