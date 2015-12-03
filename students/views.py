@@ -7,12 +7,12 @@ def list_view(request):
         qs= request.GET
         course = get_object_or_404(Course, pk=qs['course_id'])
         students = Student.objects.filter(courses__id = qs['course_id'])
-        return render (request, 'students/list_view.html',{'course':course, 'students': students,})
+        return render (request, 'students/list.html',{'course':course, 'students': students,})
     except:
         student_courses={}
         course = Course.objects.all()
         students = Student.objects.all()
-        return render (request, 'students/list_view.html',{'course':course, 'students': students,})
+        return render (request, 'students/list.html',{'course':course, 'students': students,})
 
 def detail(request,student_id):
     student = get_object_or_404(Student, pk=student_id)
