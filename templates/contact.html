@@ -1,13 +1,12 @@
-{% extends "base.html" %}
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
 
 
-{% load staticfiles %}
+{% block title %}Main Page{% endblock title %}
 
 
-{% block title %}Contacts{% endblock title %}
-
-
-{% block navigation_main_contacts %}active{% endblock navigation_main_contacts %}
+{% block nav_class_contacts %}active{% endblock nav_class_contacts %}
 
 
 {% block content %}

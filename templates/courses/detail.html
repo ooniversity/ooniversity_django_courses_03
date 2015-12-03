@@ -1,20 +1,22 @@
-{% extends "base.html" %}
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
 
 
-{% block title %}Course detail{% endblock title %}
+{% block title %}Courses Page{% endblock title %}
 
 
-{% block detail %}<li class="active"><a href="#">detail</a></li>{% endblock detail %}
+{% block nav_class_index %}active{% endblock nav_class_index %}
 
 
-{% block navigation_main %}active{% endblock navigation_main %}
+{% block students_url_id %}?course_id={{courses.id}}{% endblock students_url_id %}
 
 
 {% block content %}
 <div class="container">
    <div class="container">
           <h2>{{ course.name|upper }} course details</h2>
-            <h3>{{ course.description|truncatechars:32 }}</h3>
+            <p>{{ courses.description|truncatechars:32 }}</p>
               <br>
                 <h3>Coach</h3>
                  <table class="table">
@@ -56,4 +58,5 @@
               </table>
             </br>
       </div>
-    </div>{% endblock content %}
+    </div>
+{% endblock content %}

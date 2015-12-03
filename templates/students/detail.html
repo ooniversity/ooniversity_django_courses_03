@@ -1,13 +1,12 @@
-{% extends "base.html" %}
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
 
 
-{% load static from staticfiles %}
+{% block title %}Students Detail{% endblock title %} 
 
 
-{% block title %}Student detail{% endblock title %}
-
-
-{% block navigation_main_students %}active{% endblock navigation_main_students %}
+{% block nav_class_students %}active{% endblock nav_class_students %} 
 
 
 {% block content %}
@@ -20,7 +19,7 @@
           <table class="table">
             <tr>
               <td>Birth day</td>
-              <td>{{ student.date_of_birth }}</td>
+              <td>{{ student.date_of_birth|date:'j F, Y' }}</td>
             </tr>
             <tr>
               <td>Address</td>
