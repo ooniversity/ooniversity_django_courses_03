@@ -9,7 +9,7 @@ def list_view(request):
         students=Student.objects.filter(courses=r['course_id'])
     else:
         students=Student.objects.all()
-    return render(request, 'students/list_view.html', {'students': students})
+    return render(request, 'students/list.html', {'students': students})
 
 
 def create(request):
