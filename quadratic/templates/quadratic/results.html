@@ -1,85 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Eq_result</title>
-    <!-- Bootstrap -->
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-+   <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <hr class="topping_index"></hr>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{% url 'index' %}">Main</a>
-        <a class="navbar-brand" href="{% url 'contact' %}">Contacts</a>
-        <a class="navbar-brand" href="{% url 'student_list' %}">Students</a>
-        <a class="navbar-brand" href="{% url 'results' %}">Quadratic</a>
-      </div>
+{% extends "base.html" %}
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    
-    <div class="container">
-     <h2>Quadratic Eq</h2>
-      <h3>a*x*x  +  b*x  +  c  =  0</h3>
-        <table class="table table-hover">
-          {% if a_unit %}
-              <tr class="head_self_table"><td><h3>a = {{ a }}</h3></td></tr>
-              <tr class="head_self_table"><td><h3>{{ a_unit }}</h3></td></tr>
-          {% else %}
-              <tr class="head_self_table"><td><h3>a = {{ a }}</h3></td></tr> 
-          {% endif %}
+{% load staticfiles %}
 
-          {% if b_unit %}
-              <tr class="head_self_table"><td><h3>b = {{ b }}</h3></td></tr> 
-              <tr class="head_self_table"><td><h3>{{ b_unit }}</h3></td></tr> 
-          {% else %}
-              <tr class="head_self_table"><td><h3>b = {{ b }}</h3></td></tr>
-          {% endif %}
 
-          {% if c_unit %}
-              <tr class="head_self_table"><td><h3>c = {{ c }}</h3></td></tr>
-              <tr class="head_self_table"><td><h3>{{ c_unit }}</h3></td></tr>
-          {% else %}
-              <tr class="head_self_table"><td><h3>c = {{ c }}</h3></td></tr>
-          {% endif %}
-          </table>
-          <table class="table table-hover">
-          {% if discr %}
-              <tr class="head_self_table"><td><h3>Дискриминант: {{ dsc }}</h3></td></tr>
-              <tr class="head_self_table"><td><h3>{{ dsc_unit }}</h3></td></tr>
-          {% endif %}
-        </table>
-        </div><!-- /.container -->
-					
-				</div>
-			</div>
-		</div>
+{% block title %}<title>ooniversity-quadratic results</title>{% endblock %}
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-  </body>
-</html>
+
+{% block nav_brand_quadratic %}active{% endblock %}
+
+
+{% block students %}<li class="{% block nav_brand_students %}{% endblock %}"><a href="{% url 'students:list_view' %}">Студенты</a></li>{% endblock %}
+
+
+{% block content %}
+  <div class="container">
+    <h2>Quadratic Eq</h2>
+    <h3>a*x*x  +  b*x  +  c  =  0</h3>
+    <table class="table table-hover">
+      <form method="get">
+        {{ form.as_p }}
+        {% if a_unit %}
+        {{ a }}
+        {{ a_unit }}
+        {% else %}
+        {{ a }} 
+          {% endif %}
+        {% if b_unit %}
+        b= {{ b }} 
+        {{ b_unit }}
+        {% else %}
+        b = {{ b }}
+          {% endif %}
+        {% if c_unit %}
+        c = {{ c }}
+        {{ c_unit }}<
+        {% else %}
+        c = {{ c }}
+        {% endif %}
+      </table>
+      <table class="table table-hover">
+        {% if discr %}
+        Дискриминант: {{ dsc }}
+        {{ dsc_unit }}
+        {% endif %}
+        <input type="submit" />
+      </form>
+    </table>
+  </div>
+{% endblock content %}

@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*- 
-
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
-
+from django import forms
+from forms import QuadraticForm
 
 def eq_diction(temp, item):
 
@@ -35,6 +34,7 @@ def roots_eq(temp):
     return eq_dict
 
 def quadratic_results(request):
+    form = QuadraticForm()
     dsc, keys = True, ('a','b','c')
     eq_dict = eq_diction(keys, request.GET)
     for i in keys:
@@ -46,6 +46,7 @@ def quadratic_results(request):
         eq_dict['discr'] = True
     else:
         eq_dict['discr'] = False
+    eq_dict['form'] = form
     return render_to_response('quadratic/results.html', eq_dict)
 
 

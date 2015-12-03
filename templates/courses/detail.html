@@ -1,70 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>IT Course</title>
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-+   <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </head>
-  <body>
-    <hr class="topping_index"></hr>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <ul class="navbar-brand">
-            	<a href="{% url 'index' %}">Главная</a>
-            	<a href="{% url 'contact' %}">Контакты</a>
-            	<a href="{% url 'students:list_view' %}?course_id={{courses.id}}">Студенты</a>
-            </ul>
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+
+{% block title %}<title>ooniversity-courses_details</title>{% endblock %}
+
+
+{% block nav_brand_index %}active{% endblock %}
+
+
+{% block students %}<li class="{% block nav_brand_students %}{% endblock %}"><a href="{% url 'students:list_view' %}?course_id={{courses.id}}">Студенты</a></li>{% endblock %} 
+    
+
+{% block content %}
+  <div class="jumbotron">
+    <div class="container">
+      <div class="bursa">
+        <h1 id="pb" class="bursa">{{ courses.name }}</h1>
+        {% if courses.name == "Python Bursa" %}
+        <div class="details-logo">
+            <img class="logo-pybursa" src="{% static 'images/pblogo.jpg' %}" alt="...">
           </div>
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       </div>
-     </div>
-    </nav>
-    <div class="jumbotron">
-      <div class="container">
-        <div class="bursa">
-          <h1 id="pb" class="bursa">{{ courses.name }}</h1>
-          <h2 class="des">Описание курса</h2>
-            <p class="descr">{{ courses.description }}
-            </p>
+        {% elif courses.name == "Java Bursa" %}
+        <div class="index-logo">
+            <img class="logo-itbursa" src="{% static 'images/jlogo.png' %}" alt="...">
           </div>
-        </div>
-      </div>
-      <div class="study_table">
-		  <div class="panel panel-default">
-  	    <div class="panel-heading"><h2 class="course_program" >Учитель</h2></div>
-		      <table class="table table-hover">           
-            <tr><td><h3><a href="{% url 'coaches:detail' courses.coach.id %}">{{ courses.coach.get_full_name }} </a></h3></td></tr>
-            <tr><td><h3>{{ courses.coach.description }}</h3></td></tr> 
-			    </table>
-        </div>
-      </div>
-      <div class="study_table">
-		  <div class="panel panel-default">
-  	    <div class="panel-heading"><h2 class="course_program" >Ассистент</h2></div>
-		      <table class="table table-hover">           
-            <tr><td><h3><a href="{% url 'coaches:detail' courses.assistant.id %}">{{ courses.assistant.get_full_name }} </a></h3></td></tr>
-            <tr><td><h3>{{ courses.assistant.description }}</h3></td></tr> 
-			    </table>
-        </div>
-      </div>
-      <div class="course_id" >
-        <div class="panel panel-default">
-          <div class="panel-heading"><h2 class="py_program"></h2></div>
-            <table class="table-responsive">       
-              <tr class="headtable"><td><h3>#</h3></td><td><h3>Тема недели</h3></td><td><h3>Описание</h3></td><tr>
-              {% for lesson in lessons %}
-              <tr class="tablelist"><td><h3>{{ lesson.order }}</h3></td><td><div class="them"><h3>{{ lesson.subject }}</h3></div></td><td><h3> {{ lesson.description }}</h3></td></tr>
-              {% endfor %}
-            </table>
+        {% else %}
+        <div class="index-logo">
+            <img class="logo-itbursa" src="{% static 'images/rlogo.jpg' %}" alt="...">
           </div>
-        </div>
+        {% endif %}
+        <h2 class="des">Описание курса</h2>
+          <p class="descr">{{ courses.description|truncatechars:32 }}
+          </p>
       </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  </body>
-</html>
+    </div>
+  </div>
+
+
+{% include "courses/include/inc_coaches.html" with head="учитель" teacher=courses.coach %}
+
+
+{% include "courses/include/inc_coaches.html" with head="ассистент" teacher=courses.assistant %}
+ 
+
+ <div class="course_id" >
+    <div class="panel panel-default">
+      <div class="panel-heading"><h2 class="py_program"></h2></div>
+        <table class="table-responsive">       
+          <tr class="headtable"><td><h3>#</h3></td><td><h3>тема недели</h3></td><td><h3>описание</h3></td><tr>
+          {% for lesson in lessons %}
+          <tr class="tablelist"><td><h3>{{ forloop.counter }}</h3></td><td><div class="them"><h3>{{ lesson.subject }}</h3></div></td><td><h3> {{ lesson.description }}</h3></td></tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+    

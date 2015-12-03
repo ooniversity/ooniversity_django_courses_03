@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from courses.models import Course, Lesson
+import datetime
 
 def index(request):
     courses = Course.objects.all()
     return render(request, 'index.html',
-                  {'courses':courses} )
+                  {'courses':courses,
+                   })
 	
 def contact(request):
 	return render(request, 'contact.html')
