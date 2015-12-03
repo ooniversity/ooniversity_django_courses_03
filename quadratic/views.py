@@ -37,4 +37,4 @@ def quadratic_results(request):
 				result = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
 	else:
 		form = QuadraticForm()
-	return render(request, 'quadratic/results.html', {'form':form, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
+	return render(request, 'results.html', {'form':form, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
