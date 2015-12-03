@@ -30,7 +30,7 @@ class Coefficient(object):
 			self.error_message = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
 			return False
 		return True
-'''
+
 
 def get_discr(a, b, c):
 	d = b**2 - 4*a*c
@@ -43,7 +43,7 @@ def get_eq_root(a, b, d, order=1):
 	else:
 		x = (-b - d**(1/2.0)) / 2*a
 	return x
-
+'''
 '''
 def quadratic_results(request):
 	form = QuadraticForm()
@@ -102,7 +102,7 @@ def quadratic_results(request):
 			context.update({'d': 'Дискриминант: %d' %d, 'result_message': result_message})
 	else:
 		form = QuadraticForm()
-	return render(request, 'quadratic/results.html', {'form': form, 'context': context})
+	return render(request, 'results.html', {'form': form, 'context': context})
 
 
 
