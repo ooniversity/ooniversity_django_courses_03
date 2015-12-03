@@ -1,2 +1,31 @@
 {% extends "base.html" %}
 {% block blow_main %}active{% endblock blow_main %}
+{% block content %}
+  <div class="jumbotron">
+    <div class="container">
+      <div class="page-header">
+        <h1>ooniversity</h1>
+        <h3>Мы специализируемся на современных языках программирования, которые помогут Вам бытьв тренде разработки сегодня и завтра.<h3>
+     </div>
+    </div>
+  </div> 
+  <h2>Выбирай, на каком курсе хочешь учиться!</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Курс</th>
+        <th>Описание</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+        <tr>
+          <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
+          <td>{{ course.short_description|title }}</td>
+        
+        </tr>
+      {% endfor %}
+     </tbody>
+  </table>
+
+{% endblock content %}   
