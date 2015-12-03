@@ -1,0 +1,5 @@
+<div class="panel-heading">{{ block_title }}</div>
+  	<div class="panel-body">
+    <a href="{% url 'coaches:detail' instructor.id %}">{{ instructor.full_name }}</a></br>
+    <p>{{ instructor.description }}</p>
+  	</div>

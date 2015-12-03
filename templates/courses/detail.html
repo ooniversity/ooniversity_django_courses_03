@@ -1,56 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Python/Django</title>
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-</head>
 
-<body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <img class="logo" src="{% static 'images/logpy.jpg' %}" />
-            </div>
-            <div class="container">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'index' %}">Главня</a>
-                    </li>
-                    <li><a href="{% url 'contact' %}">Контакты</a>
-                    </li>
-                    <li><a href="{% url 'students:list_view' %}?course_id={{courses.id}}">Студенты</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="jumbotron">
-  <h1>{{ courses.name }}</h1>
-  <p>{{ courses.description}}</p>  
+{% load staticfiles %}
+
+
+{% block title %}Курсы{% endblock title %}
+
+
+{% block nav_course_id %}?course_id={{courses.id}}{% endblock %}
+
+
+{% block content %}
+<div class="jumbotron">
+  <h1>{{ courses.name|default:"nothing" }}</h1>
+  <p>{{ courses.description|truncatechars:32 }}</p>  
 	</div>
 	<h2>Преподаватели</h2>
 	<div class="panel panel-success">
-  	<div class="panel-heading">Учитель</div>
-  	<div class="panel-body">
-    <a href="{% url 'coaches:detail' courses.coach.id %}">{{ courses.coach.full_name }}</a></br>
-    <p>{{ courses.coach.description }}</p>
-  	</div>
+{% include "courses/include/inc_instructor.html" with block_title="Учитель" instructor=courses.coach %}
 </div>
 
 <div class="panel panel-success">
-  <div class="panel-heading">
-    <h3 class="panel-title">Ассистент</h3>
-  </div>
-  <div class="panel-body">
-    <a href="{% url 'coaches:detail' courses.assistant.id %}">{{ courses.assistant.full_name }}</a></br>
-    <p>{{ courses.assistant.description }}</p>
-  </div>
+{% include "courses/include/inc_instructor.html" with block_title="Ассистент" instructor=courses.assistant %}
 </div>
     <h2>План курса</h2>
     <table class="table table-hover">
@@ -85,10 +56,4 @@
             </li>
         </ul>
     </nav>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-</body>
-
-</html>
-
+{% endblock content %}  

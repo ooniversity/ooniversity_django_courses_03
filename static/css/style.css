@@ -328,3 +328,13 @@ body {
     border-width: 0px 0px 1px 1px;
 }
 /* for the table2 in student_detail */
+
+.panel-success {
+	width: 1030px;
+}
+
+.jumbotron {
+	width: 1030px;
+	background-color: #B3ECB5;
+	border-radius: 30px;
+}
