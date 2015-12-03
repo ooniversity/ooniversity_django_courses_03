@@ -20,7 +20,7 @@
 						<tr>
 							<th>Преподователь на курсе</th>
 							<th>
-								{% for course in  course_coach %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Cтуденты курса
+								{% for course in course_coach %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Cтуденты курса
 								<a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
 									<button type="button" class="btn btn-default" aria-label="Left Align">
   										<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
@@ -34,7 +34,7 @@
 						<tr>
 							<th>Ассистент на курсе</th>
 							<th>
-								{% for course in  course_assistant %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Cтуденты курса
+								{% for course in course_assistant %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Cтуденты курса
 								<a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
 									<button type="button" class="btn btn-default" aria-label="Left Align">
   										<span class="glyphicon glyphicon-check" aria-hidden="true"></span>

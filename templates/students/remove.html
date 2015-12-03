@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Delete student{% endblock title %}
+
+{% block form %}
+	<h2>Student {{ student.name }} {{ student.surname }} going to be deleted!</h2>
+	<form method="POST">
+		{% csrf_token %}
+		<input type="submit" value="Delete">
+	</form>
+{% endblock form %}

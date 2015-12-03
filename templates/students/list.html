@@ -4,16 +4,19 @@
 
 {% block title %}Student List{% endblock title %}
 
-{% block nav_active_students %}active{% endblock %}
+{% block nav_active_students %}active{% endblock nav_active_students %}
 
 {% block content %}
-	{% block course %}
-			<h2 class='possition'>{{ course.name }}</h2>
-			<div class='jumbotron'>
-				<p class='text'>{{ course.description }}</p>
-			</div>
-	{% endblock course %}
+
 	{% block students %}
+
+			{% if messages %}
+			<ul class="messages">
+    			{% for message in messages %}
+    				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    			{% endfor %}
+			</ul>
+			{% endif %}
 			<h2 class='possition'>Our students</h2>
 			<div class='grey'>
 				<table class='table'>
@@ -35,9 +38,14 @@
 									{% endif %}
 								{% endfor %}
 							</td>
+							<td><a href="{% url 'students:edit' student.id %}"><input type="buttom" value="Edit student" class="btn btn-primary"></a></td>
+							<td><a href="{% url 'students:remove' student.id %}"><input type="buttom" value="Delete" class="btn btn-primary"></a></td>
 						</tr>
 					{% endfor %}
 				</table>
 			</div>
+			<a href="{% url 'students:create' %}"><input type="buttom" value="Add student" class="btn btn-primary"></a>
+
 	{% endblock students %}
+	
 {% endblock content %}

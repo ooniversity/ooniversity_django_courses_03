@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Add student{% endblock title %}
+
+{% block form %}
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Add">
+	</form>
+{% endblock form %}
