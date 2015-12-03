@@ -10,7 +10,7 @@
 		<div class="jumbotron">
 						<div class="container">
 							<h1>{{ course.name }}</h1>	
-							<p>{{ course.description }} </p>
+							<p>{{ course.description|truncatechars:32 }} </p>
 						</div>
       
           <div class="container">

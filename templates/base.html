@@ -54,8 +54,8 @@ Practical lessons in the classroom + online lectures.</p>
             <tbody>
               {% for course in courses_list %}
                 <tr>
-                  <td><a href="/courses/{{ course.id }}/">{{ course.name }}</a></td>
-                  <td>{{course.short_description}}</td>
+                  <td><a href="/courses/{{ course.id }}/">{{ course.name|upper }}</a></td>
+                  <td>{{course.short_description|title}}</td>
                 </tr>
               {% endfor %}
             </tbody>

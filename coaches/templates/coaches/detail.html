@@ -8,12 +8,12 @@
 
 {% block content %}
        <div class="col-md-6">
-          <p>{{student.full_name}}</p>
+          <p>{{student.full_name|capfirst}}</p>
           <table class="table table-striped">
             <tbody>
                 <tr>
                   <td>Birth date</td>
-                  <td>{{coach.birth_date}}</td>
+                  <td>{{coach.date_of_birth|date:"d F, Y"}}</td>
                 </tr>
                 <tr>
                   <td>Address</td>
@@ -39,7 +39,7 @@
                     {% endfor %}
                    </td>
                 </tr>
-                <tr>
+                <tr>date:"d F Y"
                   <td>Assistant on courses</td>
                   <td> 
                     {% for course in coach.assistant_courses.all %}
