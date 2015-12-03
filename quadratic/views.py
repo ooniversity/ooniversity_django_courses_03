@@ -74,9 +74,9 @@ def quadratic_results(request):
 	if request.GET:
 		form = QuadraticForm(request.GET)
 		if form.is_valid():
-			a = form.cleaned_data.get('a')
-			b = form.cleaned_data.get('b')
-			c = form.cleaned_data.get('c')
+			a = form.cleaned_data['a']
+			b = form.cleaned_data['b']
+			c = form.cleaned_data['c']
 			
 			discr = b*b - 4*a*c
 			if discr < 0:
