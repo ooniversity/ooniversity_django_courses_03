@@ -7,24 +7,20 @@
     <h2 class="Quadratic_res"> Квадратное уравнение a*x*x + b*x + c = 0 </h2>
 
     <form method="get">
-        {{ form.as_ul }}
-        <input class="button" type="submit" value="decide"/>
+        {{ form.as_p }}
+        <input class="button_quadratic" type="submit" value="Решить"/>
     </form>
-    <ul>
-        {% if context.d or context.d == 0 %}
-        <li>Дискриминант: {{ context.d }}</li>
-        {% if context.d < 0 %}
-        <li>Дискриминант меньше нуля, квадратное уравнение не имеет действительных
-            решений.
-        </li>
-        {% elif context.d == 0 %}
-        <li>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:
-            x1 = x2 = {{ context.x1 }}
-        </li>
-        {% else %}
-        <li>Квадратное уравнение имеет два действительных корня: x1 = {{ context.x1 }}, x2 = {{ context.x2 }}</li>
-        {% endif %}
-        {% endif %}
+
+    {% if context.d or context.d == 0 %}
+    <p>Дискриминант: {{ context.d }}</p>
+    {% if context.d < 0 %}<p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных
+    решений.</p>
+    {% elif context.d == 0 %}<p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:
+    x1 = x2 = {{ context.x1 }}</p>
+    {% else %}<p>Квадратное уравнение имеет два действительных корня: x1 = {{ context.x1 }}, x2 = {{ context.x2
+    }}</p>
+    {% endif %}
+    {% endif %}
     </ul>
 </div>
 {% endblock content %}
