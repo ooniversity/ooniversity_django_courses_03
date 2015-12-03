@@ -16,7 +16,7 @@
                     <tbody>
                         <tr>
                             <td>дата рождения</td>
-                            <td>{{ coaches.date_of_birth|date:'d F, Y' }}</td>
+                            <td>{{ coaches.date_of_birth }}</td>
                         </tr>
                         <tr>
                             <td>адрес</td>
