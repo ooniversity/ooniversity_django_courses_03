@@ -1,12 +1,16 @@
 <h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
 
 <ul>
+	<form method="get">
+	{{ form.as_p }}
+	<input type="submit">
 	<li>a = {{ a }}</li>
 	<p>{{ mes_a }}</p>
 	<li>b = {{ b }}</li>
 	<p>{{ mes_b }}</p>
 	<li>c = {{ c }}</li>
 	<p>{{ mes_c }}</p>
+	</form>
 </ul>
 <div>{{ discriminant }}</div>
 <div>{{ message }} {{ roots }}</div>
