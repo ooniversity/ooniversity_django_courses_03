@@ -1,7 +1,4 @@
-s{% extends "base.html" %}
-
-
-{% load staticfiles %}
+{% extends "base.html" %}
 
 
 {% block title %}Results{% endblock title %}
@@ -12,19 +9,17 @@ s{% extends "base.html" %}
 
 {% block content %}
 <div class="container">
-	<div class="jumbotron">
-		<h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
-		<form method="get">
-			{{ form.as_p }}
-			<input type="submit" value="Решить">
-		</form>
+	<h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
+	<form method="get">
+		{{ form.as_p }}
+		<input type="submit" value="Решить">
 		<br />
 		<br />
 		{% if d %}
 		<p><strong>{{ d }}</strong></p>
 		<p><strong>{{ message }}</strong></p>
 		{% endif %}
-	</div>
+	</form>
 </div>
 {% endblock content %}
 
