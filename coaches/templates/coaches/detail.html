@@ -2,11 +2,11 @@
 
 {% block title %}detail{% endblock title %}
 
-{% block detail %}<li class="active"><a href="#">detail</a></li>{% endblock %}
+{% block detail %}<li class="active"><a href="#">detail</a></li>{% endblock detail %}
 
 {% block content %}
 <div class="detail">
-    <h2>{{ coach_detail.user.first_name}} {{coach_detail.user.last_name }}</h2>
+    <h2>{{ coach_detail.user.first_name}} {{ coach_detail.user.last_name }}</h2>
     <table class="table">
         <tbody>
         <tr>
@@ -52,4 +52,4 @@
         </tbody>
     </table>
 </div>
-{% endblock %}
+{% endblock content %}
