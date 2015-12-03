@@ -25,7 +25,7 @@
                     <td>
                         <a href="{% url 'courses:detail' course.id %}"> {{ course.name|upper }} </a>
                     </td>
-                    <td>{{ course.short_description }}</td>
+                    <td>{{ course.short_description|title }}</td>
                 </tr>
             {% endfor %}
 
