@@ -1,4 +1,15 @@
-{% extends 'base.html' %} {% load staticfiles %} {% block title %}Courses Page{%endblock%} {% block nav_class_index %}active{% endblock %} {% block content %}
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
+
+
+{% block title %}Courses Page{% endblock %} 
+
+
+{% block nav_class_index %}active{% endblock nav_class_index %} 
+
+
+{% block content %}
 <div class="col-lg-12">
     <h2>{{ coaches.user.first_name }} {{ coaches.user.last_name }}</h2>
     <img src="{% static 'images/face.jpg' %}" alt="img">
