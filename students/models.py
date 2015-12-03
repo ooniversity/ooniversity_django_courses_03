@@ -25,6 +25,6 @@ class CourseApplication(models.Model):
         ('standart', 'standart'),
         ('gold', 'Gold'),
         ('vip', 'VIP')), default='standart')
-    news_subscribe = models.BooleanField()
+    news_subscribe = models.BooleanField(default=True)
     comment = models.TextField()
     is_active = models.BooleanField(default=True)

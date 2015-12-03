@@ -31,35 +31,8 @@
                     
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
-               
-                <ul>
-                    {# coefficient a #}
-                    <li> a = {{ a }}</li>
-                    {% if a_type == 'string' and a == '' %}
-                        <p>коэффициент не определен</p>
-                    {% elif a_type == 'string' and a != '' %}
-                        <p>коэффициент не целое число</p>
-                    {% elif a_type == 'integer' and a == 0 %}
-                        <p>коэффициент при первом слагаемом уравнения не может быть равным нулю</p>
-                    {% endif %}
-
-                    {# coefficient b #}
-                    <li> b = {{ b }}</li>
-                    {% if b_type == 'string' and b == '' %}
-                        <p>коэффициент не определен</p>
-                    {% elif b_type == 'string' and b != '' %}
-                        <p>коэффициент не целое число</p>
-                    {% endif %}
-
-                    {# coefficient c #}
-                    <li> c = {{ c }}</li>
-                    {% if c_type == 'string' and c == '' %}
-                        <p>коэффициент не определен</p>
-                    {% elif c_type == 'string' and c != '' %}
-                        <p>коэффициент не целое число</p>
-                    {% endif %}
-                </ul>
-                {% if disrcim != '' %}
+                 <h4>Дискриминант: {{ disrcim }}</h4> 
+                {% if disrcim %}
                     {# discrim != '' #}
                     <h4>Дискриминант: {{ disrcim }}</h4> 
                     {% if disrcim > 0 %}
