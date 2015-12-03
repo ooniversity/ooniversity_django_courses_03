@@ -1,15 +1,16 @@
 {% extends "base.html" %}
+
+
 {% load static from staticfiles %}
+
 
 {% block title %}Student detail{% endblock %}
 
 
-{% block nav_students %}active{% endblock %}
+{% block navigation_students %}active{% endblock %}
 
 
-{% block content %}
-
-<div>
+{% block content %}<div>
     <div class="container">
       <h1>Student details</h1>
         <div class="container">
@@ -45,5 +46,4 @@
             </tr>
           </table>
         </br>
-      </div>
-{% endblock content %}
+      </div>{% endblock content %}

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
+
+
 {% load staticfiles %}
 
 
 {% block title %}Coach detail!{% endblock %}
 
 
-{% block nav_main %}active{% endblock %}
+{% block navigation_main %}active{% endblock %}
 
 
-{% block content %}
-
-<div>
+{% block content %}<div>
     <div class="container">
             <div class="starter-template">
         <div class="container">
@@ -20,7 +20,7 @@
                 <thead>
                     <tr>
                       <td>Birth day</td>
-                      <td>{{ coach.date_of_birth|date:"j F, o" }}</td>
+                      <td>{{ coach.date_of_birth|date:"j F, Y" }}</td>
                     </tr>
                     <tr>
                       <td>Address</td>
@@ -62,5 +62,4 @@
               </table>
               </br>
       </div>
-    </div>
-{% endblock content %}
+    </div>{% endblock content %}
