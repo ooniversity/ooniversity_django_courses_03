@@ -1,16 +1,13 @@
 {% extends "base.html" %}
 
 
-{% load static from staticfiles %}
+{% block title %}Courses{% endblock %}
 
 
-{% block title %}PyBursa Project{% endblock %}
+{% block nav_main %}active{% endblock %}
 
 
-{% block active_index %}active{% endblock %}
-
-
-{% block main %}
+{% block content %}
 
   <div class="container"></br></br></br></br></br>
 
@@ -37,4 +34,4 @@
       </table>
     </br>
   </div>
-{% endblock main %}
+{% endblock content %}

@@ -1,16 +1,14 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}PyBursa contacts{% endblock %}
 
 
-{% load static from staticfiles %}
+{% block nav_contacts %}active{% endblock %}
 
 
-{% block title %}Contacts{% endblock %}
+{% block content %}
 
-
-{% block active_contacts %}active{% endblock %}
-
-
-{% block main %}
 </br></br></br></br></br>
 <div class="container marketing">
   <div class="row">
@@ -47,4 +45,4 @@
   </div>
   <footer>          
   </footer>
-{% endblock main %}
+{% endblock content %}
