@@ -29,8 +29,8 @@
 							<!-- Вариант для проверялки -->
 							<li class="{% block index_is_active %}{% endblock index_is_active %}">
 							<a href="{% url 'index' %}">Main</a></li>
-							<li class="{% block contact_is_active %}{% endblock %}">
-							<a href="{% url 'contact' contact_is_active %}">Contacts</a></li>
+							<li class="{% block contact_is_active %}{% endblock contact_is_active %}">
+							<a href="{% url 'contact' %}">Contacts</a></li>
 							<li class="{% block students_is_active %}{% endblock students_is_active %}">
 							<a href="{% url 'students:list_view' %}{% block link_to_st %}{% endblock link_to_st %}">Students</a></li>
 							<li class="{% block calculate_is_active %}{% endblock calculate_is_active %}">
