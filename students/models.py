@@ -8,7 +8,7 @@ class Student(models.Model):
 	phone = models.CharField(max_length=20)
 	address = models.CharField(max_length=200)
 	skype = models.CharField(max_length=40)
-	courses = models.ManyToManyField('courses.Course')
+	courses = models.ManyToManyField('courses.Course',)
 
 	def full_name(self):
 		return self.name + ' ' + self.surname

@@ -1,38 +1,18 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="../static/css/style.css">
-		<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+{% extends "base.html" %}
 
-	  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
-		<title>Course contacts</title>
-	</head>
-	<body>
+{% load staticfiles %}
 
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	        </div>
-	        <div id="navbar" class="navbar-collapse collapse">
-	          <ul class="nav navbar-nav">
-	            <li><a href="index.html">Main</a></li>
-	            <li class="active"><a href="contact.html">Contacts</a></li>
-	            <li><a href="student_list.html">Students</a></li>
-	          </ul>
-	        </div>
-	      </div>
-	  </nav>
+{% block title %}<title>Course contacts</title>{% endblock title%}
+
+{% block nav-class-contact %} active {% endblock nav-class-contact %}
+
+{% block content %}
+{% include "include/oouniversity_include.html" with block_title="Course contacts" block_description="This is contact page." block_subtitle="Our mega-giga cool stuff" %}
+
 		<div class="container">
       <div class="row">
       	<div class="col-md-4">
-					<img src="../static/images/founder.jpg" alt="Guido van Rossum">
+					<img src="{% static 'images/founder.jpg' %}" alt="Guido van Rossum">
           <h2>Founder</h2>
           <p>Name: <b class="marker">Guido</b></p>
           <p>Skype: <b class="marker">example_guido_1999</b></p>
@@ -41,7 +21,7 @@
         </div>
 
         <div class="col-md-4">
-					<img src="../static/images/teacher.jpg" alt="Radchenko Alex">
+					<img src="{% static 'images/teacher.jpg' %}" alt="Radchenko Alex" >
           <h2>Director</h2>
           <p>Name: <b class="marker">Alexey Radchenko</b></p>
           <p>Skype: <b class="marker">superuser.do</b></p>
@@ -49,7 +29,7 @@
           <p>Phone: <b class="marker">+380-234-5****</b></p>
         </div>
 	      <div class="col-md-4">
-					<img src="../static/images/assistant.jpg" alt="Persianova Olena">
+					<img src="{% static 'images/assistant.jpg' %}" alt="Persianova Olena" width="150">
 	        <h2>Manager</h2>
 	       	<p>Name: <b class="marker">Olena Persianova</b></p>
           <p>Skype: <b class="marker">real_test_skype</b></p>
@@ -58,5 +38,5 @@
 	      </div>
       </div>
     </div>
-	</body>
-</html>
+
+{% endblock content %}

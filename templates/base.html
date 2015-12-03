@@ -1,0 +1,61 @@
+
+	{% load staticfiles %}
+
+<html>
+	<head>
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+		{% block title %}<title>Course main page</title>{% endblock title%}
+	</head>
+	<body>
+  		<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="{% block nav-class-index %}{% endblock nav-class-index %}"><a href={% url 'index' %}>Main</a></li>
+             	<li class="{% block nav-class-contact %}{% endblock nav-class-contact %}"><a href={% url 'contact' %}>Contacts</a></li>
+              <li class="{% block nav-class-students %}{% endblock nav-class-students %}"><a href={% url 'students:students' %}>Students</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
+		<div class="container theme-showcase" role="main">
+{% block content %}
+
+{% include "include/oouniversity_include.html" with block_title="PyBursa" block_description="In this course we shifted the emphasis towards the practice.It will be a moderate amount of theory - maximum of practice. Courses will take place from October 19 to December 28. Practical lessons in the classroom + online lectures." block_subtitle="Description" %}
+
+	     <div class="page-header">
+        <h1>Program</h1>
+      </div>
+			<div class="col-md-6">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for course in courses_list %}
+                <tr>
+                  <td><a href="/courses/{{ course.id }}/">{{ course.name|upper }}</a></td>
+                  <td>{{course.short_description|title}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+{%endblock content%}
+		</div>
+
+	</body>
+</html>
