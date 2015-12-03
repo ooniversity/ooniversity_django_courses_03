@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}<title>ooniversity-coaches_details</title>{% endblock title %}
+{% block title %}ooniversity-coaches_details{% endblock title %}
 
 
 {% block content %}

@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}ooniversity-students_list{% endblock ttle %}
+{% block title %}ooniversity-students_list{% endblock title %}
 
 
 {% block nav_brand_students %}active{% endblock %}
