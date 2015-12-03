@@ -4,13 +4,14 @@
 {% load staticfiles %}
 
 
-{% block title %}Course detail!{% endblock title %}
+{% block title %}Course detail{% endblock title %}
 
 
 {% block nav_main %}active{% endblock nav_main %}
 
 
-{% block content %}<div class="container">
+{% block content %}
+  <div class="container">
       {% include "courses/include/course_include.html" %}
       <div class="starter-template">
         <div class="container">
@@ -58,4 +59,5 @@
               </br>
 
       </div>
-    </div>{% endblock content %}
+    </div>
+{% endblock content %}
