@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Welcome to Python{% endblock title %}
+
+
+{% block nav_active_students %}active{% endblock %}
+
+
+{% block content %}
+    <div class="page-header text-align-center">
+      <div class="container">
+        <div class="jumbotron transparant-background-table">
+          <h2>{{ student.name }} {{ student.surname }}</h2>
+          <table class="table text-align-justify">
+            <tr>
+              <td>Birth Date</td>
+              <td>{{ student.date_of_birth|date:"N d, Y" }}</td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td>{{ student.address }}</td>
+            </tr>
+            <tr>
+              <td>E-mail</td>
+              <td>{{ student.email }}</td>
+            </tr>
+            <tr>
+              <td>Skype</td>
+              <td>{{ student.skype }}</td>
+            </tr>
+             <tr>
+              <td>phone</td>
+              <td>{{ student.phone }}</td>
+            </tr>
+            </tr>
+             <tr>
+              <td>Courses</td>
+                {% for course in student.courses.all %}
+                  {% ifequal forloop.counter 1 %}
+                    <td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>
+                  {% else %}
+                    <tr>
+                      <td></td>
+                      <td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>
+                    </tr>
+                  {% endifequal %}
+                {% endfor %}
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
