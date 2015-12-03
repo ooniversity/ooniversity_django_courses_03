@@ -6,7 +6,7 @@
 
 {% block content %}
 		<div class ='container'>
-			{% include 'include/coaches/coach_include.html' with block_title='Преподователи' coaches=coaches %}
+			{% include 'include/coach_include.html' with block_title='Преподователи' coaches=coaches %}
 			<h2 align="center">Преподователь курса</h2>
 			<h3 align="center">{{ coach.full_name }}</h3>
 			<div class='grey'>
