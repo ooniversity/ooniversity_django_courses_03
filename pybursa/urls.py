@@ -10,6 +10,6 @@ urlpatterns = patterns('',
     url(r'^contact/$', contact, name="contact"),
     url(r'^students/', include('students.urls', namespace="students")),
     url(r'^courses/', include('courses.urls', namespace="courses")),
-    url(r'^quadratic/results/$', quadratic_results, name='results'),
+    url(r'^quadratic/', include('quadratic.urls', namespace="quadratic")),
     url(r'^coaches/', include('coaches.urls', namespace="coaches")),
 )
