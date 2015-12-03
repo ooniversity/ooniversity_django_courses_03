@@ -1,12 +1,18 @@
 # -*- coding: utf-8 -*- 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from quadratic.forms import QuadraticForm
 
 	
 def quadratic_results(request):
-	context = {}
-	if request.GET:
-		form = QuadraticForm(request.GET)
+	if request.method == 'GET':
+		a = request.GET.get('a')
+		b = request.GET.get('b')
+		c = request.GET.get('c')
+		context = {}
+		if a == None and b == None and c == None:
+			form = QuadraticForm()
+		else:
+			form = QuadraticForm(request.GET)	
 		if form.is_valid():
 			a = form.cleaned_data['a']
 			b = form.cleaned_data['b']
@@ -24,7 +30,8 @@ def quadratic_results(request):
 				context['x1'] = round(x1, 1)
 				context['x2'] = round(x2, 1)
 				context['d'] = d			
-	else:
-		form = QuadraticForm()
-	return render(request, 'quadratic/results.html', {'form': form, 'context': context})
+		else:
+			context['error'] = "коэффициент не целое число"
+		context['form'] = form
+	return render(request, 'quadratic/results.html', {'context': context})
 		
