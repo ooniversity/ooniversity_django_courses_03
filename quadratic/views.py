@@ -26,8 +26,8 @@ def quadratic_results(request):
                 x2 = str((-b - discr ** (1/2.0)) / 2*a)
                 res['x'] = str('Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' % (x1, x2))
    
-        #else:
-            #form = QuadraticForm()       
+    else:
+        form = QuadraticForm()       
     res['form'] = form
     return render(request,'quadratic/results.html',res)
 
