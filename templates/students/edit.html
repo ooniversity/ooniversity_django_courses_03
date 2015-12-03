@@ -16,7 +16,7 @@
   	<div class="page-header">
       <h1 class="descr">Редактирование данных студента</h1>
 			<div class="jumbotron">
-        {% include "students/include/inc_messages.html" %}
+        {% include "students/include/messages_include.html" %}
 				<form method="post">
 					{% csrf_token %}
 					{{ form.as_p }}

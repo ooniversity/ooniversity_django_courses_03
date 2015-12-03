@@ -1,8 +1,14 @@
-{% extends "students/base.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 
 
 {% block title %}{{ student.surname }} {{ student.name }}{% endblock title %}
+
+
+{% block students_is_active %}active{% endblock %}
+
+
+{% block carousel %}{% endblock carousel %}
 
 
 {% block content %}
