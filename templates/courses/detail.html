@@ -11,14 +11,14 @@
 <div class="col-md-10 col-md-push-1">
   <div class="container">
     <div class="col-md-12">
-{% include "courses/include/inc_courses_info.html" %}
+{% include "/include/courses_info_include.html" %}
     <div class="container">
       <div class="col-md-12">
 
-{% include "courses/include/inc_instructors.html" with block_title="Учитель" instructor=coach %}    
+{% include "/include/instructors_include.html" with block_title="Учитель" instructor=coach %}    
 
 
-{% include "courses/include/inc_instructors.html" with block_title="Ассистент" instructor=assistant %}    
+{% include "/include/instructors_include.html" with block_title="Ассистент" instructor=assistant %}    
         
       </div>
     </div>
@@ -35,9 +35,9 @@
           <tbody>
             {% for les in lessons %}
             <tr>
-              <td>{{forloop.counter}}</td> 
-              <td>{{les.subject}}</td>
-              <td>{{les.description}}</td>
+              <td>{{ forloop.counter }}</td> 
+              <td>{{ les.subject }}</td>
+              <td>{{ les.description }}</td>
             </tr>
             {% endfor %}
           </tbody>
@@ -46,4 +46,4 @@
     </div>
   </div>
 </div>
- {% endblock content %} 
+{% endblock content %} 

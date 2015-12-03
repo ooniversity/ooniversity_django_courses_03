@@ -24,12 +24,12 @@
           <tbody>
             {% for man in students %}
             <tr>
-              <td>{{forloop.counter}}</td> 
-              <td><p><a href="{% url 'students:detail' man.id %}">{{man.surname}} {{man.name}}</a></p></td>
-              <td>{{man.address}}</td>
-              <td>{{man.skype}}</td>
+              <td>{{ forloop.counter }}</td> 
+              <td><p><a href="{% url 'students:detail' man.id %}">{{ man.surname }} {{ man.name }}</a></p></td>
+              <td>{{ man.address }}</td>
+              <td>{{ man.skype }}</td>
               <td>{% for cour in man.courses.all %}                
-                <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</p>
+                <p><a href="{% url 'courses:detail' cour.id %}">{{ cour.name }}</p>
                 {% endfor %}
               </td>
             </tr>
