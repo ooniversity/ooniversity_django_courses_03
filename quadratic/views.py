@@ -30,8 +30,8 @@ def quadratic_results(request):
 				context['x1'] = round(x1, 1)
 				context['x2'] = round(x2, 1)
 				context['d'] = d			
-		else:
-			context['error'] = "коэффициент не целое число"
+		#else:
+			#context['error'] = "коэффициент не целое число"
 		context['form'] = form
-	return render(request, 'results.html', {'context': context})
+	return render(request, 'quadratic/results.html', {'context': context})
 		
