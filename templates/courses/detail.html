@@ -2,16 +2,7 @@
 {% block title %}PyBursa{% endblock title %}
 {% block spec_link %}<a href="{% url 'students:list_view' %}?course_id={{ course.id }}">{% endblock spec_link %}
 {% block content %}
-           
-    <div class="jumbotron">
-      <div class="container">
-        <div class="page-header">
-        
-          
-        
-        </div>
-      </div> 
-    </div> 
+    {% include "courses/include/detail_include.html" %}
     <h1>{{ course }}</h1>
     <h3>{{ course.description|truncatechars:32 }}<h3> 
     <h2>План курса</h2>
