@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Welcome to Python{% endblock title %}
+
+
+{% block content %}
+    <div class="page-header text-align-center">
+      <div class="container">
+        <div class="jumbotron transparant-background-table">
+          <h2>{{ coach.user.first_name }} {{ coach.user.last_name }}</h2>
+          <table class="table text-align-justify vertical-align-middle">
+            <tr>
+              <td>Birth Date</td>
+              <td>{{ coach.date_of_birth|date:"d F, Y" }}</td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td>{{ coach.address }}</td>
+            </tr>
+            <tr>
+              <td>E-mail</td>
+              <td>{{ coach.user.email }}</td>
+            </tr>
+            <tr>
+              <td>Skype</td>
+              <td>{{ coach.skype }}</td>
+            </tr>
+             <tr>
+              <td>phone</td>
+              <td>{{ coach.phone }}</td>
+            </tr>
+            <tr>
+              <td><b>Courses coach</b></td>
+                {% for course in courses_coach %}
+                  {% ifequal forloop.counter 1 %}
+                  <td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
+                      students
+                      <a href="{% url 'students:list_view' %}{{ course_par }}{{ course.id }}">
+                        <button type="button" class="btn btn-default" aria-label="Left Align">
+                          <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                        </button>
+                      </a>
+                    </td>
+                  {% else %}
+                    <tr>
+                      <td></td>
+                      <td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
+                        students
+                        <a href="{% url 'students:list_view' %}{{ course_par }}{{ course.id }}">
+                          <button type="button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                          </button>
+                        </a>
+                      </td>
+                    </tr>
+                  {% endifequal %}
+                {% endfor %}
+            </tr>
+            <tr>
+              <td><b>Courses assistant</b></td>
+                {% for course_as in courses_assistant %}
+                  {% ifequal forloop.counter 1 %}
+                    <td><a href="{% url 'courses:detail' course_as.id %}">{{ course_as }}</a>
+                      students
+                      <a href="{% url 'students:list_view' %}{{ course_par }}{{ course_as.id }}">
+                        <button type="button" class="btn btn-default" aria-label="Left Align">
+                          <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                        </button>
+                      </a>
+                    </td>
+                  {% else %}
+                    <tr>
+                      <td></td>
+                      <td><a href="{% url 'courses:detail' course_as.id %}">{{ course_as }}</a>
+                        students
+                        <a href="{% url 'students:list_view' %}{{ course_par }}{{ course_as.id }}">
+                          <button type="button" class="btn btn-default" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                          </button>
+                        </a>
+                      </td>
+                    </tr>
+                  {% endifequal %}
+                {% endfor %}
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

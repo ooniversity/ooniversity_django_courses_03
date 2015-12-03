@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Welcome to Python{% endblock title %}
+
+
+{% block nav_active_students %}active{% endblock %}
+
+
+{% block content %}
+      <div class="container">
+        <div class="jumbotron transparant-background">
+          <h2>Students</h2>
+          <div class="panel panel-default transparant-background">
+            <table class="table text-align-justify">
+              <tr>
+                <td>#</td>
+                <td>surname name</td>
+                  <td>address</td>
+                  <td>skype</td>
+                  <td>courses</td>
+              </tr>
+              {% for student in course_students %}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
+                  <td>{{ student.address }}</td>
+                  <td>{{ student.skype }}</td>
+                  {% for course in student.courses.all %}
+                      {% ifequal forloop.counter 1 %}
+                        {% include "include/row_include.html" %}
+                      <!--<td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td> -->
+                      {% else %}
+                        <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        {% include "include/row_include.html" %}
+                        </tr>
+                      {% endifequal %}
+                  {% endfor %}
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+{% endblock content %}
