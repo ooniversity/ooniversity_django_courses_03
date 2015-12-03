@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
-
 
 {% block title %}Coach detail{% endblock title %}
 
 
-{% block nav_main %}active{% endblock nav_main %}
+{% block detail %}<li class="active"><a href="#">detail</a></li>{% endblock detail %}
+
+
+{% block navigation_main_students %}active{% endblock navigation_main_students %}
 
 
 {% block content %}
@@ -56,4 +57,5 @@
             </thead>
           </table>
       </div>
-    </div>{% endblock content %}
+    </div>
+{% endblock content %}
