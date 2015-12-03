@@ -4,6 +4,11 @@
 {% block title %}PyBursa - Информация о курсе{% endblock title %}
 
 
+{% block link_students %}
+  {% url 'students:list_view' %}?course_id={{ course_id }}
+{% endblock link_students %}  
+
+
 {% block content %}
 
 
