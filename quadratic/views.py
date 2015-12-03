@@ -8,17 +8,20 @@ def quadratic_results(request):
     if request.GET:
         form = QuadraticForm(request.GET)
         if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
             data = form.cleaned_data
             discriminant = count_discriminant(**data)
             if discriminant < 0:
                 result_message = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
             elif discriminant == 0:
                 x = (- data['b']) / (2.0 * data['a'])
-                result_message = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s" % str(x)
+                result_message = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s" % x
             else:
                 x1 = (- data['b'] + discriminant**0.5) / (2.0 * data['a'])
                 x2 = (- data['b'] - discriminant**0.5) / (2.0 * data['a'])
-                result_message = "Квадратное уравнение имеет два действительных корня: x1 = " + str(x1) + ", x2 = " + str(x2)
+                result_message = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
             d.update({'discriminant': discriminant, 'message': result_message})
     else:
         form = QuadraticForm()
