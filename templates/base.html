@@ -5,12 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>{% block title %}PyBursa{% endblock title %}</title>
-    
-    
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-   
     <link rel="shortcut icon" href="{% static 'images/python.ico' %}" type="image/x-icon">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
   </head>
@@ -19,10 +15,13 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-         <li class="{% block blow_main %}{% endblock blow_main %}"><a href="{% url 'index' %}">Главная</a></li>
-         
-         <li class="{% block blow_contact %}{% endblock blow_contact %}"><a href="{% url 'contact' %}">Контакты</a></li>
-         <li class="{% block blow_students %}{% endblock blow_students %}">{% block spec_link %}<a href="{% url 'students:list' %}">{% endblock spec_link %}Студенты</a></li>
+         <li class="{% block blow_main %}{% endblock blow_main %}">
+                    <a href="{% url 'index' %}">Главная</a></li>
+         <li class="{% block blow_contact %}{% endblock blow_contact %}">
+                    <a href="{% url 'contact' %}">Контакты</a></li>
+         <li class="{% block blow_students %}{% endblock blow_students %}">
+         {% block spec_link %}<a href="{% url 'students:list' %}">
+         {% endblock spec_link %}Студенты</a></li>
          
          </li>
         </ul>

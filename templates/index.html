@@ -29,10 +29,9 @@
         <tr>
           <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
           <td>{{ course.short_description|title }}</td>
-        
         </tr>
       {% endfor %}
      </tbody>
   </table>
- <div class="alert alert-success" role="alert">P.S. не пожалеешь!</div>
+  <div class="alert alert-success" role="alert">P.S. не пожалеешь!</div>
 {% endblock content %}   
