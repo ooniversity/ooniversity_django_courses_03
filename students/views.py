@@ -1,61 +1,81 @@
-from django.shortcuts import render
+# -*- coding: utf-8 -*-
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 #from courses.models import Course, Lesson
 from students.models import Student
+from students.forms import StudentModelForm
+from django.contrib import messages
+ 
 
-"""
-def list_view(request, course_id = None):
-    #return HttpResponse('course={}'.format(course_id))
-    args = {}
-    if course_id == None:
-        st = Student.objects.all()
-        args['students'] = st
-
-
-    else:
-        st = Student.objects.filter(courses__id=course_id)
-        args['students'] = st
-    
-    return render(request, 'students/list.html', args)
-"""
 
 def list_view(request):
-    #return HttpResponse('course={}'.format(course_id))
-    #print course_id
-    #print request.GET
-    args = {}
-    #a = request.GET.keys()
-    #try: 
-        #st = Student.objects.filter(courses__id=request.GET['course_id'])
-        #args['students'] = st
-        
-        
-    
 
-        
-    #except:
-     
-    if  request.GET.get('course_id'): 
+    args = {}
+
+    if request.GET.get('course_id'):
         course = request.GET.get('course_id')
         st = Student.objects.filter(courses__id=course)
-        args['students'] = st    
+        args['students'] = st
     else:
-                 
+
         st = Student.objects.all()
         args['students'] = st
-    
-        
-    
+
     return render(request, 'students/list.html', args)
 
+
 def detail(request, stud_id):
-    #print stud_id
-    args={}
+
+    args = {}
     args['stud_id'] = stud_id
     st = Student.objects.get(id=stud_id)
     args['student'] = st
-    #return HttpResponse('student={}'.format(stud_id))
+
     return render(request, 'students/detail.html', args)
+
+def create(request):
+    args = {}
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            name = data['name']
+            surname = data['surname']            
+            student = form.save()
+            #print form.cleaned_data
+            messages.success(request, 'Student %s %s has been successfully added.' % (name, surname))
+            return redirect('students:list_view')
+    else:    
+        form = StudentModelForm()
+        args['form'] = form
+        return render(request, 'students/add.html', args)
+
+def edit(request, stud_id):
+    args = {}
+    student = Student.objects.get(id=stud_id)
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST, instance=student)
+        if form.is_valid():
+            edit_student = form.save()
+            messages.success(request, 'Info on the student has been sucessfully changed.')
+            return redirect('students:edit', stud_id=stud_id)     
+    else:            
+
+        form = StudentModelForm(instance=student)
+        args['form'] = form
+        return render(request, 'students/edit.html', args)
+
+def remove(request, stud_id):
+    args = {}
+    student = Student.objects.get(id=stud_id)
+    if request.method == 'POST':
+        #data = form.cleaned_data
         
-
-
+        name = student.name
+        surname = student.surname
+        student.delete()
+        messages.success(request, 'Info on %s %s has been sucessfully deleted.' % (name, surname))
+        return redirect('students:list_view')
+    else:
+        args['student'] = student
+        return render (request, 'students/remove.html', args)    
