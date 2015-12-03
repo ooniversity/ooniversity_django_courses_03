@@ -16,15 +16,15 @@ def quadratic_results(request):
 	d=''
 	x = ''
 	y = ''
-	form = QuadraticForm()
+	#form = QuadraticForm()
 	if request.method == "GET":
-		form = QuadraticForm(request.GET)
+		form = QuadraticForm(request.GET or None)
 		if form.is_valid():
 			a = form.cleaned_data['a']
 			b = form.cleaned_data['b']
 			c = form.cleaned_data['c']
 			d = b**2 - 4*a*c
-			d=round(d, 1)
+			#d=round(d, 1)
 			result_d = 'Дискриминант: %s' %(d)
 			if d > 0:
 				x = (-b + d**(1/2.0))/(2*a)
@@ -37,4 +37,4 @@ def quadratic_results(request):
 				result = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
 	else:
 		form = QuadraticForm()
-	return render(request, 'results.html', {'form':form, 'a':a, 'b':b, 'c':c, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
+	return render(request, 'quadratic/results.html', {'form':form, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
