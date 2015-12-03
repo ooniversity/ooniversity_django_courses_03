@@ -2,7 +2,7 @@
 
 {% block title %}detail{% endblock title %}
 
-{% block detail %}<li class="active"><a href="#">detail</a></li>{% endblock %}
+{% block detail %}<li class="active"><a href="#">detail</a></li>{% endblock detail %}
 
 {% block content %}
 <h2>{{ course_detail.name }}</h2>
@@ -43,4 +43,4 @@
         </tbody>
     </table>
 </div>
-{% endblock %}
+{% endblock content %}
