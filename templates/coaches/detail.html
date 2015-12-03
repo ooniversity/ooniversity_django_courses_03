@@ -27,9 +27,9 @@
               </td>
               <td>
               {% for course in  course_coach %}
-              <a  class="table"href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+               <a  class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
                 students
-              <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+               <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
                 <button type="button" class="btn btn-xs" aria-label="Left Align">
                 <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
                 </button><br>
@@ -42,17 +42,17 @@
             <tr>
               <td>
                 Assistant for cources
-              </th>
+              </td>
               <td>
                 {% for course in  course_assistant %}
-              <a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-                students
-              <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
-                <button type="button" class="btn btn-xs" aria-label="Left Align">
-                <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
-              </button><br>
+                <a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}>
+                  students
+                <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                  <button type="button" class="btn btn-xs" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                  </button><br>
                 </a>
-              {% endfor %}
+                {% endfor %}
               </td>
             </tr>
             {% endif %}
