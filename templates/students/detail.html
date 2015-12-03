@@ -1,87 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% load staticfiles %}
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="" name="description">
-    <meta content="Orest Stetsiak" name="author">
-    <title>Students</title>
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'images/favicon.png' %}" rel="icon">
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button aria-controls="navbar" aria-expanded="false" class=
-            "navbar-toggle collapsed" data-target="#navbar" data-toggle=
-            "collapse" type="button"><span class="sr-only">Toggle
-          navigation</span> <span class="icon-bar"></span> <span class=
-            "icon-bar"></span> <span class="icon-bar"></span></button>
-          <a href="{% url 'index' %}">Main</a>
-          <a href="{% url 'contact' %}">Contacts</a>
-          <a href="{% url 'students:list_view' %}">Students</a>
-          <a href="{% url 'quadratic_start' %}">QE</a>
-        </div>
-      </div>
-    </nav>
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
+
+
+{% block title %}Student detail{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock nav_class_index %}
+
+
+{% block content %}
+
+
     <div class="jumbotron">
-
       <div class="container" role="main">
-
         <div class="table-responsive">
-          
-
-     <div class="jumbotron">
-        <h2 class="center">{{ student.name }} {{ student.surname }}</h2>
-    </div>
-    <table class="table">
-         <tr>
+          <div class="jumbotron">
+            <h2 class="center">{{ student.name }} {{ student.surname }}</h2>
+          </div>
+          <table class="table">
+            <tr>
               <td>bday</td>
               <td>{{ student.date_of_birth }}</td>
-        </tr>
-         <tr>
+            </tr>
+            <tr>
               <td>adress</td>
               <td>{{ student.address }}</td>
-        </tr>
-         <tr>
+            </tr>
+            <tr>
               <td>mail</td>
               <td>{{ student.email }}</td>
-        </tr>
-         <tr>
+            </tr>
+            <tr>
               <td>skype</td>
               <td>{{ student.skype }}</td>
-        </tr>
-         <tr>
+            </tr>
+            <tr>
               <td>cell</td>
               <td>{{ student.phone }}</td>
-        </tr>
-         <tr>
+            </tr>
+            <tr>
               <td>cource</td>
               <td>{% for course in student.courses.all %}
                 <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
-            {% endfor %} </td>
-        </tr>
-
-        
-
-
-
-    </table>
-
-
-
-
-
+                {% endfor %} 
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
-      <script src=
-        "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-      <script src="{% static "js/bootstrap.js" %}"></script> 
     </div>
-  </body>
-</html>
+
+
+{% endblock content %}
