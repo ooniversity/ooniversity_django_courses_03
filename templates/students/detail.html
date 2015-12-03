@@ -5,13 +5,16 @@
 {% block title %}Student Detail{% endblock title %}
 
 {% block content %}
+
 	{% block students %}
 			<h2 class='possition'>PyBursa</h2>
 			<div class='jumbotron'>
 				<h2>{{ student.name }} {{ student.surname }}</h2>
 			</div>
 	{% endblock students %}
+
 	{% block table %}
+
 			<div class='grey'>
 				<table class='table'>
 					<tr><th>Date of birth</th><th>{{ student.date_of_birth }}</th>
@@ -26,5 +29,7 @@
 					</th>
 				</table>
 			</div>
+
 	{% endblock table %}
+	
 {% endblock content %}

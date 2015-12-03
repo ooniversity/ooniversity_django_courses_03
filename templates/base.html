@@ -23,10 +23,10 @@
 		<nav class="navbar navbar-default navbar-static-top">
 	  		<div class="container">
 				<ul class="nav navbar-nav">
-			        <li class="{% block nav_active_main %}{% endblock %}"><a href="{% url 'index' %}">Main</a></li>
-			        <li class="{% block nav_active_contact %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
-			        <li class="{% block nav_active_students %}{% endblock %}"><a href="{% url 'students:list_view' %}">Students</a></li>
-			        <li class="{% block nav_active_quadratic %}{% endblock %}"><a href="{% url 'results' %}">Quadratic</a></li>
+			        <li class="{% block nav_active_main %}{% endblock nav_active_main %}"><a href="{% url 'index' %}">Main</a></li>
+			        <li class="{% block nav_active_contact %}{% endblock nav_active_contact %}"><a href="{% url 'contact' %}">Contacts</a></li>
+			        <li class="{% block nav_active_students %}{% endblock nav_active_students %}"><a href="{% url 'students:list_view' %}">Students</a></li>
+			        <li class="{% block nav_active_quadratic %}{% endblock nav_active_quadratic %}"><a href="{% url 'results' %}">Quadratic</a></li>
 				</ul>
 	  		</div>
 		</nav>
@@ -35,6 +35,7 @@
 			{% block course %}{% endblock course %}
 			{% block students %}{% endblock students %}
 			{% block table %}{% endblock table %}
+      {% block form %}{% endblock form %}
 		{% endblock content %}
 		</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
