@@ -4,9 +4,9 @@ from quadratic.forms import QuadraticForm
 
 # Create your views here.
 def quadratic_results(request):
-	a = ''
-	b = ''
-	c = ''
+	a = request.GET.get('a', '')
+ 	b = request.GET.get('b', '')
+ 	c = request.GET.get('c', '')
 	error_a = ""
 	error_o = ""
 	error_b = ""
@@ -19,10 +19,10 @@ def quadratic_results(request):
 	#form = QuadraticForm()
 	if request.method == "GET":
 		form = QuadraticForm(request.GET or None)
-		if form.is_valid():
-			a = form.cleaned_data['a']
-			b = form.cleaned_data['b']
-			c = form.cleaned_data['c']
+		if (a.lstrip('-').isdigit() and b.replace('-', '').isdigit() and c.replace('-', '').isdigit() and (a != '0')) == True:
+			a = int(a)
+ 			b = int(b)
+ 			c = int(c)
 			d = b**2 - 4*a*c
 			#d=round(d, 1)
 			result_d = 'Дискриминант: %s' %(d)
@@ -37,4 +37,4 @@ def quadratic_results(request):
 				result = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
 	else:
 		form = QuadraticForm()
-	return render(request, 'results.html', {'form':form, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
+	return render(request, 'quadratic/results.html', {'form':form, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
