@@ -5,17 +5,6 @@ from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
     context = {}
-    if request.method == 'GET':
-        form = QuadraticForm(request.GET)
-        if form.is_valid:
-            print 'aa'
-        return render(request, 'quadratic/results.html', context)
-    else:
-        form = QuadraticForm()
-
-
-def quadratic_results(request):
-    context = {}
     if request.GET:
         form = QuadraticForm(request.GET)
         context['form'] = QuadraticForm(request.GET)
