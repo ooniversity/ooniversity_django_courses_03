@@ -13,38 +13,23 @@
 
 
 {% block content %}
-  <div class="container">
-    <h2>Quadratic Eq</h2>
-    <h3>a*x*x  +  b*x  +  c  =  0</h3>
+<div class="page-header">
+  <h1 class="student-head">Квадратное уравнение a*x*x + b*x + c = 0</h1>                        
+</div>
+<div class="study_table2">
+  <div class="panel panel-default">
+  	<div class="panel-heading"><h3 class="course_program"><input type="submit" value="Решить" /></h3></div>
     <table class="table table-hover">
-      <form method="get">
-        {{ form.as_p }}
-        {% if a_unit %}
-        {{ a }}
-        {{ a_unit }}
+		  <tr><td><h4><form method="get">{{ form.as_p }}</form></h4></td></tr>
+        {% if context.D or context.D == 0 %}
+      <tr><td><h4>Дискриминант: {{ context.D }}</h4></td></tr>         
+        {% if context.D < 0 %}
+      <tr><td><h4>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</h4></td></tr> 
+        {% elif context.D == 0 %}
+      <tr><td><h4>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ context.x1 }}</h4></td></tr>
         {% else %}
-        {{ a }} 
-          {% endif %}
-        {% if b_unit %}
-        b= {{ b }} 
-        {{ b_unit }}
-        {% else %}
-        b = {{ b }}
-          {% endif %}
-        {% if c_unit %}
-        c = {{ c }}
-        {{ c_unit }}<
-        {% else %}
-        c = {{ c }}
+      <tr><td><h4>Квадратное уравнение имеет два действительных корня: x1 = {{ context.x1 }}, x2 = {{ context.x2 }}</h4></td></tr>
         {% endif %}
-      </table>
-      <table class="table table-hover">
-        {% if discr %}
-        Дискриминант: {{ dsc }
-        {{ dsc_unit }}
         {% endif %}
-        <input type="submit" />
-      </form>
-    </table>
-  </div>
+    </table>    
 {% endblock content %}
