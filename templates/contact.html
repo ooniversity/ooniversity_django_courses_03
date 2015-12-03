@@ -1,37 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% load staticfiles %}
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="" name="description">
-    <meta content="" name="author">
-    <title>Contact list</title>
-    <link href="{% static 'images/favicon.png' %}" rel="icon">
-    <link href="{% static 'fonts/lucida_console.ttf' %}" rel="stylesheet" type='text/css'>
-    <link href="{% static 'fonts/monaco.ttf' %}" rel="stylesheet" type='text/css'>
-    <link href="{% static 'fonts/lekton_regular.ttf' %}" rel="stylesheet" type='text/css'>
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
-    <link href="{% static 'css/starter-template.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button aria-controls="navbar" aria-expanded="false" class=
-            "navbar-toggle collapsed" data-target="#navbar" data-toggle=
-            "collapse" type="button"><span class="sr-only">Toggle
-          navigation</span> <span class="icon-bar"></span> <span class=
-            "icon-bar"></span> <span class="icon-bar"></span></button>
-          <a href="{% url 'index' %}">Main</a>
-          <a href="{% url 'contact' %}">Contacts</a>
-          <a href="{% url 'students:list_view' %}">Students</a>
-          <a href="{% url 'quadratic_start' %}">QE</a>
-        </div>
-      </div>
-    </nav>
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
+
+
+{% block title %}Contact{% endblock title %}
+
+
+{% block nav_class_contacts %}active{% endblock nav_class_contacts %}
+
+
+{% block content %}
+
     <div class="container">
       <div class="starter-template">
         <h1><strong>Contacts:</strong></h1>
@@ -129,10 +108,4 @@
         <div class="well well-lg">
           Regards!
         </div>
-        <script src=
-          "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-        <script src="{% static 'js/bootstrap.js' %}"></script>
-      </div>
-    </div>
-  </body>
-</html>
+{% endblock content %}
