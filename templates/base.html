@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 
-    <title></title>
+    <title>{% block title %}{% endblock %}</title>
     <meta name="description" content=""/>
 
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicons/apple-icon-144x144.png' %}">
     <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicons/apple-icon-152x152.png' %}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-icon-180x180.png' %}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'img/favicons/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/favicons/android-icon-192x192.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicons/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicons/favicon-96x96.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicons/favicon-16x16.png' %}">
@@ -39,51 +39,54 @@
 </head>
 <body>
 <div class="navbar-fixed">
-    <nav role="navigation">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a id="logo-container" href="{% url 'index' %}" class="brand-logo waves-effect waves-light">
-                    <div class="hide-on-med-and-down">
-                        <img src="{% static 'img/logo_itbursa.png' %}"
-                             width="30" id="appicon">
-                        <span style="font-size: 22px;font-weight:300;">ITBursa</span>
-                    </div>
-                    <div class="hide-on-large-only">
-                        <span style="font-size: 22px;font-weight:300;">ITBursa</span>
-                    </div>
-                </a>
+    {% block menu %}
+        <nav role="navigation">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a id="logo-container" href="{% url 'index' %}" class="brand-logo waves-effect waves-light">
+                        <div class="hide-on-med-and-down">
+                            <img src="{% static 'img/logo_itbursa.png' %}"
+                                 width="30" id="appicon">
+                            <span style="font-size: 22px;font-weight:300;">ITBursa</span>
+                        </div>
+                        <div class="hide-on-large-only">
+                            <span style="font-size: 22px;font-weight:300;">ITBursa</span>
+                        </div>
+                    </a>
 
-                <ul id="slide-out" class="side-nav">
-                    <li>
-                        <a href="{% url 'index' %}">Главная</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'contact' %}">Контакты</a>
-                    </li>
-                    {% block change_link_mobi %}
-                    <li>
-                        <a href="{% url 'students:list_view' %}">Студенты</a>
-                    </li>
-                    {% endblock %}
-                </ul>
-                <ul class="right hide-on-med-and-down">
-                    <li>
-                        <a href="{% url 'index' %}">Главная</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'contact' %}">Контакты</a>
-                    </li>
-                    {% block change_link %}
-                    <li>
-                        <a href="{% url 'students:list_view' %}">Студенты</a>
-                    </li>
-                    {% endblock %}
-                </ul>
+                    <ul id="slide-out" class="side-nav">
+                        <li class="active">
+                            <a href="{% url 'index' %}">Главная</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'contact' %}">Контакты</a>
+                        </li>
+                        {% block change_link_mobi %}
+                            <li>
+                                <a href="{% url 'students:list_view' %}">Студенты</a>
+                            </li>
+                        {% endblock %}
+                    </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <li  class="active">
+                            <a href="{% url 'index' %}">Главная</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'contact' %}">Контакты</a>
+                        </li>
+                        {% block change_link %}
+                            <li>
+                                <a href="{% url 'students:list_view' %}">Студенты</a>
+                            </li>
+                        {% endblock %}
+                    </ul>
 
-                <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+                    <a href="#" data-activates="slide-out" class="button-collapse"><i
+                            class="mdi-navigation-menu"></i></a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    {% endblock %}
 </div>
 
 <!-- start center banner -->
@@ -91,42 +94,47 @@
 <div id="index-banner">
     <div class="section">
         {% block banner %}
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <div class="card" style="background-color: rgba(255, 255,255, 0.90);">
-                        <div class="card-content">
-                            <div class="col l2 m3 s4">
-                                <img src="{% static 'img/logo_itbursa.png' %}" class="responsive-img">
-                            </div>
-                            <div class="hide-on-med-and-up col s8">
-                                <h1 style="font-size:1.2rem;font-weight:400;">Learn with ItBursa</h1>
-
-                            </div>
-                            <div class="col l10 m9 s12">
-                                <div class="hide-on-small-and-down">
-                                    <h1 style="font-size:1.64rem;font-weight:400;">Learn with ItBursa</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card" style="background-color: rgba(255, 255,255, 0.90);">
+                            <div class="card-content">
+                                <div class="col l2 m3 s4">
+                                    <img src="{% static 'img/logo_itbursa.png' %}" class="responsive-img">
+                                </div>
+                                <div class="hide-on-med-and-up col s8">
+                                    <h1 style="font-size:1.2rem;font-weight:400;">Learn with ItBursa</h1>
 
                                 </div>
-                                <div class="divider" style="clear:both;"></div>
-                            </div>
-                            <div class="s12" style="clear:both;">
-                                <p class="center-align" style="color: rgba(0, 0, 0, 0.71); margin: 15px;">Курсы ItBursa
-                                    начали работу в 2014 году. Мы специализируемся на «модных» языках программирования.
-                                    Принципиальное наше отличие от других курсов – максимум практики и жесткая система
-                                    обязательных домашних заданий. Преподаватели – опытные практикующие разработчики,
-                                    они помогают участникам в ходе курсов создать реальные проекты и получить
-                                    практические навыки, применимые к работе. Домашние задания на наших курсах
-                                    обязательны и их невыполнение приводит к исключению с курсов. Таким образом, мы
-                                    готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать
-                                    пусть простые, но рабочие проекты.</p>
+                                <div class="col l10 m9 s12">
+                                    <div class="hide-on-small-and-down">
+                                        <h1 style="font-size:1.64rem;font-weight:400;">Learn with ItBursa</h1>
 
+                                    </div>
+                                    <div class="divider" style="clear:both;"></div>
+                                </div>
+                                <div class="s12" style="clear:both;">
+                                    <p class="center-align" style="color: rgba(0, 0, 0, 0.71); margin: 15px;">Курсы
+                                        ItBursa
+                                        начали работу в 2014 году. Мы специализируемся на «модных» языках
+                                        программирования.
+                                        Принципиальное наше отличие от других курсов – максимум практики и жесткая
+                                        система
+                                        обязательных домашних заданий. Преподаватели – опытные практикующие
+                                        разработчики,
+                                        они помогают участникам в ходе курсов создать реальные проекты и получить
+                                        практические навыки, применимые к работе. Домашние задания на наших курсах
+                                        обязательны и их невыполнение приводит к исключению с курсов. Таким образом, мы
+                                        готовим не просто «слушателей» курсов, а настоящих специалистов, способных
+                                        создавать
+                                        пусть простые, но рабочие проекты.</p>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         {% endblock %}
     </div>
 </div>
@@ -143,7 +151,7 @@
 <div class="section no-pad-top no-pad-bot">
     <div class="container">
         <div class="row">
-            {% block list_courses %}{% endblock %}
+            {% block content %}{% endblock %}
         </div>
     </div>
 </div>
@@ -157,6 +165,7 @@
         <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Задайте вопрос</h5>
+
                 <form class="col s12" action="" method="post" id="contactForm">
                     <div class="row">
                         <div class="input-field col s6">
@@ -199,7 +208,7 @@
                     <li><a href="mailto:itbursa100@gmail.com" class="white-text"
                            style="">itbursa100@gmail.com </a></li>
                     <li><span class="white-text" style="">Tel: +38(077)1234578</span></li>
-                   </ul>
+                </ul>
             </div>
         </div>
     </div>
@@ -217,11 +226,11 @@
 <script src="{% static 'js/materialize.min.js' %}"></script>
 <script>
     $('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 240
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    }
-  );
+                menuWidth: 300, // Default is 240
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            }
+    );
 </script>
 <!--/ end scripts -->
 </body>

@@ -1,9 +1,11 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
+
+{% block title %}{{ coach.user.first_name }} {{ coach.user.last_name }}{% endblock %}
 
 {% block banner %}{% endblock %}
 
-{% block list_courses %}
+{% block content %}
     <div class="col s12">
         <h5 class="text-primarycolor">{{ coach.user.first_name }} {{ coach.user.last_name }}</h5>
 
@@ -22,7 +24,7 @@
                                 Дата рождения
                             </td>
                             <td>
-                                {{ coach.date_of_birth }}
+                                {{ coach.date_of_birth|date:'d F, Y' }}
                             </td>
                         </tr>
                         <tr>
@@ -64,8 +66,8 @@
                             <td>
                                 {% for course in coach_on_courses %}
                                     <div class="row">
-                                        <a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
-                                        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'courses:detail' course.id %}">{{ course }}</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
                                     </div>
                                 {% endfor %}
                             </td>
@@ -77,8 +79,8 @@
                             <td>
                                 {% for course in assistant_on_courses %}
                                     <div class="row">
-                                        <a href="{% url 'courses:detail' course.id %}">{{ course }}</a>
-                                        <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'courses:detail' course.id %}">{{ course }}</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
                                     </div>
                                 {% endfor %}
                             </td>

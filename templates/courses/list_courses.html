@@ -1,7 +1,9 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block list_courses %}
+{% block title %}Список всех доступных курсов{% endblock %}
+
+{% block content %}
     <div class="col s12">
         <h5 class="text-primarycolor">Спеши!!!</h5>
 
@@ -21,7 +23,7 @@
             {% for course in list_courses %}
                 <tr>
                     <td>
-                        <a href="{% url 'courses:detail' course.id %}"> {{ course.name }} </a>
+                        <a href="{% url 'courses:detail' course.id %}"> {{ course.name|upper }} </a>
                     </td>
                     <td>{{ course.short_description }}</td>
                 </tr>
