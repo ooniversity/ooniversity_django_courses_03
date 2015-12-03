@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+
+{% load static from staticfiles %}
+
+
+{% block title %}Student detail{% endblock %}
+
+
+{% block navigation_main_students %}active{% endblock %}
+
+
+{% block content %}
+<div>
+  <h1 id="student_name">Terentiev Denys</h1>
+</div>>
+<div class="container">
+  <h2>Курс PyBursa</h2>
+  <p>Ниже представлен список студентов курса PyBursa</p>            
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th colspan="2">Информация о студенте</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Surname</td>
+        <td>Terentiev</td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>Denys</td>
+      </tr>
+      <tr>
+        <td>Patronymic</td>
+        <td>Mikhailovich</td>
+      </tr>
+      <tr>
+        <td>Rating</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>Average Grade</td>
+        <td>95.0</td>
+      </tr>
+      <tr>
+        <td>Birth Date</td>
+        <td>15.03.1988</td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>Kharkov</td>
+      </tr>
+      <tr>
+        <td>E-mail</td>
+        <td>denn.terentyev@gmail.com</td>
+      </tr>
+      <tr>
+        <td>Skype</td>
+        <td>i_h.a.t.e</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h3>Perfomance</h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Week</th>
+        <th>Control Type</th>
+        <th>Grande</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Python</td>
+        <td>Week 1</td>
+        <td>Tests</td>
+        <td>100%</td>
+      </tr>
+      <tr>
+        <td>Django</td>
+        <td>Week 2</td>
+        <td>Test</td>
+        <td>100%</td>
+      </tr>
+      <tr>
+        <td>Own Project</td>
+        <td>Week 3</td>
+        <td>Problem Task</td>
+        <td>100%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
