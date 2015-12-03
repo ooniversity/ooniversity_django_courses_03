@@ -30,7 +30,7 @@
           {% if list_of_courses %}
           {% for i in list_of_courses %}
           <tr>
-            <td> <a href="courses/{{ i.id }}"> {{ i.name|upper }} </a> </td>
+            <td> <a href="courses/{{ i.id }}">{{ i.name|upper }}</a> </td>
             <td>{{ i.short_description|title }}</td>
           </tr>
           {% endfor %}
