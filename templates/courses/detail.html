@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title_name %}Course information{% endblock title_name %}
+{% block title %}Course information{% endblock title %}
 
  
 {% block content %}
@@ -23,9 +23,9 @@
 						</thead>	
 						<tbody>
 							<tr>
-								<td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.name}} {{course.coach.surname}}</a>
+								<td><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.name }} {{ course.coach.surname }}</a>
 									<br/>
-									<p>{{course.coach.description}}</p>
+									<p>{{ course.coach.description }}</p>
 								</td>
 							</tr>
 						</tbody>
@@ -38,9 +38,9 @@
 						</thead>	
 						<tbody>
 							<tr>
-								<td><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.name}} {{course.assistant.surname}}</a>
+								<td><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.name }} {{ course.assistant.surname }}</a>
 									<br/>
-									<p>{{course.assistant.description|truncatechars:32}}</p>
+									<p>{{ course.assistant.description|truncatechars:32 }}</p>
 								</td>
 							</tr>
 						</tbody>
@@ -65,9 +65,9 @@
 						<tbody>
 							{% for les in lessons %}
 					    <tr>
-								<td>{{les.order}}</td> 
-						    <td>{{les.subject}}</td>
-								<td>{{les.description}}</td>
+								<td>{{ les.order }}</td> 
+						    <td>{{ les.subject }}</td>
+								<td>{{ les.description }}</td>
 							</tr>
 							{% endfor %}
 						</tbody>

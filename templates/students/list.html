@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title_name %}Student list{% endblock title_name %}
+{% block title %}Student list{% endblock title %}
 
 
 {% block active_students %}active{% endblock active_students %}
@@ -30,13 +30,13 @@
 						<tbody>
 							{% for st in students %}
 					    <tr>
-								<td>{{forloop.counter}}</td> 
-						    <td><a href="{% url 'students:detail' st.id %}">{{st.name}} {{st.surname}}</td>
-								<td>{{st.address}}</td>
-								<td>{{st.skype}}</td>
+								<td>{{ forloop.counter }}</td> 
+						    <td><a href="{% url 'students:detail' st.id %}">{{ st.name }} {{ st.surname }}</td>
+								<td>{{ st.address }}</td>
+								<td>{{ st.skype }}</td>
 								<td>
 									{% for cour in st.courses.all %}								
-									<p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</p>
+									<p><a href="{% url 'courses:detail' cour.id %}">{{ cour.name }}</p>
 									{% endfor %}
 								</td>
 							</tr>

@@ -1,8 +1,16 @@
 {% extends "base_template.html" %}
+
+
 {% load staticfiles %}
-    {% block title_name %}Student list{% endblock title_name %}
-		{% block active_students %}active{% endblock active_students %}
-		{% block content %}
+
+
+{% block title %}Student list{% endblock title %}
+
+
+{% block active_students %}active{% endblock active_students %}
+
+
+{% block content %}
 		<div class="container">
 			<div class="page-header">
 				<h1>Список студентов</h1>
@@ -38,5 +46,5 @@
 				</div>
 			</div>
 		</div>
-		{% endblock content %}
+{% endblock content %}
 		

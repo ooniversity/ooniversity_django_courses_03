@@ -4,11 +4,11 @@
 {% load staticfiles %}
 
 
-{% block title_name %}Course information{% endblock title_name %}
+{% block title %}Course information{% endblock title %}
 
  
 {% block content %}
-		{% include "courses/include/inc_course_description.html" %}
+		{% include "courses/includes/inc_course_description.html" %}
 		<div class="container">
 			<div class="page-header">
 				<h2>Преподаватели</h2>

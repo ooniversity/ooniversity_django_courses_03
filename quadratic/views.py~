@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
+from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
 	#s_new = s.split('&')
+	form = QuadraticForm()
 	a = request.GET.get('a')
 	b = request.GET.get('b')
 	c = request.GET.get('c').split('/')[0]
@@ -63,5 +65,5 @@ def quadratic_results(request):
 			x2 = round(float((-b - (b*b - 4*a*c)**(1/2.0)) / (2.0*a)), 1)
 			message = u'Квадратное уравнение имеет два действительных корня:'
 			roots = 'x1 = %s, x2 = %s' % (x1, x2)
-	return render(request, 'results.html', {'a':a, 'b':b, 'c':c, 'discriminant':mes_discr, 'message':message, 'roots':roots, 'mes_a':mes_a, 'mes_b':mes_b, 'mes_c':mes_c})
+	return render(request, 'results.html', {'a':a, 'b':b, 'c':c, 'discriminant':mes_discr, 'message':message, 'roots':roots, 'mes_a':mes_a, 'mes_b':mes_b, 'mes_c':mes_c, 'form':form})
 	

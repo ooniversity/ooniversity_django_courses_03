@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	{% load staticfiles %}
+{% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,7 @@
 					</ul>	
 			</div>
 		</div>
-		{% block content %}{% endblock content %}
+{% block content %}{% endblock content %}
 		<script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->

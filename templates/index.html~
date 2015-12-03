@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
   
-{% block title_name %}Main{% endblock title_name %}
+{% block title %}Main{% endblock title %}
 
 
 {% block active_main %}active{% endblock active_main %}
@@ -32,7 +32,7 @@
 							{% for cour in courses %}
 					    <tr>
 						    <td>
-									<a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a>
+									<a href="{% url 'courses:detail' cour.id %}">{{cour.name|upper}}</a>
 								</td>
 								<td>{{cour.short_description|title}}</td>
 					    </tr>

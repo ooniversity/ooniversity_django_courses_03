@@ -4,13 +4,13 @@
 {% load staticfiles %}
 
 
-{% block title_name %}Coaches information{% endblock title_name%}
+{% block title %}Coaches information{% endblock title %}
 
 
 {% block content %}
 		<div class="container">
 			<div class="page-header">
-				<h2>{{teacher.name}} {{teacher.surname}}</h2>
+				<h2>{{ teacher.name }} {{ teacher.surname }}</h2>
 				<h4>Информация:</h4>
 			</div>
 			<div class="row">
@@ -19,40 +19,40 @@
 						<thead>
 							<tr>
 				      <th>дата рождения</th>
-				      <td>{{teacher.date_of_birth|date:'F j, Y'}}</td>
+				      <td>{{ teacher.date_of_birth|date:'F j, Y' }}</td>
 						</tr>
 						<tr>
 							<th>адрес</th>
-							<td>{{teacher.address}}</td>
+							<td>{{ teacher.address }}</td>
 						</tr>
 				    <tr>
 							<th>почта</th>
-							<td>{{teacher.email}}</td>
+							<td>{{ teacher.email }}</td>
 						</tr>
 						<tr>
 							<th>логин skype</th>
-							<td>{{teacher.skype}}</td>
+							<td>{{ teacher.skype }}</td>
 						</tr>
 						<tr>
 							<th>телефон</th>
-							<td>{{teacher.phone}}</td>
+							<td>{{ teacher.phone }}</td>
 						</tr>
-						{% if course_where_coach %}
+						{% if teacher.coach_courses.all %}
 						<tr>
 							<th>курсы учитель</th>
 							<td>
-								{% for course in course_where_coach %}								
-								<p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a></p>
+								{% for course in teacher.coach_courses.all %}								
+								<p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a></p>
 								{% endfor %}
 							</td>
 						</tr>
 						{% endif %}
-						{% if course_where_assistant %}
+						{% if teacher.assistant_courses.all %}
 						<tr>
 							<th>курсы ассистент</th>
 							<td>
-								{% for course in course_where_assistant %}
-								<p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a></p>
+								{% for course in teacher.assistant_courses.all %}
+								<p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-share" aria-hidden="true"></span></a></p>
 								{% endfor %}
 							</td>
 						</tr>
