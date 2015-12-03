@@ -3,10 +3,10 @@
 {% load staticfiles %}
 
 
-{% block title %}Coach detail{% endblock %}
+{% block title %}Coach detail{% endblock title %}
 
 
-{% block nav_main %}active{% endblock %}
+{% block nav_main %}active{% endblock nav_main %}
 
 
 {% block content %}
@@ -39,7 +39,7 @@
                   <td>Courses coach</td>
                   <td>
                     {% for crs in course %}
-                        <a href="{% url 'courses:detail' crs.id %}">{{ crs.name }}</a> Course students
+                        <a href="{% url 'courses:detail' crs.id %}">{{ crs.name }}</a>
                         <a href="{% url 'students:list_view' %}?course_id={{ crs.id }}">
                     {% endfor %}
                   </td>
@@ -48,7 +48,7 @@
                   <td>Courses assistant</td>
                   <td>
                     {% for assist in assistant %}
-                        <a href="{% url 'courses:detail' assist.id %}">{{ assist.name }}</a> Course students 
+                        <a href="{% url 'courses:detail' assist.id %}">{{ assist.name }}</a>
                         <a href="{% url 'students:list_view' %}?course_id={{ assist.id }}">
                     {% endfor %}
                   </td>  
