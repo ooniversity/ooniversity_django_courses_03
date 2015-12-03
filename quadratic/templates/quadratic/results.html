@@ -11,7 +11,7 @@
 
     <form method="get">
         {{ form.as_p }}
-        <input class="button_quadratic" type="submit" value="Решить"/>
+        <input type="submit" value="Решить"/>
     </form>
 
     {% if context.d or context.d == 0 %}
@@ -20,10 +20,9 @@
     решений.</p>
     {% elif context.d == 0 %}<p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень:
     x1 = x2 = {{ context.x1 }}</p>
-    {% else %}<p>Квадратное уравнение имеет два действительных корня: x1={{ context.x1 }}, x2={{ context.x2 }}</p>
+    {% else %}<p>Квадратное уравнение имеет два действительных корня: x1 = {{ context.x1 }}, x2 = {{ context.x2 }}</p>
     {% endif %}
     {% endif %}
-    </ul>
 </div>
 </body>
 </html>
