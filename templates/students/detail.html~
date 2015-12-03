@@ -13,7 +13,7 @@
 {% block content %}
 		<div class="container">
 			<div class="page-header">
-				<h2>{{student.name}} {{student.surname}}</h2>
+				<h2>{{ student.name }} {{ student.surname }}</h2>
 				<h4>Информация</h4>
 			</div>
 			<div class="row">
@@ -22,29 +22,29 @@
 						<thead>
 						  <tr>
 			        <th>дата рождения</th>
-			        <td>{{student.date_of_birth}}</td>
+			        <td>{{ student.date_of_birth }}</td>
 						</tr>
 						<tr>
 							<th>адрес</th>
-							<td>{{student.address}}</td>
+							<td>{{ student.address }}</td>
 						</tr>
 			      <tr>
 							<th>почта</th>
-							<td>{{student.email}}</td>
+							<td>{{ student.email }}</td>
 						</tr>
 						<tr>
 							<th>логин skype</th>
-							<td>{{student.skype}}</td>
+							<td>{{ student.skype }}</td>
 						</tr>
 						<tr>
 							<th>телефон</th>
-							<td>{{student.phone}}</td>
+							<td>{{ student.phone }}</td>
 						</tr>
 						<tr>
 							<th>курсы</th>
 							<td>
 								{% for cour in student.courses.all %}								
-								<p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</p>
+								<p><a href="{% url 'courses:detail' cour.id %}">{{ cour.name }}</p>
 								{% endfor %}
 							</td>
 						</tr>
