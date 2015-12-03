@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 
+{% load staticfiles %}
+
+
 {% block title %}Course detail!{% endblock %}
 
 
@@ -9,14 +12,14 @@
 
 {% block content %}
 
-    {% include "courses/include/inc_descr.html" %}
+    {% include "courses/include/course_include.html" %}
 
     <div class="container">
 
       <div class="starter-template">
         <div class="container">
               <h2>{{ course.name }} course details</h2>
-              <h3>{{ course.description|truncatechars:32 }}</h3>
+              <h3>{{ course.description|truncatechars:35 }}</h3>
               <br>
                 <h3>Coach</h3>
                  <table class="table">
