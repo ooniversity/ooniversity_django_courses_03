@@ -17,8 +17,9 @@
   <h1>Преподаватели курса</h1>
 </div>
 
-{% include "include/inc_inctructor.html" with block_title="Учитель курса" instructor=course.coach %}
-{% include "include/inc_inctructor.html" with block_title="Ассистент курса" instructor=course.assistant %}
+{% include "include/inc_inctructor_include.html" with block_title="Учитель курса" instructor=course.coach %}
+
+{% include "include/inc_inctructor_include.html" with block_title="Ассистент курса" instructor=course.assistant %}
 
 <table  class="jewel" border="1" cellpadding="10" >
   <tr>
