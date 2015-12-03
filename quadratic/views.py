@@ -4,9 +4,6 @@ from quadratic.forms import QuadraticForm
 
 # Create your views here.
 def quadratic_results(request):
-	#a = request.GET.get('a', '')
-	#b = request.GET.get('b', '')
-	#c = request.GET.get('c', '')
 	a = ''
 	b = ''
 	c = ''
