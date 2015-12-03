@@ -8,7 +8,7 @@
 {% block nav_student %}{% endblock nav_student %}
 
 
-{% block url_student %}{% url 'students:list_view' %}{{id_c}}{% endblock url_student %}
+{% block url_student %}{% url 'students:list_view' %}{{ id_c }}{% endblock url_student %}
    
    
 {% block content %}
@@ -28,7 +28,7 @@
 
 {% for i in name_lesson %}
   <tr>
-    <td>{{forloop.counter}}</td><td>{{i}}</a></td><td>{{i.description|truncatechars:32}}</td>
+    <td>{{ forloop.counter }}</td><td>{{ i }}</a></td><td>{{ i.description|truncatechars:32 }}</td>
   </tr>
 {% endfor %}
 </table>    
