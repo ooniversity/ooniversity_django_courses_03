@@ -2,12 +2,12 @@
 
 {% block title %}detail{% endblock title %}
 
-{% block detail %}<li class="active"><a href="#">detail</a></li>{% endblock detail %}
+{% block detail %}
+<li class="active"><a href="#">detail</a></li>{% endblock detail %}
 
 {% block content %}
-<h2>{{ course_detail.name }}</h2>
 
-<p>{{ course_detail.description|truncatechars:32 }}</p>
+{% include "include/course_description_include.html" %}
 
 <h3> Преподаватели: </h3>
 
