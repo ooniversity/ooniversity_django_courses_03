@@ -1,11 +1,15 @@
  # -*- coding: utf-8 -*-
 from django.shortcuts import render
+from quadratic.forms import QuadraticForm
 
 # Create your views here.
 def quadratic_results(request):
-	a = request.GET.get('a', '')
-	b = request.GET.get('b', '')
-	c = request.GET.get('c', '')
+	#a = request.GET.get('a', '')
+	#b = request.GET.get('b', '')
+	#c = request.GET.get('c', '')
+	a = ''
+	b = ''
+	c = ''
 	error_a = ""
 	error_o = ""
 	error_b = ""
@@ -15,49 +19,25 @@ def quadratic_results(request):
 	d=''
 	x = ''
 	y = ''
-	dic = {a:"", b:"", c:""}
-	if (a.lstrip('-').isdigit() and b.replace('-', '').isdigit() and c.replace('-', '').isdigit() and (a != '0')) == True:
-		a = int(a)
-		b = int(b)
-		c = int(c)
-		d = b**2 - 4*a*c
-		d=round(d, 1)
-		result_d = 'Дискриминант: %s' %(d)
-		if d > 0:
-			x = (-b + d**(1/2.0))/(2*a)
-			y = (-b - d**(1/2.0))/(2*a)
-			#x=round(x, 1)
-			#y=round(y, 1)
-			result = 'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' %(x, y)
-		elif d == 0:
-			x = (-b + d**(1/2.0))/(2*a)
-			#x=round(x, 1)
-			#y = ''
-			result = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' %(x)
-		elif d < 0:
-			result = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+	form = QuadraticForm()
+	if request.method == "GET":
+		form = QuadraticForm(request.GET)
+		if form.is_valid():
+			a = form.cleaned_data['a']
+			b = form.cleaned_data['b']
+			c = form.cleaned_data['c']
+			d = b**2 - 4*a*c
+			d=round(d, 1)
+			result_d = 'Дискриминант: %s' %(d)
+			if d > 0:
+				x = (-b + d**(1/2.0))/(2*a)
+				y = (-b - d**(1/2.0))/(2*a)
+				result = 'Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s' %(x, y)
+			elif d == 0:
+				x = (-b + d**(1/2.0))/(2*a)
+				result = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' %(x)
+			elif d < 0:
+				result = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
 	else:
-		list_int = [a, b, c]
-		if list_int[0] == '0':
-			for l in list_int[1:]:
-				if l == "":
-					dic[l] = "эффициент не определен"
-				elif l.replace('-', '').isdigit() == False:
-					dic[l] = "коэффициент не целое число"
-				else:
-					dic[l] = ""
-			error_o = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
-		else:
-			for l in list_int:
-				if l == "":
-					dic[l] = "коэффициент не определен"
-				elif l.replace('-', '').isdigit() == False:
-					dic[l] = "коэффициент не целое число"
-				else:
-					dic[l] = ""
-			else:
-				pass
-		error_a = dic[a]
-		error_b = dic[b]
-		error_c = dic[c]
-	return render(request, 'results.html', {'a':a, 'b':b, 'c':c, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
+		form = QuadraticForm()
+	return render(request, 'results.html', {'form':form, 'a':a, 'b':b, 'c':c, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})

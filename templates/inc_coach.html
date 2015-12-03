@@ -1,0 +1,6 @@
+<div class='jumbotron'>
+	<h2>Наши преподователи:</h2>
+	{% for coach in coaches %}
+		<p>{{ coach.full_name }}</p>
+	{% endfor %}
+</div>
