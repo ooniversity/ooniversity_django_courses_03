@@ -13,6 +13,18 @@ def list_view(request):
 
 
 def create(request):
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST)
+        if form.is_valid():
+            application = form.save()
+            mess = "Student {} {} has been successfully added.".format(request.POST['name'], request.POST['surname'])
+            messages.success(request, mess)
+            return redirect('students:list_view')
+    else:
+        form = StudentModelForm()
+    return render(request, 'students/add.html', {'form': form})
+
+def edit(request):
     print request.POST
     if request.method == 'POST':
         form = StudentModelForm(request.POST)
