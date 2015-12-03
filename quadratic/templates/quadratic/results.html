@@ -15,10 +15,13 @@
       <div class="container">
         <div class="jumbotron transparant-background">
           <h2 class="text-align-center">Квадратное уравнение a*x*x + b*x + c = 0</h2>
+            <ul>
             <form method="get">
+             <!--{% csrf_token %}-->
               {{ form.as_p }}
               <input type="submit">
             </form>
+          </ul>
           {{ d }}<br>
           {{ solution }}
         </div>
