@@ -95,5 +95,5 @@ def quadratic_results(request):
 	else:
 		form = QuadraticForm()
 	result['form'] = form
-	return render(request, "results.html", result)	
+	return render(request, "quadratic/results.html", result)	
 	
