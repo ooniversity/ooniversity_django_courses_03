@@ -20,20 +20,25 @@ def quadratic_results(request):
 			b = int(my_dict['b'])
 			c = int(my_dict['c'])
 			d = get_discr(a, b, c)
+			out = {'d': "Дискриминант: %s" %d}
 		
-			if a == 0:
-				pass
+			#if a == 0:
+				#b = clean_a(0)
+				#return b
+				#my_dict['form'] = form
 				#my_dict['error_2'] = get['a']
 		
-			elif d < 0: 
+			if d < 0: 
 				my_dict['d'] = d
 				my_dict['form'] = form
+				my_dict.update(out)
 
 			elif d == 0:
 				x = -b / 2*a
 				my_dict['x1'] = round(x, 1)
 				my_dict['d'] = d
 				my_dict['form'] = form
+				my_dict.update(out)
 
 			else:
 				x1 = (-b + d**(1/2.0)) / 2*a
@@ -42,6 +47,7 @@ def quadratic_results(request):
 				my_dict['x2'] = round(x2, 1)
 				my_dict['d'] = d
 				my_dict['form'] = form	
+				my_dict.update(out)
 			return render(request, 'quadratic/results.html', my_dict)
 		else:
 			#form = QuadraticForm(request.GET)
