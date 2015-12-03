@@ -8,7 +8,7 @@
 
  
 {% block content %}
-		{% include "courses/includes/inc_course_description.html" %}
+		{% include "courses/includes/course_description_include.html" %}
 		<div class="container">
 			<div class="page-header">
 				<h2>Преподаватели</h2>
