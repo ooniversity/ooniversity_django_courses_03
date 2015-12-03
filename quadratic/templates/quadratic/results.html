@@ -28,6 +28,7 @@
               <li class="{% block nav_main %}{% endblock nav_main %}"><a href="{% url 'index' %}">Main</a><li>
               <li class="{% block nav_contacts %}{% endblock nav_contacts %}"><a href="{% url 'contact' %}">Contacts</a><li>
               <li class="{% block nav_students %}{% endblock nav_students %}"><a href="{% url 'students:list' %}">Students</a><li>
+              <li class="active"><a href="/">Results</a><li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -38,7 +39,7 @@
        <h3>a*x*x + b*x + c = 0</h3>
        <form method="get">
             <p>{{ form.as_p }}</p>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Решить" />
        </form>
         <br />
          <ul>
