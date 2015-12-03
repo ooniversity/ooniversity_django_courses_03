@@ -29,17 +29,9 @@
 
 		<div class="container theme-showcase" role="main">
 {% block content %}
-			<div class="jumbotron">
-				<div class="container">
-					<h1>ITBursa</h1>	
-				</div>
-	      <h1>Description</h1>
-	      <p>In this course we shifted the emphasis towards the practice.
-It will be a moderate amount of theory - maximum of practice.
-Approximate ratio of theory and practice: 30% to 70%
-Courses will take place from October 19 to December 28.
-Practical lessons in the classroom + online lectures.</p>
-	     </div>
+
+{% include "include/oouniversity_include.html" with block_title="PyBursa" block_description="In this course we shifted the emphasis towards the practice.It will be a moderate amount of theory - maximum of practice. Courses will take place from October 19 to December 28. Practical lessons in the classroom + online lectures." block_subtitle="Description" %}
+
 	     <div class="page-header">
         <h1>Program</h1>
       </div>
