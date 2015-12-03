@@ -8,9 +8,10 @@
   <body>
 		<h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
 		<form>
-		  {{ form.as_p }}
+		  {{ context.form.as_p }}
 		  <input type="submit" value="Решить" />
 		</form>
+{{ context.error }}
 {% if context.d or context.d == 0 %}
 <p>Дискриминант: {{ context.d }}</p>
 {% if context.d < 0 %}<p><strong>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</strong></p>
