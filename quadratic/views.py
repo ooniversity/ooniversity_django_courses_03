@@ -33,5 +33,5 @@ def quadratic_results(request):
 		else:
 			context['error'] = "коэффициент не целое число"
 		context['form'] = form
-	return render(request, 'quadratic/results.html', {'context': context})
+	return render(request, 'results.html', {'context': context})
 		
