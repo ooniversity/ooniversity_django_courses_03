@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Students {{course.name}}</title>
-	{% load staticfiles %}
-  <link href={%static 'css/bootstrap.css'%} rel="stylesheet">
-  <link href={%static 'css/style.css'%} rel="stylesheet">
-	<script src={%static 'js/jquery.min.js'%}></script>
-  <script src={%static 'js/bootstrap.min.js'%}></script>
-</head>
-<body>
-	<nav class="navbar navbar-default">
-    <ul class="nav navbar-nav">
-      <li><a href={% url 'index'%}>Main</a></li>
-      <li><a href={% url 'contact'%}>Contacts</a></li>
-      <li><a href={% url 'students:list_view'%}>Students</a></li>
-    </ul>   
-  </nav>
+{% extends 'base.html' %}
+
+{% block title %}Students {{ course.name }}{% endblock title %}
+
+{% block content %}
   <div class="jumbotron container">
-    <h2>Students {{course.name}}</h2>
+    <h2>Students {{ course.name }}</h2>
     <table class="table">
 			<thead>
 				<tr>
@@ -34,13 +18,13 @@
 			<tbody>
 			{% for student in students %}
 				<tr>
-				<td>{{student.id}} </td>
-				<td><a href={% url 'students:detail' student.id %}>{{student.surname}} {{student.name}}</a></td>
-				<td>{{student.address}}</td>
-				<td>{{student.skype}}</td>
+				<td>{{ student.id }} </td>
+				<td><a href={% url 'students:detail' student.id %}>{{ student.surname }} {{ student.name }}</a></td>
+				<td>{{ student.address }}</td>
+				<td>{{ student.skype }}</td>
 				<td>
 				{% for course in student.courses.all %}
-					<a href={% url 'courses:detail' course.id %}>{{course.name}} </a>
+					<a href={% url 'courses:detail' course.id %}>{{ course.name }} </a>
 				{% endfor %}
 				</td>
 				</tr>
@@ -48,5 +32,4 @@
       </tbody>
 		</table>
   </div>
-</body>
-</html>
+{% endblock content %}
