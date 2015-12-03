@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>{% block title %}{%endblock%}</title>
+    <title>{% block title %}{% endblock title %}</title>
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -36,9 +36,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="{% block nav_class_index %}{% endblock %}"><a href="{% url 'index' %}">Main</a></li>
-                    <li class="{% block nav_class_contacts %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li class="{% block nav_class_students %}{% endblock %}"><a href="{% url 'students:list_view' %}{% block students_url_id %}{% endblock %}">Students</a></li>
+                    <li class="{% block nav_class_index %}{% endblock nav_class_index %}"><a href="{% url 'index' %}">Main</a></li>
+                    <li class="{% block nav_class_contacts %}{% endblock nav_class_contacts %}"><a href="{% url 'contact' %}">Contacts</a></li>
+                    <li class="{% block nav_class_students %}{% endblock nav_class_students %}"><a href="{% url 'students:list_view' %}{% block students_url_id %}{% endblock students_url_id %}">Students</a></li>
                     <li><a href="{% url 'results' %}">Equation</a></li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@
     </nav>
     <div class="container">
         <div class="row">
-            {% block content %}{% endblock %}
+            {% block content %}{% endblock content %}
         </div>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

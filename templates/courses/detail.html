@@ -3,20 +3,20 @@
 {% load staticfiles %} 
 
 
-{% block title %}Courses Page{%endblock%}
+{% block title %}Courses Page{%endblock title %}
 
 
-{% block nav_class_index %}active{% endblock %}
+{% block nav_class_index %}active{% endblock nav_class_index %}
 
 
-{% block students_url_id %}?course_id={{courses.id}}{% endblock %}
+{% block students_url_id %}?course_id={{courses.id}}{% endblock students_url_id %}
 
 
 {% block content %}
     <div class="col-lg-12">
         <div class="well">
             <h1>{{ courses|upper }}</h1>
-            <p>{{ courses.description|truncatechars:32|title }}</p>
+            <p>{{ courses.description|truncatechars:32 }}</p>
         </div>
         <h2>Преподаватели</h2> 
 
