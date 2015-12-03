@@ -16,7 +16,7 @@
 <div class="jumbotron">
 <h2>PyBursa</h2>
 <h4>Description</h4>
-  <p class="justify">Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. </p>
+  <p class="justify">Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together.</p>
   <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
 </div>
 </div>
@@ -25,7 +25,7 @@
 <tr>
  <th>Курс</th><th>Описание</th>
 {% for i in name_course %}
-<tr><td><a href="{% url 'courses:detail' i.id %}">{{ i|upper }}</a></td><td>{{ i.description|title }} </td></tr>
+<tr><td><a href="{% url 'courses:detail' i.id %}">{{ i|upper }}</a></td><td>{{ i.description|title }}</td></tr>
 {% endfor %}
 </tr>
 </table>

@@ -8,7 +8,7 @@
 {% block nav_student %}active{% endblock nav_student %}
 
 
-{% block url_student %}{% url 'students:list_view' %}{{id_c}}{% endblock url_student %}
+{% block url_student %}{% url 'students:list_view' %}{{ id_c }}{% endblock url_student %}
    
    
 {% block content %}
@@ -19,7 +19,7 @@
 	<tr>
 		<th>#</th><th>Фамилия имя</th><th>Адрес</th><th>Skype</th><th>Курсы</th>
 	</tr> 
-	<tr >
+	<tr>
 		{% for i in name_stud %}
   		<td>{{ forloop.counter }}</td>
   		<td><a href="{% url 'students:detail' i.id %}">{{ i }} {{ i.surname }}</a></td>
