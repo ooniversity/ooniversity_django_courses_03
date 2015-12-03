@@ -56,3 +56,30 @@
 .detail h2, h3, p {
 	text-align: center;
 }
+.wrapper_quadratic li {
+	list-style: none;
+	padding: 5px 0 5px 0;
+	font-weight: normal;
+}
+.Quadratic_res {
+	font-size: 40px;
+}
+.wrapper_quadratic {
+	text-align: left;
+}
+.wrapper_quadratic input {
+	margin: 0 0 0 5px;
+	padding-left: 10px;
+	border: 1px solid #e7e7e7;
+	border-radius: 5px;
+}
+.button {
+	background-color: #1b6d85;
+	padding-right: 10px;
+	color: white;
+}
+.button:hover {
+	background-color: white;
+	padding-right: 10px;
+	color: #1b6d85;
+}
