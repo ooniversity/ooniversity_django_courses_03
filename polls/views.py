@@ -23,7 +23,7 @@ def index(request):
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    template = loader.get_template('cources/index.html')
+    template = loader.get_template('cources/base.html')
     context = RequestContext(request, {
         'latest_question_list': latest_question_list,
     })
@@ -34,7 +34,7 @@ def index(request):
 def index(request):
     latest_question_list = Question.objects.all().order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
-    return render(request, 'cources/index.html', context)
+    return render(request, 'cources/base.html', context)
 
 
 def detail(request, question_id):
@@ -70,7 +70,7 @@ def detail(request, question_id):
 
 
 class IndexView(generic.ListView):
-    template_name = 'cources/index.html'
+    template_name = 'cources/base.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
