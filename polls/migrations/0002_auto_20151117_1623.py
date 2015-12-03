@@ -40,6 +40,5 @@ class Migration(migrations.Migration):
             model_name='choice',
             name='question',
             field=models.ForeignKey(to='polls.Question'),
-            preserve_default=True,
         ),
     ]
