@@ -1,73 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="">
-    <title>PyBursa Project</title>
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-	  <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
-    <script src="{% static 'assets/js/ie-emulation-modes-warning.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/mine.js' %}"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body>
-    <div class="navbar-wrapper">
-      <div class="container">
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li><a href="{% url 'index' %}">Main</a><li>
-                <li><a href="{% url 'contact' %}">Contacts</a><li>
-                <li class="active"><a href="{% url 'students:list_view' %}">Students</a><li>  
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <div class="container">
+{% extends "base.html" %}
 
-    <div class="container">
-        <h2>Students list</h2>
-        <br></br>
-        <br></br>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Name\Surname</th>
-                    <th>Address</th>
-                    <th>Skype</th>
-                    <th>Course</th>
-                  </tr>
-                </thead>
-                <tbody>
-                {% for student in students %}
-                <tr>
-                <td>{{ student.id }}</td>
-                  <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}<a></td>
-                  <td>{{ student.address }}</td>
-                  <td>{{ student.skype }}</td>
-                  <td>{% for course in student.courses.all %}
-                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
-                      {% endfor %}
-                  </td>
-                  </tr>
-                    {% empty %}
-                  <h3>No students</h3>
-                    {% endfor %}
-                </tbody>
-            </table>
-      </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+
+{% load static from staticfiles %}
+
+
+{% block title %}Students list{% endblock %}
+
+
+{% block active_students %}active{% endblock %}
+
+
+{% block main %}
+
+<div class="container">
+  <h2>Students list</h2>
+  </br>
+  </br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name\Surname</th>
+          <th>Address</th>
+          <th>Skype</th>
+          <th>Course</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for student in students %}
+      <tr>
+      <td>{{ student.id }}</td>
+        <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}<a></td>
+        <td>{{ student.address }}</td>
+        <td>{{ student.skype }}</td>
+        <td>{% for course in student.courses.all %}
+        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+            {% endfor %}
+        </td>
+        </tr>
+          {% empty %}
+        <h3>No students</h3>
+          {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock main %}
