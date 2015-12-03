@@ -18,7 +18,7 @@
       <div class="bursa">
         <h1 id="pb" class="bursa">{{ courses.name }}</h1>
         {% if courses.name == "Python Bursa" %}
-        <div class="index-logo">
+        <div class="details-logo">
             <img class="logo-pybursa" src="{% static 'images/pblogo.jpg' %}" alt="...">
           </div>
         {% elif courses.name == "Java Bursa" %}
