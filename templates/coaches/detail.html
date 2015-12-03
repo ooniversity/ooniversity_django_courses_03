@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Courses info</title>
-    {% load staticfiles %}
-    <script src="{% static 'js/bootstrap.js' %}"> </script>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Courses info{% endblock %}
+{% block menu %}
     <div id="menu">
         <ul class="nav nav-pills">
             <li><a href="{% url 'index' %}">Main</a></li>
@@ -16,6 +8,8 @@
             <li><a href="{% url 'students:list_view'%}?course_id={{ item.id }}">Students</a></li>
         </ul>
     </div>
+{% endblock %}
+{% block content %}
     <div class="jumbotron">
         <h1 class="center">{{ item.name }}</h1>
         <p class="center"> {{ item.description }}</p>
@@ -31,28 +25,25 @@
                 <th>Учитель на курсах</th>
                 <th>Ассистент на курсах</th>
             </tr>
-
             <tr>
-                <td> {{ coach.user.first_name }} {{ coach.user.last_name }} </td>
-                <td> {{ coach.date_of_birth }} </td>
-                <td> {{ coach.address }}</td>
-                <td> {{ coach.user.email }} </td>
-                <td> {{ coach.skype }} </td>
-                <td> {{ coach.phone }} </td>
+                <td>{{ coach.user.first_name }} {{ coach.user.last_name }}</td>
+                <td>{{ coach.date_of_birth|date:'j F, Y' }}</td>
+                <td>{{ coach.address }}</td>
+                <td>{{ coach.user.email }}</td>
+                <td>{{ coach.skype }}</td>
+                <td>{{ coach.phone }}</td>
                 <td>{% for course in coach.coach_courses.all %}
                     <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-                    <a href="{% url 'students:list_view'%}?course_id={{ course.id }}">Students</a>
+                    <a href="{% url 'students:list_view'%}?course_id={{ course.id }}">(Students)</a>
                     <br>
                     {% endfor %}
                 </td>
                 <td>{% for course in coach.assistant_courses.all %}
                     <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-                    <a href="{% url 'students:list_view'%}?course_id={{ course.id }}">Students</a>
+                    <a href="{% url 'students:list_view'%}?course_id={{ course.id }}">(Students)</a>
                     <br>
                     {% endfor %}
                 </td>
             </tr>
-
         </table>
-</body>
-</html>
+{% endblock %}

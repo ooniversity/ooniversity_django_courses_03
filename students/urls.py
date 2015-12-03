@@ -4,6 +4,10 @@ import views
 
 urlpatterns = patterns('',
                        url(r'^$', views.list_view, name='list_view'),
-                       url(r'^(\d{1})/$', views.detail, name='detail'),
+                       url(r'^([0-9]+)/$', views.detail, name='detail'),
+                       url(r'^add/$', views.create, name='add'),
+                       url(r'^edit/([0-9]+)/$', views.edit, name='edit'),
+                       url(r'^delete/([0-9]+)/$', views.delete, name='delete'),
+
                        )
 
