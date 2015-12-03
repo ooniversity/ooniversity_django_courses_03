@@ -10,7 +10,7 @@ def eq_diction(temp, item):
     eq_dict.update({key:item[key] if key in item else '' for key in temp})
     eq_dict.update({key+'_unit': 'коэффициент не определен' for key in temp if eq_dict[key] == ''})
     eq_dict.update({key+'_unit': False for key in temp if key+'_unit' not in eq_dict})    
-    #eq_dict['a_unit'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю' if eq_dict['a'] == '0' else eq_dict['a_unit']
+    eq_dict['a_unit'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю' if eq_dict['a'] == '0' else eq_dict['a_unit']
     return eq_dict
 
 def roots_eq(temp):
