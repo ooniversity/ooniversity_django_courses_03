@@ -4,45 +4,36 @@ from quadratic.forms import QuadraticForm
 
 
 def quadratic_results(request):
-    # print 'a'
-    # form = QuadraticForm()
     context = {}
-    # a, b, c = '', '', ''
-    # for key in request.GET.keys():
-    #     if request.GET[key] == '':
-    #         context[key] = ''
-    #         context[key + '_type'] = 'string'
-    #     else:
-    #         try:
-    #             context[key] = int(request.GET[key])
-    #             context[key + '_type'] = 'integer'
-    #         except Exception:
-    #             context[key] = str(request.GET[key])
-    #             context[key + '_type'] = 'string'
+    if request.method == 'GET':
+        form = QuadraticForm(request.GET)
+        if form.is_valid:
+            print 'aa'
+        return render(request, 'quadratic/results.html', context)
+    else:
+        form = QuadraticForm()
 
-    if request.GET.get('a') != None:
-        # print 'aa'
+
+def quadratic_results(request):
+    context = {}
+    if request.GET:
         form = QuadraticForm(request.GET)
         context['form'] = QuadraticForm(request.GET)
         if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
+            context['discrim'] = b * b - 4 * a * c
 
-            if form.clean_a():
-                data = form.cleaned_data
-                # print data['a']
-
-                context['disrcim'] = data['b']**2 - 4 * data['a'] * data['c']
-                # print context['disrcim']
-                if context['disrcim'] > 0:
-                    context['x1'] = float(
-                        (-data['b'] + context['disrcim']**(1 / 2.0)) / (2 * data['a']))
-                    context['x2'] = float(
-                        (-data['b'] - context['disrcim']**(1 / 2.0)) / (2 * data['a']))
-                elif int(context['disrcim']) == 0:
-                    context['x1'] = context[
-                        'x2'] = float(-data['b'] / (2 * data['a']))
-
-        return render(request, 'quadratic/results.html', context)
+            context['disrcim'] = b ** 2 - 4 * a * c
+            if context['disrcim'] > 0:
+                context['x1'] = float(
+                    (-b + context['disrcim']**(1 / 2.0)) / (2 * a))
+                context['x2'] = float(
+                    (-b - context['disrcim']**(1 / 2.0)) / (2 * a))
+            elif int(context['disrcim']) == 0:
+                context['x1'] = context[
+                    'x2'] = float(-b / (2 * a))
     else:
         context['form'] = QuadraticForm()
-
-        return render(request, 'quadratic/results.html', context)
+    return render(request, 'quadratic/results.html', context)
