@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 
-{% block title %}Students List{% endblock %}
+{% block title %}Students List{% endblock title %}
 
 
-{% block nav_students %}active{% endblock %}
+{% block nav_students %}active{% endblock nav_students %}
 
 
 {% block content %}
@@ -41,6 +41,7 @@
                                   <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
                                 {% endfor %}
                             </td>
+                            <td><a href="{% url 'students:add' %}" class="btn btn-primary" role="button">Change</a></td>
                         </tr>
                     {% empty %}
                           <h3>No students</h3>
