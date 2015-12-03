@@ -1,19 +1,17 @@
 {% extends "base.html" %}
 
+
 {% load staticfiles %}
+
 
 {% block title %}PyCoach{% endblock title %}
 
-{% block content %}
 
+{% block content %}
   <table class="table table-condensed">
     <thead><h3>{{ coach.user.first_name }} {{ coach.user.last_name }}</h3>
-      <tr>
-        
-      </tr>
-    </thead>
+      </thead>
     <tbody>
-      
       <tr>
         <td>дата рождения</td>
         <td>{{ coach.date_of_birth|date:'j F, Y' }}</td>
