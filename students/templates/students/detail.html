@@ -9,41 +9,34 @@
      <link href="{%static 'css/bootstrap.css' %}" rel="stylesheet">
 	 <link href="{%static 'css/style.css' %}" rel="stylesheet">
      <script src="{%static 'js/bootstrap.js' %}"></script>
-    <title>Contact</title>
+    <title>Student detail</title>
   </head>
 
   <body>
         <div class="black">
       <ul class="nav nav-tabs">
       <li role="presentation" ><a href="{% url 'index'%}">Main</a></li>
-      <li role="presentation" class="active"><a href="{% url 'contact'%}">Contacts</a></li>
+      <li role="presentation" ><a href="{% url 'contact'%}">Contacts</a></li>
 	  <li role="presentation"><a href="{% url 'students:list_view'%}">Students</a></li>
       </ul>
-	  
-      <h1 class="dt">Contacts</h1>
-	  <h2 class="boss"><span class="job">Director</span></h2> </br>
-		<p>
-						<span class="name">Name: дядя </span> </br>
-					   <span class="skype">Skype: skype </span></br>
-					   <span class="email">Email: email@ukr.net</span></br>
-					   <span class="phone">Phone: 1111</span>
-	  </p>
-	  	 	  <h2 class="manager"> <span class="job">Manager</span></h2> </br>
-			  <p>
-						<span class="name">Name: дядя </span> </br>
-					   <span class="skype">Skype: skype </span></br>
-					   <span class="email">Email: email@ukr.net</span></br>
-					   <span class="phone">Phone: 1111</span>
-	  </p>
-	  	  	  <h2 class="founder"> <span class="job">Founder</span></h2> </br>
-			  <p>
-						<span class="name">Name: дядя </span> </br>
-					   <span class="skype">Skype: skype </span></br>
-					   <span class="email">Email: email@ukr.net</span></br>
-					   <span class="phone">Phone: 1111</span>
-	  </p>
-      <p>Not finished - yes</p>
-	  	<p class="alert">Здесь нужен bootstrap</p>
+	 <h1 class="dl"> {{ student.surname }} {{ student.name }}</h1>
+    </br>
+         <p><b>Дата рождения:</b> {{ student.date_of_birth }}</p>
+         <p><b>Адрес:</b> {{ student.address }}</p>
+         <p><b>Почта:</b> {{ student.email }}</p>
+         <p><b>Логин skype:</b> {{ student.skype }}</p>
+         <p><b>Телефон:</b> {{ student.phone }}</p>
+         <p><b>Курсы:</b>
+             <ul>
+             {% for course in student.courses.all %}
+              <li>   <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></li>
+            {% endfor %}
+            </ul>
+         </p>
+
+
+		
+		<p class="alert">Здесь нужен bootstrap</p>
 	<p class="alert-dismissable">Еще немного bootstrap</p>
 	<p class="alert-dismissible">Еще немного bootstrap</p>
 	<p class="alert-success">Еще немного bootstrap</p>
@@ -53,5 +46,10 @@
 	<p class="progress">Еще немного bootstrap</p>
 	<p class="jumbotron">Еще немного bootstrap</p>
 	<p class="breadcrumb">Еще немного bootstrap</p>
+	<p class="end">THE END</p>
+
+
+
     </div>
   </body>
+

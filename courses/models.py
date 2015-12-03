@@ -17,12 +17,3 @@ class Lesson(models.Model):
     def __unicode__(self):
         return self.subject
 
-class Student(models.Model):
-    name = models.CharField(max_length = 100)
-    surname = models.CharField(max_length = 100)
-    date_of_birth = models.DateTimeField()
-    email = models.EmailField()
-    phone = models.CharField(max_length = 100)
-    address = models.CharField(max_length = 100)
-    skype = models.CharField(max_length = 100)
-    courses = models.ManyToManyField('Course')

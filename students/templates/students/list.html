@@ -1,0 +1,91 @@
+﻿{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="AlexI">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+     <link href="{%static 'css/bootstrap.css' %}" rel="stylesheet">
+	 <link href="{%static 'css/style.css' %}" rel="stylesheet">
+     <script src="{%static 'js/bootstrap.js' %}"></script>
+    <title>Student List</title>
+  </head>
+
+  <body>
+        <div class="black">
+      <ul class="nav nav-tabs">
+      <li role="presentation" ><a href="{% url 'index'%}">Main</a></li>
+      <li role="presentation" ><a href="{% url 'contact'%}">Contacts</a></li>
+	  <li role="presentation"><a href="{% url 'students:list_view'%}">Students</a></li>
+      </ul>
+	 <h1 class="dl">Список Students PyBursa</h2>
+	 <p>Список студентов по состоянию на 15.11.2015</p>
+
+           <h2 class="header">Courses</h2>
+      <table class="border">
+        <tbody>
+        <tr class="column_name">
+           <td class="first_column">
+            #
+          </td>
+          <td class="number_cell3">
+            Фамилия Имя
+          </td>
+             <td class="number_cell3">
+            Адрес
+          </td>
+          <td class="number_cell3">
+            Skype
+          </td>
+           <td class="number_cell3">
+            Курсы
+          </td>
+          </tr>
+        {% for student in students %}
+        <tr>
+            <td class="number_cell1">
+              {{ student.id }}
+          </td>
+          <td class="number_cell3">
+              <a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a>
+          </td>
+           <td class="number_cell3">
+              {{ student.address }}
+          </td>
+          <td class="number_cell3">
+              {{ student.skype }}
+          </td>
+          <td class="number_cell3">
+            <ul>
+            {% for course in student.courses.all %}
+            <li>
+              <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+            </li>
+            {% endfor %}
+              </ul>
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+
+
+		
+		<p class="alert">Здесь нужен bootstrap</p>
+	<p class="alert-dismissable">Еще немного bootstrap</p>
+	<p class="alert-dismissible">Еще немного bootstrap</p>
+	<p class="alert-success">Еще немного bootstrap</p>
+	<p class="alert-info">Еще немного bootstrap</p>
+	<p class="alert-warning">Еще немного bootstrap</p>
+	<p class="alert-danger">Еще немного bootstrap</p>
+	<p class="progress">Еще немного bootstrap</p>
+	<p class="jumbotron">Еще немного bootstrap</p>
+	<p class="breadcrumb">Еще немного bootstrap</p>
+	<p class="end">THE END</p>
+
+
+
+    </div>
+  </body>
+
