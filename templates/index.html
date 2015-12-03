@@ -25,7 +25,7 @@
 <tr>
  <th>Курс</th><th>Описание</th>
 {% for i in name_course %}
-<tr><td><a href="{% url 'courses:detail' i.id %}">{{i|upper}}</a></td><td>{{i.description|title}} </td></tr>
+<tr><td><a href="{% url 'courses:detail' i.id %}">{{ i|upper }}</a></td><td>{{ i.description|title }} </td></tr>
 {% endfor %}
 </tr>
 </table>

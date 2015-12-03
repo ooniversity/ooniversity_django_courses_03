@@ -8,39 +8,39 @@
 {% block nav_student %}{% endblock nav_student %}
 
 
-{% block url_student %}{% url 'students:list_view' %}{{id_c}}{% endblock url_student %}
+{% block url_student %}{% url 'students:list_view' %}{{ id_c }}{% endblock url_student %}
    
    
 {% block content %}
 <div class="center">
- <h1>{{coach.user.first_name}} {{coach.user.last_name}}</h1> 
+ <h1>{{ coach.user.first_name }} {{ coach.user.last_name }}</h1> 
 </div>
 <table class=" width table-color" border="1">
  <tr > 
   <td class="bold">дата рождения</a></td>
-  <td>{{coach.date_of_birth|date:"j F, Y"}}</td>
+  <td>{{ coach.date_of_birth|date:"d F, Y" }}</td>
  </tr>
  <tr> 
   <td class="bold">почта</a></td>
-  <td>{{coach.user.email}}</td>
+  <td>{{ coach.user.email }}</td>
  </tr>
  <tr> 
   <td class="bold">телефон</a></td>
-  <td>{{coach.phone}}</td>
+  <td>{{ coach.phone }}</td>
  </tr>
  <tr> 
   <td class="bold">адрес</a></td>
-  <td>{{coach.address}}</td>
+  <td>{{ coach.address }}</td>
  </tr>
  <tr> 
   <td class="bold">логин Skype</a></td>
-  <td>{{coach.skype}}</td>
+  <td>{{ coach.skype }}</td>
  </tr>
 {% for course in courses_coach %}
  <tr > 
   <td class="bold">учитель курса</a></td>
   <td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a> students
-  <a href="{% url 'students:list_view' %}{{course_par}}{{course.id}}">
+  <a href="{% url 'students:list_view' %}{{ course_par }}{{ course.id }}">
    <button type="button" class="btn btn-default" aria-label="Left Align">
     <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
    </button>
@@ -52,8 +52,8 @@
 <tr > 
 <td class="bold">ассистент курса</a></td>
 
-<td><a href="{% url 'courses:detail' course_as.id %}">{{course_as}}</a> students
-<a href="{% url 'students:list_view' %}{{course_par}}{{course_as.id}}">
+<td><a href="{% url 'courses:detail' course_as.id %}">{{ course_as }}</a> students
+<a href="{% url 'students:list_view' %}{{ course_par }}{{ course_as.id }}">
 <button type="button" class="btn btn-default" aria-label="Left Align">
 <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
 </button>
