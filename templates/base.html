@@ -27,7 +27,7 @@
             <ul class="nav navbar-nav"> 
               <li class="{% block nav_brand_index %}{% endblock %}"><a href="{% url 'index' %}">Главная</a></li>
               <li class="{% block nav_brand_contacts %}{% endblock %}"><a href="{% url 'contact' %}">Контакты</a></li>
-              {% block students %}<li class="{% block nav_brand_students %}{% endblock %}">{% endblock %}
+              {% block students %}<li class="{% block nav_brand_students %}{% endblock %}"><a href="{% url 'students:list_view' %}">Студенты</a></li>{% endblock %}
               <li class="{% block nav_brand_quadratic %}{% endblock %}"><a href="{% url 'quadratic:results' %}">Quadratic</a></li>
             </ul>
           </div>

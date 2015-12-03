@@ -23,7 +23,7 @@
                       дата рождения
             </h3></td>
             <td><h3>
-                      {{ coach.date_of_birth|date:'F j, Y' }}
+                      {{ coach.date_of_birth|date:'j F, Y' }}
             </h3></td></tr>
           <tr><td><h3>
                       email
