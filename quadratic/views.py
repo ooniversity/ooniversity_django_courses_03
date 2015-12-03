@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.http import HttpResponse
+from forms import QuadraticForm
 
 def discr(request,a,b,c):
   a=float(a)
@@ -26,6 +27,7 @@ def oneroot(request, a, b, c):
   return t
 
 def quadratic_results(request):
+  form = QuadraticForm()
   a = request.GET['a']
   b = request.GET['b']
   c = request.GET['c']
@@ -52,5 +54,6 @@ def quadratic_results(request):
     else:
       answer['xx'] = tworoots(request, a, b, c)
   answer.update(koef)
+  answer['form'] = form
   return render(request,'results.html', answer)
 

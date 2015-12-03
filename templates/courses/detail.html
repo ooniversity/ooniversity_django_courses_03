@@ -10,15 +10,11 @@
   <div class="container">
     <div class="col-md-12">
       <h1>{{ course }}</h1>
-      <h2>{{ course.description|truncatechars:35 }}</h2>
+      <h2>{{ course.description|truncatechars:32 }}</h2>
     <div class="container">
       <div class="col-md-12">
-
-{% include "include/instructors_include.html" with block_title="Учитель" instructor=coach %}    
-
-
-{% include "include/instructors_include.html" with block_title="Ассистент" instructor=assistant %}    
-        
+      {% include "include/instructors_include.html" with block_title="Учитель" instructor=coach %}
+      {% include "include/instructors_include.html" with block_title="Ассистент" instructor=assistant %}  
       </div>
     </div>
   <h3>План Курса</h3>

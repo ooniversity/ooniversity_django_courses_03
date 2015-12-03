@@ -25,13 +25,9 @@
     </nav>
     <div class="container">
       <h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
-
-
-      <form>
-        коэффициент a: <input name="a" type="text" /><br/>
-        коэффициент b: <input name="b" type="text" /><br/>
-        коэффициент c: <input name="c" type="text" /><br/>
-        <input type="submit" />
+      <form method="get">
+        {{ form.as_p }}
+        <input type="submit" /><br>
       </form>
       a = {{a}}<br>
       <br>
