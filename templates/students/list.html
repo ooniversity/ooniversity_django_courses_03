@@ -7,41 +7,57 @@
 {% block nav_class_students %}active{% endblock nav_class_students %}
 
 
+{% block link_students %}
+  {% url 'students:list_view' %}
+{% endblock link_students %}  
+
+
 {% block content %}
 
 
 {% load static from staticfiles %}
-    <h1>Список студентов</h1>
+   
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+  <p><a href="{% url 'students:add' %}" class="btn btn-primary" role="button">Добавить нового студента</a></p>
+  <h1>Список студентов</h1>
     
-    <br>
-    <br>
+  <br>
+  <br>
     
-    <table class="table table-bordered">
+  <table class="table table-bordered">
         
-        <th>фамилия имя</th>
-        <th>адрес</th>
-        <th>skype</th>
-        <th>курсы</th>
+    <th>фамилия имя</th>
+    <th>адрес</th>
+    <th>skype</th>
+    <th>курсы</th>
         
-      <tbody>
-        {% for r in students %}
-          {% cycle "<tr><td>" "<tr><td>" "<tr><td>" "<tr><td>" %}
+    <tbody>
+      {% for r in students %}
+        {% cycle "<tr><td>" "<tr><td>" "<tr><td>" "<tr><td>" %}
         
             
-            <a href="{% url 'students:detail' r.id %}">{{r.surname}} {{ r.name }}</a></td>
-            <td>{{r.address}}</td>
-            <td>{{r.skype}}</td>
-            <td>
-              <ul>
-                {% for g in r.courses.all %}
-                  <li><a href="{% url 'courses:detail' g.id %}">{{ g.name }}</a></li>
-                {% endfor %}
-              </ul>    
+        <a href="{% url 'students:detail' r.id %}">{{r.surname}} {{ r.name }}</a><p><a href="{% url 'students:edit' r.id %}" class="btn btn-primary" role="button">Изменить</a><a href="{% url 'students:remove' r.id %}" class="btn btn-primary" role="button">Удалить</a></p></td>
+          <td>{{r.address}}</td>
+          <td>{{r.skype}}</td>
+          <td>
+            <ul>
+              {% for g in r.courses.all %}
+                <li>
+                  <a href="{% url 'courses:detail' g.id %}">{{ g.name }}</a> 
+                  </li>
+              {% endfor %}
+            </ul>    
 
-          {% cycle "</td></tr>" "</td></tr>" "</td></tr>" "</td></tr>" %}
-        {% endfor %}
+        {% cycle "</td></tr>" "</td></tr>" "</td></tr>" "</td></tr>" %}
+      {% endfor %}
         
 
-      </tbody>
-    </table>
+    </tbody>
+  </table>
 {% endblock content %}  
