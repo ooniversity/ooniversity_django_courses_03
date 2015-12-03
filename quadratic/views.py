@@ -5,7 +5,6 @@ from django import forms
 from forms import QuadraticForm
 
 def eq_diction(temp, item):
-
     eq_dict = {key+'_unit':'коэффициент не целое число' for key,value in item.items() if not value.strip('-').isdigit()}
     eq_dict.update({key:item[key] if key in item else '' for key in temp})
     eq_dict.update({key+'_unit': 'коэффициент не определен' for key in temp if eq_dict[key] == ''})
