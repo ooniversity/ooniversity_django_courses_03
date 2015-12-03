@@ -1,13 +1,11 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% block title %}{% endblock title %}
-
-
-    {% load staticfiles %}
+    <title>{% block title %}{% endblock title %}</title>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 +   <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <script src="{% static 'js/bootstrap.js' %}"></script>
@@ -27,14 +25,18 @@
             <ul class="nav navbar-nav"> 
               <li class="{% block nav_brand_index %}{% endblock %}"><a href="{% url 'index' %}">Главная</a></li>
               <li class="{% block nav_brand_contacts %}{% endblock %}"><a href="{% url 'contact' %}">Контакты</a></li>
-              <li class="{% block nav_brand_students %}{% endblock %}"><a href="{% url 'students:list_view' %}{% block nav_course_id %}{% endblock %}">Студенты</a></li>
+              <li class="{% block nav_brand_students %}{% endblock %}"><a href="{% url 'students:list_view' %}{% block nav_brand_courses %}{% endblock %}">Студенты</a></li>
               <li class="{% block nav_brand_quadratic %}{% endblock %}"><a href="{% url 'quadratic:results' %}">Quadratic</a></li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
-    {% block content %}{% endblock content %}  
+
+
+    {% block content %}{% endblock content %} 
+
+ 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </body>
 </html>

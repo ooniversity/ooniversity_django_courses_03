@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
+
 {% load staticfiles %}
 
 
-{% block title %}<title>ooniversity-coaches_details</title>{% endblock %}
+{% block title %}<title>ooniversity-coaches_details</title>{% endblock title %}
 
 
 {% block content %}
