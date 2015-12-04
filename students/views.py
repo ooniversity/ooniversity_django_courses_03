@@ -4,9 +4,12 @@ from students.models import Student, CourseApplication
 from courses.models import Course, Lesson
 from django import forms
 from django.contrib import messages
-from students.forms import StudentModelForm
-from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+#from students.forms import StudentModelForm
+
+class StudentModelForm(forms.ModelForm):
+	class Meta:
+		model = Student
+        fields = '__all__'
 
 def add(request):
 	if request.method == 'POST':
@@ -15,7 +18,7 @@ def add(request):
 			application = form.save()
 			mess = u'Student {} {} has been successfully added.' .format(application.name, application.surname)
 			messages.success(request, mess)
-			return HttpResponseRedirect(reverse('students:list_view'))
+			return redirect('students:list_view')
 	else:
 		form = StudentModelForm()
 	return render(request, 'students/add.html', {'form': form})
