@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Академия Щ.И.Т - {% block title %}{% endblock title %}</title>
+    <title>{% block title %}{% endblock title %}</title>
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -32,13 +32,12 @@
           <ul class="nav navbar-nav">
             <li class="{% block nav_class_main %}{% endblock nav_class_main %}"active><a href="{% url 'index' %}">Main</a><span class="sr-only">(current)</span></li>
             <li class="{% block nav_class_contact %}{% endblock nav_class_contact %}"><a href="{% url 'contact' %}">Contacts</a></li>
-            <li class="{% block nav_class_students %}{% endblock nav_class_students %}"><a href="{% url 'students:list_view' %}">Students</a></li>
+            <li class="{% block nav_class_students %}{% endblock nav_class_students %}"><a href={% block student_of_course %}"{% url 'students:list_view' %}"{% endblock student_of_course %}>Students</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>    
-    {% block content %}
-    {% endblock content %}
+    {% block content %}{% endblock content %}
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
