@@ -14,11 +14,18 @@
 
 {% block content %}
     <div class="col-lg-12">
+        {% if messages %}
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                {% for message in messages %} {{ message }} {% endfor %}
+            </div>
+        {% endif %}
         <div class="well">
             <h1>{{ courses|upper }}</h1>
             <p>{{ courses.description|truncatechars:32 }}</p>
         </div>
         <h2>Преподаватели</h2> 
+
 
 
         {% include 'include/instructor_include.html' with block_title='Учитель' instructor=courses.coach %} 
@@ -27,6 +34,8 @@
 
 
         <h2>Program about {{ courses }}</h2>
+        <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-info">Создать новые уроки</a>
+
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
