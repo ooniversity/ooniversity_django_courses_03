@@ -53,7 +53,7 @@
 .table a:hover {
 	background-color: #e7e7e7;
 }
-.detail h2, h3, p {
+.detail h2, h3 {
 	text-align: center;
 }
 .Quadratic_res {
@@ -62,6 +62,14 @@
 .wrapper_quadratic {
 	text-align: left;
 }
-.button_quadratic {
+.form_add p label {
+	width: 131px;
+}
+.form_add h4 {
+	font-size: 40px;
 	text-align: center;
+	padding-bottom: 20px;
+}
+.messages {
+	background-color: #4cae4c;
 }
