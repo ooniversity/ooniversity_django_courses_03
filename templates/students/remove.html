@@ -15,7 +15,7 @@
   <h1><strong>Студент {{ application }} будет удален </strong></h1></br>
     <form method="post">
       {% csrf_token %}		
-	  <button type="submit" class="btn btn-primary">Удалить</button>
+	  <input type="submit" value="Удалить" />
     </form>
 </div>
 {% endblock content %}
