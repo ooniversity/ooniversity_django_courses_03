@@ -16,8 +16,7 @@
         <form method="post">
         	{% csrf_token %}
 		  {{ model_form.as_p }}		
-		  <button type="submit" class="btn btn-primary">Создать</button>
+		  <input type="submit" value="Создать" />
 		</form>
-        <p></p>
     </div>
 {% endblock content %}
