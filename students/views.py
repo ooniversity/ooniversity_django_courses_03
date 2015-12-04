@@ -40,10 +40,10 @@ def edit(request):
         form = StudentModelForm()
     return render(request, 'students/edit.html', {'form': form})
 
-def remove(request, student_id):
-    student = Student.objects.get(id = student_id)
+def remove(request, pk):
+    application = Student.objects.get(id = pk)
     if request.method == "POST":
-        student.delete()
+        application.delete()
         messages.success(request, "Info on %s %s has been sucessfully deleted." % (student.name, student.surname))
         return redirect('students:list_view')
-    return render(request, 'students/remove.html', { 'student' : student })
+    return render(request, 'students/remove.html', {'application' : application})
