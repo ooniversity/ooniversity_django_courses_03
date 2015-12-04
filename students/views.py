@@ -28,7 +28,6 @@ def create(request):
             return redirect('students:list_view')
     else:
         form = StudentModelForm()
-    print form
     return render(request, 'students/add.html', {'form': form})
 
 def edit(request, student_id):
