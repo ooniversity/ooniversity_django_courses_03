@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %}<title>Course detail</title>{% endblock title%}
+{% block title %}<title>Course detail</title>{% endblock title %}
 
 {% block nav-class-index %}active{% endblock nav-class-index %}
 
@@ -14,12 +14,12 @@
 						</div>
       
           <div class="container">
-          {% if course.coach%}
+          {% if course.coach %}
             <p>Coaches</p>
             <p><a href={% url 'coaches:detail' course.coach.id%}>{{course.coach.user.username}}</a></p>
           {% endif %}
 
-          {% if course.assistant%}
+          {% if course.assistant %}
             <p>Assistants</p>
             <p><a href={% url 'coaches:detail' course.assistant.id%}>{{course.assistant.user.username}}</a></p>
           {% endif %}
@@ -38,13 +38,12 @@
             <tbody>
               {% for lesson in course.lesson_set.all %}
                 <tr>
-                  <td>{{lesson.order}}</td>
-                  <td>{{lesson.subject}}</td>
-                  <td>{{lesson.description}}</td>
+                  <td>{{ lesson.order }}</td>
+                  <td>{{ lesson.subject }}</td>
+                  <td>{{ lesson.description }}</td>
                 </tr>
               {% endfor %}
             </tbody>
 						</table>
 		</div>
-</html>
 {% endblock content %}
