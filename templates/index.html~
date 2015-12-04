@@ -1,65 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>IT Courses - Main</title>
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <img src="{% static 'images/python.png' %}" class="navbar-logo">
-        </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+{% extends "base.html" %}
 
-    <div class="container" id='id1'>
-      <h1>BEST IT</h1>
-      <p class=simple>Добро пожаловать на страницу нашей ИТ школы. Мы научим вас программировать с нуля. Обучаясь онлайн у профессионалов, вы быстро достигнете результатов. Наши выпускники сейчас работают в большинстве крупных ИТ компаний города.</p>
-      <h3 class=h3>Мы предлагаем обучение по таким направлениям</h3>
-    </div>
 
-    <div class="container" id='id1'>
-					<table class="table table-striped">
-						<thead>
-								<tr>
-									<th>Курс</th>
-									<th>Описание</th>
-								</tr>
-						</thead>
-						<tbody>
-              {% for course in all_courses %}
+{% block title %}IT Courses - Main{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block content %}
+      <div class="container" id='id1'>
+        <h1>BEST IT</h1>
+        <p class="lead">Добро пожаловать на страницу нашей ИТ школы. Мы научим вас программировать с нуля. Обучаясь онлайн у профессионалов, вы быстро достигнете результатов. Наши выпускники сейчас работают в большинстве крупных ИТ компаний города.</p>
+        <h3 class=h3>Мы предлагаем обучение по таким направлениям</h3>
+      </div>
+      <div class="container" id='id1'>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Курс</th>
+              <th>Описание</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for course in all_courses %}
               <tr>
                 <td><a href="{% url 'courses:detail' course.id%}">{{course.name}}</a></td>
-                <td>{{course.short_description}}</td>
+                <td>{{course.short_description|title}}</td>
               </tr>
-              {% endfor %}
-						</tbody>
-					</table>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-  </body>
-</html>
+{% endblock content %}

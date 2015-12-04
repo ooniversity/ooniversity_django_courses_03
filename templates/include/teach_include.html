@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{Teacher_title}}</h3>
+  </div>
+  <div class="panel-body">
+    <p><a href="{% url 'coaches:detail' instructor.id %}">{{instructor.first_name}} {{instructor.last_name}}</a></p>
+    <p>{{instructor.description}}</p>
+  </div>
+</div>

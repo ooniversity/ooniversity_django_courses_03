@@ -1,68 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Курс {{my_course.name}}</title>
-    {% load staticfiles %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <img src="{% static 'images/python.png' %}" class="navbar-logo">
-        </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}?course_id={{ my_course.id }}">Students</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    
-		<div class="jumbotron container">
-			<h1>Детали курса {{my_course.name}}</h1>
-			<p class='simple'>{{my_course.description}}</p>
-		</div>
+{% extends "base.html" %}
+
+
+{% block title %}Course {{my_course.name}}{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block course_id %}?course_id={{ my_course.id }}{% endblock %}
+
+
+{% block content %}
+    <div class="jumbotron container">
+      <h1>Детали курса {{my_course.name}}</h1>
+      <p class='simple'>{{my_course.description|truncatechars:32}}</p>
+    </div>
     {% if my_course.coach or my_course.assistant %}
       <div class="container" id='id1'>
         <h2>Преподаватели</h2>
         {% if my_course.coach %}
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Учитель</h3>
-            </div>
-            <div class="panel-body">
-              <p><a href="{% url 'coaches:detail' my_course.coach.id %}">{{my_course.coach.first_name}} {{my_course.coach.last_name}}</a></p>
-              <p>{{my_course.coach.description}}</p>
-            </div>
-          </div>
-          {% if my_course.assistant %}
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Ассистент</h3>
-              </div>
-              <div class="panel-body">
-                <p><a href="{% url 'coaches:detail' my_course.assistant.id %}">{{my_course.assistant.first_name}} {{my_course.assistant.last_name}}</a></p>
-                <p>{{my_course.assistant.description}}</p>
-              </div>
-            </div>
-          {% endif %}
+         {% include "include/teach_include.html" with Teacher_title="Учитель" instructor=my_course.coach %}
+        {% endif %}
+        {% if my_course.assistant %}
+         {% include "include/teach_include.html" with Teacher_title="Ассистент" instructor=my_course.assistant %}
         {% endif %}
       </div>
     {% endif %}
@@ -89,7 +49,4 @@
 					</table>
         </div>
       </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-  </body>
-</html>
+{% endblock content %}
