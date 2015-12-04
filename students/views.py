@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*
 from django.shortcuts import render, redirect
 from django import forms
 from django.contrib import messages
 
+from students.forms import StudentModelForm
 from students.models import Student
-from courses.models import Course
+# from courses.models import Course
 
 
 # class StudentApplyForm(forms.Form):
@@ -40,6 +42,45 @@ def list_view(request):
 def detail(request, student_id):
     student = Student.objects.get(id=student_id)
     return render(request, 'students/detail.html', {'student': student})
+
+
+def create(request):
+    context = {}
+    if request.method == "POST":
+        context['form'] = form = StudentModelForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            student = form.save()
+            messages.success(request, 'Student %s %s has been successfully added.' % (
+                student.name, student.surname))
+            return redirect('students:list_view')
+
+    else:
+        context['form'] = StudentModelForm()
+    return render(request, 'students/add.html', context)
+
+
+def edit(request, pk):
+    student = Student.objects.get(id=pk)
+    if request.method == "POST":
+        form = StudentModelForm(request.POST, instance=student)
+        if form.is_valid():
+            student = form.save()
+            messages.success(request, 'Данные изменены')
+            return redirect('students:list_view')
+    else:
+        form = StudentModelForm(instance=student)
+    return render(request, 'students/edit.html', {'form': form})
+
+
+def remove(request, pk):
+    student = Student.objects.get(id=pk)
+    if request.method == "POST":
+        student.delete()
+        messages.success(request, 'Student %s %s has been successfully remove.' % (
+            student.name, student.surname))
+        return redirect('students:list_view')
+    return render(request, 'students/remove.html', {'student': student})
 
 
 # def apply_to_course(request):
