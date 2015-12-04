@@ -7,7 +7,7 @@ from equation_solver.equation_solver import calculate
 
 def quadratic_results(request):
 	context={}
-	form = QuadraticForm()
+	form = None
 
 	if request.GET:
 		form = QuadraticForm(request.GET)
@@ -15,16 +15,18 @@ def quadratic_results(request):
 	    a = form.cleaned_data['a']
 	    b = form.cleaned_data['b']
 	    c = form.cleaned_data['c']
-	
+
 	    d = b * b - 4*a*c
 	    if d < 0:
-	    	result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+		result = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
 	    elif d == 0:
-	    	result = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %0.1f" % (-b / 2 * a)
+		result = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %0.1f" % (-b / 2 * a)
 	    else:
-	    	x1 = (-b + d ** (1/2.0)) / (2 * a)
-	    	x2 = (-b - d ** (1/2.0)) / (2 * a)
-	    	result = "Квадратное уравнение имеет два действительных корня: x1 = %0.4f, x2 = %0.4f" % (x1, x2)
-
-	context.update({ 'd' : d, 'result' : result,'form' : form })
+		x1 = (-b + d ** (1/2.0)) / (2 * a)
+		x2 = (-b - d ** (1/2.0)) / (2 * a)
+		result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
+	    context.update({ 'd' : d, 'result' : result })
+	else:
+		form = QuadraticForm()
+	context.update({ 'form' : form })
 	return render(request, "quadratic/results.html",  context )
