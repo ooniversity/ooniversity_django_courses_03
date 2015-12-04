@@ -9,14 +9,23 @@
 			<div class='jumbotron'>
 				<h2 class='text-uppercase'>Results</h2>
 				<h3>Квадратное уравнеие: a*x*x + b*x + c = 0</h3>
-				<form >
+				<form method="GET">
 
 					{{ form.as_p }}
 					<input type="submit" value="Решить">
 				</form>
-				<p>{{ result_d }}</p>
-				<p>{{ result }}</p>
-				
+				{% if dic.d %}
+					{% if dic.d > 0 %}
+						<h3>Дискриминант: {{ dic.d }}</h3>
+						<p>Квадратное уравнение имеет два действительных корня: x1 = {{ dic.x }}, x2 = {{ dic.y }}</p>
+					{% elif dic.d == 0 %}
+						<h3>Дискриминант: 0</h3>
+						<p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ dic.x }}</p>
+					{% elif 0 > dic.d %}
+						<h3>Дискриминант: {{ dic.d }}</h3>
+						<p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
+					{% endif %}
+				{% endif %}
 			</div>
 		</div>
 {% endblock content %}
