@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+
+
 {% load staticfiles %}
 
 
@@ -13,7 +15,6 @@
   <div class="jumbotron">
     <h2>{{ course.name }}</h2><hr>
     <p>{{ course.description|truncatechars:32 }}</p>
-
     <h3>Преподаватели</h3>
     {% include "include/coach_include.html" with block_title="Учитель" instructor=course.coach %}
     {% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
