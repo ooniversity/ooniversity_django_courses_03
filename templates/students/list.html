@@ -9,8 +9,24 @@
 {% block content %}
 
 {% include "include/oouniversity_include.html" with block_title="Current course students" block_description="This is our students, hope they are happy" block_subtitle="" %}
-
+    <a href={% url 'students:add' %}>Add student</a>
 			<div class="col-md-6">
+          {% if edit_message %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>Updated user {{ edit_message }}</strong> 
+            </div>
+          {% endif %}
+
+          {% if edit_message %}
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>Updated user {{ edit_message }}</strong> 
+            </div>
+          {% endif %}
+        {% include "include/show_message.html" with  %}
+          
+
           <table class="table table-striped">
             <thead>
               <tr>
