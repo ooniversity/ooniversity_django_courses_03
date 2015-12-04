@@ -4,34 +4,36 @@
 
 {% block title %}Академия Щ.И.Т - Информация о курсе{% endblock title %}
 
+
 {% block student_of_course %}"{% url 'students:list_view'%}?course_id={{course.id}}"{% endblock student_of_course %}
 
+
 {% block content %}
-     <div class= "container">    
-      <div class="jumbotron">
-      <h2>{{ course.name }}</h2><hr>
-      <p>{{ course.description|truncatechars:32 }}</p>
-     </div>
-     <h3>Преподаватели</h3>
+<div class= "container">    
+  <div class="jumbotron">
+    <h2>{{ course.name }}</h2><hr>
+    <p>{{ course.description|truncatechars:32 }}</p>
+
+    <h3>Преподаватели</h3>
     {% include "include/coach_include.html" with block_title="Учитель" instructor=course.coach %}
     {% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
     <h3>План курса:</h3>
-      <table class = "course_info">
-        <tr class = "oddtr">
+    <table class = "course_info">
+      <tr class = "oddtr">
         <td>#</td>
         <td class = "first_td">Курс</td>
         <td class = "second_td">Описание</td>
       </tr>
       {% for each_lesson in lesson %}
       {% if each_lesson.course.name = course.name %}
-        <tr>
-          <td>{{ each_lesson.order }}</td>
-          <td>{{ each_lesson.subject }}</td>
-          <td>{{ each_lesson.description }}</td>
-        </tr>
+      <tr>
+        <td>{{ each_lesson.order }}</td>
+        <td>{{ each_lesson.subject }}</td>
+        <td>{{ each_lesson.description }}</td>
+      </tr>
       {% endif %}
       {% endfor %}
     </table> 
-    <br />
-    </div>
+  </div>
+</div>
 {% endblock content %}
