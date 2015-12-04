@@ -18,7 +18,7 @@ def quadratic_results(request):
     context['form'] = form
 
     #print request.POST
-    print form
+    #print form
     #lists_of_vars['a'] = str(request.GET['a'])
     #lists_of_vars['b'] = str(request.GET['b'])
     #lists_of_vars['c'] = str(request.GET['c'])
