@@ -23,7 +23,7 @@
             {% for course in list_courses %}
                 <tr>
                     <td>
-                        <a href="{% url 'courses:detail' course.id %}"> {{ course.name|upper }} </a>
+                        <a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a>
                     </td>
                     <td>{{ course.short_description|title }}</td>
                 </tr>
