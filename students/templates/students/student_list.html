@@ -37,7 +37,7 @@
       <ul class="nav navbar-nav">
         <li><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li class="active"><a href="{% url 'students:student_list' %}">Students <span class="sr-only">(current)</span></a></li>        
+        <li class="active"><a href="{% url 'students:student_list' %}"> Students <span class="sr-only">(current)</span></a></li>        
           </ul>
         </li>
       </ul>
@@ -57,7 +57,7 @@
                 <TD>No</TD> <TD>Surname</TD> <TD>Name</TD> <TD>Address</TD> <TD>Skype</TD>
         </TR>{% for student in students %}
         <TR>
-                <TD><li><a href="{% url 'courses:detail' course.id %}">{{ student.id }}</a></li></TD> <TD>{{ student.surname }}</TD> <TD>{{ student.name }}</TD> <TD>{{ student.address }}</TD> <TD>{{ student.skype }}</TD>
+                <TD><li>{{ student.id }}</a></li></TD> <TD>{{ student.surname }}</TD> <TD>{{ student.name }}</TD> <TD>{{ student.address }}</TD> <TD>{{ student.skype }}</TD>
         </TR>{% endfor %}
         
 </table> 

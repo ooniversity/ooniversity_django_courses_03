@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Bootstrap 101 Template</title>
-
+    <link rel="stylesheet" href="../static/css/some_file.css"/>
     <!-- Bootstrap -->
     {% load staticfiles %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -37,7 +37,7 @@
       <ul class="nav navbar-nav">
         <li><a href="{% url 'index' %}">Main</a></li>
         <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li class="active"><a href="{% url 'students:student_list' %}">Students <span class="sr-only">(current)</span></a></li>        
+        <li><a href="{% url 'student_list' %}">Students</a></li>        
           </ul>
         </li>
       </ul>
@@ -50,19 +50,50 @@
 
 <div class="container">
 <div class="jumbotron">
-  <h1>Курс PyBursa</h1>
-  <p>Ниже представлен список студентов:</p>
-  <table class="table">
+  <h2 class="starter-template">{{ student.name }}</h2>
+  <p> Student about himself:<p/>
+</div>
+</div>  
+<div class="container">
+<div class="jumbotron">
+  <table bordercolor="green" border="5" width="100%"><class="table">
+  {% for student in students %}<TR>
+                <TD><span class="colortext">Surname</span></TD> <TD>Persianova</TD> 
+        </TR> 
   <TR>
-                <TD>No</TD> <TD>Surname</TD> <TD>Name</TD> <TD>Address</TD> <TD>Skype</TD>
-        </TR>{% for student in students %}
-        <TR>
-                <TD><li><a href="{% url 'courses:detail' course.id %}">{{ student.id }}</a></li></TD> <TD>{{ student.surname }}</TD> <TD>{{ student.name }}</TD> <TD>{{ student.address }}</TD> <TD>{{ student.skype }}</TD>
-        </TR>{% endfor %}
-        
-</table> 
+                <TD><span class="colortext">Name</span></TD> <TD>Olena</TD> 
+        </TR>
+  <TR>
+                <TD><span class="colortext">Patronymic</span></TD> <TD>Yuriivna</TD> 
+        </TR>
+  <TR>
+                <TD><span class="colortext">Birth Date</span></TD> <TD>11/02/1989</TD> 
+        </TR>
+  <TR>
+                <TD><span class="colortext">Address</span></TD> <TD>Украина, г.Харьков, ул. Иванова,д.36,кв.3</TD> 
+        </TR>
+  <TR>
+                <TD><span class="colortext">{{ student.email }}</span></TD> <TD>olena.persianova@gmail.com</TD> 
+        </TR>
+  <TR>
+                <TD><span class="colortext">{{ student.skype }}</span></TD> <TD>olena.persianova</TD> 
+        </TR>
+  </table>
 </div>
 </div>
+<div class="container">
+<div class="jumbotron">
+  <table bordercolor="blue" border="5" width="100%"><class="table">
+  <TR>
+                <TD><span class="colortext">Problem Task</span></TD> <TD>100%</TD> 
+        </TR> 
+  <TR>
+                <TD><span class="colortext">Tests</span></TD> <TD>100%</TD> 
+        </TR>
+  </table>
+</div>
+</div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
