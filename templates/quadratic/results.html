@@ -1,14 +1,17 @@
-<html>
-	<head>
-		<title>Решение квадратного уравнения </title>
-	</head>
+{% extends "base.html" %}
 
-	<body>
-		<p>Квадратное уравнение a *x*x + b*x + c</p>
-		<ul>
-			<li>a = {{params}} </li>
-			<li>b = </li>
-			<li>c = </li>
-		</ul>
-	</body>
-</html>
+{% load staticfiles %}
+
+{% block title %}Quadratic solver{% endblock title %}
+
+{% block content %}
+    <p>Квадратное уравнение a*x^2 + b*x + c = 0</p>
+    <form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Решить уравнение"/>
+    </form>
+    {% if result %}
+    <p>Дискриминант: {{ d }}</p>
+    <p>{{ result }}</p>
+    {% endif %}
+{% endblock content %}
