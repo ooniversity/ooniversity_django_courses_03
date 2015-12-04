@@ -29,7 +29,7 @@
 
 {% include "include/jumbo_include.html" %}
 
-   
+    <p><a href="{% url 'courses:add' %}" class="btn btn-primary" role="button">Добавить новый курс</a></p>
     
     <table class="table table-bordered">
         <th>Курс</th>
@@ -40,7 +40,9 @@
         {% for c in courses %}
           {% cycle "<tr><td>" "<tr><td>" %}
         
-            <a href="{% url 'courses:detail' c.id %}">{{c.name|upper }}</a></td>
+            <a href="{% url 'courses:detail' c.id %}">{{c.name|upper }}</a>
+            <p><a href="{% url 'courses:edit' c.id %}" class="btn btn-primary" role="button">Изменить</a><a href="{% url 'courses:remove' c.id %}" class="btn btn-primary" role="button">Удалить</a></p>
+            </td>
             <td>{{ c.short_description|title }}
             
           {% cycle "</td></tr>" "</td></tr>" %}
