@@ -4,10 +4,10 @@ from students.models import Student
 from django.forms import widgets
 
 class StudentsAdmin(admin.ModelAdmin):
-    list_display = ['full_name','email','skype']
-    fieldsets = [('Personal info', {'fields': ['name','surname', 'date_of_birth']}),
-                 ('Contact info', {'fields': ['email','phone', 'address','skype']}),
-                 ( None, {'fields': ['courses']})
+    list_display = ['full_name', 'email', 'skype']
+    fieldsets = [('Personal info', {'fields': ['name', 'surname', 'date_of_birth']}),
+                 ('Contact info', {'fields': ['email', 'phone', 'address', 'skype']}),
+                 (None, {'fields': ['courses']})
                  ]
     formfield_overrides = {
         models.ManyToManyField: {'widget': widgets.SelectMultiple}

@@ -10,7 +10,7 @@ class LessonInline(admin.StackedInline):
 
 
 class CoursesAdmin(admin.ModelAdmin):
-    list_display = ['name','short_description']
+    list_display = ['name', 'short_description']
     inlines = [LessonInline]
     search_fields = ['name']
 
