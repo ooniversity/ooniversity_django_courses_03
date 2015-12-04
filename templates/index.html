@@ -18,7 +18,6 @@
                 <th data-field="descr">Описание</th>
             </tr>
             </thead>
-
             <tbody>
             {% for course in list_courses %}
                 <tr>
@@ -28,7 +27,6 @@
                     <td>{{ course.short_description|title }}</td>
                 </tr>
             {% endfor %}
-
             </tbody>
         </table>
     </div>
