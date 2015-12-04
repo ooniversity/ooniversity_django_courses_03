@@ -3,7 +3,6 @@ from django import forms
 
 
 class QuadraticForm(forms.Form):
-    # create variables form
     a = forms.IntegerField(label='коэффициент a:')
     b = forms.IntegerField(label='коэффициент b:')
     c = forms.IntegerField(label='коэффициент c:')
