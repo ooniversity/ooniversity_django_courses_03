@@ -15,12 +15,12 @@ def quadratic_results(request):
 			if d > 0:
 				x = (-b + d**(1/2.0))/(2*a)
 				y = (-b - d**(1/2.0))/(2*a)
-				dic['x'] = round(x, 1)
-				dic['y'] = round(y, 1)
+				dic['x'] = x
+				dic['y'] = y
 				dic['d'] = d
 			elif d == 0:
-				x = (-b + d**(1/2.0))/(2*a)
-				dic['x'] = x
+				x = (-b)/(2*a)
+				dic['x'] = round(x, 1)
 				dic['d'] = d
 			else:
 				dic['d'] = d
