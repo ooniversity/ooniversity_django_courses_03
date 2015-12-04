@@ -4,10 +4,13 @@
 
 {% block title %}Add student{% endblock title %}
 
+{% block nav_active_students %}active{% endblock nav_active_students %}
+
 {% block form %}
+	<h2>Создание нового студента</h2>
 	<form method="POST">
 		{% csrf_token %}
 		{{ form.as_p }}
-		<input type="submit" value="Add">
+		<input type="submit" value="Создать">
 	</form>
 {% endblock form %}

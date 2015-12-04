@@ -4,9 +4,9 @@ from quadratic.forms import QuadraticForm
 
 # Create your views here.
 def quadratic_results(request):
-	a = ''
-	b = ''
-	c = ''
+	a = request.GET.get('a', '')
+ 	b = request.GET.get('b', '')
+ 	c = request.GET.get('c', '')
 	error_a = ""
 	error_o = ""
 	error_b = ""
@@ -35,6 +35,11 @@ def quadratic_results(request):
 				result = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' %(x)
 			elif d < 0:
 				result = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+		elif a or b or c == str:
+			form['a'] = a
+			form['b'] = b
+			form['c'] = c
+			result = 'коэффициент не целое число'
 	else:
 		form = QuadraticForm()
-	return render(request, 'results.html', {'form':form, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})
+	return render(request, 'quadratic/results.html', {'form':form, 'result_d':result_d, 'result':result, 'error_o':error_o, 'error_a':error_a, 'error_b':error_b, 'error_c':error_c})

@@ -4,18 +4,23 @@
 
 {% block title %}Edit student{% endblock title %}
 
+{% block nav_active_students %}active{% endblock nav_active_students %}
+
 {% block form %}
 	{% if messages %}
 		<ul class="messages">
     		{% for message in messages %}
-    		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
     		{% endfor %}
 		</ul>
 	{% endif %}
 
+	<h2>Редактирование данных студента</h2>
+	
+
 	<form method="POST">
 		{% csrf_token %}
 		{{ form.as_p }}
-		<input type="submit" value="Edit">
+		<input type="submit" value="Изменить">
 	</form>
 {% endblock form %}
