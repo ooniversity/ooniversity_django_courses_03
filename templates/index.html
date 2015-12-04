@@ -1,67 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>JSBursa</title>
-
-        <link href="../static/css/bootstrap.css" rel="stylesheet">
-        <link href="../static/css/style.css" rel="stylesheet">
+{% extends "base.html" %}
 
 
-  </head>
-  <body>
-        <nav class="navbar navbar-default">
-  <div class="container-fluid">
-
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{% url 'index' %}">JSBursa</a>
-    </div>
-
-        <div class="collapse navbar-collapse test2" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active">
-          <a href="{% url 'index' %}">Main</a>
-        </li>
-
-        <li>
-          <a href="{% url 'contact' %}">Contacts</a>
-        </li>
-
-        <li>
-          <a href="{% url 'student_list' %}">Students</a>
-        </li>
-
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
+{% load staticfiles %}
 
 
-      </ul>
-    </div>
-  </div>
-</nav>
+{% block title %}Main page{% endblock %}
+
+
+{% block nav_class_main %}active{% endblock %}
+
+
+{% block content %}
+{% include "include/home_include.html" %}
 <div class="container">
-
 <header>
-  <h1 class= "text-center">JSBursa</h1>
-    <h3 class="color3">Description</h3>
-    <p class="bg-info">Рады приветствовать вас на нашем сайте.</p>
+  <h1>Pyniversity</h1>
+    <p class="bg-info">Мы специализируемся на языках программирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий.</p>
+    <h3 class="color3">Выбирай на каком курсе ты хочешь учиться!</h3>
   </header>
-  <article class="color">
-    <h4>Program: Основы Python, строки и итераторы, функции и модульность.</h4>
-
-  </article>
+   <table class="table">
+      <thead>
+        <tr>
+          <th>Курс</th>
+          <th>Описание</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for item in courses %}
+          <tr>
+          <td><a href="{% url 'courses:detail' pk=item.id %}">{{ item.name|upper }}</a></td>
+          <td>{{ item.short_description|title }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
 </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="../static/js/bootstrap.js"></script>
-  </body>
-</html>
+{% endblock content %}
+
