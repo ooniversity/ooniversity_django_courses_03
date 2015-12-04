@@ -6,7 +6,7 @@ from django import forms
 from django.contrib import messages
 from students.forms import StudentModelForm
 
-def create(request):
+def add(request):
 	if request.method == 'POST':
 		form = StudentModelForm(request.POST)
 		if form.is_valid():
