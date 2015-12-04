@@ -19,7 +19,7 @@
         <h4>Вы действительно хотите удалить курс {{ name }}?</h4>
 				<form method="post">
 					{% csrf_token %}
-					{{ form.as_p }}
+
 					<input type="submit" value="Да, удалить" class="btn btn-primary"/>
           <a class="btn btn-primary" href="{% url 'index' %}" role="button">Нет</a>
 				</form>

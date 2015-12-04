@@ -11,7 +11,7 @@ def add(request):
 		form = StudentModelForm(request.POST)
 		if form.is_valid():
 			application = form.save()
-			mess = u'Student {} {} has been successfully added.' .format(application.surname, application.name)
+			mess = u'Student {} {} has been successfully added.' .format(application.name, application.surname)
 			messages.success(request, mess)
 			return redirect('students:list_view')
 	else:
