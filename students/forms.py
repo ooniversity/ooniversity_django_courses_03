@@ -8,6 +8,7 @@ from django.contrib import messages
 class StudentModelForm(forms.ModelForm):
 	class Meta:
 		model = Student
+        fields = '__all__'
 		#exclude = ['comment', 'is_active']
 		#widgets = {'package': forms.RadioSelect}
 '''
