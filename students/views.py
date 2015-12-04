@@ -23,7 +23,7 @@ def create(request):
             data = form.cleaned_data
             messages.success(request, 'Student %s %s has been successfully added.' % (
                 student.name, student.surname))
-            return redirect('students:list')
+            return redirect('students:list_view')
     else:
         form = StudentModelForm() 
     res['form'] = form
@@ -51,6 +51,6 @@ def remove(request, pk):
         student.delete()
         messages.success(request, 'Info on %s %s has been sucessfully deleted.' % (
             student.name, student.surname))
-        return redirect('students:list')
+        return redirect('students:list_view')
     return render(request, 'students/remove.html', {'student': student})
         

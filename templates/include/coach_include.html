@@ -9,6 +9,6 @@
         <td>курсы ассистент</td>
         <td>
             {% for course_a in course_assistant %}
-            <p><a href="{% url 'courses:detail' course_a.id %}"> {{ course_a.name }}</a> студенты курса<a href="{% url 'students:list' %}?course_id={{ course_a.id }}"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></a></span></p>
+            <p><a href="{% url 'courses:detail' course_a.id %}"> {{ course_a.name }}</a> студенты курса<a href="{% url 'students:list_view' %}?course_id={{ course_a.id }}"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></a></span></p>
             {% endfor %}
         </td>
