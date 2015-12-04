@@ -5,21 +5,18 @@
 
 
 {% block content %}
-    <div class="page-header text-align-justify">
-      <div class="container">
-        <div class="jumbotron transparant-background">
-          <h2 class="text-align-center">Квадратное уравнение a*x*x + b*x + c = 0</h2>
-            <ul>
-            <form method="get">
-             <!--{% csrf_token %}-->
-              {{ form.as_p }}
-              <input type="submit" value="Решить">
-            </form>
-          </ul>
-          {{ d }}<br>
-          {{ solution }}
-        </div>
-      </div>
-    </div>
+
+
+<div class="jumbotron">
+  <h4>Квадратное уравнение a*x*x + b*x + c = 0</h4>
+  <p></p>  
+  <form method="get">  
+    {{ form.as_p }}
+    <input type='submit' value="Решить" />
+  </form> 
+ 
+{{ d }}
+<br>
+{{ solution }} 
 {% endblock content %}
 ﻿
