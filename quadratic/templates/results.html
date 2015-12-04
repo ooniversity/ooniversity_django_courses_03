@@ -11,25 +11,11 @@
 
 
 {% block content %}
-      <h1 class="course">Equation</h1>
-      
       <p>Квадратное уравнение a*x*x + b*x + c = 0</p><br>
       
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="form-group">
-           <form method="get">
-              {{ form.as_p }}
-              <div class="btn-group">
-                <input type="submit" class="btn btn-primary btn-sm" value="Calculate">
-              </div>
-            </form>
-          </div>
-          <div class="col-sm-4">
-          </div>
-          <div class="col-sm-4">
-          </div>
-        </div>
-      </div>  
+      <form method="get">
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary btn-sm" value="Calculate">
+      </form>
       <p>{{ discr }}<br>{{ res }}</p>
 {% endblock content %}
