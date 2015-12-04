@@ -7,7 +7,7 @@
 {% block title %}Курсы{% endblock title %}
 
 
-{% block nav_course_id %}?course_id={{ courses.id }}{% endblock nav_course_id %}
+{% block nav_course_id %}?course_id={{ course.id }}{% endblock nav_course_id %}
 
 
 {% block content %}
@@ -34,7 +34,7 @@
 </div>
     <h2>План курса</h2>
     <div class="container" id="sto">
-	    <a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' course.id %}" role="button"> + Добавить занятие</a></p>
+	    <a class="btn btn-primary btn-lg" href="{% url 'courses:add-lesson' course.id %}" role="button"> + Добавить занятие</a></p>
 	</div>
     <table class="table table-hover">
         	<tr>
