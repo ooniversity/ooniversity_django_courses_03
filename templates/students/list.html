@@ -18,7 +18,7 @@
 			</ul>
 			{% endif %}
 			<h2 class='possition'>Our students</h2>
-			<a href="{% url 'students:create' %}"><input type="buttom" value="Добавить нового студента" class="btn btn-primary"></a>
+			<a href="{% url 'students:add' %}"><input type="buttom" value="Добавить нового студента" class="btn btn-primary"></a>
 			<div class='grey'>
 				<table class='table'>
 					<tr class='title_table'>
@@ -39,8 +39,8 @@
 									{% endif %}
 								{% endfor %}
 							</td>
-							<td><a href="{% url 'students:edit' student.id %}"><input type="buttom" value="Изменить" class="btn btn-primary"></a></td>
-							<td><a href="{% url 'students:remove' student.id %}"><input type="buttom" value="Удалить" class="btn btn-default"></a></td>
+							<td><a href="{% url 'students:edit' student.id %}"><input type="buttom" value="Изменить"></a></td>
+							<td><a href="{% url 'students:remove' student.id %}"><input type="buttom" value="Удалить"></a></td>
 						</tr>
 					{% endfor %}
 				</table>
