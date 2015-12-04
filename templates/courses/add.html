@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block title %}PyBursa - Создание нового курса{% endblock title %}
+
+
+{% block link_students %}
+  {% url 'students:list_view' %}
+{% endblock link_students %}
+
+
+{% block content %}
+
+
+{% load static from staticfiles %}
+
+
+  <h2>Создание нового курса</h2>
+  <br>
+  <form method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Создать">
+  </form>    
+{% endblock content %}

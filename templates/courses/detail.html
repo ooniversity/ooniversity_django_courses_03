@@ -14,6 +14,14 @@
 
 {% load static from staticfiles %}
 
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}  
+
     <div class="jumbotron">
       <h1>{{ name }}</h1>
       <p>{{ description|truncatechars:32 }}</p>
@@ -27,6 +35,7 @@
     {% include "include/instructor_include.html" with block_title="Ассистент" instructor=assistant %}
 
     <h3>План курса </h3>
+    <p><a href="{% url 'courses:add-lesson' course_id %}" class="btn btn-primary" role="button">Добавить занятие</a></p>
     <table class="table table-bordered">
         <th>#</th>
         <th>Тема</th>
