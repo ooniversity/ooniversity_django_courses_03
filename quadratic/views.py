@@ -5,8 +5,8 @@ from quadratic.forms import QuadraticForm
 # Create your views here.
 def quadratic_results(request):
 	dic = {}
-	if request.method == "GET":
-		form = QuadraticForm(request.GET or None)
+	if request.GET:
+		form = QuadraticForm(request.GET)
 		if form.is_valid():
 			a = form.cleaned_data['a']
 			b = form.cleaned_data['b']
