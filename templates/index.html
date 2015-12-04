@@ -10,6 +10,7 @@
 
 
 {% block content %}
+	{% include "students/include/messages_include.html" %}
 	<div class="container">
 		<div class="page-header">
 			<h1 class="descr">Description: Проффесиональные Python курсы от PyBursa</h1>
@@ -21,10 +22,10 @@
 				<span class="py">Python</span> - это отсутствие практики с освоенным материалом.</br>
 				Можно читать тонны ресурсов по веб-программированию на <span class="py">Python</span> 				- и не научиться ничему, потому что знания, которые вы не успели применить, очень
         быстро забываются.</br>
-				Многие начинающие сдаются на полпути, так как устают, им надоедает бесконечное 				
+				Многие начинающие сдаются на полпути, так как устают, им надоедает бесконечное
 				блуждание по сети в поисках крупиц информации, из которых трудно собрать общую
 				картину.</p>
-				<p>Мы предлагаем современные подходы к обучению! У нас Вы научитесь всему что 				
+				<p>Мы предлагаем современные подходы к обучению! У нас Вы научитесь всему что
 				понадобится для успешного старта карьеры в IT!</p>
 			</div>
 		</div>
@@ -36,8 +37,11 @@
 			<div class="jumbotron">
 				<p>Курсы будут проходить с 19 октября по 28 декабря.</br>
 				Практические занятия в аудитории + онлайн лекции.</p>
-				<p>Вы узнаете очень много нового о Веб-разработке! Создадите собственный проект, 
+				<p>Вы узнаете очень много нового о Веб-разработке! Создадите собственный проект,
         которым Вы будете гордиться!</p>
+				<p>
+				<a class="btn btn-primary btn-lg" href="{% url 'courses:add' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить новый курс</a>
+				</p>
 				<div class="panel panel-default">
 					<!-- Default panel contents -->
 					<!-- Table -->
@@ -45,7 +49,7 @@
 						<thead>
 							<tr>
 								<th>Курс</th>
-								<th>Описание</th>
+								<th colspan="2">Описание</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -53,6 +57,10 @@
 							<tr>
 								<td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
 								<td>{{ course.short_description|title }}</td>
+								<td>
+                  <p><a class="btn btn-primary btn-block" href="{% url 'courses:edit' course.id %}" role="button"><span class="glyphicon glyphicon-pencil"></span> Изменить</a></p>
+                  <p><a class="btn btn-primary btn-block" href="{% url 'courses:remove' course.id %}" role="button"><span class="glyphicon glyphicon-remove"></span> Удалить</a></p>
+                </td>
 							</tr>
 						{% endfor %}
 						</tbody>
@@ -61,5 +69,5 @@
 			</div>
 		</div>
 	</div>
-{% endblock content %} 
+{% endblock content %}
 {% block previous %}{% endblock previous %}
