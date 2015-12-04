@@ -11,10 +11,4 @@ urlpatterns = patterns('',
                        url(r'^remove/(?P<pk>\d+)/$',
                            views.remove, name='remove')
 
-                       # url(r'^apply/$', views.apply_to_course,
-                       #     name='course-application'),
-                       # url(r'^edit_application/(?P<pk>\d+)/$',
-                       #     views.edit_application, name='edit-application'),
-                       # url(r'^delete_application/(?P<pk>\d+)/$',
-                       # views.delete_application, name='delete-application')
                        )

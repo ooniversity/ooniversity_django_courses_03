@@ -49,8 +49,8 @@ def create(request):
     if request.method == "POST":
         context['form'] = form = StudentModelForm(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
             student = form.save()
+            data = form.cleaned_data
             messages.success(request, 'Student %s %s has been successfully added.' % (
                 student.name, student.surname))
             return redirect('students:list_view')
