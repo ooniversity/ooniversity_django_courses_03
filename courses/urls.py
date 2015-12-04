@@ -7,5 +7,5 @@ urlpatterns = patterns('',
     url(r'^add/$', views.create, name='add'),
     url(r'^edit/(?P<pk>\d+)/$', views.edit, name='edit'),
     url(r'^remove/(?P<pk>\d+)/$', views.remove, name='remove'),
-    url(r'^(?P<pk>\d+)/add-lesson$', views.add_lesson, name='add_lesson'),
+    url(r'^(?P<pk>\d+)/add_lesson$', views.add_lesson, name='add_lesson'),
 )
