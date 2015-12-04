@@ -7,31 +7,27 @@ def get_discr (a,b,c):
     return d
 	
 def quadratic_results(request):
-	dic = {}
+	strdiscr = ''
+	mes = ''
 	if request.method == "GET":
 		form = QuadraticForm(request.GET)	
 		if form.is_valid():
-			print 'valid'
 			a = form.cleaned_data['a']
 			b = form.cleaned_data['b']
 			c = form.cleaned_data['c']
-			d = get_discr(a,b,c)
-			if d==0:
-				print 'd==0'
-				x1 = x2 = (-1)*b/2*a
-				dic['x1'] = round(x1, 1)
-				dic['x2'] = round(x1, 1)
-				dic['d'] = d
-			elif d<0 and a!=0: 
-				print a
-				dic['d'] = d
-			else:
-				x1=(-b + d**(1/2.0))/(2.0*a)
-				x2=(-b - d**(1/2.0))/(2.0*a)
-				dic['x1'] = x1
-				dic['x2'] = x2
-				dic['d'] = d
+			discr = get_discr(a,b,c)
+			if discr==0:
+				strdiscr = 'Дискриминант: 0' 
+				x1 = (-1.0)*float(b)/2*float(a)
+				mes = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x1
+			elif discr<0:
+				strdiscr = 'Дискриминант: %d'%discr 
+				mes = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
+			else: 
+				x1=((-1)*float(b)+discr**(1/2.0))/(2*float(a))
+				x2=((-1)*float(b)-discr**(1/2.0))/(2*float(a))
+				mes = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' %(x1,x2)
+				strdiscr = 'Дискриминант: %d'%discr
 	else:
 		form = QuadraticForm()
-	print dic	
-	return render(request,'quadratic/results.html', {'dic':dic, 'form':form})
+	return render(request,'quadratic/results.html', {'d':strdiscr, 'mes':mes, 'form':form})
