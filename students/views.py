@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from students.models import Student
-from students.form import StudentModelForm
+from students.forms import StudentModelForm
 
 
 def list_view(request):
