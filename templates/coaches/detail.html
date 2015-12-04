@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Course details{% endblock %}
+{% block title %}Course details{% endblock title%}
 
 
 {% block content %}
@@ -31,8 +31,8 @@
         <th>телефон</th>
         <td>{{ coach.phone }}</td>
       </tr>
-       {% include "coaches/inc_course_instructor.html" with status="курсы учитель" courses=coach.coach_courses.all %}
-       {% include "coaches/inc_course_instructor.html" with status="курсы ассистент" courses=coach.assistant_courses.all %}
+       {% include "include/course_instructor_include.html" with status="курсы учитель" courses=coach.coach_courses.all %}
+       {% include "include/course_instructor_include.html" with status="курсы ассистент" courses=coach.assistant_courses.all %}
       </table>
   </div>
 </div>
