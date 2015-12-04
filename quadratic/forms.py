@@ -11,3 +11,4 @@ class QuadraticForm(forms.Form):
         if data == 0:
             raise forms.ValidationError("коэффициент при первом слагаемом уравнения не может быть равным нулю")
         return data
+
