@@ -7,6 +7,8 @@ from equation_solver.equation_solver import calculate
 
 def quadratic_results(request):
 	context={}
+	form = QuadraticForm()
+
 	if request.GET:
 		form = QuadraticForm(request.GET)
 	if form.is_valid():
@@ -25,7 +27,5 @@ def quadratic_results(request):
 	    	result = "Квадратное уравнение имеет два действительных корня: x1 = %0.1f, x2 = %0.1f" % (x1, x2)
 	    context.update({ 'd' : d, 'result' : result })
 	    return render(request, "quadratic/results.html",  context )
-	else:
-		form = QuadraticForm()
 	context.update({ 'form' : form })
 	return render(request, "quadratic/results.html",  context )
