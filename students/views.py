@@ -9,7 +9,7 @@ def list_view(request):
 	else:
 		student = Student.objects.all()
 
-	return render(request, 'students/list_view.html', {'student':student})
+	return render(request, 'students/list.html', {'student':student})
 
 def detail(request, student_id):
 	student = Student.objects.get(pk=student_id)	
