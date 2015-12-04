@@ -26,17 +26,10 @@
     {{ form.as_p}}
       <input type = "submit" value = "Решить"/>
     </form> <br />
-    {% if a %}
-    {% if d < 0 %}
-    <p>Дискриминант: {{ d }}</p>
-    <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений. </p>
-    {% elif d == 0 %}
-    <p>Дискриминант: {{ d }}</p>
-    <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x0 }}</p>
-    {% else %}
-    <p>Дискриминант: {{ d }}</p>
-    <p>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }} x2 = {{ x2}}</p>
-    {% endif %}
+ 
+    {% if d %}
+    <p>{{ d }}</p>
+    <p>{{ msg }}</p>
     {% endif %}
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
