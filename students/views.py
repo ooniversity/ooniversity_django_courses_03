@@ -24,7 +24,7 @@ def detail(request, student_id):
 def create(request):
 	context = {}
 	form = StudentModelForm() 
-	if request.POST:
+	if request.method == "POST":
 	    form = StudentModelForm(request.POST)
 	    if form.is_valid():
 			form.save()
@@ -38,7 +38,7 @@ def edit(request, student_id):
 	student = Student.objects.get(id = student_id)
 	form = StudentModelForm(instance=student) 
 
-	if request.POST:
+	if request.method == 'POST':
 	    form = StudentModelForm(request.POST, instance = student)
 	    if form.is_valid():
 	    	data = form.cleaned_data
@@ -53,6 +53,6 @@ def remove(request, student_id):
 	    student.delete()
 	    msg = 'Student %s %s has been deleted.' % (data['name'], data['surname'])
 	    return render(request, './students/list.html', {'message' : msg})
-	    
+
 	return render(request, './students/remove.html', { 'student' : student })
 
