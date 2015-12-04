@@ -12,21 +12,8 @@
     <a href={% url 'students:add' %}>Add student</a>
 			<div class="col-md-6">
           {% if edit_message %}
-            <div class="alert alert-success alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <strong>Updated user {{ edit_message }}</strong> 
-            </div>
+            {% include "include/show_message.html" with show_message=message %}
           {% endif %}
-
-          {% if edit_message %}
-            <div class="alert alert-success alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <strong>Updated user {{ edit_message }}</strong> 
-            </div>
-          {% endif %}
-        {% include "include/show_message.html" with  %}
-          
-
           <table class="table table-striped">
             <thead>
               <tr>
@@ -49,6 +36,13 @@
 											<a href={% url 'courses:detail' course.id%}>{{ course.name }}</a> <br/>
 										{% endfor %}
 									 </td>
+                   <td>
+                    <a class="btn btn-default" href={% url 'students:edit' student.id %} role="button">Change</a>
+                   </td>
+                  <td>
+                    <a class="btn btn-default" href={% url 'students:remove' student.id %} role="button">Delete</a>
+                  </td>
+
                 </tr>
               {% endfor %}
             </tbody>
