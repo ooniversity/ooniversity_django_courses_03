@@ -55,59 +55,63 @@
 
 {% block coach %}
     {% if coach or assistant %}
-    <div class="section white z-depth-1">
-        <div class="container coaches">
-            <h5 class="text-primarycolor">Coaches</h5>
-            {% if coach %}
-            <div class="row">
-                <div class="col s4 m6 l12">
-                    <div class="col s3 m4 l3">
-                        <img width="65" height="65"
-                             src="{% static 'img/icon/teacher_man_professor-128.png' %}"
-                             class="circle">
-                    </div>
-                    <div class="col s9 m8 l9">
-                        <blockquote>
-                            <h6 class="materialize-red-text">Teacher</h6>
-                            <p class="grey-text text-darken-3">
-                                {{ coach.description }}
-                            </p>
+        <div class="section white z-depth-1">
+            <div class="container coaches">
+                <h5 class="text-primarycolor">Coaches</h5>
+                {% if coach %}
+                    <div class="row">
+                        <div class="col s4 m6 l12">
+                            <div class="col s3 m4 l3">
+                                <img width="65" height="65"
+                                     src="{% static 'img/icon/teacher_man_professor-128.png' %}"
+                                     class="circle">
+                            </div>
+                            <div class="col s9 m8 l9">
+                                <blockquote>
+                                    <h6 class="materialize-red-text">Teacher</h6>
 
-                            <p style="font-weight:300;">
-                                <a href="{% url 'coaches:detail' coach.id %}">{{ coach.user.first_name }} {{ coach.user.last_name }}</a>
-                            </p>
-                            <div class="divider"></div>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if assistant %}
-            <div class="row">
-                <div class="col s4 m6 l12">
-                    <div class="col s3 m4 l3">
-                        <img width="65" height="65"
-                             src="{% static 'img/icon/specialist-128.png' %}"
-                             class="circle">
-                    </div>
-                    <div class="col s9 m8 l9">
-                        <blockquote>
-                            <h6 class="materialize-red-text">Assistant</h6>
-                            <p class="grey-text text-darken-3">
-                                {{ assistant.description }}
-                            </p>
+                                    <p class="grey-text text-darken-3">
+                                        {{ coach.description }}
+                                    </p>
 
-                            <p style="font-weight:300;">
-                                <a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.user.first_name }} {{ assistant.user.last_name }}</a>
-                            </p>
-                            <div class="divider"></div>
-                        </blockquote>
+                                    <p style="font-weight:300;">
+                                        <a href="{% url 'coaches:detail' coach.id %}">{{ coach.user.first_name }} {{ coach.user.last_name }}</a>
+                                    </p>
+
+                                    <div class="divider"></div>
+                                </blockquote>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
+                {% if assistant %}
+                    <div class="row">
+                        <div class="col s4 m6 l12">
+                            <div class="col s3 m4 l3">
+                                <img width="65" height="65"
+                                     src="{% static 'img/icon/specialist-128.png' %}"
+                                     class="circle">
+                            </div>
+                            <div class="col s9 m8 l9">
+                                <blockquote>
+                                    <h6 class="materialize-red-text">Assistant</h6>
+
+                                    <p class="grey-text text-darken-3">
+                                        {{ assistant.description }}
+                                    </p>
+
+                                    <p style="font-weight:300;">
+                                        <a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.user.first_name }} {{ assistant.user.last_name }}</a>
+                                    </p>
+
+                                    <div class="divider"></div>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
-            {% endif %}
         </div>
-    </div>
     {% endif %}
 {% endblock %}
 
