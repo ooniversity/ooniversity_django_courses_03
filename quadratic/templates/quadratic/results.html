@@ -1,20 +1,20 @@
-{% extends "base.html" %}
-
-{% load staticfiles %}
-
-{% block title %}Student Detail{% endblock title %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>quadratic</title>
+</head>
+<body>
 		<div class ='container'>
 			<div class='jumbotron'>
-				<h2 class='text-uppercase'>Results</h2>
 				<h3>Квадратное уравнеие: a*x*x + b*x + c = 0</h3>
 				<form method="GET">
-
 					{{ form.as_p }}
-					<input type="submit" value="Решить">
+					<input type="submit" value="Решить" />
 				</form>
-				{% if dic.d %}
+				{% if dic.d or dic.d == 0 %}
 					{% if dic.d > 0 %}
 						<h3>Дискриминант: {{ dic.d }}</h3>
 						<p>Квадратное уравнение имеет два действительных корня: x1 = {{ dic.x }}, x2 = {{ dic.y }}</p>
@@ -28,7 +28,9 @@
 				{% endif %}
 			</div>
 		</div>
-{% endblock content %}
+</body>
+</html>
+
 
 
 
