@@ -34,7 +34,7 @@
 
 
         <h2>Program about {{ courses }}</h2>
-        <a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-info">Создать новые уроки</a>
+        <a href="{% url 'courses:add-lesson' courses.id %}" class="btn btn-info">Создать новые уроки</a>
 
         <table class="table table-striped table-hover">
             <thead>
