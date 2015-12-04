@@ -28,10 +28,9 @@
                     {{ form.as_p }}
                     <button type="submit" class="btn btn-default">Решить</button>
                 </form>
-
-                {% if discrim %} 
-
+                {% if discrim or discrim == 0 %}
                     <h4>Дискриминант: {{ discrim }}</h4> 
+
                     {% if discrim > 0 %}
                         <h5>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}</h5> 
                     {% elif discrim == 0 %}
@@ -39,10 +38,10 @@
                     {% elif discrim < 0 %} 
                         <h5>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</h5>
                     {% endif %} 
-                {% endif %} 
-
+                {% endif %}
             </div>
         </div>
+
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
