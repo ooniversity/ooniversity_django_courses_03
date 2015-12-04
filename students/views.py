@@ -19,8 +19,7 @@ def detail(request, student_id):
 	return render(request, 'students/detail.html', {'student':student})
 
 def create(request):
-	form = StudentModelForm()
-	if request.method == 'POST':
+	if request.POST:
 		form = StudentModelForm(request.POST)
 		if form.is_valid():
 			student = form.save()
@@ -35,7 +34,7 @@ def create(request):
 
 def edit(request, student_id):
 	student = Student.objects.get(id = student_id)
-	if request.method == 'POST':
+	if request.POST:
 		form = StudentModelForm(request.POST, instance = student)
 		if form.is_valid():
 			student = form.save()
