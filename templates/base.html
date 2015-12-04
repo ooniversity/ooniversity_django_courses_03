@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,7 +20,6 @@
     <![endif]-->
   </head>
   <body>
-    {% block menu %}
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,73 +36,12 @@
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
-    </nav>        <div class= "container">
-      <div class ="jumbotron">
-        <div class = "container"><h1>PyBursa students</h1></div>
-        <h3>There are five students</h3>
-        <table class = "student-table">
-        <thead>
-          <tr>
-            <th>
-              No
-            </th>
-            <th>
-              Surname
-            </th>
-            <th>
-              Name          
-            </th>
-            <th>
-              Address
-            </th>
-            <th>
-              Skype
-            </th>
-
-          </tr>
-        </thead>
-            <tr class = "oddtr">
-            <td><a href="{% url 'student_detail' %}">1</a></td>
-            <td>Parker</td>
-            <td>Peter</td>
-            <td>New Wave street, 14</td>
-            <td>spidey</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Benner</td>
-            <td>Bruce</td>
-            <td>Hulk planet, Raging street, 33/1</td>
-            <td>mr.green</td>
-          </tr>
-          <tr class = "oddtr">
-            <td>3</td>
-            <td>Romanoff</td>
-            <td>Natasha</td>
-            <td>Moscov, Red square, 1</td>
-            <td>blackwidow</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Rend</td>
-            <td>Daniel</td>
-            <td>Kun-Lun, Shao-Lao lane, 6</td>
-            <td>ironfist</td>
-          </tr>
-          <tr class = "oddtr">
-            <td>5</td>
-            <td>Rhodes</td>
-            <td>James</td>
-            <td>Military base #312</td>
-            <td>warmachine</td>
-          </tr>
-        </table>
-   
-      </div>
-    </div>
+    </nav>    
+    {% block content %}
+    {% endblock content %}
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
   </body>
 </html>
