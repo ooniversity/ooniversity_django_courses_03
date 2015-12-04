@@ -8,7 +8,6 @@ def get_discr (a,b,c):
 	
 def quadratic_results(request):
 	dic = {}
-	print 'hara'
 	if request.method == "GET":
 		form = QuadraticForm(request.GET)	
 		if form.is_valid():
@@ -21,14 +20,16 @@ def quadratic_results(request):
 			discr = get_discr(a,b,c)
 			if discr==0:
 				x1 = x2 = (-1)*b/2*a
+				dic['x1'] = round(x1, 1)
+				dic['x2'] = round(x1, 1)
+				dic['discr'] = discr
+			elif discr>0: 
+				x1=(-b + discr**(1/2.0))/(2.0*a)
+				x2=(-b - discr**(1/2.0))/(2.0*a)
 				dic['x1'] = x1
 				dic['x2'] = x2
 				dic['discr'] = discr
-			else: 
-				x1=((-1)*b+discr**(1/2))/(2*a)
-				x2=((-1)*b-discr**(1/2))/(2*a)
-				dic['x1'] = x1
-				dic['x2'] = x2
+			else:
 				dic['discr'] = discr
 			print discr
 		else:
