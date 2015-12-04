@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*- 
 from django import forms
 
@@ -11,4 +10,10 @@ class QuadraticForm(forms.Form):
         data = self.cleaned_data['a']
         if data == 0:
             raise forms.ValidationError("коэффициент при первом слагаемом уравнения не может быть равным нулю")
+        return data
+
+    def clean_b(self):
+        data = self.cleaned_data['b']
+        if data == 10:
+            raise forms.ValidationError("коэффициент b не может быть равным 10")
         return data
