@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="748ada63-ee43-4d47-8de8-7141d5969b36" name="Default" comment="add_unicode_to_coaches">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/students/add.html" afterPath="$PROJECT_DIR$/templates/students/add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/students/delete.html" afterPath="$PROJECT_DIR$/templates/students/delete.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/students/edit.html" afterPath="$PROJECT_DIR$/templates/students/edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/quadratic/templates/quadratic/results.html" afterPath="$PROJECT_DIR$/quadratic/templates/quadratic/results.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/students/urls.py" afterPath="$PROJECT_DIR$/students/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/students/views.py" afterPath="$PROJECT_DIR$/students/views.py" />
+      <change type="MOVED" beforePath="D:\Programming\GitHub\ooniversity_django_courses_03\templates\students\delete.html" afterPath="$PROJECT_DIR$/templates/students/remove.html" />
     </list>
     <ignored path="pybursa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="results.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="results.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/quadratic/templates/quadratic/results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24329159">
+            <state vertical-scroll-proportion="-5.230769">
               <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
               <folding />
             </state>
@@ -72,11 +71,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="delete.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/students/delete.html">
+      <file leaf-file-name="remove.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/students/remove.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-2.6153846">
               <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/students/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/students/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.85128206">
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -146,12 +165,10 @@
         <option value="$PROJECT_DIR$/templates/student_detail.html" />
         <option value="$PROJECT_DIR$/templates/students.html" />
         <option value="$PROJECT_DIR$/templates/README.md" />
-        <option value="$PROJECT_DIR$/students/urls.py" />
         <option value="$PROJECT_DIR$/students/models.py" />
         <option value="$PROJECT_DIR$/students/admin.py" />
         <option value="$PROJECT_DIR$/courses/admin.py" />
         <option value="$PROJECT_DIR$/templates/admin/base_site.html" />
-        <option value="$PROJECT_DIR$/students/views.py" />
         <option value="$PROJECT_DIR$/coaches/urls.html" />
         <option value="$PROJECT_DIR$/courses/models.py" />
         <option value="$PROJECT_DIR$/coaches/admin.py" />
@@ -177,6 +194,8 @@
         <option value="$PROJECT_DIR$/templates/students/delete.html" />
         <option value="$PROJECT_DIR$/templates/students/edit.html" />
         <option value="$PROJECT_DIR$/quadratic/templates/quadratic/results.html" />
+        <option value="$PROJECT_DIR$/students/urls.py" />
+        <option value="$PROJECT_DIR$/students/views.py" />
       </list>
     </option>
   </component>
@@ -233,42 +252,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ooniversity_django_courses_03" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pybursa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ooniversity_django_courses_03" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quadratic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pybursa" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ooniversity_django_courses_03" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quadratic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="quadratic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -640,9 +623,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1603631" sideWeight="0.4926931" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1603631" sideWeight="0.4926931" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2543021" sideWeight="0.5025674" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -849,13 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/students/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/courses/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -962,14 +938,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/students/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1044,14 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/students/delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/students/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614">
@@ -1078,8 +1038,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/quadratic/templates/quadratic/results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24329159">
+        <state vertical-scroll-proportion="-5.230769">
           <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/students/remove.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/students/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/students/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85128206">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
       </provider>

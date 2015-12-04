@@ -45,14 +45,14 @@ def edit(request, pk):
     return render(request, 'students/edit.html', {'form': form})
 
 
-def delete(request, pk):
+def remove(request, pk):
     student = models.Student.objects.get(id=pk)
     if request.method == 'POST':
         student.delete()
         messages.success(request, "Info on %s has been sucessfully deleted." % student.fullname())
         return redirect('students:list_view')
 
-    return render(request, 'students/delete.html', {'student': student})
+    return render(request, 'students/remove.html', {'student': student})
 
 
 
