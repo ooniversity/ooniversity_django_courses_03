@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Новый курс{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock nav_class_index %}
+
+
+{% block content %}
+	<div class="container" id="sto">
+        <h1><strong>Создание нового курса</strong></h1></br>
+        <form method="post">
+        	{% csrf_token %}
+		  {{ model_form.as_p }}		
+		  <input type="submit" value="Создать" />
+		</form>
+    </div>
+{% endblock content %}

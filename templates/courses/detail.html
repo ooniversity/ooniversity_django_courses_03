@@ -11,19 +11,31 @@
 
 
 {% block content %}
+{% if messages %}
+<div class="container" id="sto">
+<div class="alert alert-success" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+</div>
+{% endif %}
 <div class="jumbotron">
-  <h1>{{ courses.name|default:"nothing" }}</h1>
-  <p>{{ courses.description|truncatechars:32 }}</p>  
+  <h1>{{ course.name|default:"nothing" }}</h1>
+  <p>{{ course.description|truncatechars:32 }}</p>  
 	</div>
 	<h2>Преподаватели</h2>
 	<div class="panel panel-success">
-{% include "courses/include/inc_instructor_include.html" with block_title="Учитель" instructor=courses.coach %}
+{% include "courses/include/inc_instructor_include.html" with block_title="Учитель" instructor=course.coach %}
 </div>
 
 <div class="panel panel-success">
-{% include "courses/include/inc_instructor_include.html" with block_title="Ассистент" instructor=courses.assistant %}
+{% include "courses/include/inc_instructor_include.html" with block_title="Ассистент" instructor=course.assistant %}
 </div>
     <h2>План курса</h2>
+    <div class="container" id="sto">
+	    <a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' course.id %}" role="button"> + Добавить занятие</a></p>
+	</div>
     <table class="table table-hover">
         	<tr>
         		<td>
@@ -36,7 +48,7 @@
         			Описание
         		</td>
         	</tr>
-        	{% for lesson in courses.lesson_set.all %}
+        	{% for lesson in lessons%}
         	<tr>
         		<td> 
         			{{ lesson.order }}     				 

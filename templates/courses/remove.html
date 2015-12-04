@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Удаление{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock nav_class_index %}
+
+
+{% block content %}
+<div class="alert alert-danger" role="alert">
+  <h1><strong>Курс {{ application }} будет удален </strong></h1></br>
+    <form method="post">
+      {% csrf_token %}		
+	  <input type="submit" value="Удалить" />
+    </form>
+</div>
+{% endblock content %}
