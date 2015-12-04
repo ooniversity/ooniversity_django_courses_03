@@ -22,7 +22,7 @@ def quadratic_results(request):
 				x1 = (-b + d**(1/2.0) )/2*a
 				x2 = (-b - d**(1/2.0) )/2*a
  				msg = "Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" %(x1,x2)
- 			result['d'] = "Дискриминант: %s" %d
+ 			result['d'] = "Дискриминант: %s" %int(d)
  			result['msg'] = msg
  	else:
 		form = QuadraticForm
