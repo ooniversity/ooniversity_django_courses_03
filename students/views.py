@@ -22,7 +22,6 @@ def detail(request, student_id):
 	return render(request, './students/detail.html', context)
 
 def create(request):
-	context = {}
 	form = StudentModelForm() 
 	if request.method == "POST":
 	    form = StudentModelForm(request.POST)
@@ -32,7 +31,7 @@ def create(request):
 			msg = 'Student %s %s has been successfully added.' % (data['name'], data['surname'])
 			return render(request, './students/list.html', {'message' : msg})
 
-	return render(request, './students/add.html', { 'student_form' : form, })
+	return render(request, './students/add.html', { 'student_form' : form })
 
 def edit(request, student_id):
 	student = Student.objects.get(id = student_id)
@@ -41,8 +40,9 @@ def edit(request, student_id):
 	if request.method == 'POST':
 	    form = StudentModelForm(request.POST, instance = student)
 	    if form.is_valid():
+	    	form.save()
 	    	data = form.cleaned_data
-	    	msg = 'Student %s %s has been successfully edited.' % (data['name'], data['surname'])
+	    	msg = 'Student %s %s has been successfully changed.' % (data['name'], data['surname'])
 	    	return render(request, './students/edit.html', {'form' : form, 'message' : msg})
 
 	return render(request, './students/edit.html', { 'form' : form } )
@@ -51,7 +51,7 @@ def remove(request, student_id):
 	student = Student.objects.get(id = student_id)
 	if request.method == "POST":
 	    student.delete()
-	    msg = 'Student %s %s has been deleted.' % (data['name'], data['surname'])
+	    msg = 'Info on %s %s has been sucessfully deleted.' % (data['name'], data['surname'])
 	    return render(request, './students/list.html', {'message' : msg})
 
 	return render(request, './students/remove.html', { 'student' : student })
