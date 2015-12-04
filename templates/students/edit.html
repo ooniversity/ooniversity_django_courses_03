@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Редактирование{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock nav_class_student %}
+
+
+{% block content %}
+{% if messages %}
+<div class="container" id="sto">
+<div class="alert alert-success" role="alert">
+	{% csrf_token %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+</div>
+{% endif %}
+	<div class="container" id="sto">
+        <h1><strong>Редактирование данных студента</strong></h1></br>
+        <form method="post">
+        	{% csrf_token %}
+		  {{ model_form.as_p }}		
+		  <button type="submit" class="btn btn-primary">Изменить</button>
+		</form>
+        <p></p>
+    </div>
+{% endblock content %}
