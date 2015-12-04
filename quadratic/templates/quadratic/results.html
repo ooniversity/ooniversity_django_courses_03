@@ -23,16 +23,16 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <h4> Квадратное уравнение a*x*x + b*x +c = 0</h4>
+    <p> Квадратное уравнение a*x*x + b*x +c = 0 </p>
 
     <div>
-      <form method='get'>
+      <form method="get">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type='submit' value='Решить' />
+        <input type="submit" value="Решить" />
       </form>
       {% if d or d == 0 %}
-        <p>Дискриминант: {{d}}</p>
+        <p>Дискриминант: {{ d }}</p>
       {% endif %}
       {% if message %}
         <p>{{ message }}</p>
