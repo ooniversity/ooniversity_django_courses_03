@@ -23,34 +23,36 @@ def detail(request, student_id):
 
 def create(request):
 	context = {}
+	form = StudentModelForm() 
 	if request.POST:
 	    form = StudentModelForm(request.POST)
 	    if form.is_valid():
 			form.save()
 			data = form.cleaned_data
 			msg = 'Student %s %s has been successfully added.' % (data['name'], data['surname'])
-			return redirect('students:list_view', {'message': msg})
-	else:
-	    form = StudentModelForm()
-	return render(request, './students/add.html', { 'form' : form })
+			return render(request, './students/list.html', {'message' : msg})
+
+	return render(request, './students/add.html', { 'student_form' : form, })
 
 def edit(request, student_id):
 	student = Student.objects.get(id = student_id)
+	form = StudentModelForm(instance=student) 
+
 	if request.POST:
 	    form = StudentModelForm(request.POST, instance = student)
 	    if form.is_valid():
 	    	data = form.cleaned_data
 	    	msg = 'Student %s %s has been successfully edited.' % (data['name'], data['surname'])
-	    	form = Student.objects.get(id = student_id)
 	    	return render(request, './students/edit.html', {'form' : form, 'message' : msg})
-	    else:
-			form = StudentModelForm(instance = student)
+
 	return render(request, './students/edit.html', { 'form' : form } )
 
 def remove(request, student_id):
 	student = Student.objects.get(id = student_id)
 	if request.method == "POST":
 	    student.delete()
-	    return redirect('students:list_view')
+	    msg = 'Student %s %s has been deleted.' % (data['name'], data['surname'])
+	    return render(request, './students/list.html', {'message' : msg})
+	    
 	return render(request, './students/remove.html', { 'student' : student })
 
