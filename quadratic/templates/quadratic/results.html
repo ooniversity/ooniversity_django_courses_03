@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
    
-    <title>gtgt</title>
+    <title>results</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}"  rel="stylesheet">
@@ -21,26 +21,28 @@
 
     
 
-      <div class="jumbotron">
-<div>Квадратное уравнение a*x*x + b*x + c = 0</div>
-  <p></p>      
-<ul>
-  <li>a = {{a}}  <br> {{a_error}}</li>
-  <li>b = {{b}}  <br> {{b_error}}</li>
-  <li>c = {{c}}  <br> {{c_error}}</li>   
-</ul>
-{{d}}
-<br>
-{{mes}} 
-          
-        </div>
-      </div>
-
-      <footer class="footer">
-       
-      </footer>
-
-    </div> <!-- /container -->
+<div class="jumbotron">
+  <h4>Квадратное уравнение a*x*x + b*x + c = 0</h4>
+  <p></p>  
+  <form method="get">  
+    {{ form.as_p }}
+    <input type='submit' value="Решить" />
+  </form> 
+ 
+ {% if dic.discr or dic.discr == 0 %}
+  {% if dic.discr == 0 %}
+	<h3>Дискриминант: {{ dic.discr }}</h3>
+	<p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{dic.x1}}</p>
+  {% elif dic.discr > 0 %} 
+	<h3>Дискриминант: {{ dic.discr }}</h3>
+	<p>Квадратное уравнение имеет два действительных корня: x1 = {{ dic.x1 }}, x2 = {{ dic.x2 }}</p>
+   {% elif 0 > dic.discr %}
+	<h3>Дискриминант: {{ dic.discr }}</h3>
+	<p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
+  {% endif %}	
+    {% endif %}	 
+</div>
+     
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
