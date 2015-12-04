@@ -42,8 +42,8 @@ def edit(request, student_id):
 	    if form.is_valid():
 	    	form.save()
 	    	data = form.cleaned_data
-	    	msg = 'Student %s %s has been successfully changed.' % (data['name'], data['surname'])
-	    	return render(request, './students/edit.html', {'form' : form, 'message' : msg})
+	    	msg = 'Info on the student has been sucessfully changed.'
+	    	return redirect('./students/edit.html', {'form' : form, 'message' : msg})
 
 	return render(request, './students/edit.html', { 'form' : form } )
 
@@ -52,7 +52,6 @@ def remove(request, student_id):
 	if request.method == "POST":
 	    student.delete()
 	    msg = 'Info on %s %s has been sucessfully deleted.' % (data['name'], data['surname'])
-	    return render(request, './students/list.html', {'message' : msg})
-
+	    return return redirect('students:list_view')
 	return render(request, './students/remove.html', { 'student' : student })
 
