@@ -4,10 +4,12 @@
 
 {% block title %}Delete student{% endblock title %}
 
+{% block nav_active_students %}active{% endblock nav_active_students %}
+
 {% block form %}
-	<h2>Student {{ student.name }} {{ student.surname }} going to be deleted!</h2>
+	<h2>Студент {{ student.name }} {{ student.surname }} будет удален</h2>
 	<form method="POST">
 		{% csrf_token %}
-		<input type="submit" value="Delete">
+		<input type="submit" value="Удалить">
 	</form>
 {% endblock form %}
