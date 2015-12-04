@@ -2,6 +2,7 @@ from django.shortcuts import render
 #from django.http import HttpResponse
 from django.views import generic
 from courses.models import Course, Lesson
+from coaches.models import Coach
 
 
 # Create your views here.
@@ -15,23 +16,20 @@ class DetailView(generic.DetailView):
     model = Course
     template_name = 'courses/detail.html'
 
-    #def get_queryset(self):
-        #return Lesson.objects.filter(subject='Lesson1')
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(DetailView, self).get_context_data(**kwargs)
+        # Add in a QuerySet of all the related Lessons
+        #context['lessons_list'] = Lesson.objects.all()
+        #Lessons filtered by course_id received in URL
+        context['lessons_list'] = Lesson.objects.filter(course_id=self.kwargs.get(self.pk_url_kwarg, None))
+        ##context['lessons_list'] = Lesson.objects.filter(course_id=self.kwargs['pk'])
+        #Coaches filtered by course_id received in URL
+        #context['coaches_list'] = Coach.objects.all()
+        context['coaches_list'] = Coach.objects.filter(coach_courses=self.kwargs.get(self.pk_url_kwarg, None))
+        ##context['coaches_list'] = Coach.objects.filter(coach_courses=self.kwargs['pk'])
+        context['assistants_list'] = Coach.objects.filter(assistant_courses=self.kwargs.get(self.pk_url_kwarg, None))
+        ##context['assistant_list'] = Coach.objects.filter(assistant_courses=self.kwargs['pk'])
+        return context
 
-    #def detail(request):
-    #return HttpResponse("Hello, it is index.")
-    #return render(request, 'index.html')
-        #return render(request, 'courses/detail.html', {'lessons_list': Lesson.objects.all()})
 
-
-#class LessonsView(generic.ListView):
-    #template_name = 'courses/detail.html'
-    #context_object_name = 'lessons_list'
-
-    #def get_queryset(self):
-        #print Lessons.objects.filter(course_id=2)
-        #return Lessons.objects.filter(courses_id)
-
-
-#def lessons(request):
-    #return render(request, 'courses/detail.html', {'lessons_list': Lesson.objects.all()})
