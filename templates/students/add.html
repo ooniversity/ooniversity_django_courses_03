@@ -4,7 +4,7 @@
 <div class="jumbotron">
         <h2 class="center">Создать нового студента</h2>
     </div>
-<form method="POST">
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Создать">
