@@ -1,10 +1,9 @@
-
-	{% load staticfiles %}
+{% load staticfiles %}
 
 <html>
 	<head>
 		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-		{% block title %}<title>Course main page</title>{% endblock title%}
+		{% block title %}<title>Course main page</title>{% endblock title %}
 	</head>
 	<body>
   		<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -54,7 +53,7 @@
           </table>
         </div>
       </div>
-{%endblock content%}
+{% endblock content %}
 		</div>
 
 	</body>

@@ -2,7 +2,7 @@
 
 {% load staticfiles %}
 
-{% block title %}<title>Students</title>{% endblock title%}
+{% block title %}<title>Students</title>{% endblock title %}
 
 {% block nav-class-students %}active{% endblock nav-class-students %}
 
@@ -24,13 +24,13 @@
             <tbody>
               {% for student in student_list %}
                 <tr>
-                	<td>{{student.id}}</td>
+                	<td>{{ student.id }}</td>
                   <td><a href={% url 'students:detail' student.id%}>{{ student.full_name }}</a></td>
-                  <td>{{student.address}}</td>
-									<td>{{student.skype}}</td>
+                  <td>{{ student.address }}</td>
+									<td>{{ student.skype }}</td>
 									<td> 
 										{% for course in student.courses.all %}
-											<a href={% url 'courses:detail' course.id%}>{{course.name}}</a> <br/>
+											<a href={% url 'courses:detail' course.id%}>{{ course.name }}</a> <br/>
 										{% endfor %}
 									 </td>
                 </tr>
