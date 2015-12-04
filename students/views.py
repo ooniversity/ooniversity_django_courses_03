@@ -43,7 +43,7 @@ def create(request):
             name = data['name']
             surname = data['surname']            
             student = form.save()
-            #print form.cleaned_data
+            
             messages.success(request, 'Student %s %s has been successfully added.' % (name, surname))
             return redirect('students:list_view')
         else:
@@ -52,7 +52,7 @@ def create(request):
             return render(request, 'students/add.html', args)
     else:    
         form = StudentModelForm()
-    #args.update(csrf(request))
+    
         args['form'] = form
         return render(request, 'students/add.html', args)
 
@@ -78,7 +78,7 @@ def remove(request, stud_id):
     args = {}
     student = Student.objects.get(id=stud_id)
     if request.method == 'POST':
-        #data = form.cleaned_data
+        
         
         name = student.name
         surname = student.surname
