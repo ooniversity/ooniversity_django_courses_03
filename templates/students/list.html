@@ -14,6 +14,19 @@
       <div class="container">
         <div class="jumbotron transparant-background">
           <h2>Students</h2>
+
+          {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+
+          <a href="{% url 'students:add' %}">Add new student</a>
           <div class="panel panel-default transparant-background">
             <table class="table text-align-justify">
               <tr>
@@ -22,6 +35,7 @@
                   <td>address</td>
                   <td>skype</td>
                   <td>courses</td>
+                  <td></td>
               </tr>
               {% for student in course_students %}
                 <tr>
@@ -32,7 +46,7 @@
                   {% for course in student.courses.all %}
                       {% ifequal forloop.counter 1 %}
                         {% include "include/row_include.html" %}
-                      <!--<td><a href="{% url 'courses:detail' course.id %}">{{course}}</a></td> -->
+                        <!--<td><a href="{% url 'students:edit' student.id %}">Edit</a></td>-->
                       {% else %}
                         <tr>
                         <td></td>
@@ -40,9 +54,11 @@
                         <td></td>
                         <td></td>
                         {% include "include/row_include.html" %}
+                        <!--<td><a href="{% url 'students:edit' student.id %}">Edit</a></td>-->
                         </tr>
                       {% endifequal %}
                   {% endfor %}
+                </tr>
               {% endfor %}
             </table>
           </div>
