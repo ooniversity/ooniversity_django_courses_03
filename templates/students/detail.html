@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'index' %}">Main</a><span class="sr-only">(current)</span></li>
-            <li><a href="{% url 'contact'%}">Contacts</a></li>
+            <li><a href="{% url 'contact' %}">Contacts</a></li>
             <li><a href="{% url 'students:list_view' %}">Students</a></li>
 
           </ul>
@@ -44,12 +44,12 @@
       <h2>{{ student.surname }} {{ student.name }}</h2><hr>
      <h3></h3>
     <table class = "student-detail">
-        <tr><td>Дата Рождения</td><td>{{ student.date_of_birth}}</td></tr>
+        <tr><td>Дата Рождения</td><td>{{ student.date_of_birth }}</td></tr>
           <tr><td>Адрес</td><td>{{ student.address }}</td></tr>
           <tr><td>Почта</td><td>{{ student.email }}</td></tr>
           <tr><td>Логин skype</td><td>{{ student.skype }}</td></tr>
           <tr><td>Телефон</td><td>{{ student.phone }}</td></tr>
-          <tr><td>Курсы</td><td>{%for course in student.courses.all%} 
+          <tr><td>Курсы</td><td>{% for course in student.courses.all %} 
           <a href="{% url 'courses:detail' course.id %}"> {{ course.name }}</a><br />
           {% endfor %}</td></tr>
 
