@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, render
 
 def main(request):
     courses = Course.objects.all()
-    return render(request, 'courses/main.html', {'courses': courses})
+    return render(request, 'index.html', {'courses': courses})
 
 def detail(request, pk):
     course_object =  get_object_or_404(Course, pk=pk)
