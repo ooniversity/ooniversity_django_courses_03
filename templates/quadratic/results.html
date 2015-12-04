@@ -21,21 +21,23 @@
     <![endif]-->
   </head>
   <body>
-    <form>
-      A<input type = "text" name = "a" />
-      B<input type = "text" name = "b" />
-      C<input type = "text" name = "c" />
-      <input type = "submit" value = "посчитать"/>
-    <form>
-    <h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
-    <p>a = {{a}}</p>
-    <p>{{a_att}}</p>
-    <p>b = {{b}}</p>
-    <p>{{b_att}}</p>
-    <p>c = {{c}}</p>
-    <p>{{c_att}}</p>
-    <p>{{diskr}}</p>
-    <p>{{diskr_att}}</p>
+  <h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
+    <form method = "GET">
+    {{ form.as_p}}
+      <input type = "submit" value = "Решить"/>
+    </form> <br />
+    {% if a %}
+    {% if d < 0 %}
+    <p>Дискриминант: {{ d }}</p>
+    <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений. </p>
+    {% elif d == 0 %}
+    <p>Дискриминант: {{ d }}</p>
+    <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x0 }}</p>
+    {% else %}
+    <p>Дискриминант: {{ d }}</p>
+    <p>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }} x2 = {{ x2}}</p>
+    {% endif %}
+    {% endif %}
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
