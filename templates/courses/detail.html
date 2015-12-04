@@ -117,15 +117,15 @@
     </div>
     <div class="col s12 l12">
         {% if 'Python' in course.name %}
-            {% include 'courses/include/python_include.html' %}
+            {% include 'include/python_include.html' %}
         {% elif 'Ruby' in course.name %}
-            {% include 'courses/include/ruby_include.html' %}
+            {% include 'include/ruby_include.html' %}
         {% elif 'Java' in course.name %}
-            {% include 'courses/include/java_include.html' %}
+            {% include 'include/java_include.html' %}
         {% elif 'Symfony' in course.name %}
-            {% include 'courses/include/symfony_include.html' %}
+            {% include 'include/symfony_include.html' %}
         {% elif 'JsBursa' in course.name %}
-            {% include 'courses/include/js_include.html' %}
+            {% include 'include/js_include.html' %}
         {% endif %}
     </div>
 {% endblock %}
