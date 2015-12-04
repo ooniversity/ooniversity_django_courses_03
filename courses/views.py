@@ -60,7 +60,7 @@ def edit(request, course_id):
             messages.success(request, 'The changes have been saved.')
             return redirect ('courses:edit', course_id=course_id)
         else:
-            #form = StudentModelForm(request.POST)
+            form = StudentModelForm(request.POST, instance=course)
             args['form'] = form
             return render(request, 'students/add.html', args)
     else:
