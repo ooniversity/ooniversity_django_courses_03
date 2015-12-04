@@ -43,7 +43,7 @@
                       <td>
                         {% for crs in course %}
                             <a href="{% url 'courses:detail' crs.id %}">{{ crs.name }}</a> Course students
-                            <a href="{% url 'students:list' %}?course_id={{ crs.id }}">
+                            <a href="{% url 'students:list_view' %}?course_id={{ crs.id }}">
                             <span class="glyphicon glyphicon-education" aria-hidden="true"></span></a><br>
                         {% endfor %}
                       </td>
@@ -53,7 +53,7 @@
                       <td>
                         {% for assist in assistant %}
                             <a href="{% url 'courses:detail' assist.id %}">{{ assist.name }}</a> Course students 
-                            <a href="{% url 'students:list' %}?course_id={{ assist.id }}">
+                            <a href="{% url 'students:list_view' %}?course_id={{ assist.id }}">
                             <span class="glyphicon glyphicon-education" aria-hidden="true"></span></a><br>
                         {% endfor %}
                       </td>  

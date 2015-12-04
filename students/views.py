@@ -21,9 +21,9 @@ def create(request):
         form = StudentModelForm(request.POST)
         if form.is_valid():
             application = form.save()
-            mess = "Student {} {} has been successfully added.".format(request.POST['name'], request.POST['surname'])
+            mess = "Student {} {} has been successfully added.".format(application.name, application.surname)
             messages.success(request, mess)
-            return redirect('students:list')
+            return redirect('students:list_view')
     else:
         form = StudentModelForm()
     return render(request, 'students/add.html', {'form': form})
@@ -48,7 +48,7 @@ def remove(request, pk):
         student.delete()
         mess = 'Info on {} has been sucessfully deleted.'.format(fname)
         messages.success(request, mess)
-        return redirect('students:list')
+        return redirect('students:list_view')
     return render(request, 'students/remove.html', {'full_name': fname}) 
 
 
