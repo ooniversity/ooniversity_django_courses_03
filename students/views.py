@@ -12,6 +12,10 @@ def list_view(request):
     return render(request, 'students/list.html', {'students': students})
 
 
+def detail(request, pk):
+    return render(request, 'students/detail.html', { 'student' : Student.objects.get(id=pk)})
+
+
 def create(request):
     if request.method == 'POST':
         form = StudentModelForm(request.POST)
@@ -19,27 +23,34 @@ def create(request):
             application = form.save()
             mess = "Student {} {} has been successfully added.".format(request.POST['name'], request.POST['surname'])
             messages.success(request, mess)
-            return redirect('students:list_view')
+            return redirect('students:list')
     else:
         form = StudentModelForm()
     return render(request, 'students/add.html', {'form': form})
 
-def edit(request):
-    print request.POST
+
+def edit(request, pk):
+    application = Student.objects.get(id=pk)
     if request.method == 'POST':
-        form = StudentModelForm(request.POST)
+        form = StudentModelForm(request.POST, instance=application)
         if form.is_valid():
             application = form.save()
-            mess = "Student {} {} has been successfully added.".format(request.POST['name'], request.POST['surname'])
-            messages.success(request, mess)
-            return redirect('students:list_view')
+            messages.success(request, 'Info on the student has been sucessfully changed.')
     else:
-        form = StudentModelForm()
-    return render(request, 'students/add.html', {'form': form})
+        form = StudentModelForm(instance=application)
+    return render(request, 'students/edit.html', {'form': form})
 
 
-def detail(request, pk):
-    return render(request, 'students/detail.html', { 'student' : Student.objects.get(id=pk)})
+def remove(request, pk):
+    student = Student.objects.get(id=pk)
+    fname = '{} {}'.format(student.name, student.surname)
+    if request.method == 'POST':
+        student.delete()
+        mess = 'Info on {} has been sucessfully deleted.'.format(fname)
+        messages.success(request, mess)
+        return redirect('students:list')
+    return render(request, 'students/remove.html', {'full_name': fname}) 
+
 
 """
 class StudentListView(ListView):
