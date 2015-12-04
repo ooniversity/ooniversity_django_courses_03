@@ -46,6 +46,10 @@ def create(request):
             #print form.cleaned_data
             messages.success(request, 'Student %s %s has been successfully added.' % (name, surname))
             return redirect('students:list_view')
+        else:
+            form = StudentModelForm(request.POST)
+            args['form'] = form
+            return render(request, 'students/add.html', args)
     else:    
         form = StudentModelForm()
     #args.update(csrf(request))
@@ -61,6 +65,9 @@ def edit(request, stud_id):
             edit_student = form.save()
             messages.success(request, 'Info on the student has been sucessfully changed.')
             return redirect('students:edit', stud_id=stud_id)     
+        else:
+            args['form'] = form
+            return render(request, 'students/edit.html', args)
     else:            
 
         form = StudentModelForm(instance=student)
