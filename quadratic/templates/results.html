@@ -4,23 +4,33 @@
 {% load staticfiles %}
 
 
-{% block title %}Students{% endblock title%}
+{% block title %}Equation{% endblock title%}
 
 
-{% block navbar_i3 %}active{% endblock navbar_i3 %}
+{% block navbar_i4 %}active{% endblock navbar_i4 %}
 
 
 {% block content %}
-      <h1 class="course">Results</h1>
-      <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
-      <ul>
-        <li>a = {{ result.a }}</li>
-        {{ result.errors.a }}<br>
-        <li>b = {{ result.b }}</li>
-        {{ result.errors.b }}<br>
-        <li>c = {{ result.c }}</li>
-        {{ result.errors.c }}<br>
-      </ul>
-        <p>{{ result.result.0 }}</p>
-        <p>{{ result.result.1 }}</p>
+      <h1 class="course">Equation</h1>
+      
+      <p>Квадратное уравнение a*x*x + b*x + c = 0</p><br>
+      <p>Please enter the coefficients bellow</p>
+      
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+           <form method="get">
+              {{ form.as_p }}
+              <div class="btn-group">
+                <input type="submit" class="btn btn-primary btn-sm" value="Calculate">
+              </div>
+            </form>
+          </div>
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4">
+          </div>
+        </div>
+      </div>  
+      <p>{{ discr }}<br>{{ res }}</p>
 {% endblock content %}
