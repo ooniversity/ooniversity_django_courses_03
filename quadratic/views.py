@@ -19,9 +19,7 @@ def quadratic_results(request):
             x2 = float((-b - dscrt**0.5) / (2 * a))
         elif dscrt == 0:
             x1 = x2 = float(-b / (2 * a))
-        else:
-            x1 = x2 = None
 
     return render(request, 'quadratic/results.html',
-                           {'form': form, 'dscrt': dscrt, 'x1':x1, 'x2': x2})
+                           {'form': form, 'dscrt': dscrt, 'x1': x1, 'x2': x2})
 

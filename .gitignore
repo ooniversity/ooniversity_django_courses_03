@@ -3,4 +3,4 @@
 *.pyo
 
 #pycharm config files
-.idea/*
+*.xml
