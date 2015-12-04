@@ -31,6 +31,8 @@ def quadratic_results(request):
           
           answer['d'] = 'Дискриминант: %d'  %d
           answer['message'] = message
+        else:
+            answer['message'] = u'коэффициент не целое число'
     else:
         form = QuadraticForm()
     answer['form'] = form
