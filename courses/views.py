@@ -43,7 +43,7 @@ def edit(request, pk):
         if form.is_valid():
             course = form.save()
             messages.success(
-                request, 'The changes has been saved.')
+                request, 'The changes have been saved.')
             return redirect('courses:edit', pk)
     else:
         form = CourseModelForm(instance=course)
