@@ -14,6 +14,7 @@
   <h2>Students list</h2>
   </br>
   </br>
+  <p><a href="{% url 'students:add' %}" class="btn btn-primary" role="button">Add a new student</a></p>
     <table class="table">
       <thead>
         <tr>
@@ -35,6 +36,8 @@
         <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
             {% endfor %}
         </td>
+        <td><a href="{% url 'students:edit' %}" class="btn btn-primary" role="button">Изменить</a></td>
+        <td><a href="{% url 'students:remove' %}" class="btn btn-primary" role="button">Удалить</a></td>
         </tr>
           {% empty %}
         <h3>No students</h3>
