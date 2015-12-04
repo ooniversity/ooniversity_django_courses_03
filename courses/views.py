@@ -42,7 +42,7 @@ def add(request):
             messages.success(request, 'Course %s has been successfully added.' % (name))
             return redirect('index')
         else:
-            #form = CourseModelForm(request.POST)
+            form = CourseModelForm(request.POST)
             args['form'] = form
             return render(request, 'courses/add.html', args)
     else:
