@@ -31,11 +31,11 @@
         {{ form.as_p }}
         <input type='submit' value='Решить' />
       </form>
-      {% if d %}
-        <h3>{{d}}</h3>
+      {% if d or d == 0 %}
+        <p>Дискриминант: {{d}}</p>
       {% endif %}
-      {% if x %}
-        <h3>{{x}}<h3>
+      {% if message %}
+        <p>{{ message }}</p>
       {% endif %}
     </div>
   </body>
