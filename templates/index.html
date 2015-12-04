@@ -3,11 +3,11 @@
 {% load staticfiles %}
 
 
-{% block title %}ItBursa main{% endblock %}
+{% block title %}ItBursa main{% endblock title %}
 
 
 {% block navbar %}
-    {% include "inc_navbar.html" with active_page='index' %}
+    {% include "include/navbar_include.html" with active_page='index' %}
 {% endblock navbar %}
 
 

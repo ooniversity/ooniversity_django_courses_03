@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="George Zatserklyany">
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock title %}</title>
 {% load staticfiles %}
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -19,7 +19,7 @@
   <body>
 
 {% block navbar %}
-    {% include "inc_navbar.html" %}
+    {% include "include/navbar_include.html" %}
 {% endblock navbar %}
 {% block content %}{% endblock content %}
 
