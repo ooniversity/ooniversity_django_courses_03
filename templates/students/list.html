@@ -17,14 +17,12 @@
       <div class="jumbotron">
 
         {% if messages %}
-        <ul class="messages">
             {% for message in messages %}
             <p>{{ message }}</p>
             {% endfor %}
-        </ul>
         {% endif %}
 
-        <p><a class="btn btn-primary btn-lg" href="{% url 'students:create' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить нового студента</a></p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'students:add' %}" role="button"><span class="glyphicon glyphicon-plus"></span>Добавить нового студента</a></p>
         <p>{{ course.description }}</p>
         <h2 class="course">Список студентов</h2>
         <div class="container">
