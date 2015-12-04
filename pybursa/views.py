@@ -6,7 +6,6 @@ from courses.models import *
 # Create your views here.
 def index(request):
     result = { 'courses': Course.objects.all()}
-    print(result)
     return render(request, 'index.html', result)
 
 
