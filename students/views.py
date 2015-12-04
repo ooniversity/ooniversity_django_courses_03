@@ -66,8 +66,9 @@ def edit(request, pk):
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             student = form.save()
-            messages.success(request, 'Данные изменены')
-            return redirect('students:list_view')
+            messages.success(
+                request, 'Info on the student has been sucessfully changed.')
+            # return redirect('students:list_view')
     else:
         form = StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
@@ -77,7 +78,7 @@ def remove(request, pk):
     student = Student.objects.get(id=pk)
     if request.method == "POST":
         student.delete()
-        messages.success(request, 'Student %s %s has been successfully remove.' % (
+        messages.success(request, 'Info on %s %s has been sucessfully deleted.' % (
             student.name, student.surname))
         return redirect('students:list_view')
     return render(request, 'students/remove.html', {'student': student})
