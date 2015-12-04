@@ -6,7 +6,7 @@ def index(request):
     context = {
         'list_courses': list_courses,
     }
-    return render_to_response('courses/list_courses.html', context)
+    return render_to_response('index.html', context)
 
 def contact(request):
     return render_to_response('contact.html')
