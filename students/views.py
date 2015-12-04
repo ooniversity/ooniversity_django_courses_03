@@ -80,4 +80,9 @@ def remove(request, stud_id):
         return redirect('students:list_view')
     else:
         args['student'] = student
-        return render (request, 'students/remove.html', args)    
+        return render (request, 'students/remove.html', args)
+
+
+
+
+            
