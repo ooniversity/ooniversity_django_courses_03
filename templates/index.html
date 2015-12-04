@@ -8,8 +8,18 @@
 
 
 {% block content %}
-
-
+{% if messages %}
+<div class="container" id="sto">
+<div class="alert alert-success" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+</div>
+{% endif %}
+<div class="container" id="sto">
+<a class="btn btn-primary btn-lg" href="{% url 'courses:add' %}" role="button"> + Добавить новый курс</a></p>
+</div>
 {% include "include/inc_BestoftheBest_include.html" %}
         <div class="container" id="program">
             <h1>Выбирай на каком курсе ты хочешь учиться!</h1>
@@ -26,6 +36,10 @@
         		<td>
         			Описание
         		</td>
+        		<td>
+            	</td>
+            	<td>
+            	</td>
         	</tr>
         	{% for course in courses %}
         	<tr>
@@ -34,7 +48,13 @@
         		</td>      			
         		<td>
         			{{ course.short_description|title }}
-        		</td>	
+        		</td>
+        		<td>
+            		<p><a class="btn btn-primary btn-lg" href="{% url 'courses:edit' course.id %}" role="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Изменить</a></p>
+           		</td>
+            	<td>
+            		<p><a href="{% url 'courses:remove' course.id %}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-ok"></span>Удалить</a></p>
+            	</td>	
         	</tr>
         	{% endfor %}
 		</table>
