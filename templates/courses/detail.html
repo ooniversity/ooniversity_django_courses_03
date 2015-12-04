@@ -4,6 +4,7 @@
 
 {% block title %}Академия Щ.И.Т - Информация о курсе{% endblock title %}
 
+{% block student_of_course %}"{% url 'students:list_view'%}?course_id={{course.id}}"{% endblock student_of_course %}
 
 {% block content %}
      <div class= "container">    
