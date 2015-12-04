@@ -39,8 +39,8 @@
 									{% endif %}
 								{% endfor %}
 							</td>
-							<td><a href="{% url 'students:edit' student.id %}"><input type="buttom" value="Изменить"></a></td>
-							<td><a href="{% url 'students:remove' student.id %}"><input type="buttom" value="Удалить"></a></td>
+							<td><a href="{% url 'students:edit' student.id %}"><input class="btn btn-default" type="buttom" value="Изменить"></a></td>
+							<td><a href="{% url 'students:remove' student.id %}"><input class="btn btn-default" type="buttom" value="Удалить"></a></td>
 						</tr>
 					{% endfor %}
 				</table>
