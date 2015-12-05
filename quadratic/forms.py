@@ -10,6 +10,6 @@ class QuadraticForm(forms.Form):
 
     def clean_a(self):
         value = self.cleaned_data['a']
-        if value == 0:
+        if int(value) == 0:
             raise forms.ValidationError('коэффициент при первом слагаемом уравнения не может быть равным нулю')
-        return self.cleaned_data['a']
+        return value
