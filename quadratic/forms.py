@@ -3,9 +3,9 @@ from django import forms
 
 
 class QuadraticForm(forms.Form):
-    a = forms.FloatField()
-    b = forms.FloatField()
-    c = forms.FloatField()
+    a = forms.FloatField(label="коэффициент c")
+    b = forms.FloatField(label="коэффициент b")
+    c = forms.FloatField(label="коэффициент c")
 
     def clean_a(self):
         if self.cleaned_data['a'] == 0:
