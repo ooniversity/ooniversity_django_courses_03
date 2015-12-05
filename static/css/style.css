@@ -1,47 +1,103 @@
 body {
-    background-color: white;
+	font: 14px Arial;
 }
 
-a:hover {
-    border: 5px solid #F2F2F2;
+p {
+	margin-bottom: 0;
 }
 
-.description {
-    color: red;
+p + p {
+	margin-top: 20px;
 }
 
-.program {
-    color: green;
+h1 {
+	text-align: center;
 }
 
-a {
-    color: #000060;
-    font-weight: bold;
+img {
+	margin-bottom: 20px;
 }
 
-.help-block {
-    color: red;
+.btn {
+
+	margin-bottom: 20px;
 }
 
-.checkbox {
-    float: left;
+.navbar-brand {
+	padding: 0;
 }
 
-.text-info {
-    color: blue;
+.navbar-brand img {
+	height: 50px;
 }
 
-input[type=button], input[type=submit], button {
-    background: url(images/btn-verzend.jpg) no-repeat;
-    width: 91px;
-    height: 35px;
-    line-height: 35px;
-    border: none;
-    color: #FFF;
-    cursor: pointer;
+.thumbnail h3 {
+	text-align: center;
 }
 
-.text-warning {
-    text-align: left;
+.thumbnail > img {
+	height: 200px;
 }
 
+.purple {
+	color: purple;
+}
+
+.red {
+	color: red;
+}
+
+.blue {
+	color: blue;
+}
+
+.green {
+	color: green;
+}
+
+.orange {
+	color: orange;
+}
+
+.dark-orange {
+	color: #CC3300;
+}
+
+table tr {
+	background: #fefcea; /* Для старых браузров */
+	background: linear-gradient(to left, #D8C2C2, #ACF7DF);
+}
+
+table thead tr {
+	background: #fefcea; /* Для старых браузров */
+	background: linear-gradient(to bottom left, #fefcea, #5EE9F7);
+}
+
+.list_student tbody td:first-child {
+	font-weight: bold;
+	text-align: center;
+}
+
+.list_student tbody td:first-child a {
+	color: black;
+
+}
+
+.list_student tbody tr {
+	background: #fefcea; /* Для старых браузров */
+	background: linear-gradient(to left, #E4DFB9, #11DEB8);
+}
+
+.list_student tbody tr:hover {
+	background: linear-gradient(to right, #E4DFB9, #11DEB8);
+}
+
+.perfomance thead tr {
+	background: #fefcea; /* Для старых браузров */
+	background: linear-gradient(to left, #1A6B10, #84D600);
+}
+
+.perfomance tbody tr {
+	background: #fefcea; /* Для старых браузров */
+	background: linear-gradient(to left, #D8C2C2, #73B749);
+}
