@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}PyBursa student remove{% endblock title %}
+
+{% block content %}
+  <div id="main">
+
+<center>
+        <div class="container">
+          <h2>Student {{ student }} will be deleted</h2>
+        </div>
+        <div class="container">
+          <form method="post">
+              {% csrf_token %}
+              <input type="submit", value="Удалить">
+          </form>
+        </div>
+    <br>
+      </center>
+
+</div>{% endblock content %}
