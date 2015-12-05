@@ -1,40 +1,49 @@
-{% extends "students/base.html" %}
+{% extends "base.html" %}
 
 
 {% block title %}Детали о студенте{% endblock title %}
 
 
-{% block page-header %}{{student.name}} {{student.surname}}{% endblock %}
+{% block nav_class_index %}passive{% endblock %}
+{% block nav_class_contact %}passive{% endblock %}
+{% block nav_class_student_list_view %}active{% endblock %}
 
 
-{% block page_content %}
-  <div id="spisok2">
-    <table class="table table-bordered">
-      <tbody>
-        <tr>
-          <td class="spisok2_1">Дата рождения</td><td>{{student.date_of_birth}}</td>
-        </tr>
-        <tr>
-          <td class="spisok2_1">Адрес</td><td>{{student.address}}</td>
-        </tr>
-        <tr>
-          <td class="spisok2_1">Почта</td><td>{{student.email}}</td>
-        </tr>
-        <tr>
-          <td class="spisok2_1">Логин skype</td><td>{{student.skype}}</td>
-        </tr>
-        <tr>
-          <td class="spisok2_1">Телефон</td><td>{{student.phone}}</td>
-        </tr>
-        <tr>
-          <td class="spisok2_1">Курсы</td>
-          <td>{% for i in student.courses.all %}
-                <p><a href="{% url 'courses:detail' i.id %}">{{i.name}}</a></p>
-              {%endfor%}
-          </td>
-        </tr>
-       </tbody>
-    </table>
-  </div>
-  {% endblock page_content %}
+
+
+{% block content %}
+    <div class="container-fluid">
+      <div class="page-header">
+        <h3>{{student.name}} {{student.surname}}</h3>
+      </div>
+      <div id="spisok2">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="spisok2_1">Дата рождения</td><td>{{student.date_of_birth}}</td>
+            </tr>
+            <tr>
+              <td class="spisok2_1">Адрес</td><td>{{student.address}}</td>
+            </tr>
+            <tr>
+              <td class="spisok2_1">Почта</td><td>{{student.email}}</td>
+            </tr>
+            <tr>
+              <td class="spisok2_1">Логин skype</td><td>{{student.skype}}</td>
+            </tr>
+            <tr>
+              <td class="spisok2_1">Телефон</td><td>{{student.phone}}</td>
+            </tr>
+            <tr>
+              <td class="spisok2_1">Курсы</td>
+              <td>{% for i in student.courses.all %}
+                    <p><a href="{% url 'courses:detail' i.id %}">{{i.name}}</a></p>
+                  {%endfor%}
+              </td>
+            </tr>
+           </tbody>
+        </table>
+      </div>
+    </div>
+{% endblock content %}
 
