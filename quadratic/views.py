@@ -1,3 +1,5 @@
+#-*-coding: utf-8-*-
+
 from django.conf.urls import patterns, include, url
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
@@ -11,18 +13,43 @@ from forms import QuadraticForm
 def quadratic_start(request):
     return render(request, 'results_start.html')
 
+
 def quadratic_results(request):
-    context={}
-    print type(context)
-    form = QuadraticForm()
-    context['form'] = form
+    if request.method == "GET":
+        form = QuadraticForm(request.GET)
 
-    #print request.POST
-    #print form
-    #lists_of_vars['a'] = str(request.GET['a'])
-    #lists_of_vars['b'] = str(request.GET['b'])
-    #lists_of_vars['c'] = str(request.GET['c'])
 
-    #quadratic_func.quadratic_func(lists_of_vars)
+        print form
+        print type(form)
+        
+        context = {'form': form}
+        
+        # this if made for chosing table or just rendering for        
+        if form.is_valid():
+            a = int(form['a'].value())
+            b = int(form['b'].value())
+            c = int(form['c'].value())
+
+            # Calculate discriminant
+            discr = b * b - 4 * a * c
+            
+            if discr < 0:
+                discr_msg = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
+            
+            elif discr == 0:
+                x1 = - b / (2.0 * a)
+                discr_msg = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {0}".format(x1)
+            
+            else:
+                x1 = (- b + discr ** (1/2.0)) / (2 * a)
+                x2 = (- b - discr ** (1/2.0)) / (2 * a)
+                discr_msg = "Квадратное уравнение имеет два действительных корня: x1 = {0}, x2 = {1}".format(x1, x2)
+            context['discr_msg'] = discr_msg
+            context['discr'] = discr
+        
+
+        elif form['a'].value() == form['b'].value() == form['c'].value() == None:
+            context['form'] = QuadraticForm()
+    
 
     return render(request, 'results.html', context)
