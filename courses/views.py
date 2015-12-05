@@ -31,6 +31,7 @@ def edit(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, u'The changes have been saved.')
+            return redirect('courses:edit', pk)
     else:
         form = CourseModelForm(instance=application)
     return render(request, 'courses/edit.html', {'form': form})
