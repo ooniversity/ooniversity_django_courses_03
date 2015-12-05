@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Edit{% endblock title %}
+
+
+
+{% block content %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+<h1>Редактирование данных студента</h1>
+
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type='submit' value="Изменить"/>
+</form>
+
+{% endblock content %}
