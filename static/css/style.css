@@ -215,7 +215,8 @@ form{
 
 input[type="text"],
 input[type="password"],
-input[type="email"]
+input[type="email"],
+select
 {
     width:100%;
     border:1px solid #ccc;
