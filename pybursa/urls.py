@@ -14,6 +14,6 @@ urlpatterns = patterns('',
                        url(r'coaches/', include('coaches.urls', namespace="coaches")),
 
                        url(r'polls/', include('polls.urls', namespace="polls")),
-                       url(r'quadratic/', include('quadratic.urls')),
+                       url(r'^quadratic/', include('quadratic.urls')),
 
                        )
