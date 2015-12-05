@@ -7,6 +7,12 @@
 {% block nav-class-index %}active{% endblock nav-class-index %}
 
 {% block content %}
+    {% if messages %}
+      {% for message in messages %}
+      {% include "include/show_message.html" with show_message=message %}
+       {% endfor %}
+    {% endif %}
+
 		<div class="jumbotron">
 						<div class="container">
 							<h1>{{ course.name }}</h1>	
