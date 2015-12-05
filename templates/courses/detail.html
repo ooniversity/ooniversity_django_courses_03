@@ -16,22 +16,23 @@
           <div class="container">
           {% if course.coach %}
             <p>Coaches</p>
-            <p><a href={% url 'coaches:detail' course.coach.id%}>{{course.coach.user.username}}</a></p>
+            <p><a href={% url 'coaches:detail' course.coach.id %}>{{course.coach.user.username}}</a></p>
           {% endif %}
 
           {% if course.assistant %}
             <p>Assistants</p>
-            <p><a href={% url 'coaches:detail' course.assistant.id%}>{{course.assistant.user.username}}</a></p>
+            <p><a href={% url 'coaches:detail' course.assistant.id %}>{{course.assistant.user.username}}</a></p>
           {% endif %}
           
           </div>
 
+            <a href={% url 'courses:add_lesson' course.id %}>Add a lesson</a>
 						<p>Course plan</p>
 						<table class="table table-striped">
 							<thead>
               <tr>
                 <th>#</th>
-                <th>Course</th>
+                <th>Lesson</th>
                 <th>Description</th>
               </tr>
             </thead>
