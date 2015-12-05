@@ -11,10 +11,10 @@
 
     <p>Квадратное уравнение a*x*x + b*x +c = 0</p>
 
-    {% if a_error != "" %}
-        <ul class="errorlist"><li>{{ a_error }}</li></ul>
-    {% endif %}
-    <form method="post" action="">
+    <!--{% if a_error != "" %}-->
+        <!--<ul class="errorlist"><li>{{ a_error }}</li></ul>-->
+    <!--{% endif %}-->
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Решить">
