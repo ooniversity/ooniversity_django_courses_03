@@ -8,7 +8,15 @@
 
 
 {% block content %}
-	 <h1 class="dl">Список Students PyBursa</h2>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <p> <a href="{% url 'students:create' %}">Добавить нового студента</a></p>
+    <h1 class="dl">Список Students PyBursa</h2>
 	 <p>Список студентов по состоянию на 15.11.2015</p>
 
            <h2 class="header">Courses</h2>
@@ -51,7 +59,11 @@
             <li>
               <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
             </li>
+
             {% endfor %}
+            <td class="number_cell3">
+                 <a href="{% url 'students:edit' student.id %}">Изменить</a>
+             </td>
               </ul>
           </td>
         </tr>
