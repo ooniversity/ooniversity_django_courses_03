@@ -9,3 +9,4 @@ class CourseModelForm(forms.ModelForm):
 class LessonModelForm(forms.ModelForm):
 	class Meta:
 		model = Lesson
+		#widgets = {'course':forms.ChoiceField(initial=course.name)}

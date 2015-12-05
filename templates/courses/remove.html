@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Delete course{% endblock title %}
+
+{% block nav_active_main %}active{% endblock nav_active_main %}
+
+{% block form %}
+	<h2>Курс {{ course.name }} будет удален</h2>
+	<form method="post">
+		{% csrf_token %}
+		<input type="submit" value="Удалить">
+	</form>
+{% endblock form %}

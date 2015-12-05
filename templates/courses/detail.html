@@ -7,6 +7,13 @@
 {% block content %}
 		<div class ='container'>
 			<h2 class='possition' align="center">ItBursa!</h2>
+			{% if messages %}
+			<ul class="messages">
+    			{% for message in messages %}
+    				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
+    			{% endfor %}
+			</ul>
+			{% endif %}
 			<div class='jumbotron'>
 				<h2>{{ course.name }}</h2>
 				<h3>{{ course.description | truncatechars:32 }}</h3>
@@ -20,6 +27,7 @@
 				<h3 align="center"><a href="{% url 'coaches:detail' a %}">{{ assistant }}</a></h3>
 				<p>{{ as_descr }}</p>
 			</div>
+			<a href="{% url 'courses:add-lesson' course.id %}"><input type="buttom" value="Добавить занятие" class="btn btn-primary"></a>
 			<div class='grey'>
 				<table class='table'>
 					<tr class='title_table'><th>Lesson</th><th>Theme</th>

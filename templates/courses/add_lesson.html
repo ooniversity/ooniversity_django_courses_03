@@ -2,12 +2,12 @@
 
 {% load staticfiles %}
 
-{% block title %}Add student{% endblock title %}
+{% block title %}Add lesson{% endblock title %}
 
-{% block nav_active_students %}active{% endblock nav_active_students %}
+{% block nav_active_main %}active{% endblock nav_active_main %}
 
 {% block form %}
-	<h2>Создание нового студента</h2>
+	<h2>Создание нового урока</h2>
 	<form method="post">
 		{% csrf_token %}
 		{{ form.as_p }}
