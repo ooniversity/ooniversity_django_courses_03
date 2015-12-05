@@ -53,6 +53,9 @@
                 <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
                 {% endfor %}
             </td>
+            <td>
+                <a href="{% url 'students:edit' student.id%}" role="button" class="btn btn-primary">Изменить</a>
+            </td>
         </tr>
         {% endfor %}
         {% endif %}
