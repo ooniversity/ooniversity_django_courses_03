@@ -1,62 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% load staticfiles %}
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="" name="description">
-    <meta content="" name="author">
-    <title>QE</title>
-    <link href="{% static 'images/favicon.png' %}" rel="icon">
-    <link href="{% static 'fonts/lucida_console.ttf' %}" rel="stylesheet" type='text/css'>
-    <link href="{% static 'fonts/monaco.ttf' %}" rel="stylesheet" type='text/css'>
-    <link href="{% static 'fonts/lekton_regular.ttf' %}" rel="stylesheet" type='text/css'>
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
-    <link href="{% static 'css/starter-template.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button aria-controls="navbar" aria-expanded="false" class=
-            "navbar-toggle collapsed" data-target="#navbar" data-toggle=
-            "collapse" type="button"><span class="sr-only">Toggle
-          navigation</span> <span class="icon-bar"></span> <span class=
-            "icon-bar"></span> <span class="icon-bar"></span></button>
-          <a class="navbar-brand" href="{% url 'index' %}">Main</a>
-          <a class="navbar-brand" href="{% url 'contact' %}">Contacts</a>
-          <a class="navbar-brand" href="{% url 'student_list' %}">Students</a>
-          <a class="navbar-brand" href="{% url 'quadratic_start' %}">QE</a>
-        </div>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="starter-template">
-       <h1><strong>Квадратное уравнения: a*x*x + b*x +c = 0</strong></h1>
-			<pre>
-			a = {{params.a}}
-			{{params.a_msg}}
-			b = {{params.b}}
-			{{params.b_msg}}
-			c = {{params.c}}
-			{{params.c_msg}}
-			{% if params.discr or params.discr == 0 %}
-			Дискриминант: {{params.discr}}
-			{% endif %}
-			{% if params.discr and params.discr < 0 %}
-			Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.
-			{% elif params.x1 != params.x2 %}
-			Квадратное уравнение имеет два дparamsействительных корня: x1 = {{params.x1}}, x2 = {{params.x2}}
-			{% elif params.discr == 0 %}
-			Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{params.x}}
-			{% endif %}
-			</pre>
-        <script src=
-          "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-        <script src="{% static 'js/bootstrap.js' %}"></script>
-      </div>
-    </div>
-  </body>
-</html>
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
+
+
+{% block title %}Quadratic input data{% endblock title %}
+
+
+{% block nav_class_contacts %}active{% endblock nav_class_contacts %}
+
+
+{% block content %}
+
+
+<h1><strong>Quadratic equation</strong></h1>
+<form method="get">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="OK" />
+</form>
+{% if discr_msg %} 
+  <strong>Дискриминант: {{ discr }}</strong>
+  
+{% endif %}
+
+
+{% endblock content %}
