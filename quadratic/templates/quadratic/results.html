@@ -5,18 +5,14 @@
   </head>
   <body>
     <h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
-        <ul>
-          <li>a = {{a}}</li>
-            {{mistake_a}}
-          <li>b = {{b}}</li>
-            {{mistake_b}}
-          <li>c = {{c}}</li>
-            {{mistake_c}}
-        </ul>
-        {%if d or result%}
-          Дискриминант: {{d}}<br>
-          {{mistake_d}}<br>
-          <a></a><br>
-          {{result}}
-        {%endif%}
+        <form method="get">
+          <input type="submit" name="" value="Решить">
+          {%if d or result%}
+            <br />
+            <p>Дискриминант: {{d}}</p>
+            <p>{{mistake_d}}</p>
+            <br />
+            {{result}}
+          {%endif%}
+      </form>
   </body>
