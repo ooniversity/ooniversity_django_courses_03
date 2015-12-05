@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Редактировать курс{% endblock title %}
+
+
+{% block content %}
+  {% include "include/result_msg_include.html" %}
+  <h3>Изменить данные курса</h3>
+  <form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Изменить">
+</form>
+</div>
+{% endblock content %}

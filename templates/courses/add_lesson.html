@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Добавление урока{% endblock title %}
+
+
+{% block content %}
+<div class="jumbotron">
+  <h3>Добавить урок</h3>
+  <form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Создать">
+</form>
+</div>
+{% endblock content %}
