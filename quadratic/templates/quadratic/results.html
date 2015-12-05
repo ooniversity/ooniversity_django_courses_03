@@ -47,7 +47,7 @@
 <div class="container">
 
 
-{% if context %}
+{% if res %}
 
   <form method="get">
     {{ form.as_p }}
@@ -56,9 +56,9 @@
   <hr/>
   <p>{{ discr }}<br>{{ res }}</p>
 
-  {% else %}
+{% else %}
 
-  <p>Something is going wrong. Contact System Administartor.</p>
+  <p>Something is going wrong. Contact System Administrator.</p>
 
 {% endif %}
 
