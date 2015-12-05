@@ -11,6 +11,14 @@
 
 
 {% block content %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
   <div class="container">
       <div class="starter-template">
         <div class="container">
@@ -22,6 +30,7 @@
 
       <div class="container">
         <h3>Courses Program</h3>
+        <p><a class="btn btn-primary" href="{% url 'courses:add' %}" role="button"><span class="glyphicon glyphicon-plus"></span>Add new course</a></p>
         <br>
           <table class="table">
             <thead>
@@ -35,6 +44,10 @@
                 <tr>
                   <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
                   <td>{{ course.short_description|title }}</td>
+                  <td>
+                    <p><a class="btn btn-primary btn-block" href="{% url 'courses:edit' course.id %}" role="button"><span class="glyphicon glyphicon-pencil"></span>Change</a></p>
+                    <p><a class="btn btn-primary btn-block" href="{% url 'courses:remove' course.id %}" role="button"><span class="glyphicon glyphicon-remove"></span>Remove</a></p>
+                </td>
                 </tr>
               {% endfor %}
             </tbody>
