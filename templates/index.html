@@ -18,6 +18,10 @@
 <div class="container">
         <h3>Courses Program</h3>
         <br>
+        <h2>Решайся, не пожалеешь</h2>
+          <div>
+            <button class="btn"><a href="{% url 'courses:add' %}">Добавить новый курс</a></button>
+          </div>
           <table class="table">
             <thead>
               <tr>
@@ -30,6 +34,8 @@
                 <tr>
                   <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
                   <td>{{ course.short_description|title }}</td>
+                  <td><button class="btn"><a href="{% url 'courses:edit' course.id %}">Редактировать курс</a></button></td>
+                  <td><button class="btn"><a href="{% url 'courses:remove' course.id %}">Удалить курс</a></button></td>
                 </tr>
               {% endfor %}
             </tbody>
