@@ -31,13 +31,13 @@ def edit(request, course_id):
             form.save()
             text = "The changes have been saved."
             messages.success(request, text)
-            return redirect('courses:detail', course_id)
+            return redirect('courses:edit', course_id)
     return render(request, 'courses/edit.html', {'form': form})    
 
 def remove(request, course_id):
     cd = Course.objects.get(id=course_id)
     if request.POST:
-        text = "Course " + str(cd) + " has been deleted."
+        text = "Course " + cd.name + " has been deleted."
         messages.success(request, text)  
         cd.delete()
         return redirect('index')
