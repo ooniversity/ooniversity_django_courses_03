@@ -32,8 +32,18 @@
              {% if gc %} 
               {% for course in gc %}
               <tr>
-                <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
-                <td>{{ course.short_description }}</td>
+                <td><a href="{% url 'courses:detail' course.id %}"> {{ course.name|upper }} </a></td>
+                <td> {{ course.short_description|title }} </td>
+                <td>
+                <a href="{% url 'courses:edit' course.id %}">
+                    <button type="button">
+                    <span  aria-hidden="true"></span> Edit </button>    
+                </a>  
+                <a href="{% url 'courses:remove' course.id %}">
+                    <button type="button">
+                    <span aria-hidden="true"></span> Delete </button>    
+                </a>  
+                </td> 
               </tr>
               {% endfor %}
               {% endif %}  
