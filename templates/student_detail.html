@@ -1,97 +1,24 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<!--[if IE 7 ]><html class="ie ie7 lte9 lte8 lte7" lang="en-US"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 lte9 lte8" lang="en-US">	<![endif]-->
-<!--[if IE 9]><html class="ie ie9 lte9" lang="en-US"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html class="noIE" lang="en-US">
-<!--<![endif]-->
-	<head>
-		<!-- meta -->
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-			<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no"/>
-		<title>Padafa Evgeniy</title>
 
-		<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-	    <link rel="stylesheet" href="{% static "css/section.css" %}">
-	    <link rel="stylesheet" href="{% static "css/about.css" %}">
-
-	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-			<!--[if lt IE 9]>
-				<script src="assets/js/html5shiv.js"></script>
-				<script src="assets/js/respond.js"></script>
-			<![endif]-->
-
-			<!--[if IE 8]>
-		    	<script src="assets/js/selectivizr.js"></script>
-		    <![endif]-->
-	</head>
-<body>
-<!-- Home -->
-	<section class="portfolio-header" id="header">
-		
-		<nav class="navbar navbar-default">
-			<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="{% url "index" %}">PyBursa</a>
-				</div> <!-- /.navbar-header -->
-
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="{% url "index" %}">Main</a></li>
-						<li><a href="{% url "contact" %}">Contacts</a></li>
-						<li><a href="{% url "student_list" %}">Students</a></li>
-					</ul> <!-- /.nav -->
-			    </div><!-- /.navbar-collapse -->
-		  	</div><!-- /.container -->
-		</nav>
-	</section> <!-- /#header -->
+{% block title %}E_Padafa{% endblock title %}
 
 
-<!-- Section Background -->
-	<section class="section-background">
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="{% url "index" %}">Main</a></li>
-				<li class="active">&nbsp;Padafa Evgeniy</li>
-			</ol>
-		</div> <!-- /.container -->
-	</section> <!-- /.section-background -->
+{% block nav_students %}class="active"{% endblock %}
 
 
-<!-- Our Team -->
-	<section class="team">
-		<div class="container section-wrapper">
-			<h2 class="section-title black">
+{% block content %}
+	
+			<h2>
 				Padafa Evgeniy
-			</h2> <!-- /.section-title -->
-			<div class="underline purple"></div>
-			<div class="row">
-				<div class="col-sm-3 col-xs-6">
-					<div class="team-item">
-						<img src="{% static "images/ava-padafa.jpg" %}" alt="team-image" class="team-img">
-					</div> <!-- /.team-item -->
-				</div> <!-- /.col-md-3 -->
-			</div> <!-- /.team-item -->
-		</div> <!-- /.col-md-3 -->
-	</section> <!-- /.team -->
+			</h2> 
 
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Student's card</div>
-  <div class="panel-body">
-  </div>
-  <!-- Table -->
-  <table class="table">
+						<img src="{% static "images/ava-padafa.jpg" %}" >
+
+
+  <div>Student's card</div>
+ 
+  <table>
     <tr>
     	<td>Surname</td>
     	<td>Padafa</td>
@@ -128,11 +55,8 @@
    		<td>35</td>
     </tr>
   </table>
-</div>
 
-  <!-- Default panel contents -->
-  <!-- Table -->
-      <table class="table table-striped table-bordered">
+      <table>
       <thead>
       <tr>
       <th>Theme</th>
@@ -156,28 +80,4 @@
       </tr>
       </tbody>
       </table>
-    </div>
-<!-- Footer -->
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="copy">
-						Copyright &copy; 2015 Padafa Evgeniy
-					</div>
-				</div>
-				
-			</div> <!-- /.row -->
-		</div> <!-- /.container -->
-	</footer>
-	
-
-
-	<script src="{% static "js/jquery-1.11.2.min.js" %}"></script>
-    <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <script src="{% static "js/contact.js" %}"></script>
-	<script src="{% static "js/script.js" %}"></script>
-
-
-</body>
-</html>
+	{% endblock content %}

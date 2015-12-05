@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
-  </head>
-  <body>
-          <a href="{% url 'index' %}">
-            py
-          </a>
+{% extends "base.html" %}
 
-          <ul>
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}?course_id={{ course_detail.id }}">Students</a></li>
-          </ul>
+{% block nav_course_students %}?course_id={{ course_detail.id }}{% endblock %}
 
+{% block title %}Courses{% endblock title %}
+
+{% block content %}
+     <br>
+        {% if messages %}
+            <ul >
+            {% for message in messages %}
+                  <button type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 {{ message }}
+             {% endfor %}
+            </ul>     
+        {% endif %} 
+      <br> 
 
     <h2> {{ course_detail.name }} </h2>
     {{ course_detail.description }}
@@ -52,5 +50,5 @@
               {% endif %}  
             </tbody>
            </table>       
-  </body>
-</html>
+{% endblock content %}
+
