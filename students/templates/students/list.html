@@ -15,6 +15,15 @@
 
 {% block content %}
             <div class="jumbotron ">
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li class="list-group-item list-group-item-success" style="color: #EFEFEF;background-color: #3E8789;opacity: 0.5;">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <p><a class=" btn btn-primary btn-lg " href="{% url 'students:add' %}" role="button">Добавить нового студента</a></p>
+
                 <h3><span class="glyphicon glyphicon-list padsingtitle" aria-hidden="true" ></span>List of students</h3>
 
                 <!-- Table -->

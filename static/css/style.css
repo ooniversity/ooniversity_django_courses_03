@@ -53,7 +53,14 @@ h2, h3{   color: #108475;    opacity: 0.5;}
 .skipe{   color: #FFF;}
 .phone{   color:  #FFF;}
 .name{    color:  #FFF;}
+.textgray{    color: #81807E;}
 .antiopas p{    color: white;    font-size: 18px;}
 .opct-text, p{   opacity: 0.4;}
 .errorMessage {color: tomato;}
 .padsingtitle {padding-right: 8px;}
+
+/*form*/
+.add_form {color:black; }
+.add_form p label {min-width:150px; color: #81807E;}
+.add_form p span {max-width:250px; display:block; float:right; margin-right: 300px; color: #81807E;}
+.add_form p select {width:257px; }
