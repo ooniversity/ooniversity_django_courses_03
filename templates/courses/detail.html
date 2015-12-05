@@ -15,6 +15,17 @@
       <div class="jumbotron transparant-background">
         <h2>{{ course.name }}</h2>
         <p>{{ course.description|truncatechars:32 }}</p>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+          <a href="{% url 'courses:add_lesson' course.id%}">Add new lesson</a>
         <div class="panel panel-default transparant-background">
           <table class="table table-striped text-align-justify">
           <tr>
@@ -52,6 +63,6 @@
           <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant }}</a></p>
           <p>{{ course.assistant.description }}</p>
         </div>
-      <!--</div>-->
+      </div>
     </div>
 {% endblock content %}

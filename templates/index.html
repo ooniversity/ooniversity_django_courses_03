@@ -11,46 +11,20 @@
 
 
 {% block content %}
-    <!--<div class="page-header text-align-center">
-      <div class="container">
-        <div class="jumbotron transparant-background font-small-caps">
-          <h2 class = "text-align-center">PyBursa - professional course of Python</h2>
-          <h3 class="desription-color">Description</h3>
-          <div class = "lead">
-            <p class = "text-align-justify f-indent">This course aims to teach everyone the basics of programming computers using Python.
-              We cover the basics of how one constructs a program from a series of simple instructions in Python.
-              The course has no pre-requisites and avoids all but the simplest mathematics.
-              Anyone with moderate computer experience should be able to master the materials in this course.
-              This course will cover Chapters 1-5 of the textbook "Python for Informatics".
-              This course is equivalent to the first half of the 11-week "Programming for Everybody (Python)" course.
-              Once a student completes this course, they will be ready to take more advanced programming courses.</p>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="jumbotron transparant-background">
-          <h2>Program</h2>
-          <div class="panel panel-default transparant-background">
-            <table class="table table-striped text-align-justify">
-              <tr>
-                <td>1</td>
-                <td>Chapter One - Why we Program?</td>
-                <td>Welcome <br> Lecture materials <br>  Additional Materials</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Installing and Using Python</td>
-                  <td>Installing Python - Overview <br> Recommended: Install Python - Windows 8 <br>  Recommended: Using Python - Macintosh<br> Recommended: Using Python on a Raspberry Pi <br> Recommended: Install Python - Windows Vista <br> Optional: Python Installation </td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>-->
-
       <div class="container">
         <div class="jumbotron transparant-background">
           <h2>Courses</h2>
+          {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+          <a href="{% url 'courses:add' %}">Add new course</a>
           <div class="panel panel-default transparant-background">
             <table class="table text-align-justify">
               <tr>
@@ -60,6 +34,8 @@
               {% for course in courses_all %}
                 <tr>
                 <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td><td>{{ course.short_description|title }}</td>
+                <td><a href="{% url 'courses:edit' course.id %}">edit</a></td>
+                <td><a href="{% url 'courses:remove' course.id %}">remove</a></td>
                 </tr>
               {% endfor %}
             </table>
