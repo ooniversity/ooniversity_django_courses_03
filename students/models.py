@@ -15,7 +15,7 @@ class Student(models.Model):
     address = models.CharField(max_length=255)
     skype = models.CharField(max_length=255)
     courses = models.ManyToManyField(Course)
-'''
+
     # __unicode__ on Python 2
     def __unicode__(self):
         return self.name
@@ -23,4 +23,4 @@ class Student(models.Model):
     # __str__ on Python 3
     def __str__(self):
         return self.name
-'''
+
