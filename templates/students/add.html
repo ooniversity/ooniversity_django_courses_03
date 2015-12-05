@@ -12,7 +12,11 @@
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading">Information about new student</div>
-      {{ form.as_p }}
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit">
+        </form>
 
     </div>
 
