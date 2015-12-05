@@ -30,8 +30,8 @@ def detail(request, student_id):
     return render(request, 'students/detail.html', context)
 
 def create(request):
-    if request.method == "GET":
-        form = StudentModelForm(request.GET)
+    if request.method == "POST":
+        form = StudentModelForm(request.POST)
         if form.is_valid():
             Student = form.save()
             message = 'Student %s %s has been successfully added.' %(form['name'].value(), form['surname'].value())
