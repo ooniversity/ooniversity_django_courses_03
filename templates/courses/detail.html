@@ -1,80 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{course.name}}</title>
-    {% load staticfiles %}
-    <script src={% static 'js/bootstrap.js' %} rel="stylesheet"> </script>
-    <link  href={% static 'css/bootstrap.css' %} rel="stylesheet">
-    <link  href={% static 'css/style.css' %} rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar navbar-fixed-top navbar-inverse">
-        <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>  
-            </button>
-            <a class="navbar-brand" href="#">ITBursa</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href={% url 'index' %}>Главная</a></li>
-                    <li><a href={% url 'contact' %}>Контакты</a></li>
-                    <li><a href={% url 'students:list_view' %}?course_id={{course.id}}>Студенты</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container theme-showcase">
-        <div class="jumbotron">
-            <h1 class="descr">ITBursa</h1>
-            {% block content %}
-            <h2 class="descr">{{ course.name }} Описание курса</h2>
-            <p class="descr">{{ course.description }}</p>
-        </div>
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Main{% endblock title %}
+
+
+{% block navbar_button_1 %}active{% endblock navbar_button_1 %}
+
+
+{% block jumbotron %}
+
+        <h2>ITBursa</h2>
+        <h2 class="descr">{{ course.name }} Описание курса</h2>
+        <p class="descr">{{ course.description|truncatechars:32 }}</p>
         <div class= "jumbotron container">
-            <h2>Teachers</h2> 
-            <h3>Coach</h3>
-            <h4><a href={% url 'coaches:detail' coach_id %}>{{ coach }}</a></h4>
-            <h6>{{course.coach.description}}</h6>
-            <h3>Assistant</h3>
-            <h4><a href={% url 'coaches:detail' assistant_id %}>{{ assistant }}</a></h4>
-            <h6>{{course.assistant.description}}</h6>
-        </div>
+        <h2>Преподаватели</h2> 
+        <table class="table table-striped table table-bordered">
+          <caption>Учитель</caption>
+          <thead>
+            <tr>
+              <th>Имя</th>
+              <th>Описание</th>
+            </tr>
+          </thead>  
+          <tbody>
+            <tr>
+              <th scope="row">
+                <a class="table" href="{% url 'coaches:detail' coach_id %}">{{ coach }}</a>
+              </th>
+              <td>{{ course.coach.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-striped table table-bordered">
+          <caption>Ассистент</caption>
+          <thead>
+            <tr>
+              <th>Имя</th>
+              <th>Описание</th>
+            </tr>
+          </thead>  
+          <tbody>
+            <tr>
+              <th scope="row">
+                <a class="table" href="{% url 'coaches:detail' assistant_id %}">{{ assistant }}</a>
+              </th>
+              <td>{{ course.assistant.description }}</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 class="descr">План курса</h2>
         <table class="table table-striped table table-bordered">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Тема</th>
-                    <th>Описание</th>
-                </tr>
-            </thead>
-            <tbody>   
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Тема</th>
+              <th>Описание</th>
+            </tr>
+          </thead>
+          <tbody>   
             {% for lesson in lessons%}
-                <tr>
-                    <td>{{ lesson.order }}</td>
-                    <td>{{ lesson.subject }}</td>
-                    <td>{{ lesson.description }}</td>
-                </tr>
-                {% empty %}
-                <h3>Not found!</h3>
-                {% endfor %}
-                </tbody>
-            </table>
-            {% endblock %}
+              <tr>
+                <td>{{ lesson.order }}</td>
+                <td>{{ lesson.subject }}</td>
+                <td>{{ lesson.description }}</td>
+              </tr>
+              {% empty %}
+              <h3>Not found!</h3>
+            {% endfor %}
+          </tbody>
+        </table>
         </div>
-    </div>
-        
-    <footer class="footer">
-        <p>&copy; ITBursa 2015</p>
-    </footer>
+    
+{% endblock jumbotron %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src={% static 'js/bootstrap.js' %}></script>
-</body>
-</html>
+{% block content %}{% endblock content %}
+
+    
+    
