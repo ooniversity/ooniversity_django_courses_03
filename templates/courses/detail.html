@@ -10,7 +10,7 @@
 
       <div class="starter-template">
         <h2 class="starter-template">{{ course.name }}</h2>
-        <h2 class="starter-template">{{ course.description }}</h2>
+        <h2 class="starter-template">{{ course.description|truncatechars:32 }}</h2>
       </div>
 
 
