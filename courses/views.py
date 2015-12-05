@@ -32,6 +32,7 @@ def edit(request, course_id):
 	    	data = form.cleaned_data
 	    	msg = 'The changes have been saved.'
 	    	messages.success(request, msg)
+	    	redirect('courses:edit', course_id)
 
 	return render(request, './courses/edit.html', { 'form' : form } )
 
