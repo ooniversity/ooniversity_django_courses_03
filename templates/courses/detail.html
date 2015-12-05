@@ -1,15 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-
 {% block title %}{{ course.name }}{% endblock %}
-
 {% block content %}
-
 <div class="jumbotron">
   <div class="text-center">
     <h1>{{ course.name }}</h1>
   </div>
-  <p class="lead">{{ course.description }}</p>
+  <p class="lead">{{ course.description|truncatechars:32 }}</p>
 </div>
 <h2 class="text-center">Teachers</h2>
 {% include 'include/include.html' with teacher_about='Coach' teacher=coach %}

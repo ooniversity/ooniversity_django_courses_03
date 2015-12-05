@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-
 {% block title %}{{ student.name }} {{ student.surname }}{% endblock %}
 {% block active_students %}active{% endblock active_students %}
-
 {% block content %}
-
 <div class="jumbotron">
   <div class="text-center">
     <p><h2 class="text-center">Student details</h2></p>
@@ -46,5 +43,4 @@
     </tbody>
   </table>
 </div>
-
 {% endblock %}

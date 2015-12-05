@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
-
 {% block title %}Main{% endblock %}
 {% block active_main %}active{% endblock active_main %}
-
 {% block content %}
-
 <div class="jumbotron">
 <div class="text-center">
     <h1>PyBursa</h1>
@@ -26,15 +23,12 @@
           <td>Short description</td>
         </tr>
         {% for course in courses %}
-
         <tr>
           <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
           <td><p>{{ course.short_description|title }}</p></td>
         </tr>
-
         {% endfor %}
       </table>
     </div>
   </div>
-
 {% endblock %}
