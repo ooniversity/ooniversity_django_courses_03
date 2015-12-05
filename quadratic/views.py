@@ -36,7 +36,7 @@ def quadratic_results(request):
             context['res'] = u'Квадратное уравнение имеет два действительных корня: x1 = %.2f, x2 = %.2f' % (x1, x2)
 
     else:
-        raise NameError('HiThere')
+        quad_form = QuadraticForm()
 
     context['form'] = quad_form
     return render(request, 'quadratic/results.html', context)
