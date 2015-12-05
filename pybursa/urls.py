@@ -4,6 +4,8 @@ from .views import index, contact, student_list, student_detail
 from courses.views import *
 from students.views import *
 
+admin.site.site_header = 'My admin'
+
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'project.views.home', name='home'),
