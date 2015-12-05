@@ -16,7 +16,11 @@
 </div>
 <div>
   <div class="table-responsive col-md-6">
-    <img alt="Coach's photo" src="{{ STATIC_URL }}images/coach_photo_{{ coach.id }}.jpg" class="img-rounded" />
+
+
+{% include "coaches_photo_include.html" %}
+
+
     <br><br><br>
     <table class="table table-hover">
       <thead></thead>
