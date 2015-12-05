@@ -14,6 +14,13 @@
   <div class="jumbotron">
     <div class="container">
       <div class="bursa">
+        {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <h4 class="course_program">{{ message }}</h4>
+          {% endfor %}
+        </div>
+        {% endif %}
         <h1 id="pb" class="bursa">{{ courses.name }}</h1>
         {% if courses.name == "Python Bursa" %}
         <div class="details-logo">
@@ -39,7 +46,7 @@
 {% include "courses/include/inc_instructor_include.html" with block_title="Ассистент" instructor=courses.assistant %}
   <div class="course_id">
     <div class="panel panel-default">
-      <div class="panel-heading"><h2 class="py_program"></h2></div>
+      <div class="panel-heading"><h2 class="py_program"></h2><a href="{% url 'courses:add_lesson' courses.id %}" class="btn btn-primary btn-lg active" role="button">Добавить занятие</a></h3></td></div>
         <table class="table-responsive">       
           <tr class="headtable"><td><h3>#</h3></td><td><h3>Тема недели</h3></td><td><h3>Описание</h3></td><tr>
           {% for lesson in lessons %}
