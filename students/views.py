@@ -29,3 +29,14 @@ def create(request):
     else:
         student_form = StudentModelForm()        
     return render(request, "students/add.html", {'student_form': student_form})
+
+def remove(request, stud_id):
+    student = Student.objects.get(id=stud_id)
+    name = student.name
+    surname = student.surname
+    if request.POST:
+            student.delete()
+            my_message = "Студент {} {} был удален".format(name, surname)
+            messages.success(request, my_message)
+            return redirect ('students:list_view')
+    return render(request, "students/remove.html", {'name':name, 'surname':surname})

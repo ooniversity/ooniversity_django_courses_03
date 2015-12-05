@@ -41,6 +41,10 @@
                 <td>{% for c in stud.courses.all%}
                       <li><a href="{% url 'courses:detail' c.id%}">{{c.name}}</a></li>
                     {% endfor %}</td>
+                <td><button type="button" class="btn btn-warning btn-lg" aria-label="Left Align">
+                    <a href="{% url 'students:remove' stud.id%}">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true">Удалить</span></a>
+                    </button><br></td>
               </tr>
               {% endfor %}
 						</tbody>
