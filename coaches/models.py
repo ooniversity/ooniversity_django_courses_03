@@ -7,9 +7,9 @@ class Coach(models.Model):
     date_of_birth = models.DateField()
     gender = models.CharField(
         max_length=1, choices=(('M', 'Male'), ('F', 'Female')))
-    phone = models.CharField(max_length=30)
+    phone = models.CharField(max_length=100)
     address = models.CharField(max_length=255)
-    skype = models.CharField(max_length=30)
+    skype = models.CharField(max_length=100)
     description = models.TextField()
 
     def __unicode__(self):
