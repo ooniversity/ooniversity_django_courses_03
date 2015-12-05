@@ -3,6 +3,7 @@ from django.contrib import admin
 from .views import index, contact, student_list, student_detail
 from courses.views import *
 from students.views import *
+from quadratic.views import *
 
 admin.site.site_header = 'My admin'
 
@@ -18,4 +19,6 @@ urlpatterns = patterns('',
     url(r'^courses/', include('courses.urls', namespace='courses')),
     url(r'^students/', include('students.urls', namespace='students')),
     url(r'^coaches/', include('coaches.urls', namespace='coaches')),
+    url(r'^quadratic/$', quadratic, name='quadratic'),
+    url(r'^quadratic/results/', quadratic_results, name='quadratic_results'),
 )
