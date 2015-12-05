@@ -8,12 +8,12 @@
         <form method="get">
           {{form.as_p}}
           <input type="submit" name="" value="Решить">
-          {%if d or result%}
+          {% if d or result %}
             <br />
             <p>Дискриминант: {{d}}</p>
             <p>{{mistake_d}}</p>
             <br />
             {{result}}
-          {%endif%}
+          {% endif %}
       </form>
   </body>
