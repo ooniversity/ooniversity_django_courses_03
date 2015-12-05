@@ -24,32 +24,32 @@ def detail(request, student_id):
   return render(request, 'students/detail.html', {'student':student})
 
 def create(request):
-  form = StudentModelForm()
-  if request.method == 'POST':
-    form = StudentModelForm(request.POST)
-    if form.is_valid():
-      add_stud = form.save()
-      messages.success(request, u'Student %s %s has been successfully added.' % (add_stud.name, add_stud.surname))
-      return redirect('students:list_view')
-  return render(request,'students/add.html',{'form':form})
+    form = StudentModelForm()
+    if request.method == 'POST':
+      form = StudentModelForm(request.POST)
+      if form.is_valid():
+        add_stud = form.save()
+        messages.success(request, u'Student %s %s has been successfully added.' % (add_stud.name, add_stud.surname))
+        return redirect('students:list_view')
+    return render(request,'students/add.html',{'form':form})
 
 def remove(request,pk):
-  student = Student.objects.get(id=pk)
-  message = u"%s %s" %(student.name, student.surname)
-  if request.method == 'POST':
-    student.delete()
-    messages.success(request, u"Info on %s %s has been sucessfully deleted." % (student.name, student.surname))
-    return redirect('students:list_view')
-  return render(request, 'students/remove.html', {'message': message})
+    student = Student.objects.get(id=pk)
+    message = u"%s %s" %(student.name, student.surname)
+    if request.method == 'POST':
+      student.delete()
+      messages.success(request, u"Info on %s %s has been sucessfully deleted." % (student.name, student.surname))
+      return redirect('students:list_view')
+    return render(request, 'students/remove.html', {'message': message})
 
 def edit(request,pk):
-  student = Student.objects.get(id=pk)
-  if request.method == 'POST':
-    form = StudentModelForm(request.POST, instance=student)
-    if form.is_valid():
-      form.save()
-      messages.success(request, u'Info on the student has been sucessfully changed.')
-      return redirect('students:list_view')
-  else:
-    form = StudentModelForm(instance=student)
-  return render(request,'students/edit.html',{'form':form})
+    student = Student.objects.get(id=pk)
+    if request.method == 'POST':
+      form = StudentModelForm(request.POST, instance=student)
+      if form.is_valid():
+        form.save()
+        messages.success(request, u'Info on the student has been sucessfully changed.')
+        return redirect('students:list_view')
+    else:
+      form = StudentModelForm(instance=student)
+    return render(request,'students/edit.html',{'form':form})
