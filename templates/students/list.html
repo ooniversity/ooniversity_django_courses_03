@@ -10,40 +10,50 @@
 
 
 {% block content %}
-<div class="container">
-  <h2>Students list</h2>
-  </br>
-  </br>
-  <p><a href="{% url 'students:add' %}" class="btn btn-primary" role="button">Add a new student</a></p>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name\Surname</th>
-          <th>Address</th>
-          <th>Skype</th>
-          <th>Course</th>
-        </tr>
-      </thead>
-      <tbody>
-      {% for student in students %}
-      <tr>
-      <td>{{ student.id }}</td>
-        <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}<a></td>
-        <td>{{ student.address }}</td>
-        <td>{{ student.skype }}</td>
-        <td>{% for course in student.courses.all %}
-        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+</br></br></br></br></br>
+    <div class="container">
+      <div class="starter-template">
+          {% if messages %}
+          <div class="alert alert-success">
+            {% for message in messages %}
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
             {% endfor %}
-        </td>
-        <td><a href="{% url 'students:edit' %}" class="btn btn-primary" role="button">Изменить</a></td>
-        <td><a href="{% url 'students:remove' %}" class="btn btn-primary" role="button">Удалить</a></td>
-        </tr>
-          {% empty %}
-        <h3>No students</h3>
-          {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</div>
+          </div>
+          {% endif %}
+        <div class="container">
+        <a href="{% url 'students:add' %}" class="btn btn-primary" role="button">Add new student</a>
+        <h2>Students list</h2>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name\Surname</th>
+                    <th>Address</th>
+                    <th>Skype</th>
+                    <th>Course</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <td>{{ student.id }}</td>
+                            <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}<a></td>
+                            <td>{{ student.address }}</td>
+                            <td>{{ student.skype }}</td>
+                            <td>{% for course in student.courses.all %}
+                                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                                {% endfor %}
+                            </td>
+                            <td><a href="{% url 'students:edit' student.id %}" class="btn btn-primary">Change</a></td>
+                            <td><a href="{% url 'students:remove' student.id %}" class="btn btn-primary">Remove</a></td>
+                        </tr>
+                    {% empty %}
+                          <h3>No students</h3>
+                    {% endfor %}
+                </tbody>
+              </table>
+      </div>
+    </div><!-- /.container -->
 {% endblock content %}
