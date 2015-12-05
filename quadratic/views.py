@@ -1,57 +1,27 @@
-# -*- coding: utf-8 -*-
-import math
+from django.shortcuts import render
 
-from django.shortcuts import render_to_response
+from quadratic.forms import QuadraticForm
 
 
 def quadratic_results(request):
-    open_get = request.GET
-    context = {
-        'title': 'Решатель квадратных уравнений'
-    }
-    for key, value in open_get.items():
-        if value:
-            if value[0] != '-':
-                if not value.isdigit():
-                    context[key] = value
-                    context['error' + '_' + key] = 'коэффициент не целое число'
-                else:
-                    context[key] = int(value)
-            else:
-                if not value[1:].isdigit():
-                    context[key] = value
-                    context['error' + '_' + key] = 'коэффициент не целое число'
-                else:
-                    context[key] = int(value)
+    context = {}
+    if request.GET:
+        form = QuadraticForm(request.GET)
+        context['form'] = QuadraticForm(request.GET)
+        if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
 
-        else:
-            context[key] = value
-            context['error' + '_' + key] = 'коэффициент не определен'
-
-    if isinstance(context['a'], int) and isinstance(context['b'], int) and isinstance(context['c'], int):
-
-        if context['a'] == 0:
-            context['error_a'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-        else:
-            discr = context['b'] ** 2 - 4 * context['a'] * context['c']
-            if discr > 0:
-                x1 = (-context['b'] + math.sqrt(discr)) / (2 * context['a'])
-                x2 = (-context['b'] - math.sqrt(discr)) / (2 * context['a'])
-
-                context['result'] = 'Квадратное уравнение имеет два действительных ' \
-                                    'корня: x1 = %.1f, x2 = %.1f' % (x1, x2)
-            elif discr == 0:
-                x = -context['b'] / (2 * context['a'])
-
-                context[
-                    'result'] = 'Дискриминант равен нулю, квадратное уравнение имеет ' \
-                                'один действительный корень: x1 = x2 = %.1f' % x
-            else:
-
-                context['result'] = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-            context['discr'] = discr
-
+            context['discrim'] = b ** 2 - 4 * a * c
+            if context['discrim'] > 0:
+                context['x1'] = float(
+                    (-b + context['discrim'] ** (1 / 2.0)) / (2 * a))
+                context['x2'] = float(
+                    (-b - context['discrim'] ** (1 / 2.0)) / (2 * a))
+            elif int(context['discrim']) == 0:
+                context['x1'] = context[
+                    'x2'] = float(-b / (2 * a))
     else:
-        context
-
-    return render_to_response('results.html', context)
+        context['form'] = QuadraticForm()
+    return render(request, 'quadratic/results.html', context)
