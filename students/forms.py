@@ -36,17 +36,18 @@ def create(request):
     if request.method == 'POST':
         form = StudentModelForm(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
-            student = Student()
-            student.name = data['name']
-            student.surname = data['surname']
-            student.date_of_birth = data['date_of_birth']
-            student.email = data['email']
-            student.phone = data['phone']
-            student.address = data['address']
-            student.skype = data['skype']
+            student = form.save()
+            #data = form.cleaned_data
+            #student = Student()
+            #student.name = data['name']
+            #student.surname = data['surname']
+            #student.date_of_birth = data['date_of_birth']
+            #student.email = data['email']
+            #student.phone = data['phone']
+            #student.address = data['address']
+            #student.skype = data['skype']
             #student.courses = data['courses']
-            student.save()
+            #student.save()
             messages.success(request, '%s %s was successfully added' % (student.name, student.surname))
             return redirect('students:list')
     else:
