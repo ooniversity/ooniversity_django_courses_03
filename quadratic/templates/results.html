@@ -8,20 +8,11 @@
   </head>
   <body>
     <p>Квадратное уравнение a*x*x + b*x +c = 0</p>
-  <ul>
-	  <li>a = {{ a }}</li>
-      {% if a_message %}
-        {{ a_message }}
-      {% endif %}
-	  <li>b = {{ b }}</li>
-      {% if b_message %}
-        {{ b_message }}
-      {% endif %}
-      <li>c = {{ c }}</li>
-      {% if c_message %}
-        {{ c_message }}
-      {% endif %}
-  </ul>
+ <form method="get">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Решить" />
+</form>
     {% if calculate_Done %}
 <p>Дискриминант: {{ D }}</p>
     <p>{{ solution }}</p>

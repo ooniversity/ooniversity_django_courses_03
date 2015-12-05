@@ -1,48 +1,35 @@
 ## -*- coding: utf-8 -*-
 ## coding: utf8
 from django.shortcuts import render, get_object_or_404
+from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
     global context
     global flag_calculate_D
     context = {}
+    form = QuadraticForm(request.GET)
+    context['form'] = form
     flag_calculate_D = {'a':True, 'b':True, 'c':True}
 
-    try:
-        a = request.GET['a']
-    except:
-        a = None
-    try:
-        b = request.GET['b']
-    except:
-        b = None
-    try:
-        c = request.GET['c']
-    except:
-        c = None
 
-
-    check_input('a',a, True)
-    check_input('b',b)
-    check_input('c',c)
-
-
-
-    if flag_calculate_D['a'] and flag_calculate_D['b'] and flag_calculate_D['c']:
+    if form.is_valid():
         context['calculate_Done'] = True
-        D = context['b'] ** 2 - 4 * context['a'] * context['c']
+        a = int(form['a'].value())
+        b = int(form['b'].value())
+        c = int(form['c'].value())
+        D = b ** 2 - 4 * a * c
         if D < 0:
             context['D'] = D
             context['solution'] = 'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
         elif D == 0:
             context['D'] = D
-            x = -context['b'] / (2 * context['a'])
+            x = -b / (2 * a)
             context['solution'] =('Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: '
                                   'x1 = x2 = %.1f') % x
         else:
             context['D'] = D
-            x1 = (-context['b'] + D ** (1/2.0)) / (2 * context['a'])
-            x2 = (-context['b'] - D ** (1/2.0)) / (2 * context['a'])
+            x1 = (-b + D ** (1/2.0)) / (2 * a)
+            x2 = (-b - D ** (1/2.0)) / (2 * a)
             context['solution'] =('Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f') % (x1, x2)
     return render(request, 'results.html', context)
 
