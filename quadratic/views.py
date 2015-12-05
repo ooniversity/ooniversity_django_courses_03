@@ -12,6 +12,7 @@ def quadratic_results(request):
             a = form.cleaned_data['a']
             b = form.cleaned_data['b']
             c = form.cleaned_data['c']
+
             context['discrim'] = b ** 2 - 4 * a * c
             if context['discrim'] > 0:
                 context['x1'] = float(
