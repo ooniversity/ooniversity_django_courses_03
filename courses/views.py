@@ -23,17 +23,15 @@ def add(request):
     
 def edit(request, pk):
     course = Course.objects.get(id=pk)
-    context={}   
-    if request.method == 'post':
-        form = CourseModelForm(request.POST, instance = course)
+    if request.method == 'POST':
+        form = CourseModelForm(request.POST, instance=course)
         if form.is_valid():
-            form.save()
+            course = form.save()
             messages.success(request, 'The changes have been saved.')
-            return redirect('courses:edit', pk)
+            return redirect('courses:edit',  course.id)
     else:
-        form = CourseModelForm(instance=course) 
-    context['form'] = form
-    return render(request, 'courses/edit.html', context)
+        form = CourseModelForm(instance=course)
+    return render(request, 'courses/edit.html', {'form': form})
 
 def remove(request, pk):
     course = Course.objects.get(id=pk)
