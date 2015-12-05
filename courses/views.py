@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 def index(request):
     context ={}
     context['courses'] = Course.objects.all()
-    return render(request, 'courses/index.html', context)
+    return render(request, 'index.html', context)
 
 def detail (request, course_id):
     p = get_object_or_404(Course, pk = course_id)
