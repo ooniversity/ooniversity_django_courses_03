@@ -1,103 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <title>Linux_Bursa - Contacts</title>
-    {% load staticfiles %}
-
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css">
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/reative.css' %}" type="text/css">
-</head>
-
-<body id="page-top">
-
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="{% url 'index' %}">Main</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a class="page-scroll" a href="{% url 'contact' %}">Contacts</a>
-                    </li>
-                    <li>
-                      <a href="{% url 'students:list_view' %}">Students</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Contacts{% endblock title %}
+{% block nav_contacts %}class="active"{% endblock %}
+{% block content %}
     <header>
         <div class="header-content">
             <div class="header-content-inner">
                 <h2>Contacts:</h2>
                 <hr>
-                <div class="blok1">
-                   <h4><b>Director:</b></h4>
-                   <h6><b>Name:</b> Oleksii Butenko</h6>
-                   <h6><b>Skype:</b> apbutenko</h6>
-                   <h6><b>Email:</b> apbutenko@gmail.com</h6>
-                   <h6><b>Phone:</b> +380665267676</h6>
-                </div>
-                <div class="blok2">
-                   <h4><b>Manager:</b></h4>
-                   <h6><b>Name:</b> Elena Butenko</h6>
-                   <h6><b>Skype:</b> e_butenko</h6>
-                   <h6><b>Email:</b> e_butenko@gmail.com</h6>
-                   <h6><b>Phone:</b> +380997008515</h6>
-                </div>
-                <div class="blok3">
-                   <h4><b>Founder:</b></h4>
-                   <h6><b>Name:</b> Oleksandr Kosse</h6>
-                   <h6><b>Skype:</b> o_kosse</h6>
-                   <h6><b>Email:</b> o_kosse@gmail.com</h6>
-                   <h6><b>Phone:</b> +380631434750</h6>
-                </div>
-                <div class="blok4">
-                   <h4><b>Support:</b></h4>
-                   <h6><b>Name:</b> Oleksii Tyaglo</h6>
-                   <h6><b>Skype:</b> otyaglo</h6>
-                   <h6><b>Email:</b> otyaglo@gmail.com</h6>
-                   <h6><b>Phone:</b> +380665267575</h6>
-                </div>
+            {% include "include/contact_include.html" %}
             </div>
         </div>
     </header>
-       <!-- jQuery -->
-    <script src="../static/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../static/js/bootstrap.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="../static/js/jquery.easing.js"></script>
-    <script src="../static/js/jquery.fittext.js"></script>
-    <script src="../static/js/wow.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../static/js/creative.js"></script>
-</body>
-
-</html>
+{% endblock content %}
