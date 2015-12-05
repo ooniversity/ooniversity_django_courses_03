@@ -10,19 +10,32 @@
 
 
 {% block content %}
-    <div class="container-fluid">
-      <div class="page-header">
-        <h3>Список студентов</h3>
-      </div>
+  <div class="container-fluid">
+    <div class="page-header">
+      <h3>Список студентов</h3>
+    </div>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="jumbotron">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <a href="{% url 'students:add' %}">
+      <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить пользователя</button>
+    </a>
       <div id="spisok">
-        <table class="table table-bordered">
+        <table class="table">
           <thead>
             <tr>
               <th id="students_detail">#</th>
               <th>Фамилия Имя</th>
-              <th>адрес</th>
-              <th>skype</th>
+              <th>Адрес</th>
+              <th>Skype</th>
               <th>Курсы</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -37,10 +50,20 @@
                     <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a></p>
                   {% endfor %}
                 </td>
+                <td>
+                  <a href="{% url 'students:edit' st.id %}">
+                    <button class="glyphicon glyphicon-pencil btn btn-success">Изменить</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="{% url 'students:remove' st.id %}">
+                    <button class="glyphicon glyphicon-remove btn btn-success">Удалить</button>
+                  </a>
+                </td>
               </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
-    </div>
+  </div>
 {% endblock content %}
