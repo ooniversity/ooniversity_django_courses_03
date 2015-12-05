@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
-
 {% block title %}Students {{ course.name }}{% endblock %}
-
 {% block content %}
+
+  {% if messages %}
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <ul class="messages">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+      </ul>
+    </div>        
+  {% endif %} 
+  <a href="{% url 'students:add' %}">
+    <button type="button">
+    <span class="glyphicon glyphicon-plus"></span> Add student </button>    
+  </a>  
   <div class="jumbotron container">
     <h2>Students {{ course.name }}</h2>
     <table class="table">
@@ -17,7 +29,7 @@
 			</thead>
 			<tbody>
 			{% for student in students %}
-				<tr>
+			<tr>
 				<td>{{ student.id }} </td>
 				<td><a href={% url 'students:detail' student.id %}>{{ student.surname }} {{ student.name }}</a></td>
 				<td>{{ student.address }}</td>
@@ -27,7 +39,15 @@
 					<a href={% url 'courses:detail' course.id %}>{{ course.name }} </a>
 				{% endfor %}
 				</td>
-				</tr>
+        <td>
+          <a href="{% url 'students:edit' student.id %}">
+            <button type="button"><span class="glyphicon glyphicon-pencil"></span> Edit </button>    
+          </a>  
+          <a href="{% url 'students:remove' student.id %}">
+            <button type="button"><span class="glyphicon glyphicon-remove-sign"></span> Delete </button>    
+          </a>  
+        </td> 
+      </tr>
 			{% endfor %}
       </tbody>
 		</table>
