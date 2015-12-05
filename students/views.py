@@ -31,8 +31,8 @@ def create(request):
 	    	msg = 'Student %s %s has been successfully added.' % (data['name'], data['surname'])
 	    	messages.success(request, msg)
 	    	return redirect('students:list_view')
-	    else:
-	    	form = StudentModelForm() 
+	else:
+		form = StudentModelForm() 
 
 	return render(request, './students/add.html', { 'student_form' : form })
 
