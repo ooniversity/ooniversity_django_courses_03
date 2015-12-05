@@ -1,84 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Ooniversity-Main{% endblock title %}
+
+{% block nav_class_index %}active{% endblock nav_class_index %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>PyBursa - Профессиональные Python & Django  курсы</title>
-<meta name="description" content="Выучить питон на PyBursa быстро и легко!">
-<meta name="keywords" content="питон, курсы, онлайн">
-<meta name="author" content="Олександр Кучеренко">
-<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
-<!-- Основной файл стилей -->
-<link href="{% static 'css/style.css'%}" rel="stylesheet">
-<!-- responsive stylesheet -->
-<link href="{% static 'css/responsive.css'%}" rel="stylesheet">
-<!-- Подключение иконок Font Awesome -->
-<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
-<!-- Подключение Bootstrap -->
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
-<link rel="stylesheet" href="{% static 'css/bootstrap-theme.css'%}">
-<script src="{% static 'js/bootstrap.min.js'%}"></script>
-<!-- Дополнительный файл стилей -->
-<link href="{% static 'css/other.css'%}" rel="stylesheet">
-</head>
-<body>
-<div id="wrapper">
-  <!--Начало секции Header -->
-  <header id="header">
-    <div class="primary-header">
-      <div class="container">
-        <div class="row ">
-          <ul class="contact-detail2 col-sm-5 pull-left">
-            <li> <i class="fa fa-phone"> 38 (096) 469 15 57</i>  </li>
-            <li> <i class="fa fa-envelope-o"> daria.mykhalevych@gmail.com</i>  </li>
-          </ul>
-          <div class="social-links col-xs-12 col-sm-7 pull-right">
-            <ul class="social-icons hidden-xs pull-right">
-              <li> <i class="fa fa-facebook-square">.</i> </li>
-              <li> <i class="fa fa-twitter">.</i></li>
-              <li> <i class="fa fa-pinterest">.</i> </li>
-              <li> <i class="fa fa-vk">.</i> </li>
-              </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="navbar navbar-default" role="navigation">
-      <div class="container">
+{% block content %}<div id="main">
 
-        <!-- Лого и меню сгрупированы для лучшего мобильного отображения -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Моб.  меню</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a href="{% url 'index' %}" class="col-xs-6 col-sm-2 navbar-brand" title="Добро пожаловать на PyBursa"><img class="wow bounceInDown" data-wow-duration="0.5s" data-wow-delay="0s" src="../static/images/logo.png" alt="PyBursa"></a> </div>
-
-        <!-- Меню -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <nav>
-            <ul class="nav navbar-nav">
-              <li> <a href="{% url 'index' %}" class="active">Main </a> </li>
-              <li><a href="{% url 'students:list_view' %}">Students</a></li>
-              <li> <a href="{% url 'contact' %}">Contacts</a> </li>
-              <li> <a style="visibility: visible;" class="search-button" href="{% url 'index' %}"><i class="icon icon-Search"></i></a> </li>
-            </ul>
-            <div style="" class="bg-white hide-show-content no-display header-search-content">
-              <form class="navbar-form vertically-absolute-middle">
-                <div class="form-group">
-                  <input placeholder="Введите текст &amp; Нажмите Enter" class="form-control" id="s" name="s" value="" type="text">
-                </div>
-              </form>
-              <!--<button class="close"> <i class="fa fa-times"></i> </button>-->
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!--Конец секции Header -->
-
-  <!-- Site Content -->
-  <div id="main">
-    <!-- #banner -->
+<!-- #banner -->
     <section id="banner">
       <div class="banner-container">
         <div class="banner">
@@ -187,7 +115,6 @@ WEB разработки </p>
       </div>
     </section>
     <!-- /#banner -->
-
     <!-- creative studio Start Here -->
     <section class="creative_studio">
       <div class="container">
@@ -199,11 +126,25 @@ WEB разработки </p>
           <div class="article-list wow bounceInDown" data-wow-duration="0.5s" data-wow-delay="0s">
            
             <p> Pybursa is a great place where you can learn basic Python and Django framework. Also you will be up to date with big number of useful tools/technologies such a pep8, CLI, git, csv, json, JS, jQuery, Ajax, HTTP, Firebug, Web Developer, MVC, QuerySet, Raw-sql unit-tests, selenium, nginx etc. You will defenetly enjoy it!</p>
-            <a class="btn blue wow bounceInLeft" data-wow-duration="1s" data-wow-delay="0s" href="http://pybursa.com">PURCHASE NOW</a><a class="btn orange learn wow bounceInRight" data-wow-duration="1s" data-wow-delay="0s" href="http://pybursa.com">learn more</a> </div>
+            <a class="btn blue wow bounceInLeft" data-wow-duration="1s" data-wow-delay="0s" href="http://pybursa.com">PURCHASE NOW</a><a class="btn orange learn wow bounceInRight" data-wow-duration="1s" data-wow-delay="0s" href="{% url 'courses:add' %}">Add new course</a> </div>
         </div>
       </div>
     </section>
     <!-- creative studio end Here -->
+
+      <!-- Our Partner Section Start Here-->
+    <section class="partner-site">
+      <div class="container">
+          {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+    </section>
+    <!-- Our Partner Section End Here-->
 
     <!-- Our Partner Section Start Here-->
     <section class="partner-site">
@@ -236,8 +177,10 @@ WEB разработки </p>
             {% if all_courses %}
               {% for course in all_courses %}
                 <tr>
-                  <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
-                  <td>{{ course.short_description }}</td>
+                  <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
+                  <td>{{ course.short_description|title }}</td>
+                  <td><a class="btn btn-default" href="{% url 'courses:edit' course.id %}">Edit</a></td>
+                  <td><a class="btn btn-danger" href="{% url 'courses:remove' course.id %}">Delete</a></td>
                 </tr>
               {% endfor %}
             {% endif %}
@@ -248,7 +191,6 @@ WEB разработки </p>
       </div>
     </section>
     <!-- Our Partner Section End Here-->
-    
 
     <!-- responsive design Start Here -->
     <section class="responsive-design">
@@ -290,7 +232,7 @@ WEB разработки </p>
       </div>
     </section>
     <!-- responsive design end Here -->
- 
+
     <!-- Our Partner Section Start Here-->
     <section class="partner-site">
       <div class="container">
@@ -307,76 +249,4 @@ WEB разработки </p>
       </div>
     </section>
     <!-- Our Partner Section End Here-->
-    <!-- purchase now Start Here -->
-
-    <!-- purchase now end Here -->
-  </div>
-  <!-- site content end Here -->
-
- <!-- Footer Section Start Here -->
-  <footer id="footer">
-    <section class="footer">
-      <div class="container">
-        <div class="col-xs-12 col-sm-3 abt">
-          <h5 class="title">Футер #1</h5>
-          
-          <p>За стеклом лежал Питон,</p>
-          <p>Большой и толстый, как батон.</p>
-          <p>Вверх пополз,</p>
-          <p>Затем вернулся,</p>
-          <p>Круглым бубликом свернулся. </p>
-           </div>
-        <div class="col-xs-12 col-sm-3 popular-post">
-          <h5 class="title">Футер #2</h5>
-          <p>PyBursa Text</p>
-          <p>PyBursa Text</p>
-          <p>PyBursa Text</p>
-          <p>PyBursa Text</p>
-          <p>PyBursa Text</p>
-          
-        </div>
-        <div class="col-xs-12 col-sm-3 service">
-          <h5 class="title">Футер #3</h5>
-          <ul>
-            <li>Web Development</li>
-            <li>Software Development</li>
-            <li>CRM Development</li>
-            <li>Web Maintanance</li>
-            <li>Search Engine Optimization</li>
-            
-          </ul>
-        </div>
-        <div class="col-xs-12 col-sm-3 touch">
-          <h5 class="title">Футер #4</h5>
-          <p> <i class="fa fa-map-marker"> Где-то в Харькове...</i></p>
-          <p> <i class="fa fa-phone"> 38 (096) 469 15 57</i> </p>
-          <p> <i class="fa fa-envelope"> daria@gmail.com</i> </p>
-
-        </div>
-      </div>
-      <div class="copyright">
-        <div class="container">
-          <div class="col-xs-12 col-sm-9 ">
-            <p> Copyright © AlexUA 2015-2016. All rights reserved. </p>
-          </div>
-          <div class="col-xs-12 col-sm-3 pull-right text-right">
-            <p> Created By : AlexUA </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </footer>
-  <!-- End footer
-			================================================== -->
-</div>
-<script src="../static/js/jquery.min.js"></script>
-
-<script type="text/javascript" src="{% static 'js/owl.carousel.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
-<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script> <!-- Revolution Slider Tools -->
-<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
-<script src="{% static 'js/wow.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/site.js' %}"></script>
-</body>
-</html>
+  </div>{% endblock content %}

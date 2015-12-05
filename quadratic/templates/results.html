@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Решение квадратного уравнения{% endblock title %}
+
+{% load staticfiles %}
+{% block content %}
+  <div id="main">
+
+<center><h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
+<form method="get">
+            {{ form.as_p }}
+            <input type="submit" value="Решить" />
+          </form>
+
+         {% if d %}
+          	<div class="container">
+          	  <form class="form-horizontal">
+	          	<div class="form-group">
+	          	  <p class="result">{{ d }}</p>
+	          	</div>
+	          	<div class="form-group">
+	          	  <p class="result">{{ result }}</p>
+	          	</div>
+	          </form>
+          	</div>
+          {% endif %}<br></center>
+
+</div>{% endblock content %}
