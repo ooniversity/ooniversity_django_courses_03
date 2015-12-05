@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}Students{% endblock title %}
+{% block title %}iBursa {{ student.name }} {{ student.surname }}{% endblock title %}
 
 
 {% block nav_students %}class="active"{% endblock %}
@@ -10,10 +10,10 @@
 {% block content %}
 <div class="jumbotron">
     <h2>{{ student.name }} {{ student.surname }}<br>
-    <small>student's card </small></h2>
+    <small>информация о студенте</small></h2>
     <br>
-      <div class="table-responsive">
-        <table class="table table-hover">
+      <div class="StudentTable">
+        <table class="table-hover">
                 <tbody>
                     <tr>
                        <td><strong>Birthday</strong></td>
