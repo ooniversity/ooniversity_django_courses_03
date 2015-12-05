@@ -8,18 +8,16 @@ def detail(request, pk):
     return render(request, 'courses/detail.html', {'course' : Course.objects.get(id=pk)})
 
 def add(request):
-    context={}   
-    if request.POST:
+    if request.method == 'POST':
         form = CourseModelForm(request.POST)
         if form.is_valid():
-            course = form.cleaned_data
-            form.save()
-            messages.success(request, 'Course %s has been successfully added.' % course['name'])
+            application = form.save()
+            mess = 'Course {} has been successfully added.'.format(application.name)
+            messages.success(request, mess)
             return redirect('index')
     else:
-        form = CourseModelForm() 
-    context['form'] = form
-    return render(request, 'courses/add.html', context)
+        form = CourseModelForm()
+    return render(request, 'courses/add.html', {'form': form})
     
 def edit(request, pk):
     course = Course.objects.get(id=pk)
