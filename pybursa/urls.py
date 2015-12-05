@@ -5,7 +5,6 @@ from .views import index, contact
 urlpatterns = patterns('',
     url(r'^$', index, name='index'),
     url(r'^contact/$', contact, name='contact'),
-    # url(r'^student_detail/$', student_detail, name='student_detail'),
     url(r'^quadratic/', include('quadratic.urls'), name='quadratic'),
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^courses/', include('courses.urls', namespace="courses")),

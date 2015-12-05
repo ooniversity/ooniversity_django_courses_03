@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+
+{% block title %}Students add page{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block content %}
+    <div class="col-lg-12">
+
+        <h2>Создание нового студента</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {# <button type="submit" class="btn btn-default">Создать</button> #}
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+{% endblock content %}

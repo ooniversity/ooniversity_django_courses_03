@@ -1,106 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+{% extends 'base.html' %}
 
-    <title>PyBursa Contacts</title>
+{% load staticfiles %}
 
-    <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="../static/css/bootstrap-theme.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="theme.css" rel="stylesheet">
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-  </head>
-  <body background="../static/images/Code.jpg">
+{% block title %}Main Page{% endblock title %}
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-main">
-      <div class="container-main">
-        <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><img src="../static/images/logo.jpg" width="50" height="50" alt="img"></a>
-        </div>
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">PyBursa</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Main</a></li>
-            <li><a href="contact.html">Contacts</a></li>
-            <li><a href="student_list.html">Students</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    <div class="container">
-        <div class="row">
+
+{% block nav_class_contacts %}active{% endblock nav_class_contacts %}
+
+
+{% block content %}
             <div class="col-lg-12">
                 <h1 class="dark-orange">Our command</h1>
             </div>
-        </div>
         <div class="row">
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="../static/images/pasha.jpg" width="150" height="150" alt="image">
+                    <img src="../static/images/director.jpg" alt="image">
                     <div class="caption">
-                        <h3 class="blue">Основатель ItBursa</h3>
+                        <h3 class="blue">Director</h3>
                         <ul>
-                            <li>Name: <span class="red">Павел Обод</span></li>
-                            <li>Skype: <span class="green">azaless</span></li>
-                            <li>Email: <span class="orange">itbursa100@gmail.com</span></li>
-                            <li>Phone: <span class="purple">+380637023703</span></li>
+                            <li>Name: <span class="red">Director</span></li>
+                            <li>Skype: <span class="green">Director.111</span></li>
+                            <li>Email: <span class="orange">example@gmail.com</span></li>
+                            <li>Phone: <span class="purple">0630000000</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="../static/images/darka.jpg" width="150" height="150" alt="image">
+                    <img src="../static/images/manager.jpg" alt="image">
                     <div class="caption">
-                        <h3 class="blue">Менеджер ItBursa</h3>
+                        <h3 class="blue">Manager</h3>
                         <ul>
-                            <li>Name: <span class="red">Дария Михалевич</span></li>
-                            <li>Skype: <span class="green"> darka.darka.darka.darka.</span></li>
-                            <li>Email: <span class="orange">daria.mykhalevych@gmail.com</span></li>
-                            <li>Phone: <span class="purple">+380964691557</span></li>
+                            <li>Name: <span class="red">Manager</span></li>
+                            <li>Skype: <span class="green">Manager.111</span></li>
+                            <li>Email: <span class="orange">example@gmail.com</span></li>
+                            <li>Phone: <span class="purple">0630000000</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="../static/images/alena.jpg" width="150" height="150" alt="image">
+                    <img src="../static/images/founder.jpg" alt="image">
                     <div class="caption">
-                        <h3 class="blue">Администратор курсов</h3>
+                        <h3 class="blue">Founder</h3>
                         <ul>
-                            <li>Name: <span class="red">Алена Чайка</span></li>
-                            <li>Skype: <span class="green">alena.itbursa</span></li>
-                            <li>Email: <span class="orange">alena.itbursa@gmail.com</span></li>
-                            <li>Phone: <span class="purple">+380636250755</span></li>
+                            <li>Name: <span class="red">Founder</span></li>
+                            <li>Skype: <span class="green">Founder.111</span></li>
+                            <li>Email: <span class="orange">example@gmail.com</span></li>
+                            <li>Phone: <span class="purple">0630000000</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+{% endblock content %}
