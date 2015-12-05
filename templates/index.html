@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+
+{% block title %}My Site - Main Page{% endblock title %}
+
+{% block content %}
+    <h1>Site about PyBursa courses</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index/">Main<span class="sr-only">(current)</span></a></li>
+        <li><a href="{% url 'contact'  %}">Contact</a></li>
+		<li><a href="/student_list/">Student</a></li>
+		<li><a href="/quadratic/results/">Quadratic</a></li>
+     </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid" >
+	<div class="row">
+		<div class="col-lg-6"  name="description" content="Site about PyBursa courses">
+		<h4>Program:</h4>
+		Курс по WEB-разработке
+		Материалы станут доступны в субботу 07.11.2015 г.
+
+Курс подразумевает, что студенты уже освоили базовый python.
+В рамках курса даются азы html/css, достаточные для формирования html страниц браузеру, но не достаточные для профессиональной верстки.
+Глубина освоения django будет достаточной для самостоятельного написания web-проектов, которые содержат редактируемые страницы, структуру специфических данных, отображение их на фронтенде и создание-редактирование этих данных.
+Все разделы django будут освещены.
+		</div>
+
+		<div class="col-lg-6 "  name="description" content="Site about PyBursa courses">Курс по WEB-разработке
+Материалы станут доступны в субботу 07.11.2015 г.
+
+Курс подразумевает, что студенты уже освоили базовый python.
+В рамках курса даются азы html/css, достаточные для формирования html страниц браузеру, но не достаточные для профессиональной верстки.
+Глубина освоения django будет достаточной для самостоятельного написания web-проектов, которые содержат редактируемые страницы, структуру специфических данных, отображение их на фронтенде и создание-редактирование этих данных.
+Все разделы django будут освещены.
+		</div>
+
+
+
+</div>
+<div class="table-responsive">
+        <table class="table table-bordered table-condensed">
+          <thead>
+            <tr>
+                <th class="text-center">id</th>
+              <th class="text-center">Курс</th>
+              <th class="text-center">Описание</th>
+                <th class="text-center">Описание</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for course in courses %}
+              <tr>
+              <td>{{ course.id }}</td>
+                <td><a href="/courses/{{course.id}} ">{{ course.name }}</a></td>
+                <td>{{ course.short_description }}</td>
+                <td>{{ course }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+</div>
+{% endblock content %}
+
+
+
+
