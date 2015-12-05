@@ -16,7 +16,7 @@ def add(request):
         if form.is_valid():
             course = form.cleaned_data
             form.save()
-            messages.success(request, 'Course %s has been successfully added.' % course.name)
+            messages.success(request, 'Course %s has been successfully added.' % course['name'])
             return redirect('index')
     else:
         form = CourseModelForm() 
@@ -52,7 +52,7 @@ def add_lesson(request, pk):
         if form.is_valid():
             form.save()
             lesson = form.cleaned_data
-            messages.success(request, 'Lesson %s has been successfully added.' % lesson.subject)
+            messages.success(request, 'Lesson %s has been successfully added.' % lesson['subject'])
             return redirect('courses:detail', pk)
     else:
         form = LessonModelForm(initial={ 'course': pk })
