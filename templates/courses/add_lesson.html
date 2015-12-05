@@ -15,7 +15,7 @@
     <h3> Создание нового занятия </h3>
       <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_table }}
         <input type="submit" value="Создать" />
      </form>
   </div>
