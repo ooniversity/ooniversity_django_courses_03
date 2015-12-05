@@ -30,10 +30,9 @@ def create(request):
         if form.is_valid():
             form_content = form.cleaned_data
             form.save()
-            notification = u"Student %s %s has been successfully added." % (
-                form_content['name'].encode('utf-8'), form_content['surname'].encode('utf-8'))
+            notification = "Student %s %s has been successfully added." % (form_content['name'].encode('utf-8'), form_content['surname'].encode('utf-8'))
             messages.success(request, notification)
-        return redirect('students:list_view')
+            return redirect('students:list_view')
     else:
         form = StudentModelForm()
 
@@ -46,10 +45,10 @@ def edit(request, student_id):
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
-            messages.success(request, u"Info on the student has been sucessfully changed.")
+            messages.success(request, "Info on the student has been sucessfully changed.")
             return render(request, 'students/edit.html', {'form': form})
-
-    form = StudentModelForm(instance=student)
+    else:
+        form = StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
 
 
