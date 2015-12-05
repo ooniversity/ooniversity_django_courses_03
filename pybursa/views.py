@@ -5,7 +5,6 @@ from courses.models import Course, Lesson
 from students.models import Student
 
 
-
 def index(request):
     return render(request, 'index.html', {'courses': Course.objects.all()})
 
