@@ -1,45 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    
+{% extends "base.html" %}
 
-    <title>Bursa: main</title>
-        {% load staticfiles %}
-    <style>
-      body {
-      background-image: url({% static 'images/13.jpg'%}) ; /* Путь к фоновому изображению */
-      background-color: #c7b39b; /* Цвет фона */
-      }
-    </style>
-    
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    
-  </head>
-  <body>
-     
-    <div class= "container">
-      <div class="header clearfix">
+{% load staticfiles %}
 
-        <nav>
-          
-            <ul class="nav nav-pills pull-right">
-              <li role="presentation" class="active"><a href="{% url 'index' %}">Main</a></li>
-              <li role="presentation"><a href="{% url 'contact' %}"> Contacts</a></li>
-              <li role="presentation"><a href="{% url 'students:list_view' %}"> Students</a></li>
-            </ul>
-          
-        </nav>
-        <h2 >PyBursa </h2>
-      </div>
-    </div>
+  
+{% block title %}Main{% endblock title %}
+
+
+{% block active_main %}active{% endblock active_main %}
+
+
+{% block content %} 
   
     <div class= "container">
       <div class="jumbotron">
@@ -82,9 +53,9 @@
                     <tbody>
           {% for i in course %}
                     <tr>
-                    <td><a href="{% url 'courses:detail' i.id %}">{{ i }}</a></td>
-          <td>{{ i.short_description }}</td>
-          </tr>
+                      <td><a href="{% url 'courses:detail' i.id %}">{{ i|upper }}</a></td>
+                      <td>{{ i.short_description|title }}</td>
+                    </tr>
           {% endfor %}
                     </tbody>
                   </table>
@@ -100,6 +71,4 @@
     </div> 
 
  
-  
-  </body>
-</html>
+  {% endblock content %}

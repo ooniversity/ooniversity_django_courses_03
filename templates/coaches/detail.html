@@ -1,44 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
   
-      <title>Bursa: coaches</title>
-        {% load staticfiles %}
-    <style>
-      body {
-      background-image: url({% static 'images/13.jpg'%}) ; /* Путь к фоновому изображению */
-      background-color: #c7b39b; /* Цвет фона */
-      }
-    </style>
-    
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    
+{% block title %}Main{% endblock title %}
 
 
-  <div class= "container">
-      <div class="header clearfix">
+{% block active_main %}active{% endblock active_main %}
 
-        <nav>
-          
-            <ul class="nav nav-pills pull-right">
-              <li><a href="{% url 'index' %}">Main</a></li>
-              <li><a href="{% url 'contact' %}"> Contacts</a></li>
-              <li><a href="{% url 'students:list_view' %}"> Students</a></li>
-            </ul>
-          
-        </nav>
-        <h2 >PyBursa </h2>
-      </div>
-    </div>
-  </div>
+
+{% block content %}   </div>
     <div class= "container">
       <div class="jumbotron">
      
@@ -57,7 +29,7 @@
           
                     
                       <tr>
-                        <td>Дата рождения</td><td>{{ master.date_of_birth }}</td>
+                        <td>Дата рождения</td><td>{{ master.date_of_birth|date:"d F, Y" }}</td>
                       </tr>
                       
                       <tr>
@@ -104,15 +76,4 @@
 
       </div>
     </div>    
-
-       
-    
-   
-    
-    
-   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}

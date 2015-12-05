@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+
+    <title>{% block title %}{% endblock title %}</title>
+        {% load staticfiles %}
+    <style>
+      body {
+      background-image: url({% static 'images/13.jpg'%}) ; /* Путь к фоновому изображению */
+      background-color: #c7b39b; /* Цвет фона */
+      }
+    </style>
+    
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    
+  </head>
+  <body>
+     
+    <div class= "container">
+      <div class="header clearfix">
+
+        <nav>
+          
+            <ul class="nav nav-pills pull-right">
+              <li class={% block active_main %}{% endblock %}><a href="{% url 'index' %}">Main</a></li>
+              <li class={% block active_contact %}{% endblock %}><a href="{% url 'contact' %}"> Contacts</a></li>
+              <li class={% block active_students %}{% endblock %}><a href="{% url 'students:list_view' %}"> Students</a></li>
+              
+            </ul>
+          
+        </nav>
+        <h2 >PyBursa </h2>
+      </div>
+    </div>
+  
+    {% block content %}{% endblock content %}
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+  
+  
+  </body>
+</html>
