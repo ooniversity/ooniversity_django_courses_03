@@ -8,7 +8,15 @@
 
 
 {% block content %}
-    <div class="col-md-10 col-md-push-1">
+  
+        {% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}
+   <a href="{% url 'students:add' %}"><button class="glyphicon glyphicon-plus btn btn-success">Добавить пользователя</button></a>
       <h2 class="sub-header">Список Студентов</h2>
       <div class="table-responsive">
         <table class="table" border=2>
@@ -19,6 +27,8 @@
               <th>адрес</th>
               <th>skype</th>
               <th>курсы</th>
+              <th></th>
+              <th></th>
              </tr>
           </thead>
           <tbody>
@@ -30,8 +40,21 @@
               <td>{{ man.skype }}</td>
               <td>{% for cour in man.courses.all %}                
                 <p><a href="{% url 'courses:detail' cour.id %}">{{ cour.name }}</p>
+                
                 {% endfor %}
+
               </td>
+               <td>
+                  <a href="{% url 'students:edit' man.id %}">
+                    <button class="glyphicon glyphicon-pencil btn btn-success">Изменить</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="{% url 'students:remove' man.id %}">
+                    <button class="glyphicon glyphicon-remove btn btn-success">Удалить</button>
+                  </a>
+                </td>
+
             </tr>
             {% endfor %}
           </tbody>
