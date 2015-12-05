@@ -17,9 +17,18 @@
 
       <div class="starter-template">
         <div class="container">
+              {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-success" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
               <h2>{{ course.name }} course details</h2>
               <h3>{{ course.description|truncatechars:35 }}</h3>
               <br>
+              <p><a class="btn btn-primary" href="{% url 'courses:add-lesson' course.id %}" role="button"><span class="glyphicon glyphicon-plus"></span>Add lesson</a></p>
                 <h3>Coach</h3>
                  <table class="table">
                     <thead>
