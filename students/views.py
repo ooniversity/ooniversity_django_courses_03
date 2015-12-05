@@ -32,7 +32,7 @@ def create(request):
             student_add = form.save()
             messages.success(
                 request,
-                'Account of {0} {1} has been successfully added.'.format(student_add.name, student_add.surname)
+                'A user %s %s account created successfully' % (student_add.name, student_add.surname)
             )
             return redirect('students:list_view')
     else:
@@ -66,10 +66,10 @@ def remove(request, pk):
     if request.method == 'POST':
         student.delete()
         messages.success(request,
-            'Account  has been successfully removed.'.format(student.name, student.surname))
+            'A user %s %s account is completely removed' % (student.name, student.surname))
         return redirect('students:list_view')
 
-    message = 'Are you sure you want to remove account of {0} {1}?'.format(student.name, student.surname)
+    message = 'Are you sure you want to delete account %s %s?' % (student.name, student.surname)
 
     context = {'err_message': message}
     return render(request,
