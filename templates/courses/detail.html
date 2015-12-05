@@ -15,6 +15,13 @@
 
 {% block content %}
   <div class="container theme-showcase" role="main">
+
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+
       <div class="jumbotron">
         <h2 class="course">{{ course.name }}</h2>
         {{ course.description|truncatechars:32 }}
@@ -50,6 +57,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
+              <p><a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить занятие</a></p>
               <table class="table">
                 <thead>
                   <tr>

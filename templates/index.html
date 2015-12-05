@@ -13,6 +13,13 @@
 {% block content %}
   <div class="container theme-showcase" role="main">
     <div class="container">
+
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+
       <div class="jumbotron">
         <h2 class="course">ItBursa</h2>
         <p>Курсы ItBursa начали работу в 2014 году. Мы специализируемся на «модных» языках программирования. Принципиальное наше отличие от других курсов –
@@ -20,6 +27,8 @@
         курсов создать реальные проекты и получить практические навыки, применимые к работе. Домашние задания на наших курсах обязательны и их невыполнение
         приводит к исключению с курсов. Таким образом, мы готовим не просто «слушателей» курсов, а настоящих специалистов, способных создавать пусть простые,
         но рабочие проекты.</p>
+
+        <p><a class="btn btn-primary btn-lg" href="{% url 'courses:add' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить новый курс</a></p>
 
         <h2 class="course">Наши курсы:</h2>
         <div class="container">
@@ -30,6 +39,8 @@
                   <tr>
                     <th class="panel-heading">Курс</th>
                     <th class="panel-heading">Описание</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -37,6 +48,8 @@
                   <tr>
                     <td><a href="{% url 'courses:detail' i.id %}">{{ i|upper }}</a></td>
                     <td>{{ i.short_description|title }}</td>
+                    <td><a class="btn btn-primary btn-block" href="{% url 'courses:edit' i.id %}" role="button"><span class="glyphicon glyphicon-pencil"></span> Изменить</a></td>
+                    <td><a class="btn btn-primary btn-block" href="{% url 'courses:remove' i.id %}" role="button"><span class="glyphicon glyphicon-remove"></span> Удалить</a></td>
                   </tr>
                   {% endfor %}
                 </tbody>
