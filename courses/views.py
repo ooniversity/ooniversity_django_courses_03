@@ -22,7 +22,7 @@ def add(request):
 		form = CourseModelForm()
 	return render(request, 'courses/add.html', {'form': form})
 
-def add_lesson(request):
+def add_lesson(request, pk):
 	if request.method == 'POST':
 		form = LessonModelForm(request.POST)
 		if form.is_valid():
