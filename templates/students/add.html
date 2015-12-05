@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Add Student{% endblock title %}
+
+
+{% block nav_student %}active{% endblock nav_student %}
+
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+  </form>
+{% endblock content %}

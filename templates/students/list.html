@@ -16,9 +16,23 @@
 <div class="center bold page-header">
   <h1>Students of course PyBursa</h1>
 </div>
+
+ {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+         
+          <a href="{% url 'students:add' %}">Добавить нового студента</a>
+		
 <table  class="jewel">
 	<tr>
-		<th>#</th><th>Фамилия имя</th><th>Адрес</th><th>Skype</th><th>Курсы</th>
+		<th>#</th><th>Фамилия имя</th><th>Адрес</th><th>Skype</th><th>Курсы</th><th>Редактировать</th><th>Удалить</th>
 	</tr> 
 	<tr>
 		{% for i in name_stud %}
@@ -28,14 +42,16 @@
 
   		{% for course in i.courses.all %}
    		  {% ifequal forloop.counter 1 %}
-	  			<td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>
+   		    {% include "include/row_include.html" %}
+	  			<!--<td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>-->
     		{% else %}
 	  			<tr>
 	  			<td></td>
 	  			<td></td>
 	  			<td></td>
 	  			<td></td>
-	  			<td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>
+	  			{% include "include/row_include.html" %}
+	  			<!--<td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>-->
  	 		 		</tr>
     		{% endifequal %}
   		{% endfor %}
