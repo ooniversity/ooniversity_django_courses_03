@@ -8,7 +8,7 @@
 
 {% block content %}
 <p>{{ student.name }} {{ student.surname }} will be removed </p>
-<form method='POST'>
+<form method='post'>
 	{% csrf_token %}
 	<input type="submit" value="Delete student"/>
 </form>
