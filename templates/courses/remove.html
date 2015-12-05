@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Removing Student{% endblock title %}
+{% block title %}Removing Course{% endblock title %}
 
 
 {% block navigation_main_students %}active{% endblock navigation_main_students %}
@@ -12,7 +12,7 @@
 {% block content %}
 </br></br></br></br>
 <div class="container">
-    <h3> Студент {{ student.name }} {{ student.surname }} будет удален</h3>
+    <h3>Вы уверенны, что хотите удалить курс {{ course.name }}</h3> 
       <form method="post">
         {% csrf_token %}        
         <input type="submit" value="Удалить" />
