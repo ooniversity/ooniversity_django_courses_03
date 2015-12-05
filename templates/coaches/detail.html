@@ -18,7 +18,7 @@
   <div class="table-responsive">
   <table class="table table-hover table-bordered">
     <tr>
-      <td>Дата рождения</td><td>{{ coaches.date_of_birth | date:'F j, Y' }}</td>
+      <td>Дата рождения</td><td>{{ coaches.date_of_birth | date:'j F, Y' }}</td>
     </tr>
     <tr>
     <tr>
@@ -52,4 +52,7 @@
 </div>
 </div>
 </div>
+{% include "include/footer_include.html" %}
+
+
 {% endblock main_content %}
