@@ -19,7 +19,7 @@ def add(request):
 	    	messages.success(request, msg)
 	    	return redirect('index')
 
-	return render(request, './courses/add.html', { 'form' : form })
+	return render(request, 'courses/add.html', { 'form' : form })
 
 def edit(request, course_id):
 	course = Course.objects.get(id = course_id)
@@ -34,7 +34,7 @@ def edit(request, course_id):
 	    	messages.success(request, msg)
 	    	redirect('courses:edit', course_id)
 
-	return render(request, './courses/edit.html', { 'form' : form } )
+	return render(request, 'courses/edit.html', { 'form' : form } )
 
 def remove(request, course_id):
 	course = Course.objects.get(id = course_id)
@@ -44,7 +44,7 @@ def remove(request, course_id):
 	    messages.success(request, msg)
 	    return redirect('index')
 
-	return render(request, './courses/remove.html', { 'course' : course })
+	return render(request, 'courses/remove.html', { 'course' : course })
 
 #################
 def add_lesson(request, course_id):
@@ -58,6 +58,6 @@ def add_lesson(request, course_id):
 			msg = 'Lesson %s has been successfully added.' % (data['subject'])
 			messages.success(request, msg)
 			return redirect('courses:detail', course.id)
-	return render(request, './courses/add_lesson.html', { 'form' : form })
+	return render(request, 'courses/add_lesson.html', { 'form' : form })
 
 
