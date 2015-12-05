@@ -4,12 +4,20 @@
 {% block title %}Course main page{% endblock title %}
 
 {% block content %}
+    {% if messages %}
+      {% for message in messages %}
+      {% include "include/show_message.html" with show_message=message %}
+       {% endfor %}
+    {% endif %}
+
 {% include "include/oouniversity_include.html" with block_title="PyBursa" block_description="In this course we shifted the emphasis towards the practice.It will be a moderate amount of theory - maximum of practice. Courses will take place from October 19 to December 28. Practical lessons in the classroom + online lectures." block_subtitle="Description" %}
 
 	     <div class="page-header">
         <h1>Program</h1>
       </div>
-			<div class="col-md-6">
+			<div class="col-md-8">
+
+          <a href={% url 'courses:add' %}>Add a course</a>
           <table class="table table-striped">
             <thead>
               <tr>
@@ -22,7 +30,14 @@
                 <tr>
                   <td><a href="/courses/{{ course.id }}/">{{ course.name|upper }}</a></td>
                   <td>{{course.short_description|title}}</td>
+                  <td>
+                    <a class="btn btn-default" href={% url 'courses:edit' course.id %} role="button">Change</a>
+                  </td>
+                  <td>
+                    <a class="btn btn-default" href={% url 'courses:remove' course.id %} role="button">Delete</a>
+                  </td>
                 </tr>
+
               {% endfor %}
             </tbody>
           </table>

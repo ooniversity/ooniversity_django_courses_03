@@ -11,8 +11,10 @@
 {% include "include/oouniversity_include.html" with block_title="Current course students" block_description="This is our students, hope they are happy" block_subtitle="" %}
     <a href={% url 'students:add' %}>Add student</a>
 			<div class="col-md-6">
-          {% if edit_message %}
+          {% if messages %}
+            {% for message in messages %}
             {% include "include/show_message.html" with show_message=message %}
+             {% endfor %}
           {% endif %}
           <table class="table table-striped">
             <thead>
