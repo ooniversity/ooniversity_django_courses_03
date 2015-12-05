@@ -11,10 +11,10 @@ class Coach(models.Model):
 	address = models.CharField(max_length=255)
 	skype = models.CharField(max_length=50)
 	description = models.TextField()
-
+	
 	def __unicode__(self):
 		return self.user.username
-
+	
 	def first_name(self):
 		return self.user.first_name
 

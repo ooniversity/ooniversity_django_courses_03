@@ -9,7 +9,7 @@ class StudentAdmin(admin.ModelAdmin):
 	list_filter = ['courses']
 	
 	fieldsets = [
-        ('Personal info',               {'fields': ['name', 'surname', 'date_of_birth']}),
+        ('Personal info',{'fields': ['name', 'surname', 'date_of_birth']}),
         ('Contact info', {'fields': ['email', 'phone', 'address', 'skype']}),
 		(None, {'fields': ['courses']}),
     ]
