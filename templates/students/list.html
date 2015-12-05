@@ -9,6 +9,17 @@
 
 {% block content %}
     <div class="container" id='id4'>
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      <button type="button" class="btn btn-default" aria-label="Left Align">
+      <a href="{% url 'students:create' %}">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true">Добавить нового студента</span></a>
+      </button><br>
       <h1>Список студентов курса</h1>
 				<table class="table table-bordered">
 					<thead>
