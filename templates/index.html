@@ -42,7 +42,7 @@
           <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
           <td>{{ course.short_description|title }}</td>
           <td><button class="btn"><a href="{% url 'courses:edit' course.id %}">Редактировать курс</a></button></td>
-          <td><button class="btn"><a href="{% url 'courses:куьщму' course.id %}">Удалить курс</a></button></td>
+          <td><button class="btn"><a href="{% url 'courses:remove' course.id %}">Удалить курс</a></button></td>
         </tr>
       {% endfor %}
      </tbody>
