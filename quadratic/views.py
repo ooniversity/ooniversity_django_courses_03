@@ -21,9 +21,10 @@ def quadratic_results(request):
                 output_request['x1'] = output_request['x2'] = float(-b / 2*a)
             elif output_request['D'] < 0:
                 output_request['x1'] = complex((-b + cmath.sqrt(output_request['D']))/(2*a))
-                output_request['x2'] = complex((-b - cmath.sqrt(output_request['D']))/(2*a))
+                output_request['x2'] = complex((-b - cmath.sqrt(output_request['D']))/(2*a))    
     else:
         temp_form = QuadraticForm()
 
     output_request['form'] = temp_form
     return render(request,'quadratic/results.html',output_request)
+
