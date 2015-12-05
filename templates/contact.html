@@ -1,43 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
-    <title>Contacts</title>
-    {% load staticfiles %}
-    <link href={% static 'css/bootstrap.css' %} rel="stylesheet">
-    <link href={% static 'css/style.css' %} rel="stylesheet">
-  </head>
-  <body>
-    <nav class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">ITBursa</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href={% url 'index' %}>Главная</a></li>
-            <li class="active"><a href="{% url 'contact' %}">Контакты</a></li>
-            <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <hr>
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Contacts{% endblock title%}
+
+
+{% block navbar_button_2 %}active{% endblock navbar_button_2 %}"
+
+     
+{% block jumbotron %}
+
     <div class="row">
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src={% static 'images/darka.jpg' %} alt="Daria Mykhalevych" style="heigth:100px;width:140px;">
+          <img src="{% static 'images/darka.jpg' %}" alt="Daria Mykhalevych" style="heigth:100px;width:140px;">
           <div class="contact_caption">
             <div>
               <h3 class="title">Director</h3>
@@ -51,7 +29,7 @@
       </div>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src={% static 'images/alena.jpg' %} alt="Alyona Chaika" style="heigth:100px;width:148px;">
+          <img src="{% static 'images/alena.jpg' %}" alt="Alyona Chaika" style="heigth:100px;width:148px;">
           <div class="contact_caption">
             <div>
               <h3 class="title">Manager</h3>
@@ -65,7 +43,7 @@
       </div>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src={% static 'images/pasha.jpg' %} alt="Pavel Obod" style="heigth:100px;width:200px;">
+          <img src="{% static 'images/pasha.jpg' %}" alt="Pavel Obod" style="heigth:100px;width:200px;">
           <div class="contact_caption">
             <div>
               <h3 class="title">Founder</h3>
@@ -78,16 +56,8 @@
         </div>
       </div>
     </div>
-
-      <hr>
-
-      <footer class="footer">
-        <p>&copy; ITBursa 2015</p>
-      </footer>
-    </div> 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src={% static 'js/bootstrap.js' %}></script>
-    
-  </body>
-</html>
+{% endblock jumbotron %}
+  
+  
+{% block content %}{% endblock content %}
+     

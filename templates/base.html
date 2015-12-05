@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <title>{% block title %}Base Template{% endblock title %}</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>  
+          </button>
+          <a class="navbar-brand" href="#">ITBursa</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="{% block navbar_button_1 %}{% endblock navbar_button_1 %}">
+              <a href="{% url 'index' %}">Главная</a></li>
+            <li class="{% block navbar_button_2 %}{% endblock navbar_button_2 %}">
+              <a href="{% url 'contact' %}">Контакты</a></li>
+            <li class="{% block navbar_button_3 %}{% endblock navbar_button_3 %}">
+              <a href="{% url 'students:list_view' %}">Студенты</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  	<div class="container theme-showcase">
+      <div class="jumbotron">
+      {% block jumbotron %}{% endblock jumbotron %}
+      </div>
+      {% block content %}{% endblock content %}
+    </div>
+
+    {% include "include/course_include.html" %} 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+  </body>
+</html>
