@@ -1,36 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
-    {% load staticfiles %}
+{% extends "base.html" %}
 
-  </head>
-  <body >
-    <!-- menu start -->  
-    <nav >
-      <div >
-        <div >
-          <a  href="{% url 'index' %}">
-            py
-          </a>
-        </div>
-        <div>
-          <ul >
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- menu end -->  
-    <div >
+{% block title %}Students{% endblock title %}
+
+{% block nav_students %}class="active"{% endblock %}
+
+{% block content %}
+
     <h2> Student's list: </h2>
     <br>
-      <div >
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                  <button type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 {{ message }}
+             {% endfor %}
+            </ul>
+        </div>        
+        {% endif %} 
+      <br>  
+      <a href="{% url 'students:add' %}">
+      <button type="button">
+          <span aria-hidden="true"></span> Add student </button>    
+      </a>  
         <table >
             <thead>
               <tr>
@@ -59,10 +50,4 @@
               {% endif %}  
             </tbody>
            </table>
-      </div>        
-
-
-    </div>
-
-  </body>
-</html>
+{% endblock content %}

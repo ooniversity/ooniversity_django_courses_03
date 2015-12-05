@@ -1,40 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
-    {% load staticfiles %}
-  </head>
-  <body >
-    <!-- menu start -->  
-    <nav >
-      <div>
-        <div>
-          <a  href="{% url 'index' %}">
-            py
-          </a>
-        </div>
-        <div >
-          <ul >
-            <li><a href="{% url 'index' %}">Main</span></a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- menu end -->  
-    <div >
+{% extends "base.html" %}
+
+{% block title %}Main{% endblock title %}
+
+{% block nav_index %}class="active"{% endblock %}
+
+{% block content %}
+     <br>
+        {% if messages %}
+            <ul >
+            {% for message in messages %}
+                  <button type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 {{ message }}
+             {% endfor %}
+            </ul>
+        {% endif %} 
+      <br>  
+
     <h2>Lorem ipsum.<br><small>Lorem ipsum dolor sit amet.</small></h2>
-      <div >
         Lorem ipsum dolor sit amet.<br>
         Lorem ipsum dolor sit amet.<br><br>
         Lorem ipsum dolor.<br>
-      </div>  
         <br>
-      <div >
         <table >
             <thead>
               <tr >
@@ -53,11 +39,4 @@
               {% endif %}  
             </tbody>
            </table>
-        </div>
-
-        </div>    
-    </div>
-    </div>
-    </div>
-  </body>
-</html>
+{% endblock content %}

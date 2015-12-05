@@ -1,36 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
-    {% load staticfiles %}
-  </head>
-  <body >
-    <!-- menu start -->  
-    <nav >
-      <div >
-        <div >
-          <a  href="{% url 'index' %}">
-            py
-          </a>
-        </div>
-        <div>
-          <ul >
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- menu end -->  
-    <div>
+{% extends "base.html" %}
+
+{% block title %}Students{% endblock title %}
+
+{% block nav_students %}class="active"{% endblock %}
+
+{% block content %}
     <h2> {{ student_detail.full_name }} <br>
     <small>student's card </small></h2>
     <br>
-      <div >
         <table >
                 <tbody>
                     <tr>
@@ -63,7 +40,5 @@
                     </tr>
                   </tbody>
              </table>     
-        </div>        
-    </div>  
-  </body>
-</html>
+{% endblock content %}
+

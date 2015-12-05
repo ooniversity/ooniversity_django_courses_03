@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block title %}Students (edit){% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+<h2>Student's data edit</h2>
+<br>
+ {% if messages %}
+ <div  role="alert">
+   <ul>
+   {% for message in messages %}
+     <button type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {{ message }}
+     {% endfor %}
+   </ul>
+ </div>        
+ {% endif %} 
+<br>  
+<form method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Change" />
+</form>
+{% endblock content %}

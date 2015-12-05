@@ -1,36 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Students</title>
-    {% load staticfiles %}
-  </head>
-    <body>
-    <!-- menu start -->  
-        <nav >
-          <div >
-            <div>
-              <a  href="{% url 'index' %}">
-                py
-              </a>
-            </div>
-            <div >
-              <ul >
-                <li><a href="{% url 'index' %}">Main</a></li>
-                <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li ><a href="{% url 'students:list_view' %}">Student</a></li>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-    <!-- menu end -->  
-    <!-- main students-list -->  
-    <div >
+{% extends "base.html" %}
+
+
+{% block title %}Students{% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+
     <h2> Lorem ipsum dolor sit amet. <br><small> Lorem ipsum dolor sit amet.</small></h2>
-    <div >
         <table >
             <thead>
               <tr >
@@ -44,114 +23,15 @@
             <tbody>
               <tr>
                 <td><a href="{% url 'student_detail' %}">01</a></td>
-                <td>Hartsock</td>
-                <td>William T.</td>
-                <td>327 Pallet Street, New York, NY 10007 </td>
-                <td>WilliamTHartsock</td>                
+                <td>Evgeniy<td>
+                <td>Padafa</td>
+                <td>Kosiora </td>
+                <td>e_padafa</td>                
               </tr>
-              <tr>
-                <td>02</td>
-                <td>Christensen</td>
-                <td>Irene R.</td>
-                <td>3627 Harrison Street, San Francisco, CA 94143 </td>
-                <td>Hande1976</td>                
-              </tr>
-              <tr>
-                <td>03</td>
-                <td>Brown</td>
-                <td>Caroline</td>
-                <td>3868 Doe Meadow Drive, Silver Spring, MD 20910 </td>
-                <td>Loo6iekob2</td>                
-              </tr>
-              <tr>
-                <td>04</td>
-                <td>Fleming</td>
-                <td>David C.</td>
-                <td>1264 Newton Street, Ogilvie, MN 56358 </td>
-                <td>DavidCFleming</td>                
-              </tr>
-              <tr>
-                <td>05</td>
-                <td>Smith</td>
-                <td>Ryan J.</td>
-                <td>670 Saint Marys Avenue, East Syracuse, NY 13057 </td>
-                <td>RyanJSmith</td>                
-              </tr>
-              <tr>
-                <td>06</td>
-                <td>Baeza</td>
-                <td>Wilbur G.</td>
-                <td>4975 Hillcrest Drive, Tukwila, WA 98168 </td>
-                <td>Joill1956</td>                
-              </tr>
-              <tr>
-                <td>07</td>
-                <td>Warburton</td>
-                <td>Alvin J.</td>
-                <td>3353 Dogwood Road, Gilbert, AZ 85233 </td>
-                <td>Wayed1990</td>                
-              </tr>
-               <tr>
-                <td>08</td>
-                <td>Novello</td>
-                <td>Ellen R.</td>
-                <td>3556 Mudlick Road, Leavenworth, WA 98826</td>
-                <td>Hented</td>                
-              </tr>
-              <tr>
-                <td>09</td>
-                <td>Sarn</td>
-                <td>To'Ka</td>
-                <td>2013 County Line Road, Tampa, FL 33602 </td>
-                <td>ToKaSarn</td>                
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>Pallara</td>
-                <td>Kandel</td>
-                <td>2398 Post Avenue, Wadena, MN 56482</td>
-                <td>Ressay</td>                
-              </tr>
-              <tr>
-                <td>11</td>
-                <td>Brandybuck</td>
-                <td>Malva</td>
-                <td>3441 Lindale Avenue, San Francisco, CA 94108</td>
-                <td>Squity40</td>                
-              </tr>
-              <tr>
-                <td>12</td>
-                <td>Zaragamba</td>
-                <td>Ponto</td>
-                <td>734 John Calvin Drive, Chicago, IL 60606 </td>
-                <td>Everchist</td>                
-              </tr>
-              <tr>
-                <td>13</td>
-                <td>Brockhouse</td>
-                <td>Hending</td>
-                <td>30 Capitol Avenue, Indianapolis, IN 46254</td>
-                <td>HendingBrockhouse</td>                
-              </tr>
-              <tr>
-                <td>14</td>
-                <td>Chubb-Baggins</td>
-                <td>Rose</td>
-                <td>1341 Tator Patch Road, Chicago, IL 60605</td>
-                <td>Alitill</td>                
-              </tr>
-              <tr>
-                <td>15</td>
-                <td>Chubb</td>
-                <td>Gorbadoc</td>
-                <td>818 Willow Oaks Lane, Lafayette, LA 70506</td>
-                <td>GorbadocChubb</td>                
-              </tr>
+              
+              {% include "include/old_list_include.html" %}
+
             </tbody>
         </table>
-      </div>
-    </div>
-    <!-- end of students-list --> 
 
-  </body>
-</html>
+{% endblock content %}

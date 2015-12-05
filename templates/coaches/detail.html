@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Main</title>
-    {% load staticfiles %}
-  </head>
-  <body>
-          <a href="{% url 'index' %}">
-            py
-          </a>
-          <ul>
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}?course_id={{ course_detail.id }}">Students</a></li>
-          </ul>
+{% extends "base.html" %}
 
+{% block title %}Coaches{% endblock title %}
+
+{% block content %}
                 <h3>{{ coach_detail.user.first_name}} {{coach_detail.user.last_name }}</h3>
                 <table>
                         <tbody>
@@ -58,5 +44,4 @@
                             </tr>
                           </tbody>
                      </table>     
-  </body>
-</html>
+{% endblock content %}

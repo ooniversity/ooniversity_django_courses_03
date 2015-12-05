@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+   
+          <a href="{% url 'index' %}">
+            py
+          </a>
+          <ul>
+            <li {% block nav_index %}{% endblock %}><a href="{% url 'index' %}">Main</a></li>
+            <li {% block nav_contacts %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
+            <li {% block nav_students %}{% endblock %}>
+            <a href="{% url 'students:list_view' %}{% block nav_course_students %}{% endblock %}">Students</a></li>
+          </ul>
+
+    {% block content %}{% endblock content %}
+
+  </body>
+</html>

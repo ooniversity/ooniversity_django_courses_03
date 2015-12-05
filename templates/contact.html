@@ -1,84 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contacts</title>
-    {% load staticfiles %}
-  </head>
-    <body>
-    <!-- menu start -->  
-        <nav>
-          <div>
-            <div>
-              <a href="{% url 'index' %}">
-                py
-              </a>
-            </div>
-            <div>
-              <ul>
-                <li><a href="{% url 'index' %}">Main</a></li>
-                <li><a href="{% url 'contact' %}">Contacts<span>(current)</span></a></li>
-                <li><a href="{% url 'students:list_view' %}">Students</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-    <!-- menu end -->  
-    <!-- main contact -->  
-    <div >
-      <div align="center"> 
-       <div>
-          <div>
-            <a href="#">
-              py
-            </a>
-          </div>
-          <div>
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Contacts{% endblock title %}
+
+{% block nav_contacts %}class="active"{% endblock %}
+
+{% block content %}
+
             <h4 >Director</h4>
-              <div>
                 Name:   Krek<br>
                 Skype:  krek<br>
                 Email:  krek@google.com<br>
                 Phone:  1234567890<br></div>
-              </div>
-          </div>
-        </div>
-        <!-- main contact end + splitter -->  
-
-        <!-- other contacts --> 
-        <div>
-          <div>
             <a href="#">
               py
             </a>
-          </div>
-          <div>
+
             <h4>Founder</h4>
-            <div >
             Name:   Djek<br>
             Skype:  byms<br>
             Email:  byms@box.me<br>
             Phone:  0000-333-4444<br>
-            </div>
-          </div>
-          <div >
+
             <a href="#">
               py
             </a>
-          </div>
-          <div>
+
             <h4 >Manager</h4>
-            <div >
+
             Name:   Kek<br>
             Skype:  Cake<br>
             Email:  freeletter@freeletter.me<br>
             Phone:  8-800-555-35-35<br>
-            </div>
-          </div>
-        </div>
-    </div>
-    <!-- end of contacts --> 
-  </body>
-</html>
+
+{% endblock content %}
