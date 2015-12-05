@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://getbootstrap.com/examples/jumbotron-narrow/ -->
+<html lang="en">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <link href="http://getbootstrap.com/favicon.ico" rel="icon">
+  <title>Student details</title>
+  {% load staticfiles %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header clearfix">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="text-left">
+            <a href="{% url 'index' %}">Main</a>
+          </li>
+          <li role="presentation" class="text-center">
+            <a href="{% url 'student_list' %}">Students</a>
+          </li>
+          <li role="presentation" class="text-right">
+            <a href="{% url 'contact' %}">Contacts</a>
+          </li>
+        </ul>
+      </nav>
+      <h3 class="text-muted">ItBursa</h3>
+    </div>
+    <div class="row marketing">
+      <div class="col-lg-6">
+      <h2 class="text-left">Romanova Natalia</h2><img class="imagehere" src=
+      "{% static 'images/imagehere.jpg' %}"></div>
+      <div class="col-lg-6 grey_border_line">
+        <h4>Student's card</h4>
+      </div>
+      <div class="col-lg-6">
+        <table id="student_card">
+          <tr>
+            <td class="table_head">Surname</td>
+            <td>Romanova</td>
+          </tr>
+          <tr>
+            <td class="table_head">Name</td>
+            <td>Natalia</td>
+          </tr>
+          <tr>
+            <td class="table_head">Patronymic</td>
+            <td>Epshtain</td>
+          </tr>
+          <tr>
+            <td class="table_head">Birth Date</td>
+            <td>11/11/1987</td>
+          </tr>
+          <tr>
+            <td class="table_head">Address</td>
+            <td>Russia</td>
+          </tr>
+          <tr>
+            <td class="table_head">E-mail</td>
+            <td>blacknata@gmail.com</td>
+          </tr>
+          <tr>
+            <td class="table_head">Skype</td>
+            <td>black_widow</td>
+          </tr>
+          <tr>
+            <td class="table_head">Package</td>
+            <td>Standart</td>
+          </tr>
+          <tr>
+            <td class="table_head">Rating</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td class="table_head">Average Grade</td>
+            <td>100</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-lg-6 grey_border_line">
+        <h4>Performance</h4>
+      </div>
+      <div class="col-lg-6">
+        <table id="performance">
+          <tr class="table_head dark_grey_row" >
+            <td>Course</td>
+            <td>Week</td>
+            <td>Control type</td>
+            <td>Grade</td>
+          </tr>
+          <tr>
+            <td rowspan="5">Python language fundamentals</td>
+            <td rowspan="3">Week I</td>
+            <td>Tests</td>
+            <td>99%</td>
+          </tr>
+          <tr>
+            <td>Problem Task #1</td>
+            <td>100%</td>
+          </tr>
+          <tr>
+            <td>Problem Task #2</td>
+            <td>100%</td>
+          </tr>
+          <tr>
+            <td rowspan="2">Week II</td>
+            <td>Tests</td>
+            <td>100%</td>
+          </tr>
+          <tr>
+            <td>Problem Task #1</td>
+            <td>100%</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+  <footer class="footer">
+    </footer>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="{% static 'js/bootstrap.min.js' %}">
+  </script>
+</body>
+</html>
