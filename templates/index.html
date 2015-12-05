@@ -32,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          {%for i in courses %}
+          {% for i in courses %}
             <tr>
             <td><a href="{% url 'courses:detail' i.id%}">{{ i.name|upper }}</a></td>
               <td>{{ i.short_description|title }}</td>
