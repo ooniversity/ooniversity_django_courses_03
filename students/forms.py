@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.views import generic
 from students.models import Student
 from django import forms
+from django.contrib import messages
 # Create your views here.
 
 
@@ -43,7 +44,8 @@ def create(request):
             student.address = data['address']
             student.skype = data['skype']
             student.save()
-            return redirect('../')
+            messages.success(request, '%s %s was successfully added' % (student.name, student.surname))
+            return redirect('students:list')
     else:
         form = StudentModelForm()
     return render(request, 'students/add.html', {'form': form})
