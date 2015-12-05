@@ -58,11 +58,7 @@
                 <a href="{% url 'students:edit' student.id %}" class="btn btn-warning btn-xs" role="button">
                     <span class="glyphicon glyphicon-pencil"></span> Изменить</a>
                 <a href="{% url 'students:remove' student.id%}" class="btn btn-danger btn-xs" role="button">
-                    <span class="glyphicon glyphicon-remove"></span> Удалить</a>
-            </td>
-            <td>
-                <a href="{% url 'students:remove' student.id%}" class="btn btn-danger btn-xs" role="button">
-                    <span class="glyphicon glyphicon-remove"></span> Удалить</a>
+                    <span class="glyphicon glyphicon-remove"></span> Удалить  </a>
             </td>
         </tr>
         {% endfor %}
