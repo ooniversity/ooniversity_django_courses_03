@@ -30,6 +30,20 @@ def create(request):
         student_form = StudentModelForm()        
     return render(request, "students/add.html", {'student_form': student_form})
 
+
+def edit(request, stud_id):
+    student = Student.objects.get(id=stud_id)
+    if request.POST:
+        student_form = StudentModelForm(request.POST, instance=student)
+        if student_form.is_valid():
+            student_form.save()
+            messages.success(request, "Info on the student has been sucessfully changed.")
+#            return redirect ('students:edit')
+    else:
+        student_form = StudentModelForm(instance=student)
+    return render(request, "students/edit.html", {'student_form':student_form})
+
+
 def remove(request, stud_id):
     student = Student.objects.get(id=stud_id)
     name = student.name

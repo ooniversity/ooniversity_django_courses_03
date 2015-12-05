@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block title %}IT Courses - Edit student{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block content %}
+    <div class="container" id='id4'>
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}			
+      <h1>Редактирование данных студента</h1>
+			<form method='post'>
+        {% csrf_token %}
+        {{student_form.as_p}}
+        <input type="submit" value="Изменить" />
+      </form>
+    </div>
+{% endblock content %}
