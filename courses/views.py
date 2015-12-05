@@ -23,7 +23,7 @@ def add(request):
     
 def edit(request, pk):
     course = Course.objects.get(id=pk)
-    if request.method == 'post':
+    if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=course)
         if form.is_valid():
             course = form.save()
@@ -35,14 +35,14 @@ def edit(request, pk):
 
 def remove(request, pk):
     course = Course.objects.get(id=pk)
-    if request.method == "post":
+    if request.method == "POST":
         course.delete()
         messages.success(request, "Course %s has been deleted." % course.name)
         return redirect('index')
     return render(request, 'courses/remove.html', { 'course': course })
     
 def add_lesson(request, pk):
-    if request.method == 'post':
+    if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
             application = form.save()
