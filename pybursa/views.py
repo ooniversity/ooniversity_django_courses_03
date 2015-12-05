@@ -8,10 +8,11 @@ from django.views import generic
 from courses.models import Course
 
 
+
 def index(request):
 	n_course = Course.objects.all()
 	return render(request,'index.html',{'name_course': n_course})
-
+	
 
 def contact(request):
 	return render(request,'contact.html')

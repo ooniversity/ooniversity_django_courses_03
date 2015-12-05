@@ -50,3 +50,4 @@ def remove(request, student_id):
 		return redirect('students:list_view')
 	return render(request, 'students/remove.html', {'student': student})
 	
+
