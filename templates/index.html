@@ -26,9 +26,9 @@
     <div class="panel panel-default">
       <div class="panel-heading"><h2 class="py_program">Запишись на курсы, попади в тренд современной WEB разработки</h2></div>      
         <table class="table table-hover">
-          <tr class="course_table"><td><h3><b>курс</b></h3></td><td><h3><b>тема</b></h3></td><tr>
+          <tr class="course_table"><td><h3><b>Курс</b></h3></td><td><h3><b>Тема</b></h3></td><tr>
           {% for course in courses %}
-          <tr><td><a href="{% url 'courses:detail' course.id %}"><h3 class="course"><b>{{ course|upper }}</b></h3></a></td><td><h3><b> {{ course.short_description|title }}</b></h3></td></tr>
+          <tr><td><a href="{% url 'courses:detail' course.id %}"><h4 class="course"><b>{{ course|upper }}</b></h4></a></td><td><h4><b> {{ course.short_description|title }}</b></h4></td></tr>
           {% endfor %}
         </table>
       </div>
