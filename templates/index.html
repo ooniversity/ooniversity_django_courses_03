@@ -1,69 +1,44 @@
+{% extends "base.html" %}
+
+
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Main</title>
-
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
-    <link href="{% static 'css/style.css'%}" rel="stylesheet">
 
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header navbar-brand">
-            <a href="{% url 'index' %}">
-              <img class="logo" alt="logo" src="{% static 'images/logo_itbursa.png' %}">
-            </a>
-          </div>
-            <ul class="nav nav-pills">
-              <li role="presentation" class="active"><a href="{% url 'index' %}">Главная</a></li>
-              <li role="presentation" class="passive"><a href="{% url 'contact' %}">Контакты</a></li>
-              <li role="presentation" class="passive"><a href="{% url 'students:list_view' %}">Студенты</a></li>
-            </ul>
-        </div>
-      </nav>
-      <div class="jumbotron">
-        <h1>PyBursa Ltd.</h1>
-        <p>The Best Company of The Best Companies in Ukraine</p>
-      </div>
+{% block title %}pyBursa - Main page{% endblock title %}
 
-      <div class="page-header container-fluid">
-        <h3>Choose your site, Padavan!</h3>
-      </div>
-      <div id="spisok">
-        <table class="table table-bordered">
-          <thead>
+
+{%block nav_class_index %}active{% endblock %}
+{%block nav_class_contact %}passive{% endblock %}
+{%block nav_class_student_list_view %}passive{% endblock %}
+
+
+{% block content %}
+  <div class="col-md-12" >
+
+
+    {% include "include/name_comp_include.html" %}
+
+
+    <div class="page-header container-fluid">
+      <h3>Choose your site, Padavan!</h3>
+    </div>
+    <div id="spisok">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Курс</th>
+            <th>Описание</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in courses %}
             <tr>
-              <th>Курс</th>
-              <th>Описание</th>
+            <td><a href="{% url 'courses:detail' i.id%}">{{i.name}}</a></td>
+              <td>{{i.short_description}}</td>
             </tr>
-          </thead>
-          <tbody>
-            {%for i in courses %}
-              <tr>
-              <td><a href="{% url 'courses:detail' i.id%}">{{i.name}}</a></td>
-                <td>{{i.short_description}}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js'%}"></script>
-  </body>
-</html>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock content %}
