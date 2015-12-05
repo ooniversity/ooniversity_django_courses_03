@@ -15,52 +15,52 @@
   </div>
 	<div class="study_table2">
 	  <div class="panel panel-default">
-  	  <div class="panel-heading"><h2 class="course_program" >информация об учителе</h2></div>
+  	  <div class="panel-heading"><h2 class="course_program">информация об учителе</h2></div>
         <table class="table table-hover">
-          <tr><td><h3>
+          <tr><td><h4>
                       дата рождения
-            </h3></td>
-            <td><h3>
+            </h4></td>
+            <td><h4>
                       {{ coach.date_of_birth|date:'j F, Y' }}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td></tr>
+          <tr><td><h4>
                       email
-            </h3></td>
-            <td><h3>
+            </h4></td>
+            <td><h4>
                       {{ coach.user.email }}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td></tr>
+          <tr><td><h4>
                       телефон
-            </h3></td>
-            <td><h3>
+            </h4></td>
+            <td><h4>
                       {{ coach.phone }}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td></tr>
+          <tr><td><h4>
                       адрес
-            </h3></td>
-            <td><h3>
+            </h4></td>
+            <td><h4>
                       {{ coach.address }}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td></tr>
+          <tr><td><h4>
                       skype
-            </h3></td>
+            </h4></td>
             <td><h3>
                       {{ coach.skype }}
                       {% endfor %}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td></tr>
+          <tr><td><h4>
                       курсы учитель
-            </h3></td>
-            <td><h3>
+            </h4></td>
+            <td><h4>
                       {% for course in coach_course %}
             <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>Студенты курса
             <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicons glyphicons-person"></span>></a></br>
                       {% endfor %}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td></tr>
+          <tr><td><h4>
                       курсы ассистент
-            </h3></td>
-            <td><h3>
+            </h4></td>
+            <td><h4>
                       {% for assistant in assistant_course %}
             <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a>Студенты курса
             <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"><span class="glyphicons glyphicons-person"></span>></a></br>
