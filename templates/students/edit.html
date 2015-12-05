@@ -1,0 +1,20 @@
+{% extends "students/base.html" %}
+
+{% block title %}Edit Student{% endblock title %}
+
+
+{% block page_header %}Edit existent student{% endblock page_header %}
+
+
+{% block page_content %}
+
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Information about existent student</div>
+      {{ form.as_p }}
+
+    </div>
+
+{% endblock page_content %}
+

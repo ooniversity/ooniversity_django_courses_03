@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-from students import views
+from students import forms
 
 urlpatterns = patterns('',
     # ex: /polls/
@@ -14,6 +14,8 @@ urlpatterns = patterns('',
     #url(r'^(?P<pk>\d+)/results/$', views.ResultsView.as_view(), name='results'),
     # ex: /polls/5/vote/
     #url(r'^(?P<question_id>\d+)/vote/$', views.vote, name='vote'),
-    url(r'^$', views.ListView.as_view(), name='list'),
-    url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
+    url(r'^$', forms.ListView.as_view(), name='list'),
+    url(r'^(?P<pk>\d+)/$', forms.DetailView.as_view(), name='detail'),
+    url(r'^add/$', forms.create),
+    url(r'^edit/$', forms.edit),
 )
