@@ -7,7 +7,7 @@
 {% block title %}ADD Course{% endblock title %}
 
 
-{% block blow_students %}active{% endblock blow_students %}
+
 
 
 {% block content %}
@@ -15,7 +15,7 @@
     <h3> Создание нового курса </h3>
       <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_table }}
         <input type="submit" value="Создать" />
      </form>
   </div>
