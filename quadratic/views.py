@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import forms
+
 
 # Create your views here.
 
@@ -8,6 +10,8 @@ from django.http import HttpResponse
     #return render(request, 'results.html')
 
 def quadratic_results(request):
+    form = forms.QuadraticForm()
+    print request.POST
     if request.GET['a']:
         var_a = request.GET['a']
     else:
@@ -50,4 +54,5 @@ def quadratic_results(request):
     #return HttpResponse(eq_ans)
 
     sl_full = {'discr': d, 'a': var_a, 'b': var_b, 'c': var_c, 'x': var_x, 'x1': var_x1, 'x2': var_x2,}
+    sl_full['form'] = form
     return render(request, 'results.html', sl_full)
