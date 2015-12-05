@@ -1,31 +1,31 @@
+# -*- coding:UTF-8 -*-
+
 from django.shortcuts import render
-from quadratic.models import QuadraticEquation
+from django.shortcuts import render
+from quadratic.forms import QuadraticForm
+
 
 def quadratic_results(request):
-    equation = {}
-    equation['a'] = request.GET.get('a', '')
-    equation['b'] = request.GET.get('b', '')
-    equation['c'] = request.GET.get('c', '')
-    
-    equation = QuadraticEquation(equation)
-    
     params = {}
-    params['a'] = equation.data['a']
-    params['b'] = equation.data['b']
-    params['c'] = equation.data['c']
-   
-    params['has_error'] = equation.has_error
-    
-    params['a_error'] = equation.errors.get('a', None)
-    params['b_error'] = equation.errors.get('b', None)
-    params['c_error'] = equation.errors.get('c', None)
-    
-    params['d'] = equation.data.get('d', None)
-    params['description'] = equation.result.get('description', None)
-    params['x1'] = equation.result.get('x1', None)
-    params['x2'] = equation.result.get('x2', None)
-    
-    
+    if request.GET:
+        form = QuadraticForm(request.GET)
+        if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
+            d = b * b - 4 * a * c
+            if d < 0:
+                params['d'] = d
+            elif d == 0:
+                x = (-b + d ** (1 / 2.0)) / 2 * a
+                params['x1'] = round(x, 1)
+                params['d'] = d
+            else:
+                x1 = (-b + d ** (1 / 2.0)) / 2 * a
+                x2 = (-b - d ** (1 / 2.0)) / 2 * a
+                params['x1'] = round(x1, 1)
+                params['x2'] = round(x2, 1)
+                params['d'] = d
+    else:
+        params['form'] = QuadraticForm()
     return render(request, 'quadratic/results.html', params)
-    
-  
