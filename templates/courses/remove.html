@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Edit Student{% endblock title %}
+
+
+{% block nav_active_students %}active{% endblock %}
+
+
+{% block content %}
+
+  <p>Course {{ course }} will be deleted</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit">
+  </form>
+{% endblock content %}
