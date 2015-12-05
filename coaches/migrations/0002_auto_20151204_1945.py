@@ -15,12 +15,11 @@ class Migration(migrations.Migration):
             model_name='coach',
             name='phone',
             field=models.CharField(max_length=20),
-            preserve_default=True,
+            
         ),
         migrations.AlterField(
             model_name='coach',
             name='skype',
             field=models.CharField(max_length=50),
-            preserve_default=True,
-        ),
+             ),
     ]
