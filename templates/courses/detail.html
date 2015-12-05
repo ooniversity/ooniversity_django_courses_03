@@ -51,10 +51,23 @@
 				</div>
 			</div>
 		</div>	
+		
 		<div class="container">
+			{% if messages %}
+				{% for message in messages %}
+				<div class="jumbotron">
+					{{ message }}
+				</div>
+				{% endfor %}
+			{% endif %}
 			<div class="page-header">
 				<h2>План Курса</h2>
 			</div>
+			<a href="{% url 'courses:add-lesson' course.id %}">
+			<button type="button" class="btn btn-default btn-lg">
+  			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить новый урок
+			</button>
+			</a>
 			<div class="row">
 				<div class="col-md-7">
 					<table class="table table-striped">
