@@ -12,12 +12,12 @@
 {% block content %}
     <div class="col-lg-12">
 
-        {% for message in messages %}
+        {% if messages %}
             <div class="alert alert-{% if message.tags %}{{ message.tags }}{% else %}info{% endif %} alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                {{ message }}
+                {% for message in messages %}{{ message }}{% endfor %}
             </div>
-        {% endfor %}
+        {% endif %}
 
         <h2>Редактирование данных курса</h2>
         <form method="post">

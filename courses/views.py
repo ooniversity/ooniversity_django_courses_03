@@ -20,34 +20,66 @@ def detail(request, course_id):
                   })
 
 
-def add(request):
-    context = {}
-    if request.method == "POST":
-        context['form'] = form = CourseModelForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            form.save()
-            messages.success(request, 'Course %s has been successfully added.' % (
-                data['name']))
-            return redirect('index')
+# def add(request):
+#     context = {}
+#     if request.method == "POST":
+#         context['form'] = form = CourseModelForm(request.POST)
+#         if form.is_valid():
+#             data = form.cleaned_data
+#             form.save()
+#             messages.success(request, 'Course %s has been successfully added.' % (
+#                 data['name']))
+#             return redirect('index')
 
+#     else:
+#         context['form'] = CourseModelForm()
+#     return render(request, 'courses/add.html', context)
+
+
+# def edit(request, pk):
+#     course = Course.objects.get(id=pk)
+#     if request.method == "POST":
+#         form = CourseModelForm(request.POST, instance=course)
+#         if form.is_valid():
+#             course = form.save()
+#             messages.success(
+#                 request, 'The changes have been saved.')
+#             return redirect('courses:edit', pk)
+#     else:
+#         form = CourseModelForm(instance=course)
+#     return render(request, 'courses/edit.html', {'form': form})
+
+
+def add(request):
+    #form = StudentModelForm()
+    context = {}
+    if request.POST:
+        form = CourseModelForm(request.POST)
+        if form.is_valid():
+            course = form.cleaned_data
+            form.save()
+            messages.success(
+                request, 'Course %s has been successfully added.' % course['name'])
+            return redirect('index')
     else:
         context['form'] = CourseModelForm()
+    # context['form'] = form
     return render(request, 'courses/add.html', context)
 
 
 def edit(request, pk):
+    context = {}
     course = Course.objects.get(id=pk)
-    if request.method == "POST":
+    if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=course)
         if form.is_valid():
-            course = form.save()
-            messages.success(
-                request, 'The changes have been saved.')
+            form.save()
+            messages.success(request, 'The changes have been saved.')
             return redirect('courses:edit', pk)
     else:
-        form = CourseModelForm(instance=course)
-    return render(request, 'courses/edit.html', {'form': form})
+        context['form'] = CourseModelForm(instance=course)
+    # context['form'] = form
+    return render(request, 'courses/edit.html', context)
 
 
 def remove(request, pk):
@@ -68,7 +100,7 @@ def add_lesson(request, pk):
             data = form.cleaned_data
             form.save()
             messages.success(request, 'Lesson %s has been successfully added.' % (
-                 data['subject']))
+                data['subject']))
             return redirect('courses:detail', data['course'].id)
     else:
         form = LessonModelForm(initial={'course': pk})
