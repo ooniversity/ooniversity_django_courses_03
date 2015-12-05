@@ -5,6 +5,10 @@ from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
 from django.contrib import messages
+import sys
+
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 
 def list_view(request):
@@ -27,8 +31,8 @@ def create(request):
         form = StudentModelForm(request.POST)
         if form.is_valid():
             form.save()
-            text = "Student " + form.cleaned_data['name'] + " " + form.cleaned_data[
-                'surname'] + " is added."
+            text = "Студент " + form.cleaned_data['name'] + " " + form.cleaned_data[
+                'surname'] + " успешно добавлен.".decode('utf-8')
             messages.success(request, text)
             return redirect('students:list_view')
     else:
@@ -43,7 +47,7 @@ def edit(request, student_id):
         form = StudentModelForm(request.POST, instance=sd)
         if form.is_valid():
             form.save()
-            text = "Student has been sucessfully changed."
+            text = "Данные изменены.".decode('utf-8')
             messages.success(request, text)
     return render(request, 'students/edit.html', {'form': form})
 
@@ -51,7 +55,7 @@ def edit(request, student_id):
 def remove(request, student_id):
     sd = Student.objects.get(id=student_id)
     if request.POST:
-        text = "Student " + str(sd) + " has been sucessfully deleted."
+        text = "Студент " + str(sd) + " был удален.".decode('utf-8')
         messages.success(request, text)
         sd.delete()
         return redirect('students:list_view')
