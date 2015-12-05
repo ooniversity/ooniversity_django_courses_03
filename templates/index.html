@@ -16,7 +16,7 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             {% for message in messages %}{{ message }}{% endfor %}
         </div>
-    {% endif %}
+{% endif %}
   <div class="jumbotron">
     <div class="container">
       <div class="page-header">
@@ -26,6 +26,9 @@
     </div>
   </div> 
   <h2>Выбирай, на каком курсе хочешь учиться!</h2>
+  <div>
+    <button class="btn"><a href="{% url 'courses:add' %}">Добавить новый курс</a></button>
+  </div>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -38,6 +41,8 @@
         <tr>
           <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
           <td>{{ course.short_description|title }}</td>
+          <td><button class="btn"><a href="{% url 'courses:edit' course.id %}">Редактировать курс</a></button></td>
+          <td><button class="btn"><a href="{% url 'courses:куьщму' course.id %}">Удалить курс</a></button></td>
         </tr>
       {% endfor %}
      </tbody>
