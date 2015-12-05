@@ -1,98 +1,35 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Students</title>
-    {% load staticfiles %}    
-    <!-- Bootstrap core CSS -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% extends "base.html" %}
 
-  </head>
 
-  <body>
+{% block title %}Students{% endblock title %}
 
- <div class="container">
-      <!-- Static navbar -->
-     <nav class="navbar navbar-inverse">
-       <div class="container-fluid">
-         <div class="navbar-header">
-           <p class="navbar-brand">PyBursa</p>
-         </div>
-           <div id="navbar" class="navbar-collapse collapse">
-             <ul class="nav navbar-nav">
-		    <li><a href="{% url 'index' %}">Main</a></li>
-                <li><a href="{% url 'contact' %}">Contacts</a></li>
-                <li><a href="{% url 'student_list' %}">Students</a></li>
-             </ul>
-           </div>
-         </div>
-      </nav>
-     <div class="jumbotron">
-      <div class="row">
-        <h2>Студенты курса PyByrsa</h2 >
-		  <p>Ниже представлен список студентов периода обучения 19.10.2015 - 28.12.2015</p>
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+    <h2> God's Bursa students list <br><small> Here you can find students list for the Spring'16 course</small></h2>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+              <tr class="success">
+                <td><strong>No</strong></td>
+                <td><strong>Surname</strong></td>
+                <td><strong>Name</strong></td>
+                <td><strong>Address</strong></td>
+                <td><strong>Skype</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="{% url 'student_detail' %}">01</a></td>
+                <td>Hartsock</td>
+                <td>William T.</td>
+                <td>327 Pallet Street, New York, NY 10007 </td>
+                <td>WilliamTHartsock</td>                
+              </tr>
+              {% include "include/old_list_include.html" %}
+            </tbody>
+        </table>
       </div>
-     </div><!-- /.col-lg-4 -->
-     <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Ниже представлен список студентов периода обучения 19.10.2015 - 28.12.2015</div>
-
-  <!-- Table -->
-  <table class="table">
-    <tbody>
-		<tr>
-			<td>No</td>
-			<td>Surname</td>
-			<td>Name</td>
-			<td>Address</td>
-			<td>Skype</td>
-		</tr>
-		<tr>
-			<td><a href="{% url 'student_detail' %}">1</a></td>
-			<td>Сердюк</td>
-			<td>Михаил</td>
-			<td>Конная ул., дом 18, кв. 2</td>
-			<td>serdyk_m</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>Никитюк</td>
-			<td>Егор</td>
-			<td>Лиманчик 2 ул., дом 117</td>
-			<td>nikityk_e</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>Сагура</td>
-			<td>Татьяна</td>
-			<td>Преображенская ул., дом 88</td>
-			<td>sagura_tatiana</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>Красивская</td>
-			<td>Ольга</td>
-			<td>Богданова пер., дом 18</td>
-			<td>krasivskaia_tania</td>
-		</tr>
-		<tr>
-			<td>5</td>
-			<td>Прокопенко</td>
-			<td>Иван</td>
-			<td>Хмельницкого Б. ул., дом 34</td>
-			<td>prokopenko_ivan</td>
-		</tr>
-	</tbody>
-  </table>
-</div>
- </div>
-
- <script src="{% static 'js/bootstrap.js' %}"></script>
-</body></html>
+{% endblock content %}

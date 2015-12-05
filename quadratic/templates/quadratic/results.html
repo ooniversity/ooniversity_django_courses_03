@@ -1,12 +1,11 @@
 <h1> Quadratic </h1>
-<div>Квадратное уравнение   ax<sup>2</sup> + bx + c = 0</div>
+<div> Calculating ax<sup>2</sup> + bx + c = 0</div>
 <br>
-a = {{ a }} <br>
-{{ a_error }} <br>
-b = {{ b }} <br>
-{{ b_error }} <br>
-c = {{ c }} <br>
-{{ c_error }} <br>
+<form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Решить" />
+</form>
+
 <br>
 {% if calculate %}
     {% if D > 0 %}
@@ -19,6 +18,9 @@ c = {{ c }} <br>
         Дискриминант: {{ D }} <br>
         Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений. <br>
 <br>
+        P.S.  А на самом деле решение есть: <br>
+        x<sub>1</sub> = {{ x1 }} <br>
+        x<sub>2</sub> = {{ x2 }} <br>                
     {% endif %}
 {% endif %}
 
