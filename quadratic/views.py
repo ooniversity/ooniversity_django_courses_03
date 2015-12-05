@@ -8,7 +8,8 @@ from quadratic.forms import QuadraticForm
 def quadratic_results(request):
     form = QuadraticForm(request.GET)
     context = {}
-    if form.is_valid() and any(coef != '' for coef in form):
+    ##  and any(coef != '' for coef in form)
+    if form.is_valid():
         a = form.cleaned_data['a']
         b = form.cleaned_data['b']
         c = form.cleaned_data['c']
