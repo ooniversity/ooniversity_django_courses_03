@@ -21,7 +21,7 @@
 
         <div class="container">
           <h2>{{ course.name }}</h2>
-          <p>{{ course.description }}</p>
+          <p>{{ course.description|truncatechars:32 }}</p>
         </div>
         <div class="container">
           <h3>Coaches</h3>
