@@ -8,13 +8,13 @@ from quadratic.forms import QuadraticForm
 def quadratic_results(request):
     quad_form = QuadraticForm(request.GET)
     context = {}
-    ##  and any(coef != '' for coef in form)
+    #  and any(coef != '' for coef in form)
     if quad_form.is_valid():
         a = quad_form.cleaned_data['a']
         b = quad_form.cleaned_data['b']
         c = quad_form.cleaned_data['c']
 
-        ## calculate Discriminant
+        # calculate Discriminant
 
         discr = b ** 2.0 - 4.0 * a * c
 
@@ -22,7 +22,7 @@ def quadratic_results(request):
 
         context = {'discr': d_msg}
 
-        ## calculate Roots
+        # calculate Roots
 
         if discr < 0:  # a=1&b=12&c=38
             context['res'] = u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
@@ -34,7 +34,7 @@ def quadratic_results(request):
             x2 = (-b - discr ** (1 / 2.0)) / (2 * a)
             context['res'] = u'Квадратное уравнение имеет два действительных корня: x1 = %.2f, x2 = %.2f' % (x1, x2)
 
-    elif any(coef == '' for coef in quad_form):
+    elif any(coef == '' for coef in quad_form):  # if missing coef found call form
         quad_form = QuadraticForm()
 
     context['form'] = quad_form
