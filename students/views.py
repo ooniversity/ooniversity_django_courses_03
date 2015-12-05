@@ -17,3 +17,6 @@ def list_view(request):
 def detail(request, pk):
     student_object =  get_object_or_404(Student, pk=pk) 
     return render(request, 'students/detail.html', {'student_object': student_object})
+
+def create(request):
+	return render(request, 'students/add.html')
