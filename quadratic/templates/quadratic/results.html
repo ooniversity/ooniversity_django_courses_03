@@ -5,10 +5,13 @@
     <title>{{ title }}</title>
 </head>
 <body>
-
-
 <h1>Квадратное уравнение a*x*x + b*x + c = 0</h1>
 
+<form method="get">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Решить" />
+</form>
         <ul>
             <li>
                 a = {{ a }}
@@ -41,16 +44,11 @@
                 {% endif %}
             </li>
         </ul>
-
-
-
     {% if discr or discr == 0%}
         <h3>Дискриминант: {{ discr }}</h3>
     {% endif %}
     {% if result %}
         <p>{{ result }}</p>
     {% endif %}
-
-
 </body>
 </html>
