@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*- 
 from django.shortcuts import render, redirect
 from students.models import Student, CourseApplication
 from courses.models import Course, Lesson
