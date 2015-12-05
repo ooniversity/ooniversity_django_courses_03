@@ -26,6 +26,8 @@
               <th>address</th>
               <th>skype</th>
               <th>courses</th>
+              <th>edit</th>
+              <th>remove</th>
             </tr>
             {% for student in students %}
             <tr>
@@ -35,18 +37,31 @@
               <td> {{ student.skype }} </td>
               <td>
 
-
               {% for course in student.courses.all %}
-<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
-{% endfor %}
+              <a
+              href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+              
+              {% endfor %}
 
-
+              </td>
+              <td>
+                <p><a 
+                class="btn btn-primary btn-sm"
+                href="{% url 'students:edit' %}"
+                role="button">Изменить</a></p>
+              </td>
+              <td>
+                <p><a class="btn btn-primary btn-sm"
+                href="{% url 'students:remove' %}"
+                role="button">Удалить</a></p>
 
 
               </td>
+
             </tr>
             {% endfor %}
           </table>
+          <p><a class="btn btn-primary btn-lg" href="{% url 'students:add' %}" role="button">Добавить нового студента</a></p>
         </div>
       </div>
     </div>

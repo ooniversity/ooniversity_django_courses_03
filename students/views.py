@@ -15,3 +15,23 @@ def list_view(request):
 def detail(request, num):
     student = models.Student.objects.get(id = num)
     return render(request, 'students/detail.html', {'student': student})
+
+
+def create(request):
+    return render(request, 'students/add.html')
+
+def edit(request):
+    return render(request, 'students/edit.html')
+
+def remove(request):
+    return render(request, 'students/remove.html')
+
+
+
+
+
+
+
+
+
+
