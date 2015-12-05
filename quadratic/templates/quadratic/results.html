@@ -48,13 +48,15 @@
 
 
 {% if form %}
-
+  <br />
   <form method="get">
     {{ form.as_p }}
     <input type="submit" value="Решить" />
   </form>
-  <hr/>
-  <p>{{ discr }}<br>{{ res }}</p>
+  <hr />
+  <p>{{ discr }}</p>
+  <br />
+  <p>{{ res }}</p>
 
 {% else %}
 
