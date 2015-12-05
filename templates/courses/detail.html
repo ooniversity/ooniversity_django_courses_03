@@ -6,7 +6,10 @@
 
 {% block title %}Course information{% endblock title %}
 
+
+{% block course_students %}?course_id={{ course.id }}{% endblock course_students %}
  
+
 {% block content %}
 		{% include "include/course_description_include.html" %}
 		<div class="container">
