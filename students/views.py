@@ -35,7 +35,7 @@ def create(request):
         if form.is_valid():
             form_content = form.cleaned_data
             form.save()
-            notification = "Студент %s %s успешно добавлен" % (form_content['name'], form_content['surname'])
+            notification = "Студент %s %s успешно добавлен" % (form_content['name'].decode('utf-8'), form_content['surname'].decode('utf-8'))
             messages.success(request, notification)
         return redirect('students:list_view')
     else:
