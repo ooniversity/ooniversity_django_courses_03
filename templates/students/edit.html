@@ -11,10 +11,10 @@
 <h2>Student's data edit</h2>
 <br>
  {% if messages %}
- <div  role="alert">
-   <ul>
+ <div class="alert alert-success alert-dismissible" role="alert">
+   <ul class="messages">
    {% for message in messages %}
-     <button type="button" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         {{ message }}
      {% endfor %}
    </ul>
