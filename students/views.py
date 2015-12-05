@@ -4,12 +4,7 @@ from students.models import Student, CourseApplication
 from courses.models import Course, Lesson
 from django import forms
 from django.contrib import messages
-#from students.forms import StudentModelForm
-
-class StudentModelForm(forms.ModelForm):
-	class Meta:
-		model = Student
-        fields = '__all__'
+from students.forms import StudentModelForm
 
 def add(request):
 	if request.method == 'POST':
