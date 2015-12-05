@@ -14,10 +14,10 @@ urlpatterns = patterns('',
     #url(r'^student_list/$', student_list, name="student_list"),
     #url(r'^student_detail/$', student_detail, name="student_detail"),
     #kz_4
-    url(r'^quadratic/', quadratic_results, name='results'),
+    url(r'^quadratic/', include('quadratic.urls', namespace='quadratic')),
     #kz_5
     url(r'^courses/', include('courses.urls', namespace="courses")),
-    url(r'^students/', include('students.urls', namespace="students")),   
+    url(r'^students/', include('students.urls', namespace="students")),
     #kz_6
     url(r'^coaches/', include('coaches.urls', namespace="coaches")),
 
