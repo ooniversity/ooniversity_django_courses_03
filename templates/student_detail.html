@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Site about Popov Ivan - student of PyBursa courses</title>
+{% extends "base.html" %}
+{% block title %}My Site - About Student{% endblock title %}
 
-    <!-- Bootstrap -->
-    <link href='/static/css/bootstrap.css' rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+{% block content %}
     <h1>Hello, Popov Ivan</h1>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -33,11 +17,11 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">        
+      <ul class="nav navbar-nav">
         <li><a href="/index/">Main</a></li>
 		<li><a href="/contact/">Contact</a></li>
 		<li class="active"><a href="/student_list/">Student<span class="sr-only">(current)</span></a></li>
-      </ul>       
+      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -46,9 +30,9 @@
 	<div class="row">
 		<div class="row-lg-4">
 		<h2>Popov Ivan</h2>
-			<img src='/static/images/kis.jpg' 
-        alt="Photo"></p> 			
-		</div>	
+			<img src='/static/images/kis.jpg'
+        alt="Photo"></p>
+		</div>
 	</div>
 </div>
 
@@ -58,29 +42,29 @@
 			<h2>About yourself</h2>
 			<table class="table">
 			 <thead>
-				<tr>	
+				<tr>
 				</tr>
 			 </thead>
 			 <tbody>
 				<tr>
 					<td>Surname</td>
-					<td>Popov</td>		
+					<td>Popov</td>
 				</tr>
-				<tr>					
-					<td>Name</td>	
-					<td>Ivan</td>					
+				<tr>
+					<td>Name</td>
+					<td>Ivan</td>
 				</tr>
-				<tr>					
+				<tr>
 					<td>Patronymic</td>
-					<td>Nikolayevich</td>		
+					<td>Nikolayevich</td>
 				</tr>
 				<tr>
 					<td>Rating</td>
-					<td>20</td>		
+					<td>20</td>
 				</tr>
 				<tr>
 					<td>Birth Date</td>
-					<td>11/02/1989</td>		
+					<td>11/02/1989</td>
 				</tr>
 				<tr>
 					<td>Adress</td>
@@ -96,15 +80,8 @@
 				</tr>
 			 </tbody>
 			 </table>
-						
-		</div>	
+		</div>
 	</div>
 </div>
-		
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
-  </body>
-</html>
+{% endblock content %}
