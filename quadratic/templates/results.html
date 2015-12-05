@@ -5,42 +5,24 @@
     <title>results</title>
 {% load staticfiles %}
 
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
 </head>
 <body style="background-image: none;" >
     <h3>RESULT</h3>
 
-    <p>{{title}}</p>
-    <ul>
-        <li>
-            a = {{data.a.val}}
-            {% if data.a.err != ''%}
-                    <br><div class="errorMessage">{{data.a.err}}</div>
-            {% endif %}
-        </li>
-        <li>
-            b = {{data.b.val}}
-            {% if data.b.err != ''%}
-                    <br><div class="errorMessage">{{data.b.err}}</div>
-            {% endif %}
-        </li>
-        <li>
-            c = {{data.c.val}}
-            {% if data.c.err != ''%}
-                    <br><div class="errorMessage">{{data.c.err}}</div>
-            {% endif %}
-        </li>
-    </ul>
+    <p>Квадратное уравнение a*x*x + b*x +c = 0</p>
+
+    {% if a_error != "" %}
+        <ul class="errorlist"><li>{{ a_error }}</li></ul>
+    {% endif %}
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Решить">
+    </form>
 
 
-    <div >{{ discr }}</div>
-    <div class="errorMessage">{{ error }}</div>
-
-
+    <p>{{ discr }}</p>
     <p>{{ res }}</p>
-
-    <p></p>
-    <p></p>
 </body>
 </html>
+
