@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}{{ course.name }}{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <div class="text-center">
+    <h1>{{ course.name }}</h1>
+  </div>
+  <p class="lead">{{ course.description }}</p>
+</div>
+<h2 class="text-center">Teachers</h2>
+{% include 'include/include.html' with teacher_about='Coach' teacher=coach %}
+{% include 'include/include.html' with teacher_about='Assistant' teacher=assistant %}
+<h2 class="text-center">Course lessons</h2>
+<p>
+  <table>
+      <tr class="table_head dark_grey_row">
+        <td>#</td>
+        <td>Lesson</td>
+        <td>Description</td>
+      </tr>
+      {% for lesson in lessons %}
+      <tr>
+        <td>{{lesson.order}}</td>
+        <td>{{lesson.subject}}</td>
+        <td>{{lesson.description}}</td>
+      </tr>
+      {% endfor %}
+  </table>
+</p>
+{% endblock %}
