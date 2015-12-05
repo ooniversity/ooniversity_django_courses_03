@@ -3,9 +3,9 @@
 
 {% block title %}Main{% endblock title %}
 
-%}
 
 {% block index_active %}class="active"{% endblock index_active %}
+
 
 {% block content %}
   <h1>Web-develompment</h1>
@@ -30,7 +30,7 @@
              <a href="{% url 'courses:detail' course.id %}">{{ course.name|upper}}</a>
           </td>
             <td class="number_cell3">
-              {{ course.description|title }}
+              {{ course.short_description|title }}
           </td>
         </tr>
         {% endfor %}
