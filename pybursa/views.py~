@@ -6,8 +6,8 @@ from courses.models import Course
 
 
 def index(request):
-    course = Course.objects.all()
-    return render(request, 'index.html', {'course': course})
+    data_course = Course.objects.all()
+    return render(request, 'index.html', {'courses': data_course, })
 
 def contact(request):
     return render(request, 'contact.html')

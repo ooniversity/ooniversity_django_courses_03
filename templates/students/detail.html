@@ -1,31 +1,17 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-	<meta charset="utf-8">
-	<title>Students Detail</title>
-  {% load static from staticfiles %}
-	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
-	<script src="{% static 'css/style.css'%}"></script>
-</head>
 
-<body>
+{% load staticfiles %}
 
-  <div class="container">
-    <div class="header">
-      <nav>
-        <ul class="nav nav-pills pull-right">
-          <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-          <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
-          <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-        </ul>
-      </nav>
-      <h1 class="text-muted"><a href="{% url 'index' %}">PyBursa</a></h1>
-    </div>
-  </div>
 
-  <hr>
+{% block title %}PyBursa Student{% endblock title %}
+
+
+{% block active_students %}active{% endblock active_students %}
+
+
+{% block content %}
+
 
   <div class="learn-more">
 	  <div class="container">
@@ -79,15 +65,6 @@
     </div>
   </div>
 
-  <hr>
+{% include "include/include.html" %}
 
-	<div class="container">
-	  <div class="row">
-	    <footer class="footer">
-        <p>Copyright © 2015 PyBursa, Inc. All Rights Reserved</p>
-      </footer>
-	  </div>
-	</div>
-
-</body>
-</html>
+{% endblock content %}
