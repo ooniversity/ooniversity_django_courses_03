@@ -37,3 +37,6 @@ footer .footer-copyright {
 .coaches img {
     margin-bottom: -80px;
 }
+select {
+    display: flex;
+}
