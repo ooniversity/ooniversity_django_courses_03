@@ -35,11 +35,22 @@ def create(request):
         if form.is_valid():
             form_content = form.cleaned_data
             form.save()
-            notification = "Студент %s %s успешно добавлен" % (form_content['name'].encode('utf-8'), form_content['surname'].encode('utf-8'))
+            notification = u"Студент %s %s успешно добавлен" % (form_content['name'].encode('utf-8'), form_content['surname'].encode('utf-8'))
             messages.success(request, notification)
         return redirect('students:list_view')
     else:
         form = StudentModelForm()
     return render(request, 'students/add.html', {'form': form})
 
-#
+
+def edit(request, pk):
+    student = Student.objects.get(id=pk)
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            messages.success(request, u"Данные изменены")
+            return render(request, 'students/edit.html', {'form': form})
+
+    form = StudentModelForm(instance=student)
+    return render(request, 'students/edit.html', {'form': form})
