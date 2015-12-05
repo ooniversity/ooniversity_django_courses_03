@@ -1,13 +1,11 @@
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
-<ul>
-	<li>a = {{ a }}</li>
-	{% if errors.a %}<p>{{ errors.a }}</p>{% endif %}
-	
-	<li>b = {{ b }}</li>
-	{% if errors.b %}<p>{{ errors.b }}</p>{% endif %}
-	<li>c = {{ c }}</li>
-	{% if errors.c %}<p>{{ errors.c }}</p>{% endif %}
-</ul>
 
-{% if not errors %}<p>Дискриминант: {{ descr }}</p>{% endif %}
-{% if not errors %}<p>{{ message }}</p>{% endif %}
+{% if errors.a %}<ul><li>{{ errors.a }}</li></ul>{% endif %}
+
+<form method="get">
+{{ form.as_p}}
+<input type='submit' label="Решить"/>
+</form>
+	
+{% if not form.errors %}<p>Дискриминант: {{ descr }}</p>{% endif %}
+{% if not form.errors %}<p>{{ message }}</p>{% endif %}

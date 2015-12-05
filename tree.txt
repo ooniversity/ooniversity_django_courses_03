@@ -141,13 +141,13 @@
 │   │   └── detail.html
 │   ├── contact.html
 │   ├── courses
-│   │   ├── detail.html
-│   │   └── index.html
+│   │   └── detail.html
+│   ├── include
+│   │   └── banner_include.html
+│   ├── index.html
 │   ├── README.md
 │   └── students
 │       ├── detail.html
-│       ├── include
-│       │   └── banner.html
 │       └── list.html
 └── tree.txt
 

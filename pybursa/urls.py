@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from pybursa import views
+from students.views import create
 
 
 urlpatterns = patterns('',
@@ -28,4 +29,6 @@ urlpatterns = patterns('',
     url(r'^quadratic/', include('quadratic.urls')),
     url(r'^', include('courses.urls', namespace='courses')),
     url(r'^coaches/', include('coaches.urls', namespace="coaches")),
+    url(r'^coaches/', include('coaches.urls', namespace="coaches")),
+    url(r'^add/$', create, name='create'),
 )
