@@ -1,0 +1,25 @@
+﻿{% extends "base.html" %}
+
+
+{% block Title %} Students details {% endblock Title %}
+
+
+{% block list_view_active %}class="active"{% endblock list_view_active %}
+
+
+{% block content %}
+	 <h1 class="dl"> {{ student.surname }} {{ student.name }}</h1>
+    </br>
+         <p><b>Дата рождения:</b> {{ student.date_of_birth }}</p>
+         <p><b>Адрес:</b> {{ student.address }}</p>
+         <p><b>Почта:</b> {{ student.email }}</p>
+         <p><b>Логин skype:</b> {{ student.skype }}</p>
+         <p><b>Телефон:</b> {{ student.phone }}</p>
+         <p><b>Курсы:</b>
+             <ul>
+             {% for course in student.courses.all %}
+              <li>   <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></li>
+            {% endfor %}
+            </ul>
+         </p>
+{% endblock content %}

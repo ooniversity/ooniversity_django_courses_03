@@ -1,8 +1,6 @@
 ## -*- coding: utf-8 -*-
 ## coding: utf8
 from django.shortcuts import render, get_object_or_404
-from django.template import RequestContext, loader
-from django.http import HttpRequest
 
 def quadratic_results(request):
     global context
@@ -24,45 +22,11 @@ def quadratic_results(request):
         c = None
 
 
-    # if a == None or a == '':
-    #     context['a'] = ''
-    #     context['a_message'] = 'коэффициент не определен'
-    #     flag_calculate_D['a'] = False
-    # elif not is_number(a):
-    #     context['a'] = a
-    #     context['a_message'] = 'коэффициент не целое число'
-    #     flag_calculate_D['a'] = False
-    # elif int(a) == 0:
-    #     context['a'] = a
-    #     context['a_message'] = 'коэффициент при первом слагаемом уравнения не может быть равным нулю'
-    #     flag_calculate_D['a'] = False
-    # else:
-    #     context['a'] = int(a)
     check_input('a',a, True)
     check_input('b',b)
     check_input('c',c)
 
-    # if b == None or b == '':
-    #     context['b'] = ''
-    #     context['b_message'] = 'коэффициент не определен'
-    #     flag_calculate_D['b'] = False
-    # elif not is_number(b):
-    #     context['b'] = b
-    #     context['b_message'] = 'коэффициент не целое число'
-    #     flag_calculate_D['b'] = False
-    # else:
-    #     context['b'] = int(b)
-    #
-    # if c == None or c == '':
-    #     context['c'] = ''
-    #     context['c_message'] = 'коэффициент не определен'
-    #     flag_calculate_D['c'] = False
-    # elif not is_number(c):
-    #     context['c'] = c
-    #     context['c_message'] = 'коэффициент не целое число'
-    #     flag_calculate_D['c'] = False
-    # else:
-    #     context['c'] = int(c)
+
 
     if flag_calculate_D['a'] and flag_calculate_D['b'] and flag_calculate_D['c']:
         context['calculate_Done'] = True
@@ -82,9 +46,7 @@ def quadratic_results(request):
             context['solution'] =('Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f') % (x1, x2)
     return render(request, 'results.html', context)
 
-# def detail(request, question_id):
-    # question = get_object_or_404(Question, pk=question_id)
-    # return render(request, 'polls/detail.html', {'question': question})
+
 def is_number(char):
     try:
         int(char)

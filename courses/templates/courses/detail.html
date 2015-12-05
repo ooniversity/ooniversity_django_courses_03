@@ -1,0 +1,58 @@
+﻿{% extends "base.html" %}
+
+
+{% block Title %} {{ course.name }} {% endblock Title %}
+
+
+{% block index_active %}class="active"{% endblock index_active %}
+
+
+{% block students_link %}<a href="{% url 'students:list_view'%}?course.id={{ course.id }}" >Students</a>{% endblock students_link %}
+
+
+{% block content %}
+	<h1>{{ course.name }}</h1>
+      
+
+      <p class="text">{{ course.description|truncatechars:32 }}</p>
+
+      <h2 class="header">Teachers</h2>
+      <h3>Coach</h3>
+        <p><b><a href="{% url 'coaches:detail' coach.id %}">{{ coach.user.first_name }} {{ coach.user.last_name }}</a></b></p>
+
+        <p>{{ coach.description}}</p>
+      <h3>Assistant</h3>
+      <p><b><a href="{% url 'coaches:detail' coach.id %}">{{ assistant.user.first_name }} {{ assistant.user.last_name }}</a></b></p>
+        <p>{{ assistant.description }}</p>
+      <h2 class="header">Lessons</h2>
+      <table class="border">
+        <tbody>
+
+        <tr class="column_name">
+          <td class="number_cell1">
+            #
+          </td>
+          <td class="first_column">
+            Название урока
+          </td>
+          <td class="number_cell3">
+            Описание урока
+          </td>
+          </tr>
+        {% for lesson in lessons %}
+        <tr>
+            <td class="number_cell1">
+            {{ lesson.order }}
+          </td>
+          <td class="number_cell1">
+            {{ lesson.subject }}
+          </td>
+            <td class="number_cell3">
+              {{ lesson.description }}
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+
+{% endblock content %}

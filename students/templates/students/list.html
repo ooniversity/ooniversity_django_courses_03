@@ -1,0 +1,62 @@
+﻿{% extends "base.html" %}
+
+
+{% block Title %} Students list {% endblock Title %}
+
+
+{% block list_view_active %}class="active"{% endblock list_view_active %}
+
+
+{% block content %}
+	 <h1 class="dl">Список Students PyBursa</h2>
+	 <p>Список студентов по состоянию на 15.11.2015</p>
+
+           <h2 class="header">Courses</h2>
+      <table class="border">
+        <tbody>
+        <tr class="column_name">
+           <td class="first_column">
+            #
+          </td>
+          <td class="number_cell3">
+            Фамилия Имя
+          </td>
+             <td class="number_cell3">
+            Адрес
+          </td>
+          <td class="number_cell3">
+            Skype
+          </td>
+           <td class="number_cell3">
+            Курсы
+          </td>
+          </tr>
+        {% for student in students %}
+        <tr>
+            <td class="number_cell1">
+              {{ student.id }}
+          </td>
+          <td class="number_cell3">
+              <a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a>
+          </td>
+           <td class="number_cell3">
+              {{ student.address }}
+          </td>
+          <td class="number_cell3">
+              {{ student.skype }}
+          </td>
+          <td class="number_cell3">
+            <ul>
+            {% for course in student.courses.all %}
+            <li>
+              <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+            </li>
+            {% endfor %}
+              </ul>
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+
+{% endblock content %}
