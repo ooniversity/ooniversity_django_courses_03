@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Квадратное уравнение</title>
+  </head>
+  <body>
+    <h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
+        <ul>
+          <li>a = {{a}}</li>
+            {{mistake_a}}
+          <li>b = {{b}}</li>
+            {{mistake_b}}
+          <li>c = {{c}}</li>
+            {{mistake_c}}
+        </ul>
+        {%if d or result%}
+          Дискриминант: {{d}}<br>
+          {{mistake_d}}<br>
+          <a></a><br>
+          {{result}}
+        {%endif%}
+  </body>
