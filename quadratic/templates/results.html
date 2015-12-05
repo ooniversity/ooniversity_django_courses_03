@@ -12,16 +12,16 @@
 {% block content %}
 
 
-    <div class="container">
-      <div class="starter-template">
-       <h1><strong>Quadratic equation</strong></h1>
-      <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="OK"/>
-      </form>
-      </div>
-    </div>
+<h1><strong>Quadratic equation</strong></h1>
+<form method="get">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="OK" />
+</form>
+{% if discr_msg %} 
+  <strong>Дискриминант: {{ discr }}</strong>
+  <strong>{{ discr_msg }}</strong>
+{% endif %}
 
 
 {% endblock content %}
