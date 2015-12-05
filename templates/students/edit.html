@@ -10,7 +10,7 @@
       {% include "include/show_message.html" with show_message=message %}
        {% endfor %}
     {% endif %}
-		<form method="POST">
+		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p}}
 			<input type="submit" value="Save info" />

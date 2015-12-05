@@ -6,7 +6,7 @@
 
 {% block content %}
 	<p class="lead">Create new student</p>
-	<form method="POST">
+	<form method="post">
 		{% csrf_token %}
 		<p>{{ student_form.as_p }}</p>
 		<input type="submit" value="Create new student"/></input>
