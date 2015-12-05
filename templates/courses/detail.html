@@ -16,9 +16,9 @@
   <div class="col-md-12" >
     <div class="jumbotron">
       <div class="page-header">
-        <h1>{{course.name}}</h1>
+        <h1>{{ course.name }}</h1>
       </div>
-      <p>{{course.description|truncatechars:32}}</p>
+      <p>{{ course.description|truncatechars:32 }}</p>
     </div>
     <div id="coach" class="container-fluid">
       <div class="page-header">
@@ -43,11 +43,11 @@
             </tr>
           </thead>
           <tbody>
-            {%for les in lesson %}
+            {% for les in lesson %}
               <tr>
-                <td>{{les.order}}</td>
-                <td>{{les.subject|upper}}</td>
-                <td>{{les.description|title}}</td>
+                <td>{{ les.order }}</td>
+                <td>{{ les.subject }}</td>
+                <td>{{ les.description }}</td>
               </tr>
             {% endfor %}
           </tbody>
