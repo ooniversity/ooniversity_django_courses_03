@@ -39,7 +39,7 @@
 {% include "courses/include/inc_instructor_include.html" with block_title="Ассистент" instructor=courses.assistant %}
   <div class="course_id">
     <div class="panel panel-default">
-      <div class="panel-heading"><h2 class="py_program"></h2><a href="{% url 'courses:add_lesson' course.id %}" class="btn btn-primary btn-lg active" role="button">Добавить занятие</a></h3></td></div>
+      <div class="panel-heading"><h2 class="py_program"></h2><a href="{% url 'courses:add_lesson' courses.id %}" class="btn btn-primary btn-lg active" role="button">Добавить занятие</a></h3></td></div>
         <table class="table-responsive">       
           <tr class="headtable"><td><h3>#</h3></td><td><h3>Тема недели</h3></td><td><h3>Описание</h3></td><tr>
           {% for lesson in lessons %}

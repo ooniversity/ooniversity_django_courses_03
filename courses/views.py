@@ -25,8 +25,8 @@ def add(request):
     if request.method == 'POST':
         course_form = CourseModelForm(request.POST)
         if course_form.is_valid():
-            application = course_form.save()
-            messages.success(request, u"Course %s has been successfully added." % (application.name))
+            course = course_form.save()
+            messages.success(request, u"Course %s has been successfully added." % (course.name))
             return redirect('index')
     else:
         course_form = CourseModelForm()
@@ -36,15 +36,15 @@ def add(request):
 
 
 def edit(request, courses_id):
-    application = Course.objects.get(id=courses_id)
+    course = Course.objects.get(id=courses_id)
     if request.method == 'POST':
-        course_form = CourseModelForm(request.POST, instance=application)
+        course_form = CourseModelForm(request.POST, instance=course)
         if course_form.is_valid():
-            application = course_form.save()
+            course = course_form.save()
             messages.success(request, "The changes have been saved.")
             return redirect('courses:edit', courses_id)
     else:
-        course_form = CourseModelForm(instance=application)
+        course_form = CourseModelForm(instance=course)
     return render(request, 'courses/edit.html', {
                   'course_form': course_form,
                   })
@@ -52,11 +52,11 @@ def edit(request, courses_id):
 
 
 def remove(request, courses_id): 
-    application = Course.objects.get(id=courses_id)
-    remove_massage = u"Вы уверены, что хотите удалить информацию о %s ?" % (application.name)
+    course_remove = Course.objects.get(id=courses_id)
+    remove_massage = u"Вы уверены, что хотите удалить информацию о %s ?" % (course_remove.name)
     if request.method == 'POST':
-        application.delete()
-        messages.success(request, u"Course %s has been deleted." % (application.name))
+        course_remove.delete()
+        messages.success(request, u"Course %s has been deleted." % (course_remove.name))
         return redirect('index')
     return render(request, 'courses/remove.html',{
                   'remove_massage': remove_massage,
@@ -68,8 +68,8 @@ def add_lesson(request, courses_id):
         lesson_form = LessonModelForm(request.POST)
         if lesson_form.is_valid():
             lessons = lesson_form.save()
-            messages.success(request, u"Lesson %s has been successfully added." % (lessons.name))
-            return redirect('courses:detail')
+            messages.success(request, u"Lesson %s has been successfully added." % (lessons.subject))
+            return redirect('courses:detail', courses_id)
     else:
         lesson_form = LessonModelForm()
     return render(request, 'courses/add_lesson.html', {
