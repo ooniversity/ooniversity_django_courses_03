@@ -37,10 +37,12 @@ h4 {font-weight: bold}
 #programm .number_cell{font-family:'trebuchet_msregular';font-size:26px}
 #table_contact th {text-align:left; font-size:24px; font-weight: bold; background: #00BFFF }
 .format_data {font-family: Courier New; text-align:left; vertical-align:middle; font-size:16px; font-weight: bold;}
-#spisok {border-radius: 6px; width: 98%; margin: auto}
+#spisok {border-radius: 6px; width: 100%; margin: auto}
 #spisok table thead {background-color: #8FBC8F}
 #spisok table tbody {background-color: #90EE90}
-#spisok {border-radius: 6px; width: 98%; margin: auto}
+#spisok2 {border-radius: 6px; width: 1000px;}
+#spisok2 table tbody {background-color: #90EE90;}
+.spisok2_1 {width: 200px; font-weight: bold}
 #student_detail p {padding-left: 2%; font-size: 36px; font-weight: bold}
 #student_detail h2 {padding-left: 2%}
 #student_detail p img {max-width:75%; height:auto}

@@ -1,74 +1,40 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Детали студента</title>
-
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
-    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+{% extends "students/base.html" %}
 
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header navbar-brand">
-          <a href="{% url 'index' %}">
-            <img class="logo" alt="logo" src="{% static 'images/logo_itbursa.png' %}">
-          </a>
-        </div>
-          <ul class="nav nav-pills">
-            <li role="presentation" class="active"><a href="{% url 'index' %}">Главная</a></li>
-            <li role="presentation" class="passive"><a href="{% url 'contact' %}">Контакты</a></li>
-            <li role="presentation" class="passive"><a href="{% url 'students:list_view' %}">Студенты</a></li>
-          </ul>
-      </div>
-    </nav>
-    <div class="container-fluid">
-      <h3>{{student.name}}{{' '}}{{student.surname}}</h3>
-    </div>
-    <div id="spisok" class="col-md-6">
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <td>Дата рождения</td><td>{{student.date_of_birth}}</td>
-          </tr>
-          <tr>
-            <td>адрес</td><td>{{student.address}}</td>
-          </tr>
-          <tr>
-            <td>почта</td><td>{{student.email}}</td>
-          </tr>
-          <tr>
-            <td>Логин skype</td><td>{{student.skype}}</td>
-          </tr>
-          <tr>
-            <td>телефон</td><td>{{student.phone}}</td>
-          </tr>
-          <tr>
-            <td>Курсы</td>
-            <td>{% for i in student.courses.all %}
-                  <p><a href="{% url 'courses:detail' i.id %}">{{i.name}}</a></p>
-                {%endfor%}
-            </td>
-          </tr>
-         </tbody>
-      </table>
-    </div>
+{% block title %}Детали о студенте{% endblock title %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js'%}"></script>
-  </body>
-</html>
+
+{% block page-header %}{{student.name}} {{student.surname}}{% endblock %}
+
+
+{% block page_content %}
+  <div id="spisok2">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td class="spisok2_1">Дата рождения</td><td>{{student.date_of_birth}}</td>
+        </tr>
+        <tr>
+          <td class="spisok2_1">Адрес</td><td>{{student.address}}</td>
+        </tr>
+        <tr>
+          <td class="spisok2_1">Почта</td><td>{{student.email}}</td>
+        </tr>
+        <tr>
+          <td class="spisok2_1">Логин skype</td><td>{{student.skype}}</td>
+        </tr>
+        <tr>
+          <td class="spisok2_1">Телефон</td><td>{{student.phone}}</td>
+        </tr>
+        <tr>
+          <td class="spisok2_1">Курсы</td>
+          <td>{% for i in student.courses.all %}
+                <p><a href="{% url 'courses:detail' i.id %}">{{i.name}}</a></p>
+              {%endfor%}
+          </td>
+        </tr>
+       </tbody>
+    </table>
+  </div>
+  {% endblock page_content %}
+

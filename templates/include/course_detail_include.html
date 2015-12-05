@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h3>{{ block_title }}</h3>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr><td>Учитель</td></tr>
+  </thead>
+  <tbody>
+  <tr><td>
+    <h4><a href="{% url 'coaches:detail' instructor.id %}">{{instructor.name}} {{instructor.surname}}</a></h4>
+    <p>{{instructor.description}}</p>
+  </td></tr>
+  </tbody>
+</table>
