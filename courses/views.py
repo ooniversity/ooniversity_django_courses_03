@@ -56,3 +56,15 @@ def add_lesson(request):
     else:
         form = LessonModelForm()
     return render(request, 'courses/add_lesson.html', {'form': form})
+
+def add_lesson(request, pk):
+    if request.method == 'POST':
+        form = LessonModelForm(request.POST)
+        if form.is_valid():
+            application = form.save()
+            message = u'Lesson {} has been successfully added.' .format(application.subject)
+            messages.success(request, message)
+            return redirect('courses:detail', pk)
+    else:
+        form = LessonModelForm(initial={'course': pk})
+    return render(request, 'courses/add_lesson.html', {'form': form})

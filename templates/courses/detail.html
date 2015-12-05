@@ -57,7 +57,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <p><a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить занятие</a></p>
+              <p><a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' course.id %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить занятие</a></p>
               <table class="table">
                 <thead>
                   <tr>

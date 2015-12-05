@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}PyBursa Edit Student{% endblock title %}
+{% block title %}PyBursa Edit Course{% endblock title %}
 
 
 {% block active_students %}active{% endblock active_students %}
@@ -19,7 +19,7 @@
             {% endfor %}
       {% endif %}
 
-    <h2>Редактирование данных студента</h2>
+    <h2>Редактирование данных курса</h2>
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
