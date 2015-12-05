@@ -47,12 +47,20 @@
 <div class="container">
 
 
+{% if context %}
+
   <form method="get">
     {{ form.as_p }}
     <input type="submit" value="Решить" />
   </form>
   <hr/>
   <p>{{ discr }}<br>{{ res }}</p>
+
+  {% else %}
+
+  <p>Something is going wrong. Contact System Administartor.</p>
+
+{% endif %}
 
 
 </div>
