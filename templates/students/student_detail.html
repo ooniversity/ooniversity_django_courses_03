@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Students{% endblock title %}
+
+
+{% block navbar_button_3 %}active{% endblock navbar_button_3 %}
+
+
+{% block content %}
+
+
+    <div class="container theme-showcase">
+      <div class="jumbotron">
+        <h1 class="descr">Richard Stallman</h1>
+      <div class="panel panel-default">
+          <table class="table table-striped table table-bordered">
+              <tbody>
+                <tr>
+                  <td>Surname</td>
+                  <td>Stallman</td>
+                </tr>
+                <tr>
+                  <td>Name</td>
+                  <td>Richard</td>
+                </tr>
+                <tr>
+                  <td>Patronymic</td>
+                  <td>Otsosedovich</td>
+                </tr>
+                <tr>
+                  <td>Rating</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                 <td>Average Grade</td>
+                 <td>99.8</td>
+                </tr>
+                <tr>
+                 <td>Package</td>
+                 <td>Standart</td>
+                </tr>
+                <tr>
+                  <td>Birth Date</td>
+                  <td>16/03/1953</td>
+                </tr>
+                <tr>
+                  <td>Address</td>
+                  <td>Rivington Street 62/17, New York, USA</td>
+                </tr>
+                <tr>
+                  <td>Post</td>
+                  <td>12841</td>
+                </tr>
+                <tr>
+                  <td>Skype</td>
+                  <td>Richard.Stallman</td>
+                </tr>
+                <tr>
+                  <td>E-mail</td>
+                  <td>richard@stallman.org</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+        <table class="table table-striped table table-bordered">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Week</th>
+                <th>Control Type</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">PY101 Introduction to Python</th>
+                <td>Week 1</td>
+                <td>Tests <br>Problem Task #1<br>Problem Task #2</td>
+                <td>99%<br>100%<br>100%</td>
+              </tr>
+              <tr>
+                <th scope="row"></a></th>
+                <td>Week 2</td>
+                <td>Tests <br>Problem Task #1<br></td>
+                <td>100%<br>100%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+            
+      <hr>
+
+
+
+{% endblock content %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+       
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Students{% endblock title %}
+
+
+{% block navbar_button_3 %}active{% endblock navbar_button_3 %}
+
+
+{% block content %}
+
+        <h1>{{ err_message }}</h1>
+        
+        <form method="post">
+	    {% csrf_token %}
+        <input type="submit" class="btn btn-danger btn-sm" value="Confirm">
+      </form>
+
+{% endblock content %}

@@ -5,8 +5,5 @@
       <auth-required>false</auth-required>
       <first-sync>true</first-sync>
     </data-source>
-    <data-source name="db" uuid="2578b011-ea64-423b-af7d-905ad801e79e">
-      <auth-required>false</auth-required>
-    </data-source>
   </component>
 </project>
