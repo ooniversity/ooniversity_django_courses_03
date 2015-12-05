@@ -3,6 +3,7 @@ from django import forms
 
 
 class QuadraticForm(forms.Form):
+
     a = forms.FloatField(label="коэффициент c")
     b = forms.FloatField(label="коэффициент b")
     c = forms.FloatField(label="коэффициент c")
