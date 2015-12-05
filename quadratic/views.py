@@ -9,7 +9,7 @@ def quadratic_results(request):
     quad_form = QuadraticForm(request.GET)
     context = {}
     ##  and any(coef != '' for coef in form)
-    if quad_form.is_valid():
+    if quad_form.is_valid() and any(coef != '' for coef in form):
         a = quad_form.cleaned_data['a']
         b = quad_form.cleaned_data['b']
         c = quad_form.cleaned_data['c']
