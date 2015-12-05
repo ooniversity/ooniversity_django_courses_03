@@ -36,12 +36,12 @@ def create(request):
             Student = form.save()
             message = 'Student %s %s has been successfully added.' %(form['name'].value(), form['surname'].value())
             messages.success(request, message)
-            return redirect('students:create')
+            return redirect('students:list_view')
 
     else:
         form = StudentModelForm(request.GET)
     context = {'form': form}
-    return render(request, 'students:list_view', context)
+    return render(request, 'students/add.html', context)
 
 def edit(request, student_id):
     student = Student.objects.get(id=student_id)
