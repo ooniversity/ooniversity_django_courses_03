@@ -1,18 +1,17 @@
 # -*- coding:UTF-8 -*-
 
 from django.shortcuts import render
-from django.shortcuts import render
 from quadratic.forms import QuadraticForm
 
 
 def quadratic_results(request):
     params = {}
     if request.GET:
-        form = QuadraticForm(request.GET)
-        if form.is_valid():
-            a = form.cleaned_data['a']
-            b = form.cleaned_data['b']
-            c = form.cleaned_data['c']
+        params['form'] = QuadraticForm(request.GET)
+        if params['form'].is_valid():
+            a = params['form'].cleaned_data['a']
+            b = params['form'].cleaned_data['b']
+            c = params['form'].cleaned_data['c']
             d = b * b - 4 * a * c
             if d < 0:
                 params['d'] = d

@@ -9,14 +9,12 @@
     <meta name="author" content="">
 
     <title>Results</title>
-{% load staticfiles %}
   </head>
-
   <body>
     <p>Квадратное уравнение a*x*x + b*x + c = 0 </p>
    <form method="get">
        {{ form.as_p }}
-       <input type="submit" value="solve"/>
+   <input type="submit" value="Решить"/>
    </form>
    {% if d or d == 0 %}
    <p>Дискриминант: {{ d }}</p>
