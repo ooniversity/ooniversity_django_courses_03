@@ -90,4 +90,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 #TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'polls'), os.path.join(BASE_DIR, 'quadratic'),os.path.join(BASE_DIR, 'courses'),os.path.join(BASE_DIR, 'students'),os.path.join(BASE_DIR, 'coaches')]
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'polls'), os.path.join(BASE_DIR, 'quadratic'),os.path.join(BASE_DIR, 'courses'),os.path.join(BASE_DIR, 'students'),os.path.join(BASE_DIR, 'coaches'),os.path.join(BASE_DIR, 'include'),]

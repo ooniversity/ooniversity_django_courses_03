@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Students {{ course.name }}{% endblock %}
+{% block active_students %}active{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <div class="text-center">
+    <p><h2 class="text-center">Student list:</h2></p>
+  </div>
+</div>
+<div class="row marketing">
+  <div class="col-lg-6">
+    <table>
+      <tr class="table_head dark_grey_row">
+        <td>#</td>
+        <td>Surname Name</td>
+        <td>Address</td>
+        <td>Skype</td>
+        <td>Courses</td>
+      </tr>
+      {% for student in students %}
+      <tr class = "style-thead3">
+        <td>{{student.id}} </td>
+        <td><a href={% url 'students:detail' student.id %}>{{student.surname}} {{student.name}}</a></td>
+        <td>{{student.address}}</td>
+        <td>{{student.skype}}</td>
+        <td>
+          {% for course in student.courses.all %}
+          <a href={% url 'courses:detail' course.id %}>{{course.name}}; </a>
+          {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+{% endblock %}
