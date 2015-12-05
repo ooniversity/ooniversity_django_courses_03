@@ -22,10 +22,10 @@
         {% for i in courses_list %}
         <tr>
           <td>
-            <a href="/courses/{{ i.id }}/">{{ i.name|upper }}</a>
+            <a href="/courses/{{ i.id }}/">{{ i.name | upper }}</a>
           </td>
           <td>
-            {{ i.short_description|title }}
+            {{ i.short_description | title }}
           </td>
         </tr>
         {% endfor %}

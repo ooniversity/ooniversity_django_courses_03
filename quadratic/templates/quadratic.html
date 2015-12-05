@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}iBursa {{ coach.get_name }} {{ coach.get_surname }}{% endblock %}
+
+
+{% block content %}
+  <div class="jumbotron">
+      <h2>Задайте параметры квадратного уравнения</h2>
+			  <form action="/quadratic/results/?a={{a}}&b={{b}}&c={{c}}" method="get">
+			    <label>a: </label>
+			    <input type="text" name="a">
+			    <label>b: </label>
+				  <input type="text" name="b">
+				  <label>c: </label>
+				  <input type="text" name="c">
+			    <input type="submit" value="OK">
+			</form>
+  </div>
+{% endblock content %}

@@ -85,4 +85,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), (os.path.join(BASE_DIR, 'templates','courses')), (os.path.join(BASE_DIR, 'templates', 'students')))
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'templates','courses'), os.path.join(BASE_DIR, 'templates', 'students'), os.path.join(BASE_DIR, 'quadratic', 'templates'))
