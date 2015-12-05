@@ -8,6 +8,22 @@
             <div class="slash-div">
             <h2> Student's list: </h2>
             <hr>
+        {% if messages %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <ul class="messages">
+            {% for message in messages %}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 {{ message }}
+             {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+      <br>
+      <a href="{% url 'students:add' %}">
+      <button type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add student </button>
+      </a>
+      <br><br>
             <br>
               <div class="table-responsive">
                 <table class="table table-bordered">
@@ -18,6 +34,7 @@
                         <td><strong>Address</strong></td>
                         <td><strong>Skype</strong></td>
                         <td><strong>Assigned courses</strong></td>
+                        <td><strong>Edit/Delete</strong></td>
                       </tr>
                     </thead>
                     <tbody>
@@ -33,6 +50,16 @@
                                 <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
                            {% endfor %}
                         </td>
+                <td>
+                <a href="{% url 'students:edit' student.id %}">
+                    <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit </button>
+                </a>
+                <a href="{% url 'students:remove' student.id %}">
+                    <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Delete </button>
+                </a>
+                </td>
                       </tr>
                       {% endfor %}
                       {% endif %}
