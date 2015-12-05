@@ -1,36 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Quadratic results</title>
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Quadratic results{% endblock title %}
+{% block quadratic_is_active %}active{% endblock quadratic_is_active %}
+
+{% block content %}
   </head>
   <body>
 
 <h1> Quadratic result </h1>
-<h4> Квадратное уравнение ax<sup>2</sup> + bx + c = 0</h4>
-a = {{ a }} <br>
-{{ a_error }} <br>
-b = {{ b }} <br>
-{{ b_error }} <br>
-c = {{ c }} <br>
-{{ c_error }} <br>
-
-
-{% if decision %}
-    {% if D > 0 %}
-        <p>Дискриминант: {{ D }}</p>
-        <p>Квадратное уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}</p>
-    {% elif D == 0 %}
-        <p>Дискриминант: {{ D }} </p>
-        <p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x1 }} </p>
-    {% elif D < 0 %}
-        <p>Дискриминант: {{ D }} </p>
-        <p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений. </p>
-    {% endif %}
-{% endif %}
-
-  </body>
-</html>
+  <div class="container students">
+    <div class="page-header">
+      <h1 class="top1">Equation</h1>
+      <div class="jumbotron">
+        <h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
+        <form method="get">
+          {{ form.as_p }}
+          <input type="submit" value="Решить"/>
+        </form>
+        <p>{{ context.d }}</p>
+        <p>{{ context.result_message }}</p>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

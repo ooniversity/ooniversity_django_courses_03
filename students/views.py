@@ -1,34 +1,104 @@
-from django.shortcuts import render
-from students.models import Student
-from courses.models import Course
-from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django import forms
+from students.models import Student, CourseApplication
+from courses.models import Course, Lesson
 
 
-def detail(request, pk):
-	student_by_id = Student.objects.get(id=pk)
-	student_by_id.courses_id = Course.objects.filter(student=student_by_id)
-	return render(request, 'students/detail.html', {
-		"student_by_id": student_by_id,
-		})
-	
+class StudentModelForm(forms.ModelForm):
+	class Meta:
+		model = Student
+        fields = '__all__'
+
+def add(request):
+	if request.method == 'POST':
+		form = StudentModelForm(request.POST)
+		if form.is_valid():
+			application = form.save()
+			mess = u'Student {} {} has been successfully added.' .format(application.name, application.surname)
+			messages.success(request, mess)
+			return redirect('students:list_view')
+	else:
+		form = StudentModelForm()
+	return render(request, 'students/add.html', {'form': form})
+
+
+def edit(request, pk):
+	application = Student.objects.get(id=pk)
+	if request.method == 'POST':
+		form = StudentModelForm(request.POST, instance=application)
+		if form.is_valid():
+			application = form.save()
+			messages.success(request, u'Info on the student has been sucessfully changed.')
+	else:
+		form = StudentModelForm(instance=application)
+	return render(request, 'students/edit.html', {'form': form})
+
+def remove(request, pk):
+    application = Student.objects.get(id=pk)
+    if request.method == 'POST':
+		application.delete()
+		mess = u'Info on {} {} has been sucessfully deleted.' .format(application.name, application.surname)
+		messages.success(request, mess)
+		return redirect('students:list_view')
+    return render(request, 'students/remove.html', {'full_name': application.name+ ' ' +application.surname}) 
+
+class StudentApplyForm(forms.Form):
+	name = forms.CharField(max_length=100)
+	email = forms.EmailField()
+	package = forms.ChoiceField(choices=(
+		('standart', 'Standart'),
+		('gold', 'Gold'),
+		('vip', 'VIP')),
+		widget=forms.RadioSelect)
+	subscribe = forms.BooleanField(required=False)
+
+class CourseApplicationForm(forms.ModelForm):
+	class Meta:
+		model = CourseApplication
+		exclude = ['comment', 'is_active']
+		widgets = {'package': forms.RadioSelect}
 
 def list_view(request):
-	try:
-		pk = str(request.GET['course_id'])
-		students = Student.objects.filter(courses=pk)
-		i=1
-		for student in students:
-			student.courses_id = Course.objects.filter(student=student)
-			student.id_l = i
-			i=i+1
-	except: 
-		students = Student.objects.all()
-		
-		i=1
-		for student in students:
-			student.courses_id = Course.objects.filter(student=student)
-			student.id_l = i
-			i=i+1
-	return render(request, 'students/list.html', {
-			"students": students,
-			})
+	if request.GET.get('course_id'):
+		stud = Student.objects.filter(courses = request.GET.get('course_id'))
+	else:
+		stud = Student.objects.all()
+	return render(request, 'students/list.html', {'students': stud})
+
+def detail(request, detail_id):
+	return render(request, 'students/detail.html', {'student': Student.objects.get(id = detail_id)})
+
+def apply_to_course(request):
+	if request.method == 'POST':
+		form = CourseApplicationForm(request.POST)
+		if form.is_valid():
+			application = form.save()
+			messages.success(request, 'Form saved!')
+			return redirect('students:apply')
+	else:
+		form = CourseApplicationForm(initial={'subscribe': True, 'package': 'gold'})
+	return render(request, 'students/apply.html', {'form': form})
+
+def edit_application(request, pk):
+	application = CourseApplication.objects.get(id=pk)
+	if request.method == 'POST':
+		form = CourseApplicationForm(request.POST, instance=application)
+		if form.is_valid():
+			application = form.save()
+			messages.success(request, 'Form saved!')
+			return redirect('students:apply')
+	else:
+		form = CourseApplicationForm(instance=application)
+	return render(request, 'students/edit_application.html', {'form': form})
+
+def delete_application(request, pk):
+	application = CourseApplication.objects.get(id=pk)
+	if request.method == 'POST':
+		application.delete()
+		messages.success(request, 'Object deleted!')
+		return redirect('students:apply')
+	return render(request, 'students/delete_application.html')
+
+
+
