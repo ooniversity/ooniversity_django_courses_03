@@ -14,7 +14,7 @@
 <div class="page-header">
     <h1>{{ course.name }}</h1>
 </div>
-<p>{{ course.description }}</p>
+<p>{{ course.description|truncatechars:32 }}</p>
 <br>
 {% if course.coach %}
 <h1>Преподаватели</h1>
