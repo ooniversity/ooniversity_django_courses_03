@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8496f9f7-68fe-4bbc-85b0-7e5cc3957e36" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coaches/templates/coaches/detail.html" afterPath="$PROJECT_DIR$/coaches/templates/coaches/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/courses/templates/courses/detail.html" afterPath="$PROJECT_DIR$/courses/templates/courses/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/courses/templates/courses/index.html" afterPath="$PROJECT_DIR$/courses/templates/courses/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/students/templates/students/detail.html" afterPath="$PROJECT_DIR$/students/templates/students/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/students/templates/students/list.html" afterPath="$PROJECT_DIR$/students/templates/students/list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/contact.html" afterPath="$PROJECT_DIR$/templates/contact.html" />
-    </list>
+    <list default="true" id="8496f9f7-68fe-4bbc-85b0-7e5cc3957e36" name="Default" comment="" />
     <ignored path="KZ5.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
