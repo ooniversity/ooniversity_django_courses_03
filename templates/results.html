@@ -9,11 +9,9 @@
           {{ form.as_p }}
           <input type="submit" value="Решить"/>
           <br />
-          <br />
           {%if d or result%}
-            <p>Дискриминант:{{ d }}</p>
+            <p>Дискриминант: {{ d }}</p>
             <p>{{mistake_d}}</p>
-            <br />
             <br />
             {{result}}
           {%endif%}

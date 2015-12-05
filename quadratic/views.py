@@ -13,7 +13,7 @@ def quadratic_results(request):
             c = form.cleaned_data['c']
 
             d = b**2-4*a*c
-            main_result['d'] = d
+            main_result['d'] = int(d)
             if d < 0:
                 main_result['mistake_d'] = u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
             elif not d:
