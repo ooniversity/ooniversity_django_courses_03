@@ -8,7 +8,7 @@
               <div class="slash-div">
               <h2> {{ course_detail.name }} </h2>
               
-              {{ course_detail.description }}
+              {{ course_detail.description|truncatechars:32 }}
 
                 <table class="table table-bordered">
                     <thead>
