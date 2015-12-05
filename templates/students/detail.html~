@@ -1,96 +1,70 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-	<meta charset="utf-8">
-	<title>Students</title>
-        {% load static from staticfiles %}
-	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
-	<script src="{% static 'css/style.css'%}"></script>
-</head>
 
-<body>
+{% load staticfiles %}
 
-	<div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-            <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
-            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-          </ul>
-        </nav>
-        <h1 class="text-muted"><a href="{% url 'index' %}">PyBursa</a></h1>
-      </div>
-    </div>
 
-    <hr>
+{% block title %}PyBursa Student{% endblock title %}
 
-    <div class="learn-more">
+
+{% block active_students %}active{% endblock active_students %}
+
+
+{% block content %}
+  <hr>
+
+  <div class="learn-more">
 	  <div class="container">
 	    <div class="row">
     	  <h1>PyBursa Students</h1>
     	</div>
-    	<h4>This is a list of students who are studying on this course</h4>
-      </div>
+    	  <h4>This is a student who are studying on this course</h4>
     </div>
+  </div>
 
-    <table class="table table-bordered">
-      <thead class="active">
-        <th>№</th>
-        <th>Surname</th>
-        <th>Name</th>
-        <th>Address</th>
-        <th class="skype">Skype</th>
-      </thead>
-      <tr>
-        <td class="numbers"><a href="{% url 'student_detail' %}">1</a></td>
-        <td>Kalanick</td>
-        <td>Travis</td>
-        <td>Los-Angeles, California, USA</td>
-        <td class="skype">kalanick</td>
-      </tr>
-      <tr>
-        <td class="numbers">2</td>
-        <td>Gates</td>
-        <td>Bill</td>
-        <td>Los-Angeles, California, USA</td>
-        <td class="skype">gates</td>
-      </tr>
-      <tr>
-        <td class="numbers">3</td>
-        <td>Dorsey</td>
-        <td>Jack</td>
-        <td>New-York, State of New-York, USA</td>
-        <td class="skype">dorsey</td>
-      </tr>
-      <tr>
-        <td class="numbers">4</td>
-        <td>Durov</td>
-        <td>Pavel</td>
-        <td>St.Petersburg, Russian Federation</td>
-        <td class="skype">durov</td>
-      </tr>
-      <tr>
-        <td class="numbers">5</td>
-        <td>Hoffman</td>
-        <td>Reid</td>
-        <td>Stanford, California, USA</td>
-        <td class="skype">hoffman</td>
-      </tr>
-    </table>
+  <div class="container">
+    <div class="row">
+      <h1 class="course">{{ student.name }} {{ student.surname }}</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Birthd Date</td>
+                    <td>{{ student.date_of_birth }}</td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>{{ student.address }}</td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>{{ student.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>Skype</td>
+                    <td>{{ student.skype }}</td>
+                  </tr>
+                  <tr>
+                    <td>Phone</td>
+                    <td>{{ student.phone }}</td>
+                  </tr>
+                  <tr>
+                    <td>Courses</td>
+                    <td>
+                      {% for k in student.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a><br>
+                      {% endfor %}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
 
+{% include "include/include.html" %}
 
-	<hr>
-
-	<div class="container">
-	  <div class="row">
-	    <footer class="footer">
-          <p>Copyright © 2015 PyBursa, Inc. All Rights Reserved</p>
-        </footer>
-	  </div>
-	</div>
-
-</body>
-</html>
+{% endblock content %}

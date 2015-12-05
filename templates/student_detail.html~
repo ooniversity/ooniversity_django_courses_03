@@ -17,7 +17,7 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-            <li role="presentation"><a href="{% url 'student_list' %}">Students</a></li>
+            <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
             <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
           </ul>
         </nav>

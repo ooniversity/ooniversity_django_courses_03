@@ -1,28 +1,16 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-  <meta charset="utf-8">
-  <title>Courses Detail</title>
-  {% load static from staticfiles %}
-  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
-  <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
-  <script src="{% static 'css/style.css'%}"></script>
-</head>
 
-<body>
+{% load staticfiles %}
 
-  <div class="container">
-    <div class="header">
-      <nav>
-        <ul class="nav nav-pills pull-right">
-          <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-          <li role="presentation"><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
-          <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-        </ul>
-      </nav>
-        <h1 class="text-muted"><a href="{% url 'index' %}">PyBursa</a></h1>
-    </div>
+
+{% block title %}PyBursa Courses{% endblock title %}
+
+
+
+
+
+{% block content %}
 
 
     <div class="jumbotron">
@@ -41,14 +29,14 @@
       <div class="row">
         <div class="col-md-4">
           <h2>Coach</h2>
-          <p><a href="{% url 'coaches:detail' course.coach.id %}">{{ coach }}</a></p>
-            <p>{{ course.coach.description }}</p>
+          <p><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user.first_name }}</a></p>
+            <p>{{ coach.description }}</p>
         </div>
 
         <div class="col-md-4">
           <h2>Assistant</h2>
-          <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ assistant }}</a></p>
-            <p>{{ course.assistant.description }}</p>
+          <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.name }}</a></p>
+            <p>{{ assistant.description }}</p>
         </div>
     </div>
 
@@ -79,15 +67,7 @@
     </div>
   </div>
 
-  <hr>
+{% include "include/include.html" %}
 
-  <div class="container">
-    <div class="row">
-      <footer class="footer">
-        <p>Copyright © 2015 PyBursa, Inc. All Rights Reserved</p>
-      </footer>
-    </div>
-  </div>
+{% endblock content %}
 
-</body>
-</html>

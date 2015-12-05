@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-	<meta charset="utf-8">
-	<title>Coach Detail</title>
-  {% load static from staticfiles %}
-	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
-	<script src="{% static 'css/style.css'%}"></script>
-</head>
 
-<body>
+{% load staticfiles %}
 
-  <div class="container">
-    <div class="header">
-      <nav>
-        <ul class="nav nav-pills pull-right">
-          <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-          <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
-          <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-        </ul>
-      </nav>
-      <h1 class="text-muted"><a href="{% url 'index' %}">PyBursa</a></h1>
-    </div>
-  </div>
 
-  <hr>
+{% block title %}PyBursa Coaches information{% endblock title %}
+
+
+{% block content %}
+
+  
 
   <div class="learn-more">
 	  <div class="container">
@@ -46,7 +30,7 @@
                 <tbody>
                   <tr>
                     <td>Birthd Date</td>
-                    <td>{{ coaches.date_of_birth }}</td>
+                    <td>{{ coaches.date_of_birth|date:'d F, Y' }}</td>
                   </tr>
                   <tr>
                     <td>Address</td>
@@ -54,7 +38,7 @@
                   </tr>
                   <tr>
                     <td>Email</td>
-                    <td>{{ coaches.email }}</td>
+                    <td>{{ coaches.user.email }}</td>
                   </tr>
                   <tr>
                     <td>Skype</td>
@@ -67,21 +51,21 @@
                   <tr>
                     <td>Courses Coach</td>
                     <td>
-                      {% for c in courses %}
-                      <a href="{% url 'courses:detail' c.id %}">{{ c.name }}</a>
-                      Students of Courses
-                      <a href="{% url 'students: list_views' %} ?course_id={{c.id}}"><span class="glyphicon glyphicon-new-window"</span></a>
+                      {% for course in courses %}
+                      <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> Students of Course
+                      <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                      <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
                       {% endfor %}
                     </td>
                   </tr>
                   <tr>
                     <td>Courses Assistant</td>
                     <td>
-                      {% for a in assistants %}
-                      <a href="{% url 'courses:detail' a.id %}">{{ a.name }}</a>
-                      Students of Courses
-                      <a href="{% url 'students: list_views' %} ?course_id={{a.id}}"><span class="glyphicon glyphicon-new-window"</span></a>
-                      {% endfor %}
+                      {% for assistant in assistants %}
+                      <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a> Students of Course
+                      <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}">
+                      <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a><br>
+                        {% endfor %}
                     </td>
                   </tr>
                 </tbody>
@@ -92,15 +76,7 @@
     </div>
   </div>
 
-  <hr>
+{% include "include/include.html" %}
 
-	<div class="container">
-	  <div class="row">
-	    <footer class="footer">
-        <p>Copyright © 2015 PyBursa, Inc. All Rights Reserved</p>
-      </footer>
-	  </div>
-	</div>
 
-</body>
-</html>
+{% endblock content %}

@@ -1,93 +1,63 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-	<meta charset="utf-8">
-	<title>Students</title>
-        {% load static from staticfiles %}
-	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
-	<script src="{% static 'css/style.css'%}"></script>
-</head>
 
-<body>
+{% load staticfiles %}
 
-	<div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="{% url 'index' %}">Main</a></li>
-            <li role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
-            <li role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
-          </ul>
-        </nav>
-        <h1 class="text-muted"><a href="{% url 'index' %}">PyBursa</a></h1>
-      </div>
-    </div>
 
-    <hr>
+{% block title %}PyBursa Student List{% endblock title %}
 
-    <div class="learn-more">
+
+{% block active_students %}active{% endblock active_students %}
+
+
+{% block content %}
+
+  <div class="learn-more">
 	  <div class="container">
 	    <div class="row">
     	  <h1>PyBursa Students</h1>
     	</div>
-    	<h4>This is a list of students who are studying on this course</h4>
-      </div>
+    	  <h4>This is a list of students who are studying on this course</h4>
     </div>
+  </div>
 
-      <div class="container theme-showcase" role="main">
+
+  <div class="container theme-showcase" role="main">
     <div class="container">
-      <div class="jumbotron">
-        <h2 class="course">{{ student.surname }} {{ student.name }}</h2>
+      <p>{{ course.description }}</p>
+        <h1 class="course">Students List</h1>
         <div class="container">
           <div class="row">
             <div class="col-md-12">
+              {% for i in students %} {% endfor %}
               <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name and Surname</th>
+                    <th>Address</th>
+                    <th>Skype</th>
+                    <th>Courses</th>
+                  </tr>
+                </thead>
                 <tbody>
+                {% for i in students %}
                   <tr>
-                    <td>дата рождения</td>
-                    <td>{{ student.date_of_birth }}</td>
+                    <td>{{ i.id }}</td>
+                    <td><a href="{% url 'students:detail' i.id %}">{{ i.name }} {{ i.surname }}</a></td>
+                    <td>{{ i.address }}</td>
+                    <td>{{ i.skype }}</td>
+                    <td>{% for k in i.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a><br>{% endfor %}</td>
                   </tr>
-                  <tr>
-                    <td>адрес</td>
-                    <td>{{ student.address }}</td>
-                  </tr>
-                  <tr>
-                    <td>почта</td>
-                    <td>{{ student.email }}</td>
-                  </tr>
-                  <tr>
-                    <td>логин skype</td>
-                    <td>{{ student.skype }}</td>
-                  </tr>
-                  <tr>
-                    <td>телефон</td>
-                    <td>{{ student.phone }}</td>
-                  </tr>
-                  <tr>
-                    <td>курсы</td>
-                    <td>
-                      {% for k in student.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a><br>
-                      {% endfor %}
-                    </td>
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+    </div>
+  </div>
 
+  {% include "include/include.html" %}
 
-	<hr>
-
-	<div class="container">
-	  <div class="row">
-	    <footer class="footer">
-          <p>Copyright © 2015 PyBursa, Inc. All Rights Reserved</p>
-        </footer>
-	  </div>
-	</div>
-
-</body>
-</html>
+{% endblock content %}

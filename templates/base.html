@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock title %}</title>
+  {% load static from staticfiles %}
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
+  <script src="{% static 'css/style.css'%}"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header">
+      <nav>
+        <ul class="nav nav-pills pull-right">
+          <li class={% block active_main %}{% endblock %} role="presentation"><a href="{% url 'index' %}">Main</a></li>
+          <li class={% block active_students %}{% endblock %} role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
+          <li class={% block active_contact %}{% endblock %} role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+        </ul>
+      </nav>
+      <h1 class="text-muted"><a href="{% url 'index' %}">PyBursa</a></h1>
+    </div>
+
+    
+
+  <hr>
+
+  {% block content %}{% endblock content %}
+
+  
+
+</body>
+</html>
