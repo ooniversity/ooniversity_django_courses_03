@@ -16,6 +16,6 @@ urlpatterns = patterns('',
     #url(r'^(?P<question_id>\d+)/vote/$', views.vote, name='vote'),
     url(r'^$', forms.ListView.as_view(), name='list'),
     url(r'^(?P<pk>\d+)/$', forms.DetailView.as_view(), name='detail'),
-    url(r'^add/$', forms.create),
+    url(r'^add/$', forms.create, name='add'),
     url(r'^edit/$', forms.edit),
 )

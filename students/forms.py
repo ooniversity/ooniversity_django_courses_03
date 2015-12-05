@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import generic
 from students.models import Student
 from django import forms
@@ -28,7 +28,24 @@ class ListView(generic.ListView):
         return Student.objects.all()
 
 def create(request):
-    form = StudentModelForm()
+    print request.POST
+    #form = StudentModelForm()
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            student = Student()
+            student.name = data['name']
+            student.surname = data['surname']
+            student.date_of_birth = data['date_of_birth']
+            student.email = data['email']
+            student.phone = data['phone']
+            student.address = data['address']
+            student.skype = data['skype']
+            student.save()
+            return redirect('../')
+    else:
+        form = StudentModelForm()
     return render(request, 'students/add.html', {'form': form})
 
 def edit(request):
