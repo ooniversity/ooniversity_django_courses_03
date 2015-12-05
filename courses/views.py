@@ -13,11 +13,11 @@ def add(request):
 	if request.method == "POST":
 	    form = CourseModelForm(request.POST)
 	    if form.is_valid():
-			form.save()
-			data = form.cleaned_data
-			msg = 'Course %s has been successfully added.' % (data['name'])
-			messages.success(request, msg)
-			return redirect('/')
+	    	data = form.cleaned_data
+	    	form.save()
+	    	msg = 'Course %s has been successfully added.' % (data['name'])
+	    	messages.success(request, msg)
+	    	return redirect('index')
 
 	return render(request, './courses/add.html', { 'form' : form })
 
@@ -42,7 +42,7 @@ def remove(request, course_id):
 	    course.delete()
 	    msg = 'Course %s has been deleted.' % course.name
 	    messages.success(request, msg)
-	    return redirect('/')
+	    return redirect('index')
 
 	return render(request, './courses/remove.html', { 'course' : course })
 
@@ -57,7 +57,7 @@ def add_lesson(request, course_id):
 			data = form.cleaned_data
 			msg = 'Lesson %s has been successfully added.' % (data['subject'])
 			messages.success(request, msg)
-			return redirect('/')
+			return redirect('index')
 	return render(request, './courses/add_lesson.html', { 'form' : form })
 
 
