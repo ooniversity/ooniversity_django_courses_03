@@ -6,7 +6,7 @@
 
 {% block top_menu %}
     <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'courses:index' %}">Main</a></li>
+            <li class="active"><a href="{% url 'index' %}">Main</a></li>
             <li><a href="{% url 'contact' %}">Contacts</a></li>
             <li ><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
     </ul>
@@ -18,7 +18,7 @@
             <h2 class="title">Course: {{ course }}</h2>
             <h3>Description</h3>
 
-            <p>{{ course.description|truncatechars:32  }}
+            <p>{{ course.description|truncatechars:32 }}
             </p><br><br>
 
             <!--Teachers list-->

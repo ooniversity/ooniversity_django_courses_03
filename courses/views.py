@@ -9,7 +9,7 @@ def index(request):
 
     courses_list = Course.objects.all()
 
-    template = loader.get_template('courses/index.html')
+    template = loader.get_template('index.html')
     context = RequestContext(request, {
         'courses_list': courses_list,
     })
