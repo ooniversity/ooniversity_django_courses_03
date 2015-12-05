@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from students.models import Student
 from students.forms import StudentModelForm
+from django.contrib import messages
 
 
 def list_view(request):
@@ -22,14 +23,16 @@ def detail(request, student_id):
 	return render(request, './students/detail.html', context)
 
 def create(request):
-	form = StudentModelForm() 
 	if request.method == "POST":
 	    form = StudentModelForm(request.POST)
 	    if form.is_valid():
-			form.save()
-			data = form.cleaned_data
-			msg = 'Student %s %s has been successfully added.' % (data['name'], data['surname'])
-			return render(request, './students/list.html', {'message' : msg})
+	    	form.save()
+	    	data = form.cleaned_data
+	    	msg = 'Student %s %s has been successfully added.' % (data['name'], data['surname'])
+	    	messages.success(request, msg)
+	    	return redirect(request, './students/list.html')
+	    else:
+	    	form = StudentModelForm() 
 
 	return render(request, './students/add.html', { 'student_form' : form })
 
@@ -43,7 +46,7 @@ def edit(request, student_id):
 	    	form.save()
 	    	data = form.cleaned_data
 	    	msg = 'Info on the student has been sucessfully changed.'
-	    	return render(request, './students/edit.html', {'form' : form, 'message' : msg})
+	    	messages.success(request, msg)
 
 	return render(request, './students/edit.html', { 'form' : form } )
 
@@ -52,7 +55,8 @@ def remove(request, student_id):
 	if request.method == "POST":
 	    student.delete()
 	    msg = 'Info on %s %s has been sucessfully deleted.' % (data['name'], data['surname'])
-	    return render(request, './students/list.html', {'message' : msg})
+	    messages.success(request, msg)
+	    return redirect('./students/list.html')
 
 	return render(request, './students/remove.html', { 'student' : student })
 
