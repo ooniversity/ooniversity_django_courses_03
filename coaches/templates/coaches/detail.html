@@ -33,7 +33,7 @@
                 <h3>Personal information</h3>
                 <!-- Table -->
                 <table class="table opct-text personal">
-                    <tr><td>Birth Date</td><td>{{ coach.date_of_birth }}</td></tr>
+                    <tr><td>Birth Date</td><td>{{ coach.date_of_birth|date:"d F, Y" }}</td></tr>
                     <tr><td>Address</td><td>{{ coach.address }}</td></tr>
                     <tr><td>E-mail</td><td>{{ coach.user.email }}</td></tr>
                     <tr><td>Skype</td><td>{{ coach.skype }}</td></tr>
