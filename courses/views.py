@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from courses.models import Course
-from courses.forms import CourseModelForm
+from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
 
 def detail(request, course_id):
@@ -46,14 +46,15 @@ def remove(request, course_id):
 	return render(request, './courses/remove.html', { 'course' : course })
 
 #################
-def add_lesson(request):
-	form = LessonModelForm() 
+def add_lesson(request, course_id):
+	course = Course.objects.get(id = course_id)
+	form = LessonModelForm(initial={'course' : course})
 	if request.method == "POST":
 	    form = LessonModelForm(request.POST)
 	    if form.is_valid():
 			form.save()
 			data = form.cleaned_data
-			msg = 'Lesson %s has been successfully added.' % (data['lesson_name'])
+			msg = 'Lesson %s has been successfully added.' % (data['subject'])
 			messages.success(request, msg)
 			return redirect('/')
 	return render(request, './courses/add_lesson.html', { 'form' : form })

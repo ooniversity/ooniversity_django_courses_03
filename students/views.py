@@ -60,3 +60,5 @@ def remove(request, student_id):
 
 	return render(request, './students/remove.html', { 'student' : student })
 
+
+
