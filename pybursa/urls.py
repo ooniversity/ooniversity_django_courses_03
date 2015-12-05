@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from pybursa.views import index, contact, student_list, student_detail
+from quadratic.views import quadratic_results
 
 urlpatterns = patterns('',
     url(r'^polls/', include('polls.urls', namespace="polls")),
