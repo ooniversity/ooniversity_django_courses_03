@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
-
-from courses.models import Course
 from students.models import Student
-from django.http import HttpResponse
+from courses.models import Course, Lesson
+from django import forms
+from django.contrib import messages
+from students.forms import StudentModelForm
 
-def detail (request, pk):
-    params = {}
-    params['student']=  Student.objects.get(id = pk)
-    return render(request, 'students/detail.html', params)
+
 
 def list_view(request):
     params = {}
@@ -28,26 +26,32 @@ def create(request):
             messages.success(request, 'Student {0} {1} has been successfully added.'.format(cleaned['name'], cleaned['surname']))
         return redirect('students:list_view')
     else:
-        params['form'] = StudentModelForm()
+        form = StudentModelForm()
+    params['form'] = form
     return render(request, 'students/add.html', params)
 
 def edit(request, s_id):
-    params = {}
-    student = Student.objects.get(id = student_id)
-    if request.POST:
+    student = Student.objects.get(id = s_id)
+    if request.method == 'POST':
         form = StudentModelForm(request.POST, instance = student)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Info on the student has been sucessfully changed.')
+            student = form.save()
+            messages.success(request, u'Info on the student has been sucessfully changed.')
     else:
-        params['form'] = StudentModelForm(instance = student)
-    return render(request, 'students/edit.html', params )
+        form = StudentModelForm(instance = student)
+    return render(request, 'students/edit.html', {'form': form})
 
 def remove(request, s_id):
     params = {}
-    params['student'] = Student.objects.get(id = student_id)
+    student = Student.objects.get(id = s_id)
     if request.method == "POST":
         student.delete()
-        messages.success(request, "Info on %s %s has been sucessfully deleted." % (student.name, student.surname))
+        messages.success(request, u"Info on {0} {1} has been sucessfully deleted.".format(student.name, student.surname))
         return redirect('students:list_view')
+    params['student'] = student
     return render(request, 'students/remove.html', params)
+
+def detail (request, pk):
+    params = {}
+    params['student']=  Student.objects.get(id = pk)
+    return render(request, 'students/detail.html', params)

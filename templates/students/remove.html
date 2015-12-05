@@ -1,4 +1,4 @@
-{% extends "student/base.html" %}
+{% extends "students/base.html" %}
 {% load staticfiles %}
 
 {% block title %}{{ student.name }} {{ student.surname }} Remove Form{% endblock %}
@@ -14,12 +14,12 @@
 		{{ message }}
 	    </div>
 	    {% endfor %}
-
+{% endif %}
         <p class="lead">Are you sure to remove {{ student.name }} {{ student.surname }}?</h1>
 		<form method="post">
 		{% csrf_token %}
 		<input type="submit" value="Confirm" />
 		</form>
 </div>
-{% endif %}
+
 {% endblock content %}
