@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}Teacher {{ teacher.last_name }} {{ teacher.first_name }}{% endblock %}
+{% block title %}Teacher {{ teacher.last_name }} {{ teacher.first_name }}{% endblock title %}
 {% block content %}
 <div class="jumbotron">
   <div class="text-center">
@@ -54,4 +54,4 @@
       </tr>
   </table>
 </div>
-{% endblock %}
+{% endblock content %}
