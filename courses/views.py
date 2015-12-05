@@ -30,7 +30,7 @@ def edit(request, course_id):
 	    if form.is_valid():
 	    	form.save()
 	    	data = form.cleaned_data
-	    	msg = 'Info on the student has been sucessfully changed.'
+	    	msg = 'The changes have been saved.'
 	    	messages.success(request, msg)
 
 	return render(request, './courses/edit.html', { 'form' : form } )
@@ -39,7 +39,7 @@ def remove(request, course_id):
 	course = Course.objects.get(id = course_id)
 	if request.method == "POST":
 	    course.delete()
-	    msg = 'Info on %s has been sucessfully deleted.' % course.name
+	    msg = 'Course %s has been deleted.' % course.name
 	    messages.success(request, msg)
 	    return redirect('/')
 
