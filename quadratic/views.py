@@ -7,7 +7,7 @@ from quadratic.forms import QuadraticForm
 
 def quadratic_results(request):
     form = QuadraticForm(request.GET)
-
+    context = {}
     if form.is_valid() and any(coef != '' for coef in form):
         a = form.cleaned_data['a']
         b = form.cleaned_data['b']
@@ -35,4 +35,4 @@ def quadratic_results(request):
             context['res'] = u'Квадратное уравнение имеет два действительных корня: x1 = %.2f, x2 = %.2f' % (x1, x2)
 
         context['form'] = form
-        return render(request, 'results.html', context)
+    return render(request, 'results.html', context)
