@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from students.forms import StudentModelForm
+from django.shortcuts import render, redirect
 import models
 
 
@@ -18,7 +19,17 @@ def detail(request, num):
 
 
 def create(request):
-    return render(request, 'students/add.html')
+    context = {}
+    if request.method == 'POST': 
+        form = StudentModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('students:list_view')
+    else:
+        form = StudentModelForm()
+    context = {'form': form}
+    return render(request, 'students/add.html', context)
+
 
 def edit(request):
     return render(request, 'students/edit.html')
