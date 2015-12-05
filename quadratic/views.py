@@ -25,4 +25,4 @@ def quadratic_results(request):
     else:
         form = QuadraticForm()
     context.update({ 'form' : form })
-    return render(request, "quadratic/results.html",  context )
+    return render(request, "results.html",  context )

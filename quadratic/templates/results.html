@@ -1,11 +1,8 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-
-<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-<link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-<body>
+{% block title %}Main{% endblock %}
+{% block active_quadratic %}active{% endblock %}
+{% block content %}
   <div class="row marketing">
     <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
   <div class="container">
@@ -19,5 +16,4 @@
     {% endif %}
   </div>
   </div>
-</body>
-</html>
+{% endblock %}

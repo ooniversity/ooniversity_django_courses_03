@@ -18,3 +18,4 @@ def detail(request,student_id):
     student = get_object_or_404(Student, pk=student_id)
     courses = Course.objects.filter(student__id= student_id)
     return render (request, 'students/detail.html',{'courses':courses,'student': student})
+
