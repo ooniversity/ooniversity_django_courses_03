@@ -12,19 +12,13 @@ def quadratic_results(request):
     if request.method == "GET":
         form = QuadraticForm(request.GET)
 
-
-        #print form
-        #print type(form)
-        
         context = {'form': form}
-        
-        # this if made for chosing table or just rendering for        
+
         if form.is_valid():
             a = int(form['a'].value())
             b = int(form['b'].value())
             c = int(form['c'].value())
 
-            # Calculate discriminant
             discr = b * b - 4 * a * c
             
             if discr == 0:
