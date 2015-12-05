@@ -19,8 +19,8 @@ def quadratic_results(request):
         form = QuadraticForm(request.GET)
 
 
-        print form
-        print type(form)
+        #print form
+        #print type(form)
         
         context = {'form': form}
         
