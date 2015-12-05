@@ -32,7 +32,7 @@
              {% if gc %} 
               {% for course in gc %}
               <tr>
-                <td><a href="{% url 'courses:detail' course.id %}"> {{ course.name }} </a></td>
+                <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
                 <td>{{ course.short_description }}</td>
               </tr>
               {% endfor %}

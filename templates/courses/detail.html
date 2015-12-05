@@ -16,16 +16,16 @@
         {% endif %} 
       <br> 
 
-    <h2> {{ course_detail.name }} </h2>
+    <h2>{{ course_detail.name }}</h2>
     {{ course_detail.description }}
     <br>
     <h3> Course trainers:</h3>
     <br>
     <h3>Teacher</h3>
-    <a href="{% url 'coaches:detail' course_detail.coach.id %}"> {{ course_detail.coach.user.first_name }}  {{ course_detail.coach.user.last_name }} </a> <br><br>
+    <a href="{% url 'coaches:detail' course_detail.coach.id %}">{{ course_detail.coach.user.first_name }}  {{ course_detail.coach.user.last_name }}</a> <br><br>
     {{ course_detail.coach.description }}
     <h3>Assistant</h3>
-    assistant.user.last_name }} </a> <br><br>
+    {{ assistant.user.last_name }} </a> <br><br>
     {{ course_detail.assistant.description }}
     <br>
     <h3> Course detailed plan (lessons): </h3>
@@ -39,10 +39,10 @@
               </tr>
             </thead>
             <tbody>
-             {% if lessons_list %} 
+              {% if lessons_list %} 
               {% for lesson in lessons_list %}
               <tr>
-                <td>{{ lesson.order }} </td>
+                <td>{{ lesson.order }}</td>
                 <td>{{ lesson.subject }}</td>
                 <td>{{ lesson.description }}</td>
               </tr>
