@@ -32,7 +32,8 @@ def quadratic_results(request):
         else:  # a=-1&b=2&c=35
             x1 = (-b + discr ** (1 / 2.0)) / (2 * a)
             x2 = (-b - discr ** (1 / 2.0)) / (2 * a)
-            context['res'] = u'Квадратное уравнение имеет два действительных корня: x1 = %.2f, x2 = %.2f' % (x1, x2)
+            # example Квадратное уравнение имеет два действительных корня: x1 = -5.0, x2 = 7.0
+            context['res'] = u'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (x1, x2)
 
     elif any(coef == '' for coef in quad_form):  # if missing coef found call form
         quad_form = QuadraticForm()
