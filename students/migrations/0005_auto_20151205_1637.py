@@ -15,6 +15,5 @@ class Migration(migrations.Migration):
             model_name='student',
             name='phone',
             field=models.CharField(max_length=100),
-            preserve_default=True,
         ),
     ]
