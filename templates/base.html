@@ -6,7 +6,7 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>{% block title %}iBursa{% endblock %}</title><!-- Bootstrap -->
+  <title>{% block title %}{% endblock %}</title><!-- Bootstrap -->
   <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -46,38 +46,7 @@
       </div><!--/.container-fluid -->
     </nav>
     <!-- Main component for a primary marketing message or call to action -->
-{% block  content %}
-    <div class="jumbotron">
-      <h1 class="shad">iBursa</h1>
-      <h2>Description</h2>
-      <p class="just">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-      <hr>
-      <h2>Выбери курс для себя!</h2>
-      <div class="StudentTable">
-      <table class="table-hover">
-        <tr>
-          <td>Курс</td>
-          <td>Описание</td>
-        </tr>
-        {% for i in courses_list %}
-        <tr>
-          <td>
-            <a href="/courses/{{ i.id }}/">{{ i.name }}</a>
-          </td>
-          <td>
-            {{i.short_description}}
-          </td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
-    </div>
-    </div>
-{% endblock content %}
+{% block  content %}{% endblock content %}
   </div><!-- /container -->
 </body>
 </html>

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block title %}iBursa {{ coach.get_name }} {{ coach.get_surname }}{% endblock %}
 
@@ -15,7 +15,7 @@
             Дата рождения
           </td>
           <td>
-            {{ coach.date_of_birth|date:"j F, Y" }}
+            {{ coach.date_of_birth|date:"d F, Y" }}
           </td>
         </tr>
         <tr>
