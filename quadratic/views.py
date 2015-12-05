@@ -12,10 +12,10 @@ def quadratic_results(request):
         return render(request, 'quadratic/results.html', {'form': form})
     else:
         form = QuadraticForm(request.GET)
-        if not form.errors:
-            a = int(request.GET.get('a'))
-            b = int(request.GET.get('b'))
-            c = int(request.GET.get('c'))
+        if form.is_valid():
+            a = form.cleaned_data['a']
+            b = form.cleaned_data['b']
+            c = form.cleaned_data['c']
             descr = (b**2 - 4*a*c)
             if descr >= 0:
                 x1 = (-b + descr**0.5)/ 2*a
