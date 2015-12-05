@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from pybursa import views
 
-from quadratic.quadratic_func import quadratic_func
-from quadratic.views import quadratic_start, quadratic_results
+
+from quadratic.views import quadratic_results
 from courses.models import Course, Lesson
 
 
