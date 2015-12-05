@@ -16,9 +16,9 @@ def quadratic_results(request):
         #if a==u'0':
             #errors['a'] = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
         if not form.errors:
-            a = float(request.GET.get('a'))
-            b = float(request.GET.get('b'))
-            c = float(request.GET.get('c'))
+            a = int(request.GET.get('a'))
+            b = int(request.GET.get('b'))
+            c = int(request.GET.get('c'))
             descr = (b**2 - 4*a*c)
             if descr >= 0:
                 x1 = (-b + descr**0.5)/ 2*a
