@@ -1,37 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends "base.html" %}
+
+{% block title %}
     <title>Contacts</title>
+{% endblock %}
 
-     {% load staticfiles %}
-    <!-- Bootstrap -->
-    <!--<link href="../static/css/bootstrap.css" rel="stylesheet">-->
-    <!--<link href="../static/css/style.css" rel="stylesheet">-->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% block top_menu %}
+    <ul class="nav navbar-nav">
+        <li ><a href="{% url 'courses:index' %}">Main</a></li>
+        <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
+        <li ><a href="{% url 'students:list_view' %}">Students</a></li>
+    </ul>
+{% endblock %}
 
-</head>
-    <body>
-        <div class="container">
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#"></a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li ><a href="{% url 'courses:index' %}">Main</a></li>
-                            <li class="active"><a href="{% url 'contact' %}">Contacts</a></li>
-                            <li ><a href="{% url 'students:list_view' %}">Students</a></li>
-                        </ul>
-                        <p class="navbar-text navbar-right top_mass">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
-                        <a href="#"  class="top_mass">Inbox <span class="badge">42</span></a>
-
-                    </div>
-                </div>
-
-            </nav>
+{% block content %}
             <div class="jumbotron ">
                 <h2 class="opct-text">Contacts</h2>
 
@@ -88,13 +69,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+{% endblock %}
 
-        </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-       <script src="{% static 'js/bootstrap.js' %}"></script>
-    </body>
-</html>

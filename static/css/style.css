@@ -56,3 +56,4 @@ h2, h3{   color: #108475;    opacity: 0.5;}
 .antiopas p{    color: white;    font-size: 18px;}
 .opct-text, p{   opacity: 0.4;}
 .errorMessage {color: tomato;}
+.padsingtitle {padding-right: 8px;}

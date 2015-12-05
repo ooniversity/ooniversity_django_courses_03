@@ -1,92 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Main</title>
-    {% load staticfiles %}
-    <!-- Bootstrap -->
-    <!--<link href="../static/css/bootstrap.css" rel="stylesheet">-->
-    <!--<link href="../static/css/style.css" rel="stylesheet">-->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% extends "base.html" %}
 
-</head>
+{% block title %}
+    <title>Main</title>
+{% endblock %}
+
 <body>
 <div class="container">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#"></a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li ><a href="{% url 'student_list' %}">Students</a></li>
-          </ul>
-            <p class="navbar-text navbar-right top_mass">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
-            <a href="#"  class="top_mass">Inbox <span class="badge">42</span></a>
+    <!--<nav class="navbar navbar-inverse">-->
+      <!--<div class="container-fluid">-->
+        <!--<div class="navbar-header">-->
+          <!--<a class="navbar-brand" href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+          <!--<ul class="nav navbar-nav">-->
+            <!--<li class="active"><a href="{% url 'index' %}">Main</a></li>-->
+            <!--<li><a href="{% url 'contact' %}">Contacts</a></li>-->
+            <!--<li ><a href="{% url 'student_list' %}">Students</a></li>-->
+          <!--</ul>-->
+            <!--<p class="navbar-text navbar-right top_mass">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>-->
+            <!--<a href="#"  class="top_mass">Inbox <span class="badge">42</span></a>-->
 
-        </div>
-      </div>
-    </nav>
+        <!--</div>-->
+      <!--</div>-->
+    <!--</nav>-->
+    {% block content %}
+        <div class="jumbotron  ">
+            <h2 class="title">Hello, PyBursa!</h2>
+            <h3>Description</h3>
 
-    <div class="jumbotron  ">
-        <h2 class="title">Hello, PyBursa!</h2>
-        <h3>Description</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum augue sit
+                amet justo efficitur bibendum. Curabitur lacus odio, luctus quis mauris ut,
+                finibus cursus nulla. Duis iaculis tortor ac nisl porttitor placerat.
+                Sed vel nisl convallis, rutrum felis eu, mollis ex. Curabitur pellentesque magna et
+                faucibus imperdiet. Quisque sed felis sem. Vestibulum elementum dui enim, non
+                maximus lacus condimentum sit amet. Cras pellentesque imperdiet sapien efficitur
+                varius."</p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum augue sit
-            amet justo efficitur bibendum. Curabitur lacus odio, luctus quis mauris ut,
-            finibus cursus nulla. Duis iaculis tortor ac nisl porttitor placerat.
-            Sed vel nisl convallis, rutrum felis eu, mollis ex. Curabitur pellentesque magna et
-            faucibus imperdiet. Quisque sed felis sem. Vestibulum elementum dui enim, non
-            maximus lacus condimentum sit amet. Cras pellentesque imperdiet sapien efficitur
-            varius."</p>
+            <h3>Program</h3>
 
-        <h3>Program</h3>
+            <p>Vivamus ut facilisis leo. Cras gravida pharetra porttitor. Phasellus mollis finibus
+                tellus, non eleifend erat porttitor sed. Sed eget nibh eget neque sodales tincidunt
+                sit amet nec justo. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                Integer eu neque mi. Vivamus rhoncus, nisl eget porta luctus, ante magna feugiat
+                enim, sit amet accumsan lacus enim sed justo. Ut cursus, nulla ac blandit laoreet,
+                enim enim pulvinar nisi, a imperdiet ante libero et erat. Vestibulum eget vehicula
+                ligula. Morbi condimentum et risus non dignissim.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 
-        <p>Vivamus ut facilisis leo. Cras gravida pharetra porttitor. Phasellus mollis finibus
-            tellus, non eleifend erat porttitor sed. Sed eget nibh eget neque sodales tincidunt
-            sit amet nec justo. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-            Integer eu neque mi. Vivamus rhoncus, nisl eget porta luctus, ante magna feugiat
-            enim, sit amet accumsan lacus enim sed justo. Ut cursus, nulla ac blandit laoreet,
-            enim enim pulvinar nisi, a imperdiet ante libero et erat. Vestibulum eget vehicula
-            ligula. Morbi condimentum et risus non dignissim.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <!--<div class="thumbnail">-->
-                    <div class="caption">
-                        <h3>НАЧИНАЮЩИЙ</h3>
-                        <p>Phasellus justo mi, feugiat a posuere ac, pellentesque lacinia libero. Donec arcu nulla, feugiat in rutrum in, tristique non augue.Pellentesque id ipsum lorem. Phasellus fermentum euismod elit ut tempus.
-                        </p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                    </div>
-                <!--</div>-->
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <!--<div class="thumbnail">-->
-                    <div class="caption">
-                        <h3>HR, PM</h3>
-                        <p>Maecenas pulvinar varius interdum. Fusce tempor quis quam sit amet ullamcorper. Pellentesque metus dolor, vestibulum vitae pulvinar non, imperdiet quis elit. Phasellus tempus interdum tempor.
-                        </p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                    </div>
-                <!--</div>-->
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <!--<div class="thumbnail">-->
-                    <div class="caption">
-                        <h3>ОПЫТНЫЙ</h3>
-                        <p>In imperdiet purus convallis ex posuere tempus. Maecenas ut egestas neque. Proin non tincidunt quam, a placerat neque.Pellentesque id ipsum lorem. Phasellus fermentum euismod elit ut tempus.
-                        </p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                    </div>
-                <!--</div>-->
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                        <div class="caption">
+                            <h3>НАЧИНАЮЩИЙ</h3>
+                            <p>Phasellus justo mi, feugiat a posuere ac, pellentesque lacinia libero. Donec arcu nulla, feugiat in rutrum in, tristique non augue.Pellentesque id ipsum lorem. Phasellus fermentum euismod elit ut tempus.
+                            </p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                        <div class="caption">
+                            <h3>HR, PM</h3>
+                            <p>Maecenas pulvinar varius interdum. Fusce tempor quis quam sit amet ullamcorper. Pellentesque metus dolor, vestibulum vitae pulvinar non, imperdiet quis elit. Phasellus tempus interdum tempor.
+                            </p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                        <div class="caption">
+                            <h3>ОПЫТНЫЙ</h3>
+                            <p>In imperdiet purus convallis ex posuere tempus. Maecenas ut egestas neque. Proin non tincidunt quam, a placerat neque.Pellentesque id ipsum lorem. Phasellus fermentum euismod elit ut tempus.
+                            </p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        </div>
+                </div>
             </div>
         </div>
-    </div>
+    {% endblock %}
+
 </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -1,70 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends "base.html" %}
+
+{% block title %}
     <title>Main</title>
-    {% load staticfiles %}
-    <!-- Bootstrap -->
-    <!--<link href="../static/css/bootstrap.css" rel="stylesheet">-->
-    <!--<link href="../static/css/style.css" rel="stylesheet">-->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
 
-</head>
-<body>
-<div class="container">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'courses:index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li ><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>
+{% block top_menu %}
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="{% url 'courses:index' %}">Main</a></li>
+        <li><a href="{% url 'contact' %}">Contacts</a></li>
+        <li ><a href="{% url 'students:list_view' %}">Students</a></li>
+    </ul>
+    {% include "include/search_include.html" %}
+{% endblock %}
 
-        </div>
-      </div>
-    </nav>
+{% block content %}
+        <div class="jumbotron  ">
+            <h2 class="title">Hello, PyBursa!</h2>
+            <h3>Description</h3>
 
-    <div class="jumbotron  ">
-        <h2 class="title">Hello, PyBursa!</h2>
-        <h3>Description</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum augue sit
+                amet justo efficitur bibendum. Curabitur lacus odio, luctus quis mauris ut,
+                finibus cursus nulla. Duis iaculis tortor ac nisl porttitor placerat.
+                Sed vel nisl convallis, rutrum felis eu, mollis ex. Curabitur pellentesque magna et
+                faucibus imperdiet. Quisque sed felis sem. Vestibulum elementum dui enim, non
+                maximus lacus condimentum sit amet. Cras pellentesque imperdiet sapien efficitur
+                varius."
+            </p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum augue sit
-            amet justo efficitur bibendum. Curabitur lacus odio, luctus quis mauris ut,
-            finibus cursus nulla. Duis iaculis tortor ac nisl porttitor placerat.
-            Sed vel nisl convallis, rutrum felis eu, mollis ex. Curabitur pellentesque magna et
-            faucibus imperdiet. Quisque sed felis sem. Vestibulum elementum dui enim, non
-            maximus lacus condimentum sit amet. Cras pellentesque imperdiet sapien efficitur
-            varius."
-        </p>
+            <!--Courses list-->
 
-        <!--Courses list-->
-
-        <h3>List of courses</h3>
-         <table class="table opct-img">
-            <tr class="dark">
-                <th>Cours</th>
-                <th>Description</th>
-            </tr>
-            {% for cours in courses_list %}
-                <tr>
-                    <td><a href="{% url 'courses:course_detail' course_id=cours.id %}">{{ cours }}</a></td>
-                    <td>{{ cours.description }}</td>
+            <h3><span class="glyphicon glyphicon-list padsingtitle" aria-hidden="true" ></span>List of courses</h3>
+             <table class="table opct-img">
+                <tr class="dark">
+                    <th>Cours</th>
+                    <th>Description</th>
                 </tr>
-            {% endfor %}
-          </table>
+                {% for cours in courses_list %}
+                    <tr>
+                        <td><a href="{% url 'courses:course_detail' course_id=cours.id %}">{{ cours|upper }}</a></td>
+                        <td>{{ cours.description|title }}</td>
+                    </tr>
+                {% endfor %}
+              </table>
+        </div>
+{% endblock %}
 
-
-    </div>
-</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-
-</body>
-
-</html>
