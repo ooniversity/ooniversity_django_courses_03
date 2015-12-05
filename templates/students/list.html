@@ -55,7 +55,8 @@
                 {% endfor %}
             </td>
             <td>
-                <a href="{% url 'students:edit' student.id%}" role="button" class="btn btn-primary">Изменить</a>
+                <a href="{% url 'students:edit' %}" class="btn btn-success" role="button">
+                    <span class="glyphicon glyphicon-pencil"></span> Изменить</a>
             </td>
         </tr>
         {% endfor %}
