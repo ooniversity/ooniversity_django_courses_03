@@ -1,76 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>PyBursa - Courses</title>
-<meta charset="utf-8">
+{% extends "base.html" %}
 {% load staticfiles %}
-<link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
-<link href="{% static 'css/cover.css' %}" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-</head>
+{% block title %}{{ course.name }} course{% endblock title %}
+{% block link_to_st %}?course_id={{ course.id }}{% endblock link_to_st %}
+{% block content %}
 
-<body>
+			<hr>
+			<h1 class="descr">План курса</h1>
+			<hr>
+			<div class="jumbotron">
+        <p>
+				<a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить занятие</a>
+				</p>
+				<div class="panel panel-default">
+        <!-- Default panel contents -->
+        <!-- Table -->
+		      <table class="table">
+		        <thead>
+		          <tr>
+								<th>#</th>
+				        <th>Тема</th>
+				        <th>Описание</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+							{% for course in course.lesson_set.all %}
+		          <tr>
+		            <td>{{ course.order }}</td>
+								<td>{{ course.subject }}</td>
+								<td>{{ course.description|linebreaksbr }}</td>
+							</tr>
+							{% endfor %}
 
-  <!-- Nav bar -->
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-    <a class="navbar-brand" href="http://pybursa.com/">
-        </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="{% url 'index' %}">Main</a></li>
-        <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li><a href="{% url 'students:list_view' %}?course_id={{course_now.id}}">Students</a></li>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<!-- end Nav bar-->
-
-<div id="content_container">
-  <div id="header">
-    <div class="header_content_mainline">
-      <h1>{{ course_now.name }}</h1>
-      <div id="header_content_tagline">
-        <p> {{ course_now.description }} </p>
+		        </tbody>
+		      </table>
+				</div>
+				<div class="text-center">
+					<a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a>
+				</div>
       </div>
-    </div>
-  </div>
-  <div class="clearfix"></div>
-  <h2>Преподаватели</h2>
-  <div class="tutor-block">
-    <div>
-      <h3>Учитель</h3>
-      <p><a href="{% url 'coaches:detail' course_now.coach.id %}">{{ coaches }}</a></p>
-      <p>{{ course_now.coach.description }}</p>
-    </div>
-    <div>
-      <h3>Ассистент</h3>
-      <p><a href="{% url 'coaches:detail' course_now.assistant.id %}">{{ assistants }}</a></p>
-      <p>{{ course_now.assistant.description }}</p>
-    </div>
-  </div>
-  <div class="clearfix"></div>
-  <div class="list-of-courses">
-    <h2> План курса</h2>
-    <table>
-      <tr>
-        <th class="head-name">Номер</th>
-        <th class="head-name">Тема</th>
-        <th class="head-name">Описание</th>
-      </tr>
-      {% for lesson in lessons %}
-      <tr>
-        <td> {{ lesson.order }} </td>
-        <td>{{ lesson.subject }} </td>
-        <td>{{ lesson.description }}</td>
-      </tr>
-      {% endfor %}
-    </table>
-  </div>
-</div>
-</body>
-</html>
+
+		</div>
+	</div>
+{% endblock content %}

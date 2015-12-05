@@ -4,8 +4,8 @@ from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
 
-def detail(request, pk):
-	return render(request, 'courses/detail.html', {'course': Course.objects.get(id = pk)})
+def detail(request, course_id):
+	return render(request, 'courses/detail.html', {'course': Course.objects.get(id = course_id)})
 
 def add(request):
 	if request.method == 'POST':
@@ -33,8 +33,8 @@ def add_lesson(request):
 	return render(request, 'courses/add_lesson.html', {'form': form})
 
 
-def edit(request, pk):
-	application = Course.objects.get(id=pk)
+def edit(request, course_id):
+	application = Course.objects.get(id=course_id)
 	if request.method == 'POST':
 		form = CourseModelForm(request.POST, instance=application)
 		if form.is_valid():
@@ -44,8 +44,8 @@ def edit(request, pk):
 		form = CourseModelForm(instance=application)
 	return render(request, 'courses/edit.html', {'form': form})
 
-def remove(request, pk):
-    application = Course.objects.get(id=pk)
+def remove(request, course_id):
+    application = Course.objects.get(id=course_id)
     if request.method == 'POST':
 		application.delete()
 		mess = u'Course {} has been deleted.' .format(application.name)

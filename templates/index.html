@@ -7,27 +7,42 @@
 {% block index_is_active %}active{% endblock index_is_active %}
 
 {% block content %}
-	{% include "students/include/messages_include.html" %}
-<a class="btn btn-primary btn-lg" href="{% url 'courses:add' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить новый курс</a>
-				</p>
+
 				<h2>Description</h2>
                 <div>
                     <p>Zапишись на курсы Python! * Попади в тренд современной  WEB разработки!</p>
                 </div>
                 <div class="list-of-courses">
     <h3> One shoot, one course</h3>
-    <table>
-      <tr>
-        <th class="head-name">Курс</th>
-        <th class="head-name">Описание</th>
-      </tr>
-      {% for course in courses %}
-      <tr>
-        <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
-        <td>{{ course.short_description }}</td>
-      </tr>
-      {% endfor %}
-    </table>
-  </div>
+<a class="btn btn-primary btn-lg" href="{% url 'courses:add' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить новый курс</a>
+				</p>
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<!-- Table -->
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Курс</th>
+								<th colspan="2">Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for course in course %}
+							<tr>
+								<td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
+								<td>{{ course.short_description|title }}</td>
+								<td>
+                  <p><a class="btn btn-primary btn-block" href="{% url 'courses:edit' course.id %}" role="button"><span class="glyphicon glyphicon-pencil"></span> Изменить</a></p>
+                  <p><a class="btn btn-primary btn-block" href="{% url 'courses:remove' course.id %}" role="button"><span class="glyphicon glyphicon-remove"></span> Удалить</a></p>
+                </td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 {% endblock content %}
