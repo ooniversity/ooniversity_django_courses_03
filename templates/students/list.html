@@ -22,7 +22,7 @@
           </div>
           {% endif %}
         <div class="container">
-        <a href="{% url 'students:add' %}" class="btn btn-primary" role="button">Add new student</a>
+        <a href="{% url 'students:add' %}" class="btn btn-primary" role="button">Добавить нового студента</a>
         <h2>Students list</h2>
               <table class="table">
                 <thead>
@@ -46,8 +46,8 @@
                                   <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
                                 {% endfor %}
                             </td>
-                            <td><a href="{% url 'students:edit' student.id %}" class="btn btn-primary">Change</a></td>
-                            <td><a href="{% url 'students:remove' student.id %}" class="btn btn-primary">Remove</a></td>
+                            <td><a href="{% url 'students:edit' student.id %}" class="btn btn-primary">Изменить</a></td>
+                            <td><a href="{% url 'students:remove' student.id %}" class="btn btn-primary">Удалить</a></td>
                         </tr>
                     {% empty %}
                           <h3>No students</h3>
