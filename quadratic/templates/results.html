@@ -1,25 +1,28 @@
 {% extends 'base.html' %}
 
-{% block title %}iBursa {{ coach.get_name }} {{ coach.get_surname }}{% endblock %}
+{% load staticfiles %}
+
+
+{% block title %}Quadratic input data{% endblock title %}
+
+
+{% block nav_class_contacts %}active{% endblock nav_class_contacts %}
 
 
 {% block content %}
-    <div class="jumbotron">
-       <h2>Квадратное уравнения: ({{data.a}}*x^2) + ({{data.b}}*x) + ({{data.c}}) = 0</h2>
-			a = {{data.a}}<br/>
-			{{data.a_msg}}<br/>
-			b = {{data.b}}<br/>
-			{{data.b_msg}}<br/>
-			c = {{data.c}}<br/>
-			{{data.c_msg}}<br/>
-			{% if data.discr or data.discr == 0 %}
-			Дискриминант: {{data.discr}}<br/>
-			{% endif %}
-			{% if data.discr and data.discr < 0 %}
-			Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.<br/>
-			{% elif data.x1 != data.x2 %}
-			Квадратное уравнение имеет два действительных корня: x1 = {{data.x1}}, x2 = {{data.x2}}<br/>
-			{% elif data.discr == 0 %}
-			Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{data.x}}<br/>
-			{% endif %}
+<div class="jumbotron">
+
+
+<h2>Квадратное уравнение</h2>
+<form method="get">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="OK" />
+</form>
+{% if discr_msg %}
+  Дискриминант: {{ discr }}
+  {{ discr_msg }}
+{% endif %}
+
+</div>
 {% endblock content %}
