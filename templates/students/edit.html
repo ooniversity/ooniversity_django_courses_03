@@ -10,11 +10,17 @@
 
 {% block content %}
 
+{% if messages %}
+  {% for message in messages %}
+    {{ message }}
+  {% endfor %}
+{% endif %}
+
 
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type='submit' />
+  <input type='submit' value="Изменить"/>
 </form>
       
 {% endblock content %}
