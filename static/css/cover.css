@@ -15,7 +15,7 @@ a:hover {
 .btn-default:focus {
   color: #333;
   text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
+  background-color: #111111;
   border: 1px solid #fff;
 }
 
@@ -176,7 +176,7 @@ body {
   border-bottom: 1px solid #777777;
   box-shadow: inset 0 1px 0 #999999, inset 0 -1px 0 #999999;
   background: linear-gradient(#9595b6, #5a567f);
-  color: white;
+  color: black;
   padding: 10px 15px;
   position: relative;
 }
