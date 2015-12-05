@@ -1,24 +1,78 @@
-from django.shortcuts import render
-from courses.models import *
+from django.shortcuts import render, redirect
+from courses.models import Course, Lesson
+from courses.forms import CourseModelForm, LessonModelForm
+from django.contrib import messages
 import os
 
 
 # Create your views here.
-def detail(request, request_id):
-    course = Course.objects.get(id=request_id)
-    lesson = Lesson.objects.filter(course=request_id)
-    result = {
+def detail(request, pk):
+    course = Course.objects.get(id=pk)
+    lesson = Lesson.objects.filter(course=pk)
+    content = {
         'course': course,
         'lessons': lesson,
         'coach': course.coach.full_name(),
         'assistant': course.assistant.full_name(),
         'coach_id': course.coach.id,
-        'assistant_id':course.assistant.id,
+        'assistant_id': course.assistant.id,
         'coach_desc': course.coach.description,
-        'assistant_desc':course.assistant.description,
+        'assistant_desc': course.assistant.description,
     }
-    return render(
-        request,
-        os.path.join('courses', 'detail.html'),
-        result
-    )
+
+    return render(request, os.path.join('courses', 'detail.html'), content)
+
+
+def add(request):
+    if request.method == 'POST':
+        form = CourseModelForm(request.POST)
+        if form.is_valid():
+            course_add = form.save()
+            messages.success(request, 'Course {0} has been successfully added.'.format(course_add.name))
+            return redirect('index')
+    else:
+        form = CourseModelForm()
+
+    context = {'form': form}
+    return render(request, os.path.join('courses', 'add.html'), context)
+
+
+def edit(request, pk):
+    course = Course.objects.get(id=pk)
+    if request.method == 'POST':
+        form = CourseModelForm(request.POST, instance=course)
+        if form.is_valid:
+            form.save()
+            messages.success(request, 'The changes have been saved.')
+            return redirect('courses:edit', pk)
+    else:
+        form = CourseModelForm(instance=course)
+
+    context = {'form': form}
+    return render(request, os.path.join('courses', 'edit.html'), context)
+
+
+def remove(request, pk):
+    course = Course.objects.get(id=pk)
+    notification = 'Course {0} will be deleted'.format(course.name)
+    if request.method == 'POST':
+        course.delete()
+        messages.success(request, 'Course {0} has been deleted.'.format(course.name))
+        return redirect('index')
+
+    context = {'notification': notification}
+    return render(request, os.path.join('courses', 'remove.html'), context)
+
+
+def add_lesson(request, pk):
+    if request.method == 'POST':
+        form = LessonModelForm(request.POST)
+        if form.is_valid():
+            lesson_add = form.save()
+            messages.success(request, 'Lesson {0} has been successfully added.'.format(lesson_add.subject))
+            return redirect('courses:detail', pk)
+    else:
+        form = LessonModelForm(initial={'course': pk})
+
+    context = {'form': form}
+    return render(request, os.path.join('courses', 'add_lesson.html'), context)

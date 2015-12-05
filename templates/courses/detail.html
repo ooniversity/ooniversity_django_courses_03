@@ -10,10 +10,16 @@
 {% block navbar_i1 %}active{% endblock navbar_i1 %}
 
 
-{% block jumbotron %}
-        
-      
+{% block jumbotron %}{% endblock jumbotron %}
+
+
+{% block content %}
+
+
         {% include "include/course_include.html" %}
+
+
+        {% include "include/alert_include.html" %}
         <h2 class="course">{{ course.name }} course details</h2>
         <p class="course">{{ course.description|truncatechars:32 }}</p>
         <h2 class="course">Teachers</h2>
@@ -42,6 +48,12 @@
             </div>
           </div>
           <h2 class="course">Course plan</h2>
+            <a href="{% url 'courses:add_lesson' course.id %}">
+                <button type="button" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-plus"></span>Add
+                </button>
+            </a>
+
           <div class="row">
             <div class="col-sm-8">
               <table class="table table-striped table table-bordered">
@@ -66,7 +78,7 @@
               </table>
             </div>
           </div>
-{% endblock jumbotron %}
 
 
-{% block content %}{% endblock content%}
+
+{% endblock content%}

@@ -18,9 +18,11 @@ class Student(models.Model):
 
     # __unicode__ on Python 2
     def __unicode__(self):
-        return self.name
+        # return self.name
+        return '{0} {1}'.format(self.name, self.surname)
 
     # __str__ on Python 3
     def __str__(self):
-        return self.name
+        # return self.name
+        return '{0} {1}'.format(self.name, self.surname)
 

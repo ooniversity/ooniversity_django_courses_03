@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Main{% endblock title%}
+
+
+{% block navbar_i1 %}active{% endblock navbar_i1 %}
+
+
+{% block jumbotron %}{% endblock jumbotron %}
+
+
+{% block content %}
+
+        <div class="alert alert-danger" role=alert>
+            <p><strong>{{ notification }}</strong></p>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ remove_message }}
+            <input type="submit" class="btn btn-danger btn-sm" value="Confirm">
+        </form>
+
+{% endblock content%}
