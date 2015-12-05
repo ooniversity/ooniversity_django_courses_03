@@ -73,3 +73,6 @@
 .messages {
 	background-color: #4cae4c;
 }
+.form_add_course p label {
+	width: 150px;
+}
