@@ -26,8 +26,8 @@
     </thead>
     <tbody>
     <tr>
-        <td><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user.first_name }} {{
-            course.coach.user.last_name }}</a>
+        <td><a href="{% url 'coaches:detail' course.coach.id %}">
+            {{ course.coach.user.first_name }} {{ course.coach.user.last_name }}</a>
             <br>
             <br>
             {{ course.coach.description }}
@@ -43,8 +43,10 @@
     </thead>
     <tbody>
     <tr>
-        <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user.first_name }} {{
-            course.assistant.user.last_name }}</a><br><br>
+        <td><a href="{% url 'coaches:detail' course.assistant.id %}">
+            {{ course.assistant.user.first_name }} {{ course.assistant.user.last_name }}</a>
+            <br>
+            <br>
             {{ course.assistant.description }}
         </td>
     </tr>
