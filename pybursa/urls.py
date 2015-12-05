@@ -8,7 +8,7 @@ from quadratic import views as quadr
 
 urlpatterns = patterns('',
     url(r'^$', views.index,name='index'),
-
+    
     url(r'^courses/', include('courses.urls', namespace='courses')),
     url(r'^students/', include('students.urls', namespace='students')),
     url(r'^contact/', views.contact,name='contact'),
