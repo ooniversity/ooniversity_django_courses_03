@@ -4,7 +4,7 @@
     <div class="jumbotron">
       <h1 class="shad">{{ course.name }}</h1>
       <h2></h2>
-      <p class="just">{{ course.description }}</p>
+      <p class="just">{{ course.description | truncatechars:32 }}</p>
       <hr>
     <div class="StudentTable">
       <table class="table-hover">
