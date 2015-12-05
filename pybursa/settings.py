@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'polls',
     'students',
     'courses',
-    'coaches'
+    'coaches',
+    'quadratic'
 )
 
 MIDDLEWARE_CLASSES = (
