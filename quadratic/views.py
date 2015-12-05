@@ -7,7 +7,7 @@ def quadratic_results(request):
     message = ''
     errors = {}
     x1 = x2 = descr = 0
-    if request.method = "GET":
+    if request.method == "GET":
         if not request.GET:
             form = QuadraticForm()
             return render(request, 'quadratic/results.html', {'form': form})
