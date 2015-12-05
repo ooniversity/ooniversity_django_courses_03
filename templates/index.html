@@ -37,8 +37,8 @@
                 </tr>
                 {% for cours in courses_list %}
                     <tr>
-                        <td><a href="{% url 'courses:course_detail' course_id=cours.id %}">{{ cours|upper }}</a></td>
-                        <td>{{ cours.description|title }}</td>
+                        <td><a href="{% url 'courses:course_detail' course_id=cours.id %}">{{ cours.name|upper }}</a></td>
+                        <td>{{ cours.short_description|title }}</td>
                     </tr>
                 {% endfor %}
               </table>
