@@ -41,7 +41,7 @@ def create(request):
     else:
         form = StudentModelForm(request.GET)
     context = {'form': form}
-    return render(request, 'students/add.html', context)
+    return render(request, 'students:list_view', context)
 
 def edit(request, student_id):
     student = Student.objects.get(id=student_id)
