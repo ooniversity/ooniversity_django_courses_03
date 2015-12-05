@@ -5,7 +5,7 @@ from coaches.models import Coach
 
 class Course(models.Model):
     name = models.CharField(max_length=255)
-    short_description = models.CharField(max_length=20)
+    short_description = models.CharField(max_length=50)
     description = models.TextField(null=True, blank=True)
     coach = models.ForeignKey(
         Coach, null=True, blank=True, related_name='coach_courses')
