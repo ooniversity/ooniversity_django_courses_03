@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ITBursa добавление сиудента{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="col-md-12">
+      <h3>Добавление нового студента</h3>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Добавить">
+      </form>
+    </div>
+  </div>
+</div>
+ <!--<div class="container theme-showcase" role="main">
+    <h2>Создание нового студента</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Создать" class="btn btn-primary"/>
+      </form>
+  </div>-->
+    
+{% endblock content %}
