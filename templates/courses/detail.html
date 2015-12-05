@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}{{ course.name }}{% endblock %}
+{% block title %}{{ course.name }}{% endblock title %}
 {% block content %}
 <div class="jumbotron">
   <div class="text-center">
@@ -9,8 +9,8 @@
   <p class="lead">{{ course.description|truncatechars:32 }}</p>
 </div>
 <h2 class="text-center">Teachers</h2>
-{% include 'include/include.html' with teacher_about='Coach' teacher=coach %}
-{% include 'include/include.html' with teacher_about='Assistant' teacher=assistant %}
+{% include 'include/courses_include.html' with teacher_about='Coach' teacher=coach %}
+{% include 'include/courses_include.html' with teacher_about='Assistant' teacher=assistant %}
 <h2 class="text-center">Course lessons</h2>
 <p>
   <table>
@@ -21,11 +21,11 @@
       </tr>
       {% for lesson in lessons %}
       <tr>
-        <td>{{lesson.order}}</td>
-        <td>{{lesson.subject}}</td>
-        <td>{{lesson.description}}</td>
+        <td>{{ lesson.order }}</td>
+        <td>{{ lesson.subject }}</td>
+        <td>{{ lesson.description }}</td>
       </tr>
       {% endfor %}
   </table>
 </p>
-{% endblock %}
+{% endblock content %}

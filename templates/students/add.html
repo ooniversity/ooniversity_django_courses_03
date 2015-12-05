@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Add new student{% endblock title %}
+{% block active_students %}active{% endblock active_students %}
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h2>Создание нового студента</h2>
+    </div>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Создать" />
+        </form>
+
+</div>
+{% endblock content %}

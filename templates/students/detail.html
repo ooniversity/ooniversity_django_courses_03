@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}{{ student.name }} {{ student.surname }}{% endblock %}
+{% block title %}{{ student.name }} {{ student.surname }}{% endblock title %}
 {% block active_students %}active{% endblock active_students %}
 {% block content %}
 <div class="jumbotron">
@@ -22,7 +22,7 @@
       </tr>
       <tr class = "style-thead3">
         <td>Email</td>
-        <td>{{ student.email }</td>
+        <td>{{ student.email }}</td>
       </tr>
       <tr class = "style-thead3">
         <td>Skype</td>
@@ -43,4 +43,4 @@
     </tbody>
   </table>
 </div>
-{% endblock %}
+{% endblock content %}
