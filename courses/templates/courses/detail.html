@@ -1,34 +1,26 @@
-﻿{%load staticfiles%}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="AlexI">
-    <link rel="icon" href="{% static 'images/favicon.ico' %}">
-     <link href="{%static 'css/bootstrap.css' %}" rel="stylesheet">
-	 <link href="{%static 'css/style.css' %}" rel="stylesheet">
-     <script src="{%static 'js/bootstrap.js' %}"></script>
-    <title>Main</title>
-  </head>
+﻿{% extends "base.html" %}
 
-  <body>
-    <div class="black">
-      <ul class="nav nav-tabs">
-      <li role="presentation"><a href="{% url 'index'%}">Main</a></li>
-      <li role="presentation"><a href="{% url 'contact'%}">Contacts</a></li>
-	  <li role="presentation"><a href="{% url 'students:list_view'%}?course.id={{ course.id }}" >Students</a></li>
-      </ul>
+
+{% block Title %} {{ course.name }} {% endblock Title %}
+
+
+{% block index_active %}class="active"{% endblock index_active %}
+
+
+{% block students_link %}<a href="{% url 'students:list_view'%}?course.id={{ course.id }}" >Students</a>{% endblock students_link %}
+
+
+{% block content %}
 	<h1>{{ course.name }}</h1>
       
 
-      <p class="text">{{ course.description }}</p>
+      <p class="text">{{ course.description|truncatechars:32 }}</p>
 
       <h2 class="header">Teachers</h2>
       <h3>Coach</h3>
         <p><b><a href="{% url 'coaches:detail' coach.id %}">{{ coach.user.first_name }} {{ coach.user.last_name }}</a></b></p>
 
-        <p>{{ coach.description }}</p>
+        <p>{{ coach.description}}</p>
       <h3>Assistant</h3>
       <p><b><a href="{% url 'coaches:detail' coach.id %}">{{ assistant.user.first_name }} {{ assistant.user.last_name }}</a></b></p>
         <p>{{ assistant.description }}</p>
@@ -63,20 +55,4 @@
         </tbody>
         </table>
 
-
-	<p class="end">THE END</p>
-	<p class="alert">Здесь нужен bootstrap</p>
-	<p class="alert-dismissable">Еще немного bootstrap</p>
-	<p class="alert-dismissible">Еще немного bootstrap</p>
-	<p class="alert-success">Еще немного bootstrap</p>
-	<p class="alert-info">Еще немного bootstrap</p>
-	<p class="alert-warning">Еще немного bootstrap</p>
-	<p class="alert-danger">Еще немного bootstrap</p>
-	<p class="progress">Еще немного bootstrap</p>
-	<p class="jumbotron">Еще немного bootstrap</p>
-	<p class="breadcrumb">Еще немного bootstrap</p>
-
-
-
-    </div>
-  </body>
+{% endblock content %}

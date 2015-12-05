@@ -1,0 +1,46 @@
+﻿{%load staticfiles%}
+
+
+{% block header %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="AlexI">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+     <link href="{%static 'css/bootstrap.css' %}" rel="stylesheet">
+	 <link href="{%static 'css/style.css' %}" rel="stylesheet">
+     <script src="{%static 'js/bootstrap.js' %}"></script>
+    <title>{% block Title %}Main{% endblock Title %}</title>
+  </head>
+
+  <body>
+    <div class="black">
+      <ul class="nav nav-tabs">
+      <li role="presentation" {% block index_active %}{% endblock index_active %}><a href="{% url 'index'%}">Main</a></li>
+      <li role="presentation" {% block contact_active %}{% endblock contact_active %}><a href="{% url 'contact'%}">Contacts</a></li>
+	  <li role="presentation" {% block list_view_active %}{% endblock list_view_active %}>
+        {% block students_link %}<a href="{% url 'students:list_view'%}">Students</a>{% endblock students_link %}</li>
+      </ul>
+{% endblock header %}
+
+
+{% block content %}
+      <!--{% block useless_block %}-->
+
+	<!--<p class="end">THE END</p>-->
+	<!--<p class="alert">Здесь нужен bootstrap</p>-->
+	<!--<p class="alert-dismissable">Еще немного bootstrap</p>-->
+	<!--<p class="alert-dismissible">Еще немного bootstrap</p>-->
+	<!--<p class="alert-success">Еще немного bootstrap</p>-->
+	<!--<p class="alert-info">Еще немного bootstrap</p>-->
+	<!--<p class="alert-warning">Еще немного bootstrap</p>-->
+	<!--<p class="alert-danger">Еще немного bootstrap</p>-->
+	<!--<p class="progress">Еще немного bootstrap</p>-->
+	<!--<p class="jumbotron">Еще немного bootstrap</p>-->
+	<!--<p class="breadcrumb">Еще немного bootstrap</p>-->
+<!--{% endblock useless_block %}-->
+{% endblock content %}
+         </div>
+  </body>

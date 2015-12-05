@@ -1,39 +1,17 @@
-﻿{%load staticfiles%}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="AlexI">
-    <link rel="icon" href="{% static 'images/favicon.ico' %}">
-     <link href="{%static 'css/bootstrap.css' %}" rel="stylesheet">
-	 <link href="{%static 'css/style.css' %}" rel="stylesheet">
-     <script src="{%static 'js/bootstrap.js' %}"></script>
-    <title>Main</title>
-  </head>
+﻿{% extends "base.html" %}
 
-  <body>
-    <div class="black">
-      <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="{% url 'index'%}">Main</a></li>
-      <li role="presentation"><a href="{% url 'contact'%}">Contacts</a></li>
-	  <li role="presentation"><a href="{% url 'students:list_view'%}">Students</a></li>
-      </ul>
-	<h1>Web-develompment</h1>
-      
 
-      <p class="text">Web development is a broad term for the work involved in developing a
-        web site for the Internet (World Wide Web) or an intranet (a private network). Web development
-        can range from developing the simplest static single page of plain text to the most complex web-based
-        internet applications, electronic businesses, and social network services. A more comprehensive list of
-        tasks to which web development commonly refers, may include web design, web content development, client
-        liaison, client-side/server-side scripting, web server and network security configuration, and e-commerce
-        development. Among web professionals, "web development" usually refers to the main non-design aspects of
-        building web sites: writing markup and coding. Most recently Web development has come to mean the creation
-        of content management systems or CMS. These CMS can be made from scratch, proprietary (such as Open Text) or
-        open source (such as Drupal). In broad terms the CMS acts as middleware between the database and the user
-        through the browser. A principle benefit of a CMS is that it allows non-technical people to make changes
-        to their Web site without having technical knowledge.</p>
+{% block Title %} Main {% endblock Title %}
+
+%}
+
+{% block index_active %}class="active"{% endblock index_active %}
+
+{% block content %}
+  <h1>Web-develompment</h1>
+
+
+{% include "include/description_include.html" %}
 
       <h2 class="header">Courses</h2>
       <table class="border">
@@ -49,30 +27,14 @@
         {% for course in courses %}
         <tr>
           <td class="number_cell1">
-             <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+             <a href="{% url 'courses:detail' course.id %}">{{ course.name|upper}}</a>
           </td>
             <td class="number_cell3">
-              {{ course.description }}
+              {{ course.description|title }}
           </td>
         </tr>
         {% endfor %}
         </tbody>
         </table>
 
-
-	<p class="end">THE END</p>
-	<p class="alert">Здесь нужен bootstrap</p>
-	<p class="alert-dismissable">Еще немного bootstrap</p>
-	<p class="alert-dismissible">Еще немного bootstrap</p>
-	<p class="alert-success">Еще немного bootstrap</p>
-	<p class="alert-info">Еще немного bootstrap</p>
-	<p class="alert-warning">Еще немного bootstrap</p>
-	<p class="alert-danger">Еще немного bootstrap</p>
-	<p class="progress">Еще немного bootstrap</p>
-	<p class="jumbotron">Еще немного bootstrap</p>
-	<p class="breadcrumb">Еще немного bootstrap</p>
-
-
-
-    </div>
-  </body>
+{% endblock content %}

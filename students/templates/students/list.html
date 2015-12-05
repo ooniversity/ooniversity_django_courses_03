@@ -1,24 +1,13 @@
-﻿{%load staticfiles%}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="AlexI">
-    <link rel="icon" href="{% static 'images/favicon.ico' %}">
-     <link href="{%static 'css/bootstrap.css' %}" rel="stylesheet">
-	 <link href="{%static 'css/style.css' %}" rel="stylesheet">
-     <script src="{%static 'js/bootstrap.js' %}"></script>
-    <title>Student List</title>
-  </head>
+﻿{% extends "base.html" %}
 
-  <body>
-        <div class="black">
-      <ul class="nav nav-tabs">
-      <li role="presentation" ><a href="{% url 'index'%}">Main</a></li>
-      <li role="presentation" ><a href="{% url 'contact'%}">Contacts</a></li>
-	  <li role="presentation"><a href="{% url 'students:list_view'%}">Students</a></li>
-      </ul>
+
+{% block Title %} Students list {% endblock Title %}
+
+
+{% block list_view_active %}class="active"{% endblock list_view_active %}
+
+
+{% block content %}
 	 <h1 class="dl">Список Students PyBursa</h2>
 	 <p>Список студентов по состоянию на 15.11.2015</p>
 
@@ -70,22 +59,4 @@
         </tbody>
         </table>
 
-
-		
-		<p class="alert">Здесь нужен bootstrap</p>
-	<p class="alert-dismissable">Еще немного bootstrap</p>
-	<p class="alert-dismissible">Еще немного bootstrap</p>
-	<p class="alert-success">Еще немного bootstrap</p>
-	<p class="alert-info">Еще немного bootstrap</p>
-	<p class="alert-warning">Еще немного bootstrap</p>
-	<p class="alert-danger">Еще немного bootstrap</p>
-	<p class="progress">Еще немного bootstrap</p>
-	<p class="jumbotron">Еще немного bootstrap</p>
-	<p class="breadcrumb">Еще немного bootstrap</p>
-	<p class="end">THE END</p>
-
-
-
-    </div>
-  </body>
-
+{% endblock content %}
