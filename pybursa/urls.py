@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^$', index, name='index'),
+    url(r'^quadratic', 'quadratic.views.quadratic_results', name='quadratic_results'),
     url(r'^courses/', include('courses.urls', namespace="courses")),
     url(r'^students/', include('students.urls', namespace="students")),
     url(r'^coaches/', include('coaches.urls', namespace="coaches")),
