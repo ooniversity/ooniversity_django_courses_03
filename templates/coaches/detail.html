@@ -10,7 +10,7 @@
 {% block content %}
 	<h1>{{ coach.user.first_name }} {{ coach.user.last_name }}</h1>
       <ul>
-        <li>Дата рождения: {{ coach.date_of_birth|date:"d, F, Y"}}</li>
+        <li>Дата рождения: {{ coach.date_of_birth|date:"d F, Y"}}</li>
         <li>Адрес: {{ coach.address }}</li>
         <li>Почта: {{ coach.user.email }}</li>
         <li>Логин skype: {{ coach.skype }}</li>
