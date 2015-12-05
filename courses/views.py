@@ -36,10 +36,8 @@ def remove(request, course_id):
 	course = Course.objects.get(id = course_id)
 	if request.method == "POST":
 	    course.delete()
-	    msg = 'Course %s has been deleted.' % course.name
-	    messages.success(request, msg)
+	    messages.success(request, "Course %s has been deleted." % (course.name))
 	    return redirect('index')
-
 	return render(request, 'courses/remove.html', { 'course' : course })
 
 #################
