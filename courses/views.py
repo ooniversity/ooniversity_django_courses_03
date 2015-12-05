@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from courses.models import Course, Lesson
 from coaches.models import Coach
 from courses.forms import CourseModelForm, LessonModelForm
@@ -16,35 +17,46 @@ def detail(request, course_id):
 	return render(request, 'courses/detail.html', 
 		{'course':course, 'lessons':lessons, 'coach':coach, 'assistant':assistant, 'c':c, 'coach_descr':coach_descr, 'as_descr':as_descr, 'a':a})
 
-def create(request):
+def add(request):
 	if request.POST:
 		form = CourseModelForm(request.POST)
 		if form.is_valid():
-			student = form.save()
-			messages.success(request, 'Student has been successfully added.')
-			return redirect('students:list_view')
+			course = form.save()
+			messages.success(request, 'Course %s has been successfully added.' %(course.name))
+			return redirect('index')
 	else:
 		form = CourseModelForm()
-	return render(request, 'students/add.html', {'form':form})
+	return render(request, 'courses/add.html', {'form':form})
 
 
-def edit(request, student_id):
-	student = Course.objects.get(id = student_id)
+def edit(request, course_id):
+	course = Course.objects.get(id = course_id)
 	if request.POST:
-		form = CourseModelForm(request.POST, instance = student)
+		form = CourseModelForm(request.POST, instance = course)
 		if form.is_valid():
-			student = form.save()
-			messages.success(request, 'Info on the student has been sucessfully changed.')
-			return redirect('students:edit', student.id)
+			course = form.save()
+			messages.success(request, 'The changes have been saved.')
+			return redirect('courses:edit', course.id)
 	else:
-		form = CourseModelForm(instance = student)
-	return render(request, 'students/edit.html', {'form':form})
+		form = CourseModelForm(instance = course)
+	return render(request, 'courses/edit.html', {'form':form})
 
 
-def remove(request, student_id):
-	student = Course.objects.get(id = student_id)
+def remove(request, course_id):
+	course = Course.objects.get(id = course_id)
 	if request.method == 'POST':
-		messages.success(request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
-		student.delete()
-		return redirect('students:list_view')
-	return render(request, 'students/remove.html', {'student':student})
+		messages.success(request, 'Course %s has been deleted.' % (course.name))
+		course.delete()
+		return redirect('index')
+	return render(request, 'courses/remove.html', {'course':course})
+
+def add_lesson(request, course_id):
+	if request.POST:
+		form = LessonModelForm(request.POST)
+		if form.is_valid():
+			lesson = form.save()
+			messages.success(request, 'Lesson %s has been successfully added.' %(lesson.subject))
+			return redirect('courses:detail', course_id)
+	else:
+		form = LessonModelForm(initial={'course': course_id})
+	return render(request, 'courses/add_lesson.html', {'form':form})
