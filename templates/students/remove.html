@@ -1,0 +1,24 @@
+﻿{% extends "base.html" %}
+
+
+{% block title %}Delete Student{% endblock title %}
+
+
+{% block list_view_active %}class="active"{% endblock list_view_active %}
+
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<h1>Delete student</h1>
+ <p>Студент {{ student.name }} {{ student.surname }} будет удален</p>
+ <form method="post">
+     {% csrf_token %}
+<input type="submit" value="Удалить"/>
+</form>
+{% endblock content %}
