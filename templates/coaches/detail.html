@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block title %}Coaches detail{% endblock title %}
+
+
+{% load staticfiles %}
+
+
+{% block content %}
+  <h1> {{ coach.user.first_name }} {{ coach.user.last_name }}</h1>
+  
+  <table>
+  <tr>
+    <td class='list'>дата рождения</td><td class='list'>{{ coach.date_of_birth|date:'d F, Y' }}</td>
+  </tr>
+  <tr> 
+    <td class='list'>адрес</td><td class='list'>{{ coach.address }}</td>
+  </tr>
+  <tr> 
+    <td class='list'>почта</td><td class='list'>{{ coach.user.email }}</td>
+  </tr>
+  <tr>  
+    <td class='list'>логин skype</td><td class='list'>{{ coach.skype }}</td>
+  </tr>
+  <tr>  
+    <td class='list'>телефон</td><td class='list'>{{ coach.phone }}</td>
+  </tr>
+  <tr>  
+    <td class='list'>курсы учитель</td>
+    <td class='list'>{% for course in coach.coach_courses.all %}                
+     <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</p>
+    {% endfor %}</td>
+  </tr>
+  
+  
+  <tr>  
+    <td class='list'>курсы ассистент</td>
+    <td class='list'>{% for course in coach.assistant_courses.all %}                
+     <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</p>
+    {% endfor %}</td>
+  </tr> 
+  
+  </table>
+  </div> 
+{% endblock content %}
