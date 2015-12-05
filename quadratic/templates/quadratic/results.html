@@ -37,7 +37,7 @@
         <li class="{% block nav_class_index %}{% endblock %}"><a href="{% url 'index' %}">Главная</a></li>
         <li class="{% block nav_class_contact %}{% endblock %}"><a href="{% url 'contact' %}">Контакты</a></li>
         <li class="{% block nav_class_student %}{% endblock %}"><a href="{% url 'students:list_view' %}">Студенты</a></li>
-        <li class="{% block nav_class_quadratic %}{% endblock %}"><a href="{% url 'results' %}">Уравнение</a
+        <li class="{% block nav_class_quadratic %}active{% endblock %}"><a href="{% url 'results' %}">Уравнение</a></li>
       </ul>
     </div>
     <!--/.nav-collapse -->
@@ -47,7 +47,21 @@
 <div class="container">
 
 
-{% block content %}{% endblock content %}
+{% if form %}
+  <br />
+  <form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Решить" />
+  </form>
+  <hr />
+  <p>{{ discr }}</p>
+  <p>{{ res }}</p>
+
+{% else %}
+
+  <p>Something is going wrong. Contact System Administrator.</p>
+
+{% endif %}
 
 
 </div>
@@ -64,4 +78,3 @@
 <script src="{% static 'js/bootstrap.js' %}"></script>
 </body>
 </html>
-
