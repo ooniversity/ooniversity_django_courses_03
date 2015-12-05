@@ -8,7 +8,6 @@ from quadratic.forms import QuadraticForm
 def quadratic_results(request):
     discr = ''
     res = ''
-    a_error = ''
 
     if request.method == "POST":
         form = QuadraticForm(request.POST)
@@ -35,8 +34,6 @@ def quadratic_results(request):
                         res = u'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s' % str(x1)
                 else:
                     res = u'Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'
-            else:
-                a_error = u'коэффициент при первом слагаемом уравнения не может быть равным нулю'
 
 
     template = loader.get_template('results.html')
@@ -44,6 +41,5 @@ def quadratic_results(request):
         'discr': discr,
         'res': res,
         'form': form,
-        'a_error': a_error,
     })
     return HttpResponse(template.render(context))
