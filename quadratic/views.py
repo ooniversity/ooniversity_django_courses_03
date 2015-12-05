@@ -25,4 +25,4 @@ def quadratic_results(request):
         form = QuadraticForm()
     numbers.update({ 'form' : form })
 
-    return render(request, 'quadratic/results.html', numbers)
+    return render(request, 'results.html', numbers)
