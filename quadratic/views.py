@@ -11,8 +11,20 @@ def get_item(dictionary, key):
         return ''
 
 def quadratic_results(request):
+<<<<<<< HEAD
 
     params = request.GET
+=======
+    quad_form = QuadraticForm(request.GET)
+    context = {}
+    #  and any(coef != '' for coef in form)
+    if quad_form.is_valid():
+        a = quad_form.cleaned_data['a']
+        b = quad_form.cleaned_data['b']
+        c = quad_form.cleaned_data['c']
+
+        # calculate Discriminant
+>>>>>>> d1b3cd7... rewrite quadratic with form (7.2) - final commit before check
 
     input_vars = ['a', 'b', 'c']
     vars_view = {}
@@ -52,7 +64,11 @@ def quadratic_results(request):
         b = int(vars_dict['b'])
         c = int(vars_dict['c'])
 
+<<<<<<< HEAD
         D = b ** 2 - 4 * a * c    
+=======
+        # calculate Roots
+>>>>>>> d1b3cd7... rewrite quadratic with form (7.2) - final commit before check
 
         if D < 0:    #a=1&b=12&c=38
             discr['D'] = u'Дискриминант: %d' % D
@@ -69,5 +85,10 @@ def quadratic_results(request):
     else:
         pass
 
+<<<<<<< HEAD
     return render(request, 'results.html', {'values': sorted(vars_view.iteritems()), 'messages': vars_msgs, 'discr': discr})
+=======
+    elif any(coef == '' for coef in quad_form):  # if missing coef found call form
+        quad_form = QuadraticForm()
+>>>>>>> d1b3cd7... rewrite quadratic with form (7.2) - final commit before check
 
