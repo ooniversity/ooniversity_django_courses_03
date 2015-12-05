@@ -4,6 +4,8 @@ from form import QuadraticForm
 
 def quadratic_results(request):
     main_result = {}
+    d = None
+    result = None
     form = QuadraticForm()
     if request.GET:
         form = QuadraticForm(request.GET)
