@@ -12,7 +12,7 @@
 
 {% block navbar_i3 %}active{% endblock navbar_i3 %}
 
-     
+
 {% block content %}    
       <h1>Student details</h1>
         <h2>{{ student.name }} {{ student.surname }}</h2>
@@ -43,7 +43,8 @@
             <td>
             {% for course in student.courses.all %}
               <a class="table" href="{% url 'courses:detail' course.id %}"> {{ course }}</a><br>
-            {% endfor %}</td>
+            {% endfor %}
+            </td>
           </tr>
           </tbody>
         </table>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Students{% endblock title%}
+
+
+{% block navbar_i3 %}active{% endblock navbar_i3 %}
+
+
+{% block content %}
+
+
+{% include "include/alert_include.html" %}
+    <h1>Register student account</h1>
+
+        <form method="post">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+        <input type="submit" class="btn btn-primary btn-sm" value="Save">
+      </form>
+
+{% endblock content %}
