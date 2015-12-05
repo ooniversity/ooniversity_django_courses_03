@@ -12,7 +12,8 @@
 
 {% block content %}
 <div class="row">
-  <h2>Добавить нового студента</h2>
+  <h2>Форма добавления нового студента</h2>
+  <hr />
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
