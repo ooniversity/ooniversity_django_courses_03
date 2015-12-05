@@ -35,7 +35,6 @@ def quadratic_results(request):
             context['res'] = u'Квадратное уравнение имеет два действительных корня: x1 = %.2f, x2 = %.2f' % (x1, x2)
 
     elif any(coef == '' for coef in quad_form):
-        context['res'] = u'Да вы ебанулись'
         quad_form = QuadraticForm()
 
     context['form'] = quad_form
