@@ -1,13 +1,19 @@
-{% extends "students/base.html" %}
+{% extends "base.html" %}
 
 
 {% load staticfiles %}
 
 
-{% block page_header %}{{ student_details.name }} {{ student_details.surname }}{% endblock %}
+{% block title %}PyBursa: Детали студента{% endblock title%}
 
 
-{% block page_content %}
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block main_content %}
+  <div class="page-header">
+    <h1>{{ student_details.name }} {{ student_details.surname }}</h1>
+  </div>
 <div class="table-responsive col-md-5">
   <table class="table table-hover">
     <thead>
@@ -44,4 +50,4 @@
     </tbody>
   </table>
 </div>
-{% endblock page_content %}
+{% endblock main_content %}
