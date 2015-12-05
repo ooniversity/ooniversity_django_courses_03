@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,7 +47,9 @@
 </div>
 <div>
 
-        <h3>План курса</h3>
+        <h3>План курса: {{ course.name }}</h3>
+        <h4>Описание курса: {{ course.description|truncatechars:32 }}</h4>
+
 
 </div>
 <div class="table-responsive">
@@ -69,7 +71,23 @@
             {% endfor %}
           </tbody>
         </table>
+
       </div>
+    <p>
+        {% for coach in coaches %}
+            {{ coach.id }}
+            {{ coach.date_of_birth|date:'j F, Y'  }}
+            {{ coach.address }}
+            {{ coach.description }}
+            {{ coach.phone }}
+            {{ coach.sex }}
+            {{ coach.skype }}
+            {{ coach.user }}
+            {{ coach.gender }}
+            </br>
+        {% endfor %}
+
+    </p>
 </div>
 
 
