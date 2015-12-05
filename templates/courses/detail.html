@@ -8,7 +8,7 @@
 <div class="container">
 <div class="jumbotron">
   <h2>{{ courses.name }}</h2>
-  <p>{{ courses.description | truncatechars:32 }}</p>  
+  <p>{{ courses.description | truncatechars:35 }}</p>  
 </div>
 </div>
 
@@ -89,4 +89,8 @@
   </table>
 </div>
 </div>
+
+{% include "include/footer_include.html" %}
+
+
 {% endblock main_content %}
