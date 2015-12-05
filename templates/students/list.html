@@ -54,12 +54,32 @@
 {% endblock %}
 
 {% block content %}
+    <div class="row">
+        <div class="col s12">
+            {% if messages %}
+                <div class="card-panel hoverable cyan">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <br>
+            <a href="{% url 'students:add' %}" class="waves-effect waves-light btn green darken-1">
+                <i class="material-icons left">add</i>
+                Add new student
+            </a>
+        </div>
+    </div>
+    <div class="divider"></div>
     <div class="col s12">
         <h5 class="text-primarycolor">Список студентов</h5>
-
     </div>
     <div class="col s12 l12">
-
         <div class="card-panel">
             <span class="card-title grey-text"></span>
 
@@ -85,7 +105,6 @@
                                 </td>
                                 <td>{{ student.address }}</td>
                                 <td>{{ student.skype }}</td>
-{#                                <td>{{ student.courses.all }}</td>#}
                                 <td>
                                     <ul>
                                         {% for course in student.courses.all %}
@@ -93,9 +112,19 @@
                                         {% endfor %}
                                     </ul>
                                 </td>
+                                <td>
+                                    <a href="{% url 'students:edit' student.id %}" class="waves-effect waves-light btn">
+{#                                        <i class="material-icons left">mode_edit</i>#}
+                                        edit
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'students:remove' student.id %}" class="waves-effect waves-light btn red">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                </td>
                             </tr>
                         {% endfor %}
-
                         </tbody>
                     </table>
                 </div>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Add student{% endblock %}
+
+{% block banner %}{% endblock %}
+
+{% block content %}
+<div class="row">
+        <div class="col s12">
+            {% if messages %}
+                <div class="card-panel hoverable cyan">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+<h1>Add new student</h1>
+
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Add" class="waves-effect waves-light btn cyan"/>
+</form>
+{% endblock content %}
+
