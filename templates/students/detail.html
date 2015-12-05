@@ -8,40 +8,40 @@
 
 
 {% block page_content %}
-      <div class="table-responsive col-md-5">
-        <table class="table table-hover">
-          <thead>
-          </thead>
-          <tbody>
-            <tr class="success">
-              <td>дата рождения</td>
-              <td>{{ student_details.date_of_birth }}</td>
-            </tr>
-            <tr class="success">
-              <td>адрес</td>
-              <td>{{ student_details.address }}</td>
-            </tr>
-            <tr class="success">
-              <td>email</td>
-              <td>{{ student_details.email }}</td>
-            </tr>
-            <tr class="success">
-              <td>skype</td>
-              <td>{{ student_details.skype }}</td>
-            </tr>
-            <tr class="success">
-              <td>телефон</td>
-              <td>{{ student_details.phone }}</td>
-            </tr>
-            <tr class="success">
-              <td>курсы</td>
-              <td>
-                {% for course in student_details.courses.all %}
-                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
-                {% endfor %}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div class="table-responsive col-md-5">
+  <table class="table table-hover">
+    <thead>
+    </thead>
+    <tbody>
+    <tr class="success">
+      <td>дата рождения</td>
+      <td>{{ student_details.date_of_birth }}</td>
+    </tr>
+    <tr class="success">
+      <td>адрес</td>
+      <td>{{ student_details.address }}</td>
+    </tr>
+    <tr class="success">
+      <td>email</td>
+      <td>{{ student_details.email }}</td>
+    </tr>
+    <tr class="success">
+      <td>skype</td>
+      <td>{{ student_details.skype }}</td>
+    </tr>
+    <tr class="success">
+      <td>телефон</td>
+      <td>{{ student_details.phone }}</td>
+    </tr>
+    <tr class="success">
+      <td>курсы</td>
+      <td>
+        {% for course in student_details.courses.all %}
+        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+        {% endfor %}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 {% endblock page_content %}
