@@ -4,8 +4,8 @@
 
 <form method="get">
 {{ form.as_p}}
-<input type='submit' label="Решить"/>
+<input type='submit' value="Решить"/>
 </form>
 	
-{% if not form.errors %}<p>Дискриминант: {{ descr }}</p>{% endif %}
-{% if not form.errors %}<p>{{ message }}</p>{% endif %}
+<p>{{ descr }}</p>
+<p>{{ message }}</p>

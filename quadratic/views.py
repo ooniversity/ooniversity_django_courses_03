@@ -29,11 +29,12 @@ def quadratic_results(request):
                 message = 'Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f' % x1
             else:
                 message = 'Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f' % (x1, x2)
+            descr = "Дискриминант: " + str(descr)
             return render(request, 'results.html', {'message': message,'errors': errors, 
-        'x1': x1, 'x2': x2, 'a': a, 'b': b, 'c': c, 'descr': int(descr), 'form': form})
-           
+        'x1': x1, 'x2': x2, 'a': a, 'b': b, 'c': c, 'descr': descr, 'form': form})
+        
 
         else:
             return render(request, 'results.html', {'form': form})
-    print errors
+    
   
