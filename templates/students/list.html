@@ -18,6 +18,7 @@
   {% endfor %}
 {% endif %}
 
+<a href="{% url 'students:create' %}"><button type="button" class="btn btn-default navbar-btn">Добавить студента</button></a>
       <h2>Список студентов</h2>
       <table class="table">
       <thead>
@@ -51,5 +52,4 @@
     </table>
     </div>
   </div>
-<button type="button" class="btn btn-default navbar-btn"><a href="{% url 'students:create' %}">Добавить студента</a></button>
 {% endblock content %}
