@@ -20,6 +20,7 @@ def detail(request, course_id):
                   })
 
 
+
 # def add(request):
 #     context = {}
 #     if request.method == "POST":
