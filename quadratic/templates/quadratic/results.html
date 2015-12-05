@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Квадратное уравнение</title>
-  </head>
-  <body>
-    <h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
-        <form method="get">
-          {{form.as_p}}
-          <input type="submit" name="" value="Решить">
-          {% if d or result %}
-            <br />
-            <p>Дискриминант: {{d}}</p>
-            <p>{{mistake_d}}</p>
-            <br />
-            {{result}}
-          {% endif %}
-      </form>
-  </body>
+<h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
+<form method="get">
+  {{form.as_p}}
+  <input type="submit" name="" value="Решить">
+</form>
+{% if d or result %}
+  <br />
+  <p>Дискриминант: {{d}}</p>
+  <p>{{mistake_d}}</p>
+  <br />
+  {{result}}
+{% endif %}
+
+
