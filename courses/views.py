@@ -9,7 +9,6 @@ def detail(request, course_id):
     return render(request, 'courses/detail.html', {'course': course, 'lesson': lesson})
 
 def add(request):
-    print request.POST, request
     if request.method == 'POST':
         form = CourseModelForm(request.POST)
         if form.is_valid():
@@ -42,7 +41,7 @@ def remove(request, course_id):
         mes = u'Course %s has been deleted.' % (our_course.name)
         messages.success(request, mes)
         return redirect('/')
-    return render(request, 'courses/remove.html', {'form': form, 'name': name})
+    return render(request, 'courses/remove.html', {'name': name})
 
 def add_lesson(request, course_id):
     if request.method == 'POST':
