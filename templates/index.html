@@ -19,16 +19,21 @@
       <p>Вступай в ряды всемирной организации по борьбе с преступностью!</p>
       <p>Хочешь стать мстителем? Узнать тайну личности Человека-Паука? Примерить костюм железного человека? Вступай к нам!</p>
   </div>    
+      <a href="{% url 'courses:add' %}" role="button" class="btn btn-primary">Добавить новый курс</a>
+
   <h3>Выбери курс:</h3>
     <table class = "course_info">
       <tr class = "oddtr">
         <td class = "first_td">Курс</td>
         <td class = "second_td">Описание</td>
+        <td></td><td></td>
       </tr>
       {% for each_course in course %}
       <tr>
         <td><a href="{% url 'courses:detail' each_course.id %}">{{ each_course.name|upper }}</a></td>
         <td>{{ each_course.short_description|title }}</td>
+        <td><a href="{% url 'courses:edit' each_course.id%}" role="button" class="btn btn-primary">Изменить</td>
+        <td><a href="{% url 'courses:remove' each_course.id%}" role="button" class="btn btn-primary">Удалить</a></td>
       </tr>
       {% endfor %}
     </table>  
