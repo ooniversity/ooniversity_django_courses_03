@@ -48,7 +48,7 @@ def remove(request, course_id):
         return redirect('index')
     context = {'message': message}
     context.update(csrf(request))
-    return render_to_response(request, 'courses/remove.html', context, context_instance=RequestContext(request))
+    return render_to_response('courses/remove.html', context, context_instance=RequestContext(request))
 
 
 def edit(request, course_id):
