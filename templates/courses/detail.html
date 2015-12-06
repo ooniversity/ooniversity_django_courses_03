@@ -10,6 +10,16 @@
       <h2></h2>
       <p class="just">{{ course.description | truncatechars:32 }}</p>
       <hr>
+      {% if messages %}
+      <div class="alert alert-success alert-dismissible" role="alert">
+          <ul class="messages">
+          {% for message in messages %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               {{ message }}
+           {% endfor %}
+          </ul>
+      </div>
+      {% endif %}
     <div class="StudentTable">
       <table class="table-hover">
         <tr>
@@ -34,7 +44,7 @@
     </div>
     <br>
 
-    <a href="{% url course.id 'courses:add-lesson' %}"><b>
+    <a href="{% url 'courses:add-lesson' id %}"><b>
     <button type="button">Добавить занятие</button>
     </b></a>
 
