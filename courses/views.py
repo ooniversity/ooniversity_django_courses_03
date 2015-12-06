@@ -17,7 +17,7 @@ def add(request):
             return redirect('index')
     else:
         form = CourseModelForm()
-    return render(request, 'courses:detail', {'form': form})
+    return render(request, 'courses/add.html', {'form': form})
 
 def edit(request, course_id):
     sd = Course.objects.get(id=course_id)
