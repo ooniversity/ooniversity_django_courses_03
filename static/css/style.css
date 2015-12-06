@@ -48,12 +48,13 @@ img{ opacity: 1; }
 
 
 /*text*/
-h2, h3{   color: #108475;    opacity: 0.5;}
+h2, h3{   color: #12B39E;    opacity: 0.5;}
 .padd{    margin-left: 20px;}
 .skipe{   color: #FFF;}
 .phone{   color:  #FFF;}
 .name{    color:  #FFF;}
 .textgray{    color: #81807E;}
+.textgray_light{color: #fff;}
 .antiopas p{    color: white;    font-size: 18px;}
 .opct-text, p{   opacity: 0.4;}
 .errorMessage {color: tomato;}

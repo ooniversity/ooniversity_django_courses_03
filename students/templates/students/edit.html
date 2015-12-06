@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>Students add</title>
+    <title>Students edit</title>
 {% endblock %}
 
 {% block top_menu %}
@@ -10,21 +10,21 @@
         <li ><a href="{% url 'contact' %}">Contacts</a></li>
         <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
     </ul>
-    {% include "include/search_include.html" %}
 {% endblock %}
 
 {% block content %}
             <div class="jumbotron ">
-                <h3><span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>Create new student</h3>
-
+                <h3>
+                    <span class="glyphicon glyphicon-pencil padsingtitle" aria-hidden="true" ></span>
+                    {{ 'Students edit'|title }}
+                </h3>
                 <p></p>
                     <form method="post" style="" class="add_form">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <p><input class=" btn btn-primary btn-lg " type="submit" value="Submit"></p>
+                        <p>
+                            <input class=" btn btn-primary btn-lg " type="submit" value="Submit">
+                        </p>
                     </form>
-
             </div>
-
-
 {% endblock %}

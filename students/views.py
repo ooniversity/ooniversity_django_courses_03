@@ -29,16 +29,53 @@ def list_view(request):
     })
     return HttpResponse(template.render(context))
 
+
+# Create
 def create(request):
     form = StudentModelForm()
     if request.method == 'POST':
         form = StudentModelForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Student successfuly added.')
+            messages.success(request, 'Student successfully added.')
             return redirect('students:list_view')
 
     template = loader.get_template('students/add.html')
+    context = RequestContext(request, {
+        'form': form
+    })
+    return HttpResponse(template.render(context))
+
+
+# Delete
+def remove(request, pk):
+    student = Student.objects.get(id=pk)
+
+    if request.method == 'POST':
+        student.delete()
+        messages.success(request, 'Student successfully removed.')
+        return redirect('students:list_view')
+
+    template = loader.get_template('students/remove.html')
+    context = RequestContext(request, {
+        'student': student
+    })
+    return HttpResponse(template.render(context))
+
+
+# Edit
+def edit(request, pk):
+    student = Student.objects.get(id=pk)
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Student successfully edited.')
+            return redirect('students:list_view')
+    else:
+        form = StudentModelForm(instance=student)
+
+    template = loader.get_template('students/edit.html')
     context = RequestContext(request, {
         'form': form
     })
