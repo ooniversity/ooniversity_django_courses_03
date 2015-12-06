@@ -14,18 +14,7 @@
     <div class="page-header">
       <h3>Список студентов</h3>
     </div>
-    {% if messages %}
-      {% for message in messages %}
-        <div class="jumbotron">
-          {{ message }}
-        </div>
-      {% endfor %}
-    {% endif %}
-    <a href="{% url 'students:add' %}">
-      <button type="button" class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить пользователя</button>
-    </a>
-      <div id="spisok">
+    <div id="spisok">
         <table class="table">
           <thead>
             <tr>
@@ -34,33 +23,21 @@
               <th>Адрес</th>
               <th>Skype</th>
               <th>Курсы</th>
-              <th></th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
             {%for st in students_list_course %}
-              <tr>
-                <td id="students_detail">{{forloop.counter}}</td>
-                <td><a href="{% url 'students:detail' st.id %}">{{st.surname}}{{' '}}{{st.name}}</a></td>
-                <td>{{st.address}}</td>
-                <td>{{st.skype}}</td>
-                <td>
-                  {% for cour in st.courses.all %}
-                    <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a></p>
-                  {% endfor %}
-                </td>
-                <td>
-                  <a href="{% url 'students:edit' st.id %}">
-                    <button class="glyphicon glyphicon-pencil btn btn-success">Изменить</button>
-                  </a>
-                </td>
-                <td>
-                  <a href="{% url 'students:remove' st.id %}">
-                    <button class="glyphicon glyphicon-remove btn btn-success">Удалить</button>
-                  </a>
-                </td>
-              </tr>
+                <tr>
+                    <td id="students_detail">{{forloop.counter}}</td>
+                    <td><a href="{% url 'students:detail' st.id %}">{{st.surname}}{{' '}}{{st.name}}</a></td>
+                    <td>{{st.address}}</td>
+                    <td>{{st.skype}}</td>
+                    <td>
+                      {% for cour in st.courses.all %}
+                        <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a></p>
+                      {% endfor %}
+                    </td>
+                </tr>
             {% endfor %}
           </tbody>
         </table>

@@ -11,10 +11,13 @@
 {% block nav_class_contact %}passive{% endblock %}
 {% block nav_class_student_list_view %}passive{% endblock %}
 
+
 {% block course_student %}?course_id={{course.id}}{% endblock %}
 
 
 {% block content %}
+
+
   <div class="col-md-12" >
     <div class="jumbotron">
       <div class="page-header">
@@ -35,6 +38,11 @@
     </div>
     <div class="container-fluid">
       <h3>План курса</h3>
+      <a href="{% url 'courses:add-lesson' course.id %}">
+        <p>
+          <button type="button" class="btn btn-large btn-primary">Добавить занятие</button>
+        </p>
+      </a>
       <div id="spisok">
         <table class="table table-bordered">
           <thead>

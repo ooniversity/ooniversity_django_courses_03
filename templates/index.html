@@ -13,6 +13,17 @@
 
 
 {% block content %}
+
+  {% if messages %}
+    <div class="container-fluid">
+      <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
   <div class="col-md-12" >
     <div class="jumbotron">
       <div class="page-header">
@@ -21,14 +32,21 @@
       <p>The Best Company of The Best Companies in Ukraine</p>
     </div>
   <div class="page-header container-fluid">
-      <h3>Choose your site, Padavan!</h3>
-    </div>
+    <h3>Choose your site, Padavan!</h3>
+  </div>
+  <a href="{% url 'courses:add' %}">
+    <p>
+    <button type="button" class="btn btn-large btn-primary">Добавить новый курс</button>
+    </p>
+  </a>
     <div id="spisok">
       <table class="table table-bordered">
         <thead>
           <tr>
             <th>Курс</th>
             <th>Описание</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +54,8 @@
             <tr>
             <td><a href="{% url 'courses:detail' i.id%}">{{ i.name|upper }}</a></td>
               <td>{{ i.short_description|title }}</td>
+              <td><a href="{% url 'courses:edit' i.id%}"><button type="button" class="btn btn-large btn-primary">Редактировать</button></a></td>
+              <td><a href="{% url 'courses:remove' i.id%}"><button type="button" class="btn btn-large btn-primary">Удалить</button></a></td>
             </tr>
           {% endfor %}
         </tbody>
