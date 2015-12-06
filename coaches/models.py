@@ -9,10 +9,10 @@ class Coach(models.Model):
     )
     user = models.OneToOneField(User)
     date_of_birth = models.DateField()
-    gender = models.CharField(max_length=1, choices=gender_choices)
-    phone = models.CharField(max_length=100)
-    address = models.CharField(max_length=100)
-    skype = models.CharField(max_length=100)
+    gender = models.CharField(max_length=1000, choices=gender_choices)
+    phone = models.CharField(max_length=1000)
+    address = models.CharField(max_length=1000)
+    skype = models.CharField(max_length=1000)
     description = models.TextField()
 
 

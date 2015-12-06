@@ -30,9 +30,8 @@ def add(request):
             message = 'Course %s has been successfully added.' % form['name'].value()
             messages.success(request, message)
             return redirect('courses:index')
-
     else:
-        form = CourseModelForm(request.POST)
+        form = CourseModelForm()
     context = {'form': form}
     return render(request, 'courses/add.html', context)
 # Create your views here.
@@ -46,7 +45,7 @@ def edit(request, course_id):
             course = form.save()
             message = "The changes have been saved."
             messages.success(request, message)
-            return redirect('courses:detail', course_id=course.id)
+            return redirect('courses/edit.html', course_id=course.id)
     else:
         form = CourseModelForm(instance=course)
     context = {'form': form}
