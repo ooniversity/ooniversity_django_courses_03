@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Main{% endblock title%}
+
+
+{% block navbar_i1 %}active{% endblock navbar_i1 %}
+
+
+{% block jumbotron %}{% endblock jumbotron %}
+
+
+{% block content %}
+
+
+{% include "include/alert_include.html" %}
+        <h1>Edit cource</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Save" />
+        </form>
+
+{% endblock content %}
