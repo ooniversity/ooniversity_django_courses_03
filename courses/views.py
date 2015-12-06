@@ -25,10 +25,10 @@ def edit(request, pk):
         if form.is_valid():
             course = form.save()
             messages.success(request, "The changes have been saved.")
-            return render(request, 'students/edit.html', {'form': form})
+            return render(request, 'courses/edit.html', {'form': form})
 
     form = CourseModelForm(instance=course)
-    return render(request, 'students/edit.html', {'form': form})
+    return render(request, 'courses/edit.html', {'form': form})
 
 def remove(request, pk):
     course = Course.objects.get(id=pk)
