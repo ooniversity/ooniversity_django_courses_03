@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>Students add</title>
+    <title>Students</title>
 {% endblock %}
 
 {% block top_menu %}
@@ -15,16 +15,12 @@
 
 {% block content %}
             <div class="jumbotron ">
-                <h3><span class="glyphicon glyphicon-plus" aria-hidden="true" ></span>Create new student</h3>
-
+                <h3><span class="glyphicon glyphicon-trash padsingtitle" aria-hidden="true" ></span>Student {{ student.name }} will be remove.</h3>
                 <p></p>
                     <form method="post" style="" class="add_form">
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        <input type="hidden" name="pk" value="{{ student.id }}">
                         <p><input class=" btn btn-primary btn-lg " type="submit" value="Submit"></p>
                     </form>
-
             </div>
-
-
 {% endblock %}

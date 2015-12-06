@@ -22,7 +22,11 @@
                         {% endfor %}
                     </ul>
                 {% endif %}
-                <p><a class=" btn btn-primary btn-lg " href="{% url 'students:add' %}" role="button">Добавить нового студента</a></p>
+                <p>
+                    <a class=" btn btn-primary btn-lg " href="{% url 'students:add' %}" role="button">
+                        <span class="glyphicon glyphicon-plus padsingtitle" aria-hidden="true" ></span>Добавить нового студента
+                    </a>
+                </p>
 
                 <h3><span class="glyphicon glyphicon-list padsingtitle" aria-hidden="true" ></span>List of students</h3>
 
@@ -35,6 +39,7 @@
                                     <th>Address</th>
                                     <th>Skype</th>
                                     <th>Courses</th>
+                                    <th></th>
                                 </tr>
                                 {% for student in students_list %}
                                 <tr>
@@ -45,9 +50,23 @@
                                     <td>
                                         <table>
                                             {% for course in student.courses.all  %}
-                                                <tr><td><a href="{% url 'courses:course_detail' course_id=course.id %}">{{ course.name }}</a></td></tr>
+                                                <tr>
+                                                    <td><a href="{% url 'courses:course_detail' course_id=course.id %}">{{ course.name }}</a></td>
+                                                </tr>
                                             {% endfor %}
                                         </table>
+                                    </td>
+                                    <td>
+
+                                            <a class=" btn btn-primary btn textgray_light" href="{% url 'students:edit' pk=student.id %}" role="button">
+                                            <span class="glyphicon glyphicon-pencil padsingtitle textgray_light" aria-hidden="true" ></span>
+                                            Изменить
+                                            </a>
+                                            <a class=" btn btn-primary btn textgray_light" href="{% url 'students:remove' pk=student.id %}" role="button">
+                                                <span class="glyphicon glyphicon-remove padsingtitle textgray_light" aria-hidden="true" ></span>
+                                                Удалить
+                                            </a>
+
                                     </td>
                                 </tr>
                                 {%  endfor %}
