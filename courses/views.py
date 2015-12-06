@@ -18,12 +18,9 @@ def add(request):
             course = form.save()
             messages.success(request, "Course %s has been successfully added." % (course.name))
             return redirect('index')
-        else:
-            form = CourseModelForm(request.POST)
-            return render(request, 'courses/add.html', {'form':form})
     else:
         form = CourseModelForm()
-        return render(request, 'courses/add.html', {'form':form})
+    return render(request, 'courses/add.html', {'form':form})
 
 
 def edit(request, pk):
@@ -34,9 +31,6 @@ def edit(request, pk):
             course = form.save()
             messages.success(request, "The changes have been saved.")
             return redirect('courses:edit', pk=pk)
-        else:
-            form = CourseModelForm(request.POST, instance=course)
-            return render(request, 'courses/edit.html', {'form':form})
     else:
         form = CourseModelForm(instance=course)
     return render(request, 'courses/edit.html', {'form':form})
@@ -58,9 +52,6 @@ def add_lesson(request, pk):
             lesson = form.save()
             messages.success(request, "Lesson %s has been successfully added." % (lesson.subject))
             return redirect('courses:detail', pk=pk)
-        else:
-            form = LessonModelForm(request.POST, initial={'course': pk})
-            return render(request, 'courses/add_lesson.html', {'form':form})
     else:
         form = LessonModelForm(initial={'course': pk})
-        return render(request, 'courses/add_lesson.html', {'form':form})
+    return render(request, 'courses/add_lesson.html', {'form':form})
