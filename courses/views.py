@@ -42,7 +42,7 @@ def edit(request, pk):
     if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=course)
         if form.is_valid:
-            #form.save()
+            form.save()
             messages.success(request, 'The changes have been saved.')
             return redirect('courses:edit', pk)
     else:
@@ -56,7 +56,7 @@ def remove(request, pk):
     course = Course.objects.get(id=pk)
     notification = 'Are you sure you want to remove {0} course?'.format(course.name)
     if request.method == 'POST':
-        # course.delete()
+        course.delete()
         messages.success(request, 'Course {0} has been deleted.'.format(course.name))
         return redirect('index')
 
