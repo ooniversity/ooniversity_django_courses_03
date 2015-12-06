@@ -18,7 +18,7 @@ def list_view(request):
         students = models.Student.objects.all()
         selection = False
 
-    return render(request, 'students/list_view.html', {'students': students,
+    return render(request, 'students/list.html', {'students': students,
         'selection': selection})
 
 

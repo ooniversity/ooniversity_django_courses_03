@@ -7,7 +7,7 @@ def detail(request,course_id):
     course =  get_object_or_404(Course, pk=course_id)
     return render(request, 'detail.html', {'course': course})
 
-def create(request):
+def add(request):
     if request.POST:
         form = CourseModelForm(request.POST)
         if form.is_valid():
