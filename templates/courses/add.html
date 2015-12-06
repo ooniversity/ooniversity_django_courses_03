@@ -9,13 +9,13 @@
 
 {% block content %}
 <div class="jumbotron">
-    <div class="container">
-      <h1>Создание нового курса</h1>
-      <form method="post">
-        {% csrf_token %}
-        {{ course_form.as_p }}
-        <input type="submit" value="Создать" />
-      </form>
-    </div>
+  <div class="container">
+    <h1>Создание нового курса</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ course_form.as_p }}
+      <input type="submit" value="Создать" />
+    </form>
+  </div>
 </div>
 {% endblock content %}
