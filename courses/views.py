@@ -14,7 +14,7 @@ def add(request):
 		if form.is_valid():
 			course = form.save()
 			messages.success(request, "Course %s has been successfully added." % course.name)
-		return redirect('index')
+			return redirect('index')
 	form = CourseModelForm()
 	return render(request, 'courses/add.html', {'form': form})
 
@@ -26,7 +26,6 @@ def edit(request, pk):
             course = form.save()
             messages.success(request, "The changes have been saved.")
             return redirect('courses:edit', course.id)
-
     form = CourseModelForm(instance=course)
     return render(request, 'courses/edit.html', {'form': form})
 
@@ -36,7 +35,6 @@ def remove(request, pk):
         course.delete()
         messages.success(request, "Course %s has been deleted." % course.name)
         return redirect('index')
-
     return render(request, 'courses/remove.html', {'course': course})
 
 def add_lesson(request, course_id):
@@ -46,6 +44,6 @@ def add_lesson(request, course_id):
         if form.is_valid():
             lesson = form.save()
             messages.success(request, "Lesson %s has been succesfully added." % lesson.subject)
-        return redirect('courses:detail', course_id)
+            return redirect('courses:detail', course_id)
     form = LessonModelForm(initial = {'course': course.id})
     return render(request, 'courses/add_lesson.html', {'form': form} )
