@@ -38,12 +38,11 @@ def remove(request, pk):
     return render(request, 'courses/remove.html', {'course': course})
 
 def add_lesson(request, course_id):
-    course = Course.objects.get(id = course_id)
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
             lesson = form.save()
             messages.success(request, "Lesson %s has been succesfully added." % lesson.subject)
             return redirect('courses:detail', course_id)
-    form = LessonModelForm(initial = {'course': course.id})
+    form = LessonModelForm(initial = {'course': course_id})
     return render(request, 'courses/add_lesson.html', {'form': form} )
