@@ -65,12 +65,12 @@ img {
 
 table tr {
 	background: #fefcea; /* Для старых браузров */
-	background: linear-gradient(to left, #D8C2C2, #ACF7DF);
+	background: linear-gradient(to left, #D8C2C2, #ffffff);
 }
 
 table thead tr {
 	background: #fefcea; /* Для старых браузров */
-	background: linear-gradient(to bottom left, #fefcea, #5EE9F7);
+	background: linear-gradient(to bottom left, #fefcea, #ffffff);
 }
 
 .list_student tbody td:first-child {
@@ -85,11 +85,11 @@ table thead tr {
 
 .list_student tbody tr {
 	background: #fefcea; /* Для старых браузров */
-	background: linear-gradient(to left, #E4DFB9, #11DEB8);
+	background: linear-gradient(to left, #E4DFB9, #ffffff);
 }
 
 .list_student tbody tr:hover {
-	background: linear-gradient(to right, #E4DFB9, #11DEB8);
+	background: linear-gradient(to right, #E4DFB9, #ffffff);
 }
 
 .perfomance thead tr {
