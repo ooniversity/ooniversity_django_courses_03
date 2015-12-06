@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib import messages
 
 from students.models import Student
@@ -50,4 +50,4 @@ def remove(request, student_id):
         messages.success(request, text)  
         sd.delete()
         return redirect('students:list_view')
-    return render(request, 'students/remove.html', {'sd': sd})  
+    return render(request, 'students/remove.html', {'sd': sd})   
