@@ -4,10 +4,11 @@
 
 {% block content %}
 
+<h2>Курс {{ course }} будет удалён</h2>
+
 <form method="post">
     {% csrf_token %}
-    <h2>Please confirm that the course {{ course }} will be removed </h2>
-    <input type="submit" value="Удалить" />
+    <input type="submit" value="Удалить">
 </form>
 
 {% endblock content %}
