@@ -40,7 +40,7 @@ def edit(request, course_id):
 def remove(request, course_id):
     course = Course.objects.get(id=course_id)
     if request.POST:
-        text = "Course " + course.name + " has been deleted."
+        text = "Course %s has been deleted." % course.name
         messages.success(request, text)
         course.delete()
         return redirect('index')
