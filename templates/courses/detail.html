@@ -12,6 +12,13 @@
 
 {% block content %}
     <div class="jumbotron container">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
       <h1>Детали курса {{my_course.name}}</h1>
       <p class='simple'>{{my_course.description|truncatechars:32}}</p>
     </div>
@@ -29,6 +36,10 @@
     <div class="container">
         <div id='id1'>
         <h3 class='center'>План курса</h3>
+        <button type="button" class="btn btn-default btn-lg" aria-label="Left Align">
+        <a href="{% url 'courses:add-lesson' my_course.id%}">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true">Добавить урок</span></a>
+        </button><br>
 					<table class="table table-striped">
 								<thead>
 				          <tr>
