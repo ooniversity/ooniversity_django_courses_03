@@ -61,7 +61,7 @@ def remove(request, student_id):
     student = Student.objects.get(id=student_id)
     context = {'student':  student}
     if request.method == "POST":
-        message = "Info on %s %s has been sucessfully deleted" %( student.name, student.surname)
+        message = "Info on %s %s has been sucessfully deleted" % (student.name, student.surname)
         student.delete()
         messages.success(request, message)
 

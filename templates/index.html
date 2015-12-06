@@ -8,6 +8,14 @@
 
 
 {% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<p><br/> <a href="{% url 'courses:add' %}">Добавить новый курс</a></p>
   <h1>Web-develompment</h1>
 
 
@@ -32,8 +40,16 @@
             <td class="number_cell3">
               {{ course.short_description|title }}
           </td>
+
+        <td class="number_cell1">
+            <a href="{% url 'courses:edit' course.id %}">Изменить</a>
+        </td>
+        <td class="number_cell1">
+            <a href="{% url 'courses:remove' course.id %}">Удалить</a>
+        </td>
         </tr>
         {% endfor %}
+
         </tbody>
         </table>
 
