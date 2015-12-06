@@ -30,7 +30,7 @@ def add(request):
             course_add = form.save()
             message = 'Course %s has been successfully added.'  % course_add.name
             messages.success(request, message)
-            return redirect('courses:index')
+            return redirect('index')
     else:
         form = CourseModelForm()
     context = {'form': form}
