@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from courses.models import Course, Lesson
 from coaches.models import Coach
 from courses.forms import CourseModelForm, LessonModelForm
@@ -37,13 +37,12 @@ def edit(request, course_id):
 
 def remove(request, course_id):
     course = Course.objects.get(id=course_id)
-    form = CourseModelForm(instance=course)
     if request.POST:
       text = "Course %s has been deleted." %(course.name)
       messages.success(request, text)  
       course.delete()
       return redirect('index')
-    return render(request, 'courses/remove.html', {'form': form})
+    return render(request, 'courses/remove.html', {'course': course})
     
 def add_lesson(request, course_id):
   if request.POST:
