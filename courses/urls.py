@@ -8,5 +8,5 @@ urlpatterns = patterns('',
     url(r'^(?P<course_id>\d+)/$', views.detail, name = "detail"),
     url(r'^edit/(?P<pk>\d+)/$', views.edit, name = "edit"),
     url(r'^remove/(?P<pk>\d+)/$', views.remove, name = "remove"),
-    url(r'^(?P<course_id>\d+)/add_lesson$', views.add_lesson, name = "add_lesson"),
+    url(r'^(?P<course_id>\d+)/add_lesson$', views.add_lesson, name = "add-lesson"),
 )
