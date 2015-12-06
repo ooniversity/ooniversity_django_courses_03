@@ -23,7 +23,7 @@
         {% for course in courses_list %}
         <tr>
           <td>
-            <a href="/courses/{{ i.id }}/">{{ course.name | upper }}</a>
+            <a href="{% url 'courses:detail' course.id %}">{{ course.name | upper }}</a>
           </td>
           <td>
             {{ course.short_description | title }}
@@ -44,7 +44,7 @@
     </div>
     <br>
     {% include "include/message_include.html" %}
-    <a href="{% url 'courses:add' %}{{ course.id }}">
+    <a href="{% url 'courses:add' %}">
       <b>
         <button type="button">Добавить курс</button>
       </b>

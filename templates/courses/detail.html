@@ -10,16 +10,7 @@
       <h2></h2>
       <p class="just">{{ course.description | truncatechars:32 }}</p>
       <hr>
-      {% if messages %}
-      <div class="alert alert-success alert-dismissible" role="alert">
-          <ul class="messages">
-          {% for message in messages %}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-               {{ message }}
-           {% endfor %}
-          </ul>
-      </div>
-      {% endif %}
+      {% include "include/message_include.html" %}
     <div class="StudentTable">
       <table class="table-hover">
         <tr>
@@ -27,16 +18,16 @@
           <td>Тема</td>
           <td>Описание</td>
         </tr>
-        {% for i in course.lesson_set.all %}
+        {% for lesson in course.lesson_set.all %}
         <tr>
           <td>
-            {{ i.order }}
+            {{ lesson.order }}
           </td>
           <td>
-            {{i.subject}}
+            {{lesson.subject}}
           </td>
           <td>
-            {{ i.description | truncatechars:32 }}
+            {{ lesson.description | truncatechars:32 }}
           </td>
         </tr>
         {% endfor %}

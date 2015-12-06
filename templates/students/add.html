@@ -10,12 +10,6 @@
 {% block content %}
 <div class="jumbotron">
 <h2>New student creation</h2>
-<form method="post">
-    {% csrf_token %}
-    <table>
-    {{ form.as_table }}
-    </table>
-    <input type="submit" value="Add" />
-</form>
+{% include "include/form_include.html" with action="Add" %}
 </div>
 {% endblock content %}
