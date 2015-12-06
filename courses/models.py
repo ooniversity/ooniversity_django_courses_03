@@ -6,7 +6,7 @@ import datetime
 class Course(models.Model):
     name = models.CharField(max_length=5000)
     short_description = models.CharField(max_length=5000)
-    description = models.TextField(max_length=5000)
+    description = models.TextField()
     coach = models.ForeignKey('coaches.Coach', related_name='coach_courses', null=True)
     assistant = models.ForeignKey('coaches.Coach', related_name='assistant_courses', null=True)
     def __unicode__(self):
@@ -14,7 +14,7 @@ class Course(models.Model):
 
 class Lesson(models.Model):
     subject = models.CharField(max_length=5000)
-    description = models.TextField(max_length=5000)
+    description = models.TextField()
     course = models.ForeignKey('Course')
     order =  models.PositiveIntegerField()
     def __unicode__(self):
