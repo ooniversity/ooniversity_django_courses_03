@@ -23,10 +23,14 @@
   <body>
     <h1>Site about PyBursa courses</h1>
 
-
 <div class="container">
     <h3>QUADRATIC EQUATION RESULTS</h3>
+        <form method="get">
+            {{ form.as_p }}
+        <input type="SUBMIT" value="Calculate" >
+        </form>
     <ul>
+
      {% for vkey, vval in values %}
      <li>{{vkey}} = {{vval}}</li>
      <div class="msg_alert">{{ messages|get_item:vkey }}</div>
@@ -35,7 +39,9 @@
      <div>{{ discr|get_item:'D' }}</div>
      <div>{{ discr|get_item:'D_msg' }}</div>
      <!-- <div id="divider">&nbsp;</div> -->
-  </div>
+</div>
+
+
 		
 		
 

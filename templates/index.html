@@ -68,7 +68,7 @@
             {% for course in courses %}
               <tr>
               <td>{{ course.id }}</td>
-                <td><a href="/courses/{{course.id}} ">{{ course.name }}</a></td>
+                <td><a href="/courses/{{course.id}} ">{{ course.name|upper }}</a></td>
                 <td>{{ course.short_description }}</td>
                 <td>{{ course }}</td>
               </tr>
@@ -78,6 +78,8 @@
       </div>
 </div>
 {% endblock content %}
+
+{{% include "templates/include/allright.html" %}}
 
 
 
