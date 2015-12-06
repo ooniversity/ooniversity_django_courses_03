@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from courses.models import Course
 from students.models import Student
+from students.forms import StudentModelForm
+from django.contrib import messages
 
 def list_view(request):
     course_id = request.GET.get('course_id')

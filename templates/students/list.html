@@ -10,37 +10,37 @@
 
 
 {% block content %}
-    <div class="container-fluid">
-      <div class="page-header">
-        <h3>Список студентов</h3>
-      </div>
-      <div id="spisok">
-        <table class="table table-bordered">
+  <div class="container-fluid">
+    <div class="page-header">
+      <h3>Список студентов</h3>
+    </div>
+    <div id="spisok">
+        <table class="table">
           <thead>
             <tr>
               <th id="students_detail">#</th>
               <th>Фамилия Имя</th>
-              <th>адрес</th>
-              <th>skype</th>
+              <th>Адрес</th>
+              <th>Skype</th>
               <th>Курсы</th>
             </tr>
           </thead>
           <tbody>
             {%for st in students_list_course %}
-              <tr>
-                <td id="students_detail">{{forloop.counter}}</td>
-                <td><a href="{% url 'students:detail' st.id %}">{{st.surname}}{{' '}}{{st.name}}</a></td>
-                <td>{{st.address}}</td>
-                <td>{{st.skype}}</td>
-                <td>
-                  {% for cour in st.courses.all %}
-                    <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a></p>
-                  {% endfor %}
-                </td>
-              </tr>
+                <tr>
+                    <td id="students_detail">{{forloop.counter}}</td>
+                    <td><a href="{% url 'students:detail' st.id %}">{{st.surname}}{{' '}}{{st.name}}</a></td>
+                    <td>{{st.address}}</td>
+                    <td>{{st.skype}}</td>
+                    <td>
+                      {% for cour in st.courses.all %}
+                        <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a></p>
+                      {% endfor %}
+                    </td>
+                </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
-    </div>
+  </div>
 {% endblock content %}
