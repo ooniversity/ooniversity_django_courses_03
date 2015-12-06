@@ -4,19 +4,19 @@
 {% load staticfiles %}
 
 
-{% block title %}Main{% endblock title%}
+{% block title %}Main{% endblock title %}
 
 
 {% block navbar_i1 %}active{% endblock navbar_i1 %}
-
-
-{% include "include/alert_include.html" %}
 
 
 {% block jumbotron %}{% endblock jumbotron %}
 
 
 {% block content %}
+
+
+        {% include "include/alert_include.html" %}
 
 
         {% include "include/course_include.html" %}
@@ -47,12 +47,18 @@
               </div>
             </div>
           </div>
-          <h2 class="course">Course plan</h2>
-            <a href="{% url 'courses:add-lesson' course.id %}">
-                <button type="button" class="btn btn-primary btn-sm">
-                    <span class="glyphicon glyphicon-plus"></span>Add
-                </button>
-            </a>
+
+          <div class="row">
+            <div class="col-sm-8">
+              <h2 class="course">Course plan</h2>
+              <hr>
+              <a href="{% url 'courses:add-lesson' course.id %}">
+                  <button type="button" class="btn btn-primary btn-sm">
+                      <span class="glyphicon glyphicon-plus"></span>Add Lesson
+                  </button>
+              </a>
+            </div>
+          </div>
 
           <div class="row">
             <div class="col-sm-8">

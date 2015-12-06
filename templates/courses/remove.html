@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Main{% endblock title%}
+{% block title %}Main{% endblock title %}
 
 
 {% block navbar_i1 %}active{% endblock navbar_i1 %}
@@ -21,7 +21,6 @@
 
         <form method="post">
             {% csrf_token %}
-            {{ remove_message }}
             <input type="submit" class="btn btn-danger btn-sm" value="Confirm">
         </form>
 
