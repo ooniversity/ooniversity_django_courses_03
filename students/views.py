@@ -23,7 +23,7 @@ def create(request):
         if student_form.is_valid():
             student_form.save()
             student_form = student_form.cleaned_data            
-            my_message = "Студент {} {} успешно добавлен".format(student_form['name'], student_form['surname'])
+            my_message = "Student {} {} has been successfully added.".format(student_form['name'], student_form['surname'])
             messages.success(request, my_message)
             return redirect ('students:list_view')
     else:
@@ -49,7 +49,7 @@ def remove(request, stud_id):
     surname = student.surname
     if request.method == 'POST':
             student.delete()
-            my_message = "Студент {} {} был удален".format(name, surname)
+            my_message = "Info on {} {} has been sucessfully deleted.".format(name, surname)
             messages.success(request, my_message)
             return redirect ('students:list_view')
     return render(request, "students/remove.html", {'name':name, 'surname':surname})
