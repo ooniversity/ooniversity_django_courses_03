@@ -21,17 +21,19 @@
       <span class="glyphicon glyphicon-plus" aria-hidden="true">Добавить нового студента</span></a>
       </button><br>
       <h1>Список студентов курса</h1>
-				<table class="table table-bordered">
-					<thead>
-							<tr>
-								<th>#</th>
-								<th>фамилия и имя</th>
-								<th>адрес</th>
-								<th>skype</th>
-								<th>курсы</th>
-			  				</tr>
-						</thead>
-						<tbody>
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+                <th>#</th>
+                <th>фамилия и имя</th>
+                <th>адрес</th>
+                <th>skype</th>
+                <th>курсы</th>
+                <th></th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
               {% for stud in st_list %}
               <tr>
                 <td>{{stud.id}}</td>
@@ -51,7 +53,7 @@
                     </button><br></td>
               </tr>
               {% endfor %}
-						</tbody>
-					</table>
+            </tbody>
+          </table>
       </div>
 {% endblock content %}
