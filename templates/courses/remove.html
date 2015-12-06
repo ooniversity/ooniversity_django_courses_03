@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<h1>Студент {{ student.name }} {{ student.surname}} будет удален</h1>
+<h1>Курс {{ course.name }} будет удален</h1>
 <form method="post">
   {% csrf_token %}
   <input type='submit' value="Удалить" />

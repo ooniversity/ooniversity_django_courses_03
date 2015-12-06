@@ -36,7 +36,7 @@
           <th scope="row">курсы учитель</th>
           <td>
             {% for i in coach_object.coach_courses.all %}
-              <p><a href='{% url 'courses:detail' pk=i.id %}'>{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"><span class='glyphicon glyphicon-new-window'></span></a></p>
+              <p><a href="{% url 'courses:detail' pk=i.id %}">{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"><span class='glyphicon glyphicon-new-window'></span></a></p>
             {% endfor %}
             {% endif %}
           </td>
@@ -46,7 +46,7 @@
           <th scope="row">курсы ассистент</th>
           <td>
               {% for i in coach_object.assistant_courses.all %}
-              <p><a href='{% url 'courses:detail' pk=i.id %}'>{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"> <span class='glyphicon glyphicon-new-window'></span></a></p>
+              <p><a href="{% url 'courses:detail' pk=i.id %}">{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"> <span class='glyphicon glyphicon-new-window'></span></a></p>
             {% endfor %}
             {% endif %}
           </td>
