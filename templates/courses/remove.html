@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-{% block title %}Remove {{form.name.value}}{% endblock title %}
+{% block title %}Remove {{ course.name }}{% endblock title %}
 {% block content %}
 <form method="post">
   {% csrf_token %}
-  <h2>Please confirm that the course {{form.name.value}} will be removed </h2>
+  <h2>Please confirm that the course {{ course.name }} will be removed </h2>
   <input type="submit" value="Delete" />
 </form>
 {% endblock content %}
