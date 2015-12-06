@@ -58,7 +58,7 @@
         <tbody>
         {% for coach in coaches_list %}
         <tr>
-        <td>{{ coach.first_name }} {{ coach.last_name }}</td>
+        <td><a href="{% url 'coaches:detail' coach.id %}">{{ coach.first_name }} {{ coach.last_name }}</a></td>
         <td>{{ coach.description }}</td>
         </tr>
         {% endfor %}
@@ -85,7 +85,7 @@
         <tbody>
         {% for assistant in assistants_list %}
         <tr>
-        <td>{{ assistant.first_name }} {{ assistant.last_name }}</td>
+        <td><a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.first_name }} {{ assistant.last_name }}</a></td>
         <td>{{ assistant.description }}</td>
         </tr>
         {% endfor %}

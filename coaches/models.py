@@ -15,6 +15,7 @@ class Coach(models.Model):
     address = models.CharField(max_length=100)
     skype = models.CharField(max_length=50)
     description = models.TextField()
+    #email = models.EmailField(default='example@com.ua')
 
     def get_first_name(self):
         #"Returns the user's first name."
@@ -30,6 +31,11 @@ class Coach(models.Model):
         #"Returns whether the user is staff or not"
         return self.user.is_staff
     is_staff = property(get_is_staff)
+
+    def get_email(self):
+        #"Returns whether the user's email"
+        return self.user.email
+    email = property(get_email)
 
     def __unicode__(self):              # __unicode__ on Python 2
         return self.user.username
