@@ -20,7 +20,7 @@ def detail(request,pk):
     return render(request, 'courses/detail.html', {"lessons": lessons,"course":course,'coach':coach,'assistant':assistant})
 
 def add(request):
-    form = CourseModelForm(request)
+    form = CourseModelForm()
     if request.method == 'POST':
         form = CourseModelForm(request.POST)
         if form.is_valid():
