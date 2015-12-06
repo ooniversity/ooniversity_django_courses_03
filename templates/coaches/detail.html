@@ -52,6 +52,7 @@
         <tr>
         <th>Course Name</th>
         <th>Description</th>
+        <th>Course Students</th>
         </tr>
         </thead>
         <tbody>
@@ -59,6 +60,7 @@
         <tr>
         <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
         <td>{{ course.description }}</td>
+        <td><a href="{% url 'students:list' %}?course_id={{ course.id }}">Course Students</a></td>
         </tr>
         {% endfor %}
         </tbody>
@@ -80,6 +82,7 @@
         <tr>
         <th>Course Name</th>
         <th>Description</th>
+        <th>Course Students</th>
         </tr>
         </thead>
         <tbody>
@@ -87,6 +90,7 @@
         <tr>
         <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
         <td>{{ course.description }}</td>
+        <td><a href="{% url 'students:list' %}?course_id={{ course.id }}">Course Students</a></td>
         </tr>
         {% endfor %}
         </tbody>

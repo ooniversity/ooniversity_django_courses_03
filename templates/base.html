@@ -49,7 +49,7 @@
           <ul class="nav navbar-nav">
             <li class="{% block nav_class_index %}{% endblock nav_class_index %}"><a href="{% url 'index' %}">Main</a></li>
             <li class="{% block nav_class_contact %}{% endblock nav_class_contact %}"><a href="{% url 'contact' %}">Contacts</a></li>
-            <li class="{% block nav_class_student %}{% endblock nav_class_student %}"><a href="{% url 'students:list' %}">Students</a></li>
+            <li class="{% block nav_class_student %}{% endblock nav_class_student %}"><a href="{% block url_student %}{% url 'students:list' %}{% endblock url_student %}">Students</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
