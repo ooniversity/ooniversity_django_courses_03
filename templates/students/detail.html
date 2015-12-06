@@ -15,27 +15,27 @@
         <table class="table-hover">
                 <tbody>
                     <tr>
-                       <td><strong>Birthday</strong></td>
+                       <td><b>дата рождения</b></td>
                        <td>{{ student.date_of_birth }}</td>
                     </tr>
                     <tr>
-                       <td><strong>Address</strong></td>
+                       <td><b>адрес</b></td>
                        <td>{{ student.address }}</td>
                     </tr>
                     <tr>
-                       <td><strong>E-mail</strong></td>
+                       <td><b>почта</b></td>
                        <td>{{ student.email }}</td>
                     </tr>
                     <tr>
-                       <td><strong>Skype</strong></td>
+                       <td><b>логин Skype</b></td>
                        <td>{{ student.skype }}</td>
                     </tr>
                     <tr>
-                       <td><strong>Phone</strong></td>
+                       <td><b>телефон</b></td>
                        <td>{{ student.phone }}</td>
                     </tr>
                     <tr>
-                       <td><strong>Assigned courses</strong></td>
+                       <td><b>курсы</b></td>
                        <td>
                            {% for course in student.courses.all %}
                                 <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
