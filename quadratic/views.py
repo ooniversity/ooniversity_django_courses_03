@@ -11,11 +11,11 @@ def quadratic_results(request):
     res = ''
 
     if request.method == "GET":
-        form = QuadraticForm(request.POST)
+        form = QuadraticForm(request.GET)
         if form.is_valid():
-            a = request.POST['a']
-            b = request.POST['b']
-            c = request.POST['c']
+            a = request.GET['a']
+            b = request.GET['b']
+            c = request.GET['c']
 
             d = int(b) ** 2 - 4 * int(a) * int(c)
             discr = u'Дискриминант: '+str(d)
