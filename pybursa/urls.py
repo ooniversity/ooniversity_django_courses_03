@@ -21,4 +21,5 @@ urlpatterns = patterns('',
     url(r'^student_detail/', views.student_detail, name='student_detail'),
     url(r'^courses/', include('courses.urls', namespace="courses")),
     url(r'^students/', include('students.urls', namespace="students")),
+    url(r'^coaches/', include('coaches.urls', namespace="coaches")),
 )
