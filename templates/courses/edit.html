@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Рудактируем курс{% endblock title %}
+{% block title %}Edit information about course{% endblock title %}
 
 
 {% block nav_class_index %}passive{% endblock %}
@@ -19,7 +19,7 @@
     <div class="container-fluid">
       <ul class="messages">
         {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
         {% endfor %}
       </ul>
     </div>
@@ -34,7 +34,7 @@
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="submit">
+      <input type="submit" value="Изменить">
     </form>
   </div>
 {% endblock content %}

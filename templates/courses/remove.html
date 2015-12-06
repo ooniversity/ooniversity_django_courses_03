@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Удаляем курс{% endblock title %}
+{% block title %}Remove course{% endblock title %}
 
 
 {% block nav_class_index %}passive{% endblock %}
@@ -25,8 +25,7 @@
     <h4>Удалить курс по {{ name }}</h4>
     <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Are you sure?">
+      <input type="submit" value="Удалить">
     </form>
   </div>
 {% endblock content %}
