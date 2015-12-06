@@ -13,6 +13,5 @@ class LessonModelForm(forms.ModelForm):
 
     class Meta:
         model = Lesson
-        #exclude = ['course']
         labels = {'order': 'ID'}
         fields = '__all__'
