@@ -12,11 +12,21 @@
   the development environments and other resources available, and take a look
   with practical exercises at test procedures and good code design.</p>
 </div>
+ {% if messages %}
+    {% for message in messages %}
+    <div class="jumbotron">
+      {{ message }}
+    </div>
+    {% endfor %}
+  {% endif %}
   <div class="row marketing">
     <div class="col-lg-6">
       <p><h2 class="text-center">Courses:</h2></p>
     </div>
     <div class="col-lg-6">
+      <p>
+        <a class="btn btn-primary btn-lg" href="{% url 'courses:add' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить новый курс</a>
+      </p>
       <table>
         <tr class="table_head dark_grey_row">
           <td>Course</td>
@@ -26,6 +36,10 @@
         <tr>
           <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
           <td><p>{{ course.short_description|title }}</p></td>
+          <td>
+            <p><a class="btn btn-primary btn-block" href="{% url 'courses:edit' course.id %}" role="button"><span class="glyphicon glyphicon-pencil"></span> Изменить</a></p>
+            <p><a class="btn btn-primary btn-block" href="{% url 'courses:remove' course.id %}" role="button"><span class="glyphicon glyphicon-remove"></span> Удалить</a></p>
+          </td>
         </tr>
         {% endfor %}
       </table>

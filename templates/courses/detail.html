@@ -6,13 +6,24 @@
   <div class="text-center">
     <h1>{{ course.name }}</h1>
   </div>
+  {% if messages %}
+    {% for message in messages %}
+    <div class="jumbotron">
+      {{ message }}
+    </div>
+    {% endfor %}
+  {% endif %}
   <p class="lead">{{ course.description|truncatechars:32 }}</p>
 </div>
 <h2 class="text-center">Teachers</h2>
 {% include 'include/courses_include.html' with teacher_about='Coach' teacher=coach %}
 {% include 'include/courses_include.html' with teacher_about='Assistant' teacher=assistant %}
+
 <h2 class="text-center">Course lessons</h2>
 <p>
+  <p>
+    <a class="btn btn-primary btn-lg" href="{% url 'courses:add-lesson' course.id %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить занятие</a>
+  </p>
   <table>
       <tr class="table_head dark_grey_row">
         <td>#</td>
