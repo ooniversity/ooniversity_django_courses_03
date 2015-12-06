@@ -3,7 +3,7 @@
 from django.shortcuts import render, redirect
 from students.models import Student
 from courses.models import Course
-from students.forms import StudentModelForm
+import students.forms
 from django.contrib import messages
 
 
@@ -26,15 +26,16 @@ def detail(request, student_id):
 
 def create(request):
     if request.method == 'POST':
-        form = StudentModelForm(request.POST)
+        form = students.forms.StudentModelForm(request.POST)
         if form.is_valid():
             form_content = form.cleaned_data
             form.save()
-            notification = "Student %s %s has been successfully added." % (form_content['name'].encode('utf-8'), form_content['surname'].encode('utf-8'))
+            # notification = "Student %s %s has been successfully added." % (form_content['name'], form_content['surname'])
+            notification = "test"
             messages.success(request, notification)
-            return redirect('students:list_view')
+        return redirect('students:list_view')
     else:
-        form = StudentModelForm()
+        form = students.forms.StudentModelForm()
 
     return render(request, 'students/add.html', {'form': form})
 
@@ -42,13 +43,13 @@ def create(request):
 def edit(request, student_id):
     student = Student.objects.get(id=student_id)
     if request.method == 'POST':
-        form = StudentModelForm(request.POST, instance=student)
+        form = students.forms.StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
-            messages.success(request, "Info on the student has been sucessfully changed.")
+            messages.success(request, "Info on the student has been successfully changed.")
             return render(request, 'students/edit.html', {'form': form})
-    else:
-        form = StudentModelForm(instance=student)
+
+    form = students.forms.StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
 
 
@@ -56,6 +57,6 @@ def remove(request, student_id):
     student = Student.objects.get(id=student_id)
     if request.method == "POST":
         student.delete()
-        messages.success(request, u"Info on %s %s has been sucessfully deleted." % (student.name, student.surname))
+        messages.success(request, u"Info on %s %s has been successfully deleted." % (student.name, student.surname))
         return redirect('students:list_view')
     return render(request, 'students/remove.html', {'student': student})
