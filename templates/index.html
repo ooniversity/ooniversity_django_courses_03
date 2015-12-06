@@ -31,6 +31,13 @@
         {% endfor %}
       </table>
     </div>
+    <br>
+    <a href="{% url 'courses:add' %}{{ course.id }}">
+      <b>
+        <button type="button">Добавить курс</button>
+      </b>
+    </a>
+
     </div>
     </div>
 {% endblock content %}

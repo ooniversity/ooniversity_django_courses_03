@@ -13,7 +13,7 @@ class Course(models.Model):
         return self.name
 
 class Lesson(models.Model):
-    """Course class"""
+    """Lesson class"""
     subject = models.CharField(max_length=255)
     description =  models.TextField()
     course = models.ForeignKey(Course)
