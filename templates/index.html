@@ -11,6 +11,13 @@
 
 
 {% block content %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
 <div class="container">
     <div class="jumbotron">
       <h1>Ooniversity </h1>
@@ -33,5 +40,7 @@
       </tbody>
     </table>
     </div>
+  <a href="{% url 'courses:add' %}"><button type="button" class="btn btn-default navbar-btn">Добавить курс</button></a>
   </div>
+
 {% endblock content %}
