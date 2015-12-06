@@ -26,8 +26,9 @@ def add(request):
     if request.method == "POST":
         form = CourseModelForm(request.POST)
         if form.is_valid():
-            course = form.save()
-            message = 'Course %s has been successfully added.' % form['name'].value()
+            course = form.cleaned_data
+            course_add = form.save()
+            message = 'Course %s has been successfully added.'  % course_add.name
             messages.success(request, message)
             return redirect('courses:index')
     else:
@@ -59,7 +60,7 @@ def remove(request, course_id):
         message = "Course %s has been deleted." % course.name
         course.delete()
         messages.success(request, message)
-        return redirect('courses:index')
+        return redirect('index')
     return render(request, 'courses/remove.html', context)
 
 
