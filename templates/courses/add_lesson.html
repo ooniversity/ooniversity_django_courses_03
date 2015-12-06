@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Add course{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h2 class="center">Добавить новое занятие</h2>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить">
+</form>
+{% endblock %}

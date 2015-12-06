@@ -4,3 +4,4 @@
 
 #pycharm config files
 *.xml
+/idea/*
