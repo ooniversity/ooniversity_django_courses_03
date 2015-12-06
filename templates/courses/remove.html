@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Delete course{% endblock %}
+
+{% block banner %}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col s12">
+            {% if messages %}
+                <div class="card-panel hoverable cyan">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+<h1>Remove course</h1>
+
+<form method="post">
+	{% csrf_token %}
+	{{ remove_message }}
+	<input type="submit" value="Удалить" />
+</form>
+{% endblock content %}
