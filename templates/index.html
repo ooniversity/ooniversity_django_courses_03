@@ -50,9 +50,9 @@
             <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
             <td>{{ course.short_description|title }}</td>
             <td>
-                <a href="{% url 'students:edit' course.id %}" class="btn btn-warning btn-xs" role="button">
+                <a href="{% url 'courses:edit' course.id %}" class="btn btn-warning btn-xs" role="button">
                     <span class="glyphicon glyphicon-pencil"></span> Изменить</a>
-                <a href="{% url 'students:remove' course.id%}" class="btn btn-danger btn-xs" role="button">
+                <a href="{% url 'courses:remove' course.id%}" class="btn btn-danger btn-xs" role="button">
                     <span class="glyphicon glyphicon-remove"></span> Удалить </a>
             </td>
         </tr>
