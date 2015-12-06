@@ -8,7 +8,8 @@
 
 
 {% block content %}
-    <div class="container" id='id4'>
+<div class="jumbotron">
+    <div class="container">
       {% if messages %}
       <ul class="messages">
           {% for message in messages %}
@@ -17,10 +18,11 @@
       </ul>
       {% endif %}			
       <h1>Редактирование данных студента</h1>
-			<form method='post'>
+			<form method="post">
         {% csrf_token %}
         {{student_form.as_p}}
         <input type="submit" value="Изменить" />
       </form>
     </div>
+</div>
 {% endblock content %}

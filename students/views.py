@@ -37,7 +37,7 @@ def edit(request, stud_id):
         student_form = StudentModelForm(request.POST, instance=student)
         if student_form.is_valid():
             student_form.save()
-            messages.success(request, "Info on the student has been sucessfully changed.")
+            messages.success(request, 'Info on the student has been successfully changed.')
     else:
         student_form = StudentModelForm(instance=student)
     return render(request, "students/edit.html", {'student_form':student_form})
