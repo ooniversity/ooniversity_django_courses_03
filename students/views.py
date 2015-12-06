@@ -29,7 +29,6 @@ def detail(request, student_id):
 
 
 def create(request):
-    context = {}
     if request.method == 'POST':
         form = StudentModelForm(request.POST)
         if form.is_valid():
