@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa: Добавление занятия{% endblock title%}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block content %}
+<div class="page-header">
+  <h2>Форма добавления нового занятия</h2>
+</div>
+<div class="form-group form-group-lg">
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Добавить</button>
+  </form>
+</div>
+{% endblock content %}

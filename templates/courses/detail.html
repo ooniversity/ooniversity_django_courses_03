@@ -11,6 +11,16 @@
 
 
 {% block content %}
+
+
+{% include "include/messages_include.html" %}
+
+
+<br>
+<a href="{% url 'courses:add-lesson' %}" class="btn btn-success" role="button">
+    <span class="glyphicon glyphicon-plus"></span> Добавить занятие</a>
+
+
 <div class="page-header">
     <h1>{{ course.name }}</h1>
 </div>
