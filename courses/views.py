@@ -41,12 +41,12 @@ def add(request):
 
 def remove(request, course_id):
     course = Course.objects.get(id=course_id)
-    message = u"%s" % course.name
+    remove_message = "Warning, the course %s will be removed " % course.name
     if request.method == 'POST':
         course.delete()
         messages.success(request, "Course %s has been deleted." % course.name)
         return redirect('index')
-    context = {'message': message}
+    context = {'remove_message': remove_message}
     context.update(csrf(request))
     return render_to_response('courses/remove.html', context, context_instance=RequestContext(request))
 
