@@ -3,12 +3,25 @@
 {% block title %}Main{% endblock %}
 
 {% block content %}
+{% if messages %}
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <ul class="messages">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+      </ul>
+    </div>        
+{% endif %}
 <div class="jumbotron container">
     <h2>Description  of ItBursa courses</h2>
     <p>Some description of ItBursa courses</p>
   </div>
   <div class="jumbotron container">
-    <h2>Description  of ItBursa courses</h2>
+    <h2>Courses in ItBursa</h2>
+    <a href="{% url 'courses:add' %}">
+      <button type="button">
+      <span class="glyphicon glyphicon-plus"></span> Add course </button>    
+    </a>
     <table class="table ">
       <thead>
         <tr>
@@ -21,6 +34,14 @@
         <tr>
           <td><a href={% url 'courses:detail' course.id %}>{{ course.name|upper }}</a></td>
           <td>{{ course.short_description|title }}</td>
+          <td>    
+            <a href={% url 'courses:edit' course.id %}>
+              <button type="button"><span class="glyphicon glyphicon-pencil"></span> Edit </button>    
+            </a>  
+            <a href={% url 'courses:remove' course.id %}>
+              <button type="button"><span class="glyphicon glyphicon-remove-sign"></span> Delete </button>    
+            </a>  
+          </td>
         </tr>
       {% endfor %}
       </tbody>
