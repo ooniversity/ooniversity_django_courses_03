@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from django.template.defaulttags import register
 from quadratic.forms import QuadraticForm
 
 
