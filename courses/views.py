@@ -13,7 +13,7 @@ def add(request):
 		form = CourseModelForm(request.POST)
 		if form.is_valid():
 			course = form.save()
-			messages.success(request, "Course %s has been succesfully added." % course.name)
+			messages.success(request, "Course %s has been successfully added." % course.name)
 		return redirect('index')
 	form = CourseModelForm()
 	return render(request, 'courses/add.html', {'form': form})
@@ -25,7 +25,7 @@ def edit(request, pk):
         if form.is_valid():
             course = form.save()
             messages.success(request, "The changes have been saved.")
-            return render(request, 'courses/edit.html', {'form': form})
+            return redirect('courses:edit', course.id)
 
     form = CourseModelForm(instance=course)
     return render(request, 'courses/edit.html', {'form': form})
