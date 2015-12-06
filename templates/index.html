@@ -43,6 +43,7 @@
       </table>
     </div>
     <br>
+    {% include "include/message_include.html" %}
     <a href="{% url 'courses:add' %}{{ course.id }}">
       <b>
         <button type="button">Добавить курс</button>
