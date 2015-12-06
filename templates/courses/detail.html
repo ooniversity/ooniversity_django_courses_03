@@ -17,6 +17,7 @@
       <div class="col-md-12">
       {% include "include/instructors_include.html" with block_title="Учитель" instructor=coach %}
       {% include "include/instructors_include.html" with block_title="Ассистент" instructor=assistant %}  
+      <a href="{% url 'courses:add_lesson' course.id %}"><button class="glyphicon glyphicon-plus btn btn-success">Добавить занятие</button></a>
       </div>
     </div>
   <h3>План Курса</h3>
