@@ -30,7 +30,8 @@ def create(request):
         if form.is_valid():
             form_content = form.cleaned_data
             form.save()
-            notification = "Student %s %s has been successfully added." % (form_content['name'], form_content['surname'])
+            # notification = "Student %s %s has been successfully added." % (form_content['name'], form_content['surname'])
+            notification = "test"
             messages.success(request, notification)
         return redirect('students:list_view')
     else:
