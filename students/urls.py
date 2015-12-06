@@ -8,4 +8,5 @@ urlpatterns = patterns('',
   url(r'^edit/(?P<pk>\d+)/$', views.edit, name='edit'),
   url(r'^remove/(?P<pk>\d+)/$', views.remove, name='remove'),
   
+  
 )

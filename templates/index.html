@@ -19,6 +19,13 @@
     <h1>Выбирите курс для обучения</h1>
     <div class="col-md-10 col-md-push-1">
       <div class="table-responsive">
+        {% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}
         <table class="table" border=2>
          
             <tr>
@@ -26,6 +33,8 @@
               </th>
               <th>Описание
               </th>
+              <th></th>
+              <th></th>
             </tr>
             {% for cour in courses %}
             <tr>
@@ -33,10 +42,23 @@
               </td>
               <td>{{ cour.short_description|title }}
               </td>
-            </tr>
+            
+            <td>
+                  <a href="{% url 'courses:edit' cour.id %}">
+                    <button class="glyphicon glyphicon-pencil btn btn-success">Изменить</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="{% url 'courses:remove' cour.id %}">
+                    <button class="glyphicon glyphicon-remove btn btn-success">Удалить</button>
+                  </a>
+                </td>
+              </tr>
             {% endfor %}
           
         </table>
       </div>
+         <a href="{% url 'courses:add' %}"><button class="glyphicon glyphicon-plus btn btn-success">Добавить новый курс</button></a>
+
     </div>
 {% endblock content %}
