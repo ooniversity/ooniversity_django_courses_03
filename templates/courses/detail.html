@@ -60,11 +60,13 @@
 <br>
 {% endif %}
 
-
+<!--
 <br>
 <a href="{% url 'courses:add_lesson' course.id %}" class="btn btn-success" role="button">
     <span class="glyphicon glyphicon-plus"></span> Добавить занятие</a>
+-->
 
+<a href="{% url 'courses:add_lesson' course.id %}">Добавить занятие</a>
 
 <h2>План курса</h2>
 <div class="table-responsive">
