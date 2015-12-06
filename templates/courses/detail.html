@@ -51,7 +51,23 @@
             </tr>
           </tbody>
         </table>
-        <h2 class="descr">План курса</h2>
+        
+        <div class="row">
+          <h2 class="descr">План курса</h2>
+          <hr>
+          {% if messages %}
+            <div class="alert alert-success" role="alert">
+              {% for message in messages %}
+                {{ message }}
+              {% endfor %}
+            </div>
+          {% endif %}
+          <a href="{% url 'courses:add-lesson' course.id %}">
+            <button type="button" class="btn btn-primary btn-sm">
+              <span class="glyphicon glyphicon-plus"></span> Добавить тему
+            </button>
+          </a>
+        </div>
         <table class="table table-striped table table-bordered">
           <thead>
             <tr>
