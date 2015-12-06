@@ -1,6 +1,5 @@
-from django.conf.urls import patterns, include, url
-from .views import *
+from django.conf.urls import patterns, url
+import views
 
-urlpatterns = patterns('',
-    url(r'^(?P<coach_id>\d+)/$', detail, name='detail'),
-)
+
+urlpatterns = patterns('',url(r'(\d{1})/$', views.detail, name='detail'),)
