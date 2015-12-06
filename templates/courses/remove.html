@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{ course.name }} Remove Form{% endblock title %}
+
+
+{% block content %}
+{% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}
+    <div class="jumbotron">
+  <div class="container">
+    <div class="col-md-12">
+      <h3>Курс {{ message }} будет удален.</h3>
+      <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
