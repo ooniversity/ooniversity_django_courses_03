@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Edit{% endblock title %}
+{% block active_main %}active{% endblock active_main %}
+{% block content %}
+    <div class="container students">
+    <div class="page-header">
+      <h1 class="descr">Редактирование данных курса</h1>
+            <div class="jumbotron">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="jumbotron">
+                {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Изменить" class="btn btn-primary"/>
+                </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
