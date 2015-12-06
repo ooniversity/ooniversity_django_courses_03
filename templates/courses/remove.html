@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Delete course{% endblock title %}
+{% block nav_students %}class="active"{% endblock %}
+{% block content %}
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+            <h2>Delete courses</h2>
+            <form method="post">
+            {% csrf_token %}
+            <h2>Please confirm that the course {{ cd }} will be removed </h2>
+            <br>
+            <input type="submit" value="Delete" />
+            </form>
+            </div>
+        </div>
+    </header>
+{% endblock content %}
