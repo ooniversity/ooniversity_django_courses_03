@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load i18n %}
 
 
 {% load staticfiles %}
@@ -12,11 +11,12 @@
 
 
 {% block content %}
-      <p>Квадратное уравнение a*x*x + b*x + c = 0</p><br>{% blocktrans %}{% endblocktrans %}
-      
+      <p>Квадратное уравнение a*x*x + b*x + c = 0</p><br>
+
       <form method="get">
         {{ form.as_p }}
         <input type="submit" class="btn btn-primary btn-sm" value="Calculate">
       </form>
+      <hr>
       <p>{{ discr }}<br>{{ res }}</p>
 {% endblock content %}

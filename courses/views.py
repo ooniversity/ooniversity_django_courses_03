@@ -27,8 +27,8 @@ def add(request):
     if request.method == 'POST':
         form = CourseModelForm(request.POST)
         if form.is_valid():
-            course_add = form.save()
-            messages.success(request, 'Course {0} has been successfully added.'.format(course_add.name))
+            course = form.save()
+            messages.success(request, 'Course {0} has been successfully added.'.format(course.name))
             return redirect('index')
     else:
         form = CourseModelForm()
