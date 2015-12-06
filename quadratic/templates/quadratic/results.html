@@ -5,9 +5,9 @@
     <title>results</title>
 
 </head>
-<body style="background-image: none;" > 
+<body style="background-image: none;" >
     <p>Квадратное уравнение a*x*x + b*x +c = 0</p>
-    <form method="post">
+    <form method="get">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Решить">

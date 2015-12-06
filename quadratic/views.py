@@ -10,7 +10,7 @@ def quadratic_results(request):
     discr = ''
     res = ''
 
-    if request.method == "POST":
+    if request.method == "GET":
         form = QuadraticForm(request.POST)
         if form.is_valid():
             a = request.POST['a']
