@@ -18,10 +18,10 @@ def list_view(request):
                   {'students': result})
 
 
-def detail(request, pk):
+def detail(request, request_id):
     result = {
-      'student': Student.objects.get(id=pk),
-      'course': Course.objects.get(id=pk)
+      'student': Student.objects.get(id=request_id),
+      'course': Course.objects.get(id=request_id)
       }
     return render(request, os.path.join('students', 'detail.html'), result)
 
@@ -38,15 +38,15 @@ def create(request):
     else:
         form = StudentModelForm()
 
-    context = {'form': form}
+    data = {'form': form}
 
     return render(request,
                 os.path.join('students', 'add.html'),
-                context)
+                data)
 
 
-def edit(request, pk):
-    student = Student.objects.get(id=pk)
+def edit(request, request_id):
+    student = Student.objects.get(id=request_id)
     if request.method == 'POST':
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
@@ -55,14 +55,14 @@ def edit(request, pk):
     else:
         form = StudentModelForm(instance=student)
 
-    context = {'form': form}
+    data = {'form': form}
     return render(request,
         os.path.join('students', 'edit.html'),
-        context)
+        data)
 
 
-def remove(request, pk):
-    student = Student.objects.get(id=pk)
+def remove(request, request_id):
+    student = Student.objects.get(id=request_id)
     if request.method == 'POST':
         student.delete()
         messages.success(request,
@@ -71,7 +71,7 @@ def remove(request, pk):
 
     message = 'Are you sure you want to delete account %s %s?' % (student.name, student.surname)
 
-    context = {'err_message': message}
+    data = {'err_message': message}
     return render(request,
             os.path.join('students', 'remove.html'),
-            context)
+            data)

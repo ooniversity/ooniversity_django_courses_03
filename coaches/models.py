@@ -22,8 +22,8 @@ class Coach(models.Model):
         return self.user.last_name
 
     def full_name(self):
-		full_name = '%s %s' % (self.user.first_name, self.user.last_name)
-		return full_name
+        full_name = '%s %s' % (self.user.first_name, self.user.last_name)
+        return full_name
 
     def email(self):
-		return self.user.email
+        return self.user.email
