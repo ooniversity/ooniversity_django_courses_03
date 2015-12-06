@@ -9,6 +9,15 @@
 
         <p class="text-primarycolor">Ближайшие доступные курсы</p>
     </div>
+    <div class="row">
+        <div class="col s12">
+            <br>
+            <a href="{% url 'courses:add' %}" class="waves-effect waves-light btn green darken-1">
+                <i class="material-icons left">add</i>
+                Add new course
+            </a>
+        </div>
+    </div>
     <div class="col s12 l12">
 
         <table class="responsive-table bordered centered striped highlight">
@@ -25,6 +34,17 @@
                         <a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a>
                     </td>
                     <td>{{ course.short_description|title }}</td>
+                    <td>
+                        <a href="{% url 'courses:edit' course.id %}" class="waves-effect waves-light btn">
+{#                            <i class="material-icons left">mode_edit</i>#}
+                            edit
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'courses:remove' course.id %}" class="waves-effect waves-light btn red">
+                            <i class="material-icons">delete</i>
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
