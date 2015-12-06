@@ -4,7 +4,7 @@ from courses.models import Course
 
 # Create your models here.
 class Student(models.Model):
-    # class Meta():
+    # class Meta:
     #    db_table = 'student'
 
     name = models.CharField(max_length=255)
@@ -25,4 +25,3 @@ class Student(models.Model):
     def __str__(self):
         # return self.name
         return '{0} {1}'.format(self.name, self.surname)
-

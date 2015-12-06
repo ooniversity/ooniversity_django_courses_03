@@ -10,16 +10,17 @@
 {% block navbar_i1 %}active{% endblock navbar_i1 %}
 
 
-{% block jumbotron %}{% endblock jumbotron %}
+{% block jumbotron %}
+
+
+{% include "include/course_include.html" %}
+
+
+{% endblock jumbotron %}
+
 
 
 {% block content %}
-
-
-        {% include "include/alert_include.html" %}
-
-
-        {% include "include/course_include.html" %}
         <h2 class="course">{{ course.name }} course details</h2>
         <p class="course">{{ course.description|truncatechars:32 }}</p>
         <h2 class="course">Teachers</h2>
@@ -84,7 +85,4 @@
               </table>
             </div>
           </div>
-
-
-
 {% endblock content%}
