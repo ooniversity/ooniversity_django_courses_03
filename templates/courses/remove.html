@@ -11,7 +11,7 @@
 <div class="jumbotron">
   <div class="container"
     <h1>Курс {{name}} будет удален</h1>
-    <form method='post'>
+    <form method="post">
       {% csrf_token %}
       <input type="submit" value="Удалить" />
     </form>
