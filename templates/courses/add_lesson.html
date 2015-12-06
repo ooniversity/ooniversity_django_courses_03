@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block title %}Add lesson{% endblock title %}
+
+
+{% block content %}
+<h2>New lesson creation</h2>
+<form method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Add" />
+</form>
+{% endblock content %}
