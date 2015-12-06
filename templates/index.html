@@ -23,14 +23,19 @@
 
 
 {% block content %}
-        <h1 class="course">It's time to choise.</h1>
+        <a class="btn btn-primary btn-sm" href="{% url 'courses:add' %}" role="button">
+            <span class="glyphicon glyphicon-plus"></span> Add new course
+        </a>
+        <h1 class="course">Courses list.</h1>
         <div class="bs-example" data-example-id="simple-table">
-          <table class="table table-striped table table-bordered">
-            <caption>Courses list.</caption>
+          <table class="table table-striped table">
+            <caption>It's time to choise.</caption>
             <thead>
               <tr>
                 <th>Course</th>
                 <th>Description</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -41,6 +46,14 @@
                   <a class="table" href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a>
                 </th>
                 <td>{{ course.short_description|title }}</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="{% url 'courses:edit' course.id %}" role="button">
+                    <span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="{% url 'courses:remove' course.id %}" role="button">
+                    <span class="glyphicon glyphicon-remove"></span> Delte</a>
+                </td>
               </tr>
               {% endfor %}
 
