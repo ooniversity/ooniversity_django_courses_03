@@ -17,10 +17,11 @@
 <form method="get">
   {% csrf_token %}
   {{ form }}
-  <input type="submit" value="OK" />
+  <input type="submit" value="решить" />
 </form>
 {% if discr_msg %}
-  Дискриминант: {{ discr }}
+  <br>Дискриминант: {{ discr }}
+  <br>
   {{ discr_msg }}
 {% endif %}
 

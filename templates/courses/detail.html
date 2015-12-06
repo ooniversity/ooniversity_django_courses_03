@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}iBursa {{ course.name }}{% endblock title %}
+
 
 {% block content %}
     <div class="jumbotron">
@@ -29,6 +33,11 @@
       </table>
     </div>
     <br>
+
+    <a href="{% url 'courses:add-lesson' course.id %}"><b>
+    <button type="button">Добавить тему</button>
+    </b></a>
+
     <h2>Преподаватели:</h2>
     <div class="StudentTable">
       <div class="StudentTable">

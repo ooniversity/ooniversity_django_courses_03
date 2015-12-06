@@ -1,15 +1,12 @@
 {% extends "base.html" %}
 
 
-{% block title %}iBursa Добавить студента{% endblock title %}
-
-
-{% block nav_students %}class="active"{% endblock %}
+{% block title %}iBursa Добавить курс{% endblock title %}
 
 
 {% block content %}
 <div class="jumbotron">
-<h2>New student creation</h2>
+<h2>New course creation</h2>
 <form method="post">
     {% csrf_token %}
     <table>
