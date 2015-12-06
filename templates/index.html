@@ -35,12 +35,15 @@
           <tr>
           <td><a href="{% url 'courses:detail' pk=item.id %}">{{ item|upper }}</a></td>
           <td>{{ item.short_description|title }}</td>
+          <td><a href="{% url 'courses:edit' pk=item.id %}"><button type="button" class="btn btn-primary">Изменить</button></a></td>
+          <td><a href="{% url 'courses:remove' pk=item.id %}"><button type="button" class="btn btn-danger">Удалить</button></a></td>
+
           </tr> 
           {% endfor %}
       </tbody>
     </table>
     </div>
-  <a href="{% url 'courses:add' %}"><button type="button" class="btn btn-default navbar-btn">Добавить курс</button></a>
+  <a href="{% url 'courses:add' %}"><button type="button" class="btn btn-success">Добавить курс</button></a>
   </div>
 
 {% endblock content %}
