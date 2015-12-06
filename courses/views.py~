@@ -8,7 +8,7 @@ def detail(request, course_id):
 	return render(request, 'courses/detail.html', {'course': Course.objects.get(id = course_id)})
 
 def add(request):
-	if request.method == 'POST':
+	if request.method=='POST':
 		form = CourseModelForm(request.POST)
 		if form.is_valid():
 			application = form.save()
@@ -20,7 +20,7 @@ def add(request):
 	return render(request, 'courses/add.html', {'form': form})
 
 def add_lesson(request):
-	if request.method == 'POST':
+	if request.method=='POST':
 		form = LessonModelForm(request.POST)
 		if form.is_valid():
 			application = form.save()
@@ -33,20 +33,21 @@ def add_lesson(request):
 	return render(request, 'courses/add_lesson.html', {'form': form})
 
 
-def edit(request, course_id):
-	application = Course.objects.get(id=course_id)
-	if request.method == 'POST':
+def edit(request, pk):
+	application = Course.objects.get(id=pk)
+	if request.method=='POST':
 		form = CourseModelForm(request.POST, instance=application)
 		if form.is_valid():
 			application = form.save()
 			messages.success(request, u'The changes have been saved.')
+		return redirect('courses:edit',  application.id)
 	else:
 		form = CourseModelForm(instance=application)
 	return render(request, 'courses/edit.html', {'form': form})
 
 def remove(request, pk):
     application = Course.objects.get(pk=pk)
-    if request.method == 'POST':
+    if request.method=='POST':
 		application.delete()
 		mess = u'Course {} has been deleted.' .format(application.name)
 		messages.success(request, mess)
