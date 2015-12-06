@@ -10,11 +10,12 @@ def detail(request, course_id):
 
 def add(request):
     print request.POST, request
-    if request.POST:
+    if request.method == 'POST':
         form = CourseModelForm(request.POST)
         if form.is_valid():
             new_course = form.save()
-            messages.success(request, 'Course %s has been successfuly added.' % (new_course.name))
+            mes = u'Course %s has been successfuly added.' % (new_course.name)
+            messages.success(request, mes)
             return redirect ( '/' )
     else:
         form = CourseModelForm()
@@ -22,11 +23,12 @@ def add(request):
 
 def edit(request, course_id):
     our_course = Course.objects.get(id=course_id)
-    if request.POST:
+    if request.method == 'POST':
         form = CourseModelForm(request.POST,instance=our_course)
         if form.is_valid():
             new_course = form.save()
-            messages.success(request, 'The changes have been saved.')
+            mes = u'The changes have been saved.'
+            messages.success(request, mes)
             return redirect('courses:edit', new_course.id)
     else:
         form = CourseModelForm(instance=our_course)
@@ -34,20 +36,21 @@ def edit(request, course_id):
 
 def remove(request, course_id):
     our_course = Course.objects.get(id=course_id)
-    form = None
     name = our_course.name
-    if request.POST:
+    if request.method == 'POST':
         our_course.delete()
-        messages.success(request, 'Course %s has been deleted.' % (our_course.name))
+        mes = u'Course %s has been deleted.' % (our_course.name)
+        messages.success(request, mes)
         return redirect('/')
     return render(request, 'courses/remove.html', {'form': form, 'name': name})
 
 def add_lesson(request, course_id):
-    if request.POST:
+    if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
             new_lesson = form.save()
-            messages.success(request, 'The changes have been saved.')
+            mes = u"Lesson %s has been successfuly added." % (new_lesson.subject)
+            messages.success(request, mes)
             return redirect('courses:detail', new_lesson.course.id)
     else:
         form = LessonModelForm(initial={'course':course_id})
