@@ -20,5 +20,8 @@ class Coach(models.Model):
     def get_email(self):
         return self.user.email
 
+    def get_is_staff(self):
+        return self.is_staff
+
     def __unicode__(self):
         return self.user.first_name
