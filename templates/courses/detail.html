@@ -36,6 +36,15 @@
 
 
     </div>
+    {% if messages %}
+    <div class="container-fluid">
+      <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
     <div class="container-fluid">
       <h3>План курса</h3>
       <a href="{% url 'courses:add-lesson' course.id %}">
