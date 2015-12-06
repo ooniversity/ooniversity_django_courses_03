@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa: Удаление курса{% endblock title%}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block content %}
+
+
+{% include "include/messages_include.html" %}
+
+
+<div class="page-header">
+    <h2>Удаление {{ course.name }}</h2>
+</div>
+
+<div class="form-group form-group-lg">
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+    </form>
+</div>
+{% endblock content %}
