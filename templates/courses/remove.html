@@ -5,10 +5,10 @@
 
 
 {% block content %}
+<h2>Please confirm that the course {{ cd }} will be removed</h2>
+<br>
 <form method="post">
     {% csrf_token %}
-    <h2>Please confirm that the course {{ cd }} will be removed </h2>
-    <br>
     <input type="submit" value="Delete" />
 </form>
 {% endblock content %}
