@@ -1,58 +1,75 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>Course detail</title>
+<title>Course detail</title>
 {% endblock %}
 
 {% block top_menu %}
-    <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li ><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
-    </ul>
-    {% include "include/search_include.html" %}
+<ul class="nav navbar-nav">
+    <li class="active"><a href="{% url 'index' %}">Main</a></li>
+    <li><a href="{% url 'contact' %}">Contacts</a></li>
+    <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
+</ul>
+{% include "include/search_include.html" %}
 {% endblock %}
 
 {% block content %}
-        <div class="jumbotron  ">
-            <h2 class="title">Course: {{ course }}</h2>
-            <h3>Description</h3>
+<div class="jumbotron  ">
+    <h2 class="title">Course: {{ course }}</h2>
 
-            <p>{{ course.description|truncatechars:35 }}</p>
-            <br><br>
+    <h3>Description</h3>
 
-            <!--Teachers list-->
+    <p>{{ course.description|truncatechars:35 }}</p>
+    <br><br>
 
-            <h3><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Teacher</h3>
-            <table class="table opct-img">
-                <tr><td>
-                    <a href="{% url 'coaches:detail' coach_id=course.coach.user.id %}">{{ course.coach.user.first_name}} {{ course.coach.user.last_name}}</a></td></tr>
-                <tr><td>{{ course.coach.description }}</td></tr>
-            </table>
+    <!--Teachers list-->
 
-            <h3><span class="glyphicon glyphicon-user" aria-hidden="true" style="margin-right: 4px;"></span>Assistant</h3>
-            <table class="table opct-img">
-                <tr><td>
-                    <a href="{% url 'coaches:detail' coach_id=course.assistant.user.id %}">{{ course.assistant.user.first_name}} {{ course.assistant.user.last_name}}</a></td></tr>
-                <tr><td>{{ course.assistant.description }}</td></tr>
-            </table><br><br>
+    <h3><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Teacher</h3>
+    <table class="table opct-img">
+        <tr>
+            <td>
+                <a href="{% url 'coaches:detail' coach_id=course.coach.user.id %}">{{ course.coach.user.first_name}} {{course.coach.user.last_name}}</a></td>
+        </tr>
+        <tr>
+            <td>{{ course.coach.description }}</td>
+        </tr>
+    </table>
 
-            <!--Lessons plane-->
+    <h3><span class="glyphicon glyphicon-user" aria-hidden="true" style="margin-right: 4px;"></span>Assistant</h3>
+    <table class="table opct-img">
+        <tr>
+            <td>
+                <a href="{% url 'coaches:detail' coach_id=course.assistant.user.id %}">{{course.assistant.user.first_name}} {{ course.assistant.user.last_name}}</a></td>
+        </tr>
+        <tr>
+            <td>{{ course.assistant.description }}</td>
+        </tr>
+    </table>
+    <br><br>
 
-            <h3><span class="glyphicon glyphicon-list" aria-hidden="true" style="margin-right: 4px;"></span>Courses Lessons Plane</h3>
-             <table class="table opct-img">
-                <tr class="dark">
-                    <th>#</th>
-                    <th>Them</th>
-                    <th>Description</th>
-                </tr>
-                {% for lesson in lessons_list %}
-                    <tr>
-                        <td>{{ lesson.id}}</td>
-                        <td style="min-width: 100px;"><b>{{ lesson.subject }}</b></td>
-                        <td>{{ lesson.description }}</td>
-                    </tr>
-                {% endfor %}
-              </table>
-        </div>
+    <!--Lessons plane-->
+
+    <p>
+        <a class=" btn btn-primary btn " href="{% url 'courses:add_lesson' pk=course.id %}" role="button">
+            <span class="glyphicon glyphicon-plus padsingtitle " aria-hidden="true"></span> Add new course
+        </a>
+    </p>
+
+    <h3><span class="glyphicon glyphicon-list" aria-hidden="true" style="margin-right: 4px;"></span>Courses Lessons
+        Plane</h3>
+    <table class="table opct-img">
+        <tr class="dark">
+            <th>#</th>
+            <th>Them</th>
+            <th>Description</th>
+        </tr>
+        {% for lesson in lessons_list %}
+        <tr>
+            <td>{{ lesson.id}}</td>
+            <td style="min-width: 100px;"><b>{{ lesson.subject }}</b></td>
+            <td>{{ lesson.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}
