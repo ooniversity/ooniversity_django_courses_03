@@ -8,12 +8,14 @@
 
 
 {% block content %}
-    <div class="container" id='id4'>
+<div class="jumbotron">
+    <div class="container">
       <h1>Создание нового студена</h1>
-      <form method='post'>
+      <form method="post">
         {% csrf_token %}
-        {{student_form.as_p}}
+        {{ student_form.as_p }}
         <input type="submit" value="Создать" />
       </form>
     </div>
+</div>
 {% endblock content %}
