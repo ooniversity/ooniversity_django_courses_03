@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Lesson add</title>
+{% endblock %}
+
+{% block top_menu %}
+<ul class="nav navbar-nav">
+    <li><a href="{% url 'index' %}">Main</a></li>
+    <li><a href="{% url 'contact' %}">Contacts</a></li>
+    <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
+</ul>
+{% include "include/search_include.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron ">
+    <h3><span class="glyphicon glyphicon-plus padsingtitle" aria-hidden="true"></span>Add Lesson</h3>
+
+    <p></p>
+
+    <form method="post" style="" class="add_form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p><input class=" btn btn-primary btn-lg " type="submit" value="Submit"></p>
+    </form>
+</div>
+{% endblock %}

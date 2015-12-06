@@ -1,47 +1,83 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>Main</title>
+<title>Main</title>
 {% endblock %}
 
 {% block top_menu %}
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'index' %}">Main</a></li>
-        <li><a href="{% url 'contact' %}">Contacts</a></li>
-        <li ><a href="{% url 'students:list_view' %}">Students</a></li>
-    </ul>
-    {% include "include/search_include.html" %}
+<ul class="nav navbar-nav">
+    <li class="active"><a href="{% url 'index' %}">Main</a></li>
+    <li><a href="{% url 'contact' %}">Contacts</a></li>
+    <li><a href="{% url 'students:list_view' %}">Students</a></li>
+</ul>
+{% include "include/search_include.html" %}
 {% endblock %}
 
 {% block content %}
-        <div class="jumbotron  ">
-            <h2 class="title">Hello, PyBursa!</h2>
-            <h3>Description</h3>
+<div class="jumbotron  ">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="list-group-item list-group-item-success"
+            style="color: #EFEFEF;background-color: #3E8789;opacity: 0.5;">{{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum augue sit
-                amet justo efficitur bibendum. Curabitur lacus odio, luctus quis mauris ut,
-                finibus cursus nulla. Duis iaculis tortor ac nisl porttitor placerat.
-                Sed vel nisl convallis, rutrum felis eu, mollis ex. Curabitur pellentesque magna et
-                faucibus imperdiet. Quisque sed felis sem. Vestibulum elementum dui enim, non
-                maximus lacus condimentum sit amet. Cras pellentesque imperdiet sapien efficitur
-                varius."
-            </p>
+    <h2 class="title">Hello, PyBursa!</h2>
 
-            <!--Courses list-->
+    <h3>Description</h3>
 
-            <h3><span class="glyphicon glyphicon-list padsingtitle" aria-hidden="true" ></span>List of courses</h3>
-             <table class="table opct-img">
-                <tr class="dark">
-                    <th>Cours</th>
-                    <th>Description</th>
-                </tr>
-                {% for cours in courses_list %}
-                    <tr>
-                        <td><a href="{% url 'courses:course_detail' course_id=cours.id %}">{{ cours.name|upper }}</a></td>
-                        <td>{{ cours.short_description|title }}</td>
-                    </tr>
-                {% endfor %}
-              </table>
-        </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum augue sit
+        amet justo efficitur bibendum. Curabitur lacus odio, luctus quis mauris ut,
+        finibus cursus nulla. Duis iaculis tortor ac nisl porttitor placerat.
+        Sed vel nisl convallis, rutrum felis eu, mollis ex. Curabitur pellentesque magna et
+        faucibus imperdiet. Quisque sed felis sem. Vestibulum elementum dui enim, non
+        maximus lacus condimentum sit amet. Cras pellentesque imperdiet sapien efficitur
+        varius."
+    </p>
+
+    <!--Courses list-->
+    <br>
+
+    <p>
+        <a class=" btn btn-primary btn " href="{% url 'courses:add' %}" role="button">
+            <span class="glyphicon glyphicon-plus padsingtitle " aria-hidden="true"></span> Add new course
+        </a>
+    </p>
+
+    <h3><span class="glyphicon glyphicon-list padsingtitle" aria-hidden="true"></span>List of courses</h3>
+    <table class="table opct-img">
+        <tr class="dark">
+            <th>Cours</th>
+            <th>Description</th>
+            <th>Actions</th>
+            <th></th>
+        </tr>
+        {% for cours in courses_list %}
+        <tr>
+            <td><a href="{% url 'courses:course_detail' course_id=cours.id %}">{{ cours.name|upper }}</a></td>
+            <td>{{ cours.short_description|title }}</td>
+            <td>
+                <a class=" btn btn-primary btn textgray_light"
+                   href="{% url 'courses:edit' pk=cours.id %}" role="button">
+                                <span class="glyphicon glyphicon-pencil padsingtitle textgray_light"
+                                      aria-hidden="true"></span>
+                    Изменить
+                </a>
+            </td>
+            <td>
+                <a class=" btn btn-primary btn textgray_light"
+                   href="{% url 'courses:remove' pk=cours.id %}" role="button">
+                                <span class="glyphicon glyphicon-remove padsingtitle textgray_light"
+                                      aria-hidden="true"></span>
+                    Удалить
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}
 
