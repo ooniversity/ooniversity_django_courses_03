@@ -4,8 +4,6 @@ from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
 
-
-
 def detail(request, id):
     course = Course.objects.get(id=id)
     lessons = course.lesson_set.all()

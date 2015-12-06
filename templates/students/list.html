@@ -11,8 +11,17 @@
 
 
 {% block content %}
-
-
+{% if messages %}
+    {% for message in messages %}
+    <div class="jumbotron">
+      {{ message }}
+    </div>
+    {% endfor %}
+  {% endif %}
+<a href="{% url 'students:add' %}"
+  <button class="btn btn-default btn-lg dropdown-toggle" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true">Добавить нового студента</span>
+  </button>
+</a>
 <h1>Список студентов</h1>  
 <table class="table1">
   <tr>
@@ -27,8 +36,14 @@
     <td>{{ student.address }}</td>
     <td>{{ student.skype }}</td>
     <td>{% for course in student.courses.all %}                
-     <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</p>
+    <p><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</p>
     {% endfor %}</td>
+    <td><a href="{% url 'students:edit' student.id %}"
+  <button class="btn btn-default btn-sm dropdown-toggle" type="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Изменить</span>
+  </button></td>
+    <td><a href="{% url 'students:remove' student.id %}"
+  <button class="btn btn-default btn-sm dropdown-toggle"type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true">Удалить</span>
+  </button></td>
   </tr>  
   {% endfor %}
   </table>
