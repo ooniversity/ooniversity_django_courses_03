@@ -3,8 +3,8 @@
 
 {% block title %}Список всех доступных курсов{% endblock %}
 
-{% block content %}
-    <div class="row">
+{% block messages %}
+<div class="row">
         <div class="col s12">
             {% if messages %}
                 <div class="card-panel hoverable cyan">
@@ -15,6 +15,9 @@
             {% endif %}
         </div>
     </div>
+{% endblock %}
+
+{% block content %}
     <div class="col s12">
         <h5 class="text-primarycolor">Спеши!!!</h5>
 
