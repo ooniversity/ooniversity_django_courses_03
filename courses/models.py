@@ -27,8 +27,8 @@ class Course(models.Model):
 
 
 class Lesson(models.Model):
-    # class Meta():
-    #    db_table = 'lesson'
+    class Meta:
+        db_table = 'lesson'
 
     subject = models.CharField(max_length=255)
     description = models.TextField()
