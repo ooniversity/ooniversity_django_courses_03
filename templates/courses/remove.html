@@ -10,18 +10,10 @@
 {% block navbar_i1 %}active{% endblock navbar_i1 %}
 
 
-{% block jumbotron %}{% endblock jumbotron %}
-
-
 {% block content %}
 
-        <div class="alert alert-danger" role=alert>
-            <strong>{{ notification }}</strong>
-        </div>
 
-        <form method="post">
-            {% csrf_token %}
-            <input type="submit" class="btn btn-danger btn-sm" value="Confirm">
-        </form>
+{% include "include/remove_include.html" %}
+
 
 {% endblock content%}

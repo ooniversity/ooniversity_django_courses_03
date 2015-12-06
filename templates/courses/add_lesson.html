@@ -10,13 +10,7 @@
 {% block navbar_i1 %}active{% endblock navbar_i1 %}
 
 
-{% block jumbotron %}{% endblock jumbotron %}
-
-
 {% block content %}
-
-
-{% include "include/alert_include.html" %}
 
 
 {% include "include/course_include.html" %}
@@ -26,5 +20,4 @@
             {{ form.as_p }}
             <input type="submit" value="Create" />
         </form>
-
 {% endblock content %}

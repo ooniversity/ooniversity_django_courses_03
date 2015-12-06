@@ -4,21 +4,16 @@
 {% load staticfiles %}
 
 
-{% block title %}Students{% endblock title%}
+{% block title %}Main{% endblock title %}
 
 
-{% block navbar_i3 %}active{% endblock navbar_i3 %}
+{% block navbar_i1 %}active{% endblock navbar_i1 %}
 
 
 {% block content %}
 
-        <div class="alert alert-danger" role=alert>
-            <strong>{{ notification }}</strong>
-        </div>
+    
+{% include "include/remove_include.html" %}
 
-        <form method="post">
-	    {% csrf_token %}
-        <input type="submit" class="btn btn-danger btn-sm" value="Confirm">
-      </form>
 
-{% endblock content %}
+{% endblock content%}

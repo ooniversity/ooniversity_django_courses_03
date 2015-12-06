@@ -64,7 +64,19 @@
       </div>
     </nav>
 
-    <div class="container theme-showcase" role="main">
+    <div class="container theme-showcase starter-regullar" role="main">
+    {% block notice %}
+    <!-- notice area -->
+    {% if messages %}
+        <div class="alert alert-success" role="alert">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+        </div>
+    {% endif %}
+
+
+    {% endblock notice %}
       <div class="jumbotron">
       {% block jumbotron %}{% endblock jumbotron %}
       </div><!-- /jumbotron -->
@@ -73,7 +85,6 @@
       
     </div><!-- /container -->
 
-    <br><br><br><br>
 
     <!-- Site footer -->
     <div class="navbar navbar-inverse navbar-fixed-bottom">
