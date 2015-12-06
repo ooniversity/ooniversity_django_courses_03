@@ -18,7 +18,7 @@ def detail(request, stud_id):
     return render(request, "students/detail.html", {'student': student})
 
 def create(request):
-    if request.POST:
+    if request.method == 'POST':
         student_form = StudentModelForm(request.POST)
         if student_form.is_valid():
             student_form.save()
@@ -33,12 +33,11 @@ def create(request):
 
 def edit(request, stud_id):
     student = Student.objects.get(id=stud_id)
-    if request.POST:
+    if request.method == 'POST':
         student_form = StudentModelForm(request.POST, instance=student)
         if student_form.is_valid():
             student_form.save()
             messages.success(request, "Info on the student has been sucessfully changed.")
-#            return redirect ('students:edit')
     else:
         student_form = StudentModelForm(instance=student)
     return render(request, "students/edit.html", {'student_form':student_form})
@@ -48,7 +47,7 @@ def remove(request, stud_id):
     student = Student.objects.get(id=stud_id)
     name = student.name
     surname = student.surname
-    if request.POST:
+    if request.method == 'POST':
             student.delete()
             my_message = "Студент {} {} был удален".format(name, surname)
             messages.success(request, my_message)
