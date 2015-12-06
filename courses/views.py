@@ -28,16 +28,17 @@ def edit(request, course_id):
             form.save()
             text = "The changes have been saved."
             messages.success(request, text)
+            return redirect('index')
     return render(request, 'courses/edit.html', {'form': form})
 
 def remove(request, course_id):
-    cd = Courses.objects.get(id=course_id)
+    cd = Course.objects.get(id=course_id)
     if request.POST:
-        text = "Course " + str(sd) + " has been deleted."
+        text = "Course " + str(cd) + " has been deleted."
         messages.success(request, text)
-        sd.delete()
-        return redirect('courses:list_view')
-    return render(request, 'index')
+        cd.delete()
+        return redirect('index')
+    return render(request, 'courses/remove.html', {'cd':cd})
 
 def add_lesson(request, course_id):
     if request.POST:
