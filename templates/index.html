@@ -6,16 +6,23 @@
     <h1 class="center">Welcome to PyBursa!!!</h1>
         <p class="center">It is a very powerful and good courses</p>
 </div>
+{% include 'include/message_include.html' %}
+<a href="{% url 'courses:add' %}">Добавить курс</a>
 <table class="table">
     <caption>Check the course from our list</caption>
     <tr>
         <th>Название</th>
         <th>Описание</th>
+        <th>Управление</th>
     </tr>
     {% for item in items %}
     <tr>
         <td> <a href="courses/{{ item.id }}"> {{ item.name|upper }} </a> </td>
         <td>{{ item.short_description|title }}</td>
+        <td>
+            <a href="{% url 'courses:edit' item.id %}">Изменить</a>
+            <a href="{% url 'courses:remove' item.id %}">Удалить</a>
+        </td>
     </tr>
     {% endfor %}
 </table>

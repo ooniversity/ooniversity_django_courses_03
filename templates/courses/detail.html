@@ -11,10 +11,13 @@
     </div>
 {% endblock %}
 {% block content %}
+    {% include 'include/message_include.html' %}
     <div class="jumbotron">
         <h1 class="center">{{ item.name }}</h1>
         <p class="center"> {{ item.description|truncatechars:32 }}</p>
     </div>
+
+    <a href={% url 'courses:add_lesson' item.id %}>Добавить занятие</a>
         <table class="table">
             <tr>
                 <th>#</th>
