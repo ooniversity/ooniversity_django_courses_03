@@ -8,32 +8,48 @@
 
 
 {% block main_content %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{ message }}</div>
+  {% endfor %}
+{% endif %}
 <div class="container">
 <div class="jumbotron">
   <h2>Web ooniversity</h2>
   <p> We specialize on 'popular' programming languages. <br> We preach max practice and strict system of home tasks.</p>
 </div>
 </div>
-
+<div class="container">
+  <button type="button" class="btn btn-info"><a href="{% url 'courses:add' %}"><span class="glyphicon glyphicon-pencil"></span> Добавить новый курс</a></button>
+</div>
+<br>
 <div class="container">
 <div class="table-responsive">
-  <table class="table table-hover table-bordered">
-    <tr>
+  <table class="table table-hover table-bordered table-striped">
+    <thead>
+    <tr class="info">
       <td> <b>CourseName<b> <td>
       <td> <b>Description<b> <td>
-    </tr>  
-    <tr class="info"> 
-      <td><a href="{% url 'courses:detail' 1 %}">{{ courses.0.name | upper }}</a><td>
-      <td> {{ courses.0.short_description | title }} <td>  
+      <td></td>
+      <td></td>    
     </tr>
-    <tr> 
-      <td><a href="{% url 'courses:detail' 2 %}"> {{ courses.1.name | upper }}</a><td>
-      <td> {{ courses.1.short_description | title }} <td>  
-    </tr>
-    <tr class="info"> 
-      <td><a href="{% url 'courses:detail' 3 %}"> {{ courses.2.name | upper }}</a><td>
-      <td> {{ courses.2.short_description | title }} <td>  
+    </thead>
+    <tbody>
+    {% for course in courses %}   
+    <tr>
+      <td><a href="{% url 'courses:detail' course.id %}">{{ course | upper }}</a><td>
+      <td> {{ course.short_description | title }} <td>  
+      <td>
+        <button type="button" class="btn btn-info"><a href="{% url 'courses:edit' course.id %}"><span class="glyphicon glyphicon-pencil"></span> Изменить</a></button>
+      </td>
+      <td>  
+        <button type="button" class="btn btn-info"><a href="{% url 'courses:remove' course.id %}"><span class="glyphicon glyphicon-remove"></span> Удалить</a></button>
+      </td>
     </tr>  
+    {% endfor %}
+    </tbody>
   </table>   
 </div>
 </div>

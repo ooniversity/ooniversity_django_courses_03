@@ -5,6 +5,13 @@
 
 
 {% block main_content %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{ message }}</div>
+  {% endfor %}
+{% endif %}
 <div class="container">
 <div class="jumbotron">
   <h2>{{ courses.name }}</h2>
@@ -63,7 +70,10 @@
   </table>
 </div>
 </div>
-
+<div class="container">
+  <button type="button" class="btn btn-info"><a href="{% url 'courses:add-lesson' courses.id %}"><span class="glyphicon glyphicon-pencil"></span> Добавить новый урок</a></button>
+</div>
+<br>
 <div class="container">
 <div class="table-responsive">
 <h3> Course Lessons </h3>     
