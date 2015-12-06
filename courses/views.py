@@ -43,7 +43,7 @@ def remove(request, course_id):
         course.delete()
         my_message = "Course {} has been deleted.".format(name)
         messages.success(request, my_message)
-        return redirect ('index')
+        return redirect ('/')
     return render(request, "courses/remove.html", {'name':name})
 
 
