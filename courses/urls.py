@@ -1,12 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-
-from courses import views
+from courses.views import detail, create, edit, remove, add_lesson
 
 urlpatterns = patterns('',
                        # url(r'^$', pybursa.views.index, name="index")
-                       url(r'^(\d+)/$', views.detail, name="detail"),
-                       url(r'^add/', views.add, name="add"),
-                       url(r'^edit/(?P<course_id>\d+)/$', views.edit, name="edit"),
-                       url(r'^remove/(?P<course_id>\d+)/$', views.remove, name="remove"),
+                       url(r'^(?P<course_id>\d+)/$', detail, name="detail"),
+                       url(r'^add/$', create, name="add"),
+                       url(r'^edit/(?P<course_id>\d+)/$', edit, name="edit"),
+                       url(r'^remove/(?P<course_id>\d+)/$', remove, name="remove"),
+                       url(r'^add_lesson/(?P<course_id>\d+)/$', add_lesson, name="add_lesson"),
                        )
