@@ -5,8 +5,8 @@ from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
 
-def detail(request, course_id):
-	return render(request, 'courses/detail.html', {'course': Course.objects.get(id = course_id)})
+def detail(request, pk):
+	return render(request, 'courses/detail.html', {'course': Course.objects.get(id = pk)})
 
 def add(request):
 	if request.method=='POST':
@@ -20,7 +20,7 @@ def add(request):
 		form = CourseModelForm()
 	return render(request, 'courses/add.html', {'form': form})
 
-def add_lesson(request):
+def add_lesson(request, pk):
 	if request.method=='POST':
 		form = LessonModelForm(request.POST)
 		if form.is_valid():
