@@ -17,16 +17,34 @@
     <p class="dline">Хочешь начать карьеру программиста? У нас ты получишь гаранторованное качество обучения, максимум практики, жесткую систему домашних заданий</p>
     </p>
   </div>
-
+  {% if messages %}
+    {% for message in messages %}
+    <div class="jumbotron">
+      {{ message }}
+    </div>
+    {% endfor %}
+  {% endif %}
   <h3> Выбирай курс, с которого предпочитаешь начать обучение, и вперед! </h3>
-  
+  <a href="{% url 'courses:add' %}"
+  <button class="btn btn-default btn-lg dropdown-toggle" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true">Добавить новый курс</span>
+  </button>
+  </a>
   <table>
   <tr>
     <th>Курс</th>
     <th>Краткое описание</th>
   </tr>
   {% for course in courses %}
-   <tr><td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td><td>{{ course.short_description|title }}</td></tr>  
+  <tr>
+    <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
+    <td>{{ course.short_description|title }}</td>
+    <td><a href="{% url 'courses:edit' course.id %}"
+  <button class="btn btn-default btn-sm dropdown-toggle" type="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true">Изменить</span>
+  </button></td>
+    <td><a href="{% url 'courses:remove' course.id %}"
+  <button class="btn btn-default btn-sm dropdown-toggle"type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true">Удалить</span>
+  </button></td>
+  </tr>  
   {% endfor %}
   </table>
   {% endblock content %}
