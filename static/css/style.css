@@ -71,7 +71,9 @@ ol.course {
   display: block;
 }
 .starter-regullar{
-  padding: 40px 40px;
+  padding: 0px 0px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   text-align: left;
 }
 .custom-header {
