@@ -24,11 +24,13 @@ def detail(request, pk):
 
 
 def add(request):
+    # if request.POST:
     if request.method == 'POST':
         form = CourseModelForm(request.POST)
         if form.is_valid():
             course = form.save()
-            messages.success(request, 'Course {0} has been successfully added.'.format(course.name))
+            # messages.success(request, 'Course {0} has been successfully added.'.format(course.name))
+            messages.success(request, 'Course {0} has been successfully added.'.format(form.cleaned_data['name']))
             return redirect('index')
     else:
         form = CourseModelForm()
@@ -39,7 +41,7 @@ def add(request):
 
 def edit(request, pk):
     course = Course.objects.get(id=pk)
-    if request.POST:
+    if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=course)
         if form.is_valid:
             form.save()
@@ -55,7 +57,7 @@ def edit(request, pk):
 def remove(request, pk):
     course = Course.objects.get(id=pk)
     notification = 'Are you sure you want to remove {0} course?'.format(course.name)
-    if request.POST:
+    if request.method == 'POST':
         course.delete()
         messages.success(request, 'Course {0} has been deleted.'.format(course.name))
         return redirect('index')
@@ -65,11 +67,12 @@ def remove(request, pk):
 
 
 def add_lesson(request, pk):
-    if request.POST:
+    if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
             lesson_add = form.save()
-            messages.success(request, 'Lesson {0} has been successfully added.'.format(lesson_add.subject))
+            # messages.success(request, 'Lesson {0} has been successfully added.'.format(lesson_add.subject))
+            messages.success(request, 'Lesson {0} has been successfully added.'.format(form.cleaned_data['subject']))
             return redirect('courses:detail', pk)
     else:
         form = LessonModelForm(initial={'course': pk})
