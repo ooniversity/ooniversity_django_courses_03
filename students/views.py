@@ -32,7 +32,7 @@ def create(request):
         form = StudentModelForm(request.POST)
         if form.is_valid():
             form.save()
-            text = "Студент " + form.cleaned_data['name'] + " " + form.cleaned_data['surname'] + " успешно добавлен"
+            text = u"Студент " + form.cleaned_data['name'] + " " + form.cleaned_data['surname'] + u" успешно добавлен"
             messages.success(request, text)
             return redirect('students:list_view')
     else:
