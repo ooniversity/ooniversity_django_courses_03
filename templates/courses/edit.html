@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block title %}Edit course{% endblock title %}
+
+
+{% block content %}
+<h2>Редактирование курса</h2>
+{% if messages %}
+  {% for message in messages %}
+  <div class="jumbotron">
+    {{ message }}
+  </div>
+  {% endfor %}
+{% endif %}
+<form method='post'>
+	{% csrf_token %}
+    {{ form.as_p }}
+    <input type='submit' value="Изменить" >
+</form>
+{% endblock content %}

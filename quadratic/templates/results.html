@@ -43,65 +43,22 @@
       
 
 <div class="container">
-  
-    <h3> Квадратное уравнение а*х*х + b*х + с = 0 </h3>
-    <h3> Квадратное уравнение {{ a }}*х*х + {{ b }}*х + {{ c }} = 0 </h3>
+  {{ form }}
+  <h3> Квадратное уравнение {{ a }}*х*х + {{ b }}*х + {{ c }} = 0 </h3>
+
+<form>
+  коэффициент a:<input name="a" type="text"><br />
+  коэффициент b:<input name="b" type="text"><br />
+  коэффициент c:<input name="c" type="text"><br />
+  <input type="submit" />
+</form>
     
-    {% if d < 0 %}
+  {% if d < 0 %}
     <p>'Дискриминант: {{ d }} Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.'</p>
-    {% elif d == 0 %}
+  {% elif d == 0 %}
     <p>'Дискриминант: 0 Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ x }}</p>
-    {% else %}
+  {% else %}
     <p>Дискриминант: {{ d }} Уравнение имеет два действительных корня: x1 = {{ x1 }}, x2 = {{ x2 }}</p>
-    {% endif %}
-
-{% for course in courses %}
-{{ course.id }}
-{% endfor %}
-
-
-    
-
-
-
-
-
-    <h2> Description </h2>
-    <p class="dline">В этом курсе мы сместили акцент в сторону практики.</p>
-    <p class="dline">Будет умеренное количество теории - максимум практики.</p>
-      <p class="dline">
-        Примерное соотношение теории и практики: 30% на 70%
-      </p>
-      <p class="dline">
-        Курсы будут проходить с 19 октября по 28 декабря.
-      </p>
-      <p class="dline">
-        Практические занятия в аудитории + онлайн лекции.
-      </p>
-      
-</div> 
-<div class="container">
-  <div class="jumbotron">
-    <h2> Program </h2>
-    <h3 class="bold"> Занятие 1 </h3>
-    <p class="dline_1">Основы Python: zen, pep8, pylint, tools, IDE консоль, типы данных, операторы синтаксис управляющих конструкций (if, for...) исключения и разбор стектрейса кодировка в Python </p>
-    <h3 class="bold"> Занятие 2 </h3>
-    <p class="dline_1">Строки и итераторы: работа со строками и итерируемыми типами запуск скрипта и параметры git http://try.github.com/levels/</p>
-    <h3 class="bold"> Занятие 3 </h3>
-    <p class="dline_1">Функции и модульность: функции (def, lambda), генераторы списков, модули, структура</p>
-    <h3 class="bold"> Занятие 4 </h3>
-    <p class="dline_1">Основы ОПП, Классы: синтаксис, атрибуты, методы, нстанцирование, инкапсуляция, наследование, полиморфизм, переопределение методов, super, абстрактные классы, статические методы, все объект, служебные методы</p>
-    <h3 class="bold"> Занятие 5 </h3>
-    <p class="dline_1">Работа с файлами и датами: запись и чтение файлов методы объектов-файлов, csv, json, модуль datetime</p>
-    <h3 class="bold"> Занятие 6 </h3>
-    <p class="dline_1">Основы html, css, bootstrap, GIT</p>
-    <h3 class="bold"> Занятие 7 </h3>
-    <p class="dline_1">Django first steps: почему django? введение и описание фреймворка, старт проекта, команды manage.py, django.contrib, авторизация, django.contrib.auth, админка, статика</p>
-    </div>
-  </div> 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../../static/js/bootstrap.js"></script>
-  </body>
-</html>
+  {% endif %}
+ </body>
+ </html>

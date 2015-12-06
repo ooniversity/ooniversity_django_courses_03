@@ -12,6 +12,13 @@
 
 {% block content %}
 {% include "include/phon_include.html" %}
+{% if messages %}
+    {% for message in messages %}
+    <div class="jumbotron">
+      {{ message }}
+    </div>
+    {% endfor %}
+  {% endif %}
 <div class="jumbotron">
     <h1> {{ course.name }} </h1>
     <p>{{ course.description|truncatechars:32 }}</p>
@@ -36,6 +43,10 @@
     </div>
   <div class="container">
     <h3>План курса</h3>
+    <a href="{% url 'courses:add_lesson' course.id%}"
+  <button class="btn btn-default btn-lg dropdown-toggle" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true">Добавить занятие</span>
+  </button>
+  </a>
     <table>
     <tr>
       <th>#</th>
