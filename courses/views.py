@@ -9,6 +9,7 @@ import os
 def detail(request, pk):
     course = Course.objects.get(id=pk)
     lesson = Lesson.objects.filter(course=pk)
+
     content = {
         'course': course,
         'lessons': lesson,
@@ -19,7 +20,6 @@ def detail(request, pk):
         'coach_desc': course.coach.description,
         'assistant_desc': course.assistant.description,
     }
-
     return render(request, os.path.join('courses', 'detail.html'), content)
 
 
@@ -42,7 +42,7 @@ def edit(request, pk):
     if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=course)
         if form.is_valid:
-            form.save()
+            #form.save()
             messages.success(request, 'The changes have been saved.')
             return redirect('courses:edit', pk)
     else:
@@ -54,9 +54,9 @@ def edit(request, pk):
 
 def remove(request, pk):
     course = Course.objects.get(id=pk)
-    notification = 'Course {0} will be deleted'.format(course.name)
+    notification = 'Are you sure you want to remove {0} course?'.format(course.name)
     if request.method == 'POST':
-        course.delete()
+        # course.delete()
         messages.success(request, 'Course {0} has been deleted.'.format(course.name))
         return redirect('index')
 
