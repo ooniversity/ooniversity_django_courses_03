@@ -30,7 +30,7 @@
 			<a href="{% url 'courses:add-lesson' course.id %}"><input type="buttom" value="Добавить занятие" class="btn btn-primary"></a>
 			<div class='grey'>
 				<table class='table'>
-					<tr class='title_table'><th>Lesson</th><th>Theme</th>
+					<tr class='title_table'><th>#</th><th>Lesson</th><th>Theme</th>
 					{% for lesson in lessons %}
 						<tr>
 							<td>{{ lesson.order }}</td>
