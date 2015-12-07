@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from django import forms
-from models import Student
+from models import Course
 
 
-class StudentModelForm(forms.ModelForm):
+class CourceModelForm(forms.ModelForm):
     class Meta:
-        model = Student
+        model = Course
         fields = '__all__'

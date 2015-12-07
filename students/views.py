@@ -1,6 +1,6 @@
-from students.forms import StudentModelForm
+from forms import StudentModelForm
 from django.shortcuts import render, redirect
-from students.models import Student
+from models import Student
 import models
 
 
@@ -16,14 +16,10 @@ def list_view(request):
 
 
 
-def detail(request, num):
-    student = models.Student.objects.get(id = num)
+def detail(request, stdnt_id):
+    student = models.Student.objects.get(id = stdnt_id)
     #print student
     return render(request, 'students/detail.html', {'student': student})
-
-
-
-
 
 
 def create(request):
