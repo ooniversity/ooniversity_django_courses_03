@@ -1,4 +1,5 @@
 from django.contrib import messages
+
 from django.shortcuts import render, redirect
 
 from courses.forms import CourseModelForm, LessonModelForm
