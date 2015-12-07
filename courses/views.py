@@ -12,7 +12,7 @@ def detail(request, course_id):
 
 
 def create(request):
-    if request.POST:
+    if request.method == "POST":
         form = CourseModelForm(request.POST)
         if form.is_valid():
             form.save()
@@ -27,7 +27,7 @@ def create(request):
 def edit(request, course_id):
     course = Course.objects.get(id=course_id)
     form = CourseModelForm(instance=course)
-    if request.POST:
+    if request.method == "POST":
         form = CourseModelForm(request.POST, instance=course)
         if form.is_valid():
             form.save()
@@ -39,7 +39,7 @@ def edit(request, course_id):
 
 def remove(request, course_id):
     course = Course.objects.get(id=course_id)
-    if request.POST:
+    if request.method == "POST":
         text = "Course %s has been deleted." % course.name
         messages.success(request, text)
         course.delete()
