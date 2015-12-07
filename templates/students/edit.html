@@ -12,7 +12,12 @@
 {% block content %}
 
 
-edit
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="OK" />
+</form>
 
 
 {% endblock content %}

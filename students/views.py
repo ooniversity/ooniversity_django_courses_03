@@ -1,5 +1,6 @@
 from students.forms import StudentModelForm
 from django.shortcuts import render, redirect
+from students.models import Student
 import models
 
 
@@ -31,26 +32,6 @@ def create(request):
     return render(request, 'students/add.html', context)
 
 
-
-
-def remove(request):
-    return render(request, 'students/remove.html')
-
-
-"""
-def edit(request, student_id):
-    student = Student.objects.get(id=student_id)
-    form = StudentModelForm(instance=student)
-    if request.POST:
-      form = StudentModelForm(request.POST, instance=student)
-      if form.is_valid():
-        form.save()
-        text = "Info on the student has been sucessfully changed."
-        messages.success(request, text)
-    return render(request, 'students/edit.html', {'form': form})    
-"""
-
-
 def edit(request, stdnt_id):
     context = {}
     stdnt = Student.objects.get(id=stdnt_id)
@@ -65,4 +46,10 @@ def edit(request, stdnt_id):
     return render(request, 'students/edit.html', context)
 
 
+
+
+
+
+def remove(request):
+    return render(request, 'students/remove.html')
 
