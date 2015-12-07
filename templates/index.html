@@ -12,6 +12,13 @@
 
 {% block content %}
 {% include "include/home_include.html" %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
 <div class="container">
 <header>
   <h1>Pyniversity</h1>
