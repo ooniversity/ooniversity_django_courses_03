@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 #from django.http import HttpResponse
 from django.views import generic
 from courses.models import Course, Lesson
 from coaches.models import Coach
+from courses import forms
+from django.contrib import messages
 
 
 # Create your views here.
@@ -33,3 +35,35 @@ class DetailView(generic.DetailView):
         return context
 
 
+def add(request):
+    if request.method == 'POST':
+        form = forms.CourseModelForm(request.POST)
+        if form.is_valid():
+            course = form.save()
+            messages.success(request, 'Course %s has been successfully added.' % course.name)
+            return redirect('/')
+    else:
+        form = forms.CourseModelForm()
+    return render(request, 'courses/add.html', {'form': form})
+
+
+def edit(request, pk):
+    course = Course.objects.get(id=pk)
+    if request.method == 'POST':
+        form = forms.CourseModelForm(request.POST, instance=course)
+        if form.is_valid():
+            course = form.save()
+            messages.success(request, 'The changes have been saved.')
+            return redirect('courses:edit', pk)
+    else:
+        form = forms.CourseModelForm(instance=course)
+    return render(request, 'courses/edit.html', {'form': form})
+
+
+def remove(request, pk):
+    course = Course.objects.get(id=pk)
+    if request.method == 'POST':
+        course.delete()
+        messages.success(request, 'Course %s has been deleted.' % course.name)
+        return redirect('/')
+    return render(request, 'courses/remove.html', {'course': course})
