@@ -4,9 +4,7 @@
 <h2>New lesson creation</h2>
 <form method="post">
   {% csrf_token %}
-  <table>
-    {{ form.as_p }}
-  </table>
+  {{ form.as_p }}
   <input type="submit" value="Create"/>
 </form>
 {% endblock content %}
