@@ -12,21 +12,17 @@
 {% block nav_class_student_list_view %}passive{% endblock %}
 
 
-
-
 {% block content %}
-
-
-  <div class="page-header">
-    <h2>Создание нового занятия</h2>
+  <div class="container">
+    <div class="col-md-12">
+      <h3>Создание нового занятия</h3>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Добавить">
+      </form>
+    </div>
   </div>
-  <div class="row-fluid">
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Создать">
-    </form>
-  </div>
-
-
 {% endblock content %}
+
+

@@ -12,20 +12,16 @@
 {% block nav_class_student_list_view %}passive{% endblock %}
 
 
-
-
 {% block content %}
-
-  <div class="page-header">
-    <h2>Удаляем наш курс</h2>
+<div class="jumbotron">
+  <div class="container">
+    <div class="col-md-12">
+      <h3>Удалить курс по {{ name }}</h3>
+      <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить">
+      </form>
+    </div>
   </div>
-
-
-  <div class="row-fluid">
-    <h4>Удалить курс по {{ name }}</h4>
-    <form method="post">
-      {% csrf_token %}
-      <input type="submit" value="Удалить">
-    </form>
-  </div>
+</div>
 {% endblock content %}

@@ -16,35 +16,31 @@
 
 
 {% block content %}
-
-
   <div class="col-md-12" >
     <div class="jumbotron">
-      <div class="page-header">
-        <h1>{{ course.name }}</h1>
-      </div>
-      <p>{{ course.description|truncatechars:32 }}</p>
+      <h1>{{ course.name }}</h1>
+      <h3>{{ course.description|truncatechars:32 }}</h3>
     </div>
     <div id="coach" class="container-fluid">
       <div class="page-header">
         <h3>Преподаватели</h3>
       </div>
 
-
       {% include "include/course_detail_include.html" with block_title="Учитель" instructor=course.coach %}
       {% include "include/course_detail_include.html" with block_title="Ассистент" instructor=course.assistant %}
 
+    </div>
 
-    </div>
     {% if messages %}
-    <div class="container-fluid">
-      <ul class="messages">
-        {% for message in messages %}
-        <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
+      <div class="container-fluid">
+        <ul class="messages">
+          {% for message in messages %}
+          <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
     <div class="container-fluid">
       <h3>План курса</h3>
       <a href="{% url 'courses:add-lesson' course.id %}">
@@ -65,7 +61,7 @@
             {% for les in lesson %}
               <tr>
                 <td>{{ les.order }}</td>
-                <td>{{ les.subject }}</td>
+                <td>{{ les }}</td>
                 <td>{{ les.description }}</td>
               </tr>
             {% endfor %}

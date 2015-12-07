@@ -16,8 +16,8 @@ def add(request):
         form = CourseModelForm(request.POST)
         if form.is_valid():
             new_course = form.save()
-            messages.success(request, u'Course %s has been successfuly added.' % new_course.name)
-            return redirect('/')
+            messages.success(request, u'Course %s has been successfully added.' % new_course.name)
+            return redirect('index')
     else:
         form = CourseModelForm()
     return render(request, 'courses/add.html', {'form': form})
@@ -28,9 +28,9 @@ def edit(request, course_id):
     if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=our_course)
         if form.is_valid():
-            new_course = form.save()
+            form.save()
             messages.success(request, u'The changes have been saved.')
-            return redirect('courses:edit', new_course.id)
+            return redirect('courses:edit', course_id)
     else:
         form = CourseModelForm(instance=our_course)
     return render(request, 'courses/edit.html', {'form': form})
@@ -38,11 +38,11 @@ def edit(request, course_id):
 
 def remove(request, course_id):
     our_course = Course.objects.get(id=course_id)
-    name = our_course.name
+    name = u"%s" % our_course.name
     if request.method == 'POST':
         our_course.delete()
         messages.success(request, u'Course %s has been deleted.' % our_course.name)
-        return redirect('/')
+        return redirect('index')
     return render(request, 'courses/remove.html', {'name': name})
 
 
@@ -51,8 +51,8 @@ def add_lesson(request, course_id):
         form = LessonModelForm(request.POST)
         if form.is_valid():
             new_lesson = form.save()
-            messages.success(request, u'Lesson %s has been successfuly added.' % new_lesson.subject)
-            return redirect('courses:detail', new_lesson.course.id)
+            messages.success(request, u'Lesson %s has been successfully added.' % new_lesson.subject)
+            return redirect('courses:detail', course_id)
     else:
         form = LessonModelForm(initial={'course': course_id})
     return render(request, 'courses/add_lesson.html', {'form': form})
