@@ -5,7 +5,7 @@ from quadratic import forms
 
 def quadratic_results(request):
     form = forms.QuadraticForm()
-    print request.POST
+    #print request.POST
     if request.GET['a']:
         var_a = request.GET['a']
     else:
@@ -18,7 +18,7 @@ def quadratic_results(request):
         var_c = request.GET['c']
     else:
         var_c = ''
-    if (var_a.isdigit() is True and int(var_a) != 0) and var_b.isdigit() is True and var_c.isdigit() is True:
+    if int(var_a) != 0:
         d = int(var_b) ** 2 - 4 * int(var_a) * int(var_c)
     else:
         d = None
