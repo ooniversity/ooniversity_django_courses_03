@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Site about students of PyBursa courses</title>
+{% extends "base.html" %}
+{% block title %}My Site - Contact{% endblock title %}
 
-    <!-- Bootstrap -->
-    <link href='/static/css/bootstrap.css' rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+{% block content %}
     <h1>Hello, Student!</h1>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -33,76 +17,54 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">        
+      <ul class="nav navbar-nav">
         <li><a href="/index/">Main</a></li>
 		<li><a href="/contact/">Contact</a></li>
 		<li class="active"><a href="/student_list/">Student<span class="sr-only">(current)</span></a></li>
-      </ul>   
-      
+		<li><a href="/quadratic/results/">Quadratic</a></li>
+      </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<div>
+{{courses_list}}
+</div>
+    <p><a href="/student_list/add/">Create a new user </a></p>
+<div class="table-responsive">
+        <table class="table table-bordered table-condensed">
+            <thead>
+	            <tr>
+		            <th>No</th>
+		            <th>Surname Name</th>
+		            <th>Address</th>
+		            <th>Skype</th>
+                    <th>Courses</th>
+	            </tr>
+             </thead>
+          <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td><a href="/student_detail/">{{ student.surname }} {{ student.name }}</a></td>
+                    <td>{{ student.address }}</td>
+                    <td>{{ student.skype }}</td>
+                    <td>
+                        {% for student_course in student.course.all %}
+                            <a href="/courses/{{student_course.id}} ">{{ student_course.name }}</a><br>
+                        {% endfor %}
+                    </td>
 
-<table class="table">
- <thead>
-	<tr>
-		<th>No</th>
-		<th>Surname</th>
-		<th>Name</th>
-		<th>Adress</th>
-		<th>Skype</th>
-	</tr>
- </thead>
- <tbody>
-	<tr>
-		<td><a href="/student_detail/">1</a></td>
-		<td>Popov</td>
-		<td>Ivan</td>
-		<td>Ukraine, Knarkov, street 1</td>
-		<td>popov.ivan</td>
-	</tr>
-	<tr>
-		<td><a href="#">2</a></td>
-		<td>Ivanov</td>
-		<td>Petya</td>
-		<td>Ukraine, Knarkov, street 2</td>
-		<td>ivanov.petya</td>
-	</tr>
-	<tr>
-		<td><a href="#">3</a></td>
-		<td>Petrov</td>
-		<td>Nikolay</td>
-		<td>Ukraine, Knarkov, street 3</td>
-		<td>petrov.nikolay</td>
-	</tr>
-	<tr>
-		<td><a href="#">4</a></td>
-		<td>Sidorov</td>
-		<td>Oleg</td>
-		<td>Ukraine, Knarkov, street 4</td>
-		<td>Sidorov.Oleg</td>
-	</tr>
-	<tr>
-		<td><a href="#">5</a></td>
-		<td>Babosov</td>
-		<td>Dima</td>
-		<td>Ukraine, Knarkov, street 5</td>
-		<td>Babosov.Dima</td>
-	</tr>
-	<tr>
-		<td><a href="#">6</a></td>
-		<td>Oblomov</td>
-		<td>Andrey</td>
-		<td>Ukraine, Knarkov, street 6</td>
-		<td>Oblomov.Oleg</td>
-	</tr>
- </tbody>
- </table>
-		
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../static/js/bootstrap.js"></script>
-  </body>
-</html>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+
+</div>
+
+{% endblock content %}
+
+
