@@ -1,12 +1,16 @@
-{% extends "students/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Delete Student{% endblock title %}
 
 
-{% block page_header %}Delete a student{% endblock page_header %}
+{% block nav_class_student %}active{% endblock nav_class_student %}
 
 
-{% block page_content %}
+{% block content %}
+      <div class="starter-template">
+        <h1 class="starter-template">Delete a student</h1>
+
+      </div>
 
     <div class="panel panel-default">
       <!-- Default panel contents -->
@@ -18,5 +22,5 @@
           <input type="submit" value="Are you sure?">
         </form>
 
-{% endblock page_content %}
+{% endblock content %}
 
