@@ -9,14 +9,14 @@
 
 <body>
 <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
-<ul>
-    <li> a = {{a.0}}<br> {{a.1}}</li>
-    <li> b = {{b.0}}<br> {{b.1}}</li>
-    <li> c = {{c.0}}<br> {{c.1}}</li>
-</ul>
-
-<p>{{d.0}}</p>
-<p>{{d.1}}</p>
+<form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Решить"/>
+    </form>
+    {% if result %}
+    <p>Дискриминант: {{ d }}</p>
+    <p>{{ result }}</p>
+    {% endif %}
 </body>
 </html>
 
