@@ -1,0 +1,22 @@
+{% extends "students/base.html" %}
+
+{% block title %}Delete Student{% endblock title %}
+
+
+{% block page_header %}Delete a student{% endblock page_header %}
+
+
+{% block page_content %}
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Information about student that will be deleted</div>
+            <p>Student {{ student.name }} {{ student.surname }} will be deleted</p>
+    </div>
+        <form method="post">
+          {% csrf_token %}
+          <input type="submit" value="Are you sure?">
+        </form>
+
+{% endblock page_content %}
+

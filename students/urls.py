@@ -17,5 +17,6 @@ urlpatterns = patterns('',
     url(r'^$', views.ListView.as_view(), name='list'),
     url(r'^(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
     url(r'^add/$', views.create, name='add'),
-    url(r'^edit/$', views.edit),
+    url(r'^edit/(?P<pk>\d+)/$', views.edit, name='edit'),
+    url(r'^remove/(?P<pk>\d+)/$', views.remove, name='remove'),
 )

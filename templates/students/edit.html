@@ -3,16 +3,27 @@
 {% block title %}Edit Student{% endblock title %}
 
 
-{% block page_header %}Edit existent student{% endblock page_header %}
+{% block page_header %}Edit a student{% endblock page_header %}
 
 
 {% block page_content %}
-
-
+    <div>
+    {% if messages %}
+        <ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ student.name }} {{ student.surname }} {{ message }}</li>
+    {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading">Information about existent student</div>
-      {{ form.as_p }}
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit">
+        </form>
 
     </div>
 

@@ -19,7 +19,7 @@ class ListView(generic.ListView):
 
 
 def create(request):
-    print request.POST
+    #print request.POST
     #form = StudentModelForm()
     if request.method == 'POST':
         form = forms.StudentModelForm(request.POST)
@@ -42,6 +42,25 @@ def create(request):
         form = forms.StudentModelForm()
     return render(request, 'students/add.html', {'form': form})
 
-def edit(request):
-    form = forms.StudentModelForm()
+
+def edit(request, pk):
+    student = Student.objects.get(id=pk)
+    #form = forms.StudentModelForm(instance=student)
+    if request.method == 'POST':
+        form = forms.StudentModelForm(request.POST, instance=student)
+        if form.is_valid():
+            student = form.save()
+            messages.success(request, 'Info on the student has been sucessfully changed.')
+            return redirect('students:edit', pk)
+    else:
+        form = forms.StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
+
+
+def remove(request, pk):
+    student = Student.objects.get(id=pk)
+    if request.method == 'POST':
+        student.delete()
+        messages.success(request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
+        return redirect('students:list')
+    return render(request, 'students/remove.html', {'student': student})
