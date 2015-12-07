@@ -29,8 +29,9 @@ def add(request):
         form = CourseModelForm(request.POST)
         if form.is_valid():
             course = form.save()
-            # messages.success(request, 'Course {0} has been successfully added.'.format(course.name))
-            messages.success(request, 'Course {0} has been successfully added.'.format(form.cleaned_data['name']))
+            messages.success(request, 'Course {0} has been successfully added.'.format(course.name))
+            # form.save()
+            # messages.success(request, 'Course {0} has been successfully added.'.format(form.cleaned_data['name']))
             return redirect('index')
     else:
         form = CourseModelForm()
@@ -70,9 +71,10 @@ def add_lesson(request, pk):
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
-            lesson_add = form.save()
-            # messages.success(request, 'Lesson {0} has been successfully added.'.format(lesson_add.subject))
-            messages.success(request, 'Lesson {0} has been successfully added.'.format(form.cleaned_data['subject']))
+            lesson = form.save()
+            messages.success(request, 'Lesson {0} has been successfully added.'.format(lesson.subject))
+            # form.save()
+            # messages.success(request, 'Lesson {0} has been successfully added.'.format(form.cleaned_data['subject']))
             return redirect('courses:detail', pk)
     else:
         form = LessonModelForm(initial={'course': pk})
