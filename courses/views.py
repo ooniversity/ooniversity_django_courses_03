@@ -67,3 +67,17 @@ def remove(request, pk):
         messages.success(request, 'Course %s has been deleted.' % course.name)
         return redirect('/')
     return render(request, 'courses/remove.html', {'course': course})
+
+
+def add_lesson(request, pk):
+    course = Course.objects.get(id=pk)
+    if request.method == 'POST':
+        #form = forms.LessonModelForm(request.POST)
+        form = forms.LessonModelForm(request.POST)
+        if form.is_valid():
+            lesson = form.save()
+            messages.success(request, 'Lesson %s has been successfully added.' % lesson.subject)
+            return redirect('courses:detail', pk)
+    else:
+        form = forms.LessonModelForm(initial={'course': course})
+    return render(request, 'courses/add_lesson.html', {'form': form})
