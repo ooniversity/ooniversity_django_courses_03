@@ -27,6 +27,8 @@
       <th>Name and Surname</th>
       <th>Address</th>
       <th>Skype</th>
+      <th>Edit Links</th>
+      <th>Delete Links</th>
       </tr>
       </thead>
       <tbody>
@@ -34,9 +36,10 @@
         <tr>
         <td>{{ student.id }}</td>
         <td><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
-        <td>{{ student.surname }}</td>
         <td>{{ student.address }}</td>
         <td>{{ student.skype }}</td>
+        <td><a href="{% url 'students:edit' student.id %}">Edit</a></td>
+        <td><a href="{% url 'students:remove' student.id %}">Delete</a></td>
         </tr>
       {% endfor %}
       </tbody>
