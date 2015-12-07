@@ -47,12 +47,12 @@
               <td>
                 <p><a 
                 class="btn btn-primary btn-sm"
-                href="{% url 'students:edit' %}"
+                href="{% url 'students:edit' student.id %}"
                 role="button">Изменить</a></p>
               </td>
               <td>
                 <p><a class="btn btn-primary btn-sm"
-                href="{% url 'students:remove' %}"
+                href="{% url 'students:remove' student.id %}"
                 role="button">Удалить</a></p>
 
 

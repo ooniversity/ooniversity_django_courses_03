@@ -7,8 +7,8 @@ from coaches.models import Coach
 
 
 def index(request):
+    
     list_of_courses = Course.objects.all()
-
     list_of_coachers = Coach.objects.all()
 
     return render(request, 'index.html', {
