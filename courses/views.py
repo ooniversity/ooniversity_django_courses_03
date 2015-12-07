@@ -67,13 +67,14 @@ def edit(request, course_id):
 
 
 def add_lesson(request, course_id):
-    form = LessonModelForm(initial={'course': course_id})
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
             add_lesson = form.save()
             messages.success(request, "Lesson %s has been successfully added." % add_lesson.subject)
             return redirect('courses:detail', course_id)
+    else:
+        form = LessonModelForm()
     context = {'form': form}
     context.update(csrf(request))
     return render_to_response('courses/add_lesson.html', context, context_instance=RequestContext(request))
