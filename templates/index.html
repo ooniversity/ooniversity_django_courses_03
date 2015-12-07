@@ -23,13 +23,13 @@
   </div>
 
   {% if messages %}
-  <div class="container-fluid">
-    <ul class="messages">
-      {% for message in messages %}
-      <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-      {% endfor %}
-    </ul>
-  </div>
+    <div class="container-fluid">
+      <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
   {% endif %}
 </div>
 <div class="col-md-12">
@@ -59,7 +59,7 @@
         <td><a href="{% url 'courses:detail' i.id%}">{{ i.name|upper }}</a></td>
         <td>{{ i.short_description|title }}</td>
         <td><a href="{% url 'courses:edit' i.id%}">
-          <button type="button" class="btn btn-large btn-primary">Редактировать</button>
+          <button type="button" class="btn btn-large btn-primary">Изменить</button>
         </a></td>
         <td><a href="{% url 'courses:remove' i.id%}">
           <button type="button" class="btn btn-large btn-primary">Удалить</button>

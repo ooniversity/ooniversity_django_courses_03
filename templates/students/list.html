@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 
+{% load staticfiles %}
+
+
 {% block title %}Список студентов{% endblock title %}
 
 
@@ -14,6 +17,22 @@
     <div class="page-header">
       <h3>Список студентов</h3>
     </div>
+
+      {% if messages %}
+        <div class="container-fluid">
+          <ul class="messages">
+            {% for message in messages %}
+               <li {% if message.tags %} class="{{ message.tags }}" {% endif %} >{{ message }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+    <a href="{% url 'students:add' %}">
+        <p>
+          <button type="button" class="btn btn-large btn-primary">Добавить нового студента</button>
+        </p>
+    </a>
     <div id="spisok">
         <table class="table">
           <thead>
@@ -23,6 +42,8 @@
               <th>Адрес</th>
               <th>Skype</th>
               <th>Курсы</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -36,6 +57,14 @@
                       {% for cour in st.courses.all %}
                         <p><a href="{% url 'courses:detail' cour.id %}">{{cour.name}}</a></p>
                       {% endfor %}
+                    </td>
+                    <td><a href="{% url 'students:edit' st.id%}">
+                            <button type="button" class="btn btn-large btn-primary">Изменить</button>
+                        </a>
+                    </td>
+                    <td><a href="{% url 'students:remove' st.id%}">
+                            <button type="button" class="btn btn-large btn-primary">Удалить</button>
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
