@@ -11,22 +11,21 @@
 
 
 {% block content %}
-<div class="container">
+
 {% if messages %}
 	{% for message in messages %}
-	<div class="jumbotron">
-		{{ message }}
+	   {{ message }}
 	</div>
 	{% endfor %}
 {% endif %}
-		<div class="page-header">
+		<div class="container">
+	       <div class="jumbotron">
 			<h2>Редактирование данных студента</h2>
-		</div>
+		
 		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
 			<input type="submit" value="Изменить" />
 		</form>
 
-</div>
 {% endblock content %}
