@@ -42,6 +42,12 @@
                     </tbody>
                   </table>
                   <h3> Course detailed plan (lessons): </h3>
+      <br>
+      <a href="{% url 'courses:add_lesson' course_detail.id  %}">
+      <button type="button" class="btn btn-default">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add lesson </button>
+      </a>
+      <br>
                 <div class="table-responsive">
                   <table class="table table-bordered">
                       <thead>
