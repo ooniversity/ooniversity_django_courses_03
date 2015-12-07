@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Edit course{% endblock title %}
+
+{% block content %}
+{% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
+        {% endfor %}
+        </ul>
+{% endif %}
+	<h2>Edit course</h2>
+	<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+		<input type="submit" value="Save">
+	</form>
+{% endblock content %}
