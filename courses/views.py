@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from coaches.models import Coach
 from .models import Course
 from django.core.exceptions import ObjectDoesNotExist
@@ -22,22 +22,21 @@ def detail(request, course_id):
         'coach': coach,
         'assistant': assistant,
     }
-    return render_to_response('courses/detail.html', context)
+    return render(request, 'courses/detail.html', context)
 
 
 def add(request):
     if request.method == 'POST':
         form = CourseModelForm(request.POST)
         if form.is_valid():
-            course = form.cleaned_data
-            form.save()
-            messages.success(request, 'Course %s has been successfully added.' % course['name'])
+            course = form.save()
+            messages.success(request, 'Course %s has been successfully added.' % course.name)
             return redirect('index')
     else:
         form = CourseModelForm()
     context = {'form': form}
     context.update(csrf(request))
-    return render_to_response('courses/add.html', context, context_instance=RequestContext(request))
+    return render(request, 'courses/add.html', context, context_instance=RequestContext(request))
 
 
 def edit(request, course_id):
@@ -52,7 +51,7 @@ def edit(request, course_id):
         form = CourseModelForm(instance=course)
     context = {'form': form}
     context.update(csrf(request))
-    return render_to_response('courses/edit.html', context, context_instance=RequestContext(request))
+    return render(request, 'courses/edit.html', context, context_instance=RequestContext(request))
 
 
 def remove(request, course_id):
@@ -64,19 +63,18 @@ def remove(request, course_id):
         return redirect('index')
     context = {'remove_message': remove_message}
     context.update(csrf(request))
-    return render_to_response('courses/remove.html', context, context_instance=RequestContext(request))
+    return render(request, 'courses/remove.html', context, context_instance=RequestContext(request))
 
 
 def add_lesson(request, course_id):
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
-            lesson = form.cleaned_data
-            form.save()
-            messages.success(request, "Lesson %s has been successfully added." % lesson['subject'])
+            lesson = form.save()
+            messages.success(request, "Lesson %s has been successfully added." % lesson.subject)
             return redirect('courses:detail', course_id)
     else:
         form = LessonModelForm()
     context = {'form': form}
     context.update(csrf(request))
-    return render_to_response('courses/add_lesson.html', context, context_instance=RequestContext(request))
+    return render(request, 'courses/add_lesson.html', context, context_instance=RequestContext(request))

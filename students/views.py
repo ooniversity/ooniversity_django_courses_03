@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Student
 from students.forms import StudentModelForm
 from django.contrib import messages
@@ -17,7 +17,7 @@ def list_view(request):
     context = {
         'all_students': all_students
     }
-    return render_to_response('students/list.html', context)
+    return render(request, 'students/list.html', context)
 
 
 def detail(request, student_id):
@@ -25,7 +25,7 @@ def detail(request, student_id):
     context = {
         'student': student,
     }
-    return render_to_response('students/detail.html', context)
+    return render(request, 'students/detail.html', context)
 
 
 def create(request):
@@ -39,7 +39,7 @@ def create(request):
         form = StudentModelForm()
     context = {'form': form}
     context.update(csrf(request))
-    return render_to_response('students/add.html', context, context_instance=RequestContext(request))
+    return render(request, 'students/add.html', context, context_instance=RequestContext(request))
 
 
 def edit(request, student_id):
@@ -54,7 +54,7 @@ def edit(request, student_id):
         form = StudentModelForm(instance=student)
     context = {'form': form}
     context.update(csrf(request))
-    return render_to_response('students/edit.html', context, context_instance=RequestContext(request))
+    return render(request, 'students/edit.html', context, context_instance=RequestContext(request))
 
 
 def remove(request, student_id):
@@ -68,4 +68,4 @@ def remove(request, student_id):
         return redirect('students:list_view')
     context = {'remove_message': remove_message}
     context.update(csrf(request))
-    return render_to_response('students/remove.html', context, context_instance=RequestContext(request))
+    return render(request, 'students/remove.html', context, context_instance=RequestContext(request))

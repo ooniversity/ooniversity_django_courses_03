@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from courses.models import Course
 
 
@@ -7,8 +7,8 @@ def index(request):
     context = {
         'list_courses': list_courses,
     }
-    return render_to_response('index.html', context)
+    return render(request, 'index.html', context)
 
 
 def contact(request):
-    return render_to_response('contact.html')
+    return render(request, 'contact.html')
