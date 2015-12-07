@@ -42,7 +42,7 @@ def edit(request, student_id):
 
 def remove(request, student_id):
     sd = Student.objects.get(id=student_id)
-    if request.POST:
+    if request.method == "POST":
         text = "Info on " + str(sd) + " has been sucessfully deleted."
         messages.success(request, text)  
         sd.delete()
