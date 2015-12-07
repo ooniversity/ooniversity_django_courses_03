@@ -21,7 +21,7 @@ def add(request):
             return redirect('/')
     else:
         form = CourseModelForm()
-        return render(request, 'courses/add.html', {'form': form})
+    return render(request, 'courses/add.html', {'form': form})
 
 
 def edit(request, course_id):
@@ -35,7 +35,7 @@ def edit(request, course_id):
             return redirect('courses:edit', new_course.id)
     else:
         form = CourseModelForm(instance=our_course)
-        return render(request, 'courses/edit.html', {'form': form})
+    return render(request, 'courses/edit.html', {'form': form})
 
 
 def remove(request, course_id):
