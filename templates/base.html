@@ -150,10 +150,19 @@
 
 <div class="section no-pad-top no-pad-bot">
     <div class="container">
-        {% block messages %}{% endblock %}
+
+        <!-- start block messages -->
+        <div class="row">
+            {% block messages %}{% endblock %}
+        </div>
+        <!--/ end block messages -->
+
+        <!-- start block content -->
         <div class="row">
             {% block content %}{% endblock %}
         </div>
+        <!--/ end block content -->
+
     </div>
 </div>
 

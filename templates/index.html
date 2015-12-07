@@ -3,18 +3,19 @@
 
 {% block title %}Список всех доступных курсов{% endblock %}
 
-{% block content %}
-    <div class="row">
-        <div class="col s12">
-            {% if messages %}
-                <div class="card-panel hoverable cyan">
-                    {% for message in messages %}
-                        {{ message }}
-                    {% endfor %}
+{% block messages %}
+    <div class="col s12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="card-panel hoverable cyan white-text center">
+                    {{ message }}
                 </div>
-            {% endif %}
-        </div>
+            {% endfor %}
+        {% endif %}
     </div>
+{% endblock %}
+
+{% block content %}
     <div class="col s12">
         <h5 class="text-primarycolor">Спеши!!!</h5>
 
@@ -30,7 +31,6 @@
         </div>
     </div>
     <div class="col s12 l12">
-
         <table class="responsive-table bordered centered striped highlight">
             <thead>
             <tr>
@@ -47,7 +47,7 @@
                     <td>{{ course.short_description|title }}</td>
                     <td>
                         <a href="{% url 'courses:edit' course.id %}" class="waves-effect waves-light btn">
-{#                            <i class="material-icons left">mode_edit</i>#}
+                            {#                            <i class="material-icons left">mode_edit</i>#}
                             edit
                         </a>
                     </td>
