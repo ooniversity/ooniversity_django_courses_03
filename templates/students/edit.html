@@ -10,16 +10,26 @@
 
 
 {% block content %}
-<div class="jumbotron">
-<div class="container">
-<div class="col-md-12">
-<h3>Изменение профиля студента</h3>
-<form method="post">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Изменить">
-</form>
-</div>
-</div>
-</div>
+    {% if messages %}
+        <div class="container-fluid">
+              <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+              </ul>
+        </div>
+    {% endif %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-md-12">
+                <h3>Изменение профиля студента</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Изменить">
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
