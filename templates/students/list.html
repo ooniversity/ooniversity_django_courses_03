@@ -53,19 +53,19 @@
     </nav>
 {% endblock %}
 
-{% block content %}
-    <div class="row">
-        <div class="col s12">
-            {% if messages %}
-                <div class="card-panel hoverable cyan">
-                    {% for message in messages %}
-                        {{ message }}
-                    {% endfor %}
+{% block messages %}
+    <div class="col s12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="card-panel hoverable cyan white-text center">
+                    {{ message }}
                 </div>
-            {% endif %}
-        </div>
+            {% endfor %}
+        {% endif %}
     </div>
+{% endblock %}
 
+{% block content %}
     <div class="row">
         <div class="col s12">
             <br>
