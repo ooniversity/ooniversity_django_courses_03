@@ -12,7 +12,7 @@ def detail(request, course_id):
     return render (request, 'courses/detail.html',{'course':course,'lessons':lessons, 'coach': coach, 'assistant':assistant})
     
 def add(request):
-  if request.POST:
+  if request.method == 'POST':
     form = CourseModelForm(request.POST)
     if form.is_valid():
       course = form.save() 
@@ -43,7 +43,7 @@ def remove(request, course_id):
     return render(request, 'courses/remove.html', {'course': course})
     
 def add_lesson(request, course_id):
-	if request.POST:
+	if request.method == 'POST':
 		form = LessonModelForm(request.POST)
 		if form.is_valid():
 			lesson = form.save()
