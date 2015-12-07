@@ -35,7 +35,7 @@ h4 {font-weight: bold}
 #programm table tbody tr td ul li.paddingLeft{list-style:none;padding-left:130px}
 #programm table tbody tr td p{padding-left:50px}
 #programm .number_cell{font-family:'trebuchet_msregular';font-size:26px}
-#table_contact th {text-align:left; font-size:24px; font-weight: bold; background: #00BFFF }
+.table_contact th {text-align:left; font-size:24px; font-weight: bold; background: #00BFFF }
 .format_data {font-family: Courier New; text-align:left; vertical-align:middle; font-size:16px; font-weight: bold;}
 #spisok {border-radius: 6px; width: 100%; margin: auto}
 #spisok table thead {background-color: #8FBC8F}
@@ -43,10 +43,10 @@ h4 {font-weight: bold}
 #spisok2 {border-radius: 6px; width: 1000px;}
 #spisok2 table tbody {background-color: #90EE90;}
 .spisok2_1 {width: 200px; font-weight: bold}
-#student_detail p {padding-left: 2%; font-size: 36px; font-weight: bold}
-#student_detail h2 {padding-left: 2%}
-#student_detail p img {max-width:75%; height:auto}
-#student_detail p a {background-color: #1E90FF; font-weight: bold; font-size: 16px}
+.student_detail p {padding-left: 2%; font-size: 36px; font-weight: bold}
+.student_detail h2 {padding-left: 2%}
+.student_detail p img {max-width:75%; height:auto}
+.student_detail p a {background-color: #1E90FF; font-weight: bold; font-size: 16px}
 #info_company thead tr {background-color: black; font-weight: bold; color:orange}
 #info_company tbody tr {background-color: orange; font-weight: bold}
 #st_details {width: 50%}
