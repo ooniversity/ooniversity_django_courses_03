@@ -11,6 +11,13 @@
 
 
 {% block content %} 
+{% if messages %}
+  <ul class="messages">
+  {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
+  {% endfor %}
+  </ul>
+{% endif %} 
 
     <div class= "container">
       <div class="jumbotron">
@@ -74,6 +81,7 @@
                   <th>Тема</th>
                   <th>Описание</th>
               </tr>
+            <a class="btn btn-success"  href="{% url 'courses:add-lesson' course.id %}" role="button">Добавить занятие</a>
             </thead>
                       <tbody>
           
@@ -91,7 +99,6 @@
       
       </div>
     </div>    
- {% include "include/include.html" %}
 
 
 {% endblock content %}

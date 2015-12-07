@@ -55,6 +55,9 @@
                     <tr>
                       <td><a href="{% url 'courses:detail' i.id %}">{{ i|upper }}</a></td>
                       <td>{{ i.short_description|title }}</td>
+                      <td><a href="{% url 'courses:add' %}"><input class="btn btn-primary" value="Добавить курс"></a></td>
+                      <td><a href="{% url 'courses:edit' i.id %}"><input class="btn btn-warning" value="Редактировать курс"></a></td>
+                      <td><a href="{% url 'courses:remove' i.id %}"><input class="btn btn-danger" value="Удалить курс"></a></td>    
                     </tr>
           {% endfor %}
                     </tbody>
