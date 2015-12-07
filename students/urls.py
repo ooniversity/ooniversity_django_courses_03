@@ -7,7 +7,7 @@ urlpatterns = patterns('',
         url(r'add/$', views.create, name='add'),
         #url(r'edit/$', views.edit, name='edit'),
         url(r'^edit/(?P<stdnt_id>\d+)/$', views.edit, name='edit'),
-        url(r'remove/$', views.remove, name='remove'),
+        url(r'remove/(?P<stdnt_id>\d+)/$', views.remove, name='remove'),
         )
 
 

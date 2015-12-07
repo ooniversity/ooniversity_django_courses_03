@@ -12,11 +12,11 @@
 {% block content %}
 
 
-
 <form method="post">
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="OK" />
+    <h2>edit student</h2>
+    {{ form.as_p }}
+    <input type="submit" value="Save" />
 </form>
 
 
