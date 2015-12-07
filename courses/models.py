@@ -1,6 +1,7 @@
 from django.db import models
 from coaches.models import Coach
 
+
 class Course(models.Model):
     name = models.CharField(max_length = 50)
     short_description = models.CharField(max_length = 150)
