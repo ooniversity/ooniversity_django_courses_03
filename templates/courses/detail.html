@@ -41,7 +41,7 @@
               <td>{{ lesson.description }}</td>
             </tr>
             {% endfor %}
-            <tr><a href="{% url 'courses:add-lesson' course.id %}"></a></td>
+            <tr><td><a href="{% url 'courses:add-lesson' course.id %}">Add lesson</a></td></tr>
            </tbody>
         </table>
       </div>
