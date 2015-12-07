@@ -5,21 +5,18 @@
 
 {% block banner %}{% endblock %}
 
-{% block messages %}
-<div class="row">
-        <div class="col s12">
-            {% if messages %}
-                <div class="card-panel hoverable cyan">
-                    {% for message in messages %}
-                        {{ message }}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
-    </div>
-{% endblock %}
-
 {% block content %}
+<div class="row">
+    <div class="col s12">
+        {% if messages %}
+            <div class="card-panel hoverable cyan">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
 
 <h1>Edit course</h1>
 
