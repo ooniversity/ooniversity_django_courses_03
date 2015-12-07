@@ -1,12 +1,12 @@
-{% extends "students/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Edit Student{% endblock title %}
 
 
-{% block page_header %}Edit a student{% endblock page_header %}
+{% block nav_class_student %}active{% endblock nav_class_student %}
 
 
-{% block page_content %}
+{% block content %}
     <div>
     {% if messages %}
         <ul class="messages">
@@ -15,6 +15,10 @@
     {% endfor %}
         </ul>
     {% endif %}
+    </div>
+    <div class="starter-template">
+      <h1 class="starter-template">Edit a student</h1>
+
     </div>
     <div class="panel panel-default">
       <!-- Default panel contents -->
@@ -27,5 +31,5 @@
 
     </div>
 
-{% endblock page_content %}
+{% endblock content %}
 

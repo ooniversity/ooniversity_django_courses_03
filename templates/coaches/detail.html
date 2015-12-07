@@ -1,12 +1,15 @@
-{% extends "coaches/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}Coach Details{% endblock title %}
 
 
-{% block page_header %}{{ coach.first_name }} {{ coach.last_name }}{% endblock page_header %}
+{% block content %}
 
+      <div class="starter-template">
+        <h1 class="starter-template">{{ coach.first_name }} {{ coach.last_name }}</h1>
 
-{% block page_content %}
+      </div>
+
       <!-- Table -->
       <table class="table table-bordered">
       <tbody>
@@ -99,5 +102,6 @@
         <p>No courses where he(she) is assistant.</p>
       {% endif %}
     </div>
-{% endblock page_content %}
+
+{% endblock content %}
 

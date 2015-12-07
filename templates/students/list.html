@@ -1,9 +1,18 @@
-{% extends "students/base.html" %}
-
-{% block page_header %}Py&Django Bursa Students{% endblock page_header %}
+{% extends "base.html" %}
 
 
-{% block page_content %}
+{% block title %}Students{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock nav_class_student %}
+
+{% block content %}
+
+      <div class="starter-template">
+        <h1 class="starter-template">Py&Django Bursa Students</h1>
+
+      </div>
+
     <div>
     {% if messages %}
         <ul class="messages">
@@ -45,4 +54,5 @@
       </tbody>
       </table>
     </div>
-{% endblock page_content %}
+
+{% endblock content %}
