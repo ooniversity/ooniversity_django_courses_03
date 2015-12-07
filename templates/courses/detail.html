@@ -4,18 +4,24 @@
 {% load staticfiles %}
 
 
-{% block title %}PyBursa Courses{% endblock title %}
+{% block title %}Courses{% endblock title %}
 
 
-
+{% block link_students %}?course_id={{ course.id }}{% endblock link_students %}
 
 
 {% block content %}
 
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+
 
     <div class="jumbotron">
       <h1>{{ course.name }}</h1>
-        <p class="lead">{{ course.description }}</p>
+        <p class="lead">{{ course.description|truncatechars:32 }}</p>
     </div>
 
     <hr>
