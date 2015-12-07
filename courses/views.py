@@ -1,6 +1,6 @@
 from forms import CourceModelForm
-from models import Course
 from django.shortcuts import render, redirect
+from models import Course
 import models
 
 
@@ -16,27 +16,27 @@ def detail(request, num):
 def create(request):
     context = {}
     if request.POST: 
-        form = StudentModelForm(request.POST)
+        form = CourceModelForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('courses:list_view')
+            return redirect('courses')
     else:
-        form = StudentModelForm()
+        form = CourceModelForm()
     context = {'form': form}
     return render(request, 'courses/add.html', context)
 
 
 def edit(request, cours_id):
     context = {}
-    cors = Student.objects.get(id=cours_id)
+    cors = Cource.objects.get(id=cours_id)
     if request.POST:
-        form = StudentModelForm(request.POST, instance=cors)
+        form = CourceModelForm(request.POST, instance=cors)
         if form.is_valid():
             form.save()
-            return redirect('courses:list_view')
+            return redirect('courses')
 
     else:
-        form = StudentModelForm(instance=cors)
+        form = CourceModelForm(instance=cors)
     
     context = {'form': form}
     return render(request, 'courses/edit.html', context)
@@ -44,11 +44,11 @@ def edit(request, cours_id):
 
 def remove(request, cours_id):
     context = {}
-    cors = Student.objects.get(id=cours_id)
-    form = StudentModelForm(instance=cors)
+    cors = Cource.objects.get(id=cours_id)
+    form = CourceModelForm(instance=cors)
     if request.POST:
       cors.delete()
-      return redirect('courses:list_view')
+      return redirect('courses')
 
     context = {'form': form}
     return render(request, 'courses/remove.html', context)
