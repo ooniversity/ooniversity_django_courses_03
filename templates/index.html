@@ -13,6 +13,11 @@
 {% block content %}
 <body>
 
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
   
 
     <div class="jumbotron">
@@ -62,6 +67,7 @@
                   <tr>
                     <th class="panel-heading">Course</th>
                     <th class="panel-heading">Description</th>
+                    <th class="panel-heading">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -69,6 +75,8 @@
                   <tr>
                     <td><a href="{% url 'courses:detail' i.id %}">{{ i }}</a></td>
                     <td>{{ i.short_description }}</td>
+                    <td><a class="btn btn-primary btn-block" href="{% url 'courses:edit' i.id %}" role="button"><span class="glyphicon glyphicon-pencil"></span> Изменить</a>
+                    <a class="btn btn-primary btn-block" href="{% url 'courses:remove' i.id %}" role="button"><span class="glyphicon glyphicon-remove"></span> Удалить</a></td>
                   </tr>
                   {% endfor %}
                 </tbody>
