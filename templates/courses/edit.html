@@ -5,24 +5,25 @@
 
 {% block banner %}{% endblock %}
 
-{% block content %}
-<div class="row">
+{% block messages %}
     <div class="col s12">
         {% if messages %}
-            <div class="card-panel hoverable cyan">
-                {% for message in messages %}
+            {% for message in messages %}
+                <div class="card-panel hoverable cyan white-text center">
                     {{ message }}
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         {% endif %}
     </div>
-</div>
+{% endblock %}
 
-<h1>Edit course</h1>
+{% block content %}
 
-<form method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Edit" class="waves-effect waves-light btn cyan"/>
-</form>
+    <h1>Edit course</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Edit" class="waves-effect waves-light btn cyan"/>
+    </form>
 {% endblock content %}
