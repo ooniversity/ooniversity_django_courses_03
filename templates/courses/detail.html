@@ -23,10 +23,10 @@
             {{ lesson.order }}
           </td>
           <td>
-            {{lesson.subject}}
+            {{ lesson.subject }}
           </td>
           <td>
-            {{ lesson.description | truncatechars:32 }}
+            {{ lesson.description|truncatechars:32 }}
           </td>
         </tr>
         {% endfor %}
