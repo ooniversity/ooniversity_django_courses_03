@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
+
+
+{% block title %}new cource{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock nav_class_index %}
+
+
+{% block content %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <h2>new cource</h2>
+    {{ form.as_p }}
+    <input type="submit" value="Add" />
+</form>
+
+
+{% endblock content %}
