@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}pyBursa - Main page{% endblock title %}
+{% block title %}PyBursa - Main page{% endblock title %}
 
 
 {% block nav_class_index %}active{% endblock %}
@@ -53,8 +53,7 @@
         <th></th>
       </tr>
       </thead>
-      <tbody>
-      {% for i in courses %}
+      <tbody>{% for i in courses %}
       <tr>
         <td><a href="{% url 'courses:detail' i.id%}">{{ i|upper }}</a></td>
         <td>{{ i.short_description|title }}</td>
@@ -64,9 +63,7 @@
         <td><a href="{% url 'courses:remove' i.id%}">
           <button type="button" class="btn btn-large btn-primary">Удалить</button>
         </a></td>
-      </tr>
-      {% endfor %}
-      </tbody>
+      </tr>{% endfor %}</tbody>
     </table>
   </div>
 </div>
