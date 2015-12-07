@@ -16,8 +16,7 @@ def add(request):
         form = CourseModelForm(request.POST)
         if form.is_valid():
             new_course = form.save()
-            mes = u'Course %s has been successfuly added.' % new_course.name
-            messages.success(request, mes)
+            messages.success(request, u'Course %s has been successfuly added.' % new_course.name)
             return redirect('/')
     else:
         form = CourseModelForm()
@@ -30,8 +29,7 @@ def edit(request, course_id):
         form = CourseModelForm(request.POST, instance=our_course)
         if form.is_valid():
             new_course = form.save()
-            mes = u'The changes have been saved.'
-            messages.success(request, mes)
+            messages.success(request, u'The changes have been saved.')
             return redirect('courses:edit', new_course.id)
     else:
         form = CourseModelForm(instance=our_course)
@@ -43,8 +41,7 @@ def remove(request, course_id):
     name = our_course.name
     if request.method == 'POST':
         our_course.delete()
-        mes = u'Course %s has been deleted.' % our_course.name
-        messages.success(request, mes)
+        messages.success(request, u'Course %s has been deleted.' % our_course.name)
         return redirect('/')
     return render(request, 'courses/remove.html', {'name': name})
 
@@ -54,8 +51,7 @@ def add_lesson(request, course_id):
         form = LessonModelForm(request.POST)
         if form.is_valid():
             new_lesson = form.save()
-            mes = u"Lesson %s has been successfuly added." % new_lesson.subject
-            messages.success(request, mes)
+            messages.success(request, u'Lesson %s has been successfuly added.' % new_lesson.subject)
             return redirect('courses:detail', new_lesson.course.id)
     else:
         form = LessonModelForm(initial={'course': course_id})
