@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}remove course form{% endblock title %}
+
+{% block content %}
+	<h2>Курс {{ course.name }} будет удален</h2>
+	<form method="post">
+		{% csrf_token %}
+		<input type="submit" value="confirm">
+	</form>
+{% endblock content %}

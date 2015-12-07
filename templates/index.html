@@ -13,6 +13,16 @@
 
 {% block content %}
     <div class="container">
+    <div>
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
        <div class="jumbotron">
         <div class="container">
           <h1>Description</h1>
@@ -27,6 +37,8 @@
             <tr>
               <th>Курс</th>
               <th>описание</th>
+              <th></th>
+              <th></th>
              </tr>
            </thead>
           <tbody>
@@ -34,8 +46,13 @@
             <tr>
               <th scope="row"><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></th>
               <td>{{course.short_description|title}}</td>
-    {% endfor %}
+              <td><a href="{% url 'courses:edit' course.id %}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"> Edit</a></td>
+              <td><a href="{% url 'courses:remove' course.id %}"><span class="glyphicon glyphicon-remove" aria-hidden="true"> Delete</a></td>
             </tr>
+    {% endfor %}
+             <tr>
+               <th><a href="{% url 'courses:add' %}"><span class="glyphicon glyphicon-plus" aria-hidden="true"> add course</a></th>
+              </tr>
            </tbody>
         </table>
       </div>
