@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 
@@ -17,19 +18,25 @@
       <div class="panel panel-default">
         <div class="panel-heading">Учитель</div>
       <div class="panel-body">
+          {% if course_object.coach %}
           <p><b><a href="{% url 'coaches:detail' pk=course_object.coach.id %}">{{ course_object.coach.user.first_name }} {{ course_object.coach.user.last_name }}</a></b></p>
+          {% endif %}
           <p>{{ course_object.coach.description }}</p>
       </div>
       </div>
       <div class="panel panel-default">
       <div class="panel-heading">Ассистент</div>
       <div class="panel-body">
+        {% if course_object.assistant %}
         <p><b><a href="{% url 'coaches:detail' pk=course_object.assistant.id %}">{{ course_object.assistant.user.first_name }} {{ course_object.assistant.user.last_name }}</a></b></p>
+        {% endif %}
         <p>{{ course_object.assistant.description }}</p>
     </div>
   </div>
 
       <h3 class="program">План курса</h3>
+  <a href="{% url 'students:add' %}"><button type="button" class="btn btn-default navbar-btn">Добавить занятие</button></a>
+
       <table class="table">
       <thead>
         <tr>
