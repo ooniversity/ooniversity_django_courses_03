@@ -18,7 +18,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th id="students_detail">#</th>
+              <th class="students_detail">#</th>
               <th>Фамилия Имя</th>
               <th>Адрес</th>
               <th>Skype</th>
@@ -28,7 +28,7 @@
           <tbody>
             {%for st in students_list_course %}
                 <tr>
-                    <td id="students_detail">{{forloop.counter}}</td>
+                    <td class="students_detail">{{forloop.counter}}</td>
                     <td><a href="{% url 'students:detail' st.id %}">{{st.surname}}{{' '}}{{st.name}}</a></td>
                     <td>{{st.address}}</td>
                     <td>{{st.skype}}</td>
