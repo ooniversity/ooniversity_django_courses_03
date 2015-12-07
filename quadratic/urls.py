@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 
 #import views
-import forms
+import views
 
 urlpatterns = patterns('',
     # ex: /polls/
@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     # ex: /polls/5/results/
     #url(r'^(?P<question_id>\d+)/results/$', views.results, name='results'),
 
-    url(r'^results/$', forms.quadratic_results, name='results'),
+    url(r'^results/$', views.quadratic_results, name='results'),
     # ex: /polls/5/vote/
     #url(r'^(?P<question_id>\d+)/vote/$', views.vote, name='vote'),
 )
