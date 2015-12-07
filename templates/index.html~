@@ -79,6 +79,6 @@
     </div>
   </div>
 
-  {% include "include/include.html" %}
+{% include "include/include.html" %}
 
 {% endblock content %}
