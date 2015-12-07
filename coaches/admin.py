@@ -2,12 +2,13 @@ from django.contrib import admin
 from coaches.models import Coach
 from django.contrib.auth.models import User
 
+
 class CoachAdmin(admin.ModelAdmin):
     list_display = ['name', 'surname', 'gender', 'email', 'skype', 'description']
     list_filter = (('user__is_staff',admin.BooleanFieldListFilter),)
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['username', 'password', 'first_name', 'last_name', 'gender', 'email', 'skype', 'is_staff']
+    list_display = ['username', 'first_name', 'last_name', 'gender', 'email', 'skype', 'is_staff']
     list_filter = (('is_staff', admin.BooleanFieldListFilter),)
     fields = ['username', 'password', 'first_name', 'last_name', 'email', 'is_staff']
 
