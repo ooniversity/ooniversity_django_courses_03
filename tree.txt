@@ -1,0 +1,112 @@
+.
+├── coaches
+│   ├── admin.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_auto_20151130_1931.py
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── courses
+│   ├── admin.py
+│   ├── forms.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_auto_20151130_1909.py
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── db.sqlite3
+├── manage.py
+├── pybursa
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── views.py
+│   └── wsgi.py
+├── quadratic
+│   ├── admin.py
+│   ├── forms.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── templates
+│   │   └── results.html
+│   ├── tests.py
+│   └── views.py
+├── README.md
+├── requirements.txt
+├── static
+│   ├── css
+│   │   ├── bootstrap.css
+│   │   ├── bootstrap.css.map
+│   │   ├── bootstrap.min.css
+│   │   ├── bootstrap-theme.css
+│   │   ├── bootstrap-theme.css.map
+│   │   ├── bootstrap-theme.min.css
+│   │   └── style.css
+│   ├── fonts
+│   │   ├── glyphicons-halflings-regular.eot
+│   │   ├── glyphicons-halflings-regular.svg
+│   │   ├── glyphicons-halflings-regular.ttf
+│   │   ├── glyphicons-halflings-regular.woff
+│   │   └── glyphicons-halflings-regular.woff2
+│   ├── images
+│   │   ├── back.png
+│   │   ├── eddy_cue_color.png
+│   │   ├── eddy_cue.png
+│   │   ├── nepluev.jpg
+│   │   ├── python-128.png
+│   │   ├── README.md
+│   │   ├── steve.png
+│   │   ├── tim-cook-color.png
+│   │   └── tim-cook.png
+│   ├── js
+│   │   ├── bootstrap.js
+│   │   ├── bootstrap.min.js
+│   │   └── npm.js
+│   └── README.md
+├── students
+│   ├── admin.py
+│   ├── forms.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── templates
+│   ├── base.html
+│   ├── coaches
+│   │   └── detail.html
+│   ├── contact.html
+│   ├── courses
+│   │   ├── add.html
+│   │   ├── add_lesson.html
+│   │   ├── detail.html
+│   │   ├── edit.html
+│   │   └── remove.html
+│   ├── include
+│   │   ├── course_list_include.html
+│   │   ├── form_include.html
+│   │   └── message_include.html
+│   ├── index.html
+│   ├── README.md
+│   └── students
+│       ├── add.html
+│       ├── detail.html
+│       ├── edit.html
+│       ├── list.html
+│       └── remove.html
+└── tree.txt
+
+21 directories, 90 files
