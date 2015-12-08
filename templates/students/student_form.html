@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
+
+
+{% block title %}Students formdd{% endblock title %} 
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block content %}
+    <div class="col-lg-12">
+
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags %}{{ message.tags }}{% else %}info{% endif %} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <h2>Редактирование данных студента</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Edit" />
+        </form>
+
+       
+    </div>
+{% endblock content %}
