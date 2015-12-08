@@ -3,8 +3,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Student
 from students.forms import StudentModelForm
 from django.contrib import messages
-from django.template import RequestContext
-from django.core.context_processors import csrf
 
 
 def list_view(request):
@@ -38,8 +36,7 @@ def create(request):
     else:
         form = StudentModelForm()
     context = {'form': form}
-    context.update(csrf(request))
-    return render(request, 'students/add.html', context, context_instance=RequestContext(request))
+    return render(request, 'students/add.html', context)
 
 
 def edit(request, student_id):
@@ -53,8 +50,7 @@ def edit(request, student_id):
     else:
         form = StudentModelForm(instance=student)
     context = {'form': form}
-    context.update(csrf(request))
-    return render(request, 'students/edit.html', context, context_instance=RequestContext(request))
+    return render(request, 'students/edit.html', context)
 
 
 def remove(request, student_id):
@@ -67,5 +63,4 @@ def remove(request, student_id):
                          student.name, student.surname))
         return redirect('students:list_view')
     context = {'remove_message': remove_message}
-    context.update(csrf(request))
-    return render(request, 'students/remove.html', context, context_instance=RequestContext(request))
+    return render(request, 'students/remove.html', context)

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from coaches.models import Coach
 from courses.models import Course
 
@@ -13,4 +13,4 @@ def detail(request, coache_id):
         'coach_on_courses': coach_on_courses,
         'assistant_on_courses': assistant_on_courses,
     }
-    return render_to_response('coaches/detail.html', context)
+    return render(request, 'coaches/detail.html', context)
