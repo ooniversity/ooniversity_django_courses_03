@@ -1,12 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
 def detail(request, course_id):
-	course = Course.objects.get(id=course_id)
-	lessons = course.lesson_set.all()
-	return render(request, 'courses/detail.html', {'course':course, 'lessons':lessons})
+	#course = Course.objects.get(id=course_id)
+	course = get_object_or_404(Course, id=course_id)
+	return render(request, 'courses/detail.html', {'course':course})
 
 def create(request):
 	if request.method == "POST":

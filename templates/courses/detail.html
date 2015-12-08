@@ -79,7 +79,7 @@
 						   </tr>
 						</thead>
 						<tbody>
-							{% for les in lessons %}
+							{% for les in course.lesson_set.all %}
 					    <tr>
 								<td>{{ les.order }}</td> 
 						    <td>{{ les.subject }}</td>
