@@ -13,8 +13,7 @@
 {% block content %}
 
 {% include "include/inc_BestoftheBest_include.html" %}
-<div class="container" id="mark">
-    		{% for student in students %}
+<div class="container" id="mark">	
         <h1>{{ student.name}} {{ student.surname }}</h1>      	
     </div>
     <div class="mytable">
@@ -70,7 +69,6 @@
                 </td>
             </tr>
         </table>
-          {% endfor %}
     </div>
     <nav class="container">
         <ul class="pager">

@@ -12,7 +12,7 @@
         <h1><strong>Создание нового занятия</strong></h1></br>
         <form method="post">
         	{% csrf_token %}
-		  {{ model_form.as_p }}		
+		  {{ form.as_p }}		
 		  <input type="submit" value="Создать" />
 		</form>
     </div>
