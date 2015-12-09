@@ -1,11 +1,21 @@
+#-*-coding: utf-8-*-
 from django.shortcuts import render,  get_object_or_404, redirect
 from django.contrib import messages
 import models
 from forms import *
+#import pybursa.utils
 
-def detail(request,course_id):
-    course =  get_object_or_404(Course, pk=course_id)
-    return render(request, 'detail.html', {'course': course, 'id': str(course.id)})
+def view_item(request, obj_id, obj_class):
+    class_name = obj_class.__name__.lower()
+    obj = get_object_or_404(obj_class, id=obj_id)
+    return render(request, '%ss/detail.html' % class_name, {class_name: obj, 'id': obj_id})
+
+def detail(request, course_id):
+   return view_item(request, course_id, Course)
+
+# def detail(request,course_id):
+#     course =  get_object_or_404(Course, pk=course_id)
+#     return render(request, 'detail.html', {'course': course, 'id': str(course.id)})
 
 def add(request):
     if request.POST:
