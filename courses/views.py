@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from pybursa.utils import MixinLessonContext
 
 
 class CourseDetailView(DetailView):
@@ -66,7 +68,7 @@ class CourseDeleteView(DeleteView):
         return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
 
-class LessonCreateView(CreateView):
+class LessonCreateView(MixinLessonContext, CreateView):
     model = Lesson
     template_name = 'courses/add_lesson.html'
 
