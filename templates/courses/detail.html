@@ -26,12 +26,9 @@
         </div>
         <h2>Преподаватели</h2> 
 
-
-
         {% include 'include/instructor_include.html' with block_title='Учитель' instructor=courses.coach %} 
 
         {% include 'include/instructor_include.html' with block_title='Ассистент' instructor=courses.assistant %}
-
 
         <h2>Program about {{ courses }}</h2>
         <a href="{% url 'courses:add-lesson' courses.id %}" class="btn btn-info">Создать новые уроки</a>

@@ -1,29 +1,11 @@
 # -*- coding: utf-8 -*
-from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
-from students.forms import StudentModelForm
 from students.models import Student
-
-
-# def list_view(request):
-#     reguest_course = request.GET
-#     if 'course_id' in reguest_course:
-#         list_students = Student.objects.filter(
-#             courses=reguest_course['course_id'])
-#     else:
-#         list_students = Student.objects.all()
-# return render(request, 'students/list.html', {'list_students':
-# list_students})
-
-#
-# def detail(request, pk):
-#     student = Student.objects.get(id=pk)
-#     return render(request, 'students/detail.html', {'student': student})
 
 
 class StudentDetailView(DetailView):
@@ -66,7 +48,6 @@ class StudentCreateView(CreateView):
 class StudentUpdateView(UpdateView):
     model = Student
     # template_name = 'students/add.html'
-    success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
@@ -79,24 +60,47 @@ class StudentUpdateView(UpdateView):
         messages.success(self.request, 'Student info update')
         return super(StudentUpdateView, self).form_valid(form)
 
+    def get_success_url(self, **kwargs):
+        return reverse_lazy('students:edit', args=(self.object.pk,))
+
 
 class StudentDeleteView(DeleteView):
     model = Student
     # template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
 
-    def get_context_data(self, **kwargs):
-        context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['title'] = 'Student info suppression'
-        return context
+    student_name = ''
+    student_surname = ''
 
-    # def form_valid(self, form):
-    #     # This method is called when valid form data has been POSTed.
-    #     # It should return an HttpResponse.
-    #     student = form.save()
-    #     messages.success(request, 'Info on %s %s has been sucessfully deleted.' % (
-    #         student.name, student.surname))
-    #     return super(StudentDeleteView, self).form_valid(form)
+    def get_context_data(self, **kwargs):
+        data = super(StudentDeleteView, self).get_context_data(**kwargs)
+        data['title'] = 'Student info suppression'
+        return data
+
+    def get_object(self, queryset=None):
+        object = super(StudentDeleteView, self).get_object()
+        self.student_name = object.name
+        self.student_surname = object.surname
+        return object
+
+    def get_success_url(self):
+        messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (
+            self.student_name, self.student_surname))
+        return self.success_url
+# def list_view(request):
+#     reguest_course = request.GET
+#     if 'course_id' in reguest_course:
+#         list_students = Student.objects.filter(
+#             courses=reguest_course['course_id'])
+#     else:
+#         list_students = Student.objects.all()
+# return render(request, 'students/list.html', {'list_students':
+# list_students})
+
+#
+# def detail(request, pk):
+#     student = Student.objects.get(id=pk)
+#     return render(request, 'students/detail.html', {'student': student})
 
 
 # def create(request):
