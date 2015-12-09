@@ -43,9 +43,11 @@ class StudentCreateView(CreateView):
 	def get_context_data(self, **kwargs):
 		context = super(StudentCreateView, self).get_context_data(**kwargs)
 		context['title'] = "Student registration"
+		context['page_title'] = "Student registration"
 		return context
 	def form_valid(self, form):
-		mes = u'Данные сохранены'
+		stud = form.save()
+		mes = "Student %s %s has been successfully added." %(stud.name, stud.surname)
 		messages.success(self.request, mes)
 		return super(StudentCreateView, self).form_valid(form)
 
@@ -65,14 +67,15 @@ def create(request):
 
 class StudentUpdateView(UpdateView):
 	model = Student
-	success_url = reverse_lazy('students:list_view')
 	def form_valid(self, form):
-		mes = u'Данные изменены'
+		mes = "Info on the student has been sucessfully changed."
 		messages.success(self.request, mes)
+		self.success_url = reverse_lazy('students:edit', kwargs={'pk':self.object.pk})
 		return super(StudentUpdateView, self).form_valid(form)
 	def get_context_data(self, **kwargs):
 		context = super(StudentUpdateView, self).get_context_data(**kwargs)
 		context['title'] = "Student info update"
+		context['page_title'] = "Student info update"
 		return context
 
 
@@ -96,7 +99,7 @@ class StudentDeleteView(DeleteView):
 	def get_context_data(self, **kwargs):
 		context = super(StudentDeleteView, self).get_context_data(**kwargs)
 		context['title'] = "Student info suppression"
-		mes = u'Студент удалён'
+		mes = "Info on %s %s has been sucessfully deleted." % (self.object.name, self.object.surname)
 		messages.success(self.request, mes)
 		return context
 """

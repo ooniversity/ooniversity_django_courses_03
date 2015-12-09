@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.core.urlresolvers import reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from coaches.models import Coach
 
 class Course(models.Model):
@@ -19,3 +21,6 @@ class Lesson(models.Model):
 	order = models.PositiveIntegerField()
 	def __unicode__(self):
 		return self.subject
+	#def get_absolute_url(self):
+	#	return render('courses/detail.html', {'pk':self.course.pk})
+
