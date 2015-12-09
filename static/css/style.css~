@@ -1,4 +1,4 @@
-.background_body{
+body{
   padding-top: 100px;
   padding-bottom: 40px;
 	background: url("../images/fon_1.png");
@@ -159,7 +159,7 @@
   .navbar-static-top .container,
   .navbar-fixed-top .container,
   .navbar-fixed-bottom .container {
-    width: 1170px;
+    width: 170px;
   }
   .span12 {
     width: 1170px;

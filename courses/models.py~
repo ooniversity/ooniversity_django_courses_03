@@ -17,10 +17,10 @@ class Course(models.Model):
 class Lesson(models.Model):
 	subject = models.CharField(max_length = 255)
 	description = models.TextField()
-	course = models.ForeignKey(Course)
+	course = models.ForeignKey(Course, default = self.course)
 	order = models.PositiveIntegerField()
 	def __unicode__(self):
 		return self.subject
-	def get_absolute_url(self):
-		return render('courses/detail.html', {'pk':self.course.pk})
+	#def get_absolute_url(self):
+	#	return reverse('courses:detail', {'pk':self.course.pk})
 
