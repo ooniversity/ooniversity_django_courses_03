@@ -1,0 +1,67 @@
+{% extends "students/student_base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ page_title }}{% endblock title %}
+
+
+{% block content %}
+    <div class="stud-btn">
+        <a href="{% url 'students:add' %}">
+            <button type="button" class="btn btn-primary btn-sm">
+                <span class="glyphicon glyphicon-plus"></span>Add student
+            </button>
+        </a>
+    </div>
+
+    <h2>Students list</h2>
+
+    <table class="table table-striped table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Skype</th>
+            <th>Course</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+            <tr>
+            <td>
+                <a class="table"
+                   href="{% url 'students:list_view' %}{{ student.id }}">{{ student.surname }} {{ student.name }}</a>
+            </td>
+            <td>{{ student.address }}</td>
+            <td>{{ student.skype }}</td>
+            <td>{% for course in student.courses.all %}
+
+                <a class="table" href="{% url 'courses:detail' course.id %}">{{ course }}</a><br>
+            {% endfor %}</td>
+
+            <td>
+                <a href="{% url 'students:edit' student.id %}">
+                    <button type="button" class="btn btn-primary btn-sm"><span
+                            class="glyphicon glyphicon-pencil"></span>
+                        Edit
+                    </button>
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'students:remove' student.id %}">
+                    <button type="button" class="btn btn-primary btn-sm"><span
+                            class="glyphicon glyphicon-remove"></span>
+                        Delete
+                    </button>
+                </a>
+            </td>
+        {% empty %}
+            <p>No students</p>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

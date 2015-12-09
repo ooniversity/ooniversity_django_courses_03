@@ -1,0 +1,50 @@
+{% extends "students/student_base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ page_title }}{% endblock title %}
+
+
+{% block content %}
+    <h1>Student details</h1>
+    <h2>{{ student.name }} {{ student.surname }}</h2>
+    <br>
+    <table class="table table-striped table table-bordered">
+        <thead>
+        <tr>
+            <td>Birth day</td>
+            <td>{{ student.date_of_birth }}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{ student.address }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ student.email }}</td>
+        </tr>
+        <tr>
+            <td>Skype</td>
+            <td>{{ student.skype }}</td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>{{ student.phone }}</td>
+        </tr>
+        <thead>
+
+        <tbody>
+        <tr>
+            <td>Courses</td>
+            <td>
+                {% for course in student.courses.all %}
+                    <a class="table" href="{% url 'courses:detail' course.id %}"> {{ course }}</a><br>
+                {% endfor %}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+{% endblock content %}
