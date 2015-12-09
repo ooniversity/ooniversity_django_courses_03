@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Edit Student{% endblock title %}
+{% block title %}Add Student{% endblock title %}
 
 
 {% block nav_active_students %}active{% endblock %}
@@ -12,20 +12,22 @@
 
 {% block content %}
 
-  <p>Student {{ student.name }} {{ student.surname }} will be deleted</p>
-  <!--{% if messages %}
+  <h1>{{ title }}</h1>
+
+  {% if messages %}
     <ul class="messages">
       {% for message in messages %}
         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
           {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-            {{ message }}
-          </li>
+          {{ message }}
+        </li>
       {% endfor %}
     </ul>
-  {% endif %}-->
+  {% endif %}
 
   <form method="post">
     {% csrf_token %}
+    {{ form.as_p }}
     <input type="submit">
   </form>
 {% endblock content %}
