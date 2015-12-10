@@ -7,6 +7,7 @@
 {% block nav_active_students %}active{% endblock nav_active_students %}
 
 {% block form %}
+	<h2>{{ title }}</h2>
 	<h2>Студент {{ student.name }} {{ student.surname }} будет удален</h2>
 	<form method="post">
 		{% csrf_token %}
