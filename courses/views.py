@@ -37,7 +37,7 @@ class MixinCourseContext(object):
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
-    context_object_name = 'args'
+    #context_object_name = 'args'
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
