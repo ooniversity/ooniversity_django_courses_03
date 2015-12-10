@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Новый курс{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_class_index %}active{% endblock nav_class_index %}
@@ -12,10 +12,10 @@
 
 {% block content %}
 	<div class="container" id="sto">
-        <h1><strong>Создание нового курса</strong></h1></br>
+        <h1><strong>{{ title }}</strong></h1></br>
         <form method="post">
         	{% csrf_token %}
-		  {{ model_form.as_p }}		
+		  {{ form.as_p }}		
 		  <input type="submit" value="Создать" />
 		</form>
     </div>

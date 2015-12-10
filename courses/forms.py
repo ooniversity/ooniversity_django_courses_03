@@ -10,3 +10,4 @@ class CourseModelForm(ModelForm):
 class LessonModelForm(ModelForm):
 	class Meta:
 		model = Lesson
+
