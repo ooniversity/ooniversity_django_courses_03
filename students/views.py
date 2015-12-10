@@ -14,7 +14,7 @@ class StudentListView(ListView):
 	#context_object_name = 'students'
 	def get_queryset(self):
 		qs = super(StudentListView, self).get_queryset()
-		course_id = self.request.GET.get('pk', None)
+		course_id = self.request.GET.get('course_id', None)
 		if course_id:
 			qs = qs.filter(courses = course_id)
 		return qs	
