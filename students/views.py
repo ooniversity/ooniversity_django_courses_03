@@ -31,7 +31,6 @@ class StudentCreateView(CreateView):
         context['title'] = "Student registration"
         context['name_form'] = "Создание нового студента"
         context['name_button'] = "Создать"
-
         return context
 
     def form_valid(self, form):
