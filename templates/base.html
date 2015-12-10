@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,8 +10,8 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>{% block title %}Base Template{% endblock title%}</title>
-    
+    <title>{% block title %}Base Template{% endblock title %}</title>
+
     {% load staticfiles %}
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -29,80 +30,82 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body role="document">
+<body role="document">
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="custom-header">
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="custom-header">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">PyBursa</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">PyBursa</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="{% block navbar_i1 %}{% endblock navbar_i1 %}">
-              <a href="{% url 'index' %}">Main</a>
-            </li>
-            <li class="{% block navbar_i2 %}{% endblock navbar_i2 %}">
-              <a href="{% url 'contact' %}">Contacts</a>
-            </li>
-            <li class="{% block navbar_i3 %}{% endblock navbar_i3 %}">
-              <a href="{% url 'students:list_view' %}">Students</a>
-            </li>
-            <li class="{% block navbar_i4 %}{% endblock navbar_i4 %}">
-              <a href="{% url 'result' %}">Equotion</a>
-            </li>
-          </ul>
+            <ul class="nav navbar-nav">
+                <li class="{% block navbar_i1 %}{% endblock navbar_i1 %}">
+                    <a href="{% url 'index' %}">Main</a>
+                </li>
+                <li class="{% block navbar_i2 %}{% endblock navbar_i2 %}">
+                    <a href="{% url 'contact' %}">Contacts</a>
+                </li>
+                <li class="{% block navbar_i3 %}{% endblock navbar_i3 %}">
+                    <a href="{% url 'students:list_view' %}">Students</a>
+                </li>
+                <li class="{% block navbar_i4 %}{% endblock navbar_i4 %}">
+                    <a href="{% url 'result' %}">Equotion</a>
+                </li>
+            </ul>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    <div class="container theme-showcase starter-regullar" role="main">
+<div class="container theme-showcase starter-regullar" role="main">
     {% block notice %}
-    <!-- notice area -->
-    {% if messages %}
-        <div class="alert alert-success" role="alert">
+        <!-- notice area -->
+        {% if messages %}
+            <div class="alert alert-success" role="alert">
         {% for message in messages %}
           {{ message }}
         {% endfor %}
         </div>
-    {% endif %}
+        {% endif %}
 
 
     {% endblock notice %}
-      <div class="jumbotron">
-      {% block jumbotron %}{% endblock jumbotron %}
-      </div><!-- /jumbotron -->
-      
-      {% block content %}{% endblock content%}
-      
-    </div><!-- /container -->
+    <div class="jumbotron">
+      {% block jumbotron %}{% endblock %}
+    </div><!-- /jumbotron -->
+
+    {% block content %}{% endblock %}
+
+</div>
+<!-- /container -->
 
 
-    <!-- Site footer -->
-    <div class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="col-sm-3 col-sm-offset-5">
+<!-- Site footer -->
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="col-sm-3 col-sm-offset-5">
         <a class="navbar-brand" href="https://www.youtube.com/watch?v=KxmLNctBi10">&copy; PyBursa 2015</a>
-      </div>
-      <!--<div class="container">
-        <p class="navbar-text pull-left">&copy; PyBursa 2015</p>
-        <p class="navbar-text pull-right"> Butstrap 3
-          <a href="https://www.youtube.com/watch?v=KxmLNctBi10">tutorial</a>
-          and
-          <a href="https://www.youtube.com/user/CodersGuide">coder's guide</a>.-->
-        </p>
     </div>
+    <!--<div class="container">
+      <p class="navbar-text pull-left">&copy; PyBursa 2015</p>
+      <p class="navbar-text pull-right"> Butstrap 3
+        <a href="https://www.youtube.com/watch?v=KxmLNctBi10">tutorial</a>
+        and
+        <a href="https://www.youtube.com/user/CodersGuide">coder's guide</a>.
+    </p>-->
+</div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-  </body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
 </html>

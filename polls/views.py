@@ -58,14 +58,14 @@ def detail(request, question_id):
         question = Question.objects.get(pk=question_id)
     except Question.DoesNotExist:
         raise Http404
-    return render(request, 'cources/detail.html', {'question': question})
+    return render(request, 'cources/student_detail.html', {'question': question})
 
 
 
 
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'cources/detail.html', {'question': question})
+    return render(request, 'cources/student_detail.html', {'question': question})
 """
 
 
@@ -80,7 +80,7 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Question
-    template_name = 'cources/detail.html'
+    template_name = 'cources/student_detail.html'
 
 
 class ResultsView(generic.DetailView):
@@ -93,7 +93,7 @@ def vote(request, question_id):
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'cources/detail.html', {
+        return render(request, 'cources/student_detail.html', {
             'question': p,
             'error_message': "You didn't select a choice.",
         })
