@@ -19,6 +19,7 @@ class CourseDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['course_lessons'] = Lesson.objects.filter(course_id=self.object.id)
+        context['course_par'] = "?course_id=" + str(self.object.id)
         return context
 
 def detail(request, course_id):
