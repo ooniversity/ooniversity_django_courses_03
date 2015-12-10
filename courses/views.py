@@ -42,9 +42,9 @@ class CourseDetailView(MixinCourseContext, DetailView):
 
     
     def get_context_data(self, **kwargs):
-        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        data = super(CourseDetailView, self).get_context_data(**kwargs)
         #context['title'] = 'Student registration'
-        self.object = self.get_object()
+        #self.object = self.get_object()
         #print self.object
         #context['name'] = self.object.name
         #context['description'] = self.object.description
@@ -57,13 +57,12 @@ class CourseDetailView(MixinCourseContext, DetailView):
         #context['assistant_name'] = self.object.assistant.name
         #context['assistant_surname'] = self.object.assistant.surname
         #context['assistant_description'] = self.object.assistant.description
-        context['coach'] = self.object.coach
-        context['assistant'] = self.object.assistant
+        data['coach'] = self.object.coach
+        data['assistant'] = self.object.assistant
     
-        return context
+        return data
         
-    #def dispatch(self, *args, **kwargs):
-        #return super(CourseDetailView, self).dispatch(*args, **kwargs)    
+        
 
 
 def detail(request, course_id):
