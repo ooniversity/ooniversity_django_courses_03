@@ -70,14 +70,14 @@ class CourseDeleteView(DeleteView):
         messages.success(self.request, mess)
         return message
 
-def add_lesson(request, pk):
-    if request.method == 'POST':
-        form = LessonModelForm(request.POST)
-        if form.is_valid():
-            application = form.save()
-            message = u'Lesson {} has been successfully added.' .format(application.subject)
-            messages.success(request, message)
-            return redirect('courses:detail', pk)
-    else:
-        form = LessonModelForm(initial={'course': pk})
-    return render(request, 'courses/add_lesson.html', {'form': form})
+class LessonCreateView(CreateView):
+    model = Lesson
+
+    def form_valid(self, form):
+        message = super(LessonCreateView, self).form_valid(form)
+        mess = u'Lesson {} has been successfully added.' .format(self.object.subject)
+        messages.success(self.request, mess)
+        return message
+
+    def get_success_url(self):
+        return reverse_lazy('courses:detail', kwargs={'pk': self.object.course_id})
