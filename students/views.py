@@ -57,7 +57,8 @@ class StudentUpdateView(UpdateView):
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
-        messages.success(self.request, 'Info on the student has been sucessfully changed.')
+        messages.success(
+            self.request, 'Info on the student has been sucessfully changed.')
         return super(StudentUpdateView, self).form_valid(form)
 
     def get_success_url(self, **kwargs):
@@ -69,24 +70,18 @@ class StudentDeleteView(DeleteView):
     # template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
 
-    student_name = ''
-    student_surname = ''
-
-    def get_context_data(self, **kwargs):
-        data = super(StudentDeleteView, self).get_context_data(**kwargs)
-        data['title'] = 'Student info suppression'
-        return data
-
     def get_object(self, queryset=None):
         object = super(StudentDeleteView, self).get_object()
         self.student_name = object.name
         self.student_surname = object.surname
         return object
 
-    def get_success_url(self):
+    def delete(self, request, *args, **kwargs):
+        message = super(StudentDeleteView, self).delete(
+            request, *args, **kwargs)
         messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (
-            self.student_name, self.student_surname))
-        return self.success_url
+            self.object.name, self.object.surname))
+        return message
 # def list_view(request):
 #     reguest_course = request.GET
 #     if 'course_id' in reguest_course:
