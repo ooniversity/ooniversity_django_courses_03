@@ -5,8 +5,6 @@ from .models import Course
 from django.core.exceptions import ObjectDoesNotExist
 from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
-from django.template.context import RequestContext
-from django.core.context_processors import csrf
 
 
 def detail(request, course_id):
@@ -35,8 +33,7 @@ def add(request):
     else:
         form = CourseModelForm()
     context = {'form': form}
-    context.update(csrf(request))
-    return render(request, 'courses/add.html', context, context_instance=RequestContext(request))
+    return render(request, 'courses/add.html', context)
 
 
 def edit(request, course_id):
@@ -50,8 +47,7 @@ def edit(request, course_id):
     else:
         form = CourseModelForm(instance=course)
     context = {'form': form}
-    context.update(csrf(request))
-    return render(request, 'courses/edit.html', context, context_instance=RequestContext(request))
+    return render(request, 'courses/edit.html', context)
 
 
 def remove(request, course_id):
@@ -62,8 +58,7 @@ def remove(request, course_id):
         messages.success(request, 'Course %s has been deleted.' % course.name)
         return redirect('index')
     context = {'remove_message': remove_message}
-    context.update(csrf(request))
-    return render(request, 'courses/remove.html', context, context_instance=RequestContext(request))
+    return render(request, 'courses/remove.html', context)
 
 
 def add_lesson(request, course_id):
@@ -76,5 +71,4 @@ def add_lesson(request, course_id):
     else:
         form = LessonModelForm()
     context = {'form': form}
-    context.update(csrf(request))
-    return render(request, 'courses/add_lesson.html', context, context_instance=RequestContext(request))
+    return render(request, 'courses/add_lesson.html', context)

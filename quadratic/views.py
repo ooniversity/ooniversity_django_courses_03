@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'dimon'
 import math
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from quadratic.forms import QuadraticForm
 
 
@@ -51,4 +51,4 @@ def quadratic_results(request):
             else:
                 form = QuadraticForm()
                 context['form'] = form
-    return render_to_response('quadratic/results.html', context)
+    return render(request, 'quadratic/results.html', context)
