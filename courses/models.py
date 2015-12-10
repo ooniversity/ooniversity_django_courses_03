@@ -27,7 +27,7 @@ class Lesson(models.Model):
     #     return reverse_lazy('courses:detail', args=(self.course.id))
 
     def get_url(self):
-        return reverse_lazy('courses:detail', None, [self.course.id])
+        return reverse_lazy('courses:detail', args=[self.course.id])
 
     def __unicode__(self):
         return self.subject
