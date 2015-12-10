@@ -7,7 +7,7 @@
 {% block nav_active_main %}active{% endblock nav_active_main %}
 
 {% block form %}
-	<h2>Создание нового курса</h2>
+	<h2>{{ title }}</h2>
 	<form method="post">
 		{% csrf_token %}
 		{{ form.as_p }}

@@ -11,13 +11,20 @@ from django.core.urlresolvers import reverse_lazy
 # Create your views here.
 class CourseDetailView(DetailView):
 	model = Course
+	context_object_name = 'course'
+	template_name = 'courses/detail.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(CourseDetailView, self).get_context_data(**kwargs)
+		context['lessons'] = Lesson.objects.filter(course=self.get_object().id)
+		return context
 
 
 class CourseCreateView(CreateView):
 	model = Course
-	success_url = reverse_lazy('pybursa:index')
+	success_url = reverse_lazy('index')
 	context_object_name = 'course'
-	template_name = 'add.html'
+	template_name = 'courses/add.html'
 
 	def get_context_data(self, **kwargs):
 		context = super(CourseCreateView, self).get_context_data(**kwargs)
@@ -34,7 +41,7 @@ class CourseCreateView(CreateView):
 class CourseUpdateView(UpdateView):
 	model = Course
 	context_object_name = 'course'
-	template_name = 'edit.html'
+	template_name = 'courses/edit.html'
 
 	def get_success_url(self):
 		return reverse_lazy('courses:edit', kwargs={'pk': self.object.pk})
@@ -53,20 +60,20 @@ class CourseUpdateView(UpdateView):
 
 class CourseDeleteView(DeleteView):
 	model = Course
-	success_url = reverse_lazy('students:list_view')
+	success_url = reverse_lazy('index')
 	context_object_name = 'course'
-	template_name = 'remove.html'
+	template_name = 'courses/remove.html'
 
 	def get_context_data(self, **kwargs):
 		context = super(CourseDeleteView, self).get_context_data(**kwargs)
-		context['title'] = "Student info suppression"
+		context['title'] = "Course deletion"
 		return context
 
 	def delete(self, request, *args, **kwargs):
-		mes_after = super(CourseDeleteView, self).delete(request, *args, **kwargs)
-		message = 'Info on %s %s has been sucessfully deleted.' % (self.object.name, self.object.surname)
+		course = self.get_object()
+		message = 'Course %s has been deleted.' % (course.name)
 		messages.success(self.request, message)
-		return mes_after
+		return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
 
 
