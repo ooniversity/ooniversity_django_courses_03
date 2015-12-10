@@ -8,7 +8,6 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 
 class CourseDetailView(DetailView):
-  template_name = "courses/detail.html"
   model = Course
   def get_context_data(self, **kwargs):
     context = super(CourseDetailView,self).get_context_data(**kwargs)
@@ -19,7 +18,6 @@ class CourseDetailView(DetailView):
 
 class CourseCreateView(CreateView):
   form_class = CourseModelForm
-  template_name = "courses/add.html"
   model = Course
   success_url = reverse_lazy("index")
   def form_valid(self, form):
@@ -29,11 +27,11 @@ class CourseCreateView(CreateView):
   def get_context_data(self, **kwargs):
     context = super(CourseCreateView,self).get_context_data(**kwargs)
     context['title'] = "Course creation"
+    context['headline'] = "New course creation"
     return context
   
 class CourseUpdateView(UpdateView):
   form_class = CourseModelForm
-  template_name = "courses/edit.html"
   model = Course
   def form_valid(self, form):
     form.save()
@@ -43,10 +41,10 @@ class CourseUpdateView(UpdateView):
   def get_context_data(self, **kwargs):
     context = super(CourseUpdateView, self).get_context_data(**kwargs)
     context['title'] = "Course update"
+    context['headline'] = "Course's data edit"
     return context
  
 class CourseDeleteView(DeleteView):
-  template_name = "courses/remove.html"
   model = Course
   success_url = reverse_lazy("index")
   def get_context_data(self, **kwargs):
