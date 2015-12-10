@@ -8,7 +8,6 @@ from students.forms import StudentModelForm
 # Create your views here.
 class StudentListView(ListView):
     model = Student
-    context_object_name = 'students'
 
     def get_queryset(self):
         students = super(StudentListView, self).get_queryset()
@@ -21,7 +20,6 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-    context_object_name = 'student'
 
 
 class StudentCreateView(CreateView):
