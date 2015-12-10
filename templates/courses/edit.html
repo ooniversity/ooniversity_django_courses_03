@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Course editting{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_main %}active{% endblock nav_main %}
@@ -14,7 +14,7 @@
     <div class="container">
       <div class="starter-template">
         <div class="container">
-        <h2>Editting the course</h2>
+        <h2>{{ title }}</h2>
         {% if messages %}
           {% for message in messages %}
             <div class="alert alert-success" role="alert">

@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Adding new course{% endblock title %}
+{% block title %}A{{ title }}{% endblock title %}
 
 
 {% block nav_main %}active{% endblock nav_main%}
@@ -14,11 +14,11 @@
     <div class="container">
       <div class="starter-template">
         <div class="container">
-        <h2>Adding new course</h2>
+        <h2>{{ title }}</h2>
           <form method="post">
               {% csrf_token %}
               {{ form.as_p }}
-              <input type="submit", value="Создать">
+              <input type="submit", value="Save">
           </form>
       </div>
     </div><!-- /.container -->
