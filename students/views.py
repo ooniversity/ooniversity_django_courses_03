@@ -68,6 +68,7 @@ class StudentDeleteView(DeleteView):
             'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
         )
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
+
     '''
     def get_success_url(self):
         message = 'Account  has been successfully removed.'

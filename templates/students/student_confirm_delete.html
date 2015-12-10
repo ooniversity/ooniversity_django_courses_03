@@ -1,14 +1,17 @@
-{% extends "students/student_base.html" %}
+{% extends "base.html" %}
 
 
 {% load staticfiles %}
 
 
-{% block title %}{{ page_title }}{% endblock title %}
+{% block title %}Main{% endblock title %}
+
+
+{% block navbar_i1 %}active{% endblock navbar_i1 %}
 
 
 {% block content %}
-    <h1>Are you sure to remove {{ student.name }} {{ student.surname }}?</h1>
+    <h1>Are you sure you want to remove account of {{ student.name }} {{ student.surname }}?</h1>
 
     <form action="" method="post">{% csrf_token %}
         <input type="submit" class="btn btn-danger" value="Confirm">
