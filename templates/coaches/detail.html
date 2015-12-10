@@ -8,8 +8,7 @@
 
 
 {% block content %}
-  <div class="page-header">
-    {% for coach in coaches %}
+  <div class="page-header"> 
     <h1 class="student-head">{{ coach.get_full_name }}</h1>
       <p class="below-header">2015</p>                         
   </div>
@@ -46,7 +45,6 @@
             </h4></td>
             <td><h3>
                       {{ coach.skype }}
-                      {% endfor %}
             </h4></td></tr>
           <tr><td><h4>
                       курсы учитель

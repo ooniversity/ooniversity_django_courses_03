@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from courses.models import Course
 
@@ -14,4 +15,5 @@ class Student(models.Model):
         return self.name + " " + self.surname
     def __unicode__(self):
         return self.name + " " + self.surname
+    
 
