@@ -14,6 +14,10 @@ class Course(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        from django.core.urlresolvers import reverse
+        return reverse('index')
+
 
 class Lesson(models.Model):
     subject = models.CharField('Тема', max_length=150)
