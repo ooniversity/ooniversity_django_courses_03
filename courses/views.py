@@ -17,13 +17,6 @@ class CourseDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['lessons'] = Lesson.objects.filter(course=self.object.pk)
-        context['coach'] = self.object.coach.full_name()
-        context['assistant'] = self.object.assistant.full_name()
-        context['coach_id'] = self.object.coach.id
-        context['assistant_id'] = self.object.assistant.id
-        context['coach_desc'] = self.object.coach.description
-        context['assistant_desc'] = self.object.assistant.description
-        context['page_title'] = '{} course detail'.format(self.object)
         return context
 
 
