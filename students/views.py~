@@ -11,21 +11,24 @@ from courses.models import Course
 
 class StudentListView(ListView):
     model = Student
-    template_name = 'students/list.html'
-    context_object_name = 'students_on_course'
+    #template_name = 'students/list.html'
+    #context_object_name = 'students_on_course'
 
     def get_queryset(self):
-        students_on_course = super(StudentListView, self).get_queryset()
+        #students_on_course = super(StudentListView, self).get_queryset()
         students_course = self.request.GET
         if 'course_id' in students_course:
-            students_on_course = students_on_course.filter(courses=students_course['course_id'])
-        return students_on_course
+            #students = students_on_course.filter(courses=students_course['course_id'])
+            students = Student.objects.filter(courses=students_course['course_id'])
+        else:
+            students = Student.objects.all() 
+        return students
 
 
 class StudentDetailView(DetailView):
     model = Student
     template_name = 'students/detail.html'
-    context_object_name = 'students_on_course'
+    context_object_name = 'students'
 
 
 class StudentCreateView(CreateView):
