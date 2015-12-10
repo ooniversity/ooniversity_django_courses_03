@@ -36,20 +36,20 @@
               <th></th>
               <th></th>
             </tr>
-            {% for cour in courses %}
+            {% for course in courses %}
             <tr>
-              <td><a href="{% url 'courses:detail' cour.id %}">{{ cour.name|upper }}</a>
+              <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a>
               </td>
-              <td>{{ cour.short_description|title }}
+              <td>{{ course.short_description|title }}
               </td>
             
             <td>
-                  <a href="{% url 'courses:edit' cour.id %}">
+                  <a href="{% url 'courses:edit' course.id %}">
                     <button class="glyphicon glyphicon-pencil btn btn-success">Изменить</button>
                   </a>
                 </td>
                 <td>
-                  <a href="{% url 'courses:remove' cour.id %}">
+                  <a href="{% url 'courses:remove' course.id %}">
                     <button class="glyphicon glyphicon-remove btn btn-success">Удалить</button>
                   </a>
                 </td>

@@ -7,6 +7,9 @@
 {% block title %}Pybursa Courses detail{% endblock title %}
 
 
+{% block course %}?course_id={{ course.id }}{% endblock %}
+
+
 {% block content %}
 <div class="col-md-10 col-md-push-1">
   <div class="container">
@@ -18,7 +21,6 @@
           {% endfor %}
         </div>
         {% endif %}
-        <h1>{{ course.id }}</h1>
       <h1>{{ course }}</h1>
       <h2>{{ course.description|truncatechars:32 }}</h2>
     <div class="container">

@@ -9,6 +9,31 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView   
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 
+class StudentUpdateView(UpdateView):
+    model = Student
+    fields = '__all__'
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentUpdateView, self).get_context_data(**kwargs)
+        context['title'] = "Student info update"
+        return context
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Info on the student has been sucessfully changed.')
+        return super(StudentUpdateView, self).form_valid(form)
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    
+    def get_context_data(self, **kwargs):
+        context = super(StudentDeleteView, self).get_context_data(**kwargs)
+        context['title'] = "Student info suppression"
+        return context
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Student %s %s has been successfully deleted.' % (data['name'], data['surname']))
+        return super(StudentDeleteView, self).form_valid(form)
+
 class StudentCreateView(CreateView):
     model = Student
     fields = '__all__'
@@ -17,24 +42,21 @@ class StudentCreateView(CreateView):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
         context['title'] = "Student registration"
         return context
-        
-        def form_valid(self, form):
-            data = form.cleaned_data
-            messages.success(self.request, 'Student %s %s has been successfully added.' % (data['name'], data['surname']))
-            return super(StudentCreateView, self).form_valid(form)
 
+    def form_valid(self, form):
+        data = form.cleaned_data
+        messages.success(self.request, 'Student %s %s has been successfully added.' % (data['name'], data['surname']))
+        return super(StudentCreateView, self).form_valid(form)
 
 class StudentListView(ListView):
       model = Student
-      context_object_name = "students"
-
-      def get_queveryset(self):
+      
+      def get_queryset(self):
+          qs = super(StudentListView, self).get_queryset()
           course_id = self.request.GET.get('course_id', None)
           if course_id:
-              students = Student.objects.filter(courses__id=course_id)
-          else:
-              students = Student.objects.all()
-          return students
+              qs = qs.filter(courses__id=course_id)
+          return qs
 
 
 class StudentDetailView(DetailView):
