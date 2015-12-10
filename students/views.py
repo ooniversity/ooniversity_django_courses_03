@@ -70,11 +70,10 @@ class StudentDeleteView(DeleteView):
     # template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
 
-    def get_object(self, queryset=None):
-        object = super(StudentDeleteView, self).get_object()
-        self.student_name = object.name
-        self.student_surname = object.surname
-        return object
+    def get_context_data(self, **kwargs):
+        data = super(StudentDeleteView, self).get_context_data(**kwargs)
+        data['title'] = 'Student info suppression'
+        return data
 
     def delete(self, request, *args, **kwargs):
         message = super(StudentDeleteView, self).delete(
