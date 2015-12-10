@@ -74,5 +74,5 @@ class StudentDeleteView(DeleteView):
         data = super(StudentDeleteView, self).delete(request, *args, **kwargs)
         fname = '{} {}'.format(self.object.name, self.object.surname)
         mess = 'Info on {} has been sucessfully deleted.'.format(fname)
-        messages.success(request, mess)
+        messages.success(self.request, mess)
         return data
