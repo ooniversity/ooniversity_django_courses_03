@@ -22,12 +22,13 @@ class StudentListView(ListView):
 		return students
 
 
-class StudentDelailView(DetailView):
+class StudentDetailView(DetailView):
 	model = Student
 
 
 class StudentCreateView(CreateView):
 	model = Student
+	fields = '__all__'
 	success_url = reverse_lazy('students:list_view')
 
 	def get_context_data(self, **kwargs):
@@ -44,6 +45,7 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
 	model = Student
+	fields = '__all__'
 
 	def get_success_url(self):
 		return reverse_lazy('students:edit', kwargs={'pk': self.object.pk})
@@ -70,10 +72,10 @@ class StudentDeleteView(DeleteView):
 		return context
 
 	def delete(self, request, *args, **kwargs):
-		mes_after = super(StudentDeleteView, self).delete(request, *args, **kwargs)
-		message = 'Info on %s %s has been sucessfully deleted.' % (self.object.name, self.object.surname)
+		student = self.get_object()
+		message = 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname)
 		messages.success(self.request, message)
-		return mes_after
+		return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
 
 """
