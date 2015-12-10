@@ -27,15 +27,13 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-    template_name = 'students/detail.html'
-    context_object_name = 'students'
-
+    
 
 class StudentCreateView(CreateView):
     model = Student
-    template_name = 'students/add.html'
-    form_class = StudentModelForm
-    context_object_name = 'form'
+    #template_name = 'students/add.html'
+    #form_class = StudentModelForm
+    #context_object_name = 'form'
     success_url = reverse_lazy('students:list_view')
     #success_message = u"Student %(name)s %(surname)s has been successfully added."
     
@@ -52,9 +50,9 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Student
-    template_name = 'students/edit.html'
-    form_class = StudentModelForm
-    context_object_name = 'form'
+    #template_name = 'students/edit.html'
+    #form_class = StudentModelForm
+    #context_object_name = 'form'
     success_message = u"Info on the student has been sucessfully changed."
 
     def get_context_data(self, **kwargs):
@@ -72,7 +70,7 @@ class StudentUpdateView(UpdateView):
 
 class StudentDeleteView(DeleteView):
     model = Student
-    template_name = 'students/remove.html'
+    #template_name = 'students/remove.html'
     success_url = reverse_lazy('students:list_view') 
 
     def get_context_data(self, **kwargs):
