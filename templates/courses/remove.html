@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Remove{% endblock %}
 {% block content %}
-<h2 class="center">Курс {{ course.name }} будет удален</h2>
+<h2>{{ title }}</h2>
 <form method="post">
     {% csrf_token %}
     <input type="submit" value="Удалить">

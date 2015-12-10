@@ -3,7 +3,7 @@
 {% block content %}
 <div class="jumbotron">
         <h2>{{ title }}</h2>
-    </div>
+</div>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
