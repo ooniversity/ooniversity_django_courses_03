@@ -77,9 +77,8 @@ class LessonCreateView(MixinLessonContext, CreateView):
     context_object_name = 'form'
     #success_message = u"Lesson %(subject)s has been successfully added."
 
-    def get_initial(self, **kwargs):
-        initial = {'course': self.kwargs['pk']}
-        return initial
+    def get_initial(self):
+        return {'course': self.kwargs['pk']}
     
     #def get_success_url(self, **kwargs):
         #return reverse_lazy('courses:detail', kwargs={'pk': self.object.course_id})
