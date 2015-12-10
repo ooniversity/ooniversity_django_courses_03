@@ -40,7 +40,7 @@ class CourseDetailView(MixinCourseContext, DetailView):
     template_name = 'courses/detail.html'
     context_object_name = 'course'
 
-    """
+    
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         #context['title'] = 'Student registration'
@@ -48,20 +48,20 @@ class CourseDetailView(MixinCourseContext, DetailView):
         #print self.object
         #context['name'] = self.object.name
         #context['description'] = self.object.description
-        context['lesson1'] = Lesson.objects.filter(course__id=self.object.id)
-        context['course_id'] = self.object.id
+        #context['lesson1'] = Lesson.objects.filter(course__id=self.object.id)
+        #context['course_id'] = self.object.id
         #args['xuy'] = 'http://127.0.0.1:8000/students/?course_id={}'.format(course_id)
-        context['coach_name'] = self.object.coach.name
-        context['coach_surname'] = self.object.coach.surname
-        context['coach_description'] = self.object.coach.description
-        context['assistant_name'] = self.object.assistant.name
-        context['assistant_surname'] = self.object.assistant.surname
-        context['assistant_description'] = self.object.assistant.description
+        #context['coach_name'] = self.object.coach.name
+        #context['coach_surname'] = self.object.coach.surname
+        #context['coach_description'] = self.object.coach.description
+        #context['assistant_name'] = self.object.assistant.name
+        #context['assistant_surname'] = self.object.assistant.surname
+        #context['assistant_description'] = self.object.assistant.description
         context['coach'] = self.object.coach
-        #context['assistant'] = self.object.assistant
+        context['assistant'] = self.object.assistant
     
         return context
-    """    
+        
     #def dispatch(self, *args, **kwargs):
         #return super(CourseDetailView, self).dispatch(*args, **kwargs)    
 
