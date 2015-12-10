@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock nav_class_index %}
+
+
+{% block content %}
+{% if messages %}
+<div class="container" id="sto">
+<div class="alert alert-success" role="alert">
+	{% csrf_token %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+</div>
+{% endif %}
+	<div class="container" id="sto">
+        <h1><strong>{{ title }}</strong></h1></br>
+        <form method="post">
+        	{% csrf_token %}
+		  {{ form.as_p }}		
+		  <input type="submit" value="Изменить" />
+		</form>
+    </div>
+{% endblock content %}
