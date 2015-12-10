@@ -4,6 +4,9 @@ from students.forms import StudentModelForm
 from django.contrib import messages
 
 
+
+
+
 def list_view(request):
 	course_id = request.GET.get('course_id', None)
 	context = {}

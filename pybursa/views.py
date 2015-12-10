@@ -5,6 +5,3 @@ def index(request):
 	courses_list = Course.objects.all()
 	context = {'courses_list' : courses_list}
 	return render(request, './index.html', context)
-
-def contact(request):
-	return render(request,'./contact.html')
