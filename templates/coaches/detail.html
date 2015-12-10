@@ -8,8 +8,8 @@
 {% block carousel %}{% endblock carousel %}
 
 
-{% block content %} 
-     
+{% block content %}
+
 	<div class="container students">
     <div class="page-header">
       <h1 class="top1">{{ coach.first_name }} {{ coach.last_name }}</h1>
@@ -51,8 +51,8 @@
 							<tr>
 
 
-              {% include "coaches/include/coach_include.html" with block_title="Преподаватель на курсах" course=assist %}
-								
+              {% include "coaches/include/coach_include.html" with block_title="Асистент на курсах" course=assist %}
+
 
 							</tr>
 						</tbody>
@@ -60,5 +60,5 @@
 				</div>
       </div>
 		</div>
-	</div>    
+	</div>
 {% endblock content %}

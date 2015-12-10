@@ -11,11 +11,13 @@
 {% block carousel %}{% endblock carousel %}
 
 
-{% block content %}      
+{% block content %}
 	<div class="container students">
   	<div class="page-header">
       <h1 class="descr">Создание нового студента</h1>
 			<div class="jumbotron">
+				{% include "students/include/messages_include.html" %}
+				{{ title }}
 				<form method="post">
 					{% csrf_token %}
 					{{ form.as_p }}
@@ -23,5 +25,5 @@
 				</form>
       </div>
     </div>
-  </div>    
-{% endblock content %} 
+  </div>
+{% endblock content %}

@@ -16,6 +16,7 @@
   	<div class="page-header">
       <h1 class="descr">Создание нового курса</h1>
 			<div class="jumbotron">
+				{{ title }}
 				<form method="post">
 					{% csrf_token %}
 					{{ form.as_p }}

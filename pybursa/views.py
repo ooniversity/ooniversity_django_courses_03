@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from courses.models import Course
 
+
 def index(request):
 	return render(request, 'index.html', {'course': Course.objects.all()})
 
