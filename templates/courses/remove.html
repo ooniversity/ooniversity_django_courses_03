@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Course (remove){% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
 
+<h2>{{ title }}</h2>
 <h2>Курс {{ course }} будет удалён</h2>
 
 <form method="post">

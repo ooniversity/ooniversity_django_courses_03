@@ -26,11 +26,11 @@
 <h3> Преподаватели: </h3>
 
 <h4>Учитель</h4>
-<a href="{% url 'coaches:detail' course_detail.coach.id %}"> {{ course_detail.coach }} </a>
+<a href="{% url 'coaches:detail' course.coach.id %}"> {{ course.coach }} </a>
 <h6>{{ course_detail.coach.description }}</h6>
 
 <h4>Ассистент</h4>
-<a href="{% url 'coaches:detail' course_detail.assistant.id %}"> {{ course_detail.assistant }} </a>
+<a href="{% url 'coaches:detail' course.assistant.id %}"> {{ course.assistant }} </a>
 <h6>{{ course_detail.assistant.description }}</h6>
 
 {% if messages %}
@@ -43,7 +43,7 @@
 
 <h3> План курса: </h3>
 
-<a href="{% url 'courses:add-lesson' course_detail.id %}">
+<a href="{% url 'courses:add-lesson' course.id %}">
     <button type="button" class="btn btn-primary">Добавить занятие</button>
 </a>
 

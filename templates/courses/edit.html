@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Course (edit){% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
 
-<h2>Course info edit</h2>
+<h2>{{ title }}</h2>
 {% if messages %}
 <div class="alert alert-success alert-dismissible" role="alert">
     <ul class="messages">
