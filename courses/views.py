@@ -7,17 +7,15 @@ from django.contrib import messages
 
 
 # Create your views here.
-
-
 class CourseDetailView(DetailView):
     model = Course
     fields = '__all__'
-    context_object_name = 'course'
     template_name = 'courses/detail.html'
+    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
-        context['lessons'] = Lesson.objects.filter(course=self.object.pk)
+        context['lessons'] = Lesson.objects.filter(course=self.get_object().id)
         return context
 
 
