@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}PyBursa New Course{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block active_main %}active{% endblock active_main %}
@@ -12,11 +12,18 @@
 
 {% block content %}
   <div class="container theme-showcase" role="main">
-    <h2>Создание нового курса</h2>
+
+          {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+
+    <h2>{{name_form}}</h2>
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Создать" class="btn btn-primary"/>
+        <input type="submit" value="{{name_button}}" class="btn btn-primary"/>
       </form>
   </div>
 {% endblock content %}
