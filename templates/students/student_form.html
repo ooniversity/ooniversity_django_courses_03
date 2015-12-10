@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Edit Student{% endblock title %}
+{% block title %}Added student{% endblock title %}
 
 
 {% block nav_student %}active{% endblock nav_student %}
@@ -12,8 +12,7 @@
 
 {% block content %}
 
-  <p>Student {{ student.name }} {{ student.surname }} will be deleted</p>
-  <!--{% if messages %}
+  {% if messages %}
     <ul class="messages">
       {% for message in messages %}
         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
@@ -22,10 +21,13 @@
           </li>
       {% endfor %}
     </ul>
-  {% endif %}-->
-
-  <form method="post">
+  {% endif %}
+  
+  <h1>{{ title }}</h1>
+  
+   <form method="post">
     {% csrf_token %}
+    {{ form.as_p }}
     <input type="submit">
   </form>
 {% endblock content %}

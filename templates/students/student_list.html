@@ -35,7 +35,7 @@
 		<th>#</th><th>Фамилия имя</th><th>Адрес</th><th>Skype</th><th>Курсы</th><th>Редактировать</th><th>Удалить</th>
 	</tr> 
 	<tr>
-		{% for i in name_stud %}
+		{% for i in student_list %}
   		<td>{{ forloop.counter }}</td>
   		<td><a href="{% url 'students:detail' i.id %}">{{ i }} {{ i.surname }}</a></td>
   		<td>{{ i.address }}</td><td>{{ i.skype }}</td>
