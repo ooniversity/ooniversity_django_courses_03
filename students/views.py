@@ -10,7 +10,6 @@ from students.forms import StudentModelForm
 # Create your views here.
 class StudentListView(ListView):
     model = Student
-    # context_object_name = 'students'
 
     def get_queryset(self):
         students = super(StudentListView, self).get_queryset()
@@ -22,7 +21,6 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-    # context_object_name = 'student'
 
 
 class StudentCreateView(CreateView):
@@ -30,7 +28,7 @@ class StudentCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Student registration'
+        context['title'] = 'Student registration'
         return context
 
     def get_success_url(self):
@@ -45,7 +43,7 @@ class StudentUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Student info update'
+        context['title'] = 'Student info update'
         return context
 
     def get_success_url(self):
@@ -56,23 +54,14 @@ class StudentUpdateView(UpdateView):
 
 class StudentDeleteView(DeleteView):
     model = Student
-    success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['page_title'] = "Student info suppression"
+        context['title'] = "Student info suppression"
         return context
-
-    #def delete(self, request, *args, **kwargs):
-    #    student = self.get_object()
-    #    messages.success(
-    #        self.request,
-    #        'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
-    #    )
-    #    return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
     def get_success_url(self):
         student = self.get_object()
         message = 'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
         messages.success(self.request, message)
-        return self.success_url
+        return reverse_lazy('students:list_view')
