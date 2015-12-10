@@ -13,11 +13,12 @@ from django.core.urlresolvers import reverse_lazy
 
 class MixinCourseContext(object):
     
-    def get_courses(self):
+    def get_lessons(self):
         #cont = super(MixinCourseContext, self).get_context_data(**kwargs)
-        lesson = Lesson.objects.get(id=self.object.id)
-        course = lesson.course_id
-        return course
+        lessons = Lesson.objects.filter(course_id=self.object.id)
+        #Lesson.objects.filter(course__id=self.object.id)
+        #course = lesson.course_id
+        return lessons
 
     #def get_coaches(self):
         #coaches =  Coach.objects.filter(coach_courses__id=self.object.id).name   
@@ -27,25 +28,26 @@ class MixinCourseContext(object):
         context = super(MixinCourseContext, self).get_context_data(**kwargs)
         #context['title'] = 'Student registration'
         #self.object = self.get_object()
-        context['course'] = self.get_courses()
+        context['lessons'] = self.get_lessons()
         #context['coach_name'] = self.get_coaches()
         return context
     #def dispatch(self, *args, **kwargs):
         #return super(MixinCourseContext, self).dispatch(*args, **kwargs)    
         #return super(MixinCourseContext, self).get_context_data(**kwargs)
 
-class CourseDetailView(DetailView):
+class CourseDetailView(MixinCourseContext, DetailView):
     model = Course
     template_name = 'courses/detail.html'
-    context_object_name = 'args'
+    context_object_name = 'course'
 
+    """
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         #context['title'] = 'Student registration'
         self.object = self.get_object()
         #print self.object
-        context['name'] = self.object.name
-        context['description'] = self.object.description
+        #context['name'] = self.object.name
+        #context['description'] = self.object.description
         context['lesson1'] = Lesson.objects.filter(course__id=self.object.id)
         context['course_id'] = self.object.id
         #args['xuy'] = 'http://127.0.0.1:8000/students/?course_id={}'.format(course_id)
@@ -56,9 +58,10 @@ class CourseDetailView(DetailView):
         context['assistant_surname'] = self.object.assistant.surname
         context['assistant_description'] = self.object.assistant.description
         context['coach'] = self.object.coach
-        context['assistant'] = self.object.assistant
+        #context['assistant'] = self.object.assistant
     
         return context
+    """    
     #def dispatch(self, *args, **kwargs):
         #return super(CourseDetailView, self).dispatch(*args, **kwargs)    
 
