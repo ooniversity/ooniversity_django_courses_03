@@ -15,3 +15,6 @@ class Student(models.Model):
 	def __unicode__(self): 
 		full_name = "%s %s" % (self.name, self.surname)
 		return full_name
+
+	#def get_absolute_url(self):
+	#return reverse('students:list_view')
