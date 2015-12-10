@@ -54,6 +54,7 @@ class StudentUpdateView(UpdateView):
 
 class StudentDeleteView(DeleteView):
     model = Student
+    success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
@@ -63,4 +64,4 @@ class StudentDeleteView(DeleteView):
     def get_success_url(self):
         message = 'Account  has been successfully removed.'
         messages.success(self.request, message)
-        return reverse_lazy('students:list_view')
+        return self.success_url
