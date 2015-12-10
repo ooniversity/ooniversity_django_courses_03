@@ -51,13 +51,13 @@ class StudentUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
-        context['title'] = 'Student edit page'
+        context['title'] = 'Student info update'
         return context
 
     def form_valid(self, form):
         # This method is called when valid form data has been POSTed.
         # It should return an HttpResponse.
-        messages.success(self.request, 'Student info update')
+        messages.success(self.request, 'Info on the student has been sucessfully changed.')
         return super(StudentUpdateView, self).form_valid(form)
 
     def get_success_url(self, **kwargs):

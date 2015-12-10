@@ -20,7 +20,7 @@ from courses.forms import CourseModelForm, LessonModelForm
 #         if course_id:
 #             qs = qs.filter(courses__id=course_id)
 #         return qs
-
+# self.kwargs['course'].pk
 
 def detail(request, course_id):
     courses = Course.objects.get(id=course_id)
