@@ -48,7 +48,7 @@
         			Описание
         		</td>
         	</tr>
-        	{% for lesson in lessons %}
+        	{% for lesson in course.lesson_set.all %}
         	<tr>
         		<td> 
         			{{ lesson.order }}     				 
