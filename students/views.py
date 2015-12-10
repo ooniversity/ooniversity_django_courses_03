@@ -30,6 +30,10 @@ def list_view(request):
 
 class StudentDetailView(DetailView):
 	model = Student
+	def get_context_data(self, **kwargs):
+   		context = super(StudentDetailView,self).get_context_data(**kwargs)
+   		context['courses'] = Course.objects.filter(student__id = self.object.id)
+    		return context
 
 """
 def detail(request, student_id):
