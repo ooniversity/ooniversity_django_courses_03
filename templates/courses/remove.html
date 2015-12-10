@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block title %}Delete course{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block banner %}{% endblock %}
 
 {% block content %}
-<h1>Remove course</h1>
-
-<form method="post">
-	{% csrf_token %}
-	{{ remove_message }}
-	<button type="submit" class="waves-effect waves-light btn red">Удалить</button>
-</form>
+<h1>{{ form_name }}</h1>
+<div class="center">
+    <h4 class="orange-text text-darken-2">
+    {{ remove_message }}
+    </h4>
+    <div class="divider"></div>
+    <p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="waves-effect waves-light btn red">Удалить</button>
+        </form>
+    </p>
+</div>
 {% endblock content %}

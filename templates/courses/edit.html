@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block title %}Edit course{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block banner %}{% endblock %}
 
@@ -18,11 +18,11 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Edit course</h1>
+    <h1>{{ form_name }}</h1>
 
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="waves-effect waves-light btn">Редактировать</button>
+        <button type="submit" class="{{ button_class }}">{{ button_text }}</button>
     </form>
 {% endblock content %}
