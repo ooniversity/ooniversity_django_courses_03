@@ -12,54 +12,53 @@
 
 {% block content %}
   <div class="page-header">
-                             {% for student in students_on_course %}
-    <h1 class="student-head">{{ student.name}} {{student.surname }}</h1>
+    <h1 class="student-head">{{ students_on_course }}</h1>
       <p class="below-header">Выпуск 2015</p>                         
   </div>
 	<div class="study_table2">
 		<div class="panel panel-default">
-  		<div class="panel-heading"><h2 class="course_program">информация о студенте</h2></div>
+  		<div class="panel-heading"><h2 class="course_program">Информация о студенте</h2></div>
       	<table class="table table-hover">
-        	<tr><td><h3>
+        	<tr><td><h4>
                       дата рождения
-            </h3></td>
-            <td><h3>
-                      {{ student.date_of_birth }}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td>
+            <td><h4>
+                      {{ students_on_course.date_of_birth }}
+            </h4></td></tr>
+          <tr><td><h4>
                       адрес
-            </h3></td>
-            <td><h3>
-                      {{ student.address }}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td>
+            <td><h4>
+                      {{ students_on_course.address }}
+            </h4></td></tr>
+          <tr><td><h4>
                       email
-            </h3></td>
-            <td><h3>
-                      {{ student.email }}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td>
+            <td><h4>
+                      {{ students_on_course.email }}
+            </h4></td></tr>
+          <tr><td><h4>
                       skype
-            </h3></td>
-            <td><h3>
-                      {{ student.skype }}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td>
+            <td><h4>
+                      {{ students_on_course.skype }}
+            </h4></td></tr>
+          <tr><td><h4>
                       телефон
-            </h3></td>
-            <td><h3>
-                      {{ student.phone }}
-            </h3></td></tr>
-          <tr><td><h3>
+            </h4></td>
+            <td><h4>
+                      {{ students_on_course.phone }}
+            </h4></td></tr>
+          <tr><td><h4>
                       курсы
-            </h3></td>
-            <td><h3>
-                      {% for course in student.courses.all %}
-            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></br>
-					            {% endfor %}
-            </h3></td></tr>
+            </h4></td>
+            <td><h4>
+                      
+            <a href="{% url 'courses:detail' course.id %}">{{ students_on_course.course.name }}</a></br>
+					            
+            </h4></td></tr>
           </table>
         </div>
       </div>
-                      {% endfor %}
+                      
 {% endblock content %}    

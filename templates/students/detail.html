@@ -12,8 +12,7 @@
 
 {% block content %}
   <div class="page-header">
-                             {% for student in students_on_course %}
-    <h1 class="student-head">{{ student.name}} {{student.surname }}</h1>
+    <h1 class="student-head">{{ students_on_course }}</h1>
       <p class="below-header">Выпуск 2015</p>                         
   </div>
 	<div class="study_table2">
@@ -24,42 +23,42 @@
                       дата рождения
             </h4></td>
             <td><h4>
-                      {{ student.date_of_birth }}
+                      {{ students_on_course.date_of_birth }}
             </h4></td></tr>
           <tr><td><h4>
                       адрес
             </h4></td>
             <td><h4>
-                      {{ student.address }}
+                      {{ students_on_course.address }}
             </h4></td></tr>
           <tr><td><h4>
                       email
             </h4></td>
             <td><h4>
-                      {{ student.email }}
+                      {{ students_on_course.email }}
             </h4></td></tr>
           <tr><td><h4>
                       skype
             </h4></td>
             <td><h4>
-                      {{ student.skype }}
+                      {{ students_on_course.skype }}
             </h4></td></tr>
           <tr><td><h4>
                       телефон
             </h4></td>
             <td><h4>
-                      {{ student.phone }}
+                      {{ students_on_course.phone }}
             </h4></td></tr>
           <tr><td><h4>
                       курсы
             </h4></td>
             <td><h4>
-                      {% for course in student.courses.all %}
+                      {% for course in students_on_course.courses.all %}
             <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></br>
 					            {% endfor %}
             </h4></td></tr>
           </table>
         </div>
       </div>
-                      {% endfor %}
+                      
 {% endblock content %}    

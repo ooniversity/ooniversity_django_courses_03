@@ -18,16 +18,16 @@
   <div class="study_table2">
 	  <div class="panel panel-default">
   	  <div class="panel-heading"><h2 class="course_program">Курс 2015</h2>
-        {% if messages %}
+        {% if message %}
         <div class="messages">
-          {% for message in messages %}
+          {% for message in message %}
               <h4 class="course_program">{{ message }}</h4>
           {% endfor %}
         </div>
         {% endif %}
       </div>
 		    <table class="table table-hover">
-  		    <tr class="headtable_student"><td><h4>No</h4></td><td><h4>фамилия Имя</h4></td><td><h4>адрес</h4></td><td><h4>skype</h4></   td><td><h4>курсы</h4></td><td><h4><a href="{% url 'students:add' %}" class="btn btn-primary btn-lg active" role="button">Добавить нового студента</a></h4></td><tr>
+  		    <tr class="headtable_student"><td><h3>No</h3></td><td><h3>Фамилия, Имя</h3></td><td><h3>Адрес</h3></td><td><h3>Skype</h3></   td><td><h3>Курсы</h3></td><td><h3><a href="{% url 'students:add' %}" class="btn btn-primary btn-lg active" role="button">Добавить нового студента</a></h3></td><tr>
             {% for student in students_on_course %}            
           <tr><td><h4>{{student.id}}</h4></td><td><h4><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></h4></td><td><h4>{{student.address}}</h4></td><td><h4>{{ student.skype }}</h4></td><td><h4>{% for course in student.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}{% endfor %}</a></h4></td><td><p><a href="{% url 'students:edit' student.id %}" <button type="button" class="btn btn-warning">Изменить</button></a><p></p><a href="{% url 'students:remove' student.id %}" <button type="button" class="btn btn-danger">Удалить</button></a></p></td><tr>
             {% endfor %}   

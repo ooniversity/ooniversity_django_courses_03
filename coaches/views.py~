@@ -1,16 +1,23 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import render
 from coaches.models import Coach
 from courses.models import Course
-from django.core.exceptions import ObjectDoesNotExist
+from django.views.generic.detail import DetailView
+from pybursa.utils import MixinCoachContext
 
-def detail(request, pk ): 
-    coaches = Coach.objects.get(id = pk)
-    courses = Course.objects.filter(coach=pk)
-    assistants = Course.objects.filter(assistant=pk)
+
+class CoachDetailView(MixinCoachContext, DetailView):
+    model = Coach
+    template_name = 'coaches/detail.html'
+    context_object_name = 'coach'
+
+'''
+def detail(request, coaches_id ): 
+    coaches = Coach.objects.filter(pk = coaches_id)
+    coach_course = Course.objects.filter(coach=coaches_id)
+    assistant_course = Course.objects.filter(assistant=coaches_id)
     return render(request, 'coaches/detail.html', {
                   'coaches': coaches,
-                  'courses': courses,  
-                  'assistants': assistants
+                  'coach_course': coach_course,  
+                  'assistant_course': assistant_course
                   })
-
-
+'''
