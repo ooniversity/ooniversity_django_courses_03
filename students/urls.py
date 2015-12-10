@@ -3,11 +3,11 @@ import views
 
 
 urlpatterns = patterns('',
-                       url(r'^$', views.list_view, name='list_view'),
-                       url(r'^([0-9]+)/$', views.detail, name='detail'),
-                       url(r'^add/$', views.create, name='add'),
-                       url(r'^edit/([0-9]+)/$', views.edit, name='edit'),
-                       url(r'^remove/([0-9]+)/$', views.remove, name='remove'),
+                       url(r'^$', views.StudentListView.as_view(), name='list_view'),
+                       url(r'^(?P<pk>[0-9]+)/$', views.StudentDetailView.as_view(), name='detail'),
+                       url(r'^add/$', views.StudentCreateView.as_view(), name='add'),
+                       url(r'^edit/(?P<pk>[0-9]+)/$', views.StudentUpdateView.as_view(), name='edit'),
+                       url(r'^remove/(?P<pk>[0-9]+)/$', views.StudentDeleteView.as_view(), name='remove'),
 
                        )
 

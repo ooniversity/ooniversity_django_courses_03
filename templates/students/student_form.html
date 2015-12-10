@@ -2,7 +2,7 @@
 {% block title %}Create{% endblock %}
 {% block content %}
 <div class="jumbotron">
-        <h2 class="center">Создать нового студента</h2>
+        <h2>{{ title }}</h2>
     </div>
 <form method="post">
     {% csrf_token %}
