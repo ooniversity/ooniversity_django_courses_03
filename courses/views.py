@@ -39,10 +39,10 @@ class CourseUpdateView(UpdateView):
     template_name = 'courses/edit.html'
     context_object_name = 'form'
 
-    # def get_success_url(self):
-    #     course = super(CourseUpdateView, self).get_context_data()
-    #     success_url = reverse_lazy('courses:edit', kwargs={'course_id': course['form'].id})
-    #     return success_url
+    def get_success_url(self):
+        course = super(CourseUpdateView, self).get_context_data()
+        success_url = reverse_lazy('courses:edit', kwargs={'course_id': course['form'].id})
+        return success_url
 
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
