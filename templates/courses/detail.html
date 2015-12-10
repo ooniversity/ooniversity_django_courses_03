@@ -6,11 +6,13 @@
 
 {% block content %}
 {% if messages %}
-	<ul class="messages">
-	{% for message in messages %}
-		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
-	{% endfor %}
-	</ul>
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <ul class="messages">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+    </ul>
+  </div>        
 {% endif %} 
   <div class="jumbotron container">
     <h2>{{ course.name }}</h2>
@@ -18,12 +20,12 @@
   </div>
   <div class= "jumbotron container">
     <h2>Teachers</h2> 
-    {% include 'include\include.html' with teacher_speciality='Coach' teacher=coach %}
-    {% include 'include\include.html' with teacher_speciality='Assistant' teacher=assistant %}
+    {% include 'include\include.html' with teacher_speciality='Coach' teacher=course.coach %}
+    {% include 'include\include.html' with teacher_speciality='Assistant' teacher=course.assistant %}
   </div>
   <div class="jumbotron container">
     <h2>Course lessons</h2>
-    <a href="{% url 'courses:add-lesson' course.id %}"><input type="buttom" value="Add Lesson" class="btn btn-primary"></a>
+    <a href="{% url 'courses:add-lesson' course.id %}"><button type="button"><span class="glyphicon glyphicon-plus"></span>Add lesson</button></a>
     <table class="table ">
 			<thead>
 				<tr>
