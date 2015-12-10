@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from feedbacks.models import Feedback
+from feedbacks.forms import FeedbackForm
 
-# Create your views here.
+
+class FeedbackView(CreateView):
+    model = Feedback
+    template_name = 'feedback.html'
