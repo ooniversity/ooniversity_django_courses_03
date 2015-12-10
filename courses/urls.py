@@ -8,7 +8,7 @@ urlpatterns = patterns('',
                        url(r'^add/$', CourseCreateView.as_view(), name='add'),
                        url(r'^edit/(?P<pk>\d+)/$', CourseUpdateView.as_view(), name='edit'),
                        url(r'^remove/(?P<pk>\d+)/$', CourseDeleteView.as_view(), name='remove'),
-                       url(r'^(?P<pk>\d+)/add_lesson$', add_lesson, name='add-lesson'),
+                       url(r'^(?P<pk>\d+)/add_lesson$', Add_lessonCreateView.as_view(), name='add-lesson'),
 
 
 
