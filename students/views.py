@@ -9,7 +9,6 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 
 class StudentListView(ListView):
-  template_name = "students/list.html"
   model = Student
   context_object_name = "students" 
   def get_queryset(self):
@@ -21,7 +20,6 @@ class StudentListView(ListView):
     return students
  
 class StudentDetailView(DetailView):
-  template_name = "students/detail.html"
   model = Student
   def get_context_data(self, **kwargs):
     context = super(StudentDetailView,self).get_context_data(**kwargs)
@@ -30,7 +28,6 @@ class StudentDetailView(DetailView):
 
 class StudentCreateView(CreateView):
   form_class = StudentModelForm
-  template_name = "students/add.html"
   model = Student
   success_url = reverse_lazy('students:list_view')
   def form_valid(self, form):
@@ -40,11 +37,11 @@ class StudentCreateView(CreateView):
   def get_context_data(self, **kwargs):
     context = super(StudentCreateView,self).get_context_data(**kwargs)
     context['title'] = "Student registration"
+    context['headline'] = "New student creation"
     return context
   
 class StudentUpdateView(UpdateView):
   form_class = StudentModelForm
-  template_name = "students/edit.html"
   model = Student
   def form_valid(self, form):
     form.save()
@@ -54,10 +51,10 @@ class StudentUpdateView(UpdateView):
   def get_context_data(self, **kwargs):
     context = super(StudentUpdateView,self).get_context_data(**kwargs)
     context['title'] = "Student info update"
+    context['headline'] = "Student's data edit"
     return context
   
 class StudentDeleteView(DeleteView):
-  template_name = "students/remove.html"
   model = Student
   success_url = reverse_lazy('students:list_view')
   def get_context_data(self, **kwargs):
