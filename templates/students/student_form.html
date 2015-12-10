@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Remove student{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_students %}active{% endblock nav_students %}
@@ -14,11 +14,12 @@
     <div class="container">
       <div class="starter-template">
         <div class="container">
-        <h1 class="descr">Студент {{ full_name }} будет удален</h1>
+        <h2>{{ title }}</h2>
           <form method="post">
-            {% csrf_token %}
-            <input type="submit" value="Да" class="btn btn-primary"/>
-        </form>
+              {% csrf_token %}
+              {{ form.as_p }}
+              <input type="submit", value="Save">
+          </form>
       </div>
     </div><!-- /.container -->
 {% endblock content %}
