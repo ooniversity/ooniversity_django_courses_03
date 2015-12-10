@@ -30,6 +30,10 @@ def list_view(request):
 
 class StudentDetailView(DetailView):
 	model = Student
+	def get_context_data(self, **kwargs):
+		context = super(StudentDetailView,self).get_context_data(**kwargs)
+		context['courses'] = Course.objects.filter(student__id = self.object.id)
+		return context
 
 """
 def detail(request, student_id):
@@ -46,10 +50,10 @@ class StudentCreateView(CreateView):
 		context['page_title'] = "Student registration"
 		return context
 	def form_valid(self, form):
-		stud = form.save()
-		mes = "Student %s %s has been successfully added." %(stud.name, stud.surname)
+		message = super(StudentCreateView, self).form_valid(form)
+		mes = "Student %s %s has been successfully added." %(self.object.name, self.object.surname)
 		messages.success(self.request, mes)
-		return super(StudentCreateView, self).form_valid(form)
+		return message
 
 """
 def create(request):
@@ -68,10 +72,11 @@ def create(request):
 class StudentUpdateView(UpdateView):
 	model = Student
 	def form_valid(self, form):
+		message = super(StudentUpdateView, self).form_valid(form)
 		mes = "Info on the student has been sucessfully changed."
 		messages.success(self.request, mes)
 		self.success_url = reverse_lazy('students:edit', kwargs={'pk':self.object.pk})
-		return super(StudentUpdateView, self).form_valid(form)
+		return message
 	def get_context_data(self, **kwargs):
 		context = super(StudentUpdateView, self).get_context_data(**kwargs)
 		context['title'] = "Student info update"
