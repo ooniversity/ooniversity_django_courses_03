@@ -202,16 +202,12 @@ class Add_lessonCreateView(CreateView):
     model = Lesson
     form_class = LessonModelForm
     template_name = 'courses/add_lesson.html'
-    #print context
+    #print pk
     #initial = {'course':Course.objects.get(id=course)}
     
     
-    #def get_context_data(self, **kwargs):
-        #context = super(Add_lessonCreateView, self).get_context_data(**kwargs)
-        #self.object = self.get_object()
-        #print self.object
-        #context['obj'] = self.object
-        #return context
+    
+    
     
     def form_valid(self, form):
         #data = form.cleaned_data
@@ -237,24 +233,30 @@ class Add_lessonCreateView(CreateView):
         
         initial = super(Add_lessonCreateView, self).get_initial()
         initial = initial.copy()
-        self.object = self.get_object()
-        print self.object.pk
+        #self.object = self.get_object()
+        #print self.object.pk
         
-        print self.object.course_id
-        print dir(self.object)
-        print type(self.object)
+        #print dir(self.request.META)
+        #print self.request.META['PATH_INFO']
+        path = self.request.META['PATH_INFO']
+        #print path
+        path2 = path.strip('/courses//add_lesson')
+        #print path2
+        #print path
+        #print dir(self.object)
+        #print type(self.object)
         #print self.request
         #course = Course.objects.get(id=self.request.GET.get('course_id'))
-        #lesson = Lesson.objects.all().filter(pk=self.object.pk)
-        #lesson2 = Lesson.objects.get(id=self.object.id)
-        #print lesson2.course_id
+        #lesson = Lesson.objects.all().filter(course_=path2)
+        #lesson2 = Lesson.objects.get(id=path2)
+        #print lesson2.
         #print lesson.get(pk=self.object.pk)
         #lesson = get_form_kwargs(self, 'instance')
         #lesson = context['lesson']
-        initial['course'] = Course.objects.get(id=self.object.course_id)
-        #initial['course'] = Course.objects.get(id=3)
+        #initial['course'] = Course.objects.get(pk=path2)
+        initial['course'] = Course.objects.get(id=path2)
         
-        #return { 'course': self.request.GET.get['course_id'] }
+        #return { 'course': Course.objects.get(pk=path2) }
         return initial    
 
 
