@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 
-{% block title %}PyBursa - Редактирование данных студента{% endblock title %}
+{% block title %}PyBursa - Создание нового студента{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
 
 
 {% block link_students %}
-  {% url 'students:list_view' %}?course_id={{ course_id }}
+  {% url 'students:list_view' %}
 {% endblock link_students %}  
 
 
@@ -13,7 +16,7 @@
 
 
 {% load static from staticfiles %}
-  
+
   {% if messages %}
   <ul class="messages">
     {% for message in messages %}
@@ -21,12 +24,11 @@
     {% endfor %}
   </ul>
   {% endif %}  
-
   <h2>{{ title }}</h2>
   <br>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Изменить">
+    <input type="submit" value="Создать">
   </form>    
 {% endblock content %}

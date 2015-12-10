@@ -5,6 +5,63 @@ from django.http import HttpResponse
 from courses.models import Course, Lesson
 from coaches.models import Coach
 from courses.forms import CourseModelForm, LessonModelForm
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, ModelFormMixin 
+from django.core.urlresolvers import reverse_lazy
+
+
+class MixinCourseContext(object):
+    
+    def get_courses(self):
+        #cont = super(MixinCourseContext, self).get_context_data(**kwargs)
+        lesson = Lesson.objects.get(id=self.object.id)
+        course = lesson.course_id
+        return course
+
+    #def get_coaches(self):
+        #coaches =  Coach.objects.filter(coach_courses__id=self.object.id).name   
+        #return coaches
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(MixinCourseContext, self).get_context_data(**kwargs)
+        #context['title'] = 'Student registration'
+        #self.object = self.get_object()
+        context['course'] = self.get_courses()
+        #context['coach_name'] = self.get_coaches()
+        return context
+    #def dispatch(self, *args, **kwargs):
+        #return super(MixinCourseContext, self).dispatch(*args, **kwargs)    
+        #return super(MixinCourseContext, self).get_context_data(**kwargs)
+
+class CourseDetailView(DetailView):
+    model = Course
+    template_name = 'courses/detail.html'
+    context_object_name = 'args'
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        #context['title'] = 'Student registration'
+        self.object = self.get_object()
+        #print self.object
+        context['name'] = self.object.name
+        context['description'] = self.object.description
+        context['lesson1'] = Lesson.objects.filter(course__id=self.object.id)
+        context['course_id'] = self.object.id
+        #args['xuy'] = 'http://127.0.0.1:8000/students/?course_id={}'.format(course_id)
+        context['coach_name'] = self.object.coach.name
+        context['coach_surname'] = self.object.coach.surname
+        context['coach_description'] = self.object.coach.description
+        context['assistant_name'] = self.object.assistant.name
+        context['assistant_surname'] = self.object.assistant.surname
+        context['assistant_description'] = self.object.assistant.description
+        context['coach'] = self.object.coach
+        context['assistant'] = self.object.assistant
+    
+        return context
+    #def dispatch(self, *args, **kwargs):
+        #return super(CourseDetailView, self).dispatch(*args, **kwargs)    
+
 
 def detail(request, course_id):
     #return HttpResponse('course_id = {}'.format(course_id))
@@ -31,6 +88,25 @@ def detail(request, course_id):
 
     return render(request, 'courses/detail.html', args)
 
+
+class CourseCreateView(CreateView):
+    model = Course
+    #form_class = StudentModelForm
+    template_name = 'courses/add.html'
+    success_url = reverse_lazy('index')
+    #context_object_name = 'a'
+
+    
+    def get_context_data(self, **kwargs):
+        context = super(CourseCreateView, self).get_context_data(**kwargs)
+        context['title'] = 'Course creation'
+        return context
+    def form_valid(self, form):
+        course = form.save()
+        messages.success(self.request, 'Course %s has been successfully added.' % (course.name))
+        return super(CourseCreateView, self).form_valid(form)
+
+
 def add(request):
     args = {}
     if request.method == 'POST':
@@ -50,6 +126,27 @@ def add(request):
         args['form'] = form
         return render(request, 'courses/add.html', args)
 
+
+class CourseUpdateView(UpdateView):
+    form_class = CourseModelForm
+    model = Course
+    template_name = 'courses/edit.html'
+    #success_url = reverse_lazy('students:edit', get_object().id)
+    def get_success_url(self):
+        #if self.request.GET.get('pk'):
+        #return reverse_lazy('students:edit', args=(self.request.GET.get('pk'), ))
+        return reverse_lazy('courses:edit', args=(self.get_object().id, ))
+    
+    def get_context_data(self, **kwargs):
+        context = super(CourseUpdateView, self).get_context_data(**kwargs)
+        context['title'] = 'Course update'
+        return context
+    
+    def form_valid(self, form):
+        course = form.save()
+        messages.success(self.request, 'The changes have been saved.')
+        return super(CourseUpdateView, self).form_valid(form)    
+
 def edit(request, course_id):
     args = {}
     course = Course.objects.get(id=course_id)
@@ -68,6 +165,27 @@ def edit(request, course_id):
         args['form'] = form
         return render(request, 'courses/edit.html', args)
 
+class CourseDeleteView(DeleteView):
+    model = Course
+    template_name = 'courses/remove.html'
+    success_url = reverse_lazy('index')
+    #success_message = "Thing %s was deleted successfully." 
+     
+    def get_context_data(self, **kwargs):
+        context = super(CourseDeleteView, self).get_context_data(**kwargs)
+        context['title'] = 'Course deletion'
+        return context
+    
+    
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        name = self.object.name
+        
+        messages.success(request, 'Course %s has been deleted.' % (name))
+        self.object.delete()
+        return redirect(self.get_success_url())
+
 def remove(request, course_id):
     args = {}
     course = Course.objects.get(id=course_id)
@@ -79,9 +197,70 @@ def remove(request, course_id):
         args['course'] = course
         return render(request, 'courses/remove.html', args)
 
-def add_lesson(request, course_id):
+
+class Add_lessonCreateView(CreateView):
+    model = Lesson
+    form_class = LessonModelForm
+    template_name = 'courses/add_lesson.html'
+    #print context
+    #initial = {'course':Course.objects.get(id=course)}
+    
+    
+    #def get_context_data(self, **kwargs):
+        #context = super(Add_lessonCreateView, self).get_context_data(**kwargs)
+        #self.object = self.get_object()
+        #print self.object
+        #context['obj'] = self.object
+        #return context
+    
+    def form_valid(self, form):
+        #data = form.cleaned_data
+        lesson = form.save()
+        messages.success(self.request, 'Lesson %s has been successfully added.' % (lesson.subject))
+        return super(Add_lessonCreateView, self).form_valid(form)
+    
+    #def get_form_kwargs(self):
+        #kwargs = super(Add_lessonCreateView, self).get_form_kwargs()
+        #kwargs['course'] = Course.objects.get(id=3)
+
+        #return kwargs
+    
+    
+    #def get_form_kwargs(self):
+   
+        #kwargs = super(ModelFormMixin, self).get_form_kwargs()
+        #if hasattr(self, 'object'):
+            #kwargs.update({'instance': self.object})
+        #return kwargs
+    
+    def get_initial(self):
+        
+        initial = super(Add_lessonCreateView, self).get_initial()
+        initial = initial.copy()
+        self.object = self.get_object()
+        print self.object.pk
+        
+        print self.object.course_id
+        print dir(self.object)
+        print type(self.object)
+        #print self.request
+        #course = Course.objects.get(id=self.request.GET.get('course_id'))
+        #lesson = Lesson.objects.all().filter(pk=self.object.pk)
+        #lesson2 = Lesson.objects.get(id=self.object.id)
+        #print lesson2.course_id
+        #print lesson.get(pk=self.object.pk)
+        #lesson = get_form_kwargs(self, 'instance')
+        #lesson = context['lesson']
+        initial['course'] = Course.objects.get(id=self.object.course_id)
+        #initial['course'] = Course.objects.get(id=3)
+        
+        #return { 'course': self.request.GET.get['course_id'] }
+        return initial    
+
+
+def add_lesson(request, pk):
     args = {}
-    course = Course.objects.get(id=course_id)
+    course = Course.objects.get(id=pk)
     #lesson = Lesson.objects.get(course = course_id)
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
