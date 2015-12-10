@@ -83,7 +83,7 @@
                                 {% for course in assistant_on_courses %}
                                     <div class="row">
                                         <a class="waves-effect waves-light btn" href="{% url 'courses:detail' course.id %}">{{ course }}</a>
-                                        <a class="waves-effect waves-light btn" href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons">present_to_all</i> students</a>
+                                        <a class="waves-effect waves-light btn" href="{% url 'students:list_view' %}?course_id={{ course.id }}"><i class="small material-icons left">present_to_all</i> students</a>
                                     </div>
                                 {% endfor %}
                             </td>

@@ -13,17 +13,20 @@ class CourseDetailView(DetailView):
     model = Course
     fields = '__all__'
     template_name = 'courses/detail.html'
+    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
+        course_id = context['course'].id
         try:
-            context['coach'] = Coach.objects.get(coach_courses__exact=self.get_object().id)
-            context['assistant'] = Coach.objects.get(assistant_courses__exact=self.get_object().id)
+            context['coach'] = Coach.objects.get(coach_courses__exact=course_id)
         except ObjectDoesNotExist:
             context['coach'] = False
+        try:
+            context['assistant'] = Coach.objects.get(assistant_courses__exact=course_id)
+        except ObjectDoesNotExist:
             context['assistant'] = False
         return context
-
 
 
 class CourseCreateView(CreateView):
