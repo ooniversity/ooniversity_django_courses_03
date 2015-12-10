@@ -61,7 +61,13 @@ class StudentDeleteView(DeleteView):
         context['page_title'] = 'Student info suppression'
         return context
 
+    def delete(self, request, *args, **kwargs):
+        # student = self.get_object()
+        messages.success(self.request, 'Account  has been successfully removed.')
+        return super(StudentDeleteView, self).delete(request, *args, **kwargs)
+    '''
     def get_success_url(self):
         message = 'Account  has been successfully removed.'
         messages.success(self.request, message)
         return self.success_url
+    '''
