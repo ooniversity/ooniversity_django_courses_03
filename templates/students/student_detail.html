@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+{% block title %}PyBursa - Информация о студенте{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block link_students %}
+  {% url 'students:list_view' %}
+{% endblock link_students %}  
+
+
+{% block content %}
+
+
+{% load static from staticfiles %}
+
+
+    <h2>{{ object.surname }} {{ object.name }}</h2>
+    <br>
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+            <td>дата рождения</td>
+            <td>{{ object.date_of_birth }}</td>
+          </tr>
+          <tr>
+            <td>почта</td>
+            <td>{{ object.email }}</td>
+          </tr>
+          <tr>
+            <td>телефон</td>
+            <td>{{ object.phone }}</td>
+          </tr>
+          <tr>
+            <td>адрес</td>
+            <td>{{ object.address }}</td>
+          </tr>
+          
+          <tr>
+            <td>логин skype</td>
+            <td>{{ object.skype }}</td>
+          </tr>
+          
+          <tr>
+            <td>курсы</td>
+            <td>
+              <ul>
+                {% for course in object.courses.all %}
+                <li><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></li>
+                {% endfor %}
+              </ul>    
+            </td>
+          </tr>
+        
+      </tbody>
+    </table> 
+{% endblock content %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block title %}PyBursa - Список студентов{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block link_students %}
+  {% url 'students:list_view' %}
+{% endblock link_students %}  
+
+
+{% block content %}
+
+
+{% load static from staticfiles %}
+   
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+  <p><a href="{% url 'students:add' %}" class="btn btn-primary" role="button">Добавить нового студента</a></p>
+  <h1>Список студентов</h1>
+    
+  <br>
+  <br>
+    
+  <table class="table table-bordered">
+        
+    <th>фамилия имя</th>
+    <th>адрес</th>
+    <th>skype</th>
+    <th>курсы</th>
+        
+    <tbody>
+      {% for student in object_list %}
+        {% cycle "<tr><td>" "<tr><td>" "<tr><td>" "<tr><td>" %}
+        
+            
+        <a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a><p><a href="{% url 'students:edit' student.id %}" class="btn btn-primary" role="button">Изменить</a><a href="{% url 'students:remove' student.id %}" class="btn btn-primary" role="button">Удалить</a></p></td>
+          <td>{{ student.address }}</td>
+          <td>{{ student.skype }}</td>
+          <td>
+            <ul>
+              {% for course in student.courses.all %}
+                <li>
+                  <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a> 
+                  </li>
+              {% endfor %}
+            </ul>    
+
+        {% cycle "</td></tr>" "</td></tr>" "</td></tr>" "</td></tr>" %}
+      {% endfor %}
+        
+
+    </tbody>
+  </table>
+{% endblock content %}  
