@@ -76,7 +76,7 @@ class CourseDeleteView(DeleteView):
 		return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
 
-
+"""
 def detail(request, course_id):
 	course = Course.objects.get(id = course_id)
 	lessons = Lesson.objects.filter(course = course_id)
@@ -121,6 +121,7 @@ def remove(request, course_id):
 		course.delete()
 		return redirect('index')
 	return render(request, 'courses/remove.html', {'course':course})
+"""
 
 def add_lesson(request, course_id):
 	if request.POST:
