@@ -7,14 +7,17 @@
 {% block title %}{{ page_title }}{% endblock title %}
 
 
-{# {% block navbar_i1 %}active{% endblock navbar_i1 %} #}
+{% block navbar_i3 %}active{% endblock navbar_i3 %}
 
 
 {% block content %}
-    <p>Are you sure you want to remove account of {{ student.name }} {{ student.surname }}?</p>
+    <h1>{{ page_title }}</h1>
+    <br>
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <input type="submit" value="Confirm">
+    <form action="" method="post">{% csrf_token %}
+        <div class="alert alert-danger" role=alert>
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+        </div>
+        <input type="submit" class="btn btn-danger" value="Confirm">
     </form>
 {% endblock content %}
