@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Pybursa Students{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block content %}
+  
+        {% if messages %}
+        <div class="alert alert-success" role="alert">
+          {% for message in messages %}
+            {{ message }}
+          {% endfor %}
+        </div>
+        {% endif %}
+   <a href="{% url 'students:add' %}"><button class="glyphicon glyphicon-plus btn btn-success">Добавить нового студента</button></a>
+      <h2 class="sub-header">Список Студентов</h2>
+      <div class="table-responsive">
+        <table class="table" border=2>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Фамилия Имя</th>
+              <th>адрес</th>
+              <th>skype</th>
+              <th>курсы</th>
+              <th></th>
+              <th></th>
+             </tr>
+          </thead>
+          <tbody>
+            {% for man in students %}
+            <tr>
+              <td>{{ forloop.counter }}</td> 
+              <td><p><a href="{% url 'students:detail' man.id %}">{{ man.surname }} {{ man.name }}</a></p></td>
+              <td>{{ man.address }}</td>
+              <td>{{ man.skype }}</td>
+              <td>{% for cour in man.courses.all %}                
+                <p><a href="{% url 'courses:detail' cour.id %}">{{ cour.name }}</p>
+                
+                {% endfor %}
+
+              </td>
+               <td>
+                  <a href="{% url 'students:edit' man.id %}">
+                    <button class="glyphicon glyphicon-pencil btn btn-success">Изменить</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="{% url 'students:remove' man.id %}">
+                    <button class="glyphicon glyphicon-remove btn btn-success">Удалить</button>
+                  </a>
+                </td>
+
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+{% endblock content %}
+ 

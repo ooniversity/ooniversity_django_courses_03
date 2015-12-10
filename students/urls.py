@@ -1,12 +1,14 @@
 from django.conf.urls import patterns, include, url
 from students import views
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView 
+
 
 urlpatterns = patterns('',
-  url(r'^(?P<student_id>\d)/$', views.detail, name="detail"),
-  url(r'^$', views.list_view, name="list_view"),
-  url(r'^add/$', views.create, name='add'),
+  url(r'^(?P<pk>\d+)/$', views.StudentDetailView.as_view(), name="detail"),
+  url(r'^$', views.StudentListView.as_view(), name="list_view"),
+  url(r'^add/$', views.StudentCreateView.as_view(), name='add'),
   url(r'^edit/(?P<pk>\d+)/$', views.edit, name='edit'),
   url(r'^remove/(?P<pk>\d+)/$', views.remove, name='remove'),
-  
   
 )

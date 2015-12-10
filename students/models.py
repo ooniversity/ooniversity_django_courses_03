@@ -2,6 +2,7 @@
 import datetime
 from django.db import models
 from courses.models import Course
+from django.core.urlresolvers import reverse_lazy
 
 class Student(models.Model):
   name = models.CharField(max_length = 255)
