@@ -16,7 +16,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 class CourseDetailView(DetailView):
 	model = Course
 	template_name = 'courses/detail.html'
-	context_object_name = 'course'
+	#context_object_name = 'course'
 	def get_context_data(self, **kwargs):
 		context = super(CourseDetailView, self).get_context_data(**kwargs)
 		id_c = '?course_id=' + str(self.object.id)
