@@ -12,7 +12,6 @@ from students.models import Student
 # Create your views here.
 class StudentListView(ListView):
 	model = Student
-	context_object_name = 'students'
 
 	def get_queryset(self):
 		course_id = self.request.GET.get('course_id', None)

@@ -27,7 +27,7 @@
 						<th>Skype</th>
 						<th>Courses</th>
 					</tr>
-					{% for student in students %}
+					{% for student in object_list %}
 						<tr>
 							<td><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
 							<td>{{ student.address }}</td>
