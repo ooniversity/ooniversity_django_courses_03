@@ -24,7 +24,6 @@ class StudentListView(ListView):
 class StudentCreateView(CreateView):
     model = Student
     fields = '__all__'
-
     success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
@@ -47,7 +46,6 @@ class StudentUpdateView(UpdateView):
 
     def get_success_url(self):
         student = super(StudentUpdateView, self).get_context_data()
-        print(student['student'].id)
         success_url = reverse_lazy('students:edit', kwargs={'student_id': student['student'].id})
         return success_url
 
@@ -71,7 +69,6 @@ class StudentDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-
         context['remove_message'] = 'Warning, the student %s %s will be removed!' % (
             context['student'].name, context['student'].surname)
         context['title'] = 'Student info suppression'
@@ -80,6 +77,5 @@ class StudentDeleteView(DeleteView):
     def delete(self, request, *args, **kwargs):
         student = self.get_object()
         messages.success(self.request, "Attention, you're going to remove the student %s %s. Confirm the action" % (
-                             student.name, student.surname))
+            student.name, student.surname))
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
-
