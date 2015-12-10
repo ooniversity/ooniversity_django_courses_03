@@ -24,15 +24,17 @@ class StudentUpdateView(UpdateView):
 
 class StudentDeleteView(DeleteView):
     model = Student
-    
+    success_url = reverse_lazy('students:list_view')
+
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
         context['title'] = "Student info suppression"
         return context
 
-    def form_valid(self, form):
-        messages.success(self.request, 'Student %s %s has been successfully deleted.' % (data['name'], data['surname']))
-        return super(StudentDeleteView, self).form_valid(form)
+    def delete(self, request, *args, **kwargs):
+        student = self.get_object()
+        messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
+        return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
 class StudentCreateView(CreateView):
     model = Student
