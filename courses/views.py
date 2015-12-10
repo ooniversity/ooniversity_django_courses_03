@@ -87,10 +87,13 @@ class CourseDeleteView(DeleteView):
 	def get_context_data(self, **kwargs):
 		context = super(CourseDeleteView, self).get_context_data(**kwargs)
 		context['title'] = "Course deletion"
-		mes = "Course %s has been deleted." % self.object.name
-		messages.success(self.request, mes)
 		#context['page_title'] = "Student registration"
 		return context
+	def delete(self, request, *args, **kwargs):
+        	ret_msg = super(CourseDeleteView, self).delete(request, *args, **kwargs)
+		mes = "Course %s has been deleted." % self.object.name
+        	messages.success(self.request, mes)
+        	return ret_msg
 """
 def remove(request, course_id):
 	course = Course.objects.get(id=course_id)
@@ -113,6 +116,8 @@ class LessonCreateView(CreateView):
 		return super(LessonCreateView, self).form_valid(form)
 	def get_success_url(self):
 		return reverse_lazy('courses:detail', kwargs = {'pk':self.object.course.pk})
+	def get_initial(self):
+        	return {'course': self.kwargs['pk']}
 
 """
 def add_lesson(request, course_id):
