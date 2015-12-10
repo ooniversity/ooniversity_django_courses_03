@@ -17,6 +17,11 @@ class StudentListView(ListView):
             students = Student.objects.filter(courses=course_id)
         return students
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        context['page_title'] = 'Student registration'
+        return context
+
 
 class StudentDetailView(DetailView):
     model = Student
@@ -58,19 +63,19 @@ class StudentDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['title'] = "Student info suppression"
+        context['page_title'] = "Student info suppression"
         return context
 
-    def delete(self, request, *args, **kwargs):
-        student = self.get_object()
-        messages.success(
-            self.request,
-            'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
-        )
-        return super(StudentDeleteView, self).delete(request, *args, **kwargs)
-
-    # def get_success_url(self):
+    #def delete(self, request, *args, **kwargs):
     #    student = self.get_object()
-    #    message = 'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
-    #    messages.success(self.request, message)
-    #    return self.success_url
+    #    messages.success(
+    #        self.request,
+    #        'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
+    #    )
+    #    return super(StudentDeleteView, self).delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        student = self.get_object()
+        message = 'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
+        messages.success(self.request, message)
+        return self.success_url
