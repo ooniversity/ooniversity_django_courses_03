@@ -13,10 +13,10 @@
 {% block content %}
     {% include 'include/message_include.html' %}
     <div class="jumbotron">
-        <h1 class="center">{{ item.name }}</h1>
-        <p class="center"> {{ item.description|truncatechars:32 }}</p>
+        <h1>{{ item.name }}</h1>
+        <p> {{ item.description|truncatechars:32 }}</p>
+    {{ kwargs }}
     </div>
-
     <a href={% url 'courses:add_lesson' item.id %}>Добавить занятие</a>
         <table class="table">
             <tr>
@@ -24,7 +24,7 @@
                 <th>Тема</th>
                 <th>Описание</th>
             </tr>
-            {% for less in lesson %}
+            {% for less in lessons %}
             <tr>
                 <td>{{ less.order }}</td>
                 <td>{{ less.subject }}</td>
@@ -33,7 +33,7 @@
             {% endfor %}
         </table>
     <h2>Преподаватели</h2>
-    {% for coach in coaches %}
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Учитель</h3>
@@ -43,8 +43,8 @@
                 {{ coach.description }}
             </div>
         </div>
-    {% endfor %}
-    {% for assistant in assistants %}
+
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Ассистент</h3>
@@ -54,5 +54,5 @@
                 {{ assistant.description }}
             </div>
         </div>
-    {% endfor %}
+
 {% endblock %}
