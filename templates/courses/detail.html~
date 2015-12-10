@@ -65,7 +65,7 @@
 			</div>
 			<a href="{% url 'courses:add-lesson' course.id %}">
 			<button type="button" class="btn btn-default btn-lg">
-  			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить новый урок
+  			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Добавить занятие
 			</button>
 			</a>
 			<div class="row">
@@ -79,7 +79,7 @@
 						   </tr>
 						</thead>
 						<tbody>
-							{% for les in lessons %}
+							{% for les in course.lesson_set.all %}
 					    <tr>
 								<td>{{ les.order }}</td> 
 						    <td>{{ les.subject }}</td>

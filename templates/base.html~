@@ -17,16 +17,18 @@
    
   </head>
 	<body>
-		<div class="container">
-			<div class="navbar navbar-inverse">
-		      <ul class="nav nav-pills">
-						<li class={% block active_main %}{% endblock %}><a href="{% url 'index' %}">Главная</a></li>
-						<li class={% block active_contact %}{% endblock %}><a href="{% url 'contact' %}">Контакты</a></li>
-						<li class={% block active_students %}{% endblock %}><a href="{% url 'students:list_view' {% block course_students %}{% endblock course_students %} %}">Студенты</a></li>
-						<li class={% block active_quadratic %}{% endblock %}><a href="{% url 'quadratic:results' %}">Решить</a></li>
-					</ul>	
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header navbar-brand">
+				    <ul class="nav nav-pills">
+							<li class={% block active_main %}{% endblock %}><a href="{% url 'index' %}">Главная</a></li>
+							<li class={% block active_contact %}{% endblock %}><a href="{% url 'contact' %}">Контакты</a></li>
+							<li class={% block active_students %}{% endblock %}><a href="{% url 'students:list_view' %}{% block course_students %}{% endblock course_students %}">Студенты</a></li>
+							<li class={% block active_quadratic %}{% endblock %}><a href="{% url 'quadratic:results' %}">Решить</a></li>
+						</ul>	
+				</div>
 			</div>
-		</div>
+		</nav>
 {% block content %}{% endblock content %}
 		<script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>

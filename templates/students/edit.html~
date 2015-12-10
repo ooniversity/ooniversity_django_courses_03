@@ -19,6 +19,9 @@
 	</div>
 	{% endfor %}
 {% endif %}
+		<div class="page-header">
+			<h2>Редактирование данных студента</h2>
+		</div>
 		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p }}

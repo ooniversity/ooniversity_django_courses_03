@@ -19,7 +19,7 @@
 	<body>
 		<div class="container">
 			<div class="navbar navbar-inverse">
-		      <ul class="nav nav-pills">
+			    <ul class="nav nav-pills">
 						<li class={% block active_main %}{% endblock %}><a href="{% url 'index' %}">Главная</a></li>
 						<li class={% block active_contact %}{% endblock %}><a href="{% url 'contact' %}">Контакты</a></li>
 						<li class={% block active_students %}{% endblock %}><a href="{% url 'students:list_view' %}{% block course_students %}{% endblock course_students %}">Студенты</a></li>

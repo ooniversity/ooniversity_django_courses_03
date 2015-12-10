@@ -10,13 +10,13 @@
 {% block content %}
 <div class="container">
 	<div class="page-header">
-		<h2>Создание нового курса</h2>
+		<h2>{{ title }}</h2>
 	</div>
 	
 		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
-			<input type="submit" value="Создать" />
+			<input type="submit" value="Сохранить" />
 		</form>
 
 </div>

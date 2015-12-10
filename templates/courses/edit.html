@@ -9,20 +9,21 @@
 
 {% block content %}
 <div class="container">
-{% if messages %}
-	{% for message in messages %}
-	<div class="jumbotron">
-		{{ message }}
-	</div>
-	{% endfor %}
-{% endif %}
+	{% if messages %}
+		{% for message in messages %}
+			<div class="jumbotron">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endif %}
+
 		<div class="page-header">
-			<h2>Редактирование данных курса</h2>
+			<h2>{{ title }}</h2>
 		</div>
 		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
-			<input type="submit" value="Изменить" />
+			<input type="submit" value="Сохранить" />
 		</form>
 
 </div>
