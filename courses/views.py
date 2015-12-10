@@ -16,7 +16,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 class CourseDetailView(DetailView):
 	model = Course
 	template_name = 'courses/detail.html'
-	#context_object_name = 'course'
+	context_object_name = 'course'
 	def get_context_data(self, **kwargs):
 		context = super(CourseDetailView, self).get_context_data(**kwargs)
 		id_c = '?course_id=' + str(self.object.id)
@@ -35,6 +35,7 @@ def courses(request, id_course):
 class CourseCreateView(CreateView):
 	model = Course
 	template_name = 'courses/add.html'
+	context_object_name = 'course'
 	success_url = reverse_lazy('index')
 	def get_context_data(self, **kwargs):
 		context = super(CourseCreateView, self).get_context_data(**kwargs)
@@ -61,9 +62,10 @@ def add(request):
 class CourseUpdateView(UpdateView):
 	model = Course
 	template_name = 'courses/edit.html'
+	context_object_name = 'course'
 	#success_url = reverse_lazy('')
 	def get_success_url(self):
-		return reverse('courses:edit', kwargs={'pk': self.object.id})
+		return reverse_lazy('courses:edit', kwargs={'pk': self.object.id})
 	def get_context_data(self, **kwargs):
 		context = super(CourseUpdateView, self).get_context_data(**kwargs)
 		context['title'] = "Course update"
@@ -90,6 +92,7 @@ def edit(request, course_id):
 class CourseDeleteView(DeleteView):
 	model = Course
 	template_name = 'courses/remove.html'
+	context_object_name = 'course'
 	success_url = reverse_lazy('index')
 	def get_context_data(self, **kwargs):
 		context = super(CourseDeleteView, self).get_context_data(**kwargs)
@@ -108,6 +111,7 @@ def remove(request, course_id):
 		return redirect('/')
 	return render(request, 'courses/remove.html', {'course': course})
 """	
+
 def add_lesson(request, course_id):
 
     course = Course.objects.get(id=course_id)
