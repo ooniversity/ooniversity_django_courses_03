@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -90,5 +91,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) #ilona
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+#EMAIL_HOST_USER = 
+#EMAIL_HOST_PASSWORD = 
+ADMINS = (('ilonabaren@gmail.com'),)
