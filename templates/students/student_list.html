@@ -10,7 +10,7 @@
 {% block content %}
 <div class="jumbotron">
 
-
+{{ title }}
 {% if messages %}
   <ul class="messages">
   {% for message in messages %}
@@ -28,7 +28,7 @@
   <h3>Список студентов</h3> 
   <table class="table">
     <tr><th>#</th><th>Фамилия имя</th><th>Адрес</th><th>Skype</th><th>Курсы</th><th></th></tr> 
-    {% for i in name_stud %}
+    {% for i in student_list %}
       <td>{{i.id}}</td>
 	
       <td><a href="{% url 'students:detail' i.id %}">{{i.name}} {{i.surname}}</a></td>

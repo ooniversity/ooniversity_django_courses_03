@@ -12,8 +12,9 @@
 
 {% block content %}
 <div class="jumbotron">
-  <h3>Студент {{ student.name }} {{ student.surname }} будет удален</h3>
-   {% if messages %}
+	{{ title }}
+  <h3>Создание нового студента</h3>
+  {% if messages %}
   <ul class="messages">
     {% for message in messages %}
     <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
