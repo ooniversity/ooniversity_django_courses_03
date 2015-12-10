@@ -1,9 +1,25 @@
 from django.shortcuts import render, redirect
-from django import forms
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
 
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
+
+
+# class CourseDetailView(DetailView):
+#     model = Course
+#     template_name = 'courses/detail.html'
+#     context_object_name = 'lessons'
+
+#     def get_queryset(self):
+#         qs = super(CourseDetailView, self).get_queryset()
+#         course_id = self.request.GET.get('course_id', None)
+#         if course_id:
+#             qs = qs.filter(courses__id=course_id)
+#         return qs
 
 
 def detail(request, course_id):
@@ -20,39 +36,7 @@ def detail(request, course_id):
                   })
 
 
-
-# def add(request):
-#     context = {}
-#     if request.method == "POST":
-#         context['form'] = form = CourseModelForm(request.POST)
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             form.save()
-#             messages.success(request, 'Course %s has been successfully added.' % (
-#                 data['name']))
-#             return redirect('index')
-
-#     else:
-#         context['form'] = CourseModelForm()
-#     return render(request, 'courses/add.html', context)
-
-
-# def edit(request, pk):
-#     course = Course.objects.get(id=pk)
-#     if request.method == "POST":
-#         form = CourseModelForm(request.POST, instance=course)
-#         if form.is_valid():
-#             course = form.save()
-#             messages.success(
-#                 request, 'The changes have been saved.')
-#             return redirect('courses:edit', pk)
-#     else:
-#         form = CourseModelForm(instance=course)
-#     return render(request, 'courses/edit.html', {'form': form})
-
-
 def add(request):
-    #form = StudentModelForm()
     context = {}
     if request.POST:
         form = CourseModelForm(request.POST)
@@ -79,7 +63,6 @@ def edit(request, pk):
             return redirect('courses:edit', pk)
     else:
         context['form'] = CourseModelForm(instance=course)
-    # context['form'] = form
     return render(request, 'courses/edit.html', context)
 
 
