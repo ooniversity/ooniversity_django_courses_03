@@ -1,6 +1,8 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from students.models import Student
 from students.forms import StudentModelForm
 
@@ -61,16 +63,16 @@ class StudentDeleteView(DeleteView):
         context['page_title'] = "Student info suppression"
         return context
 
-    def delete(self, request, *args, **kwargs):
-        student = self.get_object()
-        messages.success(
-            self.request,
-            'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
-        )
-        return super(StudentDeleteView, self).delete(request, *args, **kwargs)
-
-    #def get_success_url(self):
+    #def delete(self, request, *args, **kwargs):
     #    student = self.get_object()
-    #    message = 'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
-    #    messages.success(self.request, message)
-    #    return self.success_url
+    #    messages.success(
+    #        self.request,
+    #        'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
+    #    )
+    #    return super(StudentDeleteView, self).delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        student = self.get_object()
+        message = 'Info on {} {} has been sucessfully deleted.'.format(student.name, student.surname)
+        messages.success(self.request, message)
+        return self.success_url
