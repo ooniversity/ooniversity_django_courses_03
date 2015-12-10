@@ -28,13 +28,12 @@ class CourseCreateView(CreateView):
 	def get_context_data(self, **kwargs):
 		context = super(CourseCreateView, self).get_context_data(**kwargs)
 		context['title'] = "Course creation"
-		#context['page_title'] = "Student registration"
 		return context
 	def form_valid(self, form):
-		cour = form.save()
-		mes = "Course %s has been successfully added." % cour.name
+		message = super(CourseCreateView, self).form_valid(form)
+		mes = "Course %s has been successfully added." % self.object.name
 		messages.success(self.request, mes)
-		return super(CourseCreateView, self).form_valid(form)
+		return message
 
 """
 def create(request):
@@ -58,10 +57,12 @@ class CourseUpdateView(UpdateView):
 		context['title'] = "Course update"
 		#context['page_title'] = "Student registration"
 		return context
+	def get_success_url(self):
+		return reverse_lazy('courses:edit', kwargs={'pk': self.object.pk})
 	def form_valid(self, form):
+		message = super(CourseUpdateView, self).form_valid(form)
 		mes = "The changes have been saved."
 		messages.success(self.request, mes)
-		self.success_url = reverse_lazy('courses:edit', kwargs = {'pk':self.object.pk})
 		return super(CourseUpdateView, self).form_valid(form)
 	
 
@@ -90,10 +91,10 @@ class CourseDeleteView(DeleteView):
 		#context['page_title'] = "Student registration"
 		return context
 	def delete(self, request, *args, **kwargs):
-        	ret_msg = super(CourseDeleteView, self).delete(request, *args, **kwargs)
+		ret_msg = super(CourseDeleteView, self).delete(request, *args, **kwargs)
 		mes = "Course %s has been deleted." % self.object.name
-        	messages.success(self.request, mes)
-        	return ret_msg
+		messages.success(self.request, mes)
+		return ret_msg
 """
 def remove(request, course_id):
 	course = Course.objects.get(id=course_id)
@@ -110,14 +111,14 @@ class LessonCreateView(CreateView):
 	model = Lesson
 	template_name = "courses/add_lesson.html"
 	def form_valid(self, form):
-		les = form.save()
-		mes = "Lesson %s has been successfully added." % les.subject
+		message = super(LessonCreateView, self).form_valid(form)
+		mes = "Lesson %s has been successfully added." % self.object.subject
 		messages.success(self.request, mes)
-		return super(LessonCreateView, self).form_valid(form)
+		return message
 	def get_success_url(self):
 		return reverse_lazy('courses:detail', kwargs = {'pk':self.object.course.pk})
 	def get_initial(self):
-        	return {'course': self.kwargs['pk']}
+		return {'course': self.kwargs['pk']}
 
 """
 def add_lesson(request, course_id):
