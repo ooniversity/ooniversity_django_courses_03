@@ -9,6 +9,7 @@ class Course (models.Model):
 	assistant = models.ForeignKey(Coach, related_name = 'assistant_courses', null = True, blank = True)
 	def __unicode__(self):
 		return self.name
+	
 		
 class Lesson (models.Model):
 	subject = models.CharField(max_length = 255)
@@ -17,3 +18,5 @@ class Lesson (models.Model):
 	order = models.PositiveIntegerField()
 	def __unicode__(self):
 		return self.subject
+		
+

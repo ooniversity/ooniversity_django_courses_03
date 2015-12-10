@@ -19,31 +19,31 @@
   </ul>
 </nav>
 <div class="center">
-	<h1>{{name_student}} {{name_student.surname}}</h1>
+	<h1>{{student}} {{student.surname}}</h1>
 </div>
 
 <table class="width table-color" border="1">
 	<tr> 
 		<td class="bold">дата рождения</a></td>
-		<td>{{ name_student.date_of_birth|date:"N d, Y" }}</td>
+		<td>{{ student.date_of_birth|date:"N d, Y" }}</td>
 	</tr>
 	<tr> 
 		<td class="bold">адрес</a></td>
-		<td>{{ name_student.address }}</td>
+		<td>{{ student.address }}</td>
 	</tr>
 	<tr> 
 		<td class="bold">почта</a></td>
-		<td>{{ name_student.email }}</td>
+		<td>{{ student.email }}</td>
 	</tr>
 	<tr> 
 		<td class="bold">логин Skype</a></td>
-		<td>{{ name_student.skype }}</td>
+		<td>{{ student.skype }}</td>
 	</tr>
 	<tr> 
 		<td class="bold">телефон</a></td>
-		<td>{{ name_student.phone }}</td>
+		<td>{{ student.phone }}</td>
 	</tr>
-{% for course in name_student.courses.all %}
+{% for course in student.courses.all %}
 	<tr> 
 		<td class="bold">курсы</a></td>
 		<td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>

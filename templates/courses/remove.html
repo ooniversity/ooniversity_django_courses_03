@@ -12,8 +12,8 @@
 
 {% block content %}
 
-  <p>Course {{ course.name }} has been deleted.</p>
-  {% if messages %}
+  <p>Course {{ course.name }} will be deleted.</p>
+  <!--{% if messages %}
     <ul class="messages">
       {% for message in messages %}
         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
@@ -22,9 +22,10 @@
           </li>
       {% endfor %}
     </ul>
-  {% endif %}
+  {% endif %}-->
 
   <form method="post">
+  <h1>{{ title }}</h1>
     {% csrf_token %}
     <input type="submit">
   </form>
