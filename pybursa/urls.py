@@ -1,10 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 import views
+from feedbacks.views import FeedbackView
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name = "index"),
     url(r'^contact/$', views.contact, name = "contact"),
+    url(r'^feedback/', include('feedbacks.urls',)),#FeedbackView.as_view(), name = "feedback"),
     url(r'^student_list/$', views.student_list, name = "student_list"),
     url(r'^student_detail/$', views.student_detail, name = "student_detail"),
     url(r'^polls/', include('polls.urls', namespace="polls")),

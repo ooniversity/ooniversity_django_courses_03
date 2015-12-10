@@ -22,11 +22,13 @@ class CourseDetailView(DetailView):
         context['course_par'] = "?course_id=" + str(self.object.id)
         return context
 
+"""
 def detail(request, course_id):
     course = Course.objects.get(id=course_id)
     course_lessons = Lesson.objects.filter(course_id = course_id)
     course_par = "?course_id=" + course_id
     return render(request, 'courses/detail.html', {'course_lessons': course_lessons, 'course': course, 'course_par': course_par})
+"""
 
 class CourseCreateView(CreateView):
     model = Course
@@ -120,6 +122,7 @@ class CourseDeleteView(DeleteView):
         messages.success(self.request, 'Course %s has been deleted.' % deleted_course, extra_tags='msg')
         return deleted_course
 
+"""
 def remove(request, course_id):
 
     course = Course.objects.get(id=course_id)
@@ -129,4 +132,4 @@ def remove(request, course_id):
         return redirect('/')
 
     return render(request, 'courses/remove.html', {'course': course})
-
+"""

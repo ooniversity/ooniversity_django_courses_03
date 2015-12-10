@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^add/', views.StudentCreateView.as_view(), name="add"),
     url(r'^remove/(?P<pk>\d+)/', views.StudentDeleteView.as_view(), name="remove"),
     url(r'^admin/', include(admin.site.urls)),
+    (r'^pages/', include('django.contrib.flatpages.urls')),
 )
