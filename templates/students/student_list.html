@@ -1,0 +1,63 @@
+
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa Student list{% endblock title %}
+
+
+{% block active_students %}active{% endblock active_students %}
+
+{% block content %}
+  <div class="container theme-showcase" role="main">
+    <div class="container">
+      <div class="jumbotron">
+
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <p><a class="btn btn-primary btn-lg" href="{% url 'students:add' %}" role="button"><span class="glyphicon glyphicon-plus"></span>Добавить нового студента</a></p>
+        <p>{{ course.description }}</p>
+        <h2 class="course">Список студентов</h2>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table">
+<thead>
+  <tr>
+    <th>#</th>
+    <th>Фамилия и имя</th>
+    <th>Адрес</th>
+    <th>Skype</th>
+    <th>Курсы</th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+  {% for i in student_list %}
+  <tr>
+    <td>{{ i.id }}</td>
+    <td><a href="{% url 'students:detail' i.id %}">{{ i.surname }} {{ i.name }}</a></td>
+    <td>{{ i.address }}</td>
+    <td>{{ i.skype }}</td>
+    <td>{% for k in i.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a><br>{% endfor %}</td>
+    <td><a class="btn btn-primary btn-block" href="{% url 'students:edit' i.id %}" role="button"><span class="glyphicon glyphicon-pencil"></span>Изменить</a></td>
+    <td><a class="btn btn-primary btn-block" href="{% url 'students:remove' i.id %}" role="button"><span class="glyphicon glyphicon-remove"></span>Удалить</a></td>
+  </tr>
+  {% endfor %}
+</tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div><!-- Site footer -->
+{% include "include/footer_include.html" %}
+  </div>
+ </div>
+{% endblock content %}
