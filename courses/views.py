@@ -1,16 +1,29 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
 from .models import Course
+from coaches.models import Coach
 from courses.forms import LessonModelForm
 from django.contrib import messages
 from django.views.generic import DeleteView, CreateView, UpdateView, DetailView
 from django.core.urlresolvers import reverse_lazy
+from django.core.exceptions import ObjectDoesNotExist
 
 
 class CourseDetailView(DetailView):
     model = Course
     fields = '__all__'
     template_name = 'courses/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        try:
+            context['coach'] = Coach.objects.get(coach_courses__exact=self.get_object().id)
+            context['assistant'] = Coach.objects.get(assistant_courses__exact=self.get_object().id)
+        except ObjectDoesNotExist:
+            context['coach'] = False
+            context['assistant'] = False
+        return context
+
 
 
 class CourseCreateView(CreateView):
