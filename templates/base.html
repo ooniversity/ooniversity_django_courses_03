@@ -40,6 +40,7 @@
                     <li class="{% block nav_class_contacts %}{% endblock nav_class_contacts %}"><a href="{% url 'contact' %}">Contacts</a></li>
                     <li class="{% block nav_class_students %}{% endblock nav_class_students %}"><a href="{% url 'students:list_view' %}{% block students_url_id %}{% endblock students_url_id %}">Students</a></li>
                     <li><a href="{% url 'results' %}">Equation</a></li>
+                    <li class="{% block nav_class_feedback %}{% endblock nav_class_feedback %}"><a href="{% url 'feedback' %}">Feedback</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

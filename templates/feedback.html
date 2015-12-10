@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
+
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block nav_class_feedback %}active{% endblock nav_class_feedback %}
+
+
+{% block content %}
+    <div class="col-lg-12">
+
+        <h2>Feedback</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+{% endblock content %}
