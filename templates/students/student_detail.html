@@ -12,16 +12,16 @@
 
 {% block content %}
 <div class="jumbotron">
-  <h3>{{name_student.name}} {{name_student.surname}}</h3> 
+  <h3>{{student.name}} {{student.surname}}</h3> 
   <table class="table">
-    <tr><td>дата рождения </td> <br> <td>{{name_student.date_of_birth }}</td></tr>
-    <tr><td>адрес </td> <br> <td>{{name_student.address }}</td></tr>
-    <tr><td>почта </td> <br> <td>{{name_student.email }}</td></tr>
-    <tr><td>skype </td> <br> <td>{{name_student.skype }}</td></tr>
-    <tr><td>телефон </td> <br> <td>{{name_student.phone }}</td></tr>
+    <tr><td>дата рождения </td> <br> <td>{{student.date_of_birth }}</td></tr>
+    <tr><td>адрес </td> <br> <td>{{student.address }}</td></tr>
+    <tr><td>почта </td> <br> <td>{{student.email }}</td></tr>
+    <tr><td>skype </td> <br> <td>{{student.skype }}</td></tr>
+    <tr><td>телефон </td> <br> <td>{{student.phone }}</td></tr>
     <tr><td>курсы</td>
       <td><table  class="table" >
-      {% for course in name_student.courses.all %}
+      {% for course in student.courses.all %}
         <a href="{% url 'courses:detail' course.id %}">{{course}}</a> <br>
       {% endfor %}
       </table></td>
