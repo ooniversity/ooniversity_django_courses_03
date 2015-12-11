@@ -1,4 +1,4 @@
-from django.core.checks import messages
+from django.contrib import messages
 from django.core.mail import mail_admins
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.edit import CreateView
