@@ -1,12 +1,12 @@
 # -*- coding:UTF-8 -*-
-from django.shortcuts import render, redirect
-from django.core.urlresolvers import reverse_lazy, reverse
-from courses.models import Course, Lesson
-from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
+from django.core.urlresolvers import reverse_lazy, reverse
+from django.shortcuts import render, redirect
 from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
-from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from courses.forms import LessonModelForm
+from courses.models import Course, Lesson
 
 
 class CourseDetailView(DetailView):
