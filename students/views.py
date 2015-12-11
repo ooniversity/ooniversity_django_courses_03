@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.urlresolvers import reverse_lazy
 from courses.models import Course, Lesson
@@ -10,13 +11,11 @@ from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteVi
 
 class StudentListView(ListView):
   model = Student
-  context_object_name = "students" 
   def get_queryset(self):
+    students = super(StudentListView, self).get_queryset()
     course_id = self.request.GET.get('course_id', None)
     if course_id:
-      students = Student.objects.filter(courses__id = course_id)
-    else:
-      students = Student.objects.all()
+      students = students.filter(courses = course_id)
     return students
  
 class StudentDetailView(DetailView):
@@ -31,37 +30,33 @@ class StudentCreateView(CreateView):
   model = Student
   success_url = reverse_lazy('students:list_view')
   def form_valid(self, form):
-    form.save()
+    create_message = super(StudentCreateView, self).form_valid(form)
     messages.success(self.request, "Student %s %s has been successfully added." %(form.cleaned_data['name'], form.cleaned_data['surname']) )
-    return super(StudentCreateView,self).form_valid(form)
+    return create_message
   def get_context_data(self, **kwargs):
     context = super(StudentCreateView,self).get_context_data(**kwargs)
     context['title'] = "Student registration"
-    context['headline'] = "New student creation"
     return context
   
 class StudentUpdateView(UpdateView):
   form_class = StudentModelForm
   model = Student
   def form_valid(self, form):
-    form.save()
+    update_message = super(StudentUpdateView, self).form_valid(form)
     self.success_url = reverse_lazy('students:edit', kwargs={'pk':self.object.pk})
     messages.success(self.request, "Info on the student has been sucessfully changed.")
-    return super(StudentUpdateView,self).form_valid(form)
+    return update_message
   def get_context_data(self, **kwargs):
     context = super(StudentUpdateView,self).get_context_data(**kwargs)
     context['title'] = "Student info update"
-    context['headline'] = "Student's data edit"
     return context
   
 class StudentDeleteView(DeleteView):
   model = Student
   success_url = reverse_lazy('students:list_view')
   def get_context_data(self, **kwargs):
-    context = super(StudentDeleteView,self).get_context_data(**kwargs)
+    context = super(StudentDeleteView, self).get_context_data(**kwargs)
+    messages.success(self.request, "Info on %s %s has been sucessfully deleted." %(self.object.name, self.object.surname))
     context['title'] = "Student info suppression"
     return context
-  def delete(self, request, *args, **kwargs):
-		delete_message = super(CourseDeleteView, self).delete(request, *args, **kwargs)
-		messages.success(self.request, "Info on %s %s has been sucessfully deleted." %(self.object.name, self.object.surname))
-		return delete_message
+  
