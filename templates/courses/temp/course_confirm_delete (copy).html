@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{title}}{% endblock title %}
+
+
+{% block active_main %}active{% endblock active_main %}
+
+
+{% block content %}
+  <div class="container theme-showcase" role="main">
+
+    <h2>Курс {{ name }} будет удален</h2>
+
+      <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Удалить" class="btn btn-primary"/>
+      </form>
+  </div>
+{% endblock content %}

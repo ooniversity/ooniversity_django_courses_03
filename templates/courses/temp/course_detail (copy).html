@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa Contacts{% endblock title %}
+
+
+{% block active_contact %}active{% endblock active_contact %}
+
+
+{% block link_students %}?course_id={{ course.id }}{% endblock link_students %}
+
+
+{% block content %}
+  <div class="container theme-showcase" role="main">
+
+      {% if messages %}
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+
+      <div class="jumbotron">
+        <h2 class="course">{{ course.name }}</h2>
+        {{ course.description|truncatechars:32 }}
+      </div>
+  </div>
+
+  <div class="container">
+      <h2 class="course">Преподаватели</h2>
+      <div class="panel panel-default">
+        <div class="panel-heading">Учитель</div>
+          <div class="panel-body">
+            <a href="{% url 'coaches:detail' course.coach.id %}">{{ coach }}</a>
+            <p>{{ course.coach.description }}</p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading">Ассистент</div>
+          <div class="panel-body">
+            <a href="{% url 'coaches:detail' course.assistant.id %}">{{ assistant }}</a>
+            <p>{{ course.assistant.description }}</p>
+          </div>
+        </div>
+      </div>
+  </div>
+
+    <div class="container">
+        <h2 class="course">План курса</h2>
+    </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <p><a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' course.id %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить занятие</a></p>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="panel-heading">#</th>
+                    <th class="panel-heading">Тема</th>
+                    <th class="panel-heading">Описание</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in course.lesson_set.all %}
+                    <tr>
+                      <td>{{ i.order }}</td>
+                      <td>{{ i.subject }}</td>
+                      <td>{{ i.description}}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+      </div><!-- Site footer -->
+{% include "include/footer_include.html" %}
+  </div>
+ </div>
+{% endblock content %}
