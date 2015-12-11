@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Feedback{% endblock title %}
+
+{% block nav_active_feedback %}active{% endblock nav_active_feedback %}
+
+{% block form %}
+	{% if messages %}
+		<ul class="messages">
+    		{% for message in messages %}
+    		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
+    		{% endfor %}
+		</ul>
+	{% endif %}
+	<h2>{{ title }}</h2>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Отправить">
+	</form>
+{% endblock form %}
