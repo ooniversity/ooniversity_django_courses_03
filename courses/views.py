@@ -12,11 +12,13 @@ class CourseDetailView(DetailView):
 	model = Course
 	template_name = "courses/detail.html"
 	success_url = 'courses:detail'
+	context_object_name = "course"
 
 class CourseCreateView(CreateView):
 	model = Course
 	success_url = reverse_lazy('index')
 	template_name = "courses/add.html"
+	context_object_name = "form"
 
 	def form_valid(self, form):
 		data = form.cleaned_data
@@ -31,10 +33,14 @@ class CourseCreateView(CreateView):
 class CourseUpdateView(UpdateView):
 	model = Course
 	template_name = "courses/edit.html"
+	context_object_name = "form"
 
-	def form_valid(self, form):
-		messages.success(self.request, 'The changes have been saved.')
-		return super(CourseUpdateView, self).form_valid(form)
+
+    def form_valid(self, form):
+    	data = form.instance
+    	messages.success(self.request, 'The changes have been saved.')
+    	self.success_url = reverse('courses:edit', args=(data.id,))
+    	return super(CourseUpdateView, self).form_valid(form)
 
 	def get_context_data(self, **kwargs):
 		context = super(CourseUpdateView, self).get_context_data(**kwargs)
@@ -45,6 +51,7 @@ class CourseDeleteView(DeleteView):
 	model = Course
 	success_url = reverse_lazy('index')
 	template_name = "courses/remove.html"
+	context_object_name = "course"
 
 	def get_context_data(self, **kwargs):
 		context = super(CourseDeleteView, self).get_context_data(**kwargs)
