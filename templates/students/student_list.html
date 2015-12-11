@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Студенты{% endblock title %}
+
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+
+{% block content %}
+<div class= "container">    
+  <div class="jumbotron">
+  {% include "include/result_msg_include.html" %}
+    <a href="{% url 'students:add' %}" role="button" class="btn btn-primary">Добавить нового студента</a>
+    <h2>Список студентов</h2><hr>
+    <table class = "course_info">
+        <tr class = "oddtr">
+          <td>#</td>
+          <td class = "first_td">Фамилия Имя</td>
+          <td class = "second_td">Адрес</td>
+          <td class = "second_td">Skype</td>
+          <td class = "first_td">курсы</td>
+          <td></td>
+          <td></td>
+        </tr>
+        {% for student in object_list %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td><a href="{% url 'students:detail' student.id %}">{{ student.fullname }}</td>
+          <td>{{ student.address }}</td>
+          <td>{{ student.skype }}</td>
+          <td>{% for course in student.courses.all %}
+          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+
+        {% endfor %}</td>
+          <td><a href="{% url 'students:edit' student.id%}" role="button" class="btn btn-primary">Изменить</a></td>
+          </td>
+          <td><a href="{% url 'students:remove' student.id%}" role="button" class="btn btn-primary">Удалить</a></td>
+        </tr>
+      {% endfor %}
+    </table>  
+  </div>
+</div>
+{% endblock content %}
