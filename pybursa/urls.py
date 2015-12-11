@@ -1,6 +1,7 @@
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from .views import index, contact
+from feedbacks.views import FeedbackView
 
 urlpatterns = patterns('',
                        url(r'^$', index, name='index'),
@@ -8,7 +9,7 @@ urlpatterns = patterns('',
                        url(r'^contact/$', contact, name='contact'),
 
                        url(r'^feedback/$',
-                           include('feedbacks.urls'), name='feedback'),
+                           FeedbackView.as_view(), name='feedback'),
 
                        url(r'^quadratic/',
                            include('quadratic.urls'), name='quadratic'),
