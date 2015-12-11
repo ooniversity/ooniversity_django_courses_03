@@ -58,7 +58,7 @@ class CourseDeleteView(DeleteView):
         messages.success(self.request, "Course %s has been deleted." % self.object.name)
         return context
 
-"""def add_lesson(request, course_id):
+def add_lesson(request, course_id):
     if request.method == 'POST':
         form = LessonModelForm(request.POST)
         if form.is_valid():
@@ -68,4 +68,3 @@ class CourseDeleteView(DeleteView):
     else:
     	form = LessonModelForm(initial = {'course': course_id})
     return render(request, 'courses/add_lesson.html', {'form': form} )
-"""
