@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}Students (remove){% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_students %}class="active"{% endblock %}
@@ -10,7 +10,7 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    <h2>Please confirm that the student {{ sd }} will be removed </h2>
+    <h2>{{ title }}</h2>
     <br>
     <input type="submit" value="Delete" />
 </form>
