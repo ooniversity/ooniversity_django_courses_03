@@ -23,7 +23,9 @@
               <ul class="nav navbar-nav">
                 <li class="{% block nav_main %}{% endblock nav_main %}"><a href="{% url 'index' %}">Main</a><li>
                 <li class="{% block nav_contacts %}{% endblock nav_contacts %}"><a href="{% url 'contact' %}">Contacts</a><li>
-                <li class="{% block nav_students %}{% endblock nav_students %}"><a href="{% url 'students:list_view' %}">Students</a><li>
+                <li class="{% block nav_students %}{% endblock nav_students %}">
+              <a href="{% url 'students:list_view' %}{% block nav_filter_students %}{% endblock nav_filter_students %}">Students</a>
+                <li>
               </ul>
             </div>
           </div>
