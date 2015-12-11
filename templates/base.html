@@ -18,12 +18,10 @@
             </div>
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li class="{% block nav_class_index %}{% endblock nav_class_index %}"><a class="top_bar" href="{% url 'index' %}">Главная</a>
-                    </li>
-                    <li class="{% block nav_class_contact %}{% endblock nav_class_contact %}"><a class="top_bar" href="{% url 'contact' %}">Контакты</a>
-                    </li>
-                    <li class="{% block nav_class_student %}{% endblock nav_class_student %}"><a class="top_bar" href="{% url 'students:list_view' %}{% block nav_course_id %}{% endblock nav_course_id %}">Студенты</a>
-                    </li>
+                    <li class="{% block nav_class_index %}{% endblock nav_class_index %}"><a class="top_bar" href="{% url 'index' %}">Главная</a></li>
+                    <li class="{% block nav_class_contact %}{% endblock nav_class_contact %}"><a class="top_bar" href="{% url 'contact' %}">Контакты</a></li>
+                    <li class="{% block nav_class_student %}{% endblock nav_class_student %}"><a class="top_bar" href="{% url 'students:list_view' %}{% block nav_course_id %}{% endblock nav_course_id %}">Студенты</a></li>
+                    <li class="{% block nav_class_feedback %}{% endblock nav_class_feedback %}"><a class="top_bar" href="{% url 'feedback' %}">Обратная связь</a></li>
                 </ul>
             </div>
         </div>

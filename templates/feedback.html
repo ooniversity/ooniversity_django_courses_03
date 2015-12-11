@@ -4,10 +4,11 @@
 {% load staticfiles %}
 
 
-{% block title %}{{ title }}{% endblock title %}
+{% block title %}Обратная связь{% endblock title %}
 
 
-{% block nav_class_index %}active{% endblock nav_class_index %}
+{% block nav_class_feedback %}active{% endblock nav_class_feedback %}
+
 
 
 {% block content %}
@@ -22,11 +23,11 @@
 </div>
 {% endif %}
 	<div class="container" id="sto">
-        <h1><strong>{{ title }}</strong></h1></br>
+        <h1><strong>Обратная связь</strong></h1></br>
         <form method="post">
         	{% csrf_token %}
 		  {{ form.as_p }}		
-		  <input type="submit" value="Изменить" />
+		  <input type="submit" value="Сохранить" />
 		</form>
     </div>
 {% endblock content %}
