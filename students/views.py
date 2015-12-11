@@ -57,7 +57,11 @@ class StudentDeleteView(DeleteView):
 	def get_context_data(self, **kwargs):
 		context = super(StudentDeleteView, self).get_context_data(**kwargs)
 		context['title'] = 'Student info suppression'
-		msg = 'Info on %s %s has been sucessfully deleted.' % (self.object.name, self.object.surname)
-		messages.success(self.request, msg)
 
 		return context
+
+	def delete(self, request, *args, **kwargs):
+		student = super(StudentDeleteView, self).get_object()
+		msg = 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname)
+		messages.success(self.request, msg)
+		return super(StudentDeleteView, self).delete(request, *args, **kwargs)
