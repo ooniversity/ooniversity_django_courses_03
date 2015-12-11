@@ -15,6 +15,5 @@ class Migration(migrations.Migration):
             model_name='feedback',
             name='create_date',
             field=models.DateTimeField(),
-            preserve_default=True,
         ),
     ]
