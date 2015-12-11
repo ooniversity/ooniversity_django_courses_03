@@ -62,6 +62,8 @@ class CourseDeleteView(DeleteView):
                 self.object.name)
         return cours
     
+    
+
 def add_lesson(request, pk):
     res={}   
     if request.POST:
