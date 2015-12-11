@@ -10,8 +10,8 @@ from feedbacks.forms import FeedbackForm
 class FeedbackView(CreateView):
     model = Feedback
     form_class = FeedbackForm
-    exclude = ['create_date']
     template_name = 'feedback.html'
+    success_url = reverse_lazy('feedback')
 
     def get_context_data(self, **kwargs):
         context = super(FeedbackView, self).get_context_data(**kwargs)
@@ -22,5 +22,4 @@ class FeedbackView(CreateView):
         data = form.cleaned_data
         mail_admins(data['subject'], data['message'], fail_silently=True)
         messages.success(self.request, 'Thank you for your feedback! We will keep in touch with you very soon!')
-        self.success_url = reverse_lazy('feedback')
         return super(FeedbackView, self).form_valid(form)
