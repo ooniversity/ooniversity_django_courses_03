@@ -96,7 +96,9 @@ STATICFILES_DIRS = (
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+EMAIL_HOST_USER = "admin"
+EMAIL_HOST_PASSWORD = "admin"
 
-ADMINS = (('Ivan', 'ivan.tarasenko@toatech.com'), )
+ADMINS = (('Ivan', 'ivan.tarasenko@toatech.com'), ('Ne_Ivan', 'test@tes.com') )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
