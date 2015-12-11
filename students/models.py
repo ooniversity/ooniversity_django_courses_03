@@ -13,3 +13,6 @@ class Student(models.Model):
 
     def full_name(self):
         return '{0} {1}'.format(self.name, self.surname)
+
+    def __unicode__(self):
+        return self.full_name()
