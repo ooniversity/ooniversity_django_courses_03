@@ -9,11 +9,11 @@
 
 {% block content %}
   {% include "include/result_msg_include.html" %}
-  <h3>Изменить данные курса</h3>
+  <h3>{{  title}}</h3>
   <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Изменить">
+  <input type="submit" value={{ button_name }}>
 </form>
 </div>
 {% endblock content %}

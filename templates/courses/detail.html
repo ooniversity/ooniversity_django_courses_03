@@ -27,7 +27,7 @@
         <td class = "first_td">Курс</td>
         <td class = "second_td">Описание</td>
       </tr>
-      {% for each_lesson in lesson %}
+      {% for each_lesson in course.lesson_set.all %}
       {% if each_lesson.course.name = course.name %}
       <tr>
         <td>{{ each_lesson.order }}</td>
