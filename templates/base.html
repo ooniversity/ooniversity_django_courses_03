@@ -24,7 +24,7 @@
             <a href="{% url 'index' %}">Main</a>
           </li>
           <li role="presentation" class={% block active_students %}{% endblock active_students %}>
-            <a href="{% url 'students:list_view'%}">Students</a>
+            <a href="{% url 'students:list_view'%}{% block course_students %}{% endblock course_students %}">Students</a>
           </li>
           <li role="presentation" class={% block active_contacts %}{% endblock active_contacts %}>
             <a href="{% url 'contact' %}">Contacts</a>

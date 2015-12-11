@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block title %}{{ course.name }}{% endblock title %}
+{% block course_students %}?course_id={{ object.pk }}{% endblock course_students %}
 {% block content %}
 <div class="jumbotron">
   <div class="text-center">
