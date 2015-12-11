@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'students',
     'courses',
     'coaches',
+    'feedbacks'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,6 +82,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+ADMINS = (('Slash', 'slash@25.cm'), ('Andrey', 'andrey.bondarenko@gmail.com'))
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
