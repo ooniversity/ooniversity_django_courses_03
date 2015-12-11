@@ -96,4 +96,4 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 #EMAIL_HOST_USER = "admin"
 #EMAIL_HOST_PASSWORD = "admin"
-ADMINS = (('Admin', 'sergey.pogorelov.1989@mail.ru'), )
+ADMINS = ['sergey.pogorelov.1989@mail.ru', 'mymail@admin.ua']
