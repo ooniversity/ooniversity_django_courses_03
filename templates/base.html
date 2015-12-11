@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 				<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>{% block title %}Python course{% endblock title %}</title>
-	
+
 				<!-- Bootstrap -->
 		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
 		<link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -35,6 +35,8 @@
 							<a href="{% url 'students:list_view' %}{% block link_to_st %}{% endblock link_to_st %}">Students</a></li>
 							<li class="{% block calculate_is_active %}{% endblock calculate_is_active %}">
 							<a href="{% url 'results' %}">Equation</a></li>
+							<li class="{% block feedback_is_active %}{% endblock feedback_is_active %}">
+							<a href="{% url 'feedback' %}">Feedback</a></li>
 {% comment %}		<!-- Оригинал -->
 		<!--<li class="active"><a class="top_bar" href="{% url 'index' %}">Main</a></li>
 		<li><a class="top_bar" href="{% url 'contact' %}">Contacts</a></li>
@@ -46,13 +48,13 @@
 					</div>
 				</nav>
 			</div>
-		</div>  
+		</div>
       <!-- Carousel
     ================================================== -->
-    {% block carousel %}     
+    {% block carousel %}
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				  <!-- Indicators -->
-				  
+
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
 					<img class="first-slide" src="{% static 'images/intro1.jpg' %}" alt="First slide">
@@ -92,11 +94,11 @@
 			</a>
 		</div>
     <!-- /.carousel -->
-    {% endblock carousel %}     
-    
+    {% endblock carousel %}
+
     {% block content %}{% endblock content %}
 
- 
+
     <nav class="container">
 		  <ul class="pager">
         {% block previous %}
