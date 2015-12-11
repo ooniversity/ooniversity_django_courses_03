@@ -6,7 +6,7 @@ from django.contrib import messages
 from feedbacks.forms import FeedbackForm
 from feedbacks.models import Feedback
 from django.views.generic.edit import CreateView
-from django.core.mail import send_mail
+from django.core.mail import send_mail, mail_admins
 import datetime
 from django.conf import settings 
 
@@ -18,12 +18,17 @@ class FeedbackView(CreateView):
 	success_url = reverse_lazy('feedback')
 
 	def form_valid(self, form):
+	
 		send_mail(
 			subject=form.cleaned_data.get('subject'),#.encode('utf-8').strip(),
 			message=form.cleaned_data.get('message'),
-			from_email=form.cleaned_data.get('mesfrom_emailsage'),
+			from_email=form.cleaned_data.get('from_email'),
 			recipient_list=settings.ADMINS
 		)
+		"""
+		data = form.cleaned_data
+		mail_admins(data['subject'], data['message'], fail_silently=True)
+		"""
 		messages.success(self.request, 'Thank you for your feedback! We will keep in touch with you very soon!', extra_tags='msg')
 		return super(FeedbackView, self).form_valid(form)
 
