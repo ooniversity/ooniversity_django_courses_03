@@ -15,8 +15,10 @@ class StudentListView(ListView):
     def get_queryset(self):
         queryset = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course_id', None)
+        print course_id
         if course_id:
             queryset = queryset.filter(courses__id = course_id)
+        print queryset
         return queryset
 
 '''
