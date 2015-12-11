@@ -62,14 +62,7 @@
               {% endfor %}
             </table>
           </div>
-          <!--{% load flatpages %}
-{% get_flatpages as flatpages %}
-<ul>
-    {% for page in flatpages %}
-        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-    {% endfor %}
-</ul>-->
-<div class="pagination">
+<!--<div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page={{ page_obj.previous_page_number }}">previous</a>
@@ -83,7 +76,29 @@
             <a href="?page={{ page_obj.next_page_number }}">next</a>
         {% endif %}
     </span>
-</div>
+</div>-->
+
+<nav>
+  <ul class="pagination">
+    <li>
+     {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">previous</a>
+        {% endif %}
+    </li>
+    {% for page in pages %}
+      {% ifequal page page_obj.number %}
+       <li class="active"><a href="{% url 'students:list_view' %}?page={{ page }}">{{ page }}</a></li>
+      {% else %}
+        <li><a href="{% url 'students:list_view' %}?page={{ page }}">{{ page }}</a></li>
+      {% endifequal %}
+    {% endfor %}
+    <li>
+    {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">next</a>
+        {% endif %}
+    </li>
+  </ul>
+</nav>
         </div>
       </div>
 {% endblock content %}
