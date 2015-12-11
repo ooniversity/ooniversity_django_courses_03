@@ -34,13 +34,8 @@
 <a href="{% url 'coaches:detail' course.assistant.id %}"> {{ course.assistant }} </a>
 <h6>{{ course_detail.assistant.description }}</h6>
 
-{% if messages %}
-{% for message in messages %}
 <div class="jumbotron">
-    {{ message }}
 </div>
-{% endfor %}
-{% endif %}
 
 <h3> План курса: </h3>
 
@@ -53,7 +48,7 @@
     <table class="table">
         <thead>
         <tr class="success">
-            <td><strong>№</strong></td>
+            <td><strong>#</strong></td>
             <td><strong>Тема</strong></td>
             <td><strong>Описание</strong></td>
         </tr>
