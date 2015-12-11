@@ -17,5 +17,5 @@ urlpatterns = patterns(
     url(r'^quadratic/result(?:s?)\b/$', 'quadratic.views.quadratic_results', name='result'),
     url(r'^base/$', base, name='base'),
     # url(r'^feedback/$',include('feedbacks.urls')),
-    url(r'^feedback/$', FeedbackView.as_view(), name='feedback'),
+    url(r'^feedback/', FeedbackView.as_view(), name='feedback'),
 )
