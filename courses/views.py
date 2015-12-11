@@ -23,7 +23,7 @@ class CourseDetailView(DetailView):
 class CourseCreateView(CreateView):
     model = Course
     template_name = 'courses/add.html'
-    success_url = reverse_lazy('index')
+    success_url = '/'
     context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
