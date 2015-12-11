@@ -17,6 +17,7 @@ class CourseDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['title'] = context['course'].name
         course_id = context['course'].id
         try:
             context['coach'] = Coach.objects.get(coach_courses__exact=course_id)
