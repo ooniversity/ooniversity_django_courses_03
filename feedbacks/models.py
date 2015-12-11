@@ -9,4 +9,4 @@ class Feedback(models.Model):
     create_date = models.DateTimeField(auto_now_add=True)
     
     def __unicode__(self):
-		return self.name
+        return self.subject
