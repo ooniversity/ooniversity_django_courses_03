@@ -32,6 +32,23 @@
           <tr><td><h4>{{student.id}}</h4></td><td><h4><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></h4></td><td><h4>{{student.address}}</h4></td><td><h4>{{ student.skype }}</h4></td><td><h4>{% for course in student.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}{% endfor %}</a></h4></td><td><p><a href="{% url 'students:edit' student.id %}" <button type="button" class="btn btn-warning">Изменить</button></a><p></p><a href="{% url 'students:remove' student.id %}" <button type="button" class="btn btn-danger">Удалить</button></a></p></td><tr>
             {% endfor %}   
 			  </table>
-      </div>
+          <nav> 
+            <ul class="pagination">
+             {% if page_obj.has_previous %}
+             <li><a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">previous</span></a></li>
+             {% endif %}
+             {% for num_page in paginator.page_range %}
+             {% if num_page == page_obj.number %}
+             <li> <a href="" class="active-page">{{ num_page }}</a></li>
+             {% else %}
+             <li><a href="?page={{ num_page }}">{{ num_page }}</a></li>
+             {% endif %}
+             {% endfor %}
+             {% if page_obj.has_next %}
+             <li><a href="?page={{ page_obj.next_page_number }}" aria-label="Next"><span aria-hidden="true">next</span></a></li>
+             {% endif %}
+           </ul>
+         </nav>
+       </div>
     </div>
 {% endblock content %}

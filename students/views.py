@@ -3,14 +3,16 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from students.forms import StudentModelForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.contrib import messages
 from students.models import Student
 from courses.models import Course
-
+from django.views.generic.list import MultipleObjectMixin
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
     #template_name = 'students/list.html'
     #context_object_name = 'students_on_course'
 
@@ -21,7 +23,8 @@ class StudentListView(ListView):
             #students = students_on_course.filter(courses=students_course['course_id'])
             students = Student.objects.filter(courses=students_course['course_id'])
         else:
-            students = Student.objects.all() 
+            students = Student.objects.all()
+        paginator = Paginator(students, 2) 
         return students
 
 
