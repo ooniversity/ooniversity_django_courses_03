@@ -21,6 +21,7 @@ class CourseDetailView(DetailView):
 		context = super(CourseDetailView, self).get_context_data(**kwargs)
 		id_c = '?course_id=' + str(self.object.id)
 		n_lesson = Lesson.objects.filter(course_id=self.object.id)
+		print n_lesson
 		context['name_lesson'] = n_lesson
 		context['id_c'] = id_c
  		return context
@@ -111,7 +112,22 @@ def remove(request, course_id):
 		return redirect('/')
 	return render(request, 'courses/remove.html', {'course': course})
 """	
+"""
+class LessonCreateView(CreateView):
+    model = Lesson
+    template_name = 'courses/add_lesson.html'
+    context_object_name = 'lesson'
+	def get_success_url(self, **kwargs):
+		return reverse_lazy('courses:detail', kwargs={'pk': self.kwargs['pk']})
+    def form_valid(self, form):
+		lesson = form.save()
+		success_mes = 'Lesson %s has been successfully added.' % lesson
+		messages.success(self.request, success_mes, extra_tags='msg')
+		return super(LessonCreateView, self).form_valid(form)
 
+	def get_initial(self):
+		return {'course': self.kwargs['pk']}
+"""
 def add_lesson(request, course_id):
 
     course = Course.objects.get(id=course_id)
