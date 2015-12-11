@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from students.models import Student
 from django.contrib import messages
 from students.forms import *
-
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
