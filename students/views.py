@@ -58,7 +58,10 @@ class StudentDeleteView(DeleteView):
   model = Student
   success_url = reverse_lazy('students:list_view')
   def get_context_data(self, **kwargs):
-    messages.success(self.request, "Info on %s %s has been sucessfully deleted." %(self.object.name, self.object.surname)) 
     context = super(StudentDeleteView,self).get_context_data(**kwargs)
     context['title'] = "Student info suppression"
     return context
+  def delete(self, request, *args, **kwargs):
+		delete_message = super(CourseDeleteView, self).delete(request, *args, **kwargs)
+		messages.success(self.request, "Info on %s %s has been sucessfully deleted." %(self.object.name, self.object.surname))
+		return delete_message
