@@ -1,11 +1,13 @@
 {% extends "base.html" %}
+
+
 {% load staticfiles %}
 
 
 {% block nav_course_students %}?course_id={{ course_detail.id }}{% endblock %}
 
 
-{% block title %}Courses{% endblock title %}
+{% block title %}{{ course }}{% endblock title %}
 
 
 {% block content %}

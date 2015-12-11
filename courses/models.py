@@ -1,9 +1,11 @@
 # -*- coding:UTF-8 -*-
 from django.db import models
 from coaches.models import Coach
+from django.core.urlresolvers import reverse
+
 
 class Course(models.Model):
-    name = models.CharField(max_length = 100)
+    name = models.CharField(verbose_name=u'Name of course', max_length = 255)
     short_description = models.CharField(max_length = 255)
     description = models.TextField()
     coach = models.ForeignKey(Coach, blank=True, null=True, related_name='coach_courses')

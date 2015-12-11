@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 
-{% block title %}Students (edit){% endblock title %}
+{% block title %}{{title}}{% endblock title %}
 
 
 {% block nav_students %}class="active"{% endblock %}
 
 
 {% block content %}
-<h2>Student's data edit</h2>
+<h2>{{ title }}</h2>
 <br>
  {% if messages %}
  <div class="alert alert-success alert-dismissible" role="alert">
