@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'quadratic',
     'courses',
     'students',
-    'coaches'
+    'coaches',
+    'feedbacks'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,4 +93,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+ADMINS = (('Ivan', 'ivan.tarasenko@toatech.com'), )
+
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
