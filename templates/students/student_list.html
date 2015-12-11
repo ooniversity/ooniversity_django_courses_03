@@ -60,7 +60,7 @@
 						<li>
 							{% if page_obj.has_previous %}
 							<a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
-								<span aria-hidden="true">&laquo;</span></a>
+								<span aria-hidden="true"><< previous</span></a>
 							{% endif %}
 						</li>
 						{% for page in paginator.page_range %}
@@ -79,7 +79,7 @@
 						<li>
 							{% if page_obj.has_next %}
 							<a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
-								<span aria-hidden="true">&raquo;</span></a>
+								<span aria-hidden="true">next >></span></a>
 							{% endif %}
 						</li>
 					</ul>
