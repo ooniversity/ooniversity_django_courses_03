@@ -21,6 +21,8 @@
                     <a href="{% url 'contact' %}">Contacts</a></li>
          <li class="{% block blow_students %}{% endblock blow_students %}">
                     <a href="{% url 'students:list_view' %}{% block spec_link %}{% endblock spec_link %}">Students</a></li>
+         <li class="{% block blow_feedback %}{% endblock blow_feedback %}">
+                    <a href="{% url 'feedback' %}">Feedback</a></li>
                  
          
         </ul>
