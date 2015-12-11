@@ -28,11 +28,11 @@
 
 <h4>Учитель</h4>
 <a href="{% url 'coaches:detail' course.coach.id %}"> {{ course.coach }} </a>
-<h6>{{ course_detail.coach.description }}</h6>
+<h6>{{ course.coach.description }}</h6>
 
 <h4>Ассистент</h4>
 <a href="{% url 'coaches:detail' course.assistant.id %}"> {{ course.assistant }} </a>
-<h6>{{ course_detail.assistant.description }}</h6>
+<h6>{{ course.assistant.description }}</h6>
 
 <div class="jumbotron">
 </div>
