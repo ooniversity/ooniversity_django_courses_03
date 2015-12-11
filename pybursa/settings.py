@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 
@@ -94,3 +95,11 @@ STATICFILES_DIRS = (
 )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+EMAIL_SUBJECT_PREFIX = ''
+
+EMAIL_HOST = 'localhost'
+
+EMAIL_PORT = 1025
+
+ADMINS = (('admin', 'olia.yemets@gmail.com'), )
