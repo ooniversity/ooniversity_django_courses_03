@@ -11,8 +11,13 @@ from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteVi
 class CourseDetailView(DetailView):
 	model = Course
 	template_name = "courses/detail.html"
-	success_url = 'courses:detail'
 	context_object_name = "course"
+
+	def get_context_data(self, **kwargs):
+		context = super(CourseDetailView, self).get_context_data(**kwargs)
+		context['lessons'] = Lesson.objects.filter(course=self.object.id)
+		return context
+
 
 class CourseCreateView(CreateView):
 	model = Course
@@ -32,6 +37,7 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
 	model = Course
+	fields = '__all__'
 	template_name = "courses/edit.html"
 	context_object_name = "form"
 	
