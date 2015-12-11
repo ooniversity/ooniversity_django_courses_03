@@ -12,10 +12,14 @@
 {% block content %}
 </br></br></br></br>
 <div class="container">
-    <h3>Вы уверенны, что хотите удалить курс {{ course.name }}</h3> 
-      <form method="post">
-        {% csrf_token %}        
-        <input type="submit" value="Удалить" />
-     </form>
-  </div>  
-{% endblock content %}  
+      <div class="starter-template">
+        <div class="container">
+        <h2>{{ title }}</h2>
+        <h3>Курс {{ course.name }} будет удален</h3>
+        <form method="post">
+          {% csrf_token %}
+          <input type="submit" value="Yes" class="btn btn-primary"/>
+        </form>
+      </div>
+    </div>
+{% endblock content %}
