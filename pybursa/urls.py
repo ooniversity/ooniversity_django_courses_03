@@ -1,12 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-#from feedbacks import views
+from feedbacks.views import FeedbackView
 from pybursa import views
 from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
-    #url(r'^feedback/$', views.FeedbackView.as_view(), name='feedback'),
+    url(r'^feedback/$', FeedbackView.as_view(), name='feedback'),
     url(r'^contact/$', TemplateView.as_view(template_name='contact.html'), name='contact'),
 	url(r'^polls/', include('polls.urls', namespace="polls")),
 	url(r'^quadratic/', include('quadratic.urls', namespace="quadratic")),
