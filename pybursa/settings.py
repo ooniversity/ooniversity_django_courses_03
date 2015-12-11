@@ -30,7 +30,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-ADMINS = ['katyapuzina@gmail.com']
+ADMINS = (('John', 'john@example.com'), ('Mary', 'mary@example.com'))
 
 SITE_ID = 1
 
@@ -100,3 +100,5 @@ STATIC_URL = '/static/'
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+EMAIL_HOST_USER = 'admin'
+EMAIL_HOST_PASSWORD = 'admin'
