@@ -4,14 +4,14 @@
 {% load staticfiles %}
 
 
-{% block title %}{{ page_title }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 
 {% block navbar_i1 %}active{% endblock navbar_i1 %}
 
 
 {% block content %}
-    <h1>{{ page_title }}</h1>
+    <h1>{{ title }}</h1>
     <br>
 
     <form action="" method="post">{% csrf_token %}
