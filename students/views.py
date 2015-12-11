@@ -1,15 +1,15 @@
 # -*- coding:UTF-8 -*-
 
-from django.shortcuts import render, redirect
-from django.core.urlresolvers import reverse_lazy
-from students.models import Student
-from courses.models import Course
-from students.forms import StudentModelForm
-from django.contrib import messages
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import sys
+
+from django.contrib import messages
+from django.core.urlresolvers import reverse_lazy
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
+
+from courses.models import Course
+from students.models import Student
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -18,17 +18,19 @@ sys.setdefaultencoding('utf8')
 class StudentDetailView(DetailView):
     model = Student
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        return context
+
 
 class StudentListView(ListView):
     model = Student
 
-    context_object_name = "students_list"
-
     def get_queryset(self):
         qs = super(StudentListView, self).get_queryset()
-        courseId = self.request.GET.get('course_id', None)
-        if courseId:
-            qs = qs.filter(courses=Course.objects.get(id=courseId))
+        course_id = self.request.GET.get('course_id', None)
+        if course_id:
+            qs = qs.filter(courses=Course.objects.get(id=course_id))
         return qs
 
 
