@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse_lazy
 
 class Student(models.Model):
 	name = models.CharField(max_length=80)
@@ -15,3 +16,6 @@ class Student(models.Model):
 
 	def __unicode__(self):
 		return self.full_name()
+
+	def get_absolute_url(self):
+		return reverse_lazy('students:list_view')

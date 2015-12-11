@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^quadratic/', include('quadratic.urls')),
     
-    url(r'^$', views.index, name="index"),
+    url(r'^$', views.IndexTemplateView.as_view(), name="index"),
     url(r'^contact', TemplateView.as_view(template_name="contact.html"), name="contact"),
 
     url(r'^courses/',include('courses.urls', namespace="courses")),
