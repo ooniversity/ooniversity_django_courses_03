@@ -11,12 +11,13 @@
 
 
 {% block content %}
+	{% include "include/result_msg_include.html" %}
 <div class="jumbotron">
-  <h3>Создать нового студента</h3>
+  <h3>{{ title }}</h3>
   <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Создать">
+  <input type="submit" value={{ button_name }}>
 </form>
 </div>
 {% endblock content %}

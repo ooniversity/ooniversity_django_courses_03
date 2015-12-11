@@ -12,10 +12,10 @@
 
 {% block content %}
 <div class="jumbotron">
-  <h3>Студент {{student.fullname}} будет удален</h3>
+  <h3>Student info suppression</h3>
   <form method="post">
   {% csrf_token %}
-  <input type="submit" value="Удалить">
+  <input type="submit" value={{ button_name }}>
 </form>
 </div>
 {% endblock content %}

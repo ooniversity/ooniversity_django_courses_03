@@ -26,7 +26,7 @@
           <td></td>
           <td></td>
         </tr>
-        {% for student in student %}
+        {% for student in object_list %}
         <tr>
           <td>{{ forloop.counter }}</td>
           <td><a href="{% url 'students:detail' student.id %}">{{ student.fullname }}</td>
