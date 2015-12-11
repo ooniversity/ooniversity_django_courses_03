@@ -4,15 +4,15 @@
 {% load staticfiles %}
 
 
-{% block title %}Lesson create{% endblock title %}
+{% block title %}Feedback Form{% endblock title %}
 
 
-
+{% block blow_students %}active{% endblock blow_students %}
 
 
 {% block content %}
-  <div>
-    <h3> Создание нового занятия </h3>
+  <div class='container'>
+    <h3> Напишите нам! </h3>
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
