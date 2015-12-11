@@ -9,6 +9,8 @@ from django.core.urlresolvers import reverse_lazy
 
 class CourseDetailView(DetailView):
     model = Course
+    template_name = "courses/detail.html"
+    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
@@ -21,6 +23,8 @@ class CourseDetailView(DetailView):
 class CourseCreateView(CreateView):
     model = Course
     success_url = reverse_lazy('index')
+    template_name = "courses/add.html"
+    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(CourseCreateView, self).get_context_data(**kwargs)
@@ -37,6 +41,8 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
+    template_name = "courses/edit.html"
+    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
@@ -56,6 +62,8 @@ class CourseUpdateView(UpdateView):
 class CourseDeleteView(DeleteView):
     model = Course
     success_url = reverse_lazy('index')
+    template_name = "courses/remove.html"
+    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(CourseDeleteView, self).get_context_data(**kwargs)
@@ -72,6 +80,8 @@ class CourseDeleteView(DeleteView):
 
 class LessonCreateView(CreateView):
     model = Lesson
+    template_name = 'courses/add_lesson.html'
+    context_object_name = 'lesson'
 
     def form_valid(self, form):
         message = super(LessonCreateView, self).form_valid(form)
