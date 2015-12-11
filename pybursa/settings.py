@@ -76,7 +76,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -95,5 +95,5 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
-ADMINs = (("admin", "k_moroz@hotmail.com"),) 
+ADMINS = (("admin", "k_moroz@hotmail.com"), ) 
 
