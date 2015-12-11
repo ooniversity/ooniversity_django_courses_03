@@ -5,11 +5,11 @@
 """
 
 
+from django import forms
 from feedbacks.models import Feedback
-from django.forms.models import ModelForm
 
 
-class FeedbackForm(ModelForm):
+class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        fields = '__all__'
+        exclude = ['create_date']
