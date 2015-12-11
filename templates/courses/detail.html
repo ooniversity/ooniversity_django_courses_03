@@ -16,8 +16,8 @@
   <p class="lead">{{ course.description|truncatechars:32 }}</p>
 </div>
 <h2 class="text-center">Teachers</h2>
-{% include 'include/courses_include.html' with teacher_about='Coach' teacher=coach %}
-{% include 'include/courses_include.html' with teacher_about='Assistant' teacher=assistant %}
+{% include 'include/courses_include.html' with teacher_about='Coach' teacher=course.coach %}
+{% include 'include/courses_include.html' with teacher_about='Assistant' teacher=course.assistant %}
 
 <h2 class="text-center">Course lessons</h2>
 <p>
@@ -30,7 +30,7 @@
         <td>Lesson</td>
         <td>Description</td>
       </tr>
-      {% for lesson in lessons %}
+      {% for lesson in course.lesson_set.all %}
       <tr>
         <td>{{ lesson.order }}</td>
         <td>{{ lesson.subject }}</td>

@@ -1,5 +1,5 @@
 <div class="jumbotron">
 <h3>{{ teacher_about }}</h3>
 </div>
-<h4><a href={% url 'coaches:detail' coach.id %}>{{ teacher.first_name }} {{ teacher.last_name }}</a></h4>
+<h4><a href={% url 'coaches:detail' teacher.id %}>{{ teacher.first_name }} {{ teacher.last_name }}</a></h4>
 <h6>{{ teacher.description|truncatechars:32 }}</h6>
