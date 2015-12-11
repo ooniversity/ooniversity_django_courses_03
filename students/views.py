@@ -4,6 +4,7 @@ from students.forms import StudentModelForm
 from django.contrib import messages
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 class StudentDetailView(DetailView):
@@ -12,11 +13,37 @@ class StudentDetailView(DetailView):
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        context['prev'] = '<< previous'
+        context['next'] = 'next >>'
+        return context
     def get_queryset(self):
         if 'course_id' in self.request.GET:
             student_list = Student.objects.filter(courses=self.request.GET['course_id'])
+            #paginator = Paginator(student_list, 2)
+            #page = self.request.GET.get('page')
+            #try:
+              #  contacts = paginator.page(page)
+           # except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+               # contacts = paginator.page(1)
+            #except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+                #contacts = paginator.page(paginator.num_pages)
         else:
             student_list = Student.objects.all()
+            #paginator = Paginator(student_list, 2)
+            #page = self.request.GET.get('page')
+            #try:
+            #    contacts = paginator.page(page)
+            #except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+               # contacts = paginator.page(1)
+           # except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+               # contacts = paginator.page(paginator.num_pages)
         return student_list
     
 class StudentCreateView(CreateView):
