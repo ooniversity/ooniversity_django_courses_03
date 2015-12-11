@@ -4,6 +4,7 @@ from feedbacks.views import FeedbackView
 from pybursa import views
 from django.views.generic import TemplateView
 
+
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^feedback/$', FeedbackView.as_view(), name='feedback'),

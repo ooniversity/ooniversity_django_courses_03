@@ -7,19 +7,22 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 class StudentListView(ListView):
     model = Student
-	
+    paginate_by = 2
+    
     def get_queryset(self):
-	    r = self.request.GET
-	    if 'course_id' in r:
-		    students = Student.objects.filter(courses=r['course_id'])
-	    else:
-		    students = Student.objects.all()
-	    return students
-	
-	    
+    	r = self.request.GET
+    	if 'course_id' in r:
+    		students = Student.objects.filter(courses=r['course_id'])
+    	else:
+    		students = Student.objects.all()
+    	return students
+    
+	        
 class StudentDetailView(DetailView):
     model = Student
 
