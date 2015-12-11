@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
 from django.views.generic.detail import DetailView
@@ -12,6 +13,14 @@ from students.models import Student
 # Create your views here.
 class StudentListView(ListView):
 	model = Student
+	paginate_by = 2
+
+	def get_context_data(self, **kwargs):
+		context = super(StudentListView, self).get_context_data(**kwargs)
+		#context['students'] = Student.objects.all()
+		#context['paginator'] = Paginator(students, 2)
+		#context['students'] = paginator.page(page)
+		return context
 
 	def get_queryset(self):
 		course_id = self.request.GET.get('course_id', None)
