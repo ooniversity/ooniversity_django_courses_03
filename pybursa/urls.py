@@ -15,4 +15,5 @@ urlpatterns = patterns(
     url(r'^coaches/', include('coaches.urls', namespace='coaches')),
     url(r'^quadratic/result(?:s?)\b/$', 'quadratic.views.quadratic_results', name='result'),
     url(r'^base/$', base, name='base'),
+    url(r'^feedback/$',include('feedbacks.urls')),
 )

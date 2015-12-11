@@ -10,6 +10,7 @@ from students.forms import StudentModelForm
 # Create your views here.
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
 
     def get_queryset(self):
         students = super(StudentListView, self).get_queryset()
@@ -57,7 +58,7 @@ class StudentDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['title'] = "Student info suppression"
+        context['title'] = 'Student info suppression'
         return context
 
     def get_success_url(self):

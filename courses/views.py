@@ -27,7 +27,7 @@ class CourseCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CourseCreateView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Course creation'
+        context['title'] = 'Course creation'
         return context
 
     def get_success_url(self):
@@ -45,7 +45,7 @@ class CourseUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Course update'
+        context['title'] = 'Course update'
         return context
 
     def get_success_url(self):
@@ -62,7 +62,7 @@ class CourseDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(CourseDeleteView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Course deletion'
+        context['title'] = 'Course deletion'
         return context
 
     def get_success_url(self):
