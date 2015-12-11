@@ -25,9 +25,12 @@ class StudentListView(ListView):
         return qs
     def get_context_data(self, **kwargs):
         context = super(StudentListView, self).get_context_data(**kwargs)
-        #for i in range(context['paginator'].num_pages).
-        #print range(1, context['paginator'].num_pages+1)
         context['pages'] = range(1, context['paginator'].num_pages+1)
+        course_id = self.request.GET.get('course_id', None)
+        if self.request.GET.get('course_id', None):
+            context['par_course'] = "?course_id=%s&" % course_id
+        else:
+            context['par_course'] = "?"
         return context
 
 """

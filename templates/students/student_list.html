@@ -62,7 +62,7 @@
               {% endfor %}
             </table>
           </div>
-<!--<div class="pagination">
+<div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page={{ page_obj.previous_page_number }}">previous</a>
@@ -76,7 +76,7 @@
             <a href="?page={{ page_obj.next_page_number }}">next</a>
         {% endif %}
     </span>
-</div>-->
+</div>
 
 <nav>
   <ul class="pagination">
@@ -87,9 +87,9 @@
     </li>
     {% for page in pages %}
       {% ifequal page page_obj.number %}
-       <li class="active"><a href="{% url 'students:list_view' %}?page={{ page }}">{{ page }}</a></li>
+      <li class="active"><a href="{% url 'students:list_view' %}{{par_course}}page={{ page }}">{{ page }}</a></li>
       {% else %}
-        <li><a href="{% url 'students:list_view' %}?page={{ page }}">{{ page }}</a></li>
+        <li><a href="{% url 'students:list_view' %}{{par_course}}page={{ page }}">{{ page }}</a></li>
       {% endifequal %}
     {% endfor %}
     <li>
