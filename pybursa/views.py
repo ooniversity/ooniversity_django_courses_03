@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from courses.models import Course
 
-def index(request):
-	courses_list = Course.objects.all()
-	context = {'courses_list' : courses_list}
-	return render(request, './index.html', context)
+from django.views.generic import TemplateView
 
-def contact(request):
-	return render(request,'./contact.html')
+class IndexTemplateView(TemplateView):
+	template_name = "index.html"
+
+	def get_context_data(self, **kwargs):
+	    context = super(IndexTemplateView, self).get_context_data(**kwargs)
+	    context['courses_list'] =  Course.objects.all()
+	    return context
