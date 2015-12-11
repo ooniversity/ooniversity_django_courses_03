@@ -9,8 +9,7 @@ from feedbacks.forms import FeedbackForm
 # Create your views here.
 class FeedbackView(SuccessMessageMixin, CreateView):
     model = Feedback
-    form_class = FeedbackForm
-    template_name = 'feedbacks/feedback.html'
+    template_name = 'feedback.html'
     success_url = reverse_lazy('feedback')
     success_message = 'Thank you for your feedback! We will keep in touch with you very soon!'
 

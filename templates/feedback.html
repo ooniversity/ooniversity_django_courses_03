@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Feedback{% endblock %}
+
+
+{% block navbar_i5 %}active{% endblock %}
+
+
+{% block content %}
+    <h1>Feedback</h1>
+    <hr>
+
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Send">
+
+    </form>
+
+{% endblock content %}
