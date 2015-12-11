@@ -30,6 +30,9 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+ADMINS = ['katyapuzina@gmail.com']
+
+SITE_ID = 1
 
 # Application definition
 
@@ -40,11 +43,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'polls',
     'quadratic',
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,6 +61,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'pybursa.urls'
@@ -90,3 +97,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025

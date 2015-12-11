@@ -1,32 +1,17 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import reverse,  reverse_lazy
 from django.views import generic
 from django.contrib import messages
-from django.views.generic.edit import CreateView
-from django.core.urlresolvers import reverse,  reverse_lazy
-
-from polls.models import Choice, Question
-from courses.models import Course
-from feedbacks.forms import FeedbackForm
-from feedbacks.models import Feedback
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.conf import settings
 from django.core.mail import send_mail
 
-def index(request):
+from feedbacks.models import Feedback
+from feedbacks.forms import FeedbackForm
 
-    return render(request, 'index.html', {'courses_all':Course.objects.all()})
-
-def contact(request):
-    return render(request, 'contact.html')
-
-def student_list(request):
-    return render(request, 'student_list.html')
-
-def student_detail(request):
-    return render(request, 'student_detail.html')
-
-"""
 class FeedbackView(CreateView):
     model = Feedback
     form_class = FeedbackForm
@@ -42,4 +27,3 @@ class FeedbackView(CreateView):
         )
         messages.success(self.request, 'Thank you for your feedback! We will keep in touch with you very soon!', extra_tags='msg')
         return super(FeedbackView, self).form_valid(form)
-"""
