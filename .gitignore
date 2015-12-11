@@ -1,0 +1,6 @@
+*.py[cod]
+*.log
+*.egg-info
+*.swp
+*~
+.idea/

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block navbar_i3 %}active{% endblock navbar_i3 %}
+
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <br>
+
+    <form action="" method="post">{% csrf_token %}
+        <div class="alert alert-danger" role=alert>
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+        </div>
+        <input type="submit" class="btn btn-danger" value="Confirm">
+    </form>
+{% endblock content %}

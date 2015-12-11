@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Equation{% endblock title %}
+
+
+{% block navbar_i4 %}active{% endblock navbar_i4 %}
+
+
+{% block content %}
+      
+      
+      <h1 class="course">Equation</h1>
+      <p>Please enter the coefficients bellow</p>
+      <div class="row">
+        <form action="{% url 'result' %}">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <input type="text" class="form-control input-sm" name="a" placeholder="Enter a:"/>
+          </div> 
+          <div class="form-group"> 
+            <input type="text" class="form-control input-sm" name="b" placeholder="Enter b:"/>
+          </div>
+          <div class="form-group">  
+            <input type="text" class="form-control input-sm" name="c" placeholder="Enter c:"/>
+          </div>
+          <div class="btn-group">
+            <input type="submit" class="btn btn-primary btn-sm" value="Calculate">
+          </div>
+        </div>
+        </form>
+      </div>
+      
+      <!-- Site footer -->
+      <footer class="footer">
+      
+      </footer>
+      
+    </div>
+    
+{% endblock content %}

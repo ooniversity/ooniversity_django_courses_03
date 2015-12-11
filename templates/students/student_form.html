@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ title }}{% endblock%}
+
+
+{% block navbar_i3 %}active{% endblock navbar_i3 %}
+
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <hr>
+
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Save">
+
+    </form>
+
+{% endblock content %}

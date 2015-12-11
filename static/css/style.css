@@ -1,0 +1,92 @@
+body {
+  padding-top: 20px;
+}
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 14px;
+}
+.footer {
+  text-align: center;
+  height: 25px;
+}
+.course {
+  text-align: left;
+  font-size: 10px;
+}
+h1.course {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h2.course {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h3.course {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+p.course {
+  font-size: 14px;
+}
+
+
+ul.course {
+  list-style-type: none;
+}
+li.course {
+  font-weight: bold;
+  padding: 15px;
+  font-size: 18px;
+}
+ol.course {
+  font-weight: normal;
+  font-variant:normal;
+  font-size: 14px;
+}
+.footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+}
+.row {
+  text-align: left;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+.panel-title
+{
+  font-size: 14px;
+  font-weight: bold;
+}
+.face {
+  margin: 0px auto;
+  display: block;
+}
+.starter-regullar{
+  padding: 0px 0px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: left;
+}
+.custom-header {
+  padding: 0px 80px;
+}
+.table {
+  text-align: left;
+}
+a.table {
+  color: black;
+  font-size: 14px;
+  font-weight: normal;
+}
+tr.generic {
+  background-color: aliceblue;
+}

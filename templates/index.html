@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Main{% endblock title %}
+
+
+{% block navbar_i1 %}active{% endblock navbar_i1 %}"
+
+
+{% block jumbotron %}
+
+
+    {% include "include/course_include.html" %}
+    <p class="starter-regullar">
+        This course introduces the student to the Python language. Upon completion of this class,
+        the student will be able to write non trivial Python programs dealing with a wide variety
+        of subject matter domains.
+    </p>
+{% endblock jumbotron %}
+
+
+{% block content %}
+    <a class="btn btn-primary btn-sm" href="{% url 'courses:add' %}" role="button">
+        <span class="glyphicon glyphicon-plus"></span> Add new course
+    </a>
+    <h1 class="course">Courses list.</h1>
+    <div class="bs-example" data-example-id="simple-table">
+        <table class="table table-striped table">
+            <caption>It's time to choise.</caption>
+            <thead>
+            <tr>
+                <th>Course</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for course in courses %}
+                <tr>
+                    <th scope="row">
+                        <a class="table" href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a>
+                    </th>
+                    <td>{{ course.short_description|title }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{% url 'courses:edit' course.id %}" role="button">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{% url 'courses:remove' course.id %}" role="button">
+                            <span class="glyphicon glyphicon-remove"></span> Delte</a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div><!-- /example -->
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block navbar_i1 %}active{% endblock navbar_i1 %}
+
+
+{% block content %}
+
+
+{% include "include/course_include.html" %}
+        <h1>New lesson</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Create" />
+        </form>
+{% endblock content %}

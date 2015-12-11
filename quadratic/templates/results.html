@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Equation{% endblock title %}
+
+
+{% block navbar_i4 %}active{% endblock navbar_i4 %}
+
+
+{% block content %}
+      <p>Квадратное уравнение a*x*x + b*x + c = 0</p><br>
+
+      <form method="get">
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary btn-sm" value="Calculate">
+      </form>
+      <hr>
+      <p>{{ discr }}<br>{{ res }}</p>
+{% endblock content %}

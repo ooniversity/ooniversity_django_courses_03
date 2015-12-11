@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Contacts{% endblock title %}
+
+
+{% block navbar_i2 %}active{% endblock navbar_i2 %}"
+
+
+{% block jumbotron %}
+
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Director</h3>
+                </div>
+                <div class="panel-body">
+                    <br><strong>Name:</strong> Daria Mykhalevych
+                    <br><strong>Email:</strong> daria.mykhalevych@gmail.com
+                    <br><strong>Skype:</strong> darka.darka.darka.darka
+                    <br><strong>Phone:</strong> +38 096 469 15 57
+                </div>
+                <div class="panel-body">
+                    <img class="face" src="{% static 'images/darka.jpg' %}" alt="Daria Mykhalevych"
+                         style="width:90px;height:120px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Manager</h3>
+                </div>
+                <div class="panel-body">
+                    <br><strong>Name:</strong> Alyona Chaika
+                    <br><strong>Email:</strong> alena.itbursa@gmail.com
+                    <br><strong>Skype:</strong> alena.itbursa
+                    <br><strong>Phone:</strong> +38 063 625 07 55
+                </div>
+                <div class="panel-body">
+                    <img class="face" src="{% static 'images/alena.jpg' %}" alt="Alyona Chaika"
+                         style="width:90px;height:120px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Founder</h3>
+                </div>
+                <div class="panel-body">
+                    <br><strong>Name:</strong> Pavel Obod
+                    <br><strong>Email:</strong> itbursa100@gmail.com
+                    <br><strong>Skype:</strong> azaless
+                    <br><strong>Phone:</strong> +38 096 469 15 56
+                </div>
+                <div class="panel-body">
+                    <img class="face" src="{% static 'images/pasha.jpg' %}" alt="Pavel Obod"
+                         style="width:90px;height:120px;">
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /example -->
+
+{% endblock jumbotron %}
+
+
+{% block content %}
+
+
+{% endblock content %}
