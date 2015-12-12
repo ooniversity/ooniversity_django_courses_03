@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}PyBursa - Students{% endblock title %}
+{% block title %}Students{% endblock title %}
 {% block students_is_active %}active{% endblock students_is_active %}
-  {% block content %}
-<div class="container students">
-		<div class="page-header">
+{% block carousel %}{% endblock carousel %}
+{% block content %}
+	<div>
+		<div>
 			<h1>Список всех студентов</h1>
 			<div class="jumbotron">
         {% include "students/include/messages_include.html" %}
 				<p>
 					<a class="btn btn-primary btn-lg" href="{% url 'students:add' %}" role="button"><span class="glyphicon glyphicon-plus"></span> Добавить нового студента</a>
 				</p>
-				<div class="panel panel-default">
-					<!-- Default panel contents -->
-					<!-- Table -->
+				<div>
 					<table class="table table-striped">
             <thead>
 							<tr>
@@ -25,7 +24,7 @@
               </tr>
             </thead>
             <tbody>
-							{% for student in students %}
+							{% for student in student_list %}
               <tr>
               	<td>{{ student.id }}</td>
 								<td>
@@ -45,7 +44,9 @@
 							{% endfor %}
             </tbody>
           </table>
-<ul class="pagination">
+        </div>
+				<nav>
+					<ul class="pagination">
 						<li>
 							{% if page_obj.has_previous %}
 							<a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
@@ -72,14 +73,8 @@
 							{% endif %}
 						</li>
 					</ul>
-
-        </div>
+				</nav>
       </div>
     </div>
 	</div>
 {% endblock content %}
-
-
-
-
-          

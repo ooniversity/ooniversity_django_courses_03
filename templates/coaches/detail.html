@@ -12,7 +12,7 @@
 
 				<div class="panel panel-default">
           <!-- Default panel contents -->
-          <!-- Table -->
+           <!-- Table -->
           <table class="table">
             <tbody>
 							<tr>
@@ -33,25 +33,16 @@
 							<tr>
 
 
-  {% for variable in course %}
-  <a href="{% url 'courses:detail' variable.id %}">{{ variable.name }}</a>
-  студенты курса 
-  <a href="{% url 'students:list_view' %}?course_id={{ variable.id }}">
-  <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
-  </a><br>
-  {% endfor %}
+              {% include "coaches/include/coach_include.html" with block_title="Преподаватель на курсах" course=course %}
+
 
 							</tr>
 							<tr>
 
-  {% for variable in course %}
-  <a href="{% url 'courses:detail' variable.id %}">{{ variable.name }}</a>
-  студенты курса 
-  <a href="{% url 'students:list_view' %}?course_id={{ variable.id }}">
-  <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
-  </a><br>
-  {% endfor %}
-					
+
+              {% include "coaches/include/coach_include.html" with block_title="Асистент на курсах" course=assist %}
+
+
 							</tr>
 						</tbody>
           </table>
