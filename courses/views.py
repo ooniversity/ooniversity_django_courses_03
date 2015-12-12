@@ -1,11 +1,13 @@
 from django.shortcuts import redirect, render
 #from django.http import HttpResponse
-from django.views import generic
+#from django.views import generic
 from courses.models import Course, Lesson
 from coaches.models import Coach
 from courses import forms
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 
 
 # Create your views here.
@@ -15,7 +17,7 @@ from django.core.urlresolvers import reverse_lazy
     #return render(request, 'index.html', context)
     #return render(request, 'index.html', {'courses_list': Course.objects.all()})
 
-class CourseDetailView(generic.DetailView):
+class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
 
@@ -36,7 +38,7 @@ class CourseDetailView(generic.DetailView):
         return context
 
 
-class CourseCreateView(generic.CreateView):
+class CourseCreateView(CreateView):
     model = Course
     template_name = 'courses/add.html'
     success_url = reverse_lazy('index')
@@ -52,7 +54,7 @@ class CourseCreateView(generic.CreateView):
         return super(CourseCreateView, self).form_valid(form)
 
 
-class CourseUpdateView(generic.UpdateView):
+class CourseUpdateView(UpdateView):
     model = Course
     template_name = 'courses/edit.html'
 
@@ -70,7 +72,7 @@ class CourseUpdateView(generic.UpdateView):
         return super(CourseUpdateView, self).form_valid(form)
 
 
-class CourseDeleteView(generic.DeleteView):
+class CourseDeleteView(DeleteView):
     model = Course
     template_name = 'courses/remove.html'
     success_url = reverse_lazy('index')
@@ -85,6 +87,19 @@ class CourseDeleteView(generic.DeleteView):
         message = super(CourseDeleteView, self).delete(request, **kwargs)
         messages.success(self.request, 'Course %s has been deleted.' % course.name)
         return message
+
+def add_lesson(request, pk):
+    course = Course.objects.get(id=pk)
+    if request.method == 'POST':
+        #form = forms.LessonModelForm(request.POST)
+        form = forms.LessonModelForm(request.POST)
+        if form.is_valid():
+            lesson = form.save()
+            messages.success(request, 'Lesson %s has been successfully added.' % lesson.subject)
+            return redirect('courses:detail', pk)
+    else:
+        form = forms.LessonModelForm(initial={'course': course})
+    return render(request, 'courses/add_lesson.html', {'form': form})
 
 """
 
@@ -122,16 +137,3 @@ def remove(request, pk):
     return render(request, 'courses/remove.html', {'course': course})
 """
 
-
-def add_lesson(request, pk):
-    course = Course.objects.get(id=pk)
-    if request.method == 'POST':
-        #form = forms.LessonModelForm(request.POST)
-        form = forms.LessonModelForm(request.POST)
-        if form.is_valid():
-            lesson = form.save()
-            messages.success(request, 'Lesson %s has been successfully added.' % lesson.subject)
-            return redirect('courses:detail', pk)
-    else:
-        form = forms.LessonModelForm(initial={'course': course})
-    return render(request, 'courses/add_lesson.html', {'form': form})
