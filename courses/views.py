@@ -51,6 +51,7 @@ class CourseCreateView(CreateView):
         messages.success(self.request, message)
         return super(CourseCreateView, self).form_valid(form)
 
+
 '''
 def add(request):
     if request.method == "POST":
@@ -84,10 +85,10 @@ class CourseUpdateView(UpdateView):
         return reverse_lazy('courses:edit', kwargs={'pk': self.object.pk})
 
     def form_valid(self, form):
-        self.object = form.save()
-        message = 'Course %s has been successfully updated.' %(form['name'].value())
-        messages.success(self.request, message)
-        return super(CourseUpdateView, self).form_valid(form)
+        message = super(CourseUpdateView, self).form_valid(form)
+        mess = 'Course %s has been successfully updated.' %(form['name'].value())
+        messages.success(self.request, mess)
+        return message
 
 '''
 def edit(request, course_id):
