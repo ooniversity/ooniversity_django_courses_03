@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Hartsock William T.{% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+    <h2>Hartsock William T.<br><small>student's card</small></h2>
+    <div class="container">
+        <header class="row">
+        	<div class="col-lg-8">
+                <table class="table table-hover table-bordered">
+                <thead>
+                    <tr class="info">
+                    <td><strong>CardItem</strong></td>
+                    <td><strong>Value</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                       <td><strong>Surname</strong></td>
+                       <td>Hartsock</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Name</strong></td>
+                       <td>William T.</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Patronymic</strong></td>
+                       <td>-</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Birth Date</strong></td>
+                       <td>October 4, 1951</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Address</strong></td>
+                       <td>327 Pallet Street, New York, NY 10007</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>E-mail</strong></td>
+                       <td>WilliamTHartsock@teleworm.us</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Skype</strong></td>
+                       <td>WilliamTHartsock</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Average Grade, %</strong></td>
+                       <td>81.33</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Rating</strong></td>
+                       <td>3</td>                
+                    </tr>
+                 </tbody>
+             </table>     
+            </div>
+        	<div class="col-lg-4">
+                <img src="{% static 'images/students/01.jpg' %}" alt="artsock William T. photo" class="pull-right img-responsive img-circle">
+            </div>
+        </header>
+    <div class="jumbotron">
+       <h4> Student's performance:</h3>
+       <table class="table table-hover table-bordered">
+            <thead>
+              <tr class="warning">
+                <td>Cource</td>
+                <td>Week</td>
+                <td>Control Type</td>
+                <td>Score, %</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan=3>God's Bursa 002</td>
+                <td rowspan=3>Lesson 01</td>
+                <td>Tests</td>
+                <td>100%</td>                
+              </tr>
+              <tr>
+                <td>Problem Task #1</td>
+                <td>69%</td>                
+              </tr>
+              <tr>
+                <td>Problem Task #2</td>
+                <td>75%</td>                
+              </tr>
+              <tr>
+                <td rowspan=3>God's Bursa 002</td>
+                <td rowspan=3>Lesson 02</td>
+                <td>Tests</td>
+                <td>100%</td>                
+              </tr>
+              <tr>
+                <td>Problem Task #1</td>
+                <td>69%</td>                
+              </tr>
+              <tr>
+                <td>Problem Task #2</td>
+                <td>75%</td>                
+              </tr>
+            </tbody>
+        </table>
+     </div>
+    </div>
+{% endblock content %}
