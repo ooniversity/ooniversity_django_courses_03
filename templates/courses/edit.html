@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Edit {{ form.name.value }}{% endblock title %}
+{% block title %}{{ title }}{{ form.name.value }}{% endblock title %}
 {% block content %}
 {% if messages %}
 	<ul class="messages">

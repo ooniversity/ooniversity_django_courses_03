@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
   
-{% block title %}Courses{% endblock title %}
+{% block title %}{{ course.name }}{% endblock title %}
 
 
 {% block active_main %}active{% endblock active_main %}
@@ -26,9 +26,9 @@
       
     <div class="container">
       <div class="page-header">
-        <h1 class="descr">{{ course.name }}</h1>
+        <h1 class="descr">{{ item.name }}</h1>
         <div class="jumbotron">
-          <h3>{{ course.description|truncatechars:32 }}</h3>
+          <h3>{{ item.description|truncatechars:32 }}</h3>
           
         </div>
 
@@ -42,9 +42,9 @@
             </thead>  
             <tbody>
               <tr>
-                <td><a href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.name}} {{course.coach.surname}}</a>
+                <td><a href="{% url 'coaches:detail' coach.id %}">{{coach.name}} {{coach.surname}}</a>
                   <br/>
-                  <p>{{course.coach.description}}</p>
+                  <p>{{coach.description}}</p>
                 </td>
               </tr>
             </tbody>
@@ -57,9 +57,9 @@
             </thead>  
             <tbody>
               <tr>
-                <td><a href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.name}} {{course.assistant.surname}}</a>
+                <td><a href="{% url 'coaches:detail' assistant.id %}">{{assistant.name}} {{assistant.surname}}</a>
                   <br/>
-                  <p>{{course.assistant.description}}</p>
+                  <p>{{assistant.description}}</p>
                 </td>
               </tr>
             </tbody>
@@ -81,11 +81,11 @@
                   <th>Тема</th>
                   <th>Описание</th>
               </tr>
-            <a class="btn btn-success"  href="{% url 'courses:add-lesson' course.id %}" role="button">Добавить занятие</a>
+            <a class="btn btn-success"  href="{% url 'courses:add-lesson' item.id %}" role="button">Добавить занятие</a>
             </thead>
                       <tbody>
           
-                        {% for i in course.lesson_set.all %}
+                        {% for i in lessons %}
                         <tr>
                           <td>{{ i.order }}</td>
                           <td>{{ i.subject }}</td>
