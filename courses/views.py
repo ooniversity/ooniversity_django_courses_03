@@ -6,6 +6,25 @@ from courses.forms import CourseModelForm
 from django.contrib import messages
 from courses.forms import LessonModelForm
 
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.core.urlresolvers import reverse_lazy
+
+
+class CourseDetailView(DetailView):
+    model = Course
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['lessons'] = Lesson.objects.filter(course=self.object)
+        context['course_current'] = self.object
+        context['course_name'] = self.object.name
+        context['course_id'] = self.object.id
+        return context
+
+
+# ---- old
 
 def detail(request, course_id):
     course_id = Course.objects.get(id=course_id)
