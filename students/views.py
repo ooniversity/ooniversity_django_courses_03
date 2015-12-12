@@ -9,29 +9,28 @@ from django.core.urlresolvers import reverse_lazy
 
 
 # Create your views here.
-class StudentListView(ListView):
-    model = Student
-    # context_object_name = 'students'
-
-    def get_queryset(self):
-        students = super(StudentListView, self).get_queryset()
-        course_id = self.request.GET.get('course_id', None)
-        if course_id:
-            students = Student.objects.filter(courses=course_id)
-        return students
-
-
 class StudentDetailView(DetailView):
     model = Student
-    # context_object_name = 'student'
 
+class StudentListView(ListView):
+    model = Student
+  
+    def get_queryset(self):
+        course_id = self.request.GET.get('course_id', None)
+        students = super(StudentListView, self).get_queryset()
+        if course_id:
+            students = Student.objects.filter(courses=course_id)
+        else: 
+            students = Student.objects.all()
+        return students
 
+    
 class StudentCreateView(CreateView):
     model = Student
 
     def get_context_data(self, **kwargs):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Student registration'
+        context['title'] = 'Student registration'
         return context
 
     def get_success_url(self):
@@ -46,7 +45,7 @@ class StudentUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Student info update'
+        context['title'] = 'Student info update'
         return context
 
     def get_success_url(self):
@@ -61,7 +60,7 @@ class StudentDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['page_title'] = "Student info suppression"
+        context['title'] = "Student info suppression"
         return context
 
     def delete(self, request, *args, **kwargs):

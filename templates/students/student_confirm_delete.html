@@ -11,13 +11,15 @@
 
 
 {% block content %}
-    <h1>{{ title }}</h1>
-    <br>
 
-    <form action="" method="post">{% csrf_token %}
-        <div class="alert alert-danger" role=alert>
-            <p>Are you sure you want to delete "{{ object }}"?</p>
+        <h1>{{ title }}</h1>
+        
+        <form action="" method="post">
+	    {% csrf_token %}
+	    <div class="alert alert-danger" role=alert>
+          <p>Are you sure you want to delete "{{ object }}"?</p>
         </div>
-        <input type="submit" class="btn btn-danger" value="Confirm">
-    </form>
+        <input type="submit" class="btn btn-danger btn-sm" value="Confirm">
+      </form>
+
 {% endblock content %}

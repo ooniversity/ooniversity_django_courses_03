@@ -40,6 +40,15 @@
     </nav>
   	<div class="container theme-showcase">
       <div class="jumbotron">
+      {% block notice %}
+        {% if messages %}
+          <div class="alert alert-success" role="alert">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+          </div>
+        {% endif %}
+    {% endblock notice %}
       {% block jumbotron %}{% endblock jumbotron %}
       </div>
       {% block content %}{% endblock content %}

@@ -28,7 +28,7 @@
           <tbody>
             <tr>
               <th scope="row">
-                <a class="table" href="{% url 'coaches:detail' coach_id %}">{{ coach }}</a>
+                <a class="table" href="{% url 'coaches:detail' course.coach_id %}">{{ course.coach.full_name}}</a>
               </th>
               <td>{{ course.coach.description }}</td>
             </tr>
@@ -45,7 +45,7 @@
           <tbody>
             <tr>
               <th scope="row">
-                <a class="table" href="{% url 'coaches:detail' assistant_id %}">{{ assistant }}</a>
+                <a class="table" href="{% url 'coaches:detail' assistant_id %}">{{ course.assistant.full_name }}</a>
               </th>
               <td>{{ course.assistant.description }}</td>
             </tr>
