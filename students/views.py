@@ -11,6 +11,7 @@ from students.forms import StudentModelForm
 
 class StudentListView(ListView):
 	model = Student
+	paginate_by = 2
 	#context_object_name = 'students'
 	def get_queryset(self):
 		qs = super(StudentListView, self).get_queryset()
