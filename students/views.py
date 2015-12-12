@@ -39,6 +39,11 @@ class StudentCreateView(generic.CreateView):
         context['title'] = "Student registration"
         return context
 
+    def form_valid(self, form):
+        student = form.save()
+        messages.success(self.request, 'Student %s %s has been successfully added.' % (student.name, student.surname))
+        return super(StudentCreateView, self).form_valid(form)
+
 
 class StudentUpdateView(generic.UpdateView):
     model = Student
@@ -52,7 +57,10 @@ class StudentUpdateView(generic.UpdateView):
         context['title'] = "Student info update"
         return context
 
-    #def form_valid(self, form):
+    def form_valid(self, form):
+        student = form.save()
+        messages.success(self.request, 'Info on the student %s %s has been sucessfully changed.' % (student.name, student.surname))
+        return super(StudentUpdateView, self).form_valid(form)
 
 
 class StudentDeleteView(generic.DeleteView):
@@ -64,34 +72,28 @@ class StudentDeleteView(generic.DeleteView):
         context['title'] = "Student info suppression"
         return context
 
+    def delete(self, request, **kwargs):
+        student = self.get_object()
+        message = super(StudentDeleteView, self).delete(request, **kwargs)
+        messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
+        return message
+
+
+"""
 def create(request):
-    #print request.POST
-    #form = StudentModelForm()
     if request.method == 'POST':
         form = forms.StudentModelForm(request.POST)
         if form.is_valid():
             student = form.save()
-            #data = form.cleaned_data
-            #student = Student()
-            #student.name = data['name']
-            #student.surname = data['surname']
-            #student.date_of_birth = data['date_of_birth']
-            #student.email = data['email']
-            #student.phone = data['phone']
-            #student.address = data['address']
-            #student.skype = data['skype']
-            #student.courses = data['courses']
-            #student.save()
             messages.success(request, 'Student %s %s has been successfully added.' % (student.name, student.surname))
             return redirect('students:list')
     else:
         form = forms.StudentModelForm()
     return render(request, 'students/add.html', {'form': form})
-
-
+"""
+"""
 def edit(request, pk):
     student = Student.objects.get(id=pk)
-    #form = forms.StudentModelForm(instance=student)
     if request.method == 'POST':
         form = forms.StudentModelForm(request.POST, instance=student)
         if form.is_valid():
@@ -101,8 +103,8 @@ def edit(request, pk):
     else:
         form = forms.StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
-
-
+"""
+"""
 def remove(request, pk):
     student = Student.objects.get(id=pk)
     if request.method == 'POST':
@@ -110,3 +112,5 @@ def remove(request, pk):
         messages.success(request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
         return redirect('students:list')
     return render(request, 'students/remove.html', {'student': student})
+
+"""
