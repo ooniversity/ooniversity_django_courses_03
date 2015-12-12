@@ -25,8 +25,8 @@ def list_view(request):
     return render(request, 'students/list.html', {'students_list': students_list, 'courses_list': courses_list})
 
 
-def detail(request, student_id):
-    student_details = Student.objects.get(id=student_id)
+def detail(request, pk):
+    student_details = Student.objects.get(id=pk)
 
     return render(request, 'students/detail.html', {'student_details': student_details})
 
