@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 from coaches.models import Coach
@@ -21,6 +22,9 @@ class Lesson(models.Model):
     description = models.TextField(null=True, blank=True)
     course = models.ForeignKey(Course)
     order = models.PositiveIntegerField()
+
+    def get_url(self):
+        return reverse('courses:detail')
 
     def __unicode__(self):
         return self.subject
