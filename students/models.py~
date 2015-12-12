@@ -21,5 +21,8 @@ class Student(models.Model):
         return self.name + " " + self.surname
 
     def get_absolute_url(self):
+<<<<<<< HEAD
         return reverse('students:edit', kwargs={'pk': self.pk})
-
+=======
+        return reverse('students:edit', kwargs={'pk': self.pk})
+>>>>>>> 4cbe27320e7ae78f3c102275fc2f9f1fb4d19c11
