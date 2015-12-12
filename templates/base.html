@@ -57,8 +57,9 @@
           <nav>
             <ul class="nav navbar-nav">
               <li class="{% block nav_class_index %}{% endblock nav_class_index %}"><a href="{% url 'index' %}" class="active">Main</a></li>
-              <li class="{% block nav_class_students %}{% endblock nav_class_students %}"><a href="{% url 'students:list_view' %}">Students</a></li>
               <li class="{% block nav_class_contacts %}{% endblock nav_class_contacts %}"><a href="{% url 'contact' %}">Contacts</a></li>
+              <li class="{% block nav_class_students %}{% endblock nav_class_students %}"><a href="{% block student_ref %}{% endblock student_ref %}">Students</a></li>
+               <li class="{% block nav_class_feedback %}{% endblock nav_class_feedback %}"><a href="{% url 'feedback' %}">Feedback</a></li>
             </ul>
             <div style="" class="bg-white hide-show-content no-display header-search-content">
               <form class="navbar-form vertically-absolute-middle">

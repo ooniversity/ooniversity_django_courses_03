@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from django import forms
 
-
 class QuadraticForm(forms.Form):
+
     def clean_a(self):
         data = self.cleaned_data['a']
         if data == 0:
