@@ -11,19 +11,18 @@ from students.forms import StudentModelForm
 # Create your views here.
 class StudentListView(ListView):
     model = Student
-    # paginate_by = 2
+    paginate_by = 2
 
     def get_queryset(self):
-        students = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course_id', None)
-        if course_id:
-            students = Student.objects.filter(courses__id=course_id)
-        return students
+        if course_id and course_id.isdigit():
+            return Student.objects.filter(courses=course_id)
+
+        return Student.objects.all()
 
 
 class StudentDetailView(DetailView):
     model = Student
-
 
 
 class StudentCreateView(CreateView):
