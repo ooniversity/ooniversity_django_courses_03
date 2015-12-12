@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'quadratic',
     'courses',
     'students',
-    'coaches'
+    'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,3 +92,10 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 #TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'polls'), os.path.join(BASE_DIR, 'quadratic'),os.path.join(BASE_DIR, 'courses'),os.path.join(BASE_DIR, 'students'),os.path.join(BASE_DIR, 'coaches'),os.path.join(BASE_DIR, 'include'),]
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+ADMINS = (
+        ('admin 1', "adm1@example.com"),
+        ('admin 2', "adm2@example.com"),
+        ('admin 3', "adm3@example.com"))
