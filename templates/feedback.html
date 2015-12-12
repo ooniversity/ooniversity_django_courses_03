@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}PyBursa feedback{% endblock title %}
+
+
+{% block nav_class_feedback %}active{% endblock %}
+
+
+{% block url_student %}{% url 'students:list_view' %}{{ id_c }}{% endblock url_student %}
+
+
+{% block content %}
+<div class="jumbotron">
+	{{ title }}
+  <h3>Обратная связь</h3>
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+  </form>
+{% endblock content %}  
