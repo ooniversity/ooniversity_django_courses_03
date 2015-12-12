@@ -47,7 +47,7 @@
             </tr>
           </thead>
           <tbody>
-            {%for st in students_list_course %}
+            {%for st in student_list %}
                 <tr>
                     <td class="students_detail">{{forloop.counter}}</td>
                     <td><a href="{% url 'students:detail' st.id %}">{{st.surname}}{{' '}}{{st.name}}</a></td>
