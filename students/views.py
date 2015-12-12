@@ -16,11 +16,12 @@ class StudentListView(ListView):
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
+        courses_list = Course.objects.all()
         if course_id:
             students_list = Student.objects.filter(courses__id=course_id)
         else:
             students_list = Student.objects.all()
-        return students_list
+        return students_list, courses_list
 
 
 class StudentDetailView(DetailView):
