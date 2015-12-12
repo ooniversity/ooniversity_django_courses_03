@@ -1,52 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% load staticfiles %}
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ITBursa coaches detail</title>
-    <style> 
-      body{background-image: url('../static/images/pic4.jpg') !important;
-      background-repeat: none; 
-      background-attachment: fixed;
-      background-size: 100%; 
-      background-position: center top}
-    </style>
+{% extends "base.html" %}
+{% load staticfiles %}
 
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    <!-- menu start -->   
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{% url 'index' %}">ITBursa-2015</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}?course_id={{ course_detail.id }}">Students</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- menu end --> 
-    <img src="{% static 'images/pic4.jpg' %}" width="500px" height="200px">
-    <br> </br> 
-    <div class="slash-div">
-  
-       <div class="panel panel-primary">
+
+{% block title %}Coaches{% endblock title %}
+
+
+{% block content %}
+      <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">{{ coach_detail.user.first_name}} {{coach_detail.user.last_name }}</h3>
             </div>
@@ -56,7 +16,7 @@
                         <tbody>
                             <tr>
                                <td><strong>Birthday</strong></td>
-                               <td>{{ coach_detail.date_of_birth }}</td>                
+                               <td>{{ coach_detail.date_of_birth|date:"d F, Y" }}</td>                
                             </tr>
                             <tr>
                                <td><strong>Address</strong></td>
@@ -75,7 +35,7 @@
                                <td>{{ coach_detail.phone }}</td>                
                             </tr>
                             <tr>
-                               <td><strong>Teacher in:</strong></td>
+                               <td><strong>Coach in:</strong></td>
                                <td>
                                    {% for teacher in teacher_in %}
                                       <a href="{% url 'courses:detail' teacher.id %}">{{ teacher.name }}</a> students list: <a href="{% url 'students:list_view' %}?course_id={{ teacher.id }}"> <span class="glyphicon glyphicon-education" aria-hidden="true"></span> </a> <br>
@@ -95,9 +55,5 @@
                 </div>    
               </div>
           </div>
-
-    </div>  
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}
+    

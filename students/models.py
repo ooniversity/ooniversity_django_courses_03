@@ -1,14 +1,17 @@
+# -*- coding:UTF-8 -*-
 from django.db import models
+from django.shortcuts import render
+from django.core.urlresolvers import reverse
 from courses.models import Course
 
 class Student(models.Model):
-    name = models.CharField(max_length = 255)
-    surname = models.CharField(max_length = 255)
+    name = models.CharField(max_length = 50)
+    surname = models.CharField(max_length = 50)
     date_of_birth = models.DateField()
-    email = models.EmailField()
-    phone = models.CharField(max_length = 25, null = True, blank = True)
-    address = models.CharField(max_length = 255, null = True, blank = True)
-    skype = models.CharField(max_length = 255)
+    email = models.EmailField(max_length = 250)
+    phone = models.CharField(max_length = 20)
+    address = models.CharField(max_length = 250)
+    skype = models.CharField(max_length = 100)
     courses = models.ManyToManyField(Course)
 
     def full_name(self):
@@ -16,3 +19,6 @@ class Student(models.Model):
 
     def __unicode__(self):
         return self.name + " " + self.surname
+
+    def get_absolute_url(self):
+        return reverse('students:edit', kwargs={'pk': self.pk})

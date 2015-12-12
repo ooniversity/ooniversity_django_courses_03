@@ -1,75 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  	{% load staticfiles %}
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Student_list</title>
-    <style type="text/css">
-	   TABLE { 
-	    width: 300px; /* Ширина таблицы */
-	    border: 2px solid black; /* Рамка вокруг таблицы */
-	    background: silver; /* Цвет фона таблицы */
-	   }
-	   TD, TH { 
-	    text-align: left; /* Выравнивание по левому краю */
-	    padding: 3px; /* Поля вокруг содержимого ячеек */
-	   }
-	   TH { 
-	    background: blue; /* Цвет фона */
-	    color: white; /* Цвет текста */
-	    border-bottom: 2px solid black; /* Линия снизу */
-	   }
-	   .lc { 
-	    font-weight: bold; /* Жирное начертание текста */
-	    text-align: left; /* Выравнивание по левому краю */
-	   }
-	</style>
-	<style>
-		body{background-image: url('../static/images/pic4.jpg') !important;
-		background-repeat: none; 
-		background-attachment: fixed;
-		background-size: 100%; 
-		background-position: center top}
-	</style>
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+{% extends "base.html" %}
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="{% url 'index' %}">ITBursa-2015</a>
-	    </div>
-	    
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-          <li><a href="{% url 'index' %}">Main</a></li>
-          <li><a href= "{% url 'contact' %}">Contacts</a></li>
-          <li><a href="{% url 'student_list' %}">Students</a></li>
-        </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
+
+{% load staticfiles %}
+
+
+{% block title %}Ivanova Anna{% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
 	<img src="{% static 'images/pic3.jpg' %}" width="200px" height="200px" class="img-circle">		
 	<div class="jumbotron">
 	  <h1>Ivanova Anna</h1>
@@ -81,7 +22,7 @@
 	    <tr><td>Patronymic</td><td>IvanovaA</td>
 	    <tr><td>Birth Date</td><td>28.01.1983</td>
 	    <tr><td>Address</td><td>20A, Mira street, apt. 140, Kharkiv</td>
-	    <tr><td>E-mail</td><td>Anna@ukr.net</td>
+	    <tr><td>E-mail</td><td>Anna55@ukr.net</td>
 	    <tr><td>Skype</td><td>A.Ivanova</td>	
 	  </table>
 	  <table class="table">
@@ -99,10 +40,5 @@
 	    <tr><td></td><td>Wee2</td><td>Tests</td><td>100%</td></tr>
 	  </table>
 	</div>
-	<img src="{% static 'images/img1.gif' %}" width="100px" height="100px">	
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static "js/bootstrap.js" %}"></script>
-  </body>
-</html>	
+{% endblock content %}	
+	

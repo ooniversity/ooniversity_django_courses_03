@@ -1,51 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    {% load staticfiles %}
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ITBursa courses detail</title>
-    <style> 
-      body{background-image: url('../static/images/pic4.jpg') !important;
-      background-repeat: none; 
-      background-attachment: fixed;
-      background-size: 100%; 
-      background-position: center top}
-    </style>
+{% extends "base.html" %}
 
-    <!-- Bootstrap -->
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
-    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
-  </head>
-  <body>
-    <!-- menu start -->   
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{% url 'index' %}">ITBursa-2015</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Main</a></li>
-            <li><a href="{% url 'contact' %}">Contacts</a></li>
-            <li><a href="{% url 'students:list_view' %}">Students</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- menu end --> 
+
+{% load staticfiles %}
+
+
+{% block nav_course_students %}?course_id={{ course_detail.id }}{% endblock %}
+
+
+{% block title %}{{ course }}{% endblock title %}
+
+
+{% block content %}
     <img src="{% static 'images/pic2.jpg' %}" width="500px" height="200px">   
-    <div class="slash-div">
+    <br>
+      {% if messages %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <ul class="messages">
+            {% for message in messages %}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 {{ message }}
+             {% endfor %}
+            </ul>
+        </div>        
+        {% endif %} 
+      <br>  
     <h2> {{ course_detail.name }} </h2>
-    {{ course_detail.description }}
+    {{ course_detail.description|truncatechars:32 }}
     <br>
     <h3> Course trainers:</h3>
     <br>
@@ -64,13 +44,15 @@
             </div>
             <div class="panel-body">
                <a href="{% url 'coaches:detail' course_detail.assistant.id %}"> {{ course_detail.assistant.user.first_name }}  {{ course_detail.assistant.user.last_name }} </a> <br><br>
-               {{ course_detail.assistant.description }}
+               {{ course_detail.assistant.description }}               
             </div>
         </div>
     <br>
     <h3> Course detailed plan (lessons): </h3>
     <br>
-
+    <br> 
+      <p><a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' course_detail.id  %}" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add lesson </a></p> 
+      <br><br>
       <div class="table-responsive">
         <table class="table table-hover">
             <thead>
@@ -93,8 +75,4 @@
             </tbody>
         </table>
       </div>        
-    </div>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+{% endblock content %}    
