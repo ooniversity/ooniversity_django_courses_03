@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block title %}IT Courses - Student details{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block content %}
+    <div class="container" id='id1'>
+      <h1>{{object.name}} {{object.surname}}</h1>
+    </div>
+    <div class="container" id='id1'>
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>дата рождения</td>
+                <td>{{object.date_of_birth}}</td>
+              </tr>
+              <tr>
+                <td>email</td>
+                <td>{{object.email}}</td>
+              </tr>
+              <tr>
+                <td>телефон</td>
+                <td>{{object.phone}}</td>
+              </tr>
+              <tr>
+                <td>адрес</td>
+                <td>{{object.address}}</td>
+              </tr>
+              <tr>
+                <td>skype</td>
+                <td>{{object.skype}}</td>
+              </tr>
+              <tr>
+                <td>курсы</td>
+                <td>{% for c in object.courses.all%}
+                      <a href="{% url 'courses:detail' c.id%}">{{c.name}}</a><br>
+                    {% endfor %}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+{% endblock content %}

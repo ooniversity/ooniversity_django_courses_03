@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+{% block title %}IT Courses - Student list{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block content %}
+    <div class="container" id='id4'>
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      <br><button type="button" class="btn btn-default btn-lg" aria-label="Left Align">
+      <a href="{% url 'students:add' %}">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true">Добавить нового студента</span></a>
+      </button><br>
+      <h1>Список студентов курса</h1>
+        <table class="table table-bordered">
+          <thead>
+              <tr>
+                <th>#</th>
+                <th>фамилия и имя</th>
+                <th>адрес</th>
+                <th>skype</th>
+                <th>курсы</th>
+                <th></th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+              {% for stud in student_list %}
+              <tr>
+                <td>{{stud.id}}</td>
+                <td><a href="{% url 'students:detail' stud.id%}">{{stud.name}} {{stud.surname}}</a></td>
+                <td>{{stud.address}}</td>
+                <td>{{stud.skype}}</td>
+                <td>{% for c in stud.courses.all%}
+                      <li><a href="{% url 'courses:detail' c.id%}">{{c.name}}</a></li>
+                    {% endfor %}</td>
+                <td><button type="button" class="btn btn-info btn-lg" aria-label="Left Align">
+                    <a href="{% url 'students:edit' stud.id%}">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true">Изменить</span></a>
+                    </button><br></td>
+                <td><button type="button" class="btn btn-warning btn-lg" aria-label="Left Align">
+                    <a href="{% url 'students:remove' stud.id%}">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true">Удалить</span></a>
+                    </button><br></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+{% endblock content %}
