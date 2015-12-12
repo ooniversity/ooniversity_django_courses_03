@@ -10,10 +10,12 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView 
 from django.core.urlresolvers import reverse_lazy
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
     
     def get_queryset(self):
         if self.request.GET.get('course_id'):
@@ -22,7 +24,20 @@ class StudentListView(ListView):
         else:
             students = Student.objects.all()
         return students    
-            
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        #students_list = Student.objects.all()
+        paginator = Paginator(self.get_queryset(), 2) # Show 2 contacts per page
+
+        page = self.request.GET.get('page')
+        pages = []
+        for number_page in paginator.page_range:
+            pages.append(paginator.page(number_page))
+        context['pages'] = pages
+        context['course_id'] = self.request.GET.get('course_id')
+        return context        
 
 
 

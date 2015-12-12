@@ -5,7 +5,7 @@
 
 
 {% block link_students %}
-  {% url 'students:list_view' %}?course_id={{ course.id }}
+  {% url 'students:list_view' %}?course_id={{ course.id }}&page=1
 {% endblock link_students %}  
 
 
