@@ -17,8 +17,8 @@ class StudentDetailView(DetailView):
 
 
 class StudentListView(ListView):
-    #model = Student
-    queryset = Student.objects.all()
+    model = Student
+    ##queryset = Student.objects.all()
     ##template_name = 'students/list.html'
     ##context_object_name = 'student_list'
 
@@ -43,7 +43,7 @@ class StudentCreateView(CreateView):
         return context
 
     def form_valid(self, form):
-        student = form.save()
+        student = self.get_object()
         messages.success(self.request, 'Student %s %s has been successfully added.' % (student.name, student.surname))
         return super(StudentCreateView, self).form_valid(form)
 
@@ -61,7 +61,7 @@ class StudentUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        student = form.save()
+        student = self.get_object()
         messages.success(self.request, 'Info on the student %s %s has been sucessfully changed.' % (student.name, student.surname))
         return super(StudentUpdateView, self).form_valid(form)
 
