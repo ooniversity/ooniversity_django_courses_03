@@ -11,6 +11,8 @@ from forms import *
 
 class CourseDetailView(DetailView):
     model = Course
+    template_name = 'courses/detail.html'
+    #context_object_name = 'course'
 
 class CourseCreateView(CreateView):
     model = Course
@@ -19,6 +21,8 @@ class CourseCreateView(CreateView):
         context = super(CourseCreateView, self).get_context_data(**kwargs)
         context['title'] = u"Course creation"
         return context
+    template_name = 'courses/add.html'
+    context_object_name = 'course'
 
 class CourseUpdateView(UpdateView):
     model = Course
@@ -27,6 +31,7 @@ class CourseUpdateView(UpdateView):
         context['title'] = u"Course update"
         return context
     success_url = reverse_lazy('index')
+    context_object_name = 'course'
 
 class CourseDeleteView(DeleteView):
     model = Course
@@ -35,6 +40,7 @@ class CourseDeleteView(DeleteView):
         context['title'] = u"Course deletion"
         return context
     success_url = reverse_lazy('index')
+    context_object_name = 'course'
 
 def view_item(request, obj_id, obj_class):
     class_name = obj_class.__name__.lower()
