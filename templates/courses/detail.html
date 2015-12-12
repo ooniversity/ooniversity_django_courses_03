@@ -18,31 +18,35 @@
   {% endfor %}
 {% endif %}
 
+  <div class="container">
+    <div class="jumbotron">
       <h1 class="description">{{ course_object.name }} </h1>
       <h2 class="course">{{ course_object.description|truncatechars:32 }}</h2>
       <h3>Преподаватели</h3>
+
+      {% if course_object.coach %}
       <div class="panel panel-default">
-        <div class="panel-heading">Учитель</div>
+      <div class="panel-heading">Учитель</div>
       <div class="panel-body">
-          {% if course_object.coach %}
-          <p><b><a href="{% url 'coaches:detail' pk=course_object.coach.id %}">{{ course_object.coach.user.first_name }} {{ course_object.coach.user.last_name }}</a></b></p>
-          {% endif %}
-          <p>{{ course_object.coach.description }}</p>
+        <p><b><a href="{% url 'coaches:detail' pk=course_object.coach.id %}">{{ course_object.coach.user.first_name }} {{ course_object.coach.user.last_name }}</a></b></p>
+        <p>{{ course_object.coach.description }}</p>
+      {% endif %}
+
       </div>
       </div>
+
+      {% if course_object.assistant %}
       <div class="panel panel-default">
       <div class="panel-heading">Ассистент</div>
       <div class="panel-body">
-        {% if course_object.assistant %}
         <p><b><a href="{% url 'coaches:detail' pk=course_object.assistant.id %}">{{ course_object.assistant.user.first_name }} {{ course_object.assistant.user.last_name }}</a></b></p>
-        {% endif %}
         <p>{{ course_object.assistant.description }}</p>
-    </div>
-  </div>
-
+      {% endif %}
+      </div>
+      </div>
+      <div class='container'>
       <h3 class="program">План курса</h3>
-  <a href="{% url 'courses:add-lesson' pk=course_object.id %}"><button type="button" class="btn btn-default navbar-btn">Добавить занятие</button></a>
-
+      <a href="{% url 'courses:add-lesson' pk=course_object.id %}"><button type="button" class="btn btn-default navbar-btn">Добавить занятие</button></a>
       <table class="table">
       <thead>
         <tr>
@@ -61,6 +65,7 @@
           {% endfor %}
       </tbody>
     </table>
+    </div>
+    </div>
   </div>
-</div>
 {% endblock content %}

@@ -8,10 +8,11 @@
 
 
 {% block content %}
-<h1>Создание нового курса</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Create" />
-        </form>
+<h1>{{ title }}</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Сохранить" />
+</form>
 {% endblock content %}
