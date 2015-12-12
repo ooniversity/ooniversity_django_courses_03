@@ -53,7 +53,7 @@
       <th>Тема</th>
       <th>Описание</th>
     </tr>
-    {% for lesson in lessons %}
+    {% for lesson in course.lessons_set.all %}
      <tr><td>{{ lesson.order }}</td><td>{{ lesson.subject }}</td><td>{{ lesson.description }}</td></tr>  
     {% endfor %}
     </table>
