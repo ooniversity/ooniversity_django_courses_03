@@ -59,21 +59,32 @@
             {% endfor %}
           </tbody>
         </table>
-        <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}">&#60;&#60; previous</a>
-        {% endif %}
+       <ul class="pagination">
+        <li>
+          {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">
+            <span aria-hidden="true"><< previous</span></a>
+          {% endif %}
+        </li>
+        {% for page_number in paginator.page_range %}
+          {% if page_number == page_obj.number %}
+            <li class="active">
+              <a href="">{{ page_number }}<span class="sr-only"></span></a>
+            </li>
+          {% else %}
+            <li>
+              <a href="?page={{ page_number }}">{{ page_number }}<span class="sr-only"></span></a>
+            </li>
+          {% endif %}
 
-        <span class="current">
-            Page {{ page_obj.number }} of {{ paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next &#62;&#62;</a>
-        {% endif %}
-    </span>
-</div>
+        {% endfor %}
+        <li>
+          {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">next >></span></a>
+          {% endif %}
+        </li>
+      </ul>
       
       </div>
     </div>
