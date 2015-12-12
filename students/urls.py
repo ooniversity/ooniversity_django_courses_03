@@ -9,5 +9,5 @@ urlpatterns = patterns('',
                        # url(r'^add/$', views.create, name="add"),
                        url(r'^add/$', views.StudentCreateView.as_view(), name="add"),
                        url(r'^edit/(?P<pk>\d+)/$', views.StudentUpdateView.as_view(), name="edit"),
-                       url(r'^remove/(?P<student_id>\d+)/$', views.remove, name="remove"),
+                       url(r'^remove/(?P<pk>\d+)/$', views.StudentDeleteView.as_view(), name="remove"),
                        )

@@ -48,7 +48,7 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Student
-    # success_url = reverse_lazy('students:list_view')
+    # redirect to the same edit page is implemented in models.get_absolute_url()
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
@@ -56,17 +56,27 @@ class StudentUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        message = u'Info on the student has been sucessfully changed.'
+        message = u'Info on the student has been sucessfully changed.'  # successfully
         messages.add_message(self.request, messages.SUCCESS, message)
         return super(StudentUpdateView, self).form_valid(form)
 
 
-'''
+class StudentDeleteView(DeleteView):
+    model = Student
+    success_url = reverse_lazy('students:list_view')
+
     def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
-        context['courses'] = Course.objects.all()
+        context = super(StudentDeleteView, self).get_context_data(**kwargs)
+        context['title'] = u'Student info suppression'
         return context
-'''
+
+# good solution https://stackoverflow.com/a/25325228
+
+    def delete(self, request, *args, **kwargs):
+        message = "Info on %s %s has been sucessfully deleted." % self.object.full_name  # successfully
+        messages.success(self.request, message)
+        return super(StudentDeleteView, self).delete(request, *args, **kwargs)
+
 
 # ------ old ----
 '''
@@ -85,7 +95,7 @@ def list_view(request):
 #    student_details = Student.objects.get(id=pk)
 
 #    return render(request, 'students/detail.html', {'student_details': student_details})
-'''
+
 
 
 def create(request):
@@ -114,6 +124,7 @@ def edit(request, student_id):
 
     form = students.forms.StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
+'''
 
 
 def remove(request, student_id):
