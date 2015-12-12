@@ -12,6 +12,17 @@ from django.views.generic.list import ListView
 class StudentListView(ListView):
     model = Student
     context_object_name = "students_list"
+    # queryset = Student.object.filter()
+
+    def get_queryset(self):
+        course_id = self.request.GET.get('course_id', None)
+        if course_id:
+            students_list = Student.objects.filter(courses=Course.objects.get(id=course_id))
+        else:
+            students_list = Student.objects.all()
+        return students_list
+
+
 
 
 class StudentDetailView(DetailView):
