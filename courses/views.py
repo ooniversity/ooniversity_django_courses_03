@@ -35,7 +35,8 @@ class CourseCreateView(CreateView):
         return context
 
     def form_valid(self, form):
-        message = u"Course %s has been sucessfully added." % self.object.name  # successfully
+        name = form.cleaned_data['name']
+        message = u"Course %s has been sucessfully added." % name  # successfully
         messages.success(self.request, message)
         return super(CourseCreateView, self).delete(request, *args, **kwargs)
 
