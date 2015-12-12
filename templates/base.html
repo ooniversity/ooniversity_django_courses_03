@@ -32,8 +32,6 @@
               <a href="{% url 'contact' %}">Контакты</a></li>
             <li class="{% block navbar_button_3 %}{% endblock navbar_button_3 %}">
               <a href="{% url 'students:list_view' %}{% block course_id_students %}{% endblock %}">Студенты</a></li>
-            <li class="{% block navbar_button_4 %}{% endblock navbar_button_4 %}">
-              <a href="{% url 'result' %}">Уравнение</a></li>
             <li class="{% block navbar_button_5 %}{% endblock navbar_button_5 %}">
               <a href="{% url 'feedback' %}">Feedback</a>
             </li>
@@ -59,7 +57,7 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
   </body>
 </html>
