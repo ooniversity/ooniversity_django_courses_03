@@ -3,7 +3,7 @@ from students import views
 
 urlpatterns = patterns('',
                        # url(r'^$', views.list_view, name="list_view"),
-                       url(r'^$', views.StudentListView.as_view(), name="list_view"),
+                       url(r'^\d+$', views.StudentListView.as_view(), name="list_view"),
                        # url(r'^(?P<student_id>\d+)/$', views.detail, name="detail"),
                        url(r'^(?P<pk>\d+)/$', views.StudentDetailView.as_view(), name="detail"),
                        url(r'^add/$', views.create, name="add"),
