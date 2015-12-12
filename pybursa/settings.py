@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'quadratic',
     'courses',
     'students',
-    'coaches'
+    'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -109,3 +110,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+ADMINS = (('Olena', 'lena-test-01@ya.ru'), ('Olenka', 'lena-test-02@ya.ru'))
