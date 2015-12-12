@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}IT Courses - Edit course{% endblock title %}
+{% block title %}IT Courses - {{ title }}{% endblock title %}
 
 
 {% block nav_class_index %}active{% endblock %}
@@ -17,10 +17,10 @@
           {% endfor %}
       </ul>
       {% endif %}			
-      <h1>Редактирование данных курса</h1>
+      <h1>{{ title }}</h1>
 			<form method="post">
         {% csrf_token %}
-        {{course_form.as_p}}
+        {{form.as_p}}
         <input type="submit" value="Изменить" />
       </form>
     </div>
