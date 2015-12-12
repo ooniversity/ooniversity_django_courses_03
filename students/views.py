@@ -7,7 +7,7 @@ import students.forms
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.core.urlresolvers import reverse_lazy
 
 
@@ -37,6 +37,11 @@ class StudentCreateView(CreateView):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
         context['title'] = u'Student registration'
         return context
+
+    def form_valid(self, form):
+        message = "Student %s %s has been successfully added." % (self.object.name, self.object.surname)
+        messages.add_message(self.request, messages.SUCCESS, message)
+        return super(StudentCreateView, self).form_velid(form)
 
 '''
     def get_context_data(self, **kwargs):
