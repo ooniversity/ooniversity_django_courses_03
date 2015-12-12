@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Ooniversity-Main{% endblock title %}
+{% block title %}Pybursa Main Page{% endblock title %}
 
 {% block nav_class_index %}active{% endblock nav_class_index %}
+
+{% block student_ref %}{% url 'students:list_view' %}{% endblock student_ref %}
 {% load staticfiles %}
 {% block content %}<div id="main">
 
@@ -115,6 +117,15 @@ WEB разработки </p>
       </div>
     </section>
     <!-- /#banner -->
+<div class="container">
+          {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
     <!-- creative studio Start Here -->
     <section class="creative_studio">
       <div class="container">

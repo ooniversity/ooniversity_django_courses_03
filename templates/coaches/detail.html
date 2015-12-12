@@ -2,10 +2,12 @@
 
 {% block title %}PyBursa coaches detail{% endblock title %}
 
+{% block student_ref %}{% url 'students:list_view' %}{% endblock student_ref %}
+
 {% block content %}
   <div id="main">
 
-<center>                <strong>{{ coach.user.get_full_name }}</strong>
+<center>    {{ title }}            <strong>{{ coach.user.get_full_name }}</strong>
                 <br><br>
                 <div class="table-responsive">  <table class="table table-striped table-bordered table-nonfluid">
 

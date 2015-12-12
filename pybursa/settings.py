@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,3 +90,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+ADMINS = (
+    ('Admin', 'admin@pybursa.com'), 
+    ('Director', 'director@pybursa.com'), 
+    ('Manager', 'manager@pybursa.com'),
+)

@@ -2,15 +2,18 @@
 
 {% block title %}PyBursa student remove{% endblock title %}
 
+{% block student_ref %}{% url 'students:list_view' %}{% endblock student_ref %}
+
 {% block content %}
   <div id="main">
 
 <center>
         <div class="container">
-          <h2>Student {{ student }} will be deleted</h2>
+          <h2>Student {{ object.name }} {{ object.surname }} will be deleted</h2>
         </div>
         <div class="container">
           <form method="post">
+              {{ title }} </br>
               {% csrf_token %}
               <input type="submit", value="Удалить">
           </form>
