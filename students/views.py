@@ -10,7 +10,7 @@ from django.views.generic.detail import DetailView
 
 class StudentDetailView(DetailView):
     model = Student
-    # template_name =
+    # template_name = ""
     context_object_name = "student_details"
 
 
@@ -26,9 +26,9 @@ def list_view(request):
 
     return render(request, 'students/list.html', {'students_list': students_list, 'courses_list': courses_list})
 
-
-def detail(request, pk):
-    student_details = Student.objects.get(id=pk)
+# replaced with class
+# def detail(request, pk):
+#    student_details = Student.objects.get(id=pk)
 
     return render(request, 'students/detail.html', {'student_details': student_details})
 
