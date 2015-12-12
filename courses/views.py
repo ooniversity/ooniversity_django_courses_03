@@ -23,6 +23,7 @@ class CourseCreateView(CreateView):
         context = super(CourseCreateView, self).get_context_data(**kwargs)
         context['title'] = u"Course creation"
         return context
+        
 
 class CourseUpdateView(UpdateView):
     model = Course
