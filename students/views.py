@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 
 
 class StudentListView(ListView):
@@ -30,6 +31,12 @@ class StudentDetailView(DetailView):
 
 class StudentCreateView(CreateView):
     model = Student
+    success_url = reverse_lazy('students:list_view')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentCreateView, self).get_context_data(**kwargs)
+        context['title'] = u'Student registration'
+        return context
 
 '''
     def get_context_data(self, **kwargs):

@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}PyBursa: Добавление студента{% endblock title%}
+{% block title %}PyBursa: {{ title }}{% endblock title%}
 
 
 {% block nav_class_student %}active{% endblock %}
@@ -12,7 +12,7 @@
 
 {% block content %}
 <div class="page-header">
-    <h2>Форма добавления нового студента</h2>
+    <h2>{{ title }}</h2>
 </div>
 <div class="form-group form-group-lg">
   <form method="post">
