@@ -17,6 +17,7 @@ class StudentListView(ListView):
 	 
 	def get_queryset(self):
 		id_course= self.request.GET.get('course_id', None)
+       # print id_course
 		if id_course:
 			students = Student.objects.filter(courses=id_course)
 		else:
