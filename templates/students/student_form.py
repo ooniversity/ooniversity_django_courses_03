@@ -9,21 +9,20 @@
 
 {% block active_students %}active{% endblock active_students %}
 
-
 {% block content %}
   <div class="container theme-showcase" role="main">
 
-      {% if messages %}
+        {% if messages %}
             {% for message in messages %}
             <p>{{ message }}</p>
             {% endfor %}
-      {% endif %}
+        {% endif %}
 
     <h2>{{name_form}}</h2>
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-         <input type="submit" value="{{name_button}}" class="btn btn-primary"/>
+        <input type="submit" value="{{name_button}}" class="btn btn-primary"/>
       </form>
   </div>
 {% endblock content %}
