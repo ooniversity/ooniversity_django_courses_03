@@ -26,7 +26,7 @@ class CourseUpdateView(UpdateView):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
         context['title'] = u"Course update"
         return context
-    success_url = reverse_lazy('edit', pk=course__id)
+    success_url = reverse_lazy('index')
 
 class CourseDeleteView(DeleteView):
     model = Course
@@ -34,7 +34,7 @@ class CourseDeleteView(DeleteView):
         context = super(CourseDeleteView, self).get_context_data(**kwargs)
         context['title'] = u"Course deletion"
         return context
-    # success_url = reverse_lazy('index')
+    success_url = reverse_lazy('index')
 
 def view_item(request, obj_id, obj_class):
     class_name = obj_class.__name__.lower()
