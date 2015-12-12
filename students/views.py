@@ -7,12 +7,12 @@ from django.contrib import messages
 # Create your views here.
 
 
-class DetailView(generic.DetailView):
+class StudentDetailView(generic.DetailView):
     model = Student
     template_name = 'students/detail.html'
 
 
-class ListView(generic.ListView):
+class StudentListView(generic.ListView):
     model = Student
     template_name = 'students/list.html'
     context_object_name = 'students_list'
