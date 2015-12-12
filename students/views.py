@@ -14,11 +14,7 @@ class StudentDetailView(DetailView):
 class StudentListView(ListView):
     model = Student
     paginate_by = 2
-    def get_context_data(self, **kwargs):
-        context = super(StudentListView, self).get_context_data(**kwargs)
-        context['prev'] = '<< previous'
-        context['next'] = 'next >>'
-        return context
+    
     def get_queryset(self):
         if 'course_id' in self.request.GET:
             student_list = Student.objects.filter(courses=self.request.GET['course_id'])
