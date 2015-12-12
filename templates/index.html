@@ -17,15 +17,8 @@
           <p class="about">
             Мы специализируемся на модных языках программирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий.
           </p>
-          <div class="row">
-            {% if messages %}
-              <div class="alert alert-success" role="alert">
-                {% for message in messages %}
-                  {{ message }}
-                {% endfor %}
-              </div>
-            {% endif %}
-            <div class="stud-btn">
+
+          <div class="stud-btn">
             <a href="{% url 'courses:add' %}"><button type="button" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus"></span> Добавить курс</button></a>
           </div>

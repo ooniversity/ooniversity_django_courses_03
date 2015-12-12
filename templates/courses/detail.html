@@ -58,13 +58,8 @@
         <div class="row">
           <h2 class="descr">План курса</h2>
           <hr>
-          {% if messages %}
-            <div class="alert alert-success" role="alert">
-              {% for message in messages %}
-                {{ message }}
-              {% endfor %}
-            </div>
-          {% endif %}
+        </div>
+
           <a href="{% url 'courses:add-lesson' course.id %}">
             <button type="button" class="btn btn-primary btn-sm">
               <span class="glyphicon glyphicon-plus"></span> Добавить тему
@@ -79,7 +74,7 @@
               <th>Описание</th>
             </tr>
           </thead>
-          <tbody>   
+          <tbody>
             {% for lesson in lessons%}
               <tr>
                 <td>{{ lesson.order }}</td>
@@ -92,11 +87,10 @@
           </tbody>
         </table>
         </div>
-        {% include "include/footer_include.html" %} 
-    
+        {% include "include/footer_include.html" %}
+
 {% endblock jumbotron %}
 
 {% block content %}{% endblock content %}
 
-    
-    
+
