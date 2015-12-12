@@ -44,11 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="student_confirm_delete.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="student_confirm_delete.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/students/student_confirm_delete.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3639266">
-              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+            <state vertical-scroll-proportion="-12.892858">
+              <caret line="19" column="86" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -76,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/students/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.7330211">
+              <caret line="61" column="49" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
               <folding>
                 <element signature="e#26#61#0" expanded="true" />
               </folding>
@@ -182,8 +182,8 @@
         <option value="$PROJECT_DIR$/templates/students/student_detail.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/students/student_list.html" />
-        <option value="$PROJECT_DIR$/students/views.py" />
         <option value="$PROJECT_DIR$/templates/students/student_confirm_delete.html" />
+        <option value="$PROJECT_DIR$/students/views.py" />
       </list>
     </option>
   </component>
@@ -950,21 +950,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/students/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/students/student_confirm_delete.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
-          <folding>
-            <element signature="e#26#61#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-12.892858">
+          <caret line="19" column="86" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="86" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/students/student_confirm_delete.html">
+    <entry file="file://$PROJECT_DIR$/students/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3639266">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding />
+        <state vertical-scroll-proportion="0.7330211">
+          <caret line="61" column="49" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
+          <folding>
+            <element signature="e#26#61#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
