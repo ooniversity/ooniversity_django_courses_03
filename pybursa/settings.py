@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'quadratic',
     'courses',
     'students',
-    'coaches'
+    'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,3 +90,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = 'dermedont@gmail.com'
+EMAIL_HOST_PASSWORD = 'qwerty'
+ADMINS = (('admin', 'admin@gmail.com'), ('user1', 'user1@gmail.com'), ('user2', 'user2@gmail.com'))
