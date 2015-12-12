@@ -19,35 +19,35 @@
         </div>
 <br>
 <div class="article-list wow bounceInDown" data-wow-duration="0.5s" data-wow-delay="0s">
-<a class="btn orange learn wow bounceInRight" data-wow-duration="1s" data-wow-delay="0s" href="{% url 'courses:add_lesson' course.id %}">Add new lesson</a> </div>
+<a class="btn orange learn wow bounceInRight" data-wow-duration="1s" data-wow-delay="0s" href="{% url 'courses:add_lesson' course_detail.id %}">Add new lesson</a> </div>
 
         <div class="container">
-          <h2>{{ course.name }}</h2>
-          <p>{{ course.description|truncatechars:32 }}</p>
+          <h2>{{ course_detail.name }}</h2>
+          <p>{{ course_detail.description|truncatechars:32 }}</p>
         </div>
         <div class="container">
           <h3>Coaches</h3>
         </div>
         <div class="container">
-          <p><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.user.get_full_name }}</a></p>
-          <p>{{ course.coach.description }}</p>
+          <p><a href="{% url 'coaches:detail' course_detail.coach.id %}">{{ course_detail.coach.user.get_full_name }}</a></p>
+          <p>{{ course_detail.coach.description }}</p>
         </div>
          <div class="container">
-          <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.user.get_full_name }}</a></p>
-          <p>{{ course.assistant.description }}</p>
+          <p><a href="{% url 'coaches:detail' course_detail.assistant.id %}">{{ course_detail.assistant.user.get_full_name }}</a></p>
+          <p>{{ course_detail.assistant.description }}</p>
         </div>
         <div class="container">
           <h3>Lessons</h3>
         </div>
-        <div class="table-responsive">  <table class="table table-striped table-bordered table-nonfluid">
-            <tbody>
+        <div class="container">
+          <table class="table">
             <tr>
               <th>#</th>
               <th>Subject</th>
               <th>Description</th>
             </tr>
-            {% if lessons %}
-              {% for lesson in lessons %}
+            {% if course_detail %}
+              {% for lesson in course_detail.lesson_set.all %}
                 <tr>
                   <td>{{ lesson.order }}</td>
                   <td>{{ lesson.subject }}</td>
@@ -55,7 +55,6 @@
                 </tr>
               {% endfor %}
             {% endif %}
-        </tbody>
           </table>
         </div>
       </center>
