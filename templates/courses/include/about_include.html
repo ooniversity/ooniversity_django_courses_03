@@ -1,0 +1,29 @@
+{% load staticfiles %}
+			<div class="panel panel-default">
+      	<table class="table">
+          <thead>
+          	<tr>
+							<th>{{ block_title }}</th>
+            </tr>
+          </thead>
+          <tbody>
+          	<tr>
+              <td>
+								<div class="coach_img">
+									{% if instructor.gender == "M" %}
+									<img src="{% static 'images/top2.png' %}" alt="..." class="img-circle">
+									{% else %}
+									<img src="{% static 'images/top1.png' %}" alt="..." class="img-circle">
+									{% endif %}
+								</div>
+								<p>
+									<a href="{% url 'coaches:detail' instructor.id %}">
+									{{ instructor.first_name }} {{ instructor.last_name }}
+									</a>
+								</p>
+								<p>{{ instructor.description }}</p>
+							</td>
+						</tr>
+          </tbody>
+        </table>
+			</div>
