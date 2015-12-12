@@ -1,5 +1,6 @@
 from django.db import models
 from coaches.models import Coach
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Course(models.Model):
@@ -11,6 +12,9 @@ class Course(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('index')
 
 class Lesson(models.Model):
     subject = models.CharField(max_length=255)
