@@ -1,104 +1,74 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django import forms
-from students.models import Student, CourseApplication
-from courses.models import Course, Lesson
+from django.core.urlresolvers import reverse_lazy
+from students.models import Student
+from students.forms import StudentModelForm
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.paginator import Paginator
 
 
-class StudentModelForm(forms.ModelForm):
-	class Meta:
-		model = Student
-        fields = '__all__'
+class StudentListView(ListView):
+	model = Student
+	paginate_by = 2
 
-def add(request):
-	if request.method == 'POST':
-		form = StudentModelForm(request.POST)
-		if form.is_valid():
-			application = form.save()
-			mess = u'Student {} {} has been successfully added.' .format(application.name, application.surname)
-			messages.success(request, mess)
-			return redirect('students:list_view')
-	else:
-		form = StudentModelForm()
-	return render(request, 'students/add.html', {'form': form})
+	def get_queryset(self):
+		qs = super(StudentListView, self).get_queryset()
+		course_id = self.request.GET.get('course_id', None)
+		if course_id:
+			qs = qs.filter(courses__id=course_id)
+		return qs
 
 
-def edit(request, pk):
-	application = Student.objects.get(id=pk)
-	if request.method == 'POST':
-		form = StudentModelForm(request.POST, instance=application)
-		if form.is_valid():
-			application = form.save()
-			messages.success(request, u'Info on the student has been sucessfully changed.')
-	else:
-		form = StudentModelForm(instance=application)
-	return render(request, 'students/edit.html', {'form': form})
-
-def remove(request, pk):
-    application = Student.objects.get(id=pk)
-    if request.method == 'POST':
-		application.delete()
-		mess = u'Info on {} {} has been sucessfully deleted.' .format(application.name, application.surname)
-		messages.success(request, mess)
-		return redirect('students:list_view')
-    return render(request, 'students/remove.html', {'full_name': application.name+ ' ' +application.surname}) 
-
-class StudentApplyForm(forms.Form):
-	name = forms.CharField(max_length=100)
-	email = forms.EmailField()
-	package = forms.ChoiceField(choices=(
-		('standart', 'Standart'),
-		('gold', 'Gold'),
-		('vip', 'VIP')),
-		widget=forms.RadioSelect)
-	subscribe = forms.BooleanField(required=False)
-
-class CourseApplicationForm(forms.ModelForm):
-	class Meta:
-		model = CourseApplication
-		exclude = ['comment', 'is_active']
-		widgets = {'package': forms.RadioSelect}
-
-def list_view(request):
-	if request.GET.get('course_id'):
-		stud = Student.objects.filter(courses = request.GET.get('course_id'))
-	else:
-		stud = Student.objects.all()
-	return render(request, 'students/list.html', {'students': stud})
-
-def detail(request, detail_id):
-	return render(request, 'students/detail.html', {'student': Student.objects.get(id = detail_id)})
-
-def apply_to_course(request):
-	if request.method == 'POST':
-		form = CourseApplicationForm(request.POST)
-		if form.is_valid():
-			application = form.save()
-			messages.success(request, 'Form saved!')
-			return redirect('students:apply')
-	else:
-		form = CourseApplicationForm(initial={'subscribe': True, 'package': 'gold'})
-	return render(request, 'students/apply.html', {'form': form})
-
-def edit_application(request, pk):
-	application = CourseApplication.objects.get(id=pk)
-	if request.method == 'POST':
-		form = CourseApplicationForm(request.POST, instance=application)
-		if form.is_valid():
-			application = form.save()
-			messages.success(request, 'Form saved!')
-			return redirect('students:apply')
-	else:
-		form = CourseApplicationForm(instance=application)
-	return render(request, 'students/edit_application.html', {'form': form})
-
-def delete_application(request, pk):
-	application = CourseApplication.objects.get(id=pk)
-	if request.method == 'POST':
-		application.delete()
-		messages.success(request, 'Object deleted!')
-		return redirect('students:apply')
-	return render(request, 'students/delete_application.html')
+class StudentDetailView(DetailView):
+	model = Student
 
 
+class StudentCreateView(CreateView):
+	model = Student
+	success_url = reverse_lazy('students:list_view')
 
+	def get_context_data(self, **kwargs):
+		context = super(StudentCreateView, self).get_context_data(**kwargs)
+		context['title'] = u"Student registration"
+		return context
+
+	def form_valid(self, form):
+		message = super(StudentCreateView, self).form_valid(form)
+		mess = u'Student {} {} has been successfully added.' .format(self.object.name, self.object.surname)
+		messages.success(self.request, mess)
+		return message
+
+class StudentUpdateView(UpdateView):
+	model = Student
+
+	def get_context_data(self, **kwargs):
+		context = super(StudentUpdateView, self).get_context_data(**kwargs)
+		context['title'] = u"Student info update"
+		return context
+
+	def get_success_url(self):
+		return reverse_lazy('students:edit', kwargs={'pk': self.object.pk})
+	def form_valid(self, form):
+		message = super(StudentUpdateView, self).form_valid(form)
+		messages.success(self.request, u'Info on the student has been sucessfully changed.')
+		return message
+
+
+class StudentDeleteView(DeleteView):
+	model = Student
+	success_url = reverse_lazy('students:list_view')
+
+	def get_context_data(self, **kwargs):
+		context = super(StudentDeleteView, self).get_context_data(**kwargs)
+		context['title'] = u"Student info suppression"
+		context['full_name'] = self.object.name + ' ' + self.object.surname
+		return context
+
+	def delete(self, request, *args, **kwargs):
+		message = super(StudentDeleteView, self).delete(request, *args, **kwargs)
+		mess = u'Info on {} {} has been sucessfully deleted.' .format(self.object.name, self.object.surname)
+		messages.success(self.request, mess)
+		return message
