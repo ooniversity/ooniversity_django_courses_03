@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Pybursa Courses detail{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block course %}?course_id={{ course.id }}{% endblock %}
@@ -25,8 +25,8 @@
       <h2>{{ course.description|truncatechars:32 }}</h2>
     <div class="container">
       <div class="col-md-12">
-      {% include "include/instructors_include.html" with block_title="Учитель" instructor=coach %}
-      {% include "include/instructors_include.html" with block_title="Ассистент" instructor=assistant %}  
+      {% include "include/instructors_include.html" with block_title="Учитель" instructor=course.coach %}
+      {% include "include/instructors_include.html" with block_title="Ассистент" instructor=course.assistant %}  
       </div>
     </div>
   <h3>План Курса</h3>

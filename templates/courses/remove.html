@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}{{ course.name }} Remove Form{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block content %}
@@ -15,7 +15,7 @@
     <div class="jumbotron">
   <div class="container">
     <div class="col-md-12">
-      <h3>Курс {{ message }} будет удален.</h3>
+      <h3>Курс {{ course.name }} будет удален.</h3>
       <form method="post">
         {% csrf_token %}
         <input type="submit" value="Удалить">
