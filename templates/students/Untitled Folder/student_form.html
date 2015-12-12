@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}Add{% endblock title %}
+
+
+{% block title %}Add Student{% endblock title %}
+
+
 {% block students_is_active %}active{% endblock students_is_active %}
-{% block carousel %}{% endblock carousel %}
-{% block content %}
-	<div>
+
+
+{% block content %}      
+	<div class="container students">
   	<div class="page-header">
       <h1 class="descr">Создание нового студента</h1>
 			<div class="jumbotron">
@@ -18,4 +23,4 @@
       </div>
     </div>
   </div>
-{% endblock content %}
+{% endblock content %} 
