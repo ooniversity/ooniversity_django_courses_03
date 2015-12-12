@@ -7,7 +7,7 @@
 {% block title %}PyBursa: Список студентов{% endblock title%}
 
 
-{% block nav_class_object %}active{% endblock %}
+{% block nav_class_student %}active{% endblock %}
 
 
 {% block content %}
@@ -17,7 +17,7 @@
 
 
 <br>
-<a href="{% url 'objects:add' %}" class="btn btn-success" role="button">
+<a href="{% url 'students:add' %}" class="btn btn-success" role="button">
     <span class="glyphicon glyphicon-plus"></span> Добавить студента</a>
 
 <div class="page-header">
@@ -36,22 +36,22 @@
         </tr>
         </thead>
         <tbody>
-        {% if context %}
-        {% for object in context %}
+        {% if object_list %}
+        {% for student in object_list %}
         <tr>
-            <td>{{ object.id }}</td>
-            <td><a href="{% url 'objects:detail' object.id %}">{{ object.surname }} {{ object.name }}</a></td>
-            <td>{{ object.address }}</td>
-            <td>{{ object.skype }}</td>
+            <td>{{ student.id }}</td>
+            <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
+            <td>{{ student.address }}</td>
+            <td>{{ student.skype }}</td>
             <td>
-                {% for course in object.courses.all %}
+                {% for course in student.courses.all %}
                 <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
                 {% endfor %}
             </td>
             <td>
-                <a href="{% url 'objects:edit' object.id %}" class="btn btn-warning btn-xs" role="button">
+                <a href="{% url 'students:edit' student.id %}" class="btn btn-warning btn-xs" role="button">
                     <span class="glyphicon glyphicon-pencil"></span> Изменить</a>
-                <a href="{% url 'objects:remove' object.id%}" class="btn btn-danger btn-xs" role="button">
+                <a href="{% url 'students:remove' student.id%}" class="btn btn-danger btn-xs" role="button">
                     <span class="glyphicon glyphicon-remove"></span> Удалить  </a>
             </td>
         </tr>
