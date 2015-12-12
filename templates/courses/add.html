@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 
+<<<<<<< HEAD
 {% block title %}{{ title }}{% endblock title %}
 
 
@@ -15,4 +16,18 @@
 	    <input type="submit" value="Add" />
 	</form>
 </div>	
+=======
+{% block title %}Courses (add new){% endblock title %}
+
+
+{% block content %}
+<h2>New course creation</h2>
+<form method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Add" />
+</form>
+>>>>>>> 1ebe173911795743f7ef0495cc1b0aa19c8b3fa2
 {% endblock content %}

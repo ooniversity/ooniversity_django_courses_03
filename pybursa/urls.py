@@ -27,7 +27,11 @@ urlpatterns = patterns('',
 >>>>>>> bd2f98b40b2d5840ac070cb0260c3db1ea6b1992
     url(r'^$', views.index, name='index'),
     url(r'^quadratic/', include('quadratic.urls', namespace="quadratic")),
+<<<<<<< HEAD
     url(r'^contact/', views.contact, name='contact'),
+=======
+    url(r'^contact/$', views.contact, name='contact'),
+>>>>>>> 1ebe173911795743f7ef0495cc1b0aa19c8b3fa2
     url(r'^student_list/$', views.student_list, name='student_list'),
     url(r'^student_detail/$', views.student_detail, name='student_detail'),
 <<<<<<< HEAD

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}Students{% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+    <img src="{% static 'images/pic3.jpg' %}" width="100px" height="100px"> 
+    <br>
+    <h2> {{ student_detail.full_name }} <br>
+    <small>student's card </small></h2>
+    <br>
+      <div class="table-responsive">
+        <table class="table table-hover">
+                <tbody>
+                    <tr>
+                       <td><strong>Birthday</strong></td>
+                       <td>{{ student_detail.date_of_birth }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Address</strong></td>
+                       <td>{{ student_detail.address }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>E-mail</strong></td>
+                       <td>{{ student_detail.email }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Skype</strong></td>
+                       <td>{{ student_detail.skype }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Phone</strong></td>
+                       <td>{{ student_detail.phone }}</td>                
+                    </tr>
+                    <tr>
+                       <td><strong>Assigned courses</strong></td>
+                       <td>
+                           {% for course in student_detail.courses.all %}
+                                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                           {% endfor %}
+                        </td>                
+                    </tr>
+                  </tbody>
+             </table>     
+        </div>
+
+{% endblock content %}    
