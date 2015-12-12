@@ -2,7 +2,6 @@ from django.contrib import admin
 import models
 
 class LessonInline(admin.TabularInline):
-    extra = 0
     model = models.Lesson
 
 class CourseAdmin(admin.ModelAdmin):
@@ -11,4 +10,4 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = ('name', 'short_description')
 
 admin.site.register(models.Course, CourseAdmin)
-admin.site.register(models.Lesson)    
+admin.site.register(models.Lesson)
