@@ -13,13 +13,7 @@
 {% block content %}
     <h1>{{ title }}</h1>
     <hr>
-    {% if messages %}
-        <div class="alert alert-success" role="alert">
-          {% for message in messages %}
-            {{ message }}
-          {% endfor %}
-          </div>
-        {% endif %}
+    
     <form method="post">{% csrf_token %}
         {{ form.as_p }}
         <input type="submit" class="btn btn-primary" value="Save">

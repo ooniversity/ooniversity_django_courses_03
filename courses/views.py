@@ -2,42 +2,34 @@ from django.shortcuts import render, redirect
 from courses.models import *
 from courses.forms import *
 from django.views.generic.edit import *
-from django.core.urlresolvers import reverse_lazy, reverse
+from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
+from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 
 
-
-
-# Create your views here.
 
 class CourseDetailView(DetailView):
     model = Course
-    context_object_name = 'course'
+    fields = '__all__'
     template_name = 'courses/detail.html'
+    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
-        context['lessons'] = Lesson.objects.filter(course=self.object.pk)
-        context['coach'] = self.object.coach.full_name()
-        context['assistant'] = self.object.assistant.full_name()
-        context['coach_id'] = self.object.coach.id
-        context['assistant_id'] = self.object.assistant.id
-        context['coach_desc'] = self.object.coach.description
-        context['assistant_desc'] = self.object.assistant.description
-        context['page_title'] = '%s course detail' % (self.object)
+        context['lessons'] = Lesson.objects.filter(course=self.get_object().id)
         return context
 
 
 class CourseCreateView(CreateView):
     model = Course
+    fields = '__all__'
+
     context_object_name = 'course'
     template_name = 'courses/add.html'
 
     def get_context_data(self, **kwargs):
         context = super(CourseCreateView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Course creation'
+        context['title'] = 'Course creation'
         return context
 
     def get_success_url(self):
@@ -48,13 +40,15 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
+    fields = '__all__'
+
     context_object_name = 'course'
     template_name = 'courses/edit.html'
     form_class = CourseModelForm
 
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Course update'
+        context['title'] = 'Course update'
         return context
 
     def get_success_url(self):
@@ -65,12 +59,14 @@ class CourseUpdateView(UpdateView):
 
 class CourseDeleteView(DeleteView):
     model = Course
+    fields = '__all__'
+
     context_object_name = 'course'
     template_name = 'courses/remove.html'
 
     def get_context_data(self, **kwargs):
         context = super(CourseDeleteView, self).get_context_data(**kwargs)
-        context['page_title'] = 'Course deletion'
+        context['title'] = 'Course deletion'
         return context
 
     def get_success_url(self):
@@ -86,9 +82,11 @@ def add_lesson(request, pk):
             lesson_add = form.save()
             messages.success(request,
                     'Lesson %s has been successfully added.'% (lesson_add.subject))
+            form.save()
+            messages.success(request, 'Lesson %s has been successfully added.' % (form.cleaned_data['subject']))
             return redirect('courses:detail', pk)
     else:
         form = LessonModelForm(initial={'course': pk})
 
-    data = {'form': form}
-    return render(request, os.path.join('courses', 'add_lesson.html'), data)
+    context = {'form': form}
+    return render(request, os.path.join('courses', 'add_lesson.html'), context)

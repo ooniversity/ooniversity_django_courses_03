@@ -4,18 +4,19 @@
 {% load staticfiles %}
 
 
-{% block title %}Students{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block navbar_button_3 %}active{% endblock navbar_button_3 %}
 
-
-{% block content %}
+     
+{% block content %}    
     <div class="container theme-showcase">
         <div class="jumbotron">
           <h2>{{ student.name }} {{ student.surname }}</h2>
         </div>
       <table class="table table-striped table table-bordered">
+        <thead>
         <tr>
           <th>Дата рождения</th>
           <th>Адрес</th>
@@ -36,7 +37,8 @@
           {% endfor %}
           </td>
         </tr>
+        </thead>
       </table>
     </div>
-    {% include "include/footer_include.html" %}
+    {% include "include/footer_include.html" %} 
 {% endblock content %}

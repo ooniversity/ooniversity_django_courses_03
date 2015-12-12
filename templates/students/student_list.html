@@ -15,13 +15,7 @@
         <h2 class="descr">ITBursa</h2>
     </div>
     
-    {% if messages %}
-        <div class="alert alert-success" role="alert">
-        {% for message in messages %}
-          {{ message }}
-        {% endfor %}
-        </div>
-    {% endif %}
+
     <div class="stud-btn">
         <a href="{% url 'students:add' %}"><button type="button" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus"></span>Add</button></a>
