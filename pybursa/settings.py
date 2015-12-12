@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'quadratic',
     'courses',
     'students',
-    'coaches'
+    'coaches',
+    'feedbacks'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,7 +82,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+ADMINS = (("simon.j", "1fornothing1forme@gmail.com"),)
 
+EMAIL_HOST = 'localhost'
+
+EMAIL_PORT = 587
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
