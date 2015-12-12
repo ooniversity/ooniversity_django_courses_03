@@ -10,7 +10,7 @@
 {% block main_content %}
 <div class="container">
 <div class="page-header">
-  <h1>{{ students.surname }} {{ students.name }}</h1>
+  <h1>{{ student.surname }} {{ student.name }}</h1>
 </div>
 </div>
 
@@ -23,26 +23,26 @@
   <div class="table-responsive">
   <table class="table table-hover table-bordered">
     <tr>
-      <td>Дата рождения</td><td>{{ students.date_of_birth }}</td>
+      <td>Дата рождения</td><td>{{ student.date_of_birth }}</td>
     </tr>
     <tr>
     <tr>
-      <td>Адрес</td><td>{{ students.address }}</td>
+      <td>Адрес</td><td>{{ student.address }}</td>
     </tr>
     <tr>
-      <td>Почта</td><td>{{ students.email }}</td>
+      <td>Почта</td><td>{{ student.email }}</td>
     </tr>
     <tr>
-      <td>Skype</td><td>{{ students.skype }}</td>
+      <td>Skype</td><td>{{ student.skype }}</td>
     </tr>
     <tr>
-      <td>Телефон</td><td>{{ students.phone }}</td>
+      <td>Телефон</td><td>{{ student.phone }}</td>
     </tr>
           
     <tr>
       <td>Курсы</td>
       <td>
-        {% for course in students.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+        {% for course in student.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
         {% endfor %}</td>
           
           </tr>
