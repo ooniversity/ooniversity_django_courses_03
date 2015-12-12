@@ -13,17 +13,11 @@
 {% block content %}
   <div class="container theme-showcase" role="main">
 
-      {% if messages %}
-            {% for message in messages %}
-            <p>{{ message }}</p>
-            {% endfor %}
-      {% endif %}
+    <h2>Студент {{ name }} {{ surname }} будет удален</h2>
 
-    <h2>Edit Informations About Student</h2>
       <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Change" class="btn btn-primary"/>
+        <input type="submit" value="Delete" class="btn btn-primary"/>
       </form>
   </div>
 {% endblock content %}

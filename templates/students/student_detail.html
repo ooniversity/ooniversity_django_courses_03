@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa Student{% endblock title %}
+
+
+{% block active_students %}active{% endblock active_students %}
+
+
+{% block content %}
+
+
+  <div class="learn-more">
+	  <div class="container">
+	    <div class="row">
+    	  <h1>PyBursa Students</h1>
+    	</div>
+    	  <h4>This is a student who are studying on this course</h4>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <h1 class="course">{{ student.name }} {{ student.surname }}</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Birthd Date</td>
+                    <td>{{ student.date_of_birth }}</td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>{{ student.address }}</td>
+                  </tr>
+                  <tr>
+                    <td>Email</td>
+                    <td>{{ student.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>Skype</td>
+                    <td>{{ student.skype }}</td>
+                  </tr>
+                  <tr>
+                    <td>Phone</td>
+                    <td>{{ student.phone }}</td>
+                  </tr>
+                  <tr>
+                    <td>Courses</td>
+                    <td>
+                      {% for k in student.courses.all %}<a href="{% url 'courses:detail' k.id %}">{{ k.name }}</a><br>
+                      {% endfor %}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+{% include "include/include.html" %}
+
+{% endblock content %}
