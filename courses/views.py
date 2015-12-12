@@ -1,9 +1,40 @@
 #-*-coding: utf-8-*-
 from django.shortcuts import render,  get_object_or_404, redirect
 from django.contrib import messages
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy, reverse
+
 import models
 from forms import *
 #import pybursa.utils
+
+class CourseDetailView(DetailView):
+    model = Course
+
+class CourseCreateView(CreateView):
+    model = Course
+    success_url = reverse_lazy('index')
+    def get_context_data(self, **kwargs):
+        context = super(CourseCreateView, self).get_context_data(**kwargs)
+        context['title'] = u"Course creation"
+        return context
+
+class CourseUpdateView(UpdateView):
+    model = Course
+    def get_context_data(self, **kwargs):
+        context = super(CourseUpdateView, self).get_context_data(**kwargs)
+        context['title'] = u"Course update"
+        return context
+    success_url = reverse_lazy('edit', pk=course__id)
+
+class CourseDeleteView(DeleteView):
+    model = Course
+    def get_context_data(self, **kwargs):
+        context = super(CourseDeleteView, self).get_context_data(**kwargs)
+        context['title'] = u"Course deletion"
+        return context
+    # success_url = reverse_lazy('index')
 
 def view_item(request, obj_id, obj_class):
     class_name = obj_class.__name__.lower()
