@@ -14,6 +14,8 @@ from django.core.urlresolvers import reverse_lazy
 
 class CourseDetailView(DetailView):
     model = Course
+    template_name = 'courses/course_detail.html'
+    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
@@ -27,6 +29,8 @@ class CourseDetailView(DetailView):
 
 class CourseCreateView(CreateView):
     model = Course
+    template_name = 'courses/course_create_edit.html'
+    context_object_name = 'course'
     success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
@@ -43,6 +47,8 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
+    template_name = 'courses/course_create_edit.html'
+    context_object_name = 'course'
     # redirect to the same edit page is implemented in models.get_absolute_url()
 
     def get_context_data(self, **kwargs):
