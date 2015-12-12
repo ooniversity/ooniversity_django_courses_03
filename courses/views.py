@@ -2,8 +2,8 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
-from django.views.generic.detail import DetailView 
-from django.views.generic.list import ListView 
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
@@ -23,7 +23,7 @@ class CourseCreateView(CreateView):
 
     def form_valid(self, form):
         name = form.cleaned_data['name']
-        message = 'Course %(name)s has been successfully added.' % {'name': name} 
+        message = 'Course %(name)s has been successfully added.' % {'name': name}
         messages.success(self.request, message)
         return super(CourseCreateView, self).form_valid(form)
 
@@ -51,6 +51,7 @@ class CourseUpdateView(UpdateView):
     template_name = 'courses/edit.html'
     context_object_name = 'course'
 
+
 class CourseDeleteView(DeleteView):
     def get_context_data(self, **kwargs):
         context = super(CourseDeleteView, self).get_context_data(**kwargs)
@@ -60,7 +61,7 @@ class CourseDeleteView(DeleteView):
     def delete(self, request, *args, **kwargs):
         course = self.get_object()
         name = course.name
-        message = "Course %(name)s has been deleted." % {'name': name} 
+        message = "Course %(name)s has been deleted." % {'name': name}
         messages.success(self.request, message)
         return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
@@ -73,7 +74,7 @@ class CourseDeleteView(DeleteView):
 class MixinLessonMessage(object):
     def form_valid(self, form):
         name = form.cleaned_data['subject']
-        message = 'Lesson %(name)s has been successfully added.' % {'name': name} 
+        message = 'Lesson %(name)s has been successfully added.' % {'name': name}
         messages.success(self.request, message)
         return super(MixinLessonMessage, self).form_valid(form)
 
@@ -82,9 +83,7 @@ class LessonCreateView(MixinLessonMessage, CreateView):
     def get_initial(self):
         course_id = self.kwargs['pk']
         course = Course.objects.get(pk=course_id)
-        return {'course': course.id}    
-
-    
+        return {'course': course.id}
 
     model = Lesson
     template_name = 'courses/add_lesson.html'
