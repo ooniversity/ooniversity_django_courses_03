@@ -8,15 +8,23 @@ from django.contrib import messages
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
+from django.core.paginator import Paginator
 
 class StudentListView(ListView):
   model = Student
+  paginate_by = 2
   def get_queryset(self):
     students = super(StudentListView, self).get_queryset()
     course_id = self.request.GET.get('course_id', None)
     if course_id:
       students = students.filter(courses = course_id)
     return students
+  def get_context_data(self, **kwargs):
+    context = super(StudentListView, self).get_context_data(**kwargs)
+    course_id = self.request.GET.get('course_id', None)
+    if course_id:
+      context['course_id'] = course_id
+    return context
  
 class StudentDetailView(DetailView):
   model = Student
