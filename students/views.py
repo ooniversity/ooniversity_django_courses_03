@@ -10,8 +10,6 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 class StudentListView(ListView):
 	model = Student
-	template_name = 'students/list.html'
-	context_object_name = 'students'
 	def get_queryset(self):
 		qs = super(StudentListView, self).get_queryset()
 		course_id = self.request.GET.get('course_id')
@@ -21,7 +19,6 @@ class StudentListView(ListView):
 				
 class StudentDetailView(DetailView):
 	model = Student
-	template_name = 'students/detail.html'
 
 class StudentCreateView(CreateView):
 	model = Student
