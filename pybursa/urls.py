@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from pybursa import views
-from students.views import create
 
 
 urlpatterns = patterns('',
