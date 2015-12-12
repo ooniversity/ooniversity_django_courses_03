@@ -10,9 +10,10 @@
 {% block stud_active %}active{% endblock stud_active %}
 
 
-{%block content%}
+{% block content %}
 <div class="jumbotron">
   <div class="container">
+  <h3>{{title}}</h3>
   {% if messages %}
         <div class="alert alert-success" role="alert">
           {% for message in messages %}
@@ -31,4 +32,4 @@
     </div>
   </div>
 </div>
-{%endblock%}
+{% endblock content %}

@@ -7,6 +7,7 @@ class QuadraticForm(forms.Form):
   b = forms.IntegerField(label="коэффициент b")
   c = forms.IntegerField(label="коэффициент c")
 
+
   def clean_a(self):
         a = self.cleaned_data['a']
         if a == 0:
