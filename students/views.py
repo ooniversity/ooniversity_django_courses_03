@@ -60,7 +60,7 @@ class StudentUpdateView(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
-        context['title'] = "Student info suppression"
+        context['title'] = "Student info update"
         return context
 
     def form_valid(self, form):
