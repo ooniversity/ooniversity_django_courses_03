@@ -24,3 +24,9 @@ class Student(models.Model):
         #"Returns the person's full name."
         return '%s %s' % (self.name, self.surname)
     full_name = property(get_full_name)
+
+    #def get_courses(self):
+        #return self.courses.all().order_by('id').values_list('name')
+        #if self.courses:
+            #return '%s' % " / ".join([courses.name for courses in self.courses.all()])
+            #return courses
