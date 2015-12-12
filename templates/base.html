@@ -38,9 +38,7 @@
         </div>
       </div>
     </nav>
-  	<div class="container theme-showcase">
-      <div class="jumbotron">
-      {% block notice %}
+    {% block notice %}
         {% if messages %}
           <div class="alert alert-success" role="alert">
         {% for message in messages %}
@@ -49,6 +47,9 @@
           </div>
         {% endif %}
     {% endblock notice %}
+
+  	<div class="container theme-showcase">
+      <div class="jumbotron">
       {% block jumbotron %}{% endblock jumbotron %}
       </div>
       {% block content %}{% endblock content %}
