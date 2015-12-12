@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -97,4 +98,10 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+# Variable for feedback 
+# 
+# 
+# 
+ADMINS = (('mutekey', 'kirillushkov@gmail.com'), ('another_one', 'kirillushkov@meta.ua') )
 
