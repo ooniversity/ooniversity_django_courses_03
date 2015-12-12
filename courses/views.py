@@ -9,6 +9,7 @@ from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteVi
 
 class CourseDetailView(DetailView):
   model = Course
+  fields = '__all__'
   template_name = 'courses/detail.html'
   context_object_name = 'item'
   def get_context_data(self, **kwargs):
@@ -21,6 +22,7 @@ class CourseDetailView(DetailView):
 
 class CourseCreateView(CreateView):
   model = Course
+  fields = '__all__'
   template_name = 'courses/add.html'
   success_url = reverse_lazy('index')
   def form_valid(self, form):
@@ -71,4 +73,5 @@ def add_lesson(request, course_id):
 			return redirect('courses:detail', course_id)
 	else:
 		form = LessonModelForm(initial={'course': course_id})
+    
 	return render(request, 'courses/add_lesson.html', {'form':form})
