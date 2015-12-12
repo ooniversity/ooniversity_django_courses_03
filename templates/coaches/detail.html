@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}iBursa {{ coach.get_name }} {{ coach.get_surname }}{% endblock title %}
+
+
+{% block content %}
+    <div class="jumbotron">
+      <h1 class="shad">{{ coach.get_name }} {{ coach.get_surname }}</h1>
+      <h2></h2>
+      <hr>
+      <div class="StudentTable">
+      <table class="table-hover">
+        <tr>
+          <td>
+            Дата рождения
+          </td>
+          <td>
+            {{ coach.date_of_birth|date:"d F, Y" }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Адрес
+          </td>
+          <td>
+            {{ coach.address }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Почта
+          </td>
+          <td>
+            {{ coach.get_email }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            логин skype
+          </td>
+          <td>
+            {{ coach.skype }}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            телефон
+          </td>
+          <td>
+            {{ coach.phone }}
+          </td>
+        </tr>
+
+        {% include "include/course_list_include.html" with name="учитель" is_position=is_coach %}
+        {% include "include/course_list_include.html" with name="ассистент" is_position=is_assistant %}
+
+      </table>
+    </div>
+    </div>
+  </div>
+{% endblock content %}

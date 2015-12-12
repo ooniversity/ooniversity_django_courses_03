@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+
+{% block title %}Students (edit){% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+<h2>{{ title }}</h2>
+<br>
+{% include "include/message_include.html" %}
+<br>
+{% include "include/form_include.html" with action="Change" %}
+{% endblock content %}

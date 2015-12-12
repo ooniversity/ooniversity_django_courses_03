@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}iBursa {{ student.name }} {{ student.surname }}{% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+    <h2>{{ student.name }} {{ student.surname }}<br>
+    <small>информация о студенте</small></h2>
+    <br>
+      <div class="StudentTable">
+        <table class="table-hover">
+                <tbody>
+                    <tr>
+                       <td><b>дата рождения</b></td>
+                       <td>{{ student.date_of_birth }}</td>
+                    </tr>
+                    <tr>
+                       <td><b>адрес</b></td>
+                       <td>{{ student.address }}</td>
+                    </tr>
+                    <tr>
+                       <td><b>почта</b></td>
+                       <td>{{ student.email }}</td>
+                    </tr>
+                    <tr>
+                       <td><b>логин Skype</b></td>
+                       <td>{{ student.skype }}</td>
+                    </tr>
+                    <tr>
+                       <td><b>телефон</b></td>
+                       <td>{{ student.phone }}</td>
+                    </tr>
+                    <tr>
+                       <td><b>курсы</b></td>
+                       <td>
+                           {% for course in student.courses.all %}
+                                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                           {% endfor %}
+                        </td>
+                    </tr>
+                  </tbody>
+             </table>
+        </div>
+      </div>
+{% endblock content %}

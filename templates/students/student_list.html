@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}iBursa список студентов{% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+  <div class="jumbotron">
+    <h2><b>Список студентов</b></h2>
+      <br>
+    {% if student_list %}
+      {% include "include/message_include.html" %}
+      <div class="StudentTable">
+        <table class="table-hover">
+              <tr>
+                <td><b>#</b></td>
+                <td><b>Имя</b></td>
+                <td><b>Адрес</b></td>
+                <td><b>Skype</b></td>
+                <td><b>Курсы</b></td>
+                <td></td>
+              </tr>
+              {% for student in student_list %}
+              <tr>
+                <td>{{ student.id }} </td>
+                <td><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.skype }}</td>
+                <td>
+                   {% for course in student.courses.all %}
+                        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                   {% endfor %}
+                </td>
+                <td>
+                <a href="{% url 'students:edit' student.id %}">
+                    <button type="button">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true">edit</span></button>
+                </a>
+                <a href="{% url 'students:remove' student.id %}">
+                    <button type="button">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true">delete</span></button>
+                </a>
+                </td>
+              </tr>
+              {% endfor %}
+              {% else %}
+              List is empty :(
+              {% endif %}
+           </table>
+      </div>
+      <br>
+      <a href="{% url 'students:add' %}"><b>
+      <button type="button">Добавить</button>
+      </b></a>
+    </div>
+{% endblock content %}

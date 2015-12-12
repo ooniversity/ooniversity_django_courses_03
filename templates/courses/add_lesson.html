@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+
+{% block title %}iBursa Добавить урок{% endblock title %}
+
+
+{% block content %}
+<div class="jumbotron">
+<h2>New lesson creation</h2>
+{% include "include/form_include.html" with action="Add" %}
+</div>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block title %}Students (edit){% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+<div class="jumbotron">
+<h2>Student's data edit</h2>
+<br>
+{% include "include/message_include.html" %}
+<br>
+{% include "include/form_include.html" with action="Change" %}
+</div>
+{% endblock content %}

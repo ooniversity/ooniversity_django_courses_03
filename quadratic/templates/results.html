@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+
+{% block title %}Quadratic input data{% endblock title %}
+
+
+{% block nav_class_contacts %}active{% endblock nav_class_contacts %}
+
+
+{% block content %}
+<div class="jumbotron">
+
+
+<h2>Квадратное уравнение</h2>
+<form method="get">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="решить" />
+</form>
+{% if discr_msg %}
+  <br>Дискриминант: {{ discr }}
+  <br>
+  {{ discr_msg }}
+{% endif %}
+
+</div>
+{% endblock content %}

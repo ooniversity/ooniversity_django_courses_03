@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    курсы {{ name }}
+  </td>
+  <td>
+    {% for i in is_position %}
+    <a href="{% url 'courses:detail' i.id%}"> {{ i.name }}</a> студенты <a href="{% url 'students:list_view'%}?course_id={{ i.id }}"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span></a><br>
+    {% endfor %}
+  </td>
+</tr>
