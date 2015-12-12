@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy, reverse
-
 import models
 from forms import *
 #import pybursa.utils
@@ -16,24 +15,24 @@ class CourseDetailView(DetailView):
 
 class CourseCreateView(CreateView):
     model = Course
-    success_url = reverse_lazy('index')
-    template_name = 'courses/add.html'
-    context_object_name = 'course'
     def get_context_data(self, **kwargs):
         context = super(CourseCreateView, self).get_context_data(**kwargs)
         context['title'] = u"Course creation"
         return context
-        
+    success_url = reverse_lazy('index')
+    template_name = 'courses/add.html'
+    context_object_name = 'course'
+
 
 class CourseUpdateView(UpdateView):
     model = Course
-    template_name = 'courses/edit.html'
-    success_url = reverse_lazy('courses:edit', args=(object.pk,))
-    context_object_name = 'course'
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
         context['title'] = u"Course update"
         return context
+    template_name = 'courses/edit.html'
+    success_url = reverse_lazy('courses:edit', args=(object.pk,))
+    context_object_name = 'course'
 
 class CourseDeleteView(DeleteView):
     model = Course
