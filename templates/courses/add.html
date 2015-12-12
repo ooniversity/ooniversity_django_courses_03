@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}IT Courses - Create course{% endblock title %}
+{% block title %}IT Courses - {{ title }}{% endblock title %}
 
 
 {% block nav_class_index %}active{% endblock %}
@@ -10,11 +10,18 @@
 {% block content %}
 <div class="jumbotron">
   <div class="container">
-    <h1>Создание нового курса</h1>
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>{{ title }}</h1>
     <form method="post">
       {% csrf_token %}
-      {{ course_form.as_p }}
-      <input type="submit" value="Создать" />
+      {{ form.as_p }}
+      <input type="submit" value="Сохранить" />
     </form>
   </div>
 </div>
