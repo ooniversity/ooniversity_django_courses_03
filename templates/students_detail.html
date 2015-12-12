@@ -52,30 +52,45 @@
    		<td>35</td>
     </tr>
   </table>
-
-      <table>
-      <thead>
-      <tr>
-      <th>Theme</th>
-      <th>Week Number</th>
-      <th>Control Type</th>
-      <th>Problem Task Number</th>
-      </tr>
-      </thead>
-      <tbody>
-      {% include "include/list_include.html" %}
-      <tr>
-      <td>Python for Beginners</td>
-      <td>1</td>
-      <td>Practice Lesson</td>
-      <td>Problem Task #2</td>
-      </tr>
-      <tr>
-      <td>Handling Exceptions</td>
-      <td>2</td>
-      <td>Tests</td>
-      <td>Problem Task #1</td>
-      </tr>
-      </tbody>
-      </table>
+<h3> Student's performance:</h3>
+       <table>
+            <thead>
+              <tr>
+                <td>Cource</td>
+                <td>Week</td>
+                <td>Control Type</td>
+                <td>Score, %</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan=3>Py Bursa 002</td>
+                <td rowspan=3>Lesson 01</td>
+                <td>Tests</td>
+                <td>100%</td>                
+              </tr>
+              <tr>
+                <td>Problem Task #1</td>
+                <td>90%</td>                
+              </tr>
+              <tr>
+                <td>Problem Task #2</td>
+                <td>80%</td>                
+              </tr>
+              <tr>
+                <td rowspan=3>Py Bursa 002</td>
+                <td rowspan=3>Lesson 02</td>
+                <td>Tests</td>
+                <td>100%</td>                
+              </tr>
+              <tr>
+                <td>Problem Task #1</td>
+                <td>90%</td>                
+              </tr>
+              <tr>
+                <td>Problem Task #2</td>
+                <td>80%</td>                
+              </tr>
+            </tbody>
+        </table>
 	{% endblock content %}

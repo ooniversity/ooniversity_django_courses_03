@@ -29,13 +29,13 @@
                             <tr>
                                <td><strong>Teacher in:</strong></td>
                                <td>{% for teacher in teacher_in %}
-                                      <a href="{% url 'courses:detail' teacher.id %}">{{ teacher.name }}</a> students list: <a href="{% url 'students:list_view' %}?course_id={{ teacher.id }}"> </a> <br>
+                                      <a href="{% url 'courses:detail' teacher.id %}">{{ teacher.name }}</a> students list: <a href="{% url 'students:list_view' %}?course_id={{ teacher.id }}"><span aria-hidden="true"></span> </a> <br>
                                    {% endfor %}</td>                
                             </tr>
                             <tr>
                                <td><strong>Assistant in:</strong></td>
                                <td>{% for assistant in assistant_in %}
-                                      <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a> students list: <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"> </a> <br>
+                                      <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a> students list: <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"><span aria-hidden="true"></span> </a> <br>
                                     {% endfor %}</td>                
                             </tr>
                           </tbody>
