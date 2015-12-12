@@ -4,6 +4,7 @@ from students.models import Student
 #from courses.models import Course
 from students import forms
 from django.contrib import messages
+from django.core.urlresolvers import reverse_lazy
 # Create your views here.
 
 
@@ -13,18 +14,55 @@ class StudentDetailView(generic.DetailView):
 
 
 class StudentListView(generic.ListView):
-    model = Student
+    #model = Student
+    queryset = Student.objects.all()
     ##template_name = 'students/list.html'
     ##context_object_name = 'student_list'
 
     def get_queryset(self):
-        qs = super(StudentListView, self).get_queryset()
+        queryset = super(StudentListView, self).get_queryset()
         students_course = self.request.GET
         if 'course_id' in students_course:
-            qs = qs.filter(courses=students_course['course_id'])
-        return qs
+            queryset = queryset.filter(courses=students_course['course_id'])
+        return queryset
         #return Student.objects.all()
     #queryset = Student.objects.prefetch_related('courses')
+
+
+class StudentCreateView(generic.CreateView):
+    model = Student
+    #template_name = 'students/add.html'
+    success_url = reverse_lazy('students:list')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentCreateView, self).get_context_data(**kwargs)
+        context['title'] = "Student registration"
+        return context
+
+
+class StudentUpdateView(generic.UpdateView):
+    model = Student
+    #template_name = 'students/add.html'
+
+    def get_success_url(self, **kwargs):
+        return reverse_lazy('students:edit', args=(self.object.pk,))
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentUpdateView, self).get_context_data(**kwargs)
+        context['title'] = "Student info update"
+        return context
+
+    #def form_valid(self, form):
+
+
+class StudentDeleteView(generic.DeleteView):
+    model = Student
+    success_url = reverse_lazy('students:list')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentDeleteView, self).get_context_data(**kwargs)
+        context['title'] = "Student info suppression"
+        return context
 
 def create(request):
     #print request.POST
