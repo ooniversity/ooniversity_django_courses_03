@@ -27,9 +27,9 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'localhost'
-EMAIL_PORT = '25'
-# EMAIL_HOST_USER = 'user@gmail.com'
-# EMAIL_HOST_PASSWORD = 'P@$$W0r|)'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = 'user@gmail.com'
+EMAIL_HOST_PASSWORD = 'P@$$W0r|)'
 ADMINS = (('admin', 'admin@example.com'), ('stalker', 'stalker@example.com'), ('user', 'user@example.com'))
 
 # Application definition
