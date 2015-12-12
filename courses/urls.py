@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
-from courses import views
 from courses.models import Course
+from courses import views
 
 urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/$', views.CourseDetailView.as_view(), name='detail'),

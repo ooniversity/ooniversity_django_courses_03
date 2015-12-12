@@ -4,6 +4,21 @@
 {% block link_to_st %}?course_id={{ course.id }}{% endblock link_to_st %}
 {% block content %}
 
+  <div class="container students">
+    <div class="page-header">
+      {% include "students/include/messages_include.html" %}
+      <h1 class="descr">{{ course.name }}</h1>
+      <div class="jumbotron">
+        <h3>{{ course.description|truncatechars:32 }}</h3>
+      </div>
+ 		  <hr>
+		  <h1 class="descr">Преподаватели</h1>
+		  <hr>
+
+{% include "courses/include/about_include.html" with block_title="Учитель" instructor=course.coach %}
+
+{% include "courses/include/about_include.html" with block_title="Ассистент" instructor=course.assistant %}
+
 			<hr>
 			<h1 class="descr">План курса</h1>
 			<hr>

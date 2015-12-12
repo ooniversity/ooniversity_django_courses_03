@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}Add new course{% endblock title %}
+{% block title %}Add{% endblock title %}
 {% block index_is_active %}active{% endblock index_is_active %}
 {% block content %}
-	<div class="container students">
-  	<div class="page-header">
+  <div>
+    <div class="page-header">
       <h1 class="descr">Создание нового курса</h1>
-			<div class="jumbotron">
-				<form method="post">
-					{% csrf_token %}
-					{{ form.as_p }}
-					<input type="submit" value="Создать" class="btn btn-primary"/>
-				</form>
-      </div>
+      <div class="jumbotron">
+				{{ title }}
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Создать" class="btn btn-primary"/>
+       </form>
+     </div>
     </div>
   </div>
 {% endblock content %}

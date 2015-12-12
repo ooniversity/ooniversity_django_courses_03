@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
-from courses.models import Course, Lesson
-from courses.forms import CourseModelForm, LessonModelForm
+from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from courses.models import Course, Lesson
+from courses.forms import CourseModelForm, LessonModelForm
+
 
 class CourseDetailView(DetailView):
     model = Course
@@ -79,8 +80,4 @@ class CourseDeleteView(DeleteView):
         mess = u'Course {} has been deleted.' .format(self.object.name)
         messages.success(self.request, mess)
         return message
-
-
-
-
 
