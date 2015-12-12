@@ -6,7 +6,7 @@
 {% block nav_class_index %}active{% endblock nav_class_index %}
 
 
-{% block url_student %}{% url 'students:list' %}?course_id={{ course.id }}{% endblock url_student %}
+{% block url_student %}{% url 'students:list_view' %}?course_id={{ course.id }}{% endblock url_student %}
 
 
 {% block content %}
