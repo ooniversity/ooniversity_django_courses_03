@@ -24,9 +24,9 @@ class CourseCreateView(CreateView):
   template_name = 'courses/add.html'
   success_url = reverse_lazy('index')
   def form_valid(self, form):
-    course = form.save()
-    messages.success(self.request, "Course %s has been successfully added." % course.name)
-    return super(CourseCreateView, self).form_valid(form)
+    message_create = super(CourseCreateView, self).form_valid(form)
+    messages.success(self.request, "Course %s has been successfully added." %form.cleaned_data['name'])
+    return message_create
   def get_context_data(self, **kwargs):
     context = super(CourseCreateView, self).get_context_data(**kwargs)
     context['title'] = u"Course creation"
@@ -38,9 +38,9 @@ class CourseUpdateView(UpdateView):
   template_name = 'courses/edit.html'
   success_url = reverse_lazy('index')
   def form_valid(self, form):
-    course = form.save()
-    messages.success(self.request, 'The changes have been saved.')
-    return super(CourseUpdateView, self).form_valid(form)
+    message_update = super(CourseUpdateView, self).form_valid(form)
+    messages.success(self.request, "The changes have been saved.")
+    return message_update
   def get_context_data(self, **kwargs):
     context = super(CourseUpdateView, self).get_context_data(**kwargs)
     context['title'] = u"Course update"
@@ -54,9 +54,12 @@ class CourseDeleteView(DeleteView):
   def get_context_data(self, **kwargs):
     context = super(CourseDeleteView, self).get_context_data(**kwargs)
     course = kwargs['object']
-    messages.success(self.request, "Course %s has been deleted." % course.name)
     context['title'] = "Course deletion"
     return context
+  def delete(self, request, *args, **kwargs):
+    delete_message = super(CourseDeleteView, self).delete(request, *args, **kwargs)
+    messages.success(self.request, "Course %s has been deleted." % self.object.name)
+    return delete_message
 
     
 def add_lesson(request, course_id):
