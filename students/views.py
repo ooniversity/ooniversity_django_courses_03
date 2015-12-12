@@ -1,12 +1,86 @@
 # -*- coding:UTF-8 -*-
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from students.models import Student
 from courses.models import Course
 import students.forms
 from django.contrib import messages
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.core.urlresolvers import reverse_lazy
 
 
+class StudentListView(ListView):
+    model = Student
+    context_object_name = "students_list"
+
+    def get_queryset(self):
+        qs = super(StudentListView, self).get_queryset()
+        course_id = self.request.GET.get('course_id', None)
+        if course_id:
+            qs = qs.filter(courses__id=course_id)
+        return qs
+
+
+class StudentDetailView(DetailView):
+    model = Student
+    # template_name = ""
+    context_object_name = "student_details"
+
+
+class StudentCreateView(CreateView):
+    model = Student
+    success_url = reverse_lazy('students:list_view')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentCreateView, self).get_context_data(**kwargs)
+        context['title'] = u'Student registration'
+        return context
+
+    def form_valid(self, form):
+        name = form.cleaned_data['name']
+        surname = form.cleaned_data['surname']
+        message = u"Student %s %s has been successfully added." % (name, surname)
+        messages.add_message(self.request, messages.SUCCESS, message)
+        return super(StudentCreateView, self).form_valid(form)
+
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    # redirect to the same edit page is implemented in models.get_absolute_url()
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentUpdateView, self).get_context_data(**kwargs)
+        context['title'] = u'Student info update'
+        return context
+
+    def form_valid(self, form):
+        message = u'Info on the student has been sucessfully changed.'  # successfully
+        messages.add_message(self.request, messages.SUCCESS, message)
+        return super(StudentUpdateView, self).form_valid(form)
+
+
+class StudentDeleteView(DeleteView):
+    model = Student
+    success_url = reverse_lazy('students:list_view')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentDeleteView, self).get_context_data(**kwargs)
+        context['title'] = u'Student info suppression'
+        return context
+
+# good solution https://stackoverflow.com/a/25325228
+
+    def delete(self, request, *args, **kwargs):
+        student = self.get_object()
+        message = u"Info on %s has been sucessfully deleted." % student  # successfully
+        messages.success(self.request, message)
+        return super(StudentDeleteView, self).delete(request, *args, **kwargs)
+
+
+# ------ old ----
+'''
 def list_view(request):
     get_course_id = request.GET.get('course_id', None)
     courses_list = Course.objects.all()
@@ -17,11 +91,12 @@ def list_view(request):
 
     return render(request, 'students/list.html', {'students_list': students_list, 'courses_list': courses_list})
 
+# replaced with class
+# def detail(request, pk):
+#    student_details = Student.objects.get(id=pk)
 
-def detail(request, student_id):
-    student_details = Student.objects.get(id=student_id)
+#    return render(request, 'students/detail.html', {'student_details': student_details})
 
-    return render(request, 'students/detail.html', {'student_details': student_details})
 
 
 def create(request):
@@ -52,6 +127,7 @@ def edit(request, student_id):
     return render(request, 'students/edit.html', {'form': form})
 
 
+
 def remove(request, student_id):
     student = Student.objects.get(id=student_id)
     if request.method == "POST":
@@ -59,3 +135,4 @@ def remove(request, student_id):
         messages.success(request, u"Info on %s %s has been successfully deleted." % (student.name, student.surname))
         return redirect('students:list_view')
     return render(request, 'students/remove.html', {'student': student})
+'''
