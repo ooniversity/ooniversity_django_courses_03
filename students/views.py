@@ -8,10 +8,11 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.core.paginator import Paginator
 
 class StudentListView(ListView):
 	model = Student
-
+	paginate_by = 2
 	def get_queryset(self):
 		course_id = self.request.GET.get('course_id', None)
 		if course_id:
@@ -19,6 +20,14 @@ class StudentListView(ListView):
 		else:
 			student = Student.objects.all()
 		return student
+	def get_context_data(self, **kwargs):
+		context = super(StudentListView, self).get_context_data(**kwargs)
+		course_id = self.request.GET.get('course_id', None)
+		if self.request.GET.get('course_id', None):
+			context['course_id'] = "course_id=%s&" % course_id
+		else:
+			context['course_id'] = ""
+		return context
 
 class StudentDetailView(DetailView):
 	model = Student
