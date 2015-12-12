@@ -2,7 +2,6 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
-
 from courses.forms import LessonModelForm
 from courses.models import Course
 
@@ -21,6 +20,7 @@ class CourseDetailView(DetailView):
 
 class CourseCreateView(CreateView):
     model = Course
+    context_object_name = 'course'
     template_name = 'courses/add.html'
     success_url = reverse_lazy('index')
 
@@ -37,6 +37,7 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
+    context_object_name = 'course'
     template_name = 'courses/edit.html'
     success_url = reverse_lazy('index')
 
@@ -52,6 +53,7 @@ class CourseUpdateView(UpdateView):
 
 class CourseDeleteView(DeleteView):
     model = Course
+    context_object_name = 'course'
     template_name = 'courses/remove.html'
     success_url = reverse_lazy('index')
 
