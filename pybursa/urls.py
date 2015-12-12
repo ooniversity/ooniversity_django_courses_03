@@ -4,7 +4,8 @@ from pybursa import views
 from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
-                       url(r'^$', views.index, name='index'),
+                       # url(r'^$', views.index, name='index'),
+                       url(r'^$', views.IndexView.as_view(), name='index'),
                        url(r'^admin/', include(admin.site.urls)),
                        # url(r'contact/', views.contact, name='contact'),
                        # url(r'contact/', views.ContactView.as_view(), name='contact'),
