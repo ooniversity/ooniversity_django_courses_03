@@ -7,7 +7,6 @@ from django.views.generic import CreateView, ListView, DeleteView, DetailView, U
 from django.core.urlresolvers import reverse_lazy
 
 
-
 # Create your views here.
 
 
@@ -17,7 +16,7 @@ class StudentDetailView(DetailView):
 
 class StudentListView(ListView):
     model = Student
-  
+
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
         students = super(StudentListView, self).get_queryset()
@@ -25,7 +24,7 @@ class StudentListView(ListView):
             students = Student.objects.filter(courses=course_id)
         return students
 
-    
+
 class StudentCreateView(CreateView):
     model = Student
     success_url = reverse_lazy('students:list_view')
@@ -44,6 +43,7 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Student
+
     # form_class = StudentModelForm
 
     def get_context_data(self, **kwargs):
@@ -63,13 +63,11 @@ class StudentDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
-        context['title'] = 'Student info suppression'
+        context['title'] = "Student info suppression"
         return context
 
     def delete(self, request, *args, **kwargs):
         student = self.get_object()
-        messages.success(
-            self.request,
-            'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname)
-        )
+        message = 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname)
+        messages.success(self.request, message)
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
