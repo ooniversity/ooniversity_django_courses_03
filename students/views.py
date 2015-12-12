@@ -21,10 +21,8 @@ class StudentListView(ListView):
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
         if course_id and course_id.isdigit():
-            self.paginate_by = None
             return Student.objects.filter(courses=course_id)
 
-        self.paginate_by = 2
         return Student.objects.all()
 
 
