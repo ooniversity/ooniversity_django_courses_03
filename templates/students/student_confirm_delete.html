@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 
-{% block title %}Edit student{% endblock title %}
+{% block title %}Remove student{% endblock title %}
 
 
 {% block content %}
-<h2>Редактирование данных студента</h2>
+<h2>{{ title }}</h2>
 {% if messages %}
   {% for message in messages %}
   <div class="jumbotron">
@@ -15,7 +15,7 @@
 {% endif %}
 <form method="post">
 	{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Изменить" >
+    
+    <input type="submit" value="Удалить" >
 </form>
 {% endblock content %}
