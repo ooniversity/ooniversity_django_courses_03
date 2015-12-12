@@ -25,6 +25,21 @@ class CourseDetailView(DetailView):
         return context
 
 
+class CourseCreateView(CreateView):
+    model = Course
+    success_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseCreateView, self).get_context_data(**kwargs)
+        context['title'] = u'Course creation'
+        return context
+
+    def form_valid(self, form):
+        message = u"Course %s has been sucessfully added." % self.object.name  # successfully
+        messages.success(self.request, message)
+        return super(CourseCreateView, self).delete(request, *args, **kwargs)
+
+
 # ---- old
 
 def detail(request, course_id):
