@@ -2,6 +2,7 @@
 
 from django.db import models
 from coaches.models import Coach
+from django.core.urlresolvers import reverse
 
 
 class Course(models.Model):
@@ -23,3 +24,6 @@ class Lesson(models.Model):
 
     def __unicode__(self):
         return self.subject
+
+    def get_absolute_url(self):
+        return reverse('courses:edit', kwargs={'pk': self.pk})

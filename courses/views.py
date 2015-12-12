@@ -41,6 +41,21 @@ class CourseCreateView(CreateView):
         return super(CourseCreateView, self).form_valid(form)
 
 
+class CourseUpdateView(UpdateView):
+    model = Course
+    # redirect to the same edit page is implemented in models.get_absolute_url()
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseUpdateView, self).get_context_data(**kwargs)
+        context['title'] = u'Course update'
+        return context
+
+    def form_valid(self, form):
+        message = u'The changes have been saved.'
+        messages.success(self.request, message)
+        return super(CourseUpdateView, self).form_valid(form)
+
+
 # ---- old
 
 def detail(request, course_id):
