@@ -29,7 +29,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="row-lg-4">
-		<h2>Popov Ivan</h2>
+		<h2>{{ student_details.name }}</h2>
 			<img src='/static/images/kis.jpg'
         alt="Photo"></p>
 		</div>
@@ -48,11 +48,11 @@
 			 <tbody>
 				<tr>
 					<td>Surname</td>
-					<td>Popov</td>
+					<td>{{ student_details.surname }}</td>
 				</tr>
 				<tr>
 					<td>Name</td>
-					<td>Ivan</td>
+					<td>{{ student_details.name }}</td>
 				</tr>
 				<tr>
 					<td>Patronymic</td>
@@ -64,19 +64,19 @@
 				</tr>
 				<tr>
 					<td>Birth Date</td>
-					<td>11/02/1989</td>
+					<td>{{ student_details.date_of_birth}}</td>
 				</tr>
 				<tr>
 					<td>Adress</td>
-					<td>Ukraine, Knarkov, street 1</td>
+					<td>{{ student_details.address }}</td>
 				</tr>
 				<tr>
 					<td>Email</td>
-					<td>sabaka@gmail.com</td>
+					<td>{{ student_details.email }}</td>
 				</tr>
 				<tr>
 					<td>Skype</td>
-					<td>popov.ivan</td>
+					<td>{{ student_details.skype }}</td>
 				</tr>
 			 </tbody>
 			 </table>
