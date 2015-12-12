@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -10,7 +11,7 @@ from students.forms import StudentModelForm
 # Create your views here.
 class StudentListView(ListView):
     model = Student
-    paginate_by = 2
+    # paginate_by = 2
 
     def get_queryset(self):
         students = super(StudentListView, self).get_queryset()
@@ -22,6 +23,7 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
+
 
 
 class StudentCreateView(CreateView):
