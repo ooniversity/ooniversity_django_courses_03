@@ -76,5 +76,4 @@ def add_lesson(request, course_id):
     else:
         form = LessonModelForm(initial={'course':course_id})
         form.fields['course'].queryset = Course.objects.all()
-    return render(request, 'courses/add_lesson.html', {'form': form})    
-
+    return render(request, 'courses/add_lesson.html', {'form': form})

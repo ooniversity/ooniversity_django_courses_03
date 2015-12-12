@@ -5,7 +5,7 @@
 {% block nav_students %}class="active"{% endblock %}
 
 {% block content %}
-    <h2>{{ student_detail.full_name }}<br>
+    <h2>{{ student.full_name }}<br>
     <small>student's card </small></h2>
     <br>
         <table >
@@ -33,7 +33,7 @@
                     <tr>
                        <td><strong>Assigned courses</strong></td>
                        <td>
-                           {% for course in student_detail.courses.all %}
+                           {% for course in student.courses.all %}
                                 <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
                            {% endfor %}
                         </td>                

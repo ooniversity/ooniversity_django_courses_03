@@ -12,7 +12,6 @@ class Student(models.Model):
     email = models.EmailField(max_length=30)
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=90)
-    phone = models.CharField(default='80-80-80', max_length=30)
     skype = models.CharField(max_length=30)
     courses = models.ManyToManyField(Course)
     
