@@ -37,10 +37,10 @@ class StudentCreateView(CreateView):
         return context
 
     def form_valid(self, form):
-        self.object = form.save()
-        message = 'Student %s %s has been successfully added.' %(form['name'].value(), form['surname'].value())
-        messages.success(self.request, message)
-        return super(StudentCreateView, self).form_valid(form)
+        message = super(StudentCreateView, self).form_valid(form)
+        mess = 'Student %s %s has been successfully added.' %(form['name'].value(), form['surname'].value())
+        messages.success(self.request, mess)
+        return message
 
 
 class StudentUpdateView(UpdateView):
@@ -55,10 +55,10 @@ class StudentUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        self.object = form.save()
-        message = "Info on the student has been sucessfully changed."
-        messages.success(self.request, message)
-        return super(StudentUpdateView, self).form_valid(form)
+        message = super(StudentUpdateView, self).form_valid(form)
+        mess = "Info on the student has been sucessfully changed."
+        messages.success(self.request, mess)
+        return message
 
 class StudentDeleteView(DeleteView ):
 
