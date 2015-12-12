@@ -8,6 +8,8 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView   
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 class StudentUpdateView(UpdateView):
     model = Student
@@ -51,15 +53,16 @@ class StudentCreateView(CreateView):
         return super(StudentCreateView, self).form_valid(form)
 
 class StudentListView(ListView):
-      model = Student
-      
-      def get_queryset(self):
-          qs = super(StudentListView, self).get_queryset()
-          course_id = self.request.GET.get('course_id', None)
-          if course_id:
-              qs = qs.filter(courses__id=course_id)
-          return qs
-
+    model = Student
+    paginate_by = 2
+    
+    
+    def get_queryset(self):
+        qs = super(StudentListView, self).get_queryset()
+        course_id = self.request.GET.get('course_id', None)
+        if course_id:
+            qs = qs.filter(courses__id=course_id)
+        return qs
 
 class StudentDetailView(DetailView):
     model = Student
