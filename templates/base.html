@@ -17,7 +17,6 @@
             <li {% block nav_contacts %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
             <li {% block nav_students %}{% endblock %}>
             <a href="{% url 'students:list_view' %}{% block nav_course_students %}{% endblock %}">Students</a></li>
-            <li {% block nav_feedback %}{% endblock %}><a href="{% url 'feedback' %}">Feedback</a></li>
           </ul>
 
     {% block content %}{% endblock content %}
