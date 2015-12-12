@@ -15,8 +15,9 @@
 
 {% block content %}
 
+        <h1>{{ title }}</h1>
         <div class="alert alert-danger" role=alert>
-            <strong>{{ err_message }}</strong>
+            <p>Are you sure you want to delete "{{ object }}"?</p>
         </div>
 
         <form method="post">
