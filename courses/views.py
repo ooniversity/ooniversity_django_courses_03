@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
-from .models import Course
+from .models import Course, Lesson
 from coaches.models import Coach
 from courses.forms import LessonModelForm
 from django.contrib import messages
@@ -19,6 +19,7 @@ class CourseDetailView(DetailView):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['title'] = context['course'].name
         course_id = context['course'].id
+        context['lessons'] = Lesson.objects.filter(course__exact=course_id)
         try:
             context['coach'] = Coach.objects.get(coach_courses__exact=course_id)
         except ObjectDoesNotExist:

@@ -57,6 +57,18 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'pybursa.urls'
 
+# Email config
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = "admin"
+EMAIL_HOST_PASSWORD = "admin"
+
+ADMINS = (
+    ('Obama', 'potus@whitehouse.us'),
+    ('Senator', 'qwe@qwe.qw'),
+)
+
+# Templates config
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',

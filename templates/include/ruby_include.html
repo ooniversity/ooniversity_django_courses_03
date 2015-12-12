@@ -1,129 +1,159 @@
 <table class="responsive-table bordered centered striped highlight">
-                <thead class="red accent-4">
-                <tr>
-                    <th>Занятие</th>
-                    <th>Тема</th>
-                    <th>Содержание</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Вступление</td>
-                    <td>
-                        <ul>
-                            <li>Базовые конструкции языка</li>
-                            <li>Почему Ruby, Ruby on Rails - это круто, модно и востребовано</li>
-                            <li>Повтор HTML, CSS</li>
-                            <li>JavaScript - зачем он нужен веб-девелоперу</li>
-                            <li>Повтор принципов ООП на примере руби</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Hello, Ruby!</td>
-                    <td>
-                        <ul>
-                            <li>Обзор функционального подхода - proc, lambda</li>
-                            <li>Модули в руби и механизм mixins</li>
-                            <li>Работа со строками, массивами и хешами</li>
-                            <li>Введение в автотесты, Ценность TDD и BDD</li>
-                            <li>Git, Github и контроль версий как таковой</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>ActiveModel - Rails ORM</td>
-                    <td>
-                        <ul>
-                            <li>ActiveModel - Rails ORM (работа с базой данных)</li>
-                            <li>Повтор ООП - Шаблоны проектирования</li>
-                            <li>Работа с данными, CRUD</li>
-                            <li>Rspec - инструмент создания автотестов</li>
-                            <li>Шаблоны проектирования в ruby</li>
-                        </ul>
-                    </td>
-                </tr>
-                <!-- Следующая неделя-->
-                <tr>
-                    <td>4</td>
-                    <td>MVC</td>
-                    <td>
-                        <ul>
-                            <li>Понятие MVC</li>
-                            <li>Rails: Router, ActiveController</li>
-                            <li>REST, Nested Resources</li>
-                            <li>Этика и приемы командной работы на GitHub</li>
-                            <li>HTTP: request, response, headers. GET, POST, PUT, DELETE</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Rails: ActiveView, Helpers</td>
-                    <td>
-                        <ul>
-                            <li>Rails: ActiveView, Helpers</li>
-                            <li>Assets Pipeline</li>
-                            <li>Обзор использования jQuery в приложении</li>
-                            <li>Создание View, использование хелперов и javascript</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Аутентификация и авторизация</td>
-                    <td>
-                        <ul>
-
-                            <li>Аутентификация и авторизация пользователей
-                            </li>
-                            <li>Rails: generators</li>
-                            <li>Twitter Bootstrap и responsive web - кому и зачем это нужно</li>
-                            <li>Формы и Nested Forms</li>
-                            <li>Devise - гем для аутентификации</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Rails Environment</td>
-                    <td>
-                        <ul>
-                            <li>Rails Environment
-                            </li>
-                            <li>Convention over Configuration</li>
-                            <li>Rails Init Load Queue</li>
-                            <li>Rails Initializers</li>
-                            <li>Что скрывает в себе папка config в Rails проекте</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Паттерны и антипаттерны в мире Rails</td>
-                    <td>
-                        <ul>
-                            <li>Паттерны и антипаттерны в мире Rails</li>
-                            <li>Деплоймент: Capistrano, Heroku</li>
-                            <li>NewRelic, bullet и проблемы, которые они помогают найти</li>
-                            <li>Типы автотесты, покрытие тестами, метрики качества кода</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Cucumber, Capybara, Selenium</td>
-                    <td>
-                        <ul>
-                            <li>Интеграционное тестирование - Cucumber, Capybara, Selenium</li>
-                            <li>Debugging и оптимизация</li>
-                            <li>Отправка почты из приложения</li>
-                            <li>Ревью и критика учебных проектов</li>
-                        </ul>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+    <thead class="red accent-4">
+        <tr>
+        <th data-field="nomber">
+            ЗАНЯТИЕ
+        </th>
+        <th data-field="subject">
+            ТЕМА
+        </th>
+        <th data-field="content">
+            СОДЕРЖАНИЕ
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for lesson in lessons %}
+    <tr>
+        <td class="number_cell">
+            {{ lesson.id }}
+        </td>
+        <td>
+            {{ lesson.subject }}
+        </td>
+        <td>
+            {{ lesson.description }}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{#<table class="responsive-table bordered centered striped highlight">#}
+{#    <thead class="red accent-4">#}
+{#    <tr>#}
+{#        <th>Занятие</th>#}
+{#        <th>Тема</th>#}
+{#        <th>Содержание</th>#}
+{#    </tr>#}
+{#    </thead>#}
+{#    <tbody>#}
+{#    <tr>#}
+{#        <td>1</td>#}
+{#        <td>Вступление</td>#}
+{#        <td>#}
+{#            <ul>#}
+{#                <li>Базовые конструкции языка</li>#}
+{#                <li>Почему Ruby, Ruby on Rails - это круто, модно и востребовано</li>#}
+{#                <li>Повтор HTML, CSS</li>#}
+{#                <li>JavaScript - зачем он нужен веб-девелоперу</li>#}
+{#                <li>Повтор принципов ООП на примере руби</li>#}
+{#            </ul>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>2</td>#}
+{#        <td>Hello, Ruby!</td>#}
+{#        <td>#}
+{#            <ul>#}
+{#                <li>Обзор функционального подхода - proc, lambda</li>#}
+{#                <li>Модули в руби и механизм mixins</li>#}
+{#                <li>Работа со строками, массивами и хешами</li>#}
+{#                <li>Введение в автотесты, Ценность TDD и BDD</li>#}
+{#                <li>Git, Github и контроль версий как таковой</li>#}
+{#            </ul>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>3</td>#}
+{#        <td>ActiveModel - Rails ORM</td>#}
+{#        <td>#}
+{#            <ul>#}
+{#                <li>ActiveModel - Rails ORM (работа с базой данных)</li>#}
+{#                <li>Повтор ООП - Шаблоны проектирования</li>#}
+{#                <li>Работа с данными, CRUD</li>#}
+{#                <li>Rspec - инструмент создания автотестов</li>#}
+{#                <li>Шаблоны проектирования в ruby</li>#}
+{#            </ul>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <!-- Следующая неделя-->#}
+{#    <tr>#}
+{#        <td>4</td>#}
+{#        <td>MVC</td>#}
+{#        <td>#}
+{#            <ul>#}
+{#                <li>Понятие MVC</li>#}
+{#                <li>Rails: Router, ActiveController</li>#}
+{#                <li>REST, Nested Resources</li>#}
+{#                <li>Этика и приемы командной работы на GitHub</li>#}
+{#                <li>HTTP: request, response, headers. GET, POST, PUT, DELETE</li>#}
+{#            </ul>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>5</td>#}
+{#        <td>Rails: ActiveView, Helpers</td>#}
+{#        <td>#}
+{#            <ul>#}
+{#                <li>Rails: ActiveView, Helpers</li>#}
+{#                <li>Assets Pipeline</li>#}
+{#                <li>Обзор использования jQuery в приложении</li>#}
+{#                <li>Создание View, использование хелперов и javascript</li>#}
+{#            </ul>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>6</td>#}
+{#        <td>Аутентификация и авторизация</td>#}
+{#        <td>#}
+{#            <ul>#}
+{##}
+{#                <li>Аутентификация и авторизация пользователей#}
+{#                </li>#}
+{#                <li>Rails: generators</li>#}
+{#                <li>Twitter Bootstrap и responsive web - кому и зачем это нужно</li>#}
+{#                <li>Формы и Nested Forms</li>#}
+{#                <li>Devise - гем для аутентификации</li>#}
+{#            </ul>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>7</td>#}
+{#        <td>Rails Environment</td>#}
+{#        <td>#}
+{#            <ul>#}
+{#                <li>Rails Environment#}
+{#                </li>#}
+{#                <li>Convention over Configuration</li>#}
+{#                <li>Rails Init Load Queue</li>#}
+{#                <li>Rails Initializers</li>#}
+{#                <li>Что скрывает в себе папка config в Rails проекте</li>#}
+{#            </ul>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>8</td>#}
+{#        <td>Паттерны и антипаттерны в мире Rails</td>#}
+{#        <td>#}
+{#            <ul>#}
+{#                <li>Паттерны и антипаттерны в мире Rails</li>#}
+{#                <li>Деплоймент: Capistrano, Heroku</li>#}
+{#                <li>NewRelic, bullet и проблемы, которые они помогают найти</li>#}
+{#                <li>Типы автотесты, покрытие тестами, метрики качества кода</li>#}
+{#            </ul>#}
+{#        </td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <td>9</td>#}
+{#        <td>Cucumber, Capybara, Selenium</td>#}
+{#        <td>#}
+{#            <ul>#}
+{#                <li>Интеграционное тестирование - Cucumber, Capybara, Selenium</li>#}
+{#                <li>Debugging и оптимизация</li>#}
+{#                <li>Отправка почты из приложения</li>#}
+{#                <li>Ревью и критика учебных проектов</li>#}
+{#            </ul>#}
+{#        </td>#}
+{#    </tr>#}
+{#    </tbody>#}
+{#</table>#}

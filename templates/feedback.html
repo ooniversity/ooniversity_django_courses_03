@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Edit student{% endblock %}
+
+{% block banner %}{% endblock %}
+
+{% block messages %}
+    <div class="col s12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="card-panel hoverable cyan white-text center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1>Feedback form</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="waves-effect waves-light btn">Отправить</button>
+    </form>
+    <script>
+        $('#id_message').trigger('autoresize');
+    </script>
+{% endblock content %}
