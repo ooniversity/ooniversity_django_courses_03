@@ -10,7 +10,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 class CourseDetailView(DetailView):
     model = Course
-    pk_url_kwarg = 'course_id'
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['my_lessons'] = Lesson.objects.filter(course=self.object.id)
+        return context
 
 
 class CourseCreateView(CreateView):
@@ -31,7 +35,6 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
-    pk_url_kwarg = 'course_id'
 
     def get_success_url(self):
         return reverse_lazy('courses:edit', args = (self.object.id,))
