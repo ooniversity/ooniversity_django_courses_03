@@ -13,6 +13,9 @@ class Course(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return '/'
+
 
 class Lesson(models.Model):
     subject = models.CharField(max_length=255)

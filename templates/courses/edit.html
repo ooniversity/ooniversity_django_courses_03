@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Edit information about course{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_class_index %}passive{% endblock %}
@@ -26,7 +26,7 @@
     <div class="jumbotron">
         <div class="container">
             <div class="col-md-12">
-                <h3>Редактируем наш курс</h3>
+                <h3>{{ title }}</h3>
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}

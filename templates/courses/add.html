@@ -4,7 +4,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Add new course{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_class_index %}passive{% endblock %}
@@ -15,7 +15,7 @@
 {% block content %}
   <div class="container">
     <div class="col-md-12">
-      <h3>Добавление нового студента</h3>
+      <h3>{{ title }}</h3>
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
