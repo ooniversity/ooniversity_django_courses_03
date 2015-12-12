@@ -7,6 +7,7 @@ import students.forms
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 class StudentListView(ListView):
@@ -26,6 +27,16 @@ class StudentDetailView(DetailView):
     # template_name = ""
     context_object_name = "student_details"
 
+
+class StudentCreateView(CreateView):
+    model = Student
+
+'''
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['courses'] = Course.objects.all()
+        return context
+'''
 
 # ------ old ----
 '''
