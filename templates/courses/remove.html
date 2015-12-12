@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 
-{% block title %}Students add page{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_class_students %}active{% endblock nav_class_students %}
@@ -14,7 +14,6 @@
 
 
         <h2>Course {{ course.name }} has been deleted.</h2>
-
         <form method="post">
             {% csrf_token %}
             <input type="submit" value="Remove"/>
