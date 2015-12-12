@@ -15,13 +15,13 @@ class StudentListView(ListView):
     # queryset = Student.object.filter()
 
     def get_queryset(self):
+        students_list = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course_id', None)
-        courses_list = Course.objects.all()
         if course_id:
             students_list = Student.objects.filter(courses__id=course_id)
         else:
             students_list = Student.objects.all()
-        return students_list, courses_list
+        return students_list
 
 
 class StudentDetailView(DetailView):
@@ -31,7 +31,7 @@ class StudentDetailView(DetailView):
 
 
 # ------ old ----
-
+'''
 def list_view(request):
     get_course_id = request.GET.get('course_id', None)
     courses_list = Course.objects.all()
@@ -46,7 +46,8 @@ def list_view(request):
 # def detail(request, pk):
 #    student_details = Student.objects.get(id=pk)
 
-    return render(request, 'students/detail.html', {'student_details': student_details})
+#    return render(request, 'students/detail.html', {'student_details': student_details})
+'''
 
 
 def create(request):
