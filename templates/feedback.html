@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Feedback{% endblock title %}
+{% block nav_active_feedback %}active{% endblock nav_active_feedback %}
+{% block content %}
+
+{% if messages %}
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <ul class="messages">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
+      </ul>
+    </div>        
+  {% endif %} 
+<h2>Write your feedback</h2>
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Send">
+</form>
+{% endblock content %}
