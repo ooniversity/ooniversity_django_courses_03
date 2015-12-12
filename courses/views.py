@@ -38,7 +38,7 @@ class CourseCreateView(CreateView):
         name = form.cleaned_data['name']
         message = u"Course %s has been sucessfully added." % name  # successfully
         messages.success(self.request, message)
-        return super(CourseCreateView, self).delete(request, *args, **kwargs)
+        return super(CourseCreateView, self).form_valid(form)
 
 
 # ---- old
