@@ -48,8 +48,8 @@ class CourseUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        data = form.cleaned_data
-        messages.success(self.request, 'Info on the course %s has been sucessfully changed.' % (data['name']))
+        data = form.instance
+        messages.success(self.request, 'The changes have been saved.')
         return super(CourseUpdateView, self).form_valid(form)
 
 class CourseDeleteView(DeleteView):
