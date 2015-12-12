@@ -9,7 +9,7 @@
 
 {% block nav_class_index %}active{% endblock %}
 {% block nav_url_students_list %}
-  <a href="{% url 'students:list_view' %}?course_id={{ course }}">Студенты</a>
+  <a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a>
 {% endblock %}
 
 
