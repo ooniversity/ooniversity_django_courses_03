@@ -8,7 +8,7 @@
 {% block title %}Pyniversity{% endblock %}
 
 
-{% block link_students %} {% url 'students:list_view' %}?course_id={{course_object.id}} {% endblock %}
+{% block link_students %}{% url 'students:list_view' %}?course_id={{course_object.id}} {% endblock %}
 
 
 {% block content %}

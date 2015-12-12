@@ -1,24 +1,22 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import RequestContext, loader
+
+from courses.models import Course
+
 
 def index(request):
-
-    return render(request, 'index.html', {"foo": "bar"},
-        content_type="text/html")
+    courses = Course.objects.all()
+    template = loader.get_template('index.html')
+    context = RequestContext(request, {'courses': courses})
+    return HttpResponse(template.render(context))
 
 
 def contact(request):
+    return render(request, 'contact.html')
 
-    return render(request, 'contact.html', {"foo": "bar"},
-        content_type="text/html")
-
-
-def student_list(request):
-
-    return render(request, 'student_list.html', {"foo": "bar"},
-        content_type="text/html")
-
-
-def student_detail(request):
-
-    return render(request, 'student_detail.html', {"foo": "bar"},
-        content_type="text/html")
+class MixinTitle(object):
+    def get_context_data(self, **kwargs):
+        context = super(MixinTitle, self).get_context_data(**kwargs)
+        context['title'] = self.title
+        return context
