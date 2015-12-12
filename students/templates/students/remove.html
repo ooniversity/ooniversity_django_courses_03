@@ -16,7 +16,7 @@
 {% block content %}
             <div class="jumbotron ">
                 <h3><span class="glyphicon glyphicon-trash padsingtitle" aria-hidden="true" ></span>Student {{ student.name }} will be remove.</h3>
-                <p></p>
+                <h3>{{ title }}</h3>
                     <form method="post" style="" class="add_form">
                         {% csrf_token %}
                         <input type="hidden" name="pk" value="{{ student.id }}">

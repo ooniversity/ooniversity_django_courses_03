@@ -18,7 +18,7 @@
                     <span class="glyphicon glyphicon-pencil padsingtitle" aria-hidden="true" ></span>
                     {{ 'Students edit'|title }}
                 </h3>
-                <p></p>
+                <h3>{{ title }}</h3>
                     <form method="post" style="" class="add_form">
                         {% csrf_token %}
                         {{ form.as_p }}
