@@ -251,3 +251,6 @@ input[type="submit"] {
 input[type="submit"]:hover{
     background: #8AEC8A;
 }
+input[type="submit"]:focus{
+    outline:0;
+}
