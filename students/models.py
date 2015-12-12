@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from courses.models import Course
 
 class Student(models.Model):
@@ -13,4 +14,7 @@ class Student(models.Model):
 
   def __unicode__(self):
     return self.name
+
+  def get_absolute_url(self):
+    return reverse('students:list_view')
 
