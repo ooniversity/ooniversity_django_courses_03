@@ -9,11 +9,9 @@
 
 {% block content %}
 <h1>Создание нового курса</h1>
-
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Создать" />
-</form>
-
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Create" />
+        </form>
 {% endblock content %}
