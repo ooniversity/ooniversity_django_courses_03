@@ -1,17 +1,27 @@
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
-from django.core.urlresolvers import reverse
-from django.views import generic
+from django.shortcuts import render
 from courses.models import Course
+from django.views.generic import TemplateView
 
-def index(request):
-    return render(request, 'index.html', {'courses':Course.objects.all()})
 
-def contact(request):
-    return render(request,'contact.html')
+class ContactView(TemplateView):
+    template_name = 'contact.html'
 
-def student_list(request):
-    return render(request,'student_list.html')
 
-def student_detail(request):
-    return render(request,'student_detail.html')
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self,**kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['courses'] = Course.objects.all()
+        return context
+
+# def contact(request):
+#     return render(request, 'contact.html')
+
+
+# def student_list(request):
+#    return render(request, 'student_list.html')
+
+
+# def student_detail(request):
+#     return render(request, 'student_detail.html')
