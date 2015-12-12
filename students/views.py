@@ -17,6 +17,9 @@ class StudentListView(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(StudentListView, self).get_context_data(**kwargs)
+		course_id = self.request.GET.get('course_id', None) 
+    	#if id:
+		context['course_id'] = course_id
 		#context['students'] = Student.objects.all()
 		#context['paginator'] = Paginator(students, 2)
 		#context['students'] = paginator.page(page)
