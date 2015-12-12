@@ -36,7 +36,7 @@ class CourseCreateView(CreateView):
 
     def form_valid(self, form):
         name = form.cleaned_data['name']
-        message = u"Course %s has been sucessfully added." % name  # successfully
+        message = u"Course %s has been successfully added." % name  # successfully
         messages.success(self.request, message)
         return super(CourseCreateView, self).form_valid(form)
 
@@ -51,10 +51,25 @@ class CourseUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        message = u'The changes have been saved.'
+        message = u'The changes have been successfully saved.'
         messages.success(self.request, message)
         return super(CourseUpdateView, self).form_valid(form)
 
+
+class CourseDeleteView(DeleteView):
+    model = Course
+    success_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDeleteView, self).get_context_data(**kwargs)
+        context['title'] = u'Course deletion'
+        return context
+
+    def delete(self, request, *args, **kwargs):
+        course = self.get_object()
+        message = u"Course %s has been successfully deleted." % course  # successfully
+        messages.success(self.request, message)
+        return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
 # ---- old
 
