@@ -5,10 +5,11 @@ from students.models import Student
 from students import forms
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+from django.views.generic.detail import DetailView
 # Create your views here.
 
 
-class StudentDetailView(generic.DetailView):
+class StudentDetailView(DetailView):
     model = Student
     #template_name = 'students/detail.html'
 
