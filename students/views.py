@@ -60,7 +60,7 @@ class StudentUpdateView(UpdateView):
 
     student_id = 1
     model = Student
-    #success_url = reverse_lazy("students:edit", kwargs={'pk': student_id})
+    success_url = reverse_lazy("students:edit", kwargs={'pk': student_id})
 
 
 class StudentDetailView(DetailView):
