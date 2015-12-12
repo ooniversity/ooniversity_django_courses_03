@@ -1,11 +1,10 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 
 from students.models import Student
-from students.forms import StudentModelForm
-
 from courses.models import Course
+from students.forms import StudentModelForm
 
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -70,4 +69,4 @@ class StudentDeleteView(DeleteView):
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
         context['title'] = "Student info suppression"
-        return context   
+        return context
