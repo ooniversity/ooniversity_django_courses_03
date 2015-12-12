@@ -21,6 +21,7 @@
         </div>
         <div class="container">
           <form method="post">
+              {{ title }}
               {% csrf_token %}
               {{ form.as_p }}
               <input type="submit", value="Изменить">

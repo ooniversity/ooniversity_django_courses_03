@@ -13,6 +13,7 @@
         </div>
         <div class="container">
           <form method="post">
+              {{ title }}
               {% csrf_token %}
               <input type="submit", value="Удалить">
           </form>
