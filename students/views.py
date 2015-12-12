@@ -6,6 +6,12 @@ from courses.models import Course
 import students.forms
 from django.contrib import messages
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+
+
+class StudentListView(ListView):
+    model = Student
+    context_object_name = "students_list"
 
 
 class StudentDetailView(DetailView):
