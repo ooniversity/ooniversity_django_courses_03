@@ -15,11 +15,10 @@ class StudentListView(ListView):
     context_object_name = "students"
 
     def get_queryset(self):
+        students = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course.id', None)
         if course_id:
             students = Student.objects.filter(courses = course_id)
-        else:
-            students = Student.objects.all()
         return students
 
 
