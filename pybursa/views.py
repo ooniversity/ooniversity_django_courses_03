@@ -5,8 +5,6 @@ from django.views.generic.edit import CreateView
 from django.contrib import messages
 
 from courses.models import Course
-from feedbacks.models import Feedback
-from feedbacks.forms import FeedbackForm
 
 
 def index(request):
@@ -21,11 +19,4 @@ def student_list(request):
 
 def student_detail(request):
     return render(request,'student_detail.html')
-
-class FeedbackView(CreateView):
-    model = Feedback
-    form_class = FeedbackForm
-    exclude = ['create_date']
-    template_name = 'feedback.html'
-    success_url = reverse_lazy('feedback')
 
