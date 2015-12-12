@@ -4,17 +4,17 @@
 {% load staticfiles %}
 
 
-{% block title %}{{ title }}{% endblock title %}
+{% block title %}{{ title }}{% endblock %}
 
 
-{% block navbar_i3 %}active{% endblock navbar_i3 %}
+{% block navbar_i3 %}active{% endblock %}
 
 
 {% block content %}
     <h1>Student details</h1>
     <h2>{{ student.name }} {{ student.surname }}</h2>
     <br>
-    <table class="table table-striped table table-bordered">
+    <table class="table table-striped">
         <thead>
         <tr>
             <td>Birth day</td>
@@ -50,4 +50,4 @@
         </tbody>
     </table>
     <br>
-{% endblock content %}
+{% endblock %}

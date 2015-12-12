@@ -11,52 +11,82 @@
 
 
 {% block content %}
-      <div class="row">
+    <div class="row">
         <div class="col-sm-8">
-          <h2>{{ coach.full_name }}</h2>
+            <h2>{{ coach.full_name }}</h2>
             <table class="table table-striped table table-bordered">
-            <tr><td>Date of birth</td><td>{{ coach.date_of_birth|date:'j F, Y'  }}</td></tr>
-            <tr><td>Address</td><td>{{ coach.address }}</td></tr>
-            <tr><td>Email</td><td>{{ coach.email }}</td></tr>
-            <tr><td>Skype</td><td>{{ coach.skype }}</td></tr>
-            <tr><td>Phone number</td><td>{{ coach.phone }}</td></tr>
-            {% if course_coach %}
-            <tr>
-              <td>
-                Teacher for cources
-              </td>
-              <td>
-              {% for course in  course_coach %}
-               <a  class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-                students
-               <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
-                <button type="button" class="btn btn-xs" aria-label="Left Align">
-                <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
-                </button><br>
-              </a>
-              {% endfor %}
-              </td>
-            </tr>
-              {% endif %}
-              {% if course_assistant %}
-            <tr>
-              <td>
-                Assistant for cources
-              </td>
-              <td>
-                {% for course in  course_assistant %}
-                <a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-                  students
-                <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
-                  <button type="button" class="btn btn-xs" aria-label="Left Align">
-                    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
-                  </button><br>
-                </a>
-                {% endfor %}
-              </td>
-            </tr>
-            {% endif %}
+                <tr>
+                    <td>Date of birth</td>
+                    <td>{{ coach.date_of_birth|date:'j F, Y' }}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{ coach.address }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{ coach.email }}</td>
+                </tr>
+                <tr>
+                    <td>Skype</td>
+                    <td>{{ coach.skype }}</td>
+                </tr>
+                <tr>
+                    <td>Phone number</td>
+                    <td>{{ coach.phone }}</td>
+                </tr>
+
+                {% if course_coach %}
+
+                    <tr>
+                        <td>
+                        Teacher for cources
+                        </td>
+
+                        <td>
+                            {% for course in  course_coach %}
+                                <a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                                students
+                                <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                                    <button type="button" class="btn btn-xs" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                                    </button>
+                                    <br>
+                                </a>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+
+
+                {% if course_assistant %}
+                    <tr>
+                        <td>
+                            Assistant for cources
+                        </td>
+                        <td>
+                            {% for course in  course_assistant %}
+                                <a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                                students
+                                <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                                    <button type="button" class="btn btn-xs" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                                    </button>
+                                    <br>
+                                </a>
+
+                            {% endfor %}
+
+                        </td>
+
+                    </tr>
+
+                {% endif %}
+
             </table>
-            </div>
-		  </div>
+
+        </div>
+
+    </div>
+
 {% endblock content %}
