@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block title %}IT Courses - Delete student{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block content %}
+    <div class="container" id='id4'>
+      <h1>{{ title }}</h1>
+      <h3>Студент {{object.name}} {{object.surname}} будет удален</h3>
+			<form method='post'>
+        {% csrf_token %}
+        <input type="submit" value="Удалить" />
+      </form>
+    </div>
+{% endblock content %}
