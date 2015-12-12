@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}iBursa {{ course.name }}{% endblock title %}
+
+{% block students_link %}?course_id={{ course.id }}{% endblock%}
+
+{% block content %}
+    <div class="jumbotron">
+      <h1 class="shad">{{ course.name }}</h1>
+      <h2></h2>
+      <p>{{ course.description|truncatechars:32 }}</p>
+      <hr>
+      {% include "include/message_include.html" %}
+    <div class="StudentTable">
+      <table class="table-hover">
+        <tr>
+          <td>#</td>
+          <td>Тема</td>
+          <td>Описание</td>
+        </tr>
+        {% for lesson in course.lesson_set.all %}
+        <tr>
+          <td>
+            {{ lesson.order }}
+          </td>
+          <td>
+            {{ lesson.subject }}
+          </td>
+          <td>
+            {{ lesson.description }}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <br>
+
+    <a href="{% url 'courses:add-lesson' course.id %}"><b>
+    <button type="button">Добавить занятие</button>
+    </b></a>
+
+    <h2>Преподаватели:</h2>
+    <div class="StudentTable">
+      <div class="StudentTable">
+      <table class="table-hover">
+        <tr>
+          <td>Учитель</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.get_name }} {{ course.coach.get_surname }}</a>
+            <br>
+            {{ course.coach.description }}
+          </td>
+        </tr>
+      </table>
+      </div>
+    </div>
+    <br>
+    <div class="StudentTable">
+      <div class="StudentTable">
+      <table class="table-hover">
+        <tr>
+          <td>Ассистент</td>
+        </tr>
+        <tr>
+          <td>
+            <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.get_name }} {{ course.assistant.get_surname }}</a>
+            <br>
+            {{ course.assistant.description }}
+          </td>
+        </tr>
+      </table>
+    </div>
+{% endblock content %}
