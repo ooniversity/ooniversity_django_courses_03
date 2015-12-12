@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 
-{% block title %}Courses (remove){% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block content %}
-<h2>Please confirm that the course {{ cd }} will be removed</h2>
+<h2>{{ title }}</h2>
 <br>
 <form method="post">
     {% csrf_token %}
