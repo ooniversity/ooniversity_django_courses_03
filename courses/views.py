@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from courses.models import Course, Lesson
 from coaches.models import Coach
 
 def course (request, course_id):
-    course_id = Course.objects.get(id=course_id)
+    course_id = get_object_or_404(Course, pk=course_id)
     lessons = Lesson.objects.filter(course_id=course_id)
 
     coaches = Coach.objects.all()

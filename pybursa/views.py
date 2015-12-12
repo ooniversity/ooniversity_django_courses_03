@@ -17,4 +17,4 @@ def student_list(request):
 
 
 def student_detail(request):
-    return render(request, 'student_detail.html')
+    return render(request, 'students/student_detail.html')

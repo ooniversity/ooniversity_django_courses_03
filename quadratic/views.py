@@ -25,6 +25,8 @@ def quadratic_results(request):
 
     if request.method == 'GET':
         form = QuadraticForm(request.GET)
+        form.is_valid()
+        print form.cleaned_data
 
         for i in input_vars:
             vars_dict[i] = ''

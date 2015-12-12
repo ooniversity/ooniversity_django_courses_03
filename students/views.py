@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
 from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 
 
 
@@ -20,6 +23,26 @@ def students_list(request):
 
 def add_student(request):
 
-    model_form = StudentModelForm()
-    return render(request, 'add.html', {'model_form': model_form} )
-# Create your views he
+#    model_form = StudentModelForm()
+    if request.method == 'POST':
+        form = StudentModelForm(request.POST)
+
+
+        new_student = form.save()
+        messages.success(request, 'Form saved')
+        return redirect ('/student_list/add/')
+    else:
+        form = StudentModelForm()
+
+    return render(request, 'add.html', {'model_form': form})
+
+class StudentDetailView(DetailView):
+
+    model = Student
+    context_object_name = "student_details"
+    # template_name = ""
+#    context_object_name = "student_details"
+
+
+#def student_detail(request):
+#    return render(request, 'students/student_detail.html')
