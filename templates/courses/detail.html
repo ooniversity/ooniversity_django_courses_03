@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block title %}{{ course.name }}{% endblock %}
+{% block nav_active_main %}active{% endblock nav_active_main %}
+{% block course_students %}?course_id={{ course.id }}{% endblock course_students %}
 
-{% block course_id %}<li><a href={% url 'students:list_view' %}?course_id={{ course.id }}>Students</a></li>{% endblock %}
 
 {% block content %}
   <div class="jumbotron container">
