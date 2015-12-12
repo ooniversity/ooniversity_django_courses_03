@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -22,6 +23,7 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
+
 
 
 class StudentCreateView(CreateView):
