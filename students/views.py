@@ -10,6 +10,8 @@ from django.views.generic.detail import DetailView
 
 class StudentDetailView(DetailView):
     model = Student
+    # template_name =
+    context_object_name = "student_details"
 
 
 # ------ old ----
