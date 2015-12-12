@@ -41,7 +41,7 @@ class StudentCreateView(CreateView):
     def form_valid(self, form):
         name = form.cleaned_data['name']
         surname = form.cleaned_data['surname']
-        message = "Student %s %s has been successfully added." % (name, surname)
+        message = u"Student %s %s has been successfully added." % (name, surname)
         messages.add_message(self.request, messages.SUCCESS, message)
         return super(StudentCreateView, self).form_valid(form)
 
@@ -74,7 +74,7 @@ class StudentDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         student = self.get_object()
-        message = "Info on %s has been sucessfully deleted." % student.fullname()  # successfully
+        message = u"Info on %s has been sucessfully deleted." % request  # successfully
         messages.success(self.request, message)
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
