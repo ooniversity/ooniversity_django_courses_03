@@ -12,7 +12,7 @@ from forms import *
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
-    #context_object_name = 'course'
+    context_object_name = 'course'
 
 class CourseCreateView(CreateView):
     model = Course
@@ -30,6 +30,7 @@ class CourseUpdateView(UpdateView):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
         context['title'] = u"Course update"
         return context
+    template_name = 'courses/edit.html'
     success_url = reverse_lazy('index')
     context_object_name = 'course'
 
