@@ -2,14 +2,12 @@
 
 from django.shortcuts import render, redirect
 from courses.models import Course, Lesson
-from courses.forms import CourseModelForm
 from django.contrib import messages
 from courses.forms import LessonModelForm
 
 from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse_lazy, reverse
 
 
 class CourseDetailView(DetailView):
@@ -47,7 +45,7 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
-    template_name = 'courses/course_create_edit.html'
+    template_name = 'courses/edit.html'
     context_object_name = 'form'
     # redirect to the same edit page is implemented in models.get_absolute_url()
 
@@ -60,6 +58,11 @@ class CourseUpdateView(UpdateView):
         message = u'The changes have been successfully saved.'
         messages.success(self.request, message)
         return super(CourseUpdateView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('courses:edit', kwargs={'pk': self.object.pk})
+
+
 
 
 class CourseDeleteView(DeleteView):
