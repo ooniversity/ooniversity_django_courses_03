@@ -27,7 +27,7 @@ class CourseDetailView(DetailView):
 
 class CourseCreateView(CreateView):
     model = Course
-    template_name = 'courses/course_create_edit.html'
+    template_name = 'courses/edit.html'
     context_object_name = 'course'
     success_url = reverse_lazy('index')
 
