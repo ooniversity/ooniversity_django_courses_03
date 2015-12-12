@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,10 +82,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+#EMAIL_HOST_USER = 'qqq'
+#EMAIL_HOST_PASSWORD = 'bla'
+ADMINS = (('Oleg', 'book1978@gmail.com'),)
+#DEFAULT_FROM_EMAIL = 'blabla@gmail.com'
+EMAIL_SUBJECT_PREFIX = ''

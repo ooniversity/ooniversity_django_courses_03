@@ -36,7 +36,8 @@
           <li class={% block active_main %}{% endblock %}><a href="{% url 'index' %}">Main</a></li>
 	  <li class={% block active_contact %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
 	  <li class={% block active_students %}{% endblock %}><a href="{% url 'students:list_view' %}{% block link_students %}{% endblock %}">Students</a></li>
-	</ul>	
+    <li class={% block active_feedback %}{% endblock active_feedback %}><a href="{% url 'feedback' %}">Feedback</a></li>
+	</ul>
       </div>
     </div>
   </nav>
