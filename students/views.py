@@ -20,10 +20,12 @@ class StudentListView(ListView):
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
-        students = super(StudentListView, self).get_queryset()
-        if course_id:
-            students = Student.objects.filter(courses=course_id)
-        return students
+        if course_id and course_id.isdigit():
+            self.paginate_by = None
+            return Student.objects.filter(courses=course_id)
+
+        self.paginate_by = 2
+        return Student.objects.all()
 
 
 class StudentCreateView(CreateView):
@@ -73,3 +75,5 @@ class StudentDeleteView(DeleteView):
         message = super(StudentDeleteView, self).delete(request, **kwargs)
         messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
         return message
+
+
