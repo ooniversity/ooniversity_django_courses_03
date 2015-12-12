@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 
-from courses.forms import CourseModelForm, LessonModelForm
+from courses.forms import LessonModelForm
 from courses.models import Course
 
 
@@ -19,15 +19,10 @@ class CourseDetailView(DetailView):
         return context
 
 
-#def detail(request, course_id):
-#    course = Course.objects.get(id=course_id)
-#    lesson = course.lesson_set.all()
-#    return render(request, 'courses/detail.html', {'course': course, 'lesson': lesson})
-
-
 class CourseCreateView(CreateView):
     model = Course
     template_name = 'courses/add.html'
+    success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         context = super(CourseCreateView, self).get_context_data(**kwargs)
@@ -43,6 +38,7 @@ class CourseCreateView(CreateView):
 class CourseUpdateView(UpdateView):
     model = Course
     template_name = 'courses/edit.html'
+    success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
