@@ -3,6 +3,7 @@ from django.contrib import admin
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.http import HttpResponse
 from django.shortcuts import render
 from pybursa import views
@@ -18,6 +19,8 @@ urlpatterns = patterns('',
 >>>>>>> 7bad2329d865c7a6a913ed8f751121e0c20131e2
 =======
 >>>>>>> 4cbe27320e7ae78f3c102275fc2f9f1fb4d19c11
+=======
+>>>>>>> 4cbe27320e7ae78f3c102275fc2f9f1fb4d19c11
 from pybursa import views
 
 
@@ -28,10 +31,14 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^quadratic/', include('quadratic.urls', namespace="quadratic")),
 <<<<<<< HEAD
+<<<<<<< HEAD
     url(r'^contact/', views.contact, name='contact'),
 =======
     url(r'^contact/$', views.contact, name='contact'),
 >>>>>>> 1ebe173911795743f7ef0495cc1b0aa19c8b3fa2
+=======
+    url(r'^contact/', views.contact, name='contact'),
+>>>>>>> 4cbe27320e7ae78f3c102275fc2f9f1fb4d19c11
     url(r'^student_list/$', views.student_list, name='student_list'),
     url(r'^student_detail/$', views.student_detail, name='student_detail'),
 <<<<<<< HEAD
