@@ -40,7 +40,7 @@ class StudentCreateView(CreateView):
 
     def form_valid(self, form):
         form_content = super(StudentCreateView, self).form_valid(form)
-        message = "Student %s %s has been successfully added." % (self.object.name, self.object.surname)
+        message = "Student %s %s has been successfully added." % (self.form.name, self.form.surname)
         messages.add_message(self.request, messages.SUCCESS, message)
         return form_content
 
