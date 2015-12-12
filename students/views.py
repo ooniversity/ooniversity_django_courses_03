@@ -1,21 +1,25 @@
 from django.shortcuts import redirect, render
 from django.views import generic
 from students.models import Student
+#from courses.models import Course
 from students import forms
 from django.contrib import messages
 # Create your views here.
 
 
-class DetailView(generic.DetailView):
+class StudentDetailView(generic.DetailView):
     model = Student
     template_name = 'students/detail.html'
 
-class ListView(generic.ListView):
+
+class StudentListView(generic.ListView):
+    model = Student
     template_name = 'students/list.html'
     context_object_name = 'students_list'
 
-    def get_queryset(self):
-        return Student.objects.all()
+    #def get_queryset(self):
+        #return Student.objects.all()
+    #queryset = Student.objects.prefetch_related('courses')
 
 
 def create(request):
