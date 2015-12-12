@@ -8,6 +8,9 @@ from students.models import Student
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
 
 """
 def list_view(request):
@@ -21,6 +24,7 @@ def list_view(request):
 
 class StudentListView(ListView):
 	model = Student
+	paginate_by = 2
 	#template_name = 'students/list.html'
 	#context_object_name = 'name_stud'
 	def get_queryset(self):
@@ -29,6 +33,8 @@ class StudentListView(ListView):
 		if course_id:
 			qs = qs.filter(courses=course_id)
 		return qs
+		
+	
 
 
 
