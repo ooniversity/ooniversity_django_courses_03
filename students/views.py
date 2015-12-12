@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from students.models import Student
 from courses.models import Course
 import students.forms
