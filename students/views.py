@@ -9,18 +9,22 @@ from django.contrib import messages
 
 class StudentDetailView(generic.DetailView):
     model = Student
-    template_name = 'students/detail.html'
+    #template_name = 'students/detail.html'
 
 
 class StudentListView(generic.ListView):
     model = Student
-    template_name = 'students/list.html'
-    context_object_name = 'students_list'
+    ##template_name = 'students/list.html'
+    ##context_object_name = 'student_list'
 
-    #def get_queryset(self):
+    def get_queryset(self):
+        qs = super(StudentListView, self).get_queryset()
+        students_course = self.request.GET
+        if 'course_id' in students_course:
+            qs = qs.filter(courses=students_course['course_id'])
+        return qs
         #return Student.objects.all()
     #queryset = Student.objects.prefetch_related('courses')
-
 
 def create(request):
     #print request.POST
