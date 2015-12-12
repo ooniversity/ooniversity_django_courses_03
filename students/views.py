@@ -46,6 +46,21 @@ class StudentCreateView(CreateView):
         return super(StudentCreateView, self).form_valid(form)
 
 
+class StudentUpdateView(UpdateView):
+    model = Student
+    # success_url = reverse_lazy('students:list_view')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentUpdateView, self).get_context_data(**kwargs)
+        context['title'] = u'Student info update'
+        return context
+
+    def form_valid(self, form):
+        message = u'Info on the student has been sucessfully changed.'
+        messages.add_message(self.request, messages.SUCCESS, message)
+        return super(StudentUpdateView, self).form_valid(form)
+
+
 '''
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)

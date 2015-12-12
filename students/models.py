@@ -2,6 +2,7 @@
 
 from django.db import models
 from courses.models import Course
+from django.core.urlresolvers import reverse_lazy
 
 
 class Student(models.Model):
@@ -19,3 +20,6 @@ class Student(models.Model):
 
     def fullname(self):
         return " ".join([self.name, self.surname])
+
+    def get_absolute_url(self):
+        return reverse_lazy('students:edit', kwargs={'pk': self.pk})
