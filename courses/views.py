@@ -24,7 +24,6 @@ class CourseDetailView(DetailView):
 class CourseCreateView(CreateView):
     model = Course
     fields = '__all__'
-    context_object_name = 'course'
     template_name = 'courses/add.html'
 
     def get_context_data(self, **kwargs):
@@ -53,7 +52,7 @@ class CourseUpdateView(UpdateView):
         messages.success(self.request, 'Info on the course %s has been sucessfully changed.' % (data['name']))
         return super(CourseUpdateView, self).form_valid(form)
 
-class CourseDeleteView(DetailView):
+class CourseDeleteView(DeleteView):
     model = Course
     context_object_name = 'course'
     template_name = 'courses/remove.html'
