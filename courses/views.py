@@ -64,6 +64,8 @@ class CourseUpdateView(UpdateView):
 
 class CourseDeleteView(DeleteView):
     model = Course
+    template_name = 'courses/course_remove.html'
+    context_object_name = 'course'
     success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
