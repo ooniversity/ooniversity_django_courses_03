@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} Create new student {% endblock title %}
+
+{% block nav-class-students %}active{% endblock nav-class-students %}
+
+{% block content %}
+	<p class="lead">{{ title }}</p>
+	<form method="post">
+		{% csrf_token %}
+		<p>{{ form.as_p }}</p>
+		<input type="submit" value="Create new student"/></input>
+	</form>
+{% endblock content %}

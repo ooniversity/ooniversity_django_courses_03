@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Edit {{ course.name }} {% endblock %}
+
+{% block nav-class-index %}active{% endblock nav-class-index %}
+
+{% block content %}
+    {% if messages %}
+      {% for message in messages %}
+      {% include "include/show_message.html" with show_message=message %}
+       {% endfor %}
+    {% endif %}
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p}}
+			<input type="submit" value="Save info" />
+		</form>
+{% endblock content %}

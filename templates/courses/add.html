@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} Create new course {% endblock title %}
+
+{% block nav-class-index %}selected{% endblock nav-class-index %}
+
+{% block content %}
+	<p class="lead">{{ title }}</p>
+	<form method="post">
+		{% csrf_token %}
+		<p>{{ form.as_p }}</p>
+		<input type="submit" value="Create new course"/>
+	</form>
+{% endblock content %}

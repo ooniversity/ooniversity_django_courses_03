@@ -1,0 +1,54 @@
+  {% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Students{% endblock title %}
+
+{% block nav-class-students %}active{% endblock nav-class-students %}
+
+{% block content %}
+
+{% include "include/oouniversity_include.html" with block_title="Current course students" block_description="This is our students, hope they are happy" block_subtitle="" %}
+    <a href={% url 'students:add' %}>Add student</a>
+			<div class="col-md-6">
+          {% if messages %}
+            {% for message in messages %}
+            {% include "include/show_message.html" with show_message=message %}
+             {% endfor %}
+          {% endif %}
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name Surname</th>
+                <th>Address</th>
+                <th>Skype</th>
+								<th>Courses</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for student in student_list %}
+                <tr>
+                	<td>{{ student.id }}</td>
+                  <td><a href={% url 'students:detail' student.id%}>{{ student.full_name }}</a></td>
+                  <td>{{ student.address }}</td>
+									<td>{{ student.skype }}</td>
+									<td> 
+										{% for course in student.courses.all %}
+											<a href={% url 'courses:detail' course.id%}>{{ course.name }}</a> <br/>
+										{% endfor %}
+									 </td>
+                   <td>
+                    <a class="btn btn-default" href={% url 'students:edit' student.id %} role="button">Change</a>
+                   </td>
+                  <td>
+                    <a class="btn btn-default" href={% url 'students:remove' student.id %} role="button">Delete</a>
+                  </td>
+
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+		</table>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Course contacts{% endblock title %}
+
+{% block nav-class-contact %}active{% endblock nav-class-contact %}
+
+{% block content %}
+{% include "include/oouniversity_include.html" with block_title="Course contacts" block_description="This is contact page." block_subtitle="Our mega-giga cool stuff" %}
+
+		<div class="container">
+      <div class="row">
+      	<div class="col-md-4">
+					<img src="{% static 'images/founder.jpg' %}" alt="Guido van Rossum">
+          <h2>Founder</h2>
+          <p>Name: <b class="marker">Guido</b></p>
+          <p>Skype: <b class="marker">example_guido_1999</b></p>
+          <p>Email: <b class="marker">guido@mail.ru</b></p>
+          <p>Phone: <b class="marker">+1-234-567-789-0</b></p>
+        </div>
+
+        <div class="col-md-4">
+					<img src="{% static 'images/teacher.jpg' %}" alt="Radchenko Alex" >
+          <h2>Director</h2>
+          <p>Name: <b class="marker">Alexey Radchenko</b></p>
+          <p>Skype: <b class="marker">superuser.do</b></p>
+          <p>Email: <b class="marker">superuser@linux.com</b></p>
+          <p>Phone: <b class="marker">+380-234-5****</b></p>
+        </div>
+	      <div class="col-md-4">
+					<img src="{% static 'images/assistant.jpg' %}" alt="Persianova Olena" width="150">
+	        <h2>Manager</h2>
+	       	<p>Name: <b class="marker">Olena Persianova</b></p>
+          <p>Skype: <b class="marker">real_test_skype</b></p>
+          <p>Email: <b class="marker">somerealemail@gmail.com</b></p>
+          <p>Phone: <b class="marker">+380-***-*****</b></p>
+	      </div>
+      </div>
+    </div>
+
+{% endblock content %}
