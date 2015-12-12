@@ -32,7 +32,7 @@ class StudentListView(generic.ListView):
 class StudentCreateView(generic.CreateView):
     model = Student
     #template_name = 'students/add.html'
-    success_url = reverse_lazy('students:list')
+    success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
@@ -65,7 +65,7 @@ class StudentUpdateView(generic.UpdateView):
 
 class StudentDeleteView(generic.DeleteView):
     model = Student
-    success_url = reverse_lazy('students:list')
+    success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
