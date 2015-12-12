@@ -1,6 +1,3 @@
-{% load staticfiles %}
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +21,7 @@
             <li class="{% block nav_class_index %}{% endblock %}"><a href="{% url 'index' %}">Main</a></li>
             <li class="{% block nav_class_conatact %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
             <li class="{% block nav_class_students %}{% endblock %}"><a href="{% url 'students:list_view' %}{% block course %}{% endblock%}">Students</a></li>
+            <li class="{% block nav_class_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Feedbacks</a></li>
           </ul>
         </div>
       </nav>
