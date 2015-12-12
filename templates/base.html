@@ -57,7 +57,7 @@
                     <a href="{% url 'contact' %}">Contacts</a>
                 </li>
                 <li class="{% block navbar_i3 %}{% endblock navbar_i3 %}">
-                    <a href="{% url 'students:list_view' %}">Students</a>
+                    <a href="{% url 'students:list_view' %}{% block i3_url_tail %}{% endblock %}">Students</a>
                 </li>
                 <li class="{% block navbar_i4 %}{% endblock navbar_i4 %}">
                     <a href="{% url 'result' %}">Equotion</a>

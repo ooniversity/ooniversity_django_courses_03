@@ -9,7 +9,6 @@ from django.contrib import messages
 # Create your views here.
 class CourseDetailView(DetailView):
     model = Course
-    fields = '__all__'
     template_name = 'courses/detail.html'
     context_object_name = 'course'
 
@@ -21,7 +20,6 @@ class CourseDetailView(DetailView):
 
 class CourseCreateView(CreateView):
     model = Course
-    fields = '__all__'
     context_object_name = 'course'
     template_name = 'courses/add.html'
 
@@ -38,7 +36,6 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
-    fields = '__all__'
     context_object_name = 'course'
     template_name = 'courses/edit.html'
     form_class = CourseModelForm
@@ -56,7 +53,6 @@ class CourseUpdateView(UpdateView):
 
 class CourseDeleteView(DeleteView):
     model = Course
-    fields = '__all__'
     context_object_name = 'course'
     template_name = 'courses/remove.html'
 
