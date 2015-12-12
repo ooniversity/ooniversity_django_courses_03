@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block nav-class-feedback %}active{% endblock nav-class-feedback %}
+{% block title %}Feedback page{% endblock title %}
+
+{% block content %}
+
+  {% if messages %}
+    {% for message in messages %}
+    {% include "include/show_message.html" with show_message=message %}
+     {% endfor %}
+  {% endif %}
+
+	<p class="lead">Leave a feedback</p>
+	<form method="post">
+		{% csrf_token %}
+		<p>{{ form.as_p }}</p>
+		<input type="submit" value="Send a feedback"/></input>
+	</form>
+{% endblock content %}
