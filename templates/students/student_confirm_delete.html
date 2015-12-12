@@ -14,7 +14,7 @@
 
         <h1>{{ title }}</h1>
         
-    <form method="post" action="" >
+    <form method="post">
 	    {% csrf_token %}
 	    <div class="alert alert-danger" role=alert>
           <p>Are you sure you want to delete "{{ student.name }} {{ student.surname }}"?</p>

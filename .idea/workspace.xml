@@ -6,6 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47f0e4f2-e2db-4515-a4e2-00d164394da7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/students/student_confirm_delete.html" afterPath="$PROJECT_DIR$/templates/students/student_confirm_delete.html" />
     </list>
     <ignored path="ooniversity_django_courses_03.iws" />
@@ -47,8 +48,8 @@
       <file leaf-file-name="student_confirm_delete.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/students/student_confirm_delete.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2122905">
-              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.24261771">
+              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -962,8 +963,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/students/student_confirm_delete.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2122905">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.24261771">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding />
         </state>
       </provider>
