@@ -23,7 +23,7 @@ class StudentListView(ListView):
 class StudentDetailView(DetailView):
     model = Student
     # template_name = ""
-    context_object_name = "student_details"
+    # context_object_name = "student_details"
 
 
 class StudentCreateView(CreateView):
