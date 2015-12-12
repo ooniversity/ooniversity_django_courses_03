@@ -124,7 +124,7 @@ def edit(request, student_id):
 
     form = students.forms.StudentModelForm(instance=student)
     return render(request, 'students/edit.html', {'form': form})
-'''
+
 
 
 def remove(request, student_id):
@@ -134,3 +134,4 @@ def remove(request, student_id):
         messages.success(request, u"Info on %s %s has been successfully deleted." % (student.name, student.surname))
         return redirect('students:list_view')
     return render(request, 'students/remove.html', {'student': student})
+'''
