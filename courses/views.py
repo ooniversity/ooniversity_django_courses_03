@@ -64,7 +64,7 @@ class CourseUpdateView(UpdateView):
 
 class CourseDeleteView(DeleteView):
     model = Course
-    template_name = 'courses/course_remove.html'
+    template_name = 'courses/remove.html'
     context_object_name = 'course'
     success_url = reverse_lazy('index')
 
@@ -74,9 +74,8 @@ class CourseDeleteView(DeleteView):
         return context
 
     def delete(self, request, *args, **kwargs):
-        course = self.get_object()
-        message = u"Course %s has been successfully deleted." % course  # successfully
-        messages.success(self.request, message)
+        course= self.get_object()
+        messages.success(self.request, 'Course %s has been deleted.' % (course.name))
         return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
 
