@@ -7,23 +7,17 @@
 {% block title %}PyBursa: Список студентов{% endblock title%}
 
 
-{% block nav_class_student %}active{% endblock %}
+{% block nav_class_object %}active{% endblock %}
 
 
 {% block content %}
 
-{% if messages %}
+
+{% include "include/messages_include.html" %}
+
+
 <br>
-<div class="alert alert-success alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-    </button>
-    {% for message in messages %}
-    {{ message }}
-    {% endfor %}
-</div>
-{% endif %}
-<br>
-<a href="{% url 'students:add' %}" class="btn btn-success" role="button">
+<a href="{% url 'objects:add' %}" class="btn btn-success" role="button">
     <span class="glyphicon glyphicon-plus"></span> Добавить студента</a>
 
 <div class="page-header">
@@ -42,22 +36,22 @@
         </tr>
         </thead>
         <tbody>
-        {% if students_list %}
-        {% for student in students_list %}
+        {% if context %}
+        {% for object in context %}
         <tr>
-            <td>{{ student.id }}</td>
-            <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
-            <td>{{ student.address }}</td>
-            <td>{{ student.skype }}</td>
+            <td>{{ object.id }}</td>
+            <td><a href="{% url 'objects:detail' object.id %}">{{ object.surname }} {{ object.name }}</a></td>
+            <td>{{ object.address }}</td>
+            <td>{{ object.skype }}</td>
             <td>
-                {% for course in student.courses.all %}
+                {% for course in object.courses.all %}
                 <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
                 {% endfor %}
             </td>
             <td>
-                <a href="{% url 'students:edit' student.id %}" class="btn btn-warning btn-xs" role="button">
+                <a href="{% url 'objects:edit' object.id %}" class="btn btn-warning btn-xs" role="button">
                     <span class="glyphicon glyphicon-pencil"></span> Изменить</a>
-                <a href="{% url 'students:remove' student.id%}" class="btn btn-danger btn-xs" role="button">
+                <a href="{% url 'objects:remove' object.id%}" class="btn btn-danger btn-xs" role="button">
                     <span class="glyphicon glyphicon-remove"></span> Удалить  </a>
             </td>
         </tr>
