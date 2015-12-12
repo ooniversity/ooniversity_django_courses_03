@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Add new courses{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 {% block nav_students %}class="active"{% endblock %}
 {% block content %}
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-            <h2>Add new courses</h2>
+            <h2>{{ title }}</h2>
             <form method="post">
             {% csrf_token %}
             <table>

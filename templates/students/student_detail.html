@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Students Card{% endblock title %}
+{% block nav_students %}class="active"{% endblock %}
+{% block content %}
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+            <div class="slash-div">
+            <h2> {{ student.full_name }} <br>
+            student's card</h2>
+            <hr>
+              <div class="table-responsive">
+                <table class="table  table-bordered">
+                        <tbody>
+                            <tr>
+                               <td><strong>Birthday</strong></td>
+                               <td>{{ student.date_of_birth }}</td>
+                            </tr>
+                            <tr>
+                               <td><strong>Address</strong></td>
+                               <td>{{ student.address }}</td>
+                            </tr>
+                            <tr>
+                               <td><strong>E-mail</strong></td>
+                               <td>{{ student.email }}</td>
+                            </tr>
+                            <tr>
+                               <td><strong>Skype</strong></td>
+                               <td>{{ student.skype }}</td>
+                            </tr>
+                            <tr>
+                               <td><strong>Phone</strong></td>
+                               <td>{{ student.phone }}</td>
+                            </tr>
+                            <tr>
+                               <td><strong>Assigned courses</strong></td>
+                               <td>
+                                   {% for course in student.courses.all %}
+                                        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                                   {% endfor %}
+                                </td>
+                            </tr>
+                          </tbody>
+                     </table>
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+{% endblock content %}

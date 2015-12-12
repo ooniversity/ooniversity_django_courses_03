@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Delete course{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 {% block nav_students %}class="active"{% endblock %}
 {% block content %}
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-            <h2>Please confirm that the course {{ cd }} will be removed</h2>
+            <h2>{{ title }}</h2>
             <form method="post">
             {% csrf_token %}
             <input type="submit" value="Delete" />
