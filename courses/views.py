@@ -1,46 +1,68 @@
 from django.shortcuts import render, redirect
-from courses.models import Course, Lesson
-from courses.forms import CourseModelForm, LessonModelForm
+from django.core.urlresolvers import reverse_lazy, reverse
 from django.contrib import messages
 
+from courses.models import Course, Lesson
+from courses.forms import CourseModelForm, LessonModelForm
 
-def detail (request, course_id):
-       cd = Course.objects.get(id=course_id)
-       ll = Lesson.objects.filter(course=course_id) 
-       return render (request, 'courses/detail.html',  {'course_detail': cd, 'lessons_list': ll})
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 
-def add(request):
-    if request.POST:
-        form = CourseModelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            text = "Course " + form.cleaned_data['name'] + " has been successfully added."
-            messages.success(request, text)
-            return redirect('index')
-    else:
-        form = CourseModelForm()
-    return render(request, 'courses/add.html', {'form': form})
 
-def edit(request, course_id):
-    cd = Course.objects.get(id=course_id)
-    form = CourseModelForm(instance=cd)
-    if request.POST:
-        form = CourseModelForm(request.POST, instance=cd)
-        if form.is_valid():
-            form.save()
-            text = "The changes have been saved."
-            messages.success(request, text)
-            return redirect('courses:edit', course_id)
-    return render(request, 'courses/edit.html', {'form': form})    
+class CourseDetailView(DetailView):
+    model = Course
+    context_object_name = 'course_detail'
+    template_name = 'courses/detail.html'
 
-def remove(request, course_id):
-    cd = Course.objects.get(id=course_id)
-    if request.POST:
-        text = "Course " + cd.name + " has been deleted."
-        messages.success(request, text)  
-        cd.delete()
-        return redirect('index')
-    return render(request, 'courses/remove.html', {'cd': cd})    
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['lessons_list'] = Lesson.objects.filter(course=self.object.id) 
+        return context
+
+class CourseCreateView(CreateView):
+    model = Course
+    fields = '__all__'
+    template_name = 'courses/add.html'
+    success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        messages.success(self.request, "Course %s has been successfully added." % form.cleaned_data['name'])
+        return super(CourseCreateView, self).form_valid(form)  
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseCreateView, self).get_context_data(**kwargs)
+        context['title'] = "Course creation"
+        return context
+
+class CourseUpdateView(UpdateView):
+    model = Course
+    fields = '__all__'
+    template_name = 'courses/edit.html'   
+
+    def form_valid(self, form):
+        messages.success(self.request, "The changes have been saved.")
+        self.success_url = reverse('courses:edit', args=(form.instance.id,))
+        return super(CourseUpdateView, self).form_valid(form)  
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseUpdateView, self).get_context_data(**kwargs)
+        context['title'] = "Course update"
+        return context
+
+class CourseDeleteView(DeleteView):
+    model = Course
+    success_url = reverse_lazy('index')
+    template_name = 'courses/remove.html' 
+
+    def delete(self, request, *args, **kwargs):
+        course = self.get_object()
+        messages.success(self.request, "Course %s has been deleted." % course.name)
+        return super(CourseDeleteView, self).delete(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDeleteView, self).get_context_data(**kwargs)
+        context['title'] = "Course deletion"
+        return context
 
 def add_lesson(request, course_id):
     cd = Course.objects.get(id=course_id)
