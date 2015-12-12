@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block title %}Course {{object.name}}{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block course_id %}?course_id={{ object.id }}{% endblock %}
+
+
+{% block content %}
+    <div class="jumbotron container">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+      <h1>Детали курса {{object.name}}</h1>
+      <p class='simple'>{{object.description|truncatechars:32}}</p>
+    </div>
+    {% if object.coach or object.assistant %}
+      <div class="container" id='id1'>
+        <h2>Преподаватели</h2>
+        {% if object.coach %}
+         {% include "include/teach_include.html" with Teacher_title="Учитель" instructor=object.coach %}
+        {% endif %}
+        {% if object.assistant %}
+         {% include "include/teach_include.html" with Teacher_title="Ассистент" instructor=object.assistant %}
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="container">
+        <div id='id1'>
+        <h3 class='center'>План курса</h3>
+        <button type="button" class="btn btn-default btn-lg" aria-label="Left Align">
+        <a href="{% url 'courses:add-lesson' object.id%}">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true">Добавить урок</span></a>
+        </button><br>
+					<table class="table table-striped">
+								<thead>
+				          <tr>
+					          <th>#</th>
+					          <th>Тема</th>
+					          <th>Описание</th>
+				          </tr>
+		            </thead>
+						    <tbody>
+								  {% for i in my_lessons %}
+								  <tr>
+									  <td>{{i.order}}</td>
+									  <td>{{i.subject}}</td>
+									  <td>{{i.description}}</td>
+								  </tr>
+								  {% endfor %}
+						    </tbody>
+					</table>
+        </div>
+      </div>
+{% endblock content %}
