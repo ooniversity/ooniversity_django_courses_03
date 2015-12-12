@@ -4,6 +4,9 @@
 {% block title %}Courses details{% endblock %}
 
 
+{% block st_details %}?course_id={{ courses.id }}{% endblock %}
+
+
 {% block main_content %}
 {% if messages %}
   {% for message in messages %}

@@ -8,9 +8,10 @@
 
 
 {% block main_content %}
+
 <div class="container">
 <div class="page-header">
-  <h1>Change student's info</h1>
+  <h1>{{ title }}</h1>
 </div>
 </div>
 {% if messages %}
@@ -20,15 +21,15 @@
       {{ message }}</div>
   {% endfor %}
 {% endif %}
+<div class="jumbotron">
 <div class="container">
-<div class="panel panel-default pull-left">
-  <div class="jumbotron">
+<div class="panel panel-default">
         <form method="post">
           {% csrf_token %}
           {{ form.as_p }}
           <input type="submit" value="Change"/>
         </form>
-  </div>
+</div>
 </div>
 </div>
 
