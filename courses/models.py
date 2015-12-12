@@ -26,4 +26,4 @@ class Lesson(models.Model):
         return self.subject
 
     def get_absolute_url(self):
-        return reverse('courses:edit', kwargs={'pk': self.pk})
+        return reverse('courses:edit', kwargs={'pk': self.object.pk})
