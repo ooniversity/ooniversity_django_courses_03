@@ -1,11 +1,13 @@
 from django.shortcuts import redirect, render
-from django.views import generic
+#from django.views import generic
 from students.models import Student
 #from courses.models import Course
 from students import forms
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 # Create your views here.
 
 
@@ -14,7 +16,7 @@ class StudentDetailView(DetailView):
     #template_name = 'students/detail.html'
 
 
-class StudentListView(generic.ListView):
+class StudentListView(ListView):
     #model = Student
     queryset = Student.objects.all()
     ##template_name = 'students/list.html'
@@ -30,7 +32,7 @@ class StudentListView(generic.ListView):
     #queryset = Student.objects.prefetch_related('courses')
 
 
-class StudentCreateView(generic.CreateView):
+class StudentCreateView(CreateView):
     model = Student
     #template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
@@ -46,7 +48,7 @@ class StudentCreateView(generic.CreateView):
         return super(StudentCreateView, self).form_valid(form)
 
 
-class StudentUpdateView(generic.UpdateView):
+class StudentUpdateView(UpdateView):
     model = Student
     #template_name = 'students/add.html'
 
@@ -64,7 +66,7 @@ class StudentUpdateView(generic.UpdateView):
         return super(StudentUpdateView, self).form_valid(form)
 
 
-class StudentDeleteView(generic.DeleteView):
+class StudentDeleteView(DeleteView):
     model = Student
     success_url = reverse_lazy('students:list_view')
 
