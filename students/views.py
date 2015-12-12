@@ -1,8 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.urlresolvers import reverse, reverse_lazy
 from students.models import Student
-from courses.models import  Course, Lesson
-from students.forms import StudentModelForm
 from django.contrib import messages
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -72,10 +70,6 @@ class StudentDeleteView(DeleteView ):
         context['title'] = "Student info suppression"
         return context
 
-    def form_valid(self, form):
-        messages.success(self.request, u'Info on %s %s has been successfully deleted.'
-						%(self.object.name, self.object.surname))
-        return super(StudentDeleteView, self).form_valid(form)
 
     def delete(self, request, *args, **kwargs):
         message = super(StudentDeleteView, self).delete(request, *args, **kwargs)
