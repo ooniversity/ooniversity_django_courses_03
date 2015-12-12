@@ -32,8 +32,11 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
-    template_name = 'courses/add.html'
-    
+    template_name = 'courses/edit.html'
+
+    def get_success_url(self):
+        return reverse_lazy('courses:edit', kwargs={'pk': self.object.pk}) 
+
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
         context['title'] = "Course update"
