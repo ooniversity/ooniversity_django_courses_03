@@ -238,7 +238,7 @@ input[type="checkbox"]{
     color:#ddd;
 }
 input[type="submit"] {
-    width:100%;
+    width:50%;
     border:1px solid #ccc;
     margin-bottom:1em;
     padding:5px 5px;
