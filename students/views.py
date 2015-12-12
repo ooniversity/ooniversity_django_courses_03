@@ -34,7 +34,7 @@ class StudentListView(ListView):
         return queryset
         #return Student.objects.all()
     #queryset = Student.objects.prefetch_related('courses')
-
+"""
     def get_context_data(self, **kwargs):
         context = super(StudentListView, self).get_context_data(**kwargs)
         student_list = Student.objects.all()
@@ -51,7 +51,7 @@ class StudentListView(ListView):
 
         context['student_list'] = student_list
         return context
-
+"""
 
 class StudentCreateView(CreateView):
     model = Student
