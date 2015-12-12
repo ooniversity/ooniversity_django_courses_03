@@ -71,36 +71,3 @@ def add_lesson(request, pk):
     else:
         form = LessonModelForm(initial={'course': pk})
     return render(request, 'courses/add_lesson.html', {'form':form})
-
-# def add(request):
-#     if request.method == "POST":
-#         form = CourseModelForm(request.POST)
-#         if form.is_valid():
-#             course = form.save()
-#             messages.success(request, "Course %s has been successfully added." % (course.name))
-#             return redirect('index')
-#     else:
-#         form = CourseModelForm()
-#     return render(request, 'courses/add.html', {'form':form})
-
-
-# def edit(request, pk):
-#     course = Course.objects.get(pk=pk)
-#     if request.method == "POST":
-#         form = CourseModelForm(request.POST, instance=course)
-#         if form.is_valid():
-#             course = form.save()
-#             messages.success(request, "The changes have been saved.")
-#             return redirect('courses:edit', pk=pk)
-#     else:
-#         form = CourseModelForm(instance=course)
-#     return render(request, 'courses/edit.html', {'form':form})
-
-
-# def remove(request, pk):
-#     course = Course.objects.get(pk=pk)
-#     if request.method == "POST":
-#         course.delete()
-#         messages.success(request, "Course %s has been deleted." % (course.name))
-#         return redirect('index')
-#     return render(request, 'courses/remove.html', {'course': course})
