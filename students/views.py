@@ -5,7 +5,14 @@ from students.models import Student
 from courses.models import Course
 import students.forms
 from django.contrib import messages
+from django.views.generic.detail import DetailView
 
+
+class StudentDetailView(DetailView):
+    model = Student
+
+
+# ------ old ----
 
 def list_view(request):
     get_course_id = request.GET.get('course_id', None)
