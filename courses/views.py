@@ -53,12 +53,12 @@ class CourseDeleteView(DeleteView):
         context = super(CourseDeleteView, self).get_context_data(**kwargs)
         context['title'] = "Course deletion"
         return context
-    def form_valid(self, form):
-        context = super(CourseDeleteView, self).form_valid(form)
+    def delete(self, request, *args, **kwargs):
+        context = super(CourseDeleteView, self).delete(request, *args, **kwargs)
         message = "Course %s has been deleted." %self.object.name
         messages.success(self.request, message)
         return context
-
+    
 def add_lesson(request, id):
     
     if request.method == 'POST':
