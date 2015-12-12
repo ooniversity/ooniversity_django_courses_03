@@ -7,9 +7,8 @@ from courses.models import Course
 from students.forms import StudentModelForm
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
-from django.views.generic.edit import UpdateView
-from django.views.generic.edit import DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 
 
 class StudentListView(ListView):
@@ -39,9 +38,9 @@ class StudentDetailView(DetailView):
 
 
 class StudentCreateView(CreateView):
-    form_class = StudentModelForm
+    model = Student
     template_name = "students/add.html"
-    success_url = "students:list_view"
+    success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
@@ -55,9 +54,9 @@ class StudentCreateView(CreateView):
 
 
 class StudentUpdateView(UpdateView):
-    form_class = StudentModelForm
+    model = Student
     template_name = "students/edit.html"
-    success_url = "students:list_view"
+    success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
@@ -67,13 +66,13 @@ class StudentUpdateView(UpdateView):
     def form_valid(self, form):
         form.save()
         messages.success(self.request, 'Student successfully edited.')
-        return super(StudentCreateView, self).form_valid(form)
+        return super(StudentUpdateView, self).form_valid(form)
 
 
 class StudentDeleteView(DeleteView):
-    form_class = StudentModelForm
+    model = Student
     template_name = "students/remove.html"
-    success_url = "students:list_view"
+    success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
         context = super(DeleteView, self).get_context_data(**kwargs)
@@ -83,7 +82,7 @@ class StudentDeleteView(DeleteView):
     def form_valid(self, form):
         form.save()
         messages.success(self.request, 'Student successfully removed.')
-        return super(StudentCreateView, self).form_valid(form)
+        return super(StudentDeleteView, self).form_valid(form)
 
 
 
