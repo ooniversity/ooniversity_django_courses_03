@@ -48,7 +48,7 @@ class CourseCreateView(CreateView):
 class CourseUpdateView(UpdateView):
     model = Course
     template_name = 'courses/course_create_edit.html'
-    context_object_name = 'course'
+    context_object_name = 'form'
     # redirect to the same edit page is implemented in models.get_absolute_url()
 
     def get_context_data(self, **kwargs):
