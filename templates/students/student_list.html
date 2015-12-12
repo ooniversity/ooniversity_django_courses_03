@@ -11,6 +11,7 @@
   <div class="jumbotron">
     <h2><b>Список студентов</b></h2>
       <br>
+    {% if student_list %}
       {% include "include/message_include.html" %}
       <div class="StudentTable">
         <table class="table-hover">
@@ -22,8 +23,7 @@
                 <td><b>Курсы</b></td>
                 <td></td>
               </tr>
-             {% if students %}
-              {% for student in students %}
+              {% for student in student_list %}
               <tr>
                 <td>{{ student.id }} </td>
                 <td><a href="{% url 'students:detail' student.id %}">{{ student.name }} {{ student.surname }}</a></td>
@@ -46,6 +46,8 @@
                 </td>
               </tr>
               {% endfor %}
+              {% else %}
+              List is empty :(
               {% endif %}
            </table>
       </div>

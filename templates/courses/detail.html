@@ -3,6 +3,8 @@
 
 {% block title %}iBursa {{ course.name }}{% endblock title %}
 
+{% block students_link %}?course_id={{ course.id }}{% endblock%}
+
 {% block content %}
     <div class="jumbotron">
       <h1 class="shad">{{ course.name }}</h1>
