@@ -73,7 +73,7 @@ class StudentDeleteView(DeleteView):
 # good solution https://stackoverflow.com/a/25325228
 
     def delete(self, request, *args, **kwargs):
-        message = "Info on %s %s has been sucessfully deleted." % self.object.full_name  # successfully
+        message = "Info on %s %s has been sucessfully deleted." % self.full_name  # successfully
         messages.success(self.request, message)
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
