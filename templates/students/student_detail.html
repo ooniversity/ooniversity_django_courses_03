@@ -12,7 +12,7 @@
 
 {% block content %}
   <div class="page-header">
-    <h1>{{ student_details.name }} {{ student_details.surname }}</h1>
+    <h1>{{ object.name }} {{ object.surname }}</h1>
   </div>
 <div class="table-responsive col-md-5">
   <table class="table table-hover">
@@ -21,28 +21,28 @@
     <tbody>
     <tr class="success">
       <td>дата рождения</td>
-      <td>{{ student_details.date_of_birth }}</td>
+      <td>{{ object.date_of_birth }}</td>
     </tr>
     <tr class="success">
       <td>адрес</td>
-      <td>{{ student_details.address }}</td>
+      <td>{{ object.address }}</td>
     </tr>
     <tr class="success">
       <td>email</td>
-      <td>{{ student_details.email }}</td>
+      <td>{{ object.email }}</td>
     </tr>
     <tr class="success">
       <td>skype</td>
-      <td>{{ student_details.skype }}</td>
+      <td>{{ object.skype }}</td>
     </tr>
     <tr class="success">
       <td>телефон</td>
-      <td>{{ student_details.phone }}</td>
+      <td>{{ object.phone }}</td>
     </tr>
     <tr class="success">
       <td>курсы</td>
       <td>
-        {% for course in student_details.courses.all %}
+        {% for course in object.courses.all %}
         <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
         {% endfor %}
       </td>

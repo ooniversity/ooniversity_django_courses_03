@@ -12,17 +12,10 @@
 
 {% block content %}
 
-{% if messages %}
-<br>
-<div class="alert alert-success alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-    </button>
-    {% for message in messages %}
-    {{ message }}
-    {% endfor %}
-</div>
-{% endif %}
-<br>
+
+{% include "include/messages_include.html" %}
+
+
 <a href="{% url 'students:add' %}" class="btn btn-success" role="button">
     <span class="glyphicon glyphicon-plus"></span> Добавить студента</a>
 
@@ -42,8 +35,8 @@
         </tr>
         </thead>
         <tbody>
-        {% if students_list %}
-        {% for student in students_list %}
+        {% if object_list %}
+        {% for student in object_list %}
         <tr>
             <td>{{ student.id }}</td>
             <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
