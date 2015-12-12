@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'quadratic',
     'courses',
     'students',
-    'coaches'
+    'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -94,3 +95,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
     #'django.template.loaders.app_directories.Loader',
     #)),
 #)    
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+#SERVER_EMAIL = 'root@localhost'
+ADMINS = (('Aleksey', "dixon.che@gmail.com"), ('Roma', "mda@gmail.com"))
+#DEFAULT_FROM_EMAIL = 'asd@gmail.com'
