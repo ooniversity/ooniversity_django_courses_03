@@ -13,10 +13,10 @@
 
 {% block content %}
     <div class="col-lg-12">
-        <h2>Course {{ course.name }} has been deleted.</h2>
+        <h1>Курс {{ course.name }} будет удален</h1>
         <form method="post">
-            {% csrf_token %}
-            <input type="submit" value="Remove" />
+          {% csrf_token %}
+          <input type="submit" value="Удалить" />
         </form>
     </div>
 {% endblock content %}
