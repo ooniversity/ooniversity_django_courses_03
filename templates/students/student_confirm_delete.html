@@ -2,13 +2,13 @@
 
 {% load staticfiles %}
 
-{% block title %}Remove form{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 
 {% block content %}
 
-<h1>Студент {{ student.name }} {{ student.surname}} будет удален</h1>
+<h1>{{ title }}</h1>
 <form method="post">
   {% csrf_token %}
   <input type="submit" value="Удалить" />
