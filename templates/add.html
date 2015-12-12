@@ -7,7 +7,17 @@
 <body>
 
 <h2>Создание нового студента</h2>
-    <form method="get">
+<p>
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</p>
+    <form method="post">
+        {% csrf_token %}
         {{ model_form.as_p }}
         <input type="submit" value="Create">
     </form>

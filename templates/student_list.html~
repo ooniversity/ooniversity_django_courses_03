@@ -66,5 +66,5 @@
 </div>
 
 {% endblock content %}
-
+{{% include "templates/include/allright.html" %}}
 
