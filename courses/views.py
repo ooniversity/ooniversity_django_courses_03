@@ -45,6 +45,21 @@ class CourseUpdateView(UpdateView):
         messages.success(self.request, u'The changes have been saved.') 
         return super(CourseUpdateView, self).form_valid(form)
 
+class CourseDeleteView(DeleteView):
+    model = Course  
+    template_name = 'courses/remove.html'
+    success_url = reverse_lazy('index')
+    context_object_name = 'course'
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDeleteView, self).get_context_data(**kwargs)
+        context['title'] = u'Course deletion'
+        return context
+
+    def delete(self, request, pk, *args, **kwargs):
+        course = Course.objects.get(id=pk)
+        messages.success(self.request, u'Course %s has been deleted.' %(course.name))
+        return super(CourseDeleteView, self).delete(request, *args, **kwargs)
 
 
 class LessonCreateView(CreateView):
