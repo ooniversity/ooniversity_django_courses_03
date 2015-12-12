@@ -39,10 +39,12 @@ class StudentCreateView(CreateView):
         return context
 
     def form_valid(self, form):
-        message = "Student %s %s has been successfully added." % (
-            self.form_content['name'], self.form_content['surname'])
+        form_content = super(StudentCreateView, self).form_valid(form)
+        name = form_content.name
+        surname = form_content.surname
+        message = "Student %s %s has been successfully added." % (name, surname)
         messages.add_message(self.request, messages.SUCCESS, message)
-        return super(StudentCreateView, self).form_valid(form)
+        return form_content
 
 '''
     def get_context_data(self, **kwargs):
