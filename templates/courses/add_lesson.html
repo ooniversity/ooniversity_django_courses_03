@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 
-{% block title %}lesson add page{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 
 {% block nav_class_students %}active{% endblock nav_class_students %}
@@ -13,7 +13,6 @@
     <div class="col-lg-12">
 
         <h2>Создание нового урока</h2>
-
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}

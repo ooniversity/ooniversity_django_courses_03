@@ -10,14 +10,10 @@ from students.models import Student
 
 class StudentDetailView(DetailView):
     model = Student
-    # template_name = 'students/detail.html'
 
 
 class StudentListView(ListView):
     model = Student
-
-    # template_name = 'students/list.html'
-    # context_object_name = 'list_students'
 
     def get_queryset(self):
         qs = super(StudentListView, self).get_queryset()
@@ -29,7 +25,6 @@ class StudentListView(ListView):
 
 class StudentCreateView(CreateView):
     model = Student
-    # template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
@@ -48,7 +43,6 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Student
-
     # template_name = 'students/add.html'
 
     def get_context_data(self, **kwargs):
@@ -69,7 +63,6 @@ class StudentUpdateView(UpdateView):
 
 class StudentDeleteView(DeleteView):
     model = Student
-    # template_name = 'students/add.html'
     success_url = reverse_lazy('students:list_view')
 
     def get_context_data(self, **kwargs):
