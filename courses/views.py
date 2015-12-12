@@ -8,7 +8,9 @@ from courses.models import Course
 
 class CourseDetailView(DetailView):
     model = Course
+    context_object_name = 'course'
     template_name = 'courses/detail.html'
+    success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         course = self.get_object()
