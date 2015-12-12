@@ -41,7 +41,7 @@ class CourseUpdateView(UpdateView):
     fields = '__all__'
     context_object_name = 'course'
     template_name = 'courses/edit.html'
-
+    
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
         context['title'] = "Course update"
@@ -50,6 +50,7 @@ class CourseUpdateView(UpdateView):
     def form_valid(self, form):
         data = form.instance
         messages.success(self.request, 'The changes have been saved.')
+        self.success_url = reverse('courses:edit', args=(data.id,))
         return super(CourseUpdateView, self).form_valid(form)
 
 class CourseDeleteView(DeleteView):
