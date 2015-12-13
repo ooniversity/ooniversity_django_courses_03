@@ -1,6 +1,5 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
-
 from students import views
 
 urlpatterns = patterns('',
@@ -9,4 +8,4 @@ urlpatterns = patterns('',
     url(r'^add/', views.StudentCreateView.as_view(), name="add"),
     url(r'^edit/(?P<pk>\d+)/$', views.StudentUpdateView.as_view(), name="edit"),
     url(r'^remove/(?P<pk>\d+)/$', views.StudentDeleteView.as_view(), name="remove"),
-	)
+)
