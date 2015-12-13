@@ -257,6 +257,6 @@ input[type="submit"]:focus{
     outline:0;
 }
 .pagination-centered{
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
