@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+'''
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -8,6 +9,7 @@ from students.models import Student
 
 
 # Create your views here.
+
 class StudentDetailView(DetailView):
     model = Student
 
@@ -81,7 +83,10 @@ class StudentDeleteView(DeleteView):
 '''
 from students.models import Student
 from django.contrib import messages
-from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 from django.core.urlresolvers import reverse_lazy
 
 
@@ -122,7 +127,6 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Student
-
     # form_class = StudentModelForm
 
     def get_context_data(self, **kwargs):
@@ -152,4 +156,4 @@ class StudentDeleteView(DeleteView):
         messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
         return message
 
-'''
+
