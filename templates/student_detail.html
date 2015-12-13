@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Ivanova Anna{% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+	<img src="{% static 'images/pic3.jpg' %}" width="200px" height="200px" class="img-circle">		
+	<div class="jumbotron">
+	  <h1>Ivanova Anna</h1>
+	  <p>Student's card ITBursa</p>
+	   <!-- Table -->
+	  <table class="table">
+	    <tr><td>Surname</td><td>Ivanova</td>
+	    <tr><td>Name</td><td>Anna</td>
+	    <tr><td>Patronymic</td><td>IvanovaA</td>
+	    <tr><td>Birth Date</td><td>28.01.1983</td>
+	    <tr><td>Address</td><td>20A, Mira street, apt. 140, Kharkiv</td>
+	    <tr><td>E-mail</td><td>Anna55@ukr.net</td>
+	    <tr><td>Skype</td><td>A.Ivanova</td>	
+	  </table>
+	  <table class="table">
+	    <tr>
+	        <th>Course</th>
+	        <th>Week</th>
+	        <th>Control type</th>
+	        <th>Grade</th>
+	    </tr>
+	    <tr><td><b>Python</b></td><td>Wee1</td><td>Problem Task</td><td>100%</td></tr>
+	    <tr><td></td><td>Wee1</td><td>Tests</td><td>100%</td></tr>
+	    <tr><td></td><td>Wee1</td><td>Average Grade</td><td>100%</td></tr>
+	    <tr><td></td><td>Wee1</td><td>Rating</td><td>100%</td></tr>
+	    <tr><td></td><td>Week2</td><td>Problem Task</td><td>100%</td></tr>
+	    <tr><td></td><td>Wee2</td><td>Tests</td><td>100%</td></tr>
+	  </table>
+	</div>
+{% endblock content %}	
+	

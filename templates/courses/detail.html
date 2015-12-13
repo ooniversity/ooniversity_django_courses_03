@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block nav_course_students %}?course_id={{ course_detail.id }}{% endblock %}
+
+
+{% block title %}{{ course }}{% endblock title %}
+
+
+{% block content %}
+    <img src="{% static 'images/pic2.jpg' %}" width="500px" height="200px">   
+    <br>
+      {% if messages %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <ul class="messages">
+            {% for message in messages %}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 {{ message }}
+             {% endfor %}
+            </ul>
+        </div>        
+        {% endif %} 
+      <br>  
+    <h2> {{ course_detail.name }} </h2>
+    {{ course_detail.description|truncatechars:32 }}
+    <br>
+    <h3> Course trainers:</h3>
+    <br>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Сoach</h3>
+            </div>
+            <div class="panel-body">
+              <a href="{% url 'coaches:detail' course_detail.coach.id %}"> {{ course_detail.coach.user.first_name }}  {{ course_detail.coach.user.last_name }} </a> <br><br>
+               {{ course_detail.coach.description }}
+            </div>
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Assistant</h3>
+            </div>
+            <div class="panel-body">
+               <a href="{% url 'coaches:detail' course_detail.assistant.id %}"> {{ course_detail.assistant.user.first_name }}  {{ course_detail.assistant.user.last_name }} </a> <br><br>
+               {{ course_detail.assistant.description }}               
+            </div>
+        </div>
+    <br>
+    <h3> Course detailed plan (lessons): </h3>
+    <br>
+    <br> 
+      <p><a class="btn btn-primary btn-lg" href="{% url 'courses:add_lesson' course_detail.id  %}" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add lesson </a></p> 
+      <br><br>
+      <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+              <tr class="success">
+                <td><strong>ID</strong></td>
+                <td><strong>Subject</strong></td>
+                <td><strong>Description</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+             {% if lessons_list %} 
+              {% for lesson in lessons_list %}
+              <tr>
+                <td>{{ lesson.order }} </td>
+                <td>{{ lesson.subject }}</td>
+                <td>{{ lesson.description }}</td>
+              </tr>
+              {% endfor %}
+              {% endif %}  
+            </tbody>
+        </table>
+      </div>        
+{% endblock content %}    

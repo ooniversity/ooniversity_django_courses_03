@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Contacts{% endblock title %}
+
+
+{% block nav_contacts %}class="active"{% endblock %}
+
+
+{% block content %}	
+	<div class="row">
+	  <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="{% static 'images/pic6.jpg' %}" width="100px" height="100px" class="img-circle">
+	      <div class="caption">
+	        <h3>Director</h3>
+	        <p>Name: Alina Ivanova</p>
+	        <p>Skype: daria123</p> 
+	        <p>Phone: (123) 456-7890</p>
+	        <p><a href="{% static 'images/pic6.jpg' %}" class="btn btn-primary" role="button">Contact</a> 
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="{% static 'images/pic1.jpg' %}" width="100px" height="100px" class="img-circle">
+	      <div class="caption">
+	        <h3> Manager</h3>
+	        <p>Name: Alex Ivanov</p>
+	        <p>Skype: Alex12</p> 
+	        <p>Phone: (123) 456-7891</p>
+	        <a href="mailto:#">AlexIvanov@gmail.com</a>
+	        <p><a href="{% static 'images/pic1.jpg' %}" class="btn btn-primary" role="button">Contact</a> 
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="{% static 'images/pic5.jpg' %}" width="100px" height="100px" class="img-circle">
+	      <div class="caption">
+	        <h3>Founder</h3>
+	        <p>Name: Ivan Petrov</p>
+	        <p>Skype: ivan123</p> 
+	        <p>Phone: (123) 456-7892</p>
+	        <a href="mailto:#">123@gmail.com</a>
+	        <p><a href="{% static 'images/pic5.jpg' %}" class="btn btn-primary" role="button">Contact</a> 
+	      </div>
+	    </div>
+	  </div>
+	</div>
+{% endblock content %}    
