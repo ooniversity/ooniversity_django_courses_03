@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+{% block nav_class_feedback %}active{% endblock %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block content %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+
+<h1>{{ title }}</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Сохранить" />
+</form>
+
+{% endblock content %}
