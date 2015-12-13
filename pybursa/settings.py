@@ -107,11 +107,12 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Email settings
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+EMAIL_HOST = 'smtp-pulse.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
 
-# EMAIL_HOST_USER
-# EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER = 's.pod.pub@ya.ru'
+EMAIL_HOST_PASSWORD = 'ikm3tMPdoJtcp8'
 
 SERVER_EMAIL = 's.pod.pub@ya.ru'
 ADMINS = ('s.pod.pub@ya.ru',)
