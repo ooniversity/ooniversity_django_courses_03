@@ -33,8 +33,31 @@
                     <a href="{% url 'students:edit' student.id %}">Изменить</a>
                     <a href="{% url 'students:remove' student.id %}">Удалить</a>
                 </td>
-
             </tr>
             {% endfor %}
     </table>
+
+    <nav>
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li>
+                <a aria-label="Previous" href="?page={{ page_obj.previous_page_number }}">
+                    <span aria-hidden="true">&laquo; previous</span>
+                </a>
+            </li>
+        {% endif %}
+
+        {% for i in paginator.page_range %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li>
+                <a aria-label="Next" href="?page={{ page_obj.next_page_number }}">
+                    <span  aria-hidden="true">next &raquo;</span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+    </nav>
 {% endblock %}
