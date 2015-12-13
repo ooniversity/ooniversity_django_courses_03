@@ -19,8 +19,6 @@
       <ul class="pagination pagination-sm pagination-centered">
         {% if page_obj.has_previous %}
           <li><a href="?{% if course %}course_id={{ course }}&{% endif %}page={{ page_obj.previous_page_number }}">&laquo; previous </a></li>
-        {% else %}
-          <li class="disabled"><a href="#">&laquo; previous </a></li>
         {% endif %}
         {% for num in page_obj.paginator.page_range %}
           {% ifequal num page_obj.number %}
@@ -31,12 +29,10 @@
         {% endfor %}
         {% if page_obj.has_next %}
           <li><a href="?{% if course %}course_id={{ course }}&{% endif %}page={{ page_obj.next_page_number }}"> next &raquo;</a></li>
-        {% else %}
-          <li class="disabled"><a href="#"> next &raquo;</a></li>
         {% endif %}
       </ul>
 
-  {% endif %}
+    {% endif %}
 
   <div class="table-responsive">
     <table class="table table-hover">
