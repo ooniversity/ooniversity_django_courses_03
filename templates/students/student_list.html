@@ -5,9 +5,8 @@
 {% block nav_students %}class="active"{% endblock %}
 
 {% block content %}
-
     <h2> Student's list: </h2>
-    <br>
+      <br>
         {% if messages %}
             <ul>
             {% for message in messages %}
@@ -18,17 +17,19 @@
         {% endif %} 
       <br>  
       <a href="{% url 'students:add' %}">
-      <button type="button">
+      <button type="button" class="btn btn-default">
           <span aria-hidden="true"></span> Add student </button>    
       </a>  
-        <table >
+      <br><br>
+        <table>
             <thead>
-              <tr>
+              <tr align="center">
                 <td><strong>ID</strong></td>
                 <td><strong>Full name</strong></td>
                 <td><strong>Address</strong></td>
                 <td><strong>Skype</strong></td>
                 <td><strong>Assigned courses</strong></td>  
+                <td><strong>Options</strong></td>  
               </tr>
             </thead>
             <tbody>
@@ -39,9 +40,21 @@
                 <td><a href="{% url 'students:detail' student.id %}">{{ student.full_name }}</a></td>
                 <td>{{ student.address }}</td>
                 <td>{{ student.skype }}</td>
-                <td>{% for course in student.courses.all %}
+                <td>
+                   {% for course in student.courses.all %}
                         <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
-                   {% endfor %}</td>               
+                   {% endfor %}
+                </td>              
+                <td>
+                <a href="{% url 'students:edit' student.id %}">
+                    <button type="button" class="btn btn-default">
+                    <span aria-hidden="true"></span> Edit </button>    
+                </a>  
+                <a href="{% url 'students:remove' student.id %}">
+                    <button type="button">
+                    <span aria-hidden="true"></span> Delete </button>    
+                </a>  
+                </td> 
               </tr>
               {% endfor %}
               {% endif %}  
