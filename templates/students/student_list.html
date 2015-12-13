@@ -36,15 +36,18 @@
             {% endifequal %}
           {% endfor %}
           {% if page_obj.has_next %}
-            <li><a href="?{% if course %}course_id={{ course }}&{% endif %}page={{ page_obj.next_page_number }}"> next &raquo;</a></li>
+            next &raquo;</a></li>
             <li>
               <a>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a>
+            </li>
+            <li>
+              <a href="?{% if course %}course_id={{ course }}&{% endif %}page={{ page_obj.next_page_number }}"></a>
             </li>
           {% else %}
-            <li class="disabled"><a href=""> next &raquo;</a></li>
             <li>
               <a>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a>
             </li>
+            <li class="disabled"><a href=""> next &raquo;</a></li>
           {% endif %}
         </ul>
       {% endif %}
