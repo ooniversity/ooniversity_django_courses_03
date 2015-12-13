@@ -55,5 +55,31 @@
       {% endfor %}
     </table>
   </div>
+  <ul class="pagination">
+        <li>
+          {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">
+            <span aria-hidden="true"><< previous</span></a>
+          {% endif %}
+        </li>
+        {% for page_number in paginator.page_range %}
+          {% if page_number == page_obj.number %}
+            <li class="active">
+              <a href="">{{ page_number }}<span class="sr-only"></span></a>
+            </li>
+          {% else %}
+            <li>
+              <a href="?page={{ page_number }}">{{ page_number }}<span class="sr-only"></span></a>
+            </li>
+          {% endif %}
+
+        {% endfor %}
+        <li>
+          {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">next >></span></a>
+          {% endif %}
+        </li>
+      </ul>
 </div>
 {% endblock %}

@@ -65,6 +65,7 @@ def remove(request, student_id):
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
     def get_queryset(self):
         qs = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course_id', None)
