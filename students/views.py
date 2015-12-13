@@ -5,8 +5,6 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from students.models import Student
-from courses.models import Course
-# from students.forms import StudentModelForm
 
 
 # Create your views here.
@@ -16,6 +14,7 @@ class StudentListView(ListView):
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', '')
+        print(course_id)
         if course_id and course_id.isdigit():
             return Student.objects.filter(courses=course_id)
 
@@ -24,7 +23,7 @@ class StudentListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(StudentListView, self).get_context_data(**kwargs)
         context['title'] = 'Students'
-        context['course_id'] = self.request.GET.get('course_id', None)
+        context['course_id'] = self.request.GET.get('course_id', '')
 
         return context
 
@@ -49,7 +48,6 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Student
-    # form_class = StudentModelForm
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
