@@ -8,7 +8,6 @@ from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 import os
 
 
-
 class CourseDetailView(DetailView):
     model = Course
     fields = '__all__'
@@ -71,7 +70,7 @@ class CourseDeleteView(DeleteView):
         return context
 
     def get_success_url(self):
-        message = 'Course %s has been deleted.'% (self.object)
+        message = 'Course %s has been deleted.' % (self.object)
         messages.success(self.request, message)
         return reverse_lazy('index')
 
@@ -82,9 +81,7 @@ def add_lesson(request, pk):
         if form.is_valid():
             lesson_add = form.save()
             messages.success(request,
-                    'Lesson %s has been successfully added.'% (lesson_add.subject))
-            form.save()
-            messages.success(request, 'Lesson %s has been successfully added.' % (form.cleaned_data['subject']))
+                             'Lesson %s has been successfully added.' % (lesson_add.subject))
             return redirect('courses:detail', pk)
     else:
         form = LessonModelForm(initial={'course': pk})

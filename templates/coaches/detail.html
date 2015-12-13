@@ -23,7 +23,7 @@
                     <tbody>
                     <tr>
                         <td>Birth Date</td>
-                        <td>{{ teacher.date_of_birth|date:'j F, Y' }}</td>
+                        <td>{{ teacher.date_of_birth|date:'d F, Y' }}</td>
                     </tr>
                     <tr>
                         <td>Address</td>
@@ -47,7 +47,7 @@
                             <td>
                                 {% for course in  course_coach %}
                                     <a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-                                    students
+
                                     <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
                                         <button type="button" class="btn btn-xm" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
@@ -64,7 +64,7 @@
                             <td>
                                 {% for course in  course_assistant %}
                                     <a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
-                                    students
+
                                     <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
                                         <button type="button" class="btn btn-xm" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
