@@ -4,7 +4,7 @@
 {% block title %}iBursa список студентов{% endblock title %}
 
 
-{% block nav_students %}active{% endblock %}
+{% block nav_class_students %}active{% endblock %}
 
 
 {% block content %}
@@ -51,9 +51,25 @@
               {% endif %}
            </table>
       </div>
-      <br>
+        <br>
       <a href="{% url 'students:add' %}"><b>
       <button type="button">Добавить</button>
       </b></a>
+      <br>
+           <div class="pagination">
+               <span class="step-links">
+                   {% if page_obj.has_previous %}
+                       <a href="?page={{ page_obj.previous_page_number }}"><< previous</a>
+                   {% endif %}
+
+                   <span class="current">
+                       Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+                   </span>
+
+                   {% if page_obj.has_next %}
+                       <a href="?page={{ page_obj.next_page_number }}">next >></a>
+                   {% endif %}
+               </span>
+           </div>
     </div>
 {% endblock content %}

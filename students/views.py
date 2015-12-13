@@ -1,6 +1,7 @@
 # -*- coding:UTF-8 -*-
 from django.shortcuts import render,  get_object_or_404, redirect
 from django.db import models
+from django.core.paginator import Paginator
 from django.views.generic.list import *
 import models
 from courses.models import Course
@@ -14,13 +15,15 @@ from django.core.urlresolvers import reverse_lazy, reverse
 
 class StudentListView(ListView):
     model = Student
-    # context_object_name = "student"
+    paginate_by = 2
+    #paginator = Paginator(super(StudentListView, self).get_queryset())
     def get_queryset(self):
         qs = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course_id', None)
         if course_id:
             qs = qs.filter(courses__id = course_id)
         return qs
+    context_object_name = 'student_list'
 
 class StudentDetailView(DetailView):
     model = Student
