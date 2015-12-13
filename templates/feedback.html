@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
 {% block title %}
-<title>Course edit</title>
+    <title>Feedback</title>
 {% endblock %}
 
 {% block top_menu %}
-<ul class="nav navbar-nav">
-    <li><a href="{% url 'index' %}">Main</a></li>
-    <li><a href="{% url 'contact' %}">Contacts</a></li>
-    <li><a href="{% url 'feedback' %}">Feedback</a></li>
-    <li><a href="{% url 'students:list_view' %}">Students</a></li>
-</ul>
+    <ul class="nav navbar-nav">
+        <li ><a href="{% url 'index' %}">Main</a></li>
+        <li ><a href="{% url 'contact' %}">Contacts</a></li>
+        <li class="active"><a href="{% url 'feedback' %}">Feedback</a></li>
+        <li ><a href="{% url 'students:list_view' %}">Students</a></li>
+    </ul>
 {% endblock %}
 
 {% block content %}
+
 <div class="jumbotron ">
     {% if messages %}
     <ul class="messages">
@@ -24,19 +25,14 @@
         {% endfor %}
     </ul>
     {% endif %}
-    <h3>
-        <span class="glyphicon glyphicon-pencil padsingtitle" aria-hidden="true"></span>
-        {{ 'Students edit'|title }}
-    </h3>
+    <h3></h3>
 
-    <p></p>
+    <h3>Feedback</h3>
 
     <form method="post" style="" class="add_form">
         {% csrf_token %}
         {{ form.as_p }}
-        <p>
-            <input class=" btn btn-primary btn-lg " type="submit" value="Submit">
-        </p>
+        <p><input class=" btn btn-primary btn-lg " type="submit" value="Submit"></p>
     </form>
 </div>
 {% endblock %}

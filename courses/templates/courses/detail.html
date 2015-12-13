@@ -8,6 +8,7 @@
 <ul class="nav navbar-nav">
     <li class="active"><a href="{% url 'index' %}">Main</a></li>
     <li><a href="{% url 'contact' %}">Contacts</a></li>
+    <li><a href="{% url 'feedback' %}">Feedback</a></li>
     <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Students</a></li>
 </ul>
 {% include "include/search_include.html" %}
@@ -38,7 +39,9 @@
     <table class="table opct-img">
         <tr>
             <td>
+                {% if course.coach %}
                 <a href="{% url 'coaches:detail' coach_id=course.coach.user.id %}">{{ course.coach.user.first_name}} {{course.coach.user.last_name}}</a></td>
+                {% endif %}
         </tr>
         <tr>
             <td>{{ course.coach.description }}</td>
@@ -49,7 +52,9 @@
     <table class="table opct-img">
         <tr>
             <td>
+                {% if course.assistant %}
                 <a href="{% url 'coaches:detail' coach_id=course.assistant.user.id %}">{{course.assistant.user.first_name}} {{ course.assistant.user.last_name}}</a></td>
+                {% endif %}
         </tr>
         <tr>
             <td>{{ course.assistant.description }}</td>
@@ -60,9 +65,11 @@
     <!--Lessons plane-->
 
     <p>
+        {% if course.id %}
         <a class=" btn btn-primary btn " href="{% url 'courses:add_lesson' pk=course.id %}" role="button">
             <span class="glyphicon glyphicon-plus padsingtitle " aria-hidden="true"></span> Add new course
         </a>
+        {% endif %}
     </p>
 
     <h3><span class="glyphicon glyphicon-list" aria-hidden="true" style="margin-right: 4px;"></span>Courses Lessons

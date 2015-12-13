@@ -8,6 +8,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
+
 def index(request):
 
     courses_list = Course.objects.all()
@@ -19,34 +20,34 @@ def index(request):
     return HttpResponse(template.render(context))
 
 
-def couse_detail(request, course_id):
-
-    course = Course.objects.get(pk = course_id)
-    lessons_list = Lesson.objects.filter(course = course)
-    template = loader.get_template('courses/detail.html')
-    context = RequestContext(request, {
-        'course': course,
-        'lessons_list': lessons_list
-    })
-    return HttpResponse(template.render(context))
+# def couse_detail(request, course_id):
+#
+#     course = Course.objects.get(pk = course_id)
+#     lessons_list = Lesson.objects.filter(course = course)
+#     template = loader.get_template('courses/detail.html')
+#     context = RequestContext(request, {
+#         'course': course,
+#         'lessons_list': lessons_list
+#     })
+#     return HttpResponse(template.render(context))
 
 
 # Add
-def add(request):
-    form = CourseModelForm()
-    if request.method == 'POST':
-        form = CourseModelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            c_name = form.data.get('name')
-            messages.success(request, 'Course %s has been successfully added.'% c_name)
-            return redirect('index')
-
-    template = loader.get_template('courses/add.html')
-    context = RequestContext(request, {
-        'form': form
-    })
-    return HttpResponse(template.render(context))
+# def add(request):
+#     form = CourseModelForm()
+#     if request.method == 'POST':
+#         form = CourseModelForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             c_name = form.data.get('name')
+#             messages.success(request, 'Course %s has been successfully added.'% c_name)
+#             return redirect('index')
+#
+#     template = loader.get_template('courses/add.html')
+#     context = RequestContext(request, {
+#         'form': form
+#     })
+#     return HttpResponse(template.render(context))
 
 
 # add_lesson
@@ -70,59 +71,60 @@ def add_lesson(request, pk):
 
 
 # Delete
-def remove(request, pk):
-    course = Course.objects.get(id=pk)
-
-    if request.method == 'POST':
-        c_name = course.name
-        course.delete()
-        messages.success(request, 'Course %s has been deleted.'% c_name)
-        return redirect('index')
-
-    template = loader.get_template('courses/remove.html')
-    context = RequestContext(request, {
-        'course': course
-    })
-    return HttpResponse(template.render(context))
+# def remove(request, pk):
+#     course = Course.objects.get(id=pk)
+#
+#     if request.method == 'POST':
+#         c_name = course.name
+#         course.delete()
+#         messages.success(request, 'Course %s has been deleted.'% c_name)
+#         return redirect('index')
+#
+#     template = loader.get_template('courses/remove.html')
+#     context = RequestContext(request, {
+#         'course': course
+#     })
+#     return HttpResponse(template.render(context))
 
 
 # Edit
-def edit(request, pk):
-    course = Course.objects.get(id=pk)
-    if request.method == 'POST':
-        form = CourseModelForm(request.POST, instance=course)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'The changes have been saved.')
-            return redirect('courses:edit', pk=pk)
-    else:
-        form = CourseModelForm(instance=course)
+# def edit(request, pk):
+#     course = Course.objects.get(id=pk)
+#     if request.method == 'POST':
+#         form = CourseModelForm(request.POST, instance=course)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'The changes have been saved.')
+#             return redirect('courses:edit', pk=pk)
+#     else:
+#         form = CourseModelForm(instance=course)
+#
+#     template = loader.get_template('courses/edit.html')
+#     context = RequestContext(request, {
+#         'form': form
+#     })
+#     return HttpResponse(template.render(context))
 
-    template = loader.get_template('courses/edit.html')
-    context = RequestContext(request, {
-        'form': form
-    })
-    return HttpResponse(template.render(context))
 
 class CourseDetailView(DetailView):
     model = Course
-    template_name = "students/detail.html"
-    context_object_name = 'student'
+    template_name = "courses/detail.html"
+    context_object_name = 'course'
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
-        context['student'] = context['object']
+        context['lessons_list'] = Lesson.objects.filter(course = context['object'])
         return context
 
 
 class CourseCreateView(CreateView):
     model = Course
-    template_name = "students/add.html"
-    success_url = reverse_lazy('students:list_view')
+    template_name = "courses/add.html"
+    success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         context = super(CreateView, self).get_context_data(**kwargs)
-        context['title'] = "Student registration"
+        context['title'] = "Course creation"
         return context
 
     def form_valid(self, form):
@@ -133,12 +135,12 @@ class CourseCreateView(CreateView):
 
 class CourseUpdateView(UpdateView):
     model = Course
-    template_name = "students/edit.html"
-    success_url = reverse_lazy('students:list_view')
+    template_name = "courses/edit.html"
+    success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
-        context['title'] = "Student info update"
+        context['title'] = "Course update"
         return context
 
     def form_valid(self, form):
@@ -149,12 +151,12 @@ class CourseUpdateView(UpdateView):
 
 class CourseDeleteView(DeleteView):
     model = Course
-    template_name = "students/remove.html"
-    success_url = reverse_lazy('students:list_view')
+    template_name = "courses/remove.html"
+    success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         context = super(DeleteView, self).get_context_data(**kwargs)
-        context['title'] = "Student info suppression"
+        context['title'] = "Course deletion"
         return context
 
     def form_valid(self, form):
