@@ -5,7 +5,7 @@ from django.forms import widgets
 
 
 class FeedbacksAdmin(admin.ModelAdmin):
-    list_display = ['name', 'from_email', 'create_date']
+    list_display = ('from_email','create_date')
 
 
 # Register your models here.
