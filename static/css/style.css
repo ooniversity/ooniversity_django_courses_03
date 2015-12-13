@@ -64,12 +64,12 @@ table, td {
   background: -webkit-linear-gradient(top,  rgba(254,254,254,1) 0%,rgba(209,209,209,1) 49%,rgba(219,219,219,1) 50%,rgba(226,226,226,1) 100%);
   background: linear-gradient(to bottom,  rgba(254,254,254,1) 0%,rgba(209,209,209,1) 49%,rgba(219,219,219,1) 50%,rgba(226,226,226,1) 100%);
 }
-.active > a {
+/*.active > a {
   background: rgb(255, 255, 255);
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(250, 246, 232, 1) 50%, rgba(245, 236, 205, 1) 51%, rgba(252, 249, 240, 1) 100%);
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(250, 246, 232, 1) 50%, rgba(245, 236, 205, 1) 51%, rgba(252, 249, 240, 1) 100%);
   background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(250, 246, 232, 1) 50%, rgba(245, 236, 205, 1) 51%, rgba(252, 249, 240, 1) 100%);
-}
+}*/
 #cnt1 {
   /*background-color:rgba(240, 240, 240, 0.88); */
   width: 90%;
