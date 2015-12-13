@@ -12,13 +12,14 @@ from django.core.paginator import Paginator
 class StudentListView(ListView):
     model = Student
     context_object_name = "students_list"
-    # paginate_by = 2  # http://stackoverflow.com/a/5910325
+    paginate_by = 50  # http://stackoverflow.com/a/5910325
 
     def get_queryset(self):
         students_list = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course_id', None)
         if course_id:
             students_list = students_list.filter(courses__id=course_id)
+            students_list['course'] = course_id
         return students_list
 
 
