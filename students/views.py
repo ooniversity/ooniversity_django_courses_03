@@ -5,6 +5,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.views.generic.list import MultipleObjectMixin
 import models
 
 
@@ -59,8 +60,9 @@ def remove(request, pk):
     return render(request, 'students/student_confirm_delete.html', {'student': student})
 
 
-class StudentListView(ListView):
+class StudentListView(ListView, MultipleObjectMixin):
     model = models.Student
+    paginate_by = 2
 
     def get_queryset(self):
         qs = super(StudentListView, self).get_queryset()
