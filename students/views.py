@@ -12,7 +12,7 @@ from django.core.paginator import Paginator
 class StudentListView(ListView):
     model = Student
     context_object_name = "students_list"
-    paginate_by = 50  # http://stackoverflow.com/a/5910325
+    paginate_by = 2  # http://stackoverflow.com/a/5910325
 
     def get_context_data(self, **kwargs):
         students_list = super(StudentListView, self).get_context_data(**kwargs)
