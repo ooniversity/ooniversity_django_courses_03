@@ -17,12 +17,10 @@ class Migration(migrations.Migration):
             model_name='feedback',
             name='create_date',
             field=models.DateTimeField(default=datetime.datetime(2015, 12, 13, 20, 35, 21, 302434, tzinfo=utc), auto_now_add=True),
-            preserve_default=True,
         ),
         migrations.AlterField(
             model_name='feedback',
             name='message',
             field=models.TextField(max_length=255),
-            preserve_default=True,
         ),
     ]
