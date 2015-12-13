@@ -1,9 +1,8 @@
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render, redirect
-from students.forms import StudentModelForm
 from django.contrib import messages
 from students.models import Student
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+from django.core.paginator import Paginator
 
 
 class StudentDetailView(DetailView):
@@ -12,6 +11,7 @@ class StudentDetailView(DetailView):
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
@@ -20,6 +20,14 @@ class StudentListView(ListView):
         else:
             students = Student.objects.all()
         return students
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        id = self.request.GET.get('course_id',None)
+        if id:
+          context['id_course'] = 'course_id=%s&' % id
+        return context
+
 
 
 class StudentCreateView(CreateView):
