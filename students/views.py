@@ -11,15 +11,18 @@ from students.forms import StudentModelForm
 from students.models import Student
 class StudentListView(ListView):
     model = Student
-
+    paginate_by = 2
     def get_queryset(self):
         queryset = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course_id', None)
-        print course_id
         if course_id:
             queryset = queryset.filter(courses__id = course_id)
-        print queryset
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        context['c_id'] = self.request.GET.get('course_id', None)
+        return context
 
 '''
 def list_view(request):
