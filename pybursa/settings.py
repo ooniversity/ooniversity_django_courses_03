@@ -94,7 +94,7 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 # Email settings
 
 EMAIL_HOST = 'localhost'
-EMAIL_PORT = 8025
+EMAIL_PORT = 1025
 
 # EMAIL_HOST_USER
 # EMAIL_HOST_PASSWORD
