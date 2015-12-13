@@ -38,8 +38,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                     {% if students_list %}
-                      {% for student in students_list %}
+                     {% if student_list %}
+                      {% for student in student_list %}
                       <tr>
                         <td>{{ student.id }} </td>
                         <td><a href="{% url 'students:detail' student.id %}">{{ student.full_name }}</a></td>
@@ -68,6 +68,35 @@
               </div>
             </div>
             </div>
+            				<nav>
+					<ul class="pagination">
+						<li>
+							{% if page_obj.has_previous %}
+							<a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+								<span aria-hidden="true"><< previous</span></a>
+							{% endif %}
+						</li>
+						{% for page in paginator.page_range %}
+
+						{% if page == page_obj.number %}
+						<li class="active">
+							<a href="">{{ page }}<span class="sr-only"></span></a>
+						</li>
+						{% else %}
+						<li>
+							<a href="?page={{ page }}">{{ page }}<span class="sr-only"></span></a>
+						</li>
+						{% endif %}
+
+						{% endfor %}
+						<li>
+							{% if page_obj.has_next %}
+							<a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+								<span aria-hidden="true">next >></span></a>
+							{% endif %}
+						</li>
+					</ul>
+				</nav>
         </div>
     </header>
 {% endblock content %}
