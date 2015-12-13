@@ -5,6 +5,8 @@
 {% block content %}
 {% include "include/messages_include.html" %}
 
+{{ context }}
+
 {% if students_list %}
   <br>
   <a href="{% url 'students:add' %}" class="btn btn-success" role="button">
@@ -17,9 +19,9 @@
     {% if is_paginated %}
       <ul class="pagination pagination-sm pagination-centered">
         {% if page_obj.has_previous %}
-          <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+          <li><a href="?page={{ page_obj.previous_page_number }}">&laquo; previous </a></li>
         {% else %}
-          <li class="disabled"><a href="#">&laquo;</a></li>
+          <li class="disabled"><a href="#">&laquo; previous </a></li>
         {% endif %}
         {% for num in page_obj.paginator.page_range %}
           {% ifequal num page_obj.number %}
@@ -29,9 +31,9 @@
           {% endifequal %}
         {% endfor %}
         {% if page_obj.has_next %}
-          <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+          <li><a href="?page={{ page_obj.next_page_number }}"> next &raquo;</a></li>
         {% else %}
-          <li class="disabled"><a href="#">&raquo;</a></li>
+          <li class="disabled"><a href="#"> next &raquo;</a></li>
         {% endif %}
       </ul>
 
@@ -53,7 +55,8 @@
         {% if object_list %}
           {% for student in object_list %}
             <tr>
-              <td>{{ student.id }}</td>
+              <!-- <td>{{ student.id }}</td> -->
+              <td>{{ forloop.counter }}</td>
               <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
               <td>{{ student.address }}</td>
               <td>{{ student.skype }}</td>
