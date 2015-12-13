@@ -99,4 +99,5 @@ ADMINS = (
     ('Admin', 'admin@pybursa.com'),
     ('Director', 'director@pybursa.com'),
     ('Manager', 'manager@pybursa.com'),
+    ('My', 'apbutenko@gmail.com'),
 )
