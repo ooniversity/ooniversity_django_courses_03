@@ -23,6 +23,7 @@
 <div class="form-group form-group-lg">
     <form method="post">
         {% csrf_token %}
+        {{ form.as_p }}
         <!-- <button type="submit" class="btn btn-danger">Удалить</button> # -->
         <input type="submit" value="Отправить">
     </form>
