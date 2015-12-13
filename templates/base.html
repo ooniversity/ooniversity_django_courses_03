@@ -19,6 +19,7 @@
           <li class={% block active_main %}{% endblock %} role="presentation"><a href="{% url 'index' %}">Main</a></li>
           <li class={% block active_students %}{% endblock %} role="presentation"><a href="{% url 'students:list_view' %}">Students</a></li>
           <li class={% block active_contact %}{% endblock %} role="presentation"><a href="{% url 'contact' %}">Contacts</a></li>
+          <li class={% block active_feedback %}{% endblock active_feedback %}><a href="{% url 'feedback' %}">Feedback</a></li>
         </ul>
       </nav>
       <h1 class="text-muted"><a href="{% url 'index' %}">PyBursa</a></h1>

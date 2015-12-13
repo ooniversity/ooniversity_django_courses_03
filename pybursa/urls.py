@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.http import HttpResponse
 from pybursa import views
 from quadratic.views import quadratic_results
+from feedbacks.views import FeedbackView
 
 urlpatterns = patterns('',
 
@@ -19,5 +20,6 @@ urlpatterns = patterns('',
     
 
     url(r'^polls/', include('polls.urls', namespace="polls")),
-    url(r'^quadratic/results/$', quadratic_results, name='quadratic_results'),
+    url(r'^quadratic/',include('quadratic.urls')),
+    url(r'feedback/$', FeedbackView.as_view(), name='feedback'),
 )
