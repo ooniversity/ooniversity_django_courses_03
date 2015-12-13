@@ -1,97 +1,79 @@
 {% extends "base.html" %}
-
-
 {% load staticfiles %}
-
-
 {% block title %}PyBursa: Список студентов{% endblock title%}
-
-
 {% block nav_class_student %}active{% endblock %}
-
-
 {% block content %}
-
-
 {% include "include/messages_include.html" %}
 
-
 {% if students_list %}
-
-<br>
-<a href="{% url 'students:add' %}" class="btn btn-success" role="button">
+  <br>
+  <a href="{% url 'students:add' %}" class="btn btn-success" role="button">
     <span class="glyphicon glyphicon-plus"></span> Добавить студента</a>
-
-<div class="page-header">
-    <h1>Список студентов</h1>
-</div>
-<div class="table-responsive">
-    <table class="table table-hover">
+    <div class="page-header">
+      <h1>Список студентов</h1>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-hover">
         <thead>
-        <tr>
+          <tr>
             <th>#</th>
             <th>Фамилия/Имя</th>
             <th>Адрес</th>
             <th>Skype</th>
             <th>Курсы</th>
             <th>Управление</th>
-        </tr>
+          </tr>
         </thead>
         <tbody>
-        {% if object_list %}
-        {% for student in object_list %}
-        <tr>
-            <td>{{ student.id }}</td>
-            <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
-            <td>{{ student.address }}</td>
-            <td>{{ student.skype }}</td>
-            <td>
-                {% for course in student.courses.all %}
-                <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
-                {% endfor %}
-            </td>
-            <td>
-                <a href="{% url 'students:edit' student.id %}" class="btn btn-warning btn-xs" role="button">
+          {% if object_list %}
+            {% for student in object_list %}
+              <tr>
+                <td>{{ student.id }}</td>
+                <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
+                <td>{{ student.address }}</td>
+                <td>{{ student.skype }}</td>
+                <td>
+                  {% for course in student.courses.all %}
+                    <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+                  {% endfor %}
+                </td>
+                <td>
+                  <a href="{% url 'students:edit' student.id %}" class="btn btn-warning btn-xs" role="button">
                     <span class="glyphicon glyphicon-pencil"></span> Изменить</a>
-                <a href="{% url 'students:remove' student.id%}" class="btn btn-danger btn-xs" role="button">
-                    <span class="glyphicon glyphicon-remove"></span> Удалить </a>
-            </td>
-        </tr>
-        {% endfor %}
-        {% endif %}
+                    <a href="{% url 'students:remove' student.id%}" class="btn btn-danger btn-xs" role="button">
+                      <span class="glyphicon glyphicon-remove"></span> Удалить </a>
+                </td>
+              </tr>
+            {% endfor %}
+          {% endif %}
         </tbody>
-    </table>
-</div>
-
-{% if is_paginated %}
-
-<ul class="pagination">
-    {% if page_obj.has_previous %}
-    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-    {% else %}
-    <li class="disabled"><a href="#">&laquo;</a></li>
-    {% endif %}
-
-    {% for num in page_obj.paginator.page_range %}
-    {% ifequal num page_obj.number %}
-    <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
-    {% else %}
-    <li><a href="?page={{ num }}">{{ num }}</a></li>
-    {% endifequal %}
-    {% endfor %}
-
-    {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-    {% else %}
-    <li class="disabled"><a href="#">&raquo;</a></li>
-    {% endif %}
-</ul>
-
+      </table>
+    </div>
+        {% if is_paginated %}
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+              <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+              <li class="disabled"><a href="#">&laquo;</a></li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+              {% ifequal num page_obj.number %}
+                <li class="active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
+              {% else %}
+                <li><a href="?page={{ num }}">{{ num }}</a></li>
+              {% endifequal %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+            {% else %}
+              <li class="disabled"><a href="#">&raquo;</a></li>
+            {% endif %}
+          </ul>
+        {% endif %}
 {% else %}
 <div class="page-header">
-    <h1>Список студентов</h1>
+  <h1>Список студентов</h1>
 </div>
-<p>No students found!!! :(</p>
+<p>No students found!</p>
 {% endif %}
-
 {% endblock content %}
