@@ -32,7 +32,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="{% url 'index' %}"></a>
+            <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static "images/logo.jpg" alt="img" %}"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,17 +45,19 @@
                         href="{% url 'students:list_view' %}{% block students_url_id %}{% endblock students_url_id %}">Students</a>
                 </li>
                 <li><a href="{% url 'results' %}">Equation</a></li>
+                <li class="{% block nav_class_feedback %}{% endblock nav_class_feedback %}"><a
+                        href="{% url 'feedback' %}">Feedback</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
-    </div>
+        </div>
     <!-- /.container-fluid -->
 </nav>
 <div class="container">
     <div class="row">
         {% block content %}{% endblock content %}
+        </div>
     </div>
-</div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
