@@ -74,4 +74,28 @@
         </tbody>
         </table>
 
+
+        <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}"><< previous</a>
+        {% endif %}
+
+        <span class="current">
+          {% for num_page in paginator.page_range %}
+
+            {% if num_page == page_obj.number %}
+              <a href="" class="active-page">{{ num_page }}</a>
+            {% else %}
+              <a href="?page={{ num_page }}">{{ num_page }}</a>
+            {% endif %}
+          {% endfor %}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next >></a>
+        {% endif %}
+    </span>
+</div>
+
 {% endblock content %}
