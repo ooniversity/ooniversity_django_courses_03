@@ -4,13 +4,16 @@ from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy, reverse
-import models
+from django.core.mail import send_mass_mail, send_mail
+from models import Feedback
 from forms import *
+from django.conf import settings
 
 class FeedbackView(CreateView):
     model = Feedback
     template_name = 'feedbacks/feedback.html'
     success_url = reverse_lazy('feedback')
     def form_valid(self, form):
+        send_mail(form.cleaned_data['subject'], form.cleaned_data['message'], form.cleaned_data['from_email'], settings.ADMINS)
         messages.success(self.request, u'Thank you for your feedback! We will keep in touch with you very soon!')
         return super(FeedbackView, self).form_valid(form)
