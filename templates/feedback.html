@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Feedback{% endblock %}
+{% block active_menu_feedback %}active{% endblock %}
+{% block content %}
+<div class="jumbotron">
+        <h2>Отправить сообщение</h2>
+</div>
+{% include 'include/message_include.html' %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Отправить">
+</form>
+{% endblock %}
