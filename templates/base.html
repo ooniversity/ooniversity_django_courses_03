@@ -31,6 +31,8 @@
             <li class="{% block nav_students %}{% endblock nav_students %}">
               <a href="{% url 'students:list_view' %}{% block nav_filter_students %}{% endblock nav_filter_students %}">Students</a>
             <li>
+             <li class="{% block nav_feedback %}{% endblock nav_feedback %}"><a href="{% url 'feedback' %}">Feedback</a>
+             <li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
