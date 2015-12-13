@@ -41,7 +41,8 @@
             <a href="{% url 'students:list_view' %}">Студенты</a>
           {% endblock nav_url_students_list %}
         </li>
-        <li class="{% block nav_class_quadratic %}{% endblock %}"><a href="{% url 'results' %}">Уравнение</a
+        <li class="{% block nav_class_quadratic %}{% endblock %}"><a href="{% url 'results' %}">Уравнение</a>
+        <li class="{% block nav_class_feedback %}{% endblock %}"><a href="{% url 'feedback' %}">Ответочка</a>
       </ul>
     </div>
     <!--/.nav-collapse -->

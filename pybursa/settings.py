@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,3 +90,15 @@ STATICFILES_DIRS = (
 )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+# Email settings
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+# EMAIL_HOST_USER
+# EMAIL_HOST_PASSWORD
+
+SERVER_EMAIL = 's.pod.pub@ya.ru'
+ADMINS = ('s.pod.pub@ya.ru',)
+
