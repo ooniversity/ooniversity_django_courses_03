@@ -259,4 +259,7 @@ input[type="submit"]:focus{
 .pagination-centered{
   margin: 10px auto;
 }
+.pagination > li > a:hover{
+  outline:0;
+}
 
