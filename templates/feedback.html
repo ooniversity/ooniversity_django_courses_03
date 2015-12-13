@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block navbar %}
+    {% include "include/navbar_include.html" with active_page='feedback' %}
+{% endblock navbar %}
+
+{% block content %}
+	<div class="container">
+
+
+    	<div class="jumbotron">
+        <p class="descr">{{title}}</p>
+            {% if messages %}
+            <div class="container">
+            	    {% for message in messages %}
+            	    <div class="alert alert-{% if message.tags %}{{ message.tags }}{% else %}info{% endif %} alert-dismissible" role="alert">
+            		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            		{{ message }}
+            	    </div>
+            	    {% endfor %}
+            {% endif %}
+        	<form method="post">
+            	{% csrf_token %}
+            	{{ form.as_p }}
+            	<input type="submit" value="Submit" class="btn btn-primary"/>
+            </form>
+            </div>
+
+    </div>
+{% endblock content %}
