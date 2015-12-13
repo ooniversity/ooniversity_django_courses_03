@@ -4,6 +4,7 @@ from .views import *
 from courses.views import *
 from students.views import *
 from quadratic.views import *
+from feedbacks.views import *
 
 admin.site.site_header = 'My admin'
 
@@ -20,4 +21,5 @@ urlpatterns = patterns('',
     url(r'^students/', include('students.urls', namespace='students')),
     url(r'^coaches/', include('coaches.urls', namespace='coaches')),
     url(r'^quadratic/results/$', quadratic_results, name='quadratic_results'),
+    url(r'^feedback/$', FeedbackView.as_view(), name='feedback'),
 )
