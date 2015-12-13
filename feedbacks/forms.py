@@ -13,7 +13,7 @@ class FeedbackForm(forms.ModelForm):
                                       widget=forms.DateTimeInput(attrs={'readonly': 'readonly'}))
 
     from_email = forms.EmailField(initial='s.pod.pub@ya.ru',
-                                  widget=forms.EmailField(attrs={'readonly': 'readonly'}))
+                                  widget=forms.EmailInput(attrs={'readonly': 'readonly'}))
 
     class Meta:
         model = Feedback
