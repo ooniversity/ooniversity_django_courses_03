@@ -28,10 +28,13 @@
                         <a href="{% url 'contact' %}">Контакты</a>
                     </li>
                     {% block change_link_mobi %}
-                    <li  class="active">
-                        <a href="{% url 'students:list_view' %}">Студенты</a>
-                    </li>
+                        <li class="active">
+                            <a href="{% url 'students:list_view' %}">Студенты</a>
+                        </li>
                     {% endblock %}
+                    <li>
+                        <a href="{% url 'feedback' %}">Feedback</a>
+                    </li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
                     <li>
@@ -41,10 +44,13 @@
                         <a href="{% url 'contact' %}">Контакты</a>
                     </li>
                     {% block change_link %}
-                    <li  class="active">
-                        <a href="{% url 'students:list_view' %}">Студенты</a>
-                    </li>
+                        <li class="active">
+                            <a href="{% url 'students:list_view' %}">Студенты</a>
+                        </li>
                     {% endblock %}
+                    <li>
+                        <a href="{% url 'feedback' %}">Feedback</a>
+                    </li>
                 </ul>
 
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -67,58 +73,58 @@
                 <div class="col s12">
                     <table class="responsive-table highlight">
                         <tbody>
-                            <tr>
-                                <td>
-                                    Дата рождения
-                                </td>
-                                <td>
-                                    {{ student.date_of_birth }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Адрес
-                                </td>
-                                <td>
-                                    {{ student.address }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Почта
-                                </td>
-                                <td>
-                                    {{ student.email }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Логин/Skype
-                                </td>
-                                <td>
-                                    {{ student.skype }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Телефон
-                                </td>
-                                <td>
-                                    {{ student.phone }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Курсы
-                                </td>
-                                <td>
-                                    <ul>
-                                        {% for course in student.courses.all %}
+                        <tr>
+                            <td>
+                                Дата рождения
+                            </td>
+                            <td>
+                                {{ student.date_of_birth }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Адрес
+                            </td>
+                            <td>
+                                {{ student.address }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Почта
+                            </td>
+                            <td>
+                                {{ student.email }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Логин/Skype
+                            </td>
+                            <td>
+                                {{ student.skype }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Телефон
+                            </td>
+                            <td>
+                                {{ student.phone }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Курсы
+                            </td>
+                            <td>
+                                <ul>
+                                    {% for course in student.courses.all %}
                                         <li><a href="{% url 'courses:detail' course.id %}"> {{ course }} </a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </td>
-                            </tr>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
