@@ -10,10 +10,7 @@ class FeedbackView(CreateView):
 	template_name = "feedback.html" 
 	#success_url = reverse_lazy('index')
 	def form_valid(self, form):
-		#added_feedback = form.save()
-		
 		mail_admins(form.cleaned_data.get('subject'),form.cleaned_data.get('message'),fail_silently=True)
-		#mail_admins(self.subject, self.message, fail_silently=False, connection=None, html_message=None)
 		success_mes = 'Thank you for your feedback! We will keep in touch with you very soon!'
 		messages.success(self.request, success_mes, extra_tags='msg')
 		return super(FeedbackView, self).form_valid(form)	
