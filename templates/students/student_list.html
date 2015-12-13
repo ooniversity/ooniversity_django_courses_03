@@ -47,23 +47,27 @@
   </tr>  
   {% endfor %}
   </table>
-  <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}"><< previous</a>
-        {% endif %}
-
-        {% for pg in paginator.page_range %}
-          {% if page_obj.number == pg %}
-            <li class="active"><a hfef"?page={{ pg }}">{{ pg }}</a></li>
-          {% else %}
-            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
-          {% endif %}
-        {% endfor %}  
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next>></a>
-        {% endif %}
-    </span>
-</div>
+  <ul class="pagination">
+    <li>
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"><< previous</a>
+      {% endif %}
+    </li>
+    {% for pg in paginator.page_range %}
+      {% if pg == page_obj.number %}
+        <li class="active"><a href="">{{ pg }}</a>
+        </li>
+      {% else %}
+        <li>
+          <a href="?page={{ pg }}">{{ pg }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    <li>
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">next >></a>
+      {% endif %}
+    </li>
+  </ul>
 {% endblock content %} 
 
