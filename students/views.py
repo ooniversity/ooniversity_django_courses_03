@@ -83,7 +83,10 @@ class StudentDeleteView(DeleteView):
 '''
 from students.models import Student
 from django.contrib import messages
-from django.views.generic import CreateView, ListView, DeleteView, DetailView, UpdateView
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 from django.core.urlresolvers import reverse_lazy
 
 
@@ -124,7 +127,6 @@ class StudentCreateView(CreateView):
 
 class StudentUpdateView(UpdateView):
     model = Student
-
     # form_class = StudentModelForm
 
     def get_context_data(self, **kwargs):
