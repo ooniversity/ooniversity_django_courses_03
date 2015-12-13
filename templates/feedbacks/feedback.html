@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Course detail{% endblock title %}
+
+
+{% block nav_feedback %}active{% endblock nav_feedback %}
+
+
+{% block content %}
+  <div class="container">
+      <div class="starter-template">
+          {% if messages %}
+          <div class="container">
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {% for message in messages %}{{ message }}{% endfor %}
+            </div>
+          {% endif %}
+
+        <div class='container'>
+            <h3>Email us</h3>
+              <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Save" />
+             </form>
+        </div>
+      </div>
+  </div>
+{% endblock content %}
