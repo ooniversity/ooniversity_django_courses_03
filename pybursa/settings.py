@@ -93,11 +93,12 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Email settings
 
-EMAIL_HOST = '127.0.0.1'
+EMAIL_HOST = 'localhost'
 EMAIL_PORT = 8025
 
 # EMAIL_HOST_USER
 # EMAIL_HOST_PASSWORD
 
+SERVER_EMAIL = 's.pod.pub@ya.ru'
 ADMINS = ('s.pod.pub@ya.ru',)
 
