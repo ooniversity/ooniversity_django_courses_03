@@ -17,10 +17,10 @@ class FeedbackView(CreateView):
 
     def form_valid(self, form):
         send_mail(form.cleaned_data['subject'], form.cleaned_data['message'], form.cleaned_data['from_email'], (('pdf@gm.cm'),), fail_silently=False)
-        messages.success(self.request, "Спасибо за отзыв!")
+        messages.success(self.request, "Thanks for your feedback")
         return super(FeedbackView, self).form_valid(form)  
 
     def get_context_data(self, **kwargs):
         context = super(FeedbackView, self).get_context_data(**kwargs)
-        context['title'] = "Оставьте пожелание"
+        context['title'] = "Leave a wish "
         return context
