@@ -13,6 +13,7 @@ from django.views.generic.detail import DetailView
 
 class StudentListView(ListView):
     model = Student
+    paginate_by = 2
 
     def get_queryset(self):
         course_id = self.request.GET.get('course_id', None)
@@ -56,6 +57,7 @@ class StudentUpdateView(UpdateView):
         context['title'] = "Student info update"
         return context
 
+
 class StudentDeleteView(DeleteView):
     model = Student
     success_url = reverse_lazy('students:list_view')
@@ -64,7 +66,7 @@ class StudentDeleteView(DeleteView):
         student = self.get_object()
         messages.success(self.request, "Info on %s %s has been sucessfully deleted." % (student.name, student.surname))
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
- 
+
     def get_context_data(self, **kwargs):
         context = super(StudentDeleteView, self).get_context_data(**kwargs)
         context['title'] = "Student info suppression"

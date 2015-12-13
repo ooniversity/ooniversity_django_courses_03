@@ -1,9 +1,4 @@
 from django.shortcuts import render
-from django.core.urlresolvers import reverse_lazy
-from django.core.mail import send_mail
-from django.views.generic.edit import CreateView
-from django.contrib import messages
-
 from courses.models import Course
 
 
@@ -19,4 +14,3 @@ def student_list(request):
 
 def student_detail(request):
     return render(request,'student_detail.html')
-
