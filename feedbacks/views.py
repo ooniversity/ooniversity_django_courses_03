@@ -7,7 +7,6 @@ from django.core.urlresolvers import reverse_lazy, reverse
 import models
 import datetime
 from forms import *
-#import pybursa.utils
 
 class FeedbackView(CreateView):
     model = Feedback
