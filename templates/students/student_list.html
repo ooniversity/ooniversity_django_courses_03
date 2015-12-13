@@ -10,6 +10,7 @@
 <!--<p>course {{ course }}</p>-->
 
 {% if object_list %}
+
   <br>
   <a href="{% url 'students:add' %}" class="btn btn-success" role="button">
     <span class="glyphicon glyphicon-plus"></span> Добавить студента</a>
@@ -19,9 +20,6 @@
     </div>
 
     {% if is_paginated %}
-
-      {{ request.GET }}
-
         <ul class="pagination pagination-sm pagination-centered">
           {% if page_obj.has_previous %}
             <li><a href="?{% if course %}course_id={{ course }}&{% endif %}page={{ page_obj.previous_page_number }}">&laquo; previous </a></li>
@@ -66,8 +64,8 @@
       <tbody>
           {% for student in object_list %}
             <tr>
-              <!-- <td>{{ student.id }}</td> -->
-              <td>{{ forloop.counter }}</td>
+              <td>{{ student.id }}</td>
+              <!--<td>{{ forloop.counter }}</td>-->
               <td><a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a></td>
               <td>{{ student.address }}</td>
               <td>{{ student.skype }}</td>
