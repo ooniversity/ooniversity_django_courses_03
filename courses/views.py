@@ -93,7 +93,6 @@ class LessonCreateView(MixinTitle, CreateView):
     model = Lesson
     template_name = 'courses/add_lesson.html'
     title = 'Create Lesson'
-
     # success_url = reverse_lazy('courses:detail')
 
     def form_valid(self, form):
@@ -107,34 +106,19 @@ class LessonCreateView(MixinTitle, CreateView):
 
         # context_object_name = 'lesson'
 
-    # def add_lesson(request, pk):
-    #     course = Course.objects.get(id=pk)
-    #     if request.POST:
-    #         form = LessonModelForm(request.POST)
-    #         if form.is_valid():
-    #             data = form.cleaned_data
-    #             form.save()
-    #             messages.success(request, 'Lesson %s has been successfully added.' % (
-    #                 data['subject']))
-    #             return redirect('courses:detail', data['course'].id)
-    #     else:
-    #         form = LessonModelForm(initial={'course': pk})
-    #     return render(request, 'courses/add_lesson.html', {'form': form})
-
-    # model = Student
-    # success_url = reverse_lazy('students:list_view')
-
-    # def get_context_data(self, **kwargs):
-    #     data = super(StudentDeleteView, self).get_context_data(**kwargs)
-    #     data['title'] = 'Student info suppression'
-    #     return data
-
-    # def delete(self, request, *args, **kwargs):
-    #     message = super(StudentDeleteView, self).delete(
-    #         request, *args, **kwargs)
-    #     messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (
-    #         self.object.name, self.object.surname))
-    #     return message
+# def add_lesson(request, pk):
+#     course = Course.objects.get(id=pk)
+#     if request.POST:
+#         form = LessonModelForm(request.POST)
+#         if form.is_valid():
+#             data = form.cleaned_data
+#             form.save()
+#             messages.success(request, 'Lesson %s has been successfully added.' % (
+#                 data['subject']))
+#             return redirect('courses:detail', data['course'].id)
+#     else:
+#         form = LessonModelForm(initial={'course': pk})
+#     return render(request, 'courses/add_lesson.html', {'form': form})
 
 # def add(request):
 #     context = {}
