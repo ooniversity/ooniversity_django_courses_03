@@ -254,3 +254,7 @@ input[type="submit"]:hover{
 input[type="submit"]:focus{
     outline:0;
 }
+.active > a:focus {
+    outline:0;
+}
+
