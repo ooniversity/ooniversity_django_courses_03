@@ -256,4 +256,7 @@ input[type="submit"]:focus{
 .active > a:focus {
     outline:0;
 }
+.pagination-centered{
+  margin: 0 auto;
+}
 
