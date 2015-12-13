@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.core.mail import mail_admins
 
 
+
 from feedbacks.models import Feedback
 from feedbacks.forms import FeedbackForm
 
