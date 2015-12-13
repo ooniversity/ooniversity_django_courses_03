@@ -22,7 +22,9 @@
       <li role="presentation" {% block contact_active %}{% endblock contact_active %}><a href="{% url 'contact'%}">Contacts</a></li>
 	  <li role="presentation" {% block list_view_active %}{% endblock list_view_active %}>
         {% block students_link %}<a href="{% url 'students:list_view'%}">Students</a>{% endblock students_link %}</li>
+      <li role="presentation" {% block feedback_active %}{% endblock feedback_active %}><a href="{% url 'feedback'%}">Feedback</a></li>
       </ul>
+
 {% endblock header %}
 
 
