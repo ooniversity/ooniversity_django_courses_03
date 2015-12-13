@@ -5,7 +5,8 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from students.models import Student
-from students.forms import StudentModelForm
+from courses.models import Course
+# from students.forms import StudentModelForm
 
 
 # Create your views here.
@@ -14,11 +15,18 @@ class StudentListView(ListView):
     paginate_by = 2
 
     def get_queryset(self):
-        course_id = self.request.GET.get('course_id', None)
+        course_id = self.request.GET.get('course_id', '')
         if course_id and course_id.isdigit():
             return Student.objects.filter(courses=course_id)
 
         return Student.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        context['title'] = 'Students'
+        context['course_id'] = self.request.GET.get('course_id', None)
+
+        return context
 
 
 class StudentDetailView(DetailView):
@@ -34,14 +42,14 @@ class StudentCreateView(CreateView):
         return context
 
     def get_success_url(self):
-        message = 'Account of {0} has been successfully added.'.format(self.object)
+        message = 'Student of {0} has been successfully added.'.format(self.object)
         messages.success(self.request, message)
         return reverse_lazy('students:list_view')
 
 
 class StudentUpdateView(UpdateView):
     model = Student
-    form_class = StudentModelForm
+    # form_class = StudentModelForm
 
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
@@ -49,7 +57,7 @@ class StudentUpdateView(UpdateView):
         return context
 
     def get_success_url(self):
-        message = 'Info on the student has been successfully changed.'
+        message = 'Info on the student has been sucessfully changed.'
         messages.success(self.request, message)
         return reverse_lazy('students:edit', kwargs={'pk': self.object.pk})
 
