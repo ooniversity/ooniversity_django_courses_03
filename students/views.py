@@ -6,11 +6,13 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.core.urlresolvers import reverse_lazy
+from django.core.paginator import Paginator
 
 
 class StudentListView(ListView):
     model = Student
-    # context_object_name = "students_list"
+    context_object_name = "students_list"
+    paginate_by = 2  # http://stackoverflow.com/a/5910325
 
     def get_queryset(self):
         students_list = super(StudentListView, self).get_queryset()
