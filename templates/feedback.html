@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Feedback{% endblock title %}
+
+
+{% block nav_class_feedback %}active{% endblock nav_class_feedback %}
+
+
+{% block content %}
+    <div>
+    {% if messages %}
+        <ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+    <div class="starter-template">
+      <h1 class="starter-template">Feedback</h1>
+
+    </div>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Information about your feedback</div>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit">
+        </form>
+
+    </div>
+
+{% endblock content %}
+
