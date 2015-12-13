@@ -21,7 +21,7 @@ class StudentListView(ListView):
         data = super(StudentListView, self).get_queryset()
         course_id = self.request.GET.get('course_id', None)
         if course_id:
-            data = qs.filter(courses__id=course_id)
+            data = data.filter(courses__id=course_id)
         return data
 
 
