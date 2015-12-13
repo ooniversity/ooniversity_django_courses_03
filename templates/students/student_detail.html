@@ -17,30 +17,30 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <td>Birth day</td>
+            <td>birth day</td>
             <td>{{ student.date_of_birth }}</td>
         </tr>
         <tr>
-            <td>Address</td>
+            <td>address</td>
             <td>{{ student.address }}</td>
         </tr>
         <tr>
-            <td>Email</td>
+            <td>email</td>
             <td>{{ student.email }}</td>
         </tr>
         <tr>
-            <td>Skype</td>
+            <td>skype</td>
             <td>{{ student.skype }}</td>
         </tr>
         <tr>
-            <td>Phone</td>
+            <td>phone</td>
             <td>{{ student.phone }}</td>
         </tr>
         <thead>
 
         <tbody>
         <tr>
-            <td>Courses</td>
+            <td>courses</td>
             <td>
                 {% for course in student.courses.all %}
                     <a class="table" href="{% url 'courses:detail' course.id %}"> {{ course }}</a><br>
