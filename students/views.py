@@ -10,7 +10,7 @@ from django.views import generic
 
 class StudentDetailView(DetailView):
     model = Student
-
+    paginate_by = 2
 
 class StudentListView(ListView):
     model = Student
