@@ -49,6 +49,43 @@
               {% endfor %}
             </tbody>
           </table>
+
+           {% if paginator.num_pages > 1 %}
+            <nav>
+            <ul class="pagination">
+              {% if page_obj.has_previous %}
+              <li>
+                <a href='?{% if request.GET.course_id %}course_id={{ request.GET.course_id }}&{% endif %}page={{ page_obj.previous_page_number }}' aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+            {% else %} 
+              <li class="disabled">
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+            {% endif %}
+              </li>
+              <li>
+                <a>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a>
+              </li>              
+              {% if page_obj.has_next %}
+                <li>
+                    <a href='?{% if request.GET.course_id %}course_id={{ request.GET.course_id }}&{% endif %}page={{ page_obj.next_page_number }}' aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+              {% else %}
+              <li class="disabled">
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+              </li>
+              {% endif %}
+            </ul>
+        </nav>
         </div>
+      {% endif %}
 		</table>
 {% endblock content %}
