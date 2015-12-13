@@ -37,7 +37,7 @@ class StudentCreateView(CreateView):
 
     def form_valid(self, form):
         student = form.save()
-        message = 'Account of %s %s has been successfully added.' % (student.name, student.surname)
+        message = 'Student %s %s has been successfully added.' % (student.name, student.surname)
         messages.success(self.request, message)
         return super(StudentCreateView, self).form_valid(form)
 
@@ -53,7 +53,7 @@ class StudentUpdateView(UpdateView):
         return context
 
     def get_success_url(self, **kwargs):
-        message = 'Info on the student has been successfully changed.'
+        message = 'Info on the student has been sucessfully changed.'
         messages.success(self.request, message)
         return reverse_lazy('students:edit', args=(self.object.pk,))
 
