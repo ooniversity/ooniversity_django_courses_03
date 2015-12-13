@@ -9,36 +9,38 @@
 
 {% block navbar_button_3 %}active{% endblock navbar_button_3 %}
 
-     
-{% block content %}    
-    <div class="container theme-showcase">
-        <div class="jumbotron">
-          <h2>{{ student.name }} {{ student.surname }}</h2>
-        </div>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>дата рождения</th>
-          <th>адрес</th>
-          <th>почта</th>
-          <th>логин skype</th>
-          <th>телефон</th>
-          <th>курсы</th>
-        </tr>
-        <tr>
-          <td>{{ student.date_of_birth }}</td>
-          <td>{{ student.address }}</td>
-          <td>{{ student.email }}</td>
-          <td>{{ student.skype }}</td>
-          <td>{{ student.phone }}</td>
-          <td>
-          {% for course in student.courses.all %}
-          <a class="table" href="{% url 'courses:detail' course.id %}">{{ course }}</a>
-          {% endfor %}
-          </td>
-        </tr>
-        </thead>
-      </table>
+
+{% block content %}
+
+    <h1>{{ student.name }} {{ student.surname }}</h1>
+
+    <div class="c_contacts score_table">
+		<table class="stud_table glow_cyan">
+		    <tr>
+			<td>Surname</td><td>{{ student.surname }}</td>
+		    </tr>
+		    <tr>
+			<td>Name</td><td>{{ student.name }}</td>
+		    </tr>
+		    <tr>
+			<td>E-mail</td><td>{{ student.email }}</td>
+		    </tr>
+		    <tr>
+			<td>Phone</td><td>{{ student.phone }}</td>
+		    </tr>
+		    <tr>
+			<td>Birth Date</td><td>{{ student.date_of_birth }}</td>
+		    </tr>
+		    <tr>
+			<td>Address</td><td>{{ student.address }}</td>
+		    </tr>
+		    <tr>
+		        <td>Skype</td><td>{{ student.skype }}</td>
+		    </tr>
+		    <tr>
+			<td>Courses</td><td>{% for course in student.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course }}</a><br>{% endfor %}</td>
+		    </tr>
+		</table>
     </div>
-    {% include "include/footer_include.html" %} 
+
 {% endblock content %}
