@@ -40,3 +40,7 @@ footer .footer-copyright {
 select {
     display: flex;
 }
+
+.pagination li.active {
+    background-color: #26a69a;
+}
