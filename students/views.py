@@ -5,12 +5,14 @@ from django.contrib import messages
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 class StudentListView(ListView):
 
     model = Student
     context_object_name = "students"
+    paginate_by = 2
 
     def get_queryset(self):
         students = super(StudentListView, self).get_queryset()
