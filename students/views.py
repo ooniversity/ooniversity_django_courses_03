@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+'''
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -8,6 +9,7 @@ from students.models import Student
 
 
 # Create your views here.
+
 class StudentDetailView(DetailView):
     model = Student
 
@@ -152,4 +154,4 @@ class StudentDeleteView(DeleteView):
         messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
         return message
 
-'''
+
