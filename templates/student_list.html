@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block title %}Students{% endblock title %}
+
+
+{% block nav_students %}class="active"{% endblock %}
+
+
+{% block content %}
+    <h2> God's Bursa students list <br><small> Here you can find students list for the Spring'16 course</small></h2>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+              <tr class="success">
+                <td><strong>No</strong></td>
+                <td><strong>Surname</strong></td>
+                <td><strong>Name</strong></td>
+                <td><strong>Address</strong></td>
+                <td><strong>Skype</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="{% url 'student_detail' %}">01</a></td>
+                <td>Hartsock</td>
+                <td>William T.</td>
+                <td>327 Pallet Street, New York, NY 10007 </td>
+                <td>WilliamTHartsock</td>                
+              </tr>
+              {% include "include/old_list_include.html" %}
+            </tbody>
+        </table>
+      </div>
+{% endblock content %}

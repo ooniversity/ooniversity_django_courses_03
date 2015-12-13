@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body class="sl-background">
+   
+    <nav class="navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            <img class="sl-brand" alt="GodsBursa" src="{% static 'images/gb-logo.jpg' %}">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li {% block nav_index %}{% endblock %}><a href="{% url 'index' %}">Main</a></li>
+            <li {% block nav_contacts %}{% endblock %}><a href="{% url 'contact' %}">Contacts</a></li>
+            <li {% block nav_students %}{% endblock %}>
+            <a href="{% url 'students:list_view' %}{% block nav_course_students %}{% endblock %}">Students</a></li>
+            <li {% block nav_feedback %}{% endblock %}><a href="{% url 'feedback' %}">Feedback</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="slash-div">
+
+    {% block content %}{% endblock content %}
+
+    </div>
+    <div class="navbar-fixed-bottom row-fluid">
+      <div class="panel-footer sl-footer">&copy; Stalker inc., 2015+</div>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
