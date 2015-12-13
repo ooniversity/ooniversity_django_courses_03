@@ -11,7 +11,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 class StudentListView(ListView):
 
     model = Student
-    context_object_name = "students"
     paginate_by = 2
 
     def get_queryset(self):
