@@ -9,12 +9,12 @@
   <br>
   <a href="{% url 'students:add' %}" class="btn btn-success" role="button">
     <span class="glyphicon glyphicon-plus"></span> Добавить студента</a>
+
     <div class="page-header">
       <h1>Список студентов</h1>
     </div>
 
-  <div class="table-responsive">
-
+  <div>
     {% if is_paginated %}
       <ul class="pagination">
         {% if page_obj.has_previous %}
@@ -35,8 +35,10 @@
           <li class="disabled"><a href="#">&raquo;</a></li>
         {% endif %}
       </ul>
+  </div>
   {% endif %}
 
+  <div class="table-responsive">
     <table class="table table-hover">
       <thead>
         <tr>
