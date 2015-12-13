@@ -22,6 +22,7 @@
 		<li><a href="/contact/">Contact</a></li>
 		<li class="active"><a href="/student_list/">Student<span class="sr-only">(current)</span></a></li>
 		<li><a href="/quadratic/results/">Quadratic</a></li>
+        <li><a href="/feedback/">Feedback</a></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->
@@ -40,6 +41,7 @@
 		            <th>Address</th>
 		            <th>Skype</th>
                     <th>Courses</th>
+                    <th>Edit / Delete</th>
 	            </tr>
              </thead>
           <tbody>
@@ -54,6 +56,8 @@
                             <a href="/courses/{{student_course.id}} ">{{ student_course.name }}</a><br>
                         {% endfor %}
                     </td>
+                    <td><a href="/students/edit/{{ student.id }}">EDIT</a> &nbsp &nbsp <a href="/students/del/{{ student.id }}">DELETE</a>  </td>
+
 
 
               </tr>

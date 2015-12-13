@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h2>Создание нового студента</h2>
+<h2>Action result</h2>
 <p>
     {% if messages %}
 <ul class="messages">
@@ -16,10 +16,5 @@
 </ul>
 {% endif %}
 </p>
-    <form method="post">
-        {% csrf_token %}
-        {{ model_form.as_p }}
-        <input type="submit" value="Create">
-    </form>
 </body>
 </html>
