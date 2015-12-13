@@ -53,10 +53,13 @@
             <a href="?page={{ page_obj.previous_page_number }}"><< previous</a>
         {% endif %}
 
-        <span class="current">
-            {{ page_obj.number }}
-        </span>
-
+        {% for pg in paginator.page_range %}
+          {% if page_obj.number == pg %}
+            <li class="active"><a hfef"?page={{ pg }}">{{ pg }}</a></li>
+          {% else %}
+            <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+          {% endif %}
+        {% endfor %}  
         {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}">next>></a>
         {% endif %}
