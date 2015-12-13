@@ -1,6 +1,7 @@
 from django.db import models
 from courses.models import Course
 
+
 class Student(models.Model):
     name = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
