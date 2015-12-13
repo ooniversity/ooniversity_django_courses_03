@@ -14,9 +14,8 @@
       <h1>Список студентов</h1>
     </div>
 
-  <div class="right">
     {% if is_paginated %}
-      <ul class="pagination pagination-sm">
+      <ul class="pagination pagination-sm pagination-centered">
         {% if page_obj.has_previous %}
           <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
         {% else %}
@@ -35,7 +34,7 @@
           <li class="disabled"><a href="#">&raquo;</a></li>
         {% endif %}
       </ul>
-  </div>
+
   {% endif %}
 
   <div class="table-responsive">
