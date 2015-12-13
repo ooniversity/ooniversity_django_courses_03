@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'students',
     'courses',
     'coaches',
-    'feedbacks'
+    'feedbacks',
 )
 
 MIDDLEWARE_CLASSES = (
