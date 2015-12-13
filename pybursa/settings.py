@@ -1,9 +1,7 @@
 """
 Django settings for pybursa project.
-
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
-
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
@@ -12,13 +10,12 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k_^6fzft%m66ec@w^u&&08)&!e8%g672nmo_8s-c&t#r-mkx(c'
+SECRET_KEY = '*woucf0gphlf@tq=l7e_@0t42@s5p9s2=1!&r6w)!cj$cvea0l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,6 +39,7 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
+    'feedbacks'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -87,3 +85,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+
+ADMINS = (('alex', 'ud3p@mail.ru'), ('alex', 'ex@gmail.ru'))

@@ -119,21 +119,6 @@ class LessonCreateView(MixinTitle, CreateView):
 #         form = LessonModelForm(initial={'course': pk})
 #     return render(request, 'courses/add_lesson.html', {'form': form})
 
-    # model = Student
-    # success_url = reverse_lazy('students:list_view')
-
-    # def get_context_data(self, **kwargs):
-    #     data = super(StudentDeleteView, self).get_context_data(**kwargs)
-    #     data['title'] = 'Student info suppression'
-    #     return data
-
-    # def delete(self, request, *args, **kwargs):
-    #     message = super(StudentDeleteView, self).delete(
-    #         request, *args, **kwargs)
-    #     messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (
-    #         self.object.name, self.object.surname))
-    #     return message
-
 # def add(request):
 #     context = {}
 #     if request.POST:
