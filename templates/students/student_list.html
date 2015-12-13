@@ -58,7 +58,7 @@
             {% endif %}
             {% for num in page_obj.paginator.page_range %}
               {% ifequal num page_obj.number %}
-                <li class="primary"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
+                <li class="list-group-item active"><a href="#">{{ num }}<span class="sr-only">(current)</span></a></li>
               {% else %}
                 <li><a href="?page={{ num }}">{{ num }}</a></li>
               {% endifequal %}
