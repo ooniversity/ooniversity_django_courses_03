@@ -41,6 +41,9 @@
             <li class="{% block nav_class_students %}{% endblock %}">
               <a href="{% url 'students:list_view'%}{% block students_link %}{% endblock%}">Студенты</a>
             </li>
+            <li class="{% block nav_class_feedback %}{% endblock %}">
+              <a href="{% url 'feedback' %}">Отзывы</a>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->

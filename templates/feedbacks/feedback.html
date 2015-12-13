@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
 
-{% block title %}iBursa Добавить студента{% endblock title %}
+{% block title %}iBursa feedback{% endblock title %}
 
-
-{% block nav_students %}class="active"{% endblock %}
-
+{% block nav_class_feedback %}active{% endblock %}
 
 {% block content %}
 <div class="jumbotron">
-<h2>{{ title }}</h2>
-{% include "include/form_include.html" with action="submit" %}
+<h2>Feedback creation</h2>
 {% include "include/message_include.html" %}
+{% include "include/form_include.html" with action="Add" %}
 </div>
 {% endblock content %}

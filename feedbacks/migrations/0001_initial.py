@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('subject', models.CharField(max_length=255)),
                 ('message', models.CharField(max_length=255)),
                 ('from_email', models.EmailField(max_length=75)),
-                ('create_date', models.DateTimeField(default=datetime.datetime(2015, 12, 13, 12, 51, 53, 784496, tzinfo=utc), auto_now_add=True)),
+                ('create_date', models.DateTimeField(default=datetime.datetime(2015, 12, 13, 14, 9, 55, 171770, tzinfo=utc), auto_now_add=True)),
             ],
             options={
             },
