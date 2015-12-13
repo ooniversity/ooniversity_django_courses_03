@@ -24,12 +24,3 @@ class FeedbackView(SuccessMessageMixin, CreateView):
         mail_admins(form.cleaned_data['subject']
                          , form.cleaned_data['message'])
         return super(FeedbackView, self).form_valid(form)
-
-'''
-    def form_valid(self, form):
-        data = form.cleaned_data
-        mail_admins(data['subject'], data['message'])
-        messages.success(self.request, 'Thank you for your feedback! We will keep in touch with you very soon!')
-        self.success_url = reverse_lazy('feedback')
-        return super(FeedbackView, self).form_valid(form)
-'''
