@@ -9,7 +9,7 @@ class FeedbackForm(forms.ModelForm):
     # somefield = forms.CharField(
     # widget=forms.TextInput(attrs={'readonly':'readonly'}))
 
-    create_date = forms.DateTimeField(Initial=datetime.now,
+    create_date = forms.DateTimeField(initial=datetime.now,
                                       widget=forms.DateTimeInput(attrs={'readonly': 'readonly'}))
 
     class Meta:
