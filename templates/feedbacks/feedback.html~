@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Feedback{% endblock title %}
+
+
+{% block active_feedback %}active{% endblock active_feedback %}
+
+
+{% block content %}
+  <div class="learn-more">
+    <div class="container">
+
+          {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+
+        <div class="container">
+          <h2 class="descr">FeedBack</h2>
+          <div class="row">
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <input type="submit" value="Submit" class="btn btn-primary"/>
+            </form>
+           </div>
+        </div>
+    </div>
+    {% include "include/include.html" %}
+  </div>
+{% endblock content %}
