@@ -2,7 +2,7 @@
 {% block title %}My Site - About Student{% endblock title %}
 
 {% block content %}
-    <h1>Hello, Popov Ivan</h1>
+    <h1>Hello, {{ object.name }} {{ object.surname }}</h1>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +30,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="row-lg-4">
-		<h2>{{ student_details.name }}</h2>
+		<h2>{{ object.name }}</h2>
 			<img src='/static/images/kis.jpg'
         alt="Photo"></p>
 		</div>
@@ -49,11 +49,11 @@
 			 <tbody>
 				<tr>
 					<td>Surname</td>
-					<td>{{ student_details.surname }}</td>
+					<td>{{ object.surname }}</td>
 				</tr>
 				<tr>
 					<td>Name</td>
-					<td>{{ student_details.name }}</td>
+					<td>{{ object.name }}</td>
 				</tr>
 				<tr>
 					<td>Patronymic</td>
@@ -65,19 +65,19 @@
 				</tr>
 				<tr>
 					<td>Birth Date</td>
-					<td>{{ student_details.date_of_birth}}</td>
+					<td>{{ object.date_of_birth}}</td>
 				</tr>
 				<tr>
 					<td>Adress</td>
-					<td>{{ student_details.address }}</td>
+					<td>{{ object.address }}</td>
 				</tr>
 				<tr>
 					<td>Email</td>
-					<td>{{ student_details.email }}</td>
+					<td>{{ object.email }}</td>
 				</tr>
 				<tr>
 					<td>Skype</td>
-					<td>{{ student_details.skype }}</td>
+					<td>{{ object.skype }}</td>
 				</tr>
 			 </tbody>
 			 </table>
