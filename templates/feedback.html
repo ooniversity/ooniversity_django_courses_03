@@ -5,6 +5,61 @@
 
 {% block banner %}{% endblock %}
 
+{% block menu %}
+    <nav role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a id="logo-container" href="{% url 'index' %}" class="brand-logo waves-effect waves-light">
+                    <div class="hide-on-med-and-down">
+                        <img src="{% static 'img/logo_itbursa.png' %}"
+                             width="30" id="appicon">
+                        <span style="font-size: 22px;font-weight:300;">ITBursa</span>
+                    </div>
+                    <div class="hide-on-large-only">
+                        <span style="font-size: 22px;font-weight:300;">ITBursa</span>
+                    </div>
+                </a>
+
+                <ul id="slide-out" class="side-nav">
+                    <li>
+                        <a href="{% url 'index' %}">Главная</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">Контакты</a>
+                    </li>
+                    {% block change_link_mobi %}
+                        <li>
+                            <a href="{% url 'students:list_view' %}">Студенты</a>
+                        </li>
+                    {% endblock %}
+                    <li  class="active">
+                        <a href="{% url 'feedback' %}">Feedback</a>
+                    </li>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="{% url 'index' %}">Главная</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">Контакты</a>
+                    </li>
+                    {% block change_link %}
+                        <li>
+                            <a href="{% url 'students:list_view' %}">Студенты</a>
+                        </li>
+                    {% endblock %}
+                    <li  class="active">
+                        <a href="{% url 'feedback' %}">Feedback</a>
+                    </li>
+                </ul>
+
+                <a href="#" data-activates="slide-out" class="button-collapse"><i
+                        class="mdi-navigation-menu"></i></a>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
 {% block messages %}
     <div class="col s12">
         {% if messages %}
@@ -25,7 +80,5 @@
         {{ form.as_p }}
         <button type="submit" class="waves-effect waves-light btn">Отправить</button>
     </form>
-    <script>
-        $('#id_message').trigger('autoresize');
-    </script>
+
 {% endblock content %}
