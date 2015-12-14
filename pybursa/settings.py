@@ -42,6 +42,7 @@ INSTALLED_APPS = (
 	'students',
 	'coaches',
 	'feedbacks',
+	'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -74,7 +75,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -96,3 +97,27 @@ ADMINS = (
 		('admin 1', "adm1@example.com"), 
 		('admin 2', "adm2@example.com"), 
 		('admin 3', "adm3@example.com"))
+
+#https://docs.djangoproject.com/en/1.7/topics/logging/
+LOGGING = {
+	'version': 1, 
+	'loggers':
+	{
+		'pybursa':{
+			'handlers': ['console', 'file'],
+			'level': 'DEBUG',
+		},
+	},
+	'handlers':
+	{
+		'console': {
+			'level': 'INFO',
+			'class': 'logging.StreamHandler',
+		},
+		'file': {
+			'level': 'ERROR', 
+			'class': 'logging.FileHandler', 
+			'filename': os.path.join(BASE_DIR, 'debug.log')
+		},
+	},
+}

@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from courses.models import Course
+import logging
+
+logger = logging.getLogger(__name__)
 
 def index(request):
-	return render(request, 'index_courses.html', {'courses':Course.objects.all()})
+	logger.debug("Debug info - logger!")
+	return render(request, 'index.html', {'courses':Course.objects.all()})
 
 #def index(request):
 #	return render(request, 'index.html')
