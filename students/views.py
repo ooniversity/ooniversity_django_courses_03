@@ -33,7 +33,6 @@ class StudentDetailView(DetailView):
 class StudentCreateView(CreateView):
     model = Student
     fields = '__all__'
-    success_url = reverse_lazy('students:list_view')
 
     def form_valid(self, form):
         messages.success(self.request, "Student " + form.cleaned_data['name'] + " " + form.cleaned_data['surname'] + " has been successfully added.")
