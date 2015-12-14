@@ -42,6 +42,8 @@ INSTALLED_APPS = (
 	'students',
 	'coaches',
 	'feedbacks',
+	'debug_toolbar',
+	'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
