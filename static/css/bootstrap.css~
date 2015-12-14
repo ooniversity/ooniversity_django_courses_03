@@ -163,7 +163,8 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-image: url("../images/fon_1.png");
+  background-color: #ffffff;
+	background-image: url("../images/fon_1.jpg");
 }
 
 a {
