@@ -101,24 +101,39 @@ ADMINS = (
 
 #https://docs.djangoproject.com/en/1.7/topics/logging/
 LOGGING = {
-	'version': 1, 
+	'version': 1,
+	'formatters': {
+		'verbose': {
+			'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+		},
+		'simple': {
+			'format': '%(levelname)s %(message)s'
+		},
+	},
 	'loggers':
 	{
-		'pybursa':{
-			'handlers': ['console', 'file'],
+		'courses': {
+			'handlers': ['file_courses'],
+			'level': 'DEBUG',
+		},
+		'students': {
+			'handlers': ['file_students'],
 			'level': 'DEBUG',
 		},
 	},
 	'handlers':
 	{
-		'console': {
-			'level': 'INFO',
-			'class': 'logging.StreamHandler',
+		'file_courses': {
+			'level': 'DEBUG',
+			'class': 'logging.FileHandler',
+			'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+			'formatter': 'simple'
 		},
-		'file': {
-			'level': 'ERROR', 
-			'class': 'logging.FileHandler', 
-			'filename': os.path.join(BASE_DIR, 'debug.log')
+		'file_students': {
+			'level': 'WARNING',
+			'class': 'logging.FileHandler',
+			'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+			'formatter': 'verbose'
 		},
 	},
 }
