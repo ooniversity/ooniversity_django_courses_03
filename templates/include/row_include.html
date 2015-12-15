@@ -1,3 +1,5 @@
 <td><a href="{% url 'courses:detail' course.id %}">{{ course }}</a></td>
-<td><a href="{% url 'students:edit' student.id %}">Edit</a></td>
-<td><a href="{% url 'students:remove' student.id %}">Remove</a></td>
+<td><a class="btn btn-primary btn-sm" href="{% url 'students:edit' student.id %}" role="button">edit</a></td>
+<!--<td><a href="{% url 'students:edit' student.id %}">Edit</a></td>-->
+<td><a class="btn btn-primary btn-sm" href="{% url 'students:remove' student.id %}" role="button">remove</a></td>
+<!--<td><a href="{% url 'students:remove' student.id %}">Remove</a></td>-->

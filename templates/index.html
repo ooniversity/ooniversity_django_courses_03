@@ -13,7 +13,24 @@
 {% block content %}
       <div class="container">
         <div class="jumbotron transparant-background">
-          <h2>Courses</h2>
+
+          <div class="page-header text-align-center">
+          <h1>PyBursa<small>the best for your education</small></h1>
+          </div>
+          <div class="panel panel-default transparant-background text-align-justify f-indent">
+            <div class="panel-body">
+            <p>Online learning, or e-learning, offers a number of advantages for people and companies looking to develop a new content program or curricula — none bigger than the ability to offer that training anywhere, anytime. That means whether your trainees are all together in a classroom or scattered all over the country in different time zones, they can still tap into the same course materials, and at a time that’s convenient to them.</p>
+            <p>Small wonder, then, why online and e-learning has caught on with schools and universities, retail chains, top corporations, and among professional trainers. Teachers can optimize the timeliness and focus of the curriculum, students can better fit learning time into their schedules, and companies end up spending less on training their workforce.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+ <div class="container">
+        <div class="jumbotron transparant-background">
+          <div class="page-header text-align-center">
+          <h1>Courses<small>of PyBursa</small></h1>
+          </div>
+            <p>You can choose and enroll any course. No previous programming knowledge needed.</p>
           {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -24,18 +41,23 @@
                 {% endfor %}
             </ul>
           {% endif %}
-          <a href="{% url 'courses:add' %}">Add new course</a>
+          <p><a class="btn btn-primary" href="{% url 'courses:add' %}" role="button">Add new course</a></p>
+          <!--<a href="{% url 'courses:add' %}">Add new course</a>-->
           <div class="panel panel-default transparant-background">
-            <table class="table text-align-justify">
+            <table class="table text-align-justify table-striped">
               <tr>
-              <td>Course</td>
-              <td>Description</td>
+              <th>Course</th>
+              <th>Description</th>
+              <th></th>
+              <th></th>
               </tr>
               {% for course in courses_all %}
                 <tr>
                 <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td><td>{{ course.short_description|title }}</td>
-                <td><a href="{% url 'courses:edit' course.id %}">edit</a></td>
-                <td><a href="{% url 'courses:remove' course.id %}">remove</a></td>
+                <td><a class="btn btn-primary btn-sm" href="{% url 'courses:edit' course.id %}" role="button">edit</a></td>
+                <!--<td><a href="{% url 'courses:edit' course.id %}">edit</a></td>-->
+                <td><a class="btn btn-primary btn-sm" href="{% url 'courses:remove' course.id %}" role="button">remove</a></td>
+                <!--<td><a href="{% url 'courses:remove' course.id %}">remove</a></td>-->
                 </tr>
               {% endfor %}
             </table>

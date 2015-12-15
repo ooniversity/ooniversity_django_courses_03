@@ -11,10 +11,17 @@ from polls.models import Choice, Question
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
 
+import logging
+logger = logging.getLogger(__name__)
+
 class CourseDetailView(DetailView):
     model = Course
     template_name = "courses/detail.html"
     context_object_name = "course"
+    logger.debug('Courses detail view has been debugged')
+    logger.info('Logger of courses detail view informs you!')
+    logger.warning('Logger of courses detail view warns you!')
+    logger.error('Courses detail view went wrong!')
 
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
@@ -69,7 +76,7 @@ def add_lesson(request, course_id):
         if form.is_valid():
             added_lesson = form.save()
             messages.success(request, 'Lesson %s has been successfully added.' % added_lesson)
-            return redirect('courses:detail', course_id=course.id)
+            return redirect('courses:detail', pk=course.id)
     else:
         form = LessonModelForm(initial={'course': course})
 

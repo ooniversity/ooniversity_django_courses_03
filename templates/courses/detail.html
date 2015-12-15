@@ -25,7 +25,8 @@
                 {% endfor %}
             </ul>
           {% endif %}
-          <a href="{% url 'courses:add_lesson' course.id%}">Add new lesson</a>
+          <p><a class="btn btn-primary" href="{% url 'courses:add_lesson' course.id%}" role="button">Add new lesson</a></p>
+          <!--<a href="{% url 'courses:add_lesson' course.id%}">Add new lesson</a>-->
         <div class="panel panel-default transparant-background">
           <table class="table table-striped text-align-justify">
           <tr>

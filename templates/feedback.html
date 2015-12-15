@@ -11,8 +11,11 @@
 
 
 {% block content %}
-  <h1>Leave a feedback</h1>
-
+  <div class="container">
+        <div class="jumbotron transparant-background">
+  <div class="page-header text-align-center">
+          <h1>Leave a feedback</h1>
+          </div>
   {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -27,6 +30,8 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit">
+    <input class="btn btn-primary btn-sm" type="submit" value="send feedback">
   </form>
+</div>
+</div>
 {% endblock content %}
