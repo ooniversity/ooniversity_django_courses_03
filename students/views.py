@@ -8,9 +8,17 @@ from django.core.paginator import Paginator
 
 from students.models import Student
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class StudentDetailView(DetailView):
     model = Student
+    logger.debug('Students detail view has been debugged')  # students.views
+    logger.info('Logger of students detail view informs you!')  # students.views
+    logger.warning('Logger of students detail view warns you!')  # students.views
+    logger.error('Students detail view went wrong!')  # students.views
 
 
 class StudentListView(ListView):

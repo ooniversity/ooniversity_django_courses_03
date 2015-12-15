@@ -41,7 +41,9 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
-    'feedbacks'
+    'feedbacks',
+    'debug_toolbar',
+    'django_extensions'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,3 +98,60 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
 ADMINS = (('alex', 'ud3p@mail.ru'), ('alex', 'ex@gmail.ru'))
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
+LOGGING = {
+    'version': 1,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'loggers': {
+        'course': {
+            'handlers': ['console', 'course'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['console', 'students'],
+            'level': 'DEBUG',
+        },
+    },
+
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'course': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'simple',
+
+        },
+        'students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'verbose'
+
+        },
+
+    },
+
+}
+
+try:
+    from local_settings import *
+except ImportError:
+    print 'Warning! local_settings are not defined!'

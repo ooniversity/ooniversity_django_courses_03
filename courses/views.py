@@ -6,6 +6,9 @@ from django.contrib import messages
 from courses.models import Course, Lesson
 from pybursa.views import MixinTitle
 
+import logging
+
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
@@ -13,23 +16,14 @@ class CourseDetailView(DetailView):
     context_object_name = 'courses'
 
     def get_context_data(self, **kwargs):
+        logger.debug('Courses detail view has been debugged')  # courses.views
+        logger.info('Logger of courses detail view informs you!')  # courses.views
+        logger.warning('Logger of courses detail view warns you!')  # courses.views
+        logger.error('Courses detail view went wrong!')  # courses.views
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['lessons'] = Lesson.objects.filter(course=self.get_object().id)
         return context
 
-
-# def detail(request, course_id):
-#     courses = Course.objects.get(id=course_id)
-#     lessons = courses.lesson_set.all()
-#     coaches = courses.coach.user.get_full_name()
-#     assistants = courses.assistant.user.get_full_name()
-#     return render(request,
-#                   'courses/detail.html', {
-#                       'courses': courses,
-#                       'lessons': lessons,
-#                       'coaches': coaches,
-#                       'assistants': assistants
-#                   })
 
 class CourseCreateView(CreateView):
     model = Course
@@ -93,7 +87,6 @@ class LessonCreateView(MixinTitle, CreateView):
     model = Lesson
     template_name = 'courses/add_lesson.html'
     title = 'Create Lesson'
-    # success_url = reverse_lazy('courses:detail')
 
     def form_valid(self, form):
         data = form.cleaned_data
@@ -103,6 +96,21 @@ class LessonCreateView(MixinTitle, CreateView):
 
     def get_success_url(self):
         return self.object.get_url()
+
+
+
+# def detail(request, course_id):
+#     courses = Course.objects.get(id=course_id)
+#     lessons = courses.lesson_set.all()
+#     coaches = courses.coach.user.get_full_name()
+#     assistants = courses.assistant.user.get_full_name()
+#     return render(request,
+#                   'courses/detail.html', {
+#                       'courses': courses,
+#                       'lessons': lessons,
+#                       'coaches': coaches,
+#                       'assistants': assistants
+#                   })
 
     # context_object_name = 'lesson'
 # def add_lesson(request, pk):
