@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from courses.models import Course, Lesson
-from coaches.models import Coach
-from courses.forms import CourseModelForm, LessonModelForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.core.urlresolvers import reverse_lazy
+
+from courses.models import Course, Lesson
+from coaches.models import Coach
+from courses.forms import CourseModelForm, LessonModelForm
+
+import logging
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 class CourseDetailView(DetailView):
@@ -15,6 +19,10 @@ class CourseDetailView(DetailView):
 	template_name = 'courses/detail.html'
 
 	def get_context_data(self, **kwargs):
+		logger.debug('Courses detail view has been debugged')
+		logger.info('Logger of courses detail view informs you!')
+		logger.warning('Logger of courses detail view warns you!')
+		logger.error('Courses detail view went wrong!')
 		context = super(CourseDetailView, self).get_context_data(**kwargs)
 		context['lessons'] = Lesson.objects.filter(course=self.get_object().id).order_by('order')
 		return context

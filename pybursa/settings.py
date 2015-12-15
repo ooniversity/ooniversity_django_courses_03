@@ -103,3 +103,49 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
 ADMINS = (('admin', 'olia.yemets@gmail.com'), )
+
+LOGGING = {
+    'version':1,
+    'loggers':
+    {
+        'courses.views':{
+            'handlers':['console', 'file'],
+            'level':'DEBUG',
+        },
+        'students.views':{
+            'handlers':['console2', 'file2'],
+            'level':'WARNING',
+        },
+    },
+    'handlers':
+    {
+        'console': {
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+        'console2': {
+            'level':'WARNING',
+            'class':'logging.StreamHandler',
+        },
+        'file':{
+            'level':'DEBUG',
+            'class':'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter':'simple',
+        },
+        'file2':{
+            'level':'WARNING',
+            'class':'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter':'verbose',
+        }
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+}
