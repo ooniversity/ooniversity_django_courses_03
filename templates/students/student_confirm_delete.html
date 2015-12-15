@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock nav_class_student %}
+
+
+{% block content %}
+      <div class="starter-template">
+        <h1 class="starter-template">{{ title }}</h1>
+
+      </div>
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Information about student that will be deleted</div>
+            <p>Student {{ student.name }} {{ student.surname }} will be deleted</p>
+    </div>
+        <form method="post">
+          {% csrf_token %}
+          <input type="submit" value="Are you sure?">
+        </form>
+
+{% endblock content %}
+

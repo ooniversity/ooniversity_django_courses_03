@@ -1,0 +1,68 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.starter-template {
+  padding: 15px 15px;
+  text-align: center;
+}
+
+.color_block {
+  border: 2px #808080 solid; /* Параметры рамки */
+  background: #e3ffec; /* Цвет фона */
+}
+
+em.bt, em.bt b, em.bb, em.bb b {
+  display: block; /* Блочный элемент */
+  height: 10px; /* Высота уголка */
+  font-size: 0; /* Размер шрифта */
+  background: url(images/corners.png) no-repeat; /* Путь к файлу с уголками */
+  position: relative; /* Относительное позиционирование */
+}
+
+em.bt {
+  top: -2px; /* Сдвигаем левый верхний уголок вверх */
+  left: -2px; /* Сдвигаем влево */
+}
+
+em.bt b {
+  background-position:  100% -10px; /* Рисунок сдвигается к следующему уголку */
+  left: 4px; /* Сдвигаем вправо */
+}
+
+em.bb { background-position: 0 -20px; top: 2px; left: -2px; }
+
+em.bb b { background-position: 100% -30px; left: 4px; }
+
+.color_block .block_content {
+  padding: 0 7px; /* Поля вокруг текста */
+}
+
+.lead1 {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.h2{
+  color: gray
+}
+
+.color1{
+  color: blue
+}
+
+.color2{
+  color: green
+}
+
+.font1{
+  font-size: 12px;
+}
+
+.font2{
+  font-size: 11px;
+}

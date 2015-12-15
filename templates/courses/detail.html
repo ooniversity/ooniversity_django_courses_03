@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Course{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock nav_class_index %}
+
+
+{% block url_student %}{% url 'students:list_view' %}?course_id={{ course.id }}{% endblock url_student %}
+
+
+{% block content %}
+
+    {% if messages %}
+        <ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+        </ul>
+    {% endif %}
+
+      <div class="starter-template">
+        <h2 class="starter-template">{{ course.name }}</h2>
+        <h2 class="starter-template">{{ course.description|truncatechars:32 }}</h2>
+      </div>
+
+    <h3><a href="{% url 'courses:add-lesson' course.id %}">Add a new lesson</a></h3>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Information about course lessons</div>
+      {% if lessons_list %}
+      <!-- Table -->
+        <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+        <th>#</th>
+        <th>Lesson Subject</th>
+        <th>Lesson Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for lesson in lessons_list %}
+        <tr>
+        <td>{{ lesson.id }}</td>
+        <td>{{ lesson.subject }}</td>
+        <td>{{ lesson.description }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+      {% else %}
+        <p>No lessons are available.</p>
+      {% endif %}
+
+    </div>
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Information about course coaches</div>
+      {% if coaches_list %}
+      <!-- Table -->
+        <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+        <th>Coach Full Name</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for coach in coaches_list %}
+        <tr>
+        <td><a href="{% url 'coaches:detail' coach.id %}">{{ coach.first_name }} {{ coach.last_name }}</a></td>
+        <td>{{ coach.description }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+      {% else %}
+        <p>No coaches are available.</p>
+      {% endif %}
+
+    </div>
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Information about course assistants</div>
+      {% if assistants_list %}
+      <!-- Table -->
+        <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+        <th>Assistant Full Name</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for assistant in assistants_list %}
+        <tr>
+        <td><a href="{% url 'coaches:detail' assistant.id %}">{{ assistant.first_name }} {{ assistant.last_name }}</a></td>
+        <td>{{ assistant.description }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+      {% else %}
+        <p>No assistants are available.</p>
+      {% endif %}
+
+    </div>
+
+{% endblock content %}

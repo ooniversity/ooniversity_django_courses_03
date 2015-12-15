@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Student{% endblock title %}
+
+
+{% block nav_class_student %}active{% endblock nav_class_student %}
+
+
+{% block content %}
+    <div>
+    {% if messages %}
+        <ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ student.name }} {{ student.surname }} {{ message }}</li>
+    {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+    <div class="starter-template">
+      <h1 class="starter-template">Edit a student</h1>
+
+    </div>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Information about existent student</div>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit">
+        </form>
+
+    </div>
+
+{% endblock content %}
+
