@@ -101,3 +101,48 @@ EMAIL_PORT = 1025
 #SERVER_EMAIL = 'root@localhost'
 ADMINS = (('Aleksey', "dixon.che@gmail.com"), ('Roma', "mda@gmail.com"))
 #DEFAULT_FROM_EMAIL = 'asd@gmail.com'
+LOGGING = {
+    'version': 1,
+    'formatters': {
+        'verbose_courses': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'verbose_students': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+    },    
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose_students'
+            
+        },
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose_courses',
+            'filename': os.path.join(BASE_DIR, "courses_logger.log" )
+        },
+        'file_students': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose_students',
+            'filename': os.path.join(BASE_DIR, "students_logger.log" )
+            
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+            
+        },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'DEBUG',
+            
+            
+        },
+    },
+}

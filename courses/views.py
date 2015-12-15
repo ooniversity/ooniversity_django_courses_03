@@ -9,6 +9,9 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, ModelFormMixin 
 from django.core.urlresolvers import reverse_lazy
+import logging
+logger = logging.getLogger(__name__)
+
 
 
 class MixinCourseContext(object):
@@ -26,6 +29,11 @@ class MixinCourseContext(object):
 
     def get_context_data(self, *args, **kwargs):
         context = super(MixinCourseContext, self).get_context_data(**kwargs)
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
+        
         #context['title'] = 'Student registration'
         #self.object = self.get_object()
         context['lessons'] = self.get_lessons()
