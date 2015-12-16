@@ -49,10 +49,14 @@ def list_view(request):
 
 class StudentDetailView(DetailView):
     model = Student
-    logger.debug('Students detail view has been debugged')
-    logger.info('Logger of students detail view informs you!')
-    logger.warning('Logger of students detail view warns you!')
-    logger.error('Students detail view went wrong!')
+
+    def get_context_data(self, **kwargs):
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        logger.debug('Students detail view has been debugged')
+        logger.info('Logger of students detail view informs you!')
+        logger.warning('Logger of students detail view warns you!')
+        logger.error('Students detail view went wrong!')
+        return context
 
 
 """
@@ -137,6 +141,7 @@ class StudentDeleteView(DeleteView):
         return context
 
     def get_object(self):
+    #def delete(self):
         deleted_student = super(StudentDeleteView, self).get_object()
         messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (deleted_student.name, deleted_student.surname), extra_tags='msg')
         return deleted_student
