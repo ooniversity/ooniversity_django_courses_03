@@ -1,38 +1,53 @@
-{% extends 'base.html' %} 
+{% extends "base.html" %}
 
-{% load staticfiles %} 
+{% load staticfiles %}
 
+{% block title %}pyBursa | Course{% endblock title %}
 
-{% block title %}Cource detail{% endblock title %}
+{% block course_id %}?course_id={{ course_now.id }}{% endblock course_id %}
 
+{% block content %} 
 
-{% block nav_class_index %}active{% endblock nav_class_index %}
+  {% if messages %}<div class="messages">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}  
+  </div>{% endif %}
 
-
-{% block content %}
-
-
-    <div class="jumbotron">
-      <div class="container" role="main">
-        <div class="jumbotron">
-          <h1 class="center">{{ science.name }}</h1>
-          <p class="center">{{ science.description|truncatechars:32 }}</p>
-        </div>
-        <table class="table">
-          <tr>
-            <th>N</th>
-            <th>Topic</th>
-            <th>Description</th>
-          </tr>
-          {% for less in lst_of_science %}
-          <tr>
-            <td> {{ less.order }} </td>
-            <td> {{ less.subject }}</td>
-            <td> {{ less.description }} </td>
-          </tr>
-          {% endfor %}
-        </table>
-      </div>
+<div id="header"> 
+  <div class="header_content_mainline">
+    <h1>{{ course_now.name }}</h1>
+    <div id="header_content_tagline">
+      <p> {{ course_now.description|truncatechars:32 }} </p>
     </div>
+  </div>   
+</div>
+<div class="clearfix"></div>
+<h2>Преподаватели</h2>
+<div class="tutor-block">
+  {% include "include/course_instr_include.html" with block_title="Учитель" instructor=course_now.coach %}
 
+  {% include "include/course_instr_include.html" with block_title="Ассистент" instructor=course_now.assistant %}
+</div>
+<div class="clearfix"></div>
+<div class="list-of-courses">
+  <h2> План курса</h2>
+  <p><a href="{% url 'courses:add-lesson' course_now.id %}"><button type="button" class="btn btn-info" onclick="/"><span class="glyphicon glyphicon-plus"></span>Добавить занятие</button></a></p>
+  {% if course_now.lesson_set.all %}
+  <table>
+    <tr>
+      <th class="head-name">Номер</th>
+      <th class="head-name">Тема</th>
+      <th class="head-name">Описание</th>
+    </tr>
+    {% for lesson in course_now.lesson_set.all %}
+    <tr>
+      <td> {{ lesson.order }} </td>
+      <td>{{ lesson.subject }} </td>
+      <td>{{ lesson.description }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+</div>
 {% endblock content %}

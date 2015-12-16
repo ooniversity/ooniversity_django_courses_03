@@ -1,30 +1,17 @@
 from django.shortcuts import render
-import models
 from coaches.models import Coach
 from courses.models import Course
+from django.core.exceptions import ObjectDoesNotExist
+from django.views.generic.detail import DetailView
 
+class CoachDetailView(DetailView):
+    model = Coach
+    template_name = 'coaches/detail.html'
+    context_object_name = 'coach'
 
-def detail(request, num):
-    coacher=models.Coach.objects.get(id=num)
-    coaches=Coach.objects.all()
-    coach=Coach.objects.get(id=num)
-    is_coach = [] 
-    is_assist = []
-    for i in Course.objects.all():
-        if coach == i.coach:
-            is_coach.append(i)
-        if coach == i.assistant:
-            is_assist.append(i)
-
-    print is_coach
-    print is_assist
-    #print coacher__email
-    
-
-    return render(request, 'coaches/detail.html', {
-        "coaches": coaches,
-        "coacher": coacher,
-        "is_coach": is_coach,
-        "is_assist": is_assist,
-        })
-
+    def get_context_data(self, **kwargs):
+        coach = self.get_object()
+        context = super(CoachDetailView, self).get_context_data(**kwargs)
+        context['courses_coach'] = Course.objects.filter(coach=coach)
+        context['courses_assistant'] = Course.objects.filter(assistant=coach)
+        return context

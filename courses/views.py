@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.urlresolvers import reverse_lazy
 from courses.models import Course, Lesson
