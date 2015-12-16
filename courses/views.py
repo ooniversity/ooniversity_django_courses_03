@@ -6,17 +6,25 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from pybursa.utils import MixinLessonContext
+import logging
+
+
+logger = logging.getLogger(__name__) #courses.view
 
 
 class CourseDetailView(DetailView):
-    model = Course
-    template_name = 'courses/detail.html'
-    context_object_name = "course"
-       
-    def get_context_data(self, **kwargs):
-        context = super(CourseDetailView, self).get_context_data(**kwargs)
-        context['lessons'] = Lesson.objects.filter(course = self.object)
-        return context
+	logger.debug("Courses detail view has been debugged")
+	logger.info("Logger of courses detail view informs you!")
+	logger.warning("Logger of courses detail view warns you!")
+	logger.error("Courses detail view went wrong!")
+	model = Course
+	template_name = 'courses/detail.html'
+	context_object_name = "course"
+	
+	def get_context_data(self, **kwargs):
+		context = super(CourseDetailView, self).get_context_data(**kwargs)
+		context['lessons'] = Lesson.objects.filter(course = self.object)
+		return context
         
         
 class CourseCreateView(CreateView):
@@ -74,6 +82,7 @@ class LessonCreateView(MixinLessonContext, CreateView):
     template_name = 'courses/add_lesson.html'
 
     def get_initial(self, **kwargs):
+    	#import pdb; pdb.set_trace()
         initial = {'course': self.kwargs['pk']}
         return initial
     
