@@ -127,11 +127,6 @@ LOGGING = {
     },
 
     'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
         'courses_message': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
