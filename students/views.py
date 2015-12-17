@@ -16,6 +16,10 @@ logger = logging.getLogger(__name__)
 
 class StudentDetailView(DetailView):
     model = Student
+    logger.debug("Students detail view has been debugged")
+    logger.info("Logger of students detail view informs you!")
+    logger.warning("Logger of students detail view warns you!")
+    logger.error("Students detail view went wrong!")
 
 
 class StudentListView(ListView):
@@ -23,10 +27,6 @@ class StudentListView(ListView):
     paginate_by = 2
 
     def get_queryset(self):
-        logger.debug("Students detail view has been debugged")
-        logger.info("Logger of students detail view informs you!")
-        logger.warning("Logger of students detail view warns you!")
-        logger.error("Students detail view went wrong!")
         course_id = self.request.GET.get('course_id', None)
         if course_id and course_id.isdigit():
             return Student.objects.filter(courses=course_id)
