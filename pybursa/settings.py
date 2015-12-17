@@ -112,12 +112,7 @@ LOGGING = {
         },
     },    
     'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose_students'
-            
-        },
+        
         'file_courses': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
@@ -125,7 +120,7 @@ LOGGING = {
             'filename': os.path.join(BASE_DIR, "courses_logger.log" )
         },
         'file_students': {
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'class': 'logging.FileHandler',
             'formatter': 'verbose_students',
             'filename': os.path.join(BASE_DIR, "students_logger.log" )
@@ -140,7 +135,7 @@ LOGGING = {
         },
         'students': {
             'handlers': ['file_students'],
-            'level': 'DEBUG',
+            'level': 'WARNING',
             
             
         },
