@@ -99,3 +99,43 @@ EMAIL_HOST_USER = 'admin'
 EMAIL_HOST_PASSWORD = 'admin'
 
 ADMINS = (('admin', 'ENLevchenko@gmail.com'), )
+
+
+LOGGING = {
+    'version': 1,
+	'loggers': 
+    {
+        'courses': {
+            'handlers':['file'],
+            'level':'DEBUG',
+        },
+		'students': {
+            'handlers':['file_student'],
+            'level':'DEBUG',
+        },
+    },
+    'handlers': 
+    {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'), 
+			'formatter': 'simple'
+        },
+		'file_student': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'), 
+			'formatter': 'verbose'
+        },
+    },
+	'formatters': 
+	{
+		'verbose': {
+			'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+}
