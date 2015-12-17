@@ -26,11 +26,15 @@
 	</div>
 	<h2>Преподаватели</h2>
 	<div class="panel panel-success">
+{% if course.coach %}
 {% include "courses/include/inc_instructor_include.html" with block_title="Учитель" instructor=course.coach %}
+{% endif %}
 </div>
 
 <div class="panel panel-success">
+{% if course.assistant %}
 {% include "courses/include/inc_instructor_include.html" with block_title="Ассистент" instructor=course.assistant %}
+{% endif %}
 </div>
     <h2>План курса</h2>
     <div class="container" id="sto">

@@ -7,7 +7,10 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import logging
+
+
+logger = logging.getLogger(__name__) #students.view
 
 
 class StudentListView(ListView):
@@ -24,17 +27,25 @@ class StudentListView(ListView):
     
 	        
 class StudentDetailView(DetailView):
-    model = Student
-
+	model = Student
+	
+	def get_context_data(self, **kwargs):
+		context = super(StudentDetailView, self).get_context_data(**kwargs)
+		logger.debug("Students detail view has been debugged")
+		logger.info("Logger of students detail view informs you!")
+		logger.warning("Logger of students detail view warns you!")
+		logger.error("Students detail view went wrong!")
+		return context
+    
 
 class StudentCreateView(CreateView):
     model = Student
     success_url = reverse_lazy('students:list_view') 
     
     def get_context_data(self, **kwargs):
-        context = super(StudentCreateView, self).get_context_data(**kwargs)
-        context['title'] = 'Student registration'
-        return context
+    	context = super(StudentCreateView, self).get_context_data(**kwargs)
+    	context['title'] = 'Student registration'
+    	return context
     
     def form_valid(self, form):
         student = form.save()
