@@ -113,24 +113,16 @@ LOGGING = {
             'level': 'DEBUG',
         },
         'students': {
-            'handlers': ['console2', 'file_students'],
+            'handlers': ['file_students'],
             'level': 'WARNING',
         },
     },
     'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
         'file_courses': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
             'formatter': 'short'
-        },
-        'console2': {
-            'level': 'WARNING',
-            'class': 'logging.StreamHandler',
         },
         'file_students': {
             'level': 'WARNING',
