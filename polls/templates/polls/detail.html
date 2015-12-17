@@ -1,7 +1,13 @@
+<<<<<<< HEAD
+<!--{{ question }}-->
+<h1>{{ question.question_text }}</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+=======
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
+>>>>>>> ce4a1093bf62f0859191a8228e634658f2a4a172
 <form action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
@@ -10,3 +16,8 @@
 {% endfor %}
 <input type="submit" value="Vote" />
 </form>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> ce4a1093bf62f0859191a8228e634658f2a4a172

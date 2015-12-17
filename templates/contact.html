@@ -1,3 +1,60 @@
+<<<<<<< HEAD
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Contacts{% endblock %}
+
+
+{% block nav_class_contact %}active{% endblock %}
+
+
+{% block content %}
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Hello, students!</h1>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'contact' %}" role="button">Learn more »</a></p>
+      </div>
+    </div>
+
+{% include "include/color_block_include.html" %}
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2 class ="h2">Director</h2>
+          <p>Name: Ivanov Ivan</p>
+  <p>Skype: Ivanov_Ivan</p>
+  <p>Email: IvanovIvan@gmail.com</p>
+  <p>Phone: 050-375-5-381</p>
+          
+          <p><a class="btn btn-default" href="{% url 'contact' %}" role="button">View details »</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2 class ="h2">Manager</h2>
+          <p>Name: Petrov Petr</p>
+  <p>Skype: Petrov_Petr</p>
+  <p>Email: PetrovPetr@gmail.com</p>
+  <p>Phone: 050-375-5-382</p>
+          <p><a class="btn btn-default" href="{% url 'contact' %}" role="button">View details »</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2 class ="h2">Founder</h2>
+          <p>Name: Sidorov Sidor</p>
+  <p>Skype: Sidorov_Sidor</p>
+  <p>Email: SidorovSidor@gmail.com</p>
+  <p>Phone: 050-375-5-383</p>
+          <p><a class="btn btn-default" href="{% url 'contact' %}" role="button">View details »</a></p>
+        </div>
+      </div>
+
+      <hr>
+    </div>
+
+{% endblock content %}
+=======
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +94,7 @@
       <ul class="nav navbar-nav">
         <li><a href="{% url 'index' %}">Main</a></li>
         <li class="active"><a href="{% url 'contact' %}">Contacts <span class="sr-only">(current)</span></a></li>
-<li><a href="{% url 'student_list' %}">Students</a></li>
+<li><a href="{% url 'students:student_list' %}">Students</a></li>
           </ul>
         </li>
       </ul>
@@ -73,3 +130,4 @@
     <script src="{% static 'js/bootstrap.js' %}"></script>
   </body>
 </html>
+>>>>>>> ce4a1093bf62f0859191a8228e634658f2a4a172

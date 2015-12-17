@@ -3,7 +3,11 @@
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 
 {% block branding %}
+<<<<<<< HEAD
+<h1 id="site-name"><a href="{% url 'admin:index' %}">PyBursa Administration</a></h1>
+=======
 <h1 id="site-name"><a href="{% url 'admin:index' %}">Polls Administration</a></h1>
+>>>>>>> ce4a1093bf62f0859191a8228e634658f2a4a172
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
