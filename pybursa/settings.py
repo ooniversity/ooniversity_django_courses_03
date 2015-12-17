@@ -146,11 +146,11 @@ LOGGING = {
     },
     'formatters': {
         'courses': {
-            'format': '%(levelname)s %(message)s'
+            'format': '%(levelname)s: %(message)s'
         },
     
         'students': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s'
+            'format': '%(levelname)s: %(asctime)s %(module)s %(funcName)s'
         },
     },
 }
