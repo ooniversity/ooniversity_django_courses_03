@@ -1,6 +1,4 @@
 from django.shortcuts import redirect, render
-#from django.http import HttpResponse
-#from django.views import generic
 from courses.models import Course, Lesson
 from coaches.models import Coach
 from courses import forms
@@ -9,13 +7,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 
-
+import logging
+logger = logging.getLogger(__name__)
 # Create your views here.
-#def index_courses(request):
-    #courses_list = Course.objects.all()
-    #context = {'courses_list': courses_list}
-    #return render(request, 'index.html', context)
-    #return render(request, 'index.html', {'courses_list': Course.objects.all()})
+
 
 class CourseDetailView(DetailView):
     model = Course
@@ -23,19 +18,14 @@ class CourseDetailView(DetailView):
     context_object_name = "course"
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
         context = super(CourseDetailView, self).get_context_data(**kwargs)
-        # Add in a QuerySet of all the related Lessons
-        #context['lessons_list'] = Lesson.objects.all()
-        #Lessons filtered by course_id received in URL
         context['lessons_list'] = Lesson.objects.filter(course_id=self.kwargs.get(self.pk_url_kwarg, None))
-        ##context['lessons_list'] = Lesson.objects.filter(course_id=self.kwargs['pk'])
-        #Coaches filtered by course_id received in URL
-        #context['coaches_list'] = Coach.objects.all()
         context['coaches_list'] = Coach.objects.filter(coach_courses=self.kwargs.get(self.pk_url_kwarg, None))
-        ##context['coaches_list'] = Coach.objects.filter(coach_courses=self.kwargs['pk'])
         context['assistants_list'] = Coach.objects.filter(assistant_courses=self.kwargs.get(self.pk_url_kwarg, None))
-        ##context['assistant_list'] = Coach.objects.filter(assistant_courses=self.kwargs['pk'])
         return context
 
 
@@ -70,7 +60,6 @@ class CourseUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        #course = self.get_object()
         messages.success(self.request, 'The changes have been saved.')
         return super(CourseUpdateView, self).form_valid(form)
 
@@ -96,7 +85,6 @@ class CourseDeleteView(DeleteView):
 def add_lesson(request, pk):
     course = Course.objects.get(id=pk)
     if request.method == 'POST':
-        #form = forms.LessonModelForm(request.POST)
         form = forms.LessonModelForm(request.POST)
         if form.is_valid():
             lesson = form.save()
@@ -106,39 +94,4 @@ def add_lesson(request, pk):
         form = forms.LessonModelForm(initial={'course': course})
     return render(request, 'courses/add_lesson.html', {'form': form})
 
-"""
-
-def add(request):
-    if request.method == 'POST':
-        form = forms.CourseModelForm(request.POST)
-        if form.is_valid():
-            course = form.save()
-            messages.success(request, 'Course %s has been successfully added.' % course.name)
-            return redirect('/')
-    else:
-        form = forms.CourseModelForm()
-    return render(request, 'courses/add.html', {'form': form})
-
-
-def edit(request, pk):
-    course = Course.objects.get(id=pk)
-    if request.method == 'POST':
-        form = forms.CourseModelForm(request.POST, instance=course)
-        if form.is_valid():
-            course = form.save()
-            messages.success(request, 'The changes have been saved.')
-            return redirect('courses:edit', pk)
-    else:
-        form = forms.CourseModelForm(instance=course)
-    return render(request, 'courses/edit.html', {'form': form})
-
-
-def remove(request, pk):
-    course = Course.objects.get(id=pk)
-    if request.method == 'POST':
-        course.delete()
-        messages.success(request, 'Course %s has been deleted.' % course.name)
-        return redirect('/')
-    return render(request, 'courses/remove.html', {'course': course})
-"""
 

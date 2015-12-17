@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Py&Django Bursa">
-    <meta name="author" content="Ksenia Kolomiets">
+    <meta name="author" content="Vitalii">
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
 
     <title>Students</title>

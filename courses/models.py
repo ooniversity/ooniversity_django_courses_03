@@ -10,7 +10,7 @@ class Course(models.Model):
     coach = models.ForeignKey(Coach, related_name='coach_courses', null=True, blank=True)
     assistant = models.ForeignKey(Coach, related_name='assistant_courses', null=True, blank=True)
 
-    def __unicode__(self):              # __unicode__ on Python 2
+    def __unicode__(self):              
         return self.name
 
 
@@ -20,5 +20,5 @@ class Lesson(models.Model):
     course = models.ForeignKey(Course)
     order = models.PositiveIntegerField()
 
-    def __unicode__(self):              # __unicode__ on Python 2
+    def __unicode__(self):              
         return self.subject
