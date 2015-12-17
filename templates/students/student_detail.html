@@ -1,12 +1,15 @@
 {% extends "students/students_base.html" %}
 
 
+{% block title %}Student details{% endblock %}
+
+
 {% block content %}
     <h1>Student details</h1>
     <h2>{{ student.name }} {{ student.surname }}</h2>
     <br>
     <table class="table table-striped">
-        <thead>
+        <tbody>
         <tr>
             <td>birth day</td>
             <td>{{ student.date_of_birth }}</td>
@@ -27,9 +30,6 @@
             <td>phone</td>
             <td>{{ student.phone }}</td>
         </tr>
-        <thead>
-
-        <tbody>
         <tr>
             <td>courses</td>
             <td>
