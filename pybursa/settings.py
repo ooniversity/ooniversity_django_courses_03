@@ -100,26 +100,41 @@ ADMINS = (("admin", "k_moroz@hotmail.com"), )
 
 LOGGING = {
     'version': 1,
-    'handlers': {
-        'courses_file': {
+    'loggers': 
+    {
+        'courses.views': {
+        	'handlers': ['file_courses'],
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, "courses_logger.log")
         },
-        'students_file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, "students_logger.log")
+        'students.views': {
+        	'handlers': ['file_students'],
+            'level': 'WARNING',
         },
     },
-    'loggers': {
-        'courses': {
-            'handlers': ['courses_file'],
+    'handlers': 
+    {
+    	'console': {
             'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
         },
-        'students': {
-            'handlers': ['students_file'],
+    'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        },
+     'file_students': {
             'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'verbose',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
         },
     },
 }
