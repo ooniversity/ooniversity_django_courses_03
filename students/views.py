@@ -3,10 +3,20 @@ from django.contrib import messages
 from students.models import Student
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class StudentDetailView(DetailView):
     model = Student
+
+    def get_context_data(self, **kwargs):
+        logger.debug('Students detail view has been debugged')
+        logger.info('Logger of students detail view informs you!')
+        logger.warning('Logger of students detail view warns you!')
+        logger.error('Students detail view went wrong!!')
+        return super(StudentDetailView, self).get_context_data(**kwargs)
 
 
 class StudentListView(ListView):
@@ -23,11 +33,10 @@ class StudentListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(StudentListView, self).get_context_data(**kwargs)
-        id = self.request.GET.get('course_id',None)
+        id = self.request.GET.get('course_id', None)
         if id:
-          context['id_course'] = 'course_id=%s&' % id
+            context['id_course'] = 'course_id=%s&' % id
         return context
-
 
 
 class StudentCreateView(CreateView):
@@ -72,4 +81,3 @@ class StudentDeleteView(DeleteView):
         student = self.get_object()
         messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (student.name, student.surname))
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
-
