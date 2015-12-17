@@ -146,7 +146,7 @@ LOGGING = {
     },
     'formatters': {
         'courses': {
-            'format': '%(levelname)s: %(message)s'
+            'format': '%(levelname)s %(message)s'
         },
     
         'students': {
