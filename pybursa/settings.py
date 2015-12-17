@@ -109,11 +109,11 @@ LOGGING = {
     'disable_existing_loggers': False,
     'loggers': {
         'courses': {
-            'handlers': ['console', 'file'],
+            'handlers': ['file_courses'],
             'level': 'DEBUG',
         },
         'students': {
-            'handlers': ['console2', 'file2'],
+            'handlers': ['console2', 'file_students'],
             'level': 'WARNING',
         },
     },
@@ -122,19 +122,29 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
         },
-        'file': {
+        'file_courses': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'courses_logger.log')
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'short'
         },
         'console2': {
             'level': 'WARNING',
             'class': 'logging.StreamHandler',
         },
-        'file2': {
+        'file_students': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_logger.log')
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'detail'
         },
     },
-}
+    'formatters': {
+        'detail': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'short': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+ }
