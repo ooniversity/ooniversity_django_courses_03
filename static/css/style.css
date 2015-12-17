@@ -76,3 +76,12 @@
 .form_add_course p label {
 	width: 150px;
 }
+.feedback p label {
+	padding-top: 20px;
+	width: 120px;
+}
+.feedback p input, .feedback p textarea {
+	border-radius: 5px;
+	border: 1px solid blue;
+}
+.feedback p sum
