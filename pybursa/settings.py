@@ -94,11 +94,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_PORT = 465
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
 EMAIL_HOST_USER = 'th3fall3n0n3@yandex.ru'
 EMAIL_HOST_PASSWORD = 'asd'
-EMAIL_USE_SSL = True
 
 ADMINS = (('Ivan', 'ivan.tarasenko@toatech.com'), ('Ne_Ivan', 'ivan.tarasenko@oracle.com') )
 
@@ -122,13 +121,13 @@ LOGGING = {
         'courses_file': {
 	    'level': 'DEBUG',
 	    'class': 'logging.FileHandler',
-	    'filename': 'courses_logger',
+	    'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
 	    'formatter': 'short'
 	},
 	'students_file': {
 	    'level': 'WARNING',
 	    'class': 'logging.FileHandler',
-	    'filename': 'students_logger',
+	    'filename': os.path.join(BASE_DIR, 'students_logger.log'),
 	    'formatter': 'detail'
 	}
     },
