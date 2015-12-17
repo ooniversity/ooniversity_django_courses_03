@@ -1,13 +1,4 @@
-{% extends "base.html" %}
-
-
-{% load staticfiles %}
-
-
-{% block title %}Course description{% endblock %}
-
-
-{% block navbar_i1 %}active{% endblock navbar_i1 %}
+{% extends "courses/courses_base.html" %}
 
 
 {% block i3_url_tail %}?course_id={{ course.id }}{% endblock %}

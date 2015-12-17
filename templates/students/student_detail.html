@@ -1,13 +1,7 @@
-{% extends "base.html" %}
+{% extends "students/students_base.html" %}
 
 
-{% load staticfiles %}
-
-
-{% block title %}{{ title }}{% endblock %}
-
-
-{% block navbar_i3 %}active{% endblock %}
+{% block title %}Student details{% endblock %}
 
 
 {% block content %}
@@ -15,7 +9,7 @@
     <h2>{{ student.name }} {{ student.surname }}</h2>
     <br>
     <table class="table table-striped">
-        <thead>
+        <tbody>
         <tr>
             <td>birth day</td>
             <td>{{ student.date_of_birth }}</td>
@@ -36,9 +30,6 @@
             <td>phone</td>
             <td>{{ student.phone }}</td>
         </tr>
-        <thead>
-
-        <tbody>
         <tr>
             <td>courses</td>
             <td>
