@@ -101,28 +101,24 @@ ADMINS = (("admin", "k_moroz@hotmail.com"), )
 LOGGING = {
     'version': 1,
     'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
         'courses_file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, "courses_logger")
+            'filename': os.path.join(BASE_DIR, "courses_logger.log")
         },
         'students_file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, "students_logger")
+            'filename': os.path.join(BASE_DIR, "students_logger.log")
         },
     },
     'loggers': {
         'courses': {
-            'handlers': ['console', 'courses_file'],
+            'handlers': ['courses_file'],
             'level': 'DEBUG',
         },
         'students': {
-            'handlers': ['console', 'students_file'],
+            'handlers': ['students_file'],
             'level': 'WARNING',
         },
     },
