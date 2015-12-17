@@ -1,3 +1,7 @@
 from django.test import TestCase
+'''
+StudentsListTest(TestCase):
 
-# Create your tests here.
+
+StudentsDetailTest(TestCase):
+'''
