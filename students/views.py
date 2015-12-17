@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
@@ -9,6 +10,8 @@ from students.forms import StudentModelForm
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
+
+logger = logging.getLogger(__name__)
 
 
 class StudentListView(ListView):
@@ -25,15 +28,18 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
     model = Student
-
+    
     def get_context_data(self, **kwargs):
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!" )
+        logger.error("Students detail view went wrong!")
         context = super(StudentDetailView, self).get_context_data(**kwargs)
         return context
 
 class StudentCreateView(CreateView):
     model = Student
     fields = '__all__'
-    success_url = reverse_lazy('students:list_view')
 
     def form_valid(self, form):
         messages.success(self.request, "Student " + form.cleaned_data['name'] + " " + form.cleaned_data['surname'] + " has been successfully added.")
