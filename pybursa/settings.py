@@ -92,7 +92,49 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
-#EMAIL_HOST_USER = "admin"
-#EMAIL_HOST_PASSWORD = "admin"
+EMAIL_HOST_USER = "admin"
+EMAIL_HOST_PASSWORD = "admin"
 
 ADMINS = (('Nick', 'silin.nickolay@gmail.com'),)
+
+CACHES = {
+    'default': {         
+        'BACKEND':
+'django.core.cache.backends.locmem.LocMemCache',
+  }
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'loggers': {
+        'courses': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['console2', 'file2'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger')
+        },
+        'console2': {
+            'level': 'WARNING',
+            'class': 'logging.StreamHandler',
+        },
+        'file2': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger')
+        },
+    },
+}

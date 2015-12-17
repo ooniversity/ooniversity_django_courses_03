@@ -10,6 +10,8 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+import logging
+logger = logging.getLogger(__name__) # students.view
 
 class StudentUpdateView(UpdateView):
     model = Student
@@ -64,12 +66,28 @@ class StudentListView(ListView):
             qs = qs.filter(courses__id=course_id)
         return qs
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentListView, self).get_context_data(**kwargs)
+        id = self.request.GET.get('course_id',None)
+        if id:
+            context['course_url'] = 'course_id=%s&' % id
+        return context
+
 class StudentDetailView(DetailView):
     model = Student
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+        return context
+
 
 def list_view(request):
-  course_id = request.GET.get('course_id')
+  course_id = request.GET.g
+  et('course_id')
   if course_id != None and course_id != '':
     course = Course.objects.get(id=course_id)
     stud = Student.objects.all()
