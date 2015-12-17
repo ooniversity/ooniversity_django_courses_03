@@ -1,3 +1,6 @@
 from django.test import TestCase
+from students.models import Student
 
-# Create your tests here.
+#class StudentsListTest(TestCase:
+#	def test_student_list(self):
+#		student1 = 

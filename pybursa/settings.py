@@ -42,6 +42,8 @@ INSTALLED_APPS = (
 	'students',
 	'coaches',
 	'feedbacks',
+	'debug_toolbar',
+	'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -74,7 +76,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -96,3 +98,42 @@ ADMINS = (
 		('admin 1', "adm1@example.com"), 
 		('admin 2', "adm2@example.com"), 
 		('admin 3', "adm3@example.com"))
+
+#https://docs.djangoproject.com/en/1.7/topics/logging/
+LOGGING = {
+	'version': 1,
+	'formatters': {
+		'verbose': {
+			'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+		},
+		'simple': {
+			'format': '%(levelname)s %(message)s'
+		},
+	},
+	'loggers':
+	{
+		'courses': {
+			'handlers': ['file_courses'],
+			'level': 'DEBUG',
+		},
+		'students': {
+			'handlers': ['file_students'],
+			'level': 'DEBUG',
+		},
+	},
+	'handlers':
+	{
+		'file_courses': {
+			'level': 'DEBUG',
+			'class': 'logging.FileHandler',
+			'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+			'formatter': 'simple'
+		},
+		'file_students': {
+			'level': 'WARNING',
+			'class': 'logging.FileHandler',
+			'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+			'formatter': 'verbose'
+		},
+	},
+}
