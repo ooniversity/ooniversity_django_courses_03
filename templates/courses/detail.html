@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+
+{% block title %}Courses details{% endblock %}
+
+
+{% block st_details %}?course_id={{ courses.id }}{% endblock %}
+
+
+{% block main_content %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{ message }}</div>
+  {% endfor %}
+{% endif %}
+<div class="container">
+<div class="jumbotron">
+  <h2>{{ courses.name }}</h2>
+  <p>{{ courses.description | truncatechars:35 }}</p>  
+</div>
+</div>
+
+<div class="container">
+<div class="table-responsive">
+<h3> Course Tutors </h3>     
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Coach</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody> 
+      {% for coach in coaches %}
+      {% if courses.coach.first_name == coach.first_name %}
+      <tr>  
+        <td> <a href="{% url 'coaches:detail' coach.id %}">{{ coach.first_name }} {{ coach.last_name }}</a></td>
+      </tr>
+      <tr>
+        <td> {{ coach.description }} </td>
+      </tr>
+      {% endif %}
+      {% endfor %}     
+    </tbody>    
+  </table>
+</div>
+</div>
+
+<div class="container">
+<div class="table-responsive">
+<h3> Course Assistant </h3>     
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Assistant</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody> 
+      {% for coach in coaches %}
+      {% if courses.assistant.first_name == coach.first_name %}
+      <tr>  
+        <td><a href="{% url 'coaches:detail' coach.id %}">{{ coach.first_name }} {{ coach.last_name }}</a></td>
+      </tr>
+      <tr>        
+          <td>{{ coach.description }}</td>    
+      </tr>
+      {% endif %}
+      {% endfor %}     
+    </tbody>    
+  </table>
+</div>
+</div>
+<div class="container">
+  <button type="button" class="btn btn-info"><a href="{% url 'courses:add-lesson' courses.id %}"><span class="glyphicon glyphicon-pencil"></span> Добавить новый урок</a></button>
+</div>
+<br>
+<div class="container">
+<div class="table-responsive">
+<h3> Course Lessons </h3>     
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Lesson</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for lesson in lessons %}
+    {% if lesson.course.name == courses.name %} 
+      <tr>
+        <td>{{ lesson.order }}</td>
+        <td>{{ lesson.subject }}</td>
+        <td>{{ lesson.description }}</td>
+      </tr>
+    {% endif %}  
+    {% endfor %}    
+    </tbody>    
+  </table>
+</div>
+</div>
+
+{% include "include/footer_include.html" %}
+
+
+{% endblock %}

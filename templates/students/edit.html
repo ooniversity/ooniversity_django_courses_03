@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block title %}Editing Student{% endblock %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block main_content %}
+
+<div class="container">
+<div class="page-header">
+  <h1>{{ title }}</h1>
+</div>
+</div>
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{ message }}</div>
+  {% endfor %}
+{% endif %}
+<div class="jumbotron">
+<div class="container">
+<div class="panel panel-default">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Change"/>
+        </form>
+</div>
+</div>
+</div>
+
+
+{% include "include/footer_include.html" %}
+
+
+{% endblock %}

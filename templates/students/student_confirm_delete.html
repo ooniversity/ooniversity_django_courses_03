@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block title %}Delete Student{% endblock %}
+
+
+{% block main_content %}
+<div class="container">
+<div class="page-header">
+   <h1 class="descr">{{ title }}</h1>
+      <div class="jumbotron">
+        <h4>Вы действительно хотите удалить студента {{ full_name }}?</h4>
+        <form method="post">
+          {% csrf_token %}
+          <input type="submit" value="Да, удалить" class="btn btn-primary"/>
+          <a class="btn btn-primary" href="{% url 'students:list_view' %}" role="button">Нет</a>
+        </form>
+</div>
+</div>
+
+{% include "include/footer_include.html" %}
+
+
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+
+{% block title %}Web with Python{% endblock %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block main_content %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{ message }}</div>
+  {% endfor %}
+{% endif %}
+<div class="container">
+<div class="jumbotron">
+  <h2>Web ooniversity</h2>
+  <p> We specialize on 'popular' programming languages. <br> We preach max practice and strict system of home tasks.</p>
+</div>
+</div>
+<div class="container">
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Добавить новый курс
+</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add new course</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+<div class="page-header">
+  <h1>Create new course</h1>
+</div>
+</div>
+        <div class="container">
+        <div class="panel panel-default pull-left">
+        <div class="jumbotron">
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Create"/>
+          </form>
+        </div>
+        </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="container">
+<div class="table-responsive">
+  <table class="table table-hover table-bordered table-striped">
+    <thead>
+    <tr class="info">
+      <td> <b>CourseName<b> <td>
+      <td> <b>Description<b> <td>
+      <td></td>
+      <td></td>    
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}   
+    <tr>
+      <td><a href="{% url 'courses:detail' course.id %}">{{ course.name | upper }}</a><td>
+      <td> {{ course.short_description | title }} <td>  
+      <td>
+        <button type="button" class="btn btn-info"><a href="{% url 'courses:edit' course.id %}"><span class="glyphicon glyphicon-pencil"></span> Изменить</a></button>
+      </td>
+      <td>  
+        <button type="button" class="btn btn-info"><a href="{% url 'courses:remove' course.id %}"><span class="glyphicon glyphicon-remove"></span> Удалить</a></button>
+      </td>
+    </tr>  
+    {% endfor %}
+    </tbody>
+  </table>   
+</div>
+</div> 
+{% include "include/footer_include.html" %}
+
+
+{% endblock %}

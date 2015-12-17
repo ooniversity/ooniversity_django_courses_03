@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block title %}Quadratic{% endblock %}
+
+
+{% block main_content %}
+<div class="container">
+<div class="jumbotron">
+  <h1>Quadratic equation</h1>
+  <p>Квадратное уравнение a*x*x + b*x + c = 0</p>
+  <form method="get">
+  {{ form.as_p }}
+  <input type="submit" value="Решить"/>
+  </form>
+  <p>{{ context.d }}</p>
+  <p>{{ context.result_message }}</p>
+
+</div>
+</div>
+{% endblock %}

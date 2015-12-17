@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+
+{% block title %}List of Students{% endblock %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block main_content %}
+<div class="container">
+<div class="page-header">
+  <h1>List of Students</h1>
+</div>
+</div>
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{ message }}</div>
+  {% endfor %}
+{% endif %}
+<div class="container">
+  <button type="button" class="btn btn-info"><a href="{% url 'students:add' %}"><span class="glyphicon glyphicon-pencil"></span> Добавить нового студента</a></button>
+</div>
+<br>
+<div class="container">
+<div class="panel panel-default pull-left">
+
+  <!-- Default panel contents -->
+  <div class="panel-heading">Sudents attending {{ course.name }} course</div>
+
+  <!-- Table -->
+  <div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr class = "style-thead">
+        <th>#</th>
+        <th>Surname Name</th>
+        <th>Address</th>
+        <th>Skype</th>
+        <th>Courses</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+    {% for student in student_list %}
+      <tr class = "style-thead3">
+        <td>{{student.id}} </td>
+        <td><a href={% url 'students:detail' student.id %}>{{student.surname}} {{student.name}}</a></td>
+        <td>{{student.address}}</td>
+        <td>{{student.skype}}</td>
+        <td>
+    {% for course in student.courses.all %}
+        <a href={% url 'courses:detail' course.id  %}>{{course.name}} </a>
+    {% endfor %}
+        </td>
+        <td>
+          <button type="button" class="btn btn-info"><a href="{% url 'students:edit' student.id %}"><span class="glyphicon glyphicon-pencil"></span> Изменить</a></button>
+        </td>
+        <td>  
+          <button type="button" class="btn btn-info"><a href="{% url 'students:remove' student.id %}"><span class="glyphicon glyphicon-remove"></span> Удалить</a></button>
+        </td>
+      </tr>
+      
+    {% endfor %}
+    </tbody>
+  </table>
+  <div class="container">
+  <nav>
+    <ul class="pagination">
+        <li>
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true"><< previous</span></a>
+        {% endif %}
+        </li>
+        {% for page in paginator.page_range %}
+
+        {% if page == page_obj.number %}
+        <li class="active">
+          <a href="">{{ page }}<span class="sr-only"></span></a>
+        </li>
+        {% else %}
+        <li>
+          <a href="?page={{ page }}">{{ page }}<span class="sr-only"></span></a>
+        </li>
+        {% endif %}
+
+        {% endfor %}
+        <li>
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+          <span aria-hidden="true">next >></span></a>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+</div>
+</div>
+</div>
+</div>
+
+{% include "include/footer_include.html" %}
+
+{% endblock %}

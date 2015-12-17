@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+{% block title %}Student Details{% endblock %}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block main_content %}
+<div class="container">
+<div class="page-header">
+  <h1>{{ student.surname }} {{ student.name }}</h1>
+</div>
+</div>
+
+<div class="container">
+<div class="panel panel-default pull-left">
+  <!-- Default panel contents -->
+  <div class="panel-heading">{{ student.surname }} {{ student.name }}</div>
+
+  <!-- Table -->
+  <div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <tr>
+      <td>Дата рождения</td><td>{{ student.date_of_birth }}</td>
+    </tr>
+    <tr>
+    <tr>
+      <td>Адрес</td><td>{{ student.address }}</td>
+    </tr>
+    <tr>
+      <td>Почта</td><td>{{ student.email }}</td>
+    </tr>
+    <tr>
+      <td>Skype</td><td>{{ student.skype }}</td>
+    </tr>
+    <tr>
+      <td>Телефон</td><td>{{ student.phone }}</td>
+    </tr>
+          
+    <tr>
+      <td>Курсы</td>
+      <td>
+        {% for course in student.courses.all %}<a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+        {% endfor %}</td>
+          
+          </tr>
+  </table>
+</div>
+</div>
+</div>
+
+{% include "include/footer_include.html" %}
+
+
+{% endblock %}
