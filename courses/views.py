@@ -4,6 +4,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from courses.forms import LessonModelForm
 from courses.models import Course
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class CourseDetailView(DetailView):
@@ -13,6 +17,10 @@ class CourseDetailView(DetailView):
     success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
+        logger.debug('Courses detail view has been debugged')
+        logger.info('Logger of courses detail view informs you!')
+        logger.warning('Logger of courses detail view warns you!')
+        logger.error('Courses detail view went wrong!')
         course = self.get_object()
         lesson = course.lesson_set.all()
         context = super(CourseDetailView, self).get_context_data(**kwargs)
