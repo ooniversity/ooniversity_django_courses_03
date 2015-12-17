@@ -115,3 +115,34 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
 ADMINS = (('Olena', 'lena-test-01@ya.ru'), ('Olenka', 'lena-test-02@ya.ru'))
+
+LOGGING = {
+    'version': 1,
+    'loggers':
+    {
+        'courses': {
+            'handlers': ['courses_file'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['students_file'],
+            'level': 'DEBUG',
+        },
+    },
+
+    'handlers':
+    {
+    'courses_file': {
+        'level': 'DEBUG',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        },
+    'students_file': {
+        'level': 'WARNING',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        },
+    },
+
+
+}
