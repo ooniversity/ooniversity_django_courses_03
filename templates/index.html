@@ -36,6 +36,7 @@
       </tr>
     </thead>
     <tbody>
+      {% if courses %}
       {% for course in courses %}
         <tr>
           <td><a href="{% url 'courses:detail' course.id %}">{{ course|upper }}</a></td>
@@ -44,6 +45,7 @@
           <td><button class="btn"><a href="{% url 'courses:remove' course.id %}">Удалить курс</a></button></td>
         </tr>
       {% endfor %}
+      {% endif %}
      </tbody>
   </table>
   <div class="alert alert-success" role="alert">P.S. не пожалеешь!</div>
