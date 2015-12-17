@@ -107,43 +107,41 @@ ADMINS = (('alex', 'ud3p@mail.ru'), ('alex', 'ex@gmail.ru'))
 
 LOGGING = {
     'version': 1,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'loggers': {
-        'course': {
+    'loggers':
+    {
+        'courses': {
             'handlers': ['courses_message'],
             'level': 'DEBUG',
         },
         'students': {
             'handlers': ['students_message'],
-            'level': 'DEBUG',
-        },
+            'level': 'WARNING',
+        }
     },
-
-    'handlers': {
+    'handlers':
+    {
         'courses_message': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
-            'formatter': 'simple',
-
+            'formatter': 'course_format'
         },
         'students_message': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'students_logger.log'),
-            'formatter': 'verbose',
-
+            'formatter': 'student_format'
+        },
+    },
+    'formatters': {
+        "course_format":{
+            'format': '%(levelname)s %(message)s'
+        },
+        "student_format": {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
 
     },
-
 }
 
 # try:
