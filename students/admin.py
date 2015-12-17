@@ -1,4 +1,5 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from students.models import Student
 
 
@@ -23,3 +24,14 @@ class StudentAdmin(admin.ModelAdmin):
 admin.site.register(Student, StudentAdmin)
 
 
+=======
+
+from students.models import Student
+
+class StudentAdmin(admin.ModelAdmin):
+    fields = ['name', 'surname', 'date_of_birth',  'email',  'phone',  'address',  'skype', 'courses']
+    list_display = ('name', 'surname', 'email', 'skype')
+    list_filter = ['courses']
+
+admin.site.register(Student, StudentAdmin)
+>>>>>>> ce4a1093bf62f0859191a8228e634658f2a4a172

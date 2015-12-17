@@ -14,6 +14,7 @@ class Migration(migrations.Migration):
             name='Course',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+<<<<<<< HEAD
                 ('name', models.CharField(max_length=50)),
                 ('short_description', models.CharField(max_length=100)),
                 ('description', models.TextField()),
@@ -30,6 +31,9 @@ class Migration(migrations.Migration):
                 ('description', models.TextField()),
                 ('order', models.PositiveIntegerField()),
                 ('course', models.ForeignKey(to='courses.Course')),
+=======
+                ('name', models.CharField(max_length=255)),
+>>>>>>> ce4a1093bf62f0859191a8228e634658f2a4a172
             ],
             options={
             },

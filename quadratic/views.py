@@ -1,4 +1,5 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from django.http import HttpResponse
 from quadratic import forms
 
@@ -43,3 +44,15 @@ def quadratic_results(request):
     sl_full = {'discr': d, 'x': var_x, 'x1': var_x1, 'x2': var_x2, }
     sl_full['form'] = form
     return render(request, 'quadratic/results.html', sl_full)
+=======
+
+def quadratic_results(request, a, b, c):
+    var_a = 'a'
+    var_b = 'b'
+    var_c = 'c'
+    d = var_b ** 2 - 4 * var_a * var_c
+    
+    sl_full2 = {'sl_full': d, 'a': var_a, 'c': var_b, 'a': var_b}
+    return render(request, 'results.html', sl_full2)
+
+>>>>>>> ce4a1093bf62f0859191a8228e634658f2a4a172

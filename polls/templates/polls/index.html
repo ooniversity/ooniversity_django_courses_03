@@ -1,8 +1,13 @@
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
+<<<<<<< HEAD
         
         <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+=======
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+
+>>>>>>> ce4a1093bf62f0859191a8228e634658f2a4a172
     {% endfor %}
     </ul>
 {% else %}

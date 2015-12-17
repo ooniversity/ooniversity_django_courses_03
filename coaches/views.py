@@ -1,4 +1,5 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from django.views import generic
 from courses.models import Course, Lesson
 from coaches.models import Coach
@@ -17,3 +18,7 @@ class CoachDetailView(generic.DetailView):
         context['assistant_for_courses'] = Course.objects.filter(assistant=self.kwargs.get(self.pk_url_kwarg, None))
         return context
 
+=======
+
+# Create your views here.
+>>>>>>> ce4a1093bf62f0859191a8228e634658f2a4a172
