@@ -12,7 +12,11 @@
 
 {% block content %}
 
-  <h1>{{ title }}</h1>
+   <div class="container">
+        <div class="jumbotron transparant-background">
+  <div class="page-header text-align-center">
+          <h1>{{ title }}</h1>
+          </div>
 
   {% if messages %}
     <ul class="messages">
@@ -27,6 +31,8 @@
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit">
+    <input class="btn btn-primary" type="submit" value="save course">
   </form>
+  </div>
+</div>
 {% endblock content %}

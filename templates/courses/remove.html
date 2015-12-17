@@ -11,11 +11,17 @@
 
 
 {% block content %}
-  <h1>{{ title }}</h1>
+  <div class="container">
+        <div class="jumbotron transparant-background">
+  <div class="page-header text-align-center">
+          <h1>{{ title }}</h1>
+          </div>
   <p>Course {{ course }} will be deleted</p>
 
   <form method="post">
     {% csrf_token %}
-    <input type="submit">
+    <input class="btn btn-primary" type="submit" value="remove course">
   </form>
+  </div>
+</div>
 {% endblock content %}

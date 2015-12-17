@@ -13,7 +13,10 @@
 {% block content %}
       <div class="container">
         <div class="jumbotron transparant-background">
-          <h2>Students</h2>
+          <div class="page-header text-align-center">
+          <h1>Students<small>of PyBursa</small></h1>
+          </div>
+          <!--<h2>Students</h2>-->
 
           {% if messages %}
             <ul class="messages">
@@ -26,16 +29,17 @@
             </ul>
           {% endif %}
 
-          <a href="{% url 'students:add' %}">Add new student</a>
+          <p><a class="btn btn-primary" href="{% url 'students:add' %}" role="button">Add new student</a></p>
+          <!--<a href="{% url 'students:add' %}">Add new student</a>-->
           <div class="panel panel-default transparant-background">
             <table class="table text-align-justify">
               <tr>
-                <td>#</td>
-                <td>surname name</td>
-                  <td>address</td>
-                  <td>skype</td>
-                  <td>courses</td>
-                  <td></td>
+                <th>#</th>
+                <th>Surname Name</th>
+                  <th>Address</th>
+                  <th>Skype</th>
+                  <th>Courses</th>
+                  <th></th>
               </tr>
               {% for student in student_list %}
                 <tr>
@@ -62,22 +66,6 @@
               {% endfor %}
             </table>
           </div>
-<!--<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ page_obj.number }} of {{ paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-        {% endif %}
-    </span>
-</div>-->
-
 <nav>
   <ul class="pagination">
     <li>

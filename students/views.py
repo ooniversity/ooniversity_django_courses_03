@@ -13,6 +13,9 @@ from students.forms import StudentModelForm
 from polls.models import Choice, Question
 from students.models import Student
 
+import logging
+logger = logging.getLogger(__name__)
+
 class StudentListView(ListView):
     model = Student
     paginate_by = 2
@@ -47,6 +50,15 @@ def list_view(request):
 class StudentDetailView(DetailView):
     model = Student
 
+    def get_context_data(self, **kwargs):
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        logger.debug('Students detail view has been debugged')
+        logger.info('Logger of students detail view informs you!')
+        logger.warning('Logger of students detail view warns you!')
+        logger.error('Students detail view went wrong!')
+        return context
+
+
 """
 def detail(request, student_id):
     student = Student.objects.get(id = student_id)
@@ -75,6 +87,7 @@ class StudentCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(StudentCreateView, self).get_context_data(**kwargs)
         context['title'] = "Student registration"
+        context['value_submit'] = "add"
         return context
 
     def form_valid(self, form):
@@ -89,6 +102,7 @@ class StudentUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super(StudentUpdateView, self).get_context_data(**kwargs)
         context['title'] = "Student info update"
+        context['value_submit'] = "save"
         return context
 
     def form_valid(self, form):
@@ -127,6 +141,7 @@ class StudentDeleteView(DeleteView):
         return context
 
     def get_object(self):
+    #def delete(self):
         deleted_student = super(StudentDeleteView, self).get_object()
         messages.success(self.request, 'Info on %s %s has been sucessfully deleted.' % (deleted_student.name, deleted_student.surname), extra_tags='msg')
         return deleted_student
