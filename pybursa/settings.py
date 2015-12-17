@@ -150,7 +150,7 @@ LOGGING = {
         },
     
         'students': {
-            'format': '%(levelname)s: %(asctime)s %(module)s %(funcName)s'
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s'
         },
     },
 }
