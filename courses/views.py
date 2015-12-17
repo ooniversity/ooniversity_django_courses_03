@@ -13,20 +13,23 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic.detail import DetailView
 
+import logging
+logger = logging.getLogger(__name__)
+
 class CourseCreateView(CreateView):
-	model = Course
-	success_url = reverse_lazy('index')
-	context_object_name = 'course'
-	template_name = "courses/add.html" 		
-	def get_context_data(self, **kwargs):
-		context = super(CourseCreateView, self).get_context_data(**kwargs)
-		context['title'] = "Course creation"
-		return context
-	def form_valid(self, form):
-		added_course = form.save()
-		success_mes = 'Course %s has been successfully added.' % (added_course.name)
-		messages.success(self.request, success_mes, extra_tags='msg')
-		return super(CourseCreateView, self).form_valid(form)
+    model = Course
+    success_url = reverse_lazy('index')
+    context_object_name = 'course'
+    template_name = "courses/add.html" 		
+    def get_context_data(self, **kwargs):
+        context = super(CourseCreateView, self).get_context_data(**kwargs)
+        context['title'] = "Course creation"
+        return context
+    def form_valid(self, form):
+        added_course = form.save()
+        success_mes = 'Course %s has been successfully added.' % (added_course.name)
+        messages.success(self.request, success_mes, extra_tags='msg')
+        return super(CourseCreateView, self).form_valid(form)
 
 
 def add(request):
@@ -101,6 +104,10 @@ class CourseDetailView(DetailView):
 	template_name = "courses/detail.html"
 	context_object_name = 'course' 
 	def get_context_data(self, **kwargs):
+		logger.debug("Courses detail view has been debugged")
+		logger.info("Logger of courses detail view informs you!")
+		logger.warning("Logger of courses detail view warns you!")
+		logger.error("Courses detail view went wrong!")
 		context = super(CourseDetailView, self).get_context_data(**kwargs)
 		id_c = '?course_id=' + str(self.object.id)
 		n_lesson = Lesson.objects.filter(course_id=self.object.id)
