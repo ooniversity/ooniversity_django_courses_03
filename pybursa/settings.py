@@ -132,7 +132,7 @@ LOGGING = {
 	'formatters': 
 	{
 		'verbose': {
-			'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(message)s'
+			'format': '%(levelname)s %(asctime)s %(module)s %(funcName)d %(message)s'
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
