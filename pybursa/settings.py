@@ -25,7 +25,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ ]
 
 
 # Application definition
@@ -94,11 +94,50 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
-EMAIL_HOST_USER = "admin"
-EMAIL_HOST_PASSWORD = "admin"
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'th3fall3n0n3@yandex.ru'
+EMAIL_HOST_PASSWORD = 'hamster12'
+EMAIL_USE_SSL = True
 
-ADMINS = (('Ivan', 'ivan.tarasenko@toatech.com'), ('Ne_Ivan', 'test@tes.com') )
+ADMINS = (('Ivan', 'ivan.tarasenko@toatech.com'), ('Ne_Ivan', 'ivan.tarasenko@oracle.com') )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+LOGGING = {
+    'version': 1,
+    'loggers': 
+    {
+	'courses': {
+	    'handlers': ['courses_file'],
+	    'level' : 'DEBUG'
+	},
+	'students': {
+	    'handlers': ['students_file'],
+	    'level': 'WARNING'
+	}
+    },
+	'handlers':
+    {
+        'courses_file': {
+	    'level': 'DEBUG',
+	    'class': 'logging.FileHandler',
+	    'filename': 'courses_logger',
+	    'formatter': 'short'
+	},
+	'students_file': {
+	    'level': 'WARNING',
+	    'class': 'logging.FileHandler',
+	    'filename': 'students_logger',
+	    'formatter': 'detail'
+	}
+    },
+    'formatters': {
+        'detail': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'short': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+}
