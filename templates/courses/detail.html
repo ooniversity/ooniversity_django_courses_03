@@ -24,12 +24,14 @@
 		  <h1 class="descr">Преподаватели</h1>
 		  <hr>
 
-
+{% if course.coach %}
 {% include "courses/include/about_include.html" with block_title="Учитель" instructor=course.coach %}
+{% endif %}
 
 
+{% if course.assistant %}
 {% include "courses/include/about_include.html" with block_title="Ассистент" instructor=course.assistant %}
-
+{% endif %}
 
 			<hr>
 			<h1 class="descr">План курса</h1>
@@ -62,7 +64,7 @@
 		      </table>
 				</div>
 				<div class="text-center">
-					<a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a>
+					<!-- <a class="btn btn-lg btn-primary" href="#" role="button">Записаться</a> -->
 				</div>
       </div>
 

@@ -54,12 +54,13 @@
 							{% endfor %}
             </tbody>
           </table>
+					{{ get_queryset }}
         </div>
 				<nav>
 					<ul class="pagination">
 						<li>
 							{% if page_obj.has_previous %}
-							<a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+							<a href="?{% if course_id != None %}course_id={{ course_id }}&{% endif %}page={{ page_obj.previous_page_number }}" aria-label="Previous">
 								<span aria-hidden="true"><< previous</span></a>
 							{% endif %}
 						</li>
@@ -71,14 +72,14 @@
 						</li>
 						{% else %}
 						<li>
-							<a href="?page={{ page }}">{{ page }}<span class="sr-only"></span></a>
+							<a href="?{% if course_id != None %}course_id={{ course_id }}&{% endif %}page={{ page }}">{{ page }}<span class="sr-only"></span></a>
 						</li>
 						{% endif %}
 
 						{% endfor %}
 						<li>
 							{% if page_obj.has_next %}
-							<a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+							<a href="?{% if course_id != None %}course_id={{ course_id }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="Next">
 								<span aria-hidden="true">next >></span></a>
 							{% endif %}
 						</li>

@@ -8,7 +8,10 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator
-
+# import the logging library
+import logging
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 class StudentListView(ListView):
 	model = Student
@@ -20,6 +23,10 @@ class StudentListView(ListView):
 		if course_id:
 			qs = qs.filter(courses__id=course_id)
 		return qs
+	def get_context_data(self, **kwargs):
+		context = super(StudentListView, self).get_context_data(**kwargs)
+		context['course_id'] = self.request.GET.get('course_id', None)
+		return context
 
 '''
 def list_view(request):
@@ -32,7 +39,14 @@ def list_view(request):
 
 
 class StudentDetailView(DetailView):
-	model = Student
+    model = Student
+    def get_context_data(self, **kwargs):
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        logger.debug('Students detail view has been debugged')
+        logger.info('Logger of students detail view informs you!')
+        logger.warning('Logger of students detail view warns you!')
+        logger.error('Students detail view went wrong!')
+        return context	
 
 '''
 def detail(request, pk):

@@ -42,6 +42,8 @@ INSTALLED_APPS = (
 	'students',
 	'coaches',
     'feedbacks',
+    #'debug_toolbar',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,6 +54,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 )
 
 ROOT_URLCONF = 'pybursa.urls'
@@ -92,10 +95,60 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
-EMAIL_HOST = 'localhost'
-
-EMAIL_PORT = 1025
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "smtp.mydomain@gmail.com"
+EMAIL_HOST_PASSWORD = 'qwerty15935728'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 ADMINS = (('ud3p', 'ud3p@mail.ru'),)
 
 EMAIL_SUBJECT_PREFIX = ''
+
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'courses': {
+            'handlers': ['course_handler'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['student_handler'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'course_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'simple',
+        },
+        'student_handler': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'verbose',
+        },
+    },
+
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+
+}
+
+try:
+    from local_settings import *
+except ImportError:
+    print "Warning! local_settings are not defined!"
+
