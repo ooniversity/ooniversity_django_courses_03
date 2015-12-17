@@ -101,7 +101,7 @@ EMAIL_HOST_PASSWORD = 'qwerty15935728'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-ADMINS = (('ud3p', 'ud3p@mail.ru'),)
+ADMINS = (('ud3p', 'olena.persianova@gmail.com'),)
 
 EMAIL_SUBJECT_PREFIX = ''
 
