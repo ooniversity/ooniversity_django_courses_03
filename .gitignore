@@ -1,5 +1,6 @@
 # python precompiled files:
 *.pyc
 *.pyo
+*.log
 *~
 .idea/
