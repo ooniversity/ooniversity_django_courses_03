@@ -123,7 +123,7 @@ LOGGING = {
             'formatter': 'course_format'
         },
         'file2': {
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'students_logger.log'),
             'formatter': 'student_format'
