@@ -100,3 +100,42 @@ ADMINS = (
        ('vasya', 'vahadmin@mail.com'),
        ('kolya', 'adminkolyan@ckck.com'),
     )
+
+LOGGING = {
+    'version' : 1, 
+    'loggers' : 
+    {
+        'courses' : {
+            'handlers' : ['file'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers' : ['file2'],
+            'level': 'WARNING',
+        }
+    },
+    'handlers': 
+    {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'course_format'
+        },
+        'file2': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'student_format'
+        },
+    },
+    'formatters': {
+        "course_format":{
+            'format': '%(levelname)s %(message)s'
+        },
+        "student_format":{
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+    },
+
+},
+}
