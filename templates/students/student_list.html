@@ -59,46 +59,5 @@
     </div>
 
 {% include 'include/pagination_include.html' %}
-<!--
-    {# .... **Now the pagination section** .... #}
-    {% if is_paginated %}
-        <div class="pagination">
-            <span class="page-links">
-                {% if page_obj.has_previous %}
-                    <a href="{% url 'students:list_view' %}?page={{ page_obj.previous_page_number }}">previous</a>
-                {% endif %}
-                <span class="page-current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-                </span>
-                {% if page_obj.has_next %}
-                    <a href="{% url 'students:list_view' %}?page={{ page_obj.next_page_number }}">next</a>
-                {% endif %}
-            </span>
-        </div>
-    {% endif %}
--->
 
-<!--
-{% if is_paginated %}
-<ul class="pagination">
-{% if page_obj.has_previous %}
-    <li>
-        <span><a href="?page={{ page_obj.previous_page_number }}"> << previous </a></span>
-    </li>
-{% endif %}
-    <li class="">
-        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-    </li>
-{% if page_obj.has_next %}
-    <li>
-        <span><a href="?page={{ page_obj.next_page_number }}"> next >> </a></span>
-    </li>
-{% endif %}
-</ul>
-{% else %}
-    <h3>Students</h3>
-    <p>Students not yet available</p>
-{% endif %}
-
--->
 {% endblock content %}

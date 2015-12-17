@@ -18,16 +18,16 @@
 
       <div class="starter-template">
         <h1 class="starter-template">Py&Django Bursa</h1>
-        <h2 class ="ksenia-h2">Description</h2>
+        <h2 class ="h2">Description</h2>
         <p class="lead">Python is strongly typed (i.e. types are enforced), dynamically, implicitly typed (i.e. you don't have to declare variables), case sensitive (i.e. var and VAR are two different variables) and object-oriented (i.e. everything is an object).</p>
         <p class="lead1">The data structures available in python are lists, tuples and dictionaries. Sets are available in the sets library (but are built-in in Python 2.5 and later). Lists are like one-dimensional arrays (but you can also have lists of other lists), dictionaries are associative arrays (a.k.a. hash tables) and tuples are immutable one-dimensional arrays (Python "arrays" can be of any type, so you can mix e.g. integers, strings, etc in lists/dictionaries/tuples). The index of the first item in all array types is 0. Negative numbers count from the end towards the beginning, -1 is the last item. Variables can point to functions</p>
-        <p class ="ksenia-color1">Dark grey</p>
-        <p class ="ksenia-font1">Dark grey</p>
-        <h2 class ="ksenia-h2">Program</h2>
+        <p class ="color1">Dark grey</p>
+        <p class ="font1">Dark grey</p>
+        <h2 class ="h2">Program</h2>
         <p class="lead">Python is strongly typed (i.e. types are enforced), dynamically, implicitly typed (i.e. you don't have to declare variables), case sensitive (i.e. var and VAR are two different variables) and object-oriented (i.e. everything is an object). The data structures available in python are lists, tuples and dictionaries. Sets are available in the sets library (but are built-in in Python 2.5 and later). Lists are like one-dimensional arrays (but you can also have lists of other lists), dictionaries are associative arrays (a.k.a. hash tables) and tuples are immutable one-dimensional arrays (Python "arrays" can be of any type, so you can mix e.g. integers, strings, etc in lists/dictionaries/tuples). The index of the first item in all array types is 0. Negative numbers count from the end towards the beginning, -1 is the last item. Variables can point to functions</p>
         <p class="lead1">The data structures available in python are lists, tuples and dictionaries. Sets are available in the sets library (but are built-in in Python 2.5 and later). Lists are like one-dimensional arrays (but you can also have lists of other lists), dictionaries are associative arrays (a.k.a. hash tables) and tuples are immutable one-dimensional arrays (Python "arrays" can be of any type, so you can mix e.g. integers, strings, etc in lists/dictionaries/tuples). The index of the first item in all array types is 0. Negative numbers count from the end towards the beginning, -1 is the last item. Variables can point to functions</p>
-        <p class ="ksenia-color2">Light grey</p>
-        <p class ="ksenia-font2">Light grey</p>
+        <p class ="color2">Light grey</p>
+        <p class ="font2">Light grey</p>
 
 {% include "include/color_block_include.html" %}
 

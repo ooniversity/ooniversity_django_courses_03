@@ -17,8 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9edy9tsm+2*0nfw-s(a*rfb71ra6ck71szy5b_m#yywp3k0a#q'
-
+#SECRET_KEY = '9edy9tsm+2*0nfw-s(a*rfb71ra6ck71szy5b_m#yywp3k0a#q'
+SECRET_KEY = '4_c)!ymup1nmcx28a0&-j7d$vekn9h0v)n=!^k*c7!@%g!nv2u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -74,7 +74,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -97,3 +97,39 @@ EMAIL_PORT = 1025
 ADMINS = (("Vitalii", "golv1974@gmail.com"),)
 
 DEFAULT_FROM_EMAIL = "test_python@gmail.com"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file1': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            #'filename': '/path/to/django/debug.log',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        },
+        'file2': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            #'filename': '/path/to/django/debug.log',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        },
+    },
+    'loggers': {
+        'courses.views': {
+            'handlers': ['file1'],
+            'level': 'DEBUG',
+            #'level': 'INFO',
+            'propagate': True,
+        },
+    },
+    'loggers': {
+        'students.views': {
+            'handlers': ['file2'],
+            'level': 'DEBUG',
+            #'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
+

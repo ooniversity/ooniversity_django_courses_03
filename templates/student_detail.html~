@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Py&Django Bursa">
-    <meta name="author" content="Ksenia Kolomiets">
+    <meta name="author" content="Vitalii">
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
 
     <title>Student Details</title>
@@ -53,56 +53,10 @@
       </div>
     </nav>
 
-    <div class="container">
-
-      <div class="starter-template">
-        <h1 class="starter-template">Gubkina Anna</h1>
-
-      </div>
+    
 
 
-
-      <!-- Table -->
-      <table class="table table-bordered">
-      <tbody>
-      <tr>
-      <td>Surname</td>
-      <td>Gubkina</td>
-      </tr>
-      <tr>
-      <td>Name</td>
-      <td>Anna</td>
-      </tr>
-      <tr>
-      <td>Patronymic</td>
-      <td>Sergeevna</td>
-      </tr>
-      <tr>
-      <td>Birth Date</td>
-      <td>15 February 1980</td>
-      </tr>
-      <tr>
-      <td>Address</td>
-      <td>Kharkov, Ivanova, 1</td>
-      </tr>
-      <tr>
-      <td>E-mail</td>
-      <td>agubkina@gmail.com</td>
-      </tr>
-      <tr>
-      <td>Skype</td>
-      <td>a_gubkina</td>
-      </tr>
-      <tr>
-      <td>Average Grade</td>
-      <td>4.8</td>
-      </tr>
-      <tr>
-      <td>Rating</td>
-      <td>35</td>
-      </tr>
-      </tbody>
-      </table>
+      
 
     <div class="panel panel-default">
       <!-- Default panel contents -->
@@ -136,7 +90,7 @@
     </div>
 
       <footer>
-        <p>© Company 2015</p>
+        <p>2015</p>
       </footer>
     </div><!-- /.container -->
 

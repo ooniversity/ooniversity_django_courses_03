@@ -19,7 +19,7 @@ class StudentAdmin(admin.ModelAdmin):
             'fields': ('courses',)
         }),
     )
-    #fields = ['courses']
+    
 admin.site.register(Student, StudentAdmin)
 
 
