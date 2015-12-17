@@ -25,7 +25,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = [ ]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -97,7 +97,7 @@ STATICFILES_DIRS = (
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'th3fall3n0n3@yandex.ru'
-EMAIL_HOST_PASSWORD = 'hamster12'
+EMAIL_HOST_PASSWORD = 'asd'
 EMAIL_USE_SSL = True
 
 ADMINS = (('Ivan', 'ivan.tarasenko@toatech.com'), ('Ne_Ivan', 'ivan.tarasenko@oracle.com') )
