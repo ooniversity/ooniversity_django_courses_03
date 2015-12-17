@@ -2,4 +2,4 @@
 *.pyo
 *.log
 *~
-
+pybursa/local_settings.py

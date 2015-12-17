@@ -1,7 +1,7 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from courses.models import Course, Lesson
-from django.test import Client
-
+from coaches.models import Coach
+from django.contrib.auth.models import User
 
 class CoursesListTest(TestCase):
 	
@@ -59,6 +59,43 @@ class CoursesDetailTest(TestCase):
 		
 	def test_feedback_link(self):
 		response = self.client.get('/feedback/')
+		self.assertEqual(response.status_code, 200)
+		
+	def test_detail(self):
+		coach1 = Coach.objects.create(
+								user=User.objects.create(),
+								date_of_birth='2055-02-15',
+								gender='M',
+								phone='1341234',
+								address='address',
+								skype='skype',
+								description = 'desc')
+		course1 = Course.objects.create(
+								name='Course1-name',
+								short_description='Short',
+								description='description',
+								coach=coach1,
+								assistant=coach1)
+		response = self.client.get('/courses/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'Course1-name')
+		
+		def test_edit(self):
+			coach1 = Coach.objects.create(
+								user=User.objects.create(),
+								date_of_birth='1989-12-15',
+								gender='M',
+								phone='4563456',
+								address='address',
+								skype='skype',
+								description = 'desc')
+		course1 = Course.objects.create(
+								name='Course1-name',
+								short_description='Short',
+								description='description',
+								coach=coach1,
+								assistant=coach1)
+		response = self.client.get('/courses/edit/1/')
 		self.assertEqual(response.status_code, 200)
 
 		

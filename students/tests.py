@@ -1,6 +1,5 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from students.models import Student
-from django.test import Client
 
 
 class StudentsListTest(TestCase):
@@ -32,6 +31,17 @@ class StudentsListTest(TestCase):
 		response = self.client.get('/feedback/')
 		self.assertEqual(response.status_code, 200)
 		
+	def test_create(self):
+		student1 = Student.objects.create(
+								name='Student1-name',
+								surname='Student1-surname',
+								date_of_birth='2015-12-15',
+								email='stud@pybursa.com',
+								phone='234234',
+								address='sun',
+								skype='stud1')
+		self.assertEqual(Student.objects.all().count(), 1)
+		
 		
 class StudentsDetailTest(TestCase):
 
@@ -61,3 +71,16 @@ class StudentsDetailTest(TestCase):
 	def test_feedback_link(self):
 		response = self.client.get('/feedback/')
 		self.assertEqual(response.status_code, 200)
+		
+	def test_detail(self):
+		student1 = Student.objects.create(
+								name='Student1-name',
+								surname='Student1-surname',
+								date_of_birth='2015-12-15',
+								email='stud@pybursa.com',
+								phone='dfbsdf',
+								address='sun',
+								skype='stud1')
+		response = self.client.get('/students/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, student1)
