@@ -10,18 +10,19 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
     context_object_name = 'courses'
 
     def get_context_data(self, **kwargs):
-        logger.debug('Courses detail view has been debugged')  # courses.views
-        logger.info('Logger of courses detail view informs you!')  # courses.views
-        logger.warning('Logger of courses detail view warns you!')  # courses.views
-        logger.error('Courses detail view went wrong!')  # courses.views
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['lessons'] = Lesson.objects.filter(course=self.get_object().id)
+        logger.debug('Courses detail view has been debugged')
+        logger.info('Logger of courses detail view informs you!')
+        logger.warning('Logger of courses detail view warns you!')
+        logger.error('Courses detail view went wrong!')
         return context
 
 
@@ -96,7 +97,6 @@ class LessonCreateView(MixinTitle, CreateView):
 
     def get_success_url(self):
         return self.object.get_url()
-
 
 
 # def detail(request, course_id):
