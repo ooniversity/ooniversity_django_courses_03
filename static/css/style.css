@@ -1,0 +1,87 @@
+.wrapper {
+	margin: auto;
+	width: 800px;
+}
+.container {
+	padding: 0;
+}
+.navbar {
+	width: 1168px;
+}
+.header h1 {
+	text-align: center;	
+}
+.jumbotron {
+	padding-top: 0;
+	padding-bottom: 20px;
+}
+.jumbotron h2 {
+	text-align: center;
+}
+.header_top {
+	margin-top: 0;
+	padding-top: 20px;
+}
+.text {
+	font-style: italic;
+}
+.list-group {
+	margin-top: 30px;
+}
+.list-group-item {
+	font-style: italic;
+}
+.text-center {
+	text-align: center;
+}
+.organizers_name {
+	font-size: 18px;
+	font-style: italic;
+}
+.address {
+	font-size: 18px;
+	font-style: italic;
+}
+.alert {
+	font-style: italic;
+	padding: 5px 0 5px 0;
+}
+.table a {
+	padding: 10px 8px 10px 8px;
+	margin-left: -8px;
+}
+.table a:hover {
+	background-color: #e7e7e7;
+}
+.detail h2, h3 {
+	text-align: center;
+}
+.Quadratic_res {
+	font-size: 40px;
+}
+.wrapper_quadratic {
+	text-align: left;
+}
+.form_add p label {
+	width: 131px;
+}
+.form_add h4 {
+	font-size: 40px;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.messages {
+	background-color: #4cae4c;
+}
+.form_add_course p label {
+	width: 150px;
+}
+.feedback p label {
+	padding-top: 20px;
+	width: 120px;
+}
+.feedback p input, .feedback p textarea {
+	border-radius: 5px;
+	border: 1px solid blue;
+}
+.feedback p sum

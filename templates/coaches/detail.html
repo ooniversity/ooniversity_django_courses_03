@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}detail{% endblock title %}
+
+{% block detail %}<li class="active"><a href="#">detail</a></li>{% endblock detail %}
+
+{% block content %}
+<div class="detail">
+    <h2>{{ coach_detail.user.first_name}} {{ coach_detail.user.last_name }}</h2>
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>дата рождения</th>
+            <td>{{ coach_detail.date_of_birth|date:"d F, Y" }}</td>
+        </tr>
+        <tr>
+            <th>Адрес</th>
+            <td>{{ coach_detail.address }}</td>
+        </tr>
+        <tr>
+            <th>почта</th>
+            <td>{{ coach_detail.user.email }}</td>
+        </tr>
+        <tr>
+            <th>логин Skype</th>
+            <td>{{ coach_detail.skype }}</td>
+        </tr>
+        <tr>
+            <th>телефон</th>
+            <td>{{ coach_detail.phone }}</td>
+        </tr>
+        <tr>
+            <th>курсы учитель</th>
+            <td>
+                {% for teacher in teacher_in %}
+                <a href="{% url 'courses:detail' teacher.id %}">{{ teacher.name }}</a> students list: <a
+                    href="{% url 'students:list_view' %}?course_id={{ teacher.id }}"> <span
+                    class="glyphicon-education"></span> </a> <br>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>курсы ассистент</th>
+            <td>
+                {% for assistant in assistant_in %}
+                <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a> students list: <a
+                    href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"> <span
+                    class="glyphicon-education"></span> </a> <br>
+                {% endfor %}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

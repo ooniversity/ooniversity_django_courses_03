@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>quadratic</title>
+<body>
+    <h2>Квадратное уравнение a*x*x + b*x + c = 0</h2>
+    <form method="get">
+        {{ form.as_p }}
+        <input type="submit" value="Решить"/>
+    </form>
+    {% if context.d or context.d == 0 %}
+    <p>Дискриминант: {{ context.d }}</p>
+    {% if context.d < 0 %}<p>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</p>
+    {% elif context.d == 0 %}<p>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ context.x1 }}</p>
+    {% else %}<p>Квадратное уравнение имеет два действительных корня: x1 = {{ context.x1 }}, x2 = {{ context.x2 }}</p>
+    {% endif %}
+    {% endif %}
+</body>
+</html>
