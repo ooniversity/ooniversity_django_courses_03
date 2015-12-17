@@ -99,17 +99,17 @@ EMAIL_PORT = 1025
 
 ADMINS = (('alex', 'ud3p@mail.ru'), ('alex', 'ex@gmail.ru'))
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+#     }
+# }
 
 LOGGING = {
     'version': 1,
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
@@ -117,11 +117,11 @@ LOGGING = {
     },
     'loggers': {
         'course': {
-            'handlers': ['console', 'course'],
+            'handlers': ['courses_message'],
             'level': 'DEBUG',
         },
         'students': {
-            'handlers': ['console', 'students'],
+            'handlers': ['students_message'],
             'level': 'DEBUG',
         },
     },
@@ -132,18 +132,18 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'verbose',
         },
-        'course': {
+        'courses_message': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
             'formatter': 'simple',
 
         },
-        'students': {
+        'students_message': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'students_logger.log'),
-            'formatter': 'verbose'
+            'formatter': 'verbose',
 
         },
 
@@ -151,7 +151,7 @@ LOGGING = {
 
 }
 
-try:
-    from local_settings import *
-except ImportError:
-    print 'Warning! local_settings are not defined!'
+# try:
+#     from local_settings import *
+# except ImportError:
+#     print 'Warning! local_settings are not defined!'
