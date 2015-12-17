@@ -9,6 +9,10 @@ from django.contrib import messages
 from students.models import Student
 from courses.models import Course
 from django.views.generic.list import MultipleObjectMixin
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class StudentListView(ListView):
     model = Student
@@ -29,6 +33,10 @@ class StudentListView(ListView):
 
 
 class StudentDetailView(DetailView):
+    logger.debug("Students detail view has been debugged")
+    logger.info("Logger of students detail view informs you!")
+    logger.warning("Logger of students detail view warns you!")
+    logger.error("Students detail view went wrong!")
     model = Student
     
 
