@@ -130,19 +130,30 @@ LOGGING = {
         },
     },
 
-    'handlers':
-    {
-    'courses_file': {
-        'level': 'DEBUG',
-        'class': 'logging.FileHandler',
-        'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+    'handlers': {
+        'courses_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'courses',
         },
-    'students_file': {
-        'level': 'WARNING',
-        'class': 'logging.FileHandler',
-        'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        'students_file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'students',
         },
     },
-
-
+    'formatters': {
+        'courses': {
+            'format': '%(levelname)s %(message)s'
+        },
+    
+        'students': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s'
+        },
+    },
 }
+
+
+
