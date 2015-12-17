@@ -10,6 +10,9 @@ from courses.models import Course
 from students.forms import StudentModelForm
 from students.models import Student
 
+import logging
+logger = logging.getLogger(__name__)
+
 # Create your views here.
 class StudentListView(ListView):
 	model = Student
@@ -18,11 +21,7 @@ class StudentListView(ListView):
 	def get_context_data(self, **kwargs):
 		context = super(StudentListView, self).get_context_data(**kwargs)
 		course_id = self.request.GET.get('course_id', None) 
-    	#if id:
 		context['course_id'] = course_id
-		#context['students'] = Student.objects.all()
-		#context['paginator'] = Paginator(students, 2)
-		#context['students'] = paginator.page(page)
 		return context
 
 	def get_queryset(self):
@@ -36,6 +35,14 @@ class StudentListView(ListView):
 
 class StudentDetailView(DetailView):
 	model = Student
+
+	def get_context_data(self, **kwargs):
+		logger.debug('Students detail view has been debugged')
+		logger.info('Logger of students detail view informs you!')
+		logger.warning('Logger of students detail view warns you!')
+		logger.error('Students detail view went wrong!')
+		context = super(StudentDetailView, self).get_context_data(**kwargs)
+		return context
 
 
 class StudentCreateView(CreateView):
