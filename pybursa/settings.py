@@ -10,8 +10,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -26,10 +26,9 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
-INSTALLED_APPS = ( 
+INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,7 +57,6 @@ ROOT_URLCONF = 'pybursa.urls'
 
 WSGI_APPLICATION = 'pybursa.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -82,17 +80,62 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 EMAIL_HOST_USER = 'dermedont@gmail.com'
 EMAIL_HOST_PASSWORD = 'qwerty'
 ADMINS = (('admin', 'admin@gmail.com'), ('user1', 'user1@gmail.com'), ('user2', 'user2@gmail.com'))
+
+LOGGING = \
+    {
+        'version': 1,
+        'loggers':
+            {
+                'courses': \
+                {
+                    'handlers': ['courses_file'],
+                    'level': 'DEBUG',
+                },
+                'students': \
+                {
+                    'handlers': ['students_file'],
+                    'level': 'WARNING',
+                },
+            },
+        'handlers':
+            {
+                'courses_file': \
+                {
+                    'level': 'DEBUG',
+                    'class': 'logging.FileHandler',
+                    'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+                    'formatter': 'course',
+                },
+                'students_file': \
+                {
+                    'level': 'WARNING',
+                    'class': 'logging.FileHandler',
+                    'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+                    'formatter': 'students',
+                },
+            },
+        'formatters': \
+            {
+                'course': \
+                    {
+                        'format': '%(levelname)s %(message)s',
+                    },
+                'students': \
+                    {
+                        'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s',
+                    },
+            },
+    }
