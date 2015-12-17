@@ -14,7 +14,7 @@ class Coach(models.Model):
 	description = models.CharField(max_length=255)
 
 	def __unicode__(self):
-		return self.user.username
+		return self.user.first_name + " " + self.user.last_name
 
 	def first_name(self):
 		return self.user.first_name

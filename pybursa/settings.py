@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
-    'feedbacks'
+    'feedbacks',
+    'debug_toolbar'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,6 +68,33 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
+
+
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'courses': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers': {
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_debug.log'),
+        },
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_debug.log'),
+        },
+    },
 }
 
 # Internationalization
