@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Main page{% endblock title %}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block content %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+<div class="container">
+    <div class="jumbotron">
+      <h1>Ooniversity </h1>
+      <h2>Мы специализируемся на "модных" языках программирования. Принципиальное наше отличие от других курсов - максимум практики и жесткая система обязательных домашних заданий. </h2>
+      <h3>Выбирай, на каком курсе ты хочешь учиться!</h3>
+      <table class="table">
+      <thead>
+        <tr>
+          <th>Курс</th>
+          <th>Описание</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for item in courses %}
+          <tr>
+          <td><a href="{% url 'courses:detail' pk=item.id %}">{{ item|upper }}</a></td>
+          <td>{{ item.short_description|title }}</td>
+          <td><a href="{% url 'courses:edit' pk=item.id %}"><button type="button" class="btn btn-primary">Изменить</button></a></td>
+          <td><a href="{% url 'courses:remove' pk=item.id %}"><button type="button" class="btn btn-danger">Удалить</button></a></td>
+
+          </tr> 
+          {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  <a href="{% url 'courses:add' %}"><button type="button" class="btn btn-success">Добавить курс</button></a>
+  </div>
+
+{% endblock content %}

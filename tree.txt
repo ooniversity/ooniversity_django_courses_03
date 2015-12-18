@@ -1,0 +1,154 @@
+.
+├── coaches
+│   ├── admin.py
+│   ├── admin.pyc
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0001_initial.pyc
+│   │   ├── __init__.py
+│   │   └── __init__.pyc
+│   ├── models.py
+│   ├── models.pyc
+│   ├── tests.py
+│   ├── urls.py
+│   ├── urls.pyc
+│   ├── views.py
+│   └── views.pyc
+├── courses
+│   ├── admin.py
+│   ├── admin.pyc
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0001_initial.pyc
+│   │   ├── __init__.py
+│   │   └── __init__.pyc
+│   ├── models.py
+│   ├── models.pyc
+│   ├── tests.py
+│   ├── urls.py
+│   ├── urls.pyc
+│   ├── views.py
+│   └── views.pyc
+├── db.sqlite3
+├── manage.py
+├── polls
+│   ├── admin.py
+│   ├── admin.pyc
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0001_initial.pyc
+│   │   ├── __init__.py
+│   │   └── __init__.pyc
+│   ├── models.py
+│   ├── models.py~
+│   ├── models.pyc
+│   ├── templates
+│   │   └── polls
+│   │       ├── detail.html
+│   │       ├── detail.html~
+│   │       ├── index.html
+│   │       └── results.html
+│   ├── tests.py
+│   ├── urls.py
+│   ├── urls.pyc
+│   ├── views.py
+│   └── views.pyc
+├── pybursa
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── settings.py
+│   ├── settings.pyc
+│   ├── urls.py
+│   ├── urls.pyc
+│   ├── views.py
+│   ├── views.pyc
+│   ├── wsgi.py
+│   └── wsgi.pyc
+├── quadratic
+│   ├── admin.py
+│   ├── admin.pyc
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── migrations
+│   │   ├── __init__.py
+│   │   └── __init__.pyc
+│   ├── models.py
+│   ├── models.pyc
+│   ├── templates
+│   │   └── results.html
+│   ├── tests.py
+│   ├── urls.py
+│   ├── urls.pyc
+│   ├── views.py
+│   └── views.pyc
+├── README.md
+├── requirements.txt
+├── static
+│   ├── css
+│   │   ├── bootstrap.css
+│   │   ├── bootstrap.css.map
+│   │   ├── bootstrap.min.css
+│   │   ├── bootstrap-theme.css
+│   │   ├── bootstrap-theme.css.map
+│   │   ├── bootstrap-theme.min.css
+│   │   └── style.css
+│   ├── fonts
+│   │   ├── glyphicons-halflings-regular.eot
+│   │   ├── glyphicons-halflings-regular.svg
+│   │   ├── glyphicons-halflings-regular.ttf
+│   │   ├── glyphicons-halflings-regular.woff
+│   │   └── glyphicons-halflings-regular.woff2
+│   ├── images
+│   │   ├── clooney.jpeg
+│   │   ├── keanu.jpeg
+│   │   ├── olena.jpg
+│   │   ├── pitt.jpeg
+│   │   └── raccoon.png
+│   └── js
+│       ├── bootstrap.js
+│       ├── bootstrap.min.js
+│       ├── jquery.min.js
+│       └── npm.js
+├── students
+│   ├── admin.py
+│   ├── admin.pyc
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── migrations
+│   │   ├── 0001_initial.py
+│   │   ├── 0001_initial.pyc
+│   │   ├── __init__.py
+│   │   └── __init__.pyc
+│   ├── models.py
+│   ├── models.pyc
+│   ├── tests.py
+│   ├── urls.py
+│   ├── urls.pyc
+│   ├── views.py
+│   └── views.pyc
+├── templates
+│   ├── admin
+│   │   ├── base_site.html
+│   │   └── base_site.html~
+│   ├── base.html
+│   ├── coaches
+│   │   └── detail.html
+│   ├── contact.html
+│   ├── courses
+│   │   └── detail.html
+│   ├── include
+│   │   └── banner_include.html
+│   ├── index.html
+│   ├── README.md
+│   └── students
+│       ├── detail.html
+│       └── list.html
+└── tree.txt
+
+25 directories, 126 files

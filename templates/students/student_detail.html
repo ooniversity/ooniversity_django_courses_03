@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ student_object.surname }}{% endblock title %}
+
+
+{% block content %}
+
+      <h2>{{ object.name }}  {{ object.surname }}</h2>
+      <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row">дата рождения</th>
+          <td>{{ object.date_of_birth }}</td>
+        </tr>
+        <tr>
+          <th scope="row">email</th>
+          <td>{{ object.email }}</td>
+        </tr>
+        <tr>
+          <th scope="row">телефон</th>
+          <td>{{ object.phone }}</td>
+        </tr>
+        <tr>
+          <th scope="row">адрес</th>
+          <td>{{ object.address }}</td>
+        </tr>
+        <tr>
+          <th scope="row">skype</th>
+          <td>{{ object.skype }}</td>
+        </tr>
+        <tr>
+          <th scope="row">курсы</th>
+          <td>
+            {% for i in object.courses.all %}
+              <p><a href="{% url 'courses:detail' pk=i.id %}">{{ i }}</a></p>
+            {% endfor %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+{% include "include/banner_include.html" %}
+{% endblock content %}

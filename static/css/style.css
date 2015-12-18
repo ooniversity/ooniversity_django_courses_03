@@ -1,0 +1,32 @@
+.thumbnail {
+	font: italic bold 1.5em/2 arial, Helvetica, sans-serif;
+}
+img {
+	height: 200px;
+	width: 200px;
+	}
+body {
+	background-color: #777;
+}
+h3 {
+	font-family: "Times New Roman";
+}
+h4 {
+	text-align: left;
+}
+.caption {
+	text-indent: 1em;
+}
+#topic1 {
+	font-size: 1.5em;
+}
+#topic2 {
+	font-size: 1.5em;
+}
+#topic3 {
+	font-size: 1.5em;
+}
+.course {
+	text-decoration: none;
+}
+

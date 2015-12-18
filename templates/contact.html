@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Contacts{% endblock title %}
+
+
+{% block nav_class_contacts %}active{% endblock %}
+
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../static/images/keanu.jpeg" alt="keanu">
+      <div class="caption">
+        <h3>Director</h3>
+        <h4>Name: Keanu Reaves"</h4>
+        <h4>Skype: KeanuReaves</h4>
+        <h4>Email: keanu@example.com</h4>
+        <h4>Phone: 999999999</h4>
+        </div>
+    </div>
+  </div>
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../static/images/clooney.jpeg" alt="clooney">
+      <div class="caption">
+        <h3>Manager</h3>
+        <h4>Name: George Klooney"</h4>
+        <h4>Skype: GeorgeClooney</h4>
+        <h4>Email: clooney@example.com</h4>
+        <h4>Phone: 8888888888</h4>
+      </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="../static/images/pitt.jpeg" alt="pitt">
+      <div class="caption">
+        <h3>Founder</h3>
+        <h4>Name: Bred Pitt"</h4>
+        <h4>Skype: BredPitt</h4>
+        <h4>Email: pitt@example.com</h4>
+        <h4>Phone: 777777777</h4>
+      </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

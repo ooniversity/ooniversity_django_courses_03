@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}{{ coach_object.user.last_name }}{% endblock title %}
+
+
+{% block content %}
+     <h2>{{ coach_object.user.first_name }} {{ coach_object.user.last_name }}</h2>
+      <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row">дата рождения</th>
+          <td>{{ coach_object.date_of_birth|date:"d F, Y" }}</td>
+        </tr>
+        <tr>
+          <th scope="row">email</th>
+          <td>{{ coach_object.user.email }}</td>
+        </tr>
+        <tr>
+          <th scope="row">телефон</th>
+          <td>{{ coach_object.phone }}</td>
+        </tr>
+        <tr>
+          <th scope="row">адрес</th>
+          <td>{{ coach_object.address }}</td>
+        </tr>
+        <tr>
+          <th scope="row">skype</th>
+          <td>{{ coach_object.skype }}</td>
+        </tr>
+        <tr>
+          {% if coach_object.coach_courses.all %}
+          <th scope="row">курсы учитель</th>
+          <td>
+            {% for i in coach_object.coach_courses.all %}
+              <p><a href="{% url 'courses:detail' pk=i.id %}">{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"><span class='glyphicon glyphicon-new-window'></span></a></p>
+            {% endfor %}
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+              {% if coach_object.assistant_courses.all %}
+          <th scope="row">курсы ассистент</th>
+          <td>
+              {% for i in coach_object.assistant_courses.all %}
+              <p><a href="{% url 'courses:detail' pk=i.id %}">{{ i }}</a> студенты курса <a href=" {% url 'students:list_view' %}?course_id={{i.id}}"> <span class='glyphicon glyphicon-new-window'></span></a></p>
+            {% endfor %}
+            {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+{% include 'include/banner_include.html'%}
+{% endblock content %}
