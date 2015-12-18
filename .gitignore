@@ -7,3 +7,5 @@
 *.iml
 out
 gen
+courses_logger.log
+students_logger.log

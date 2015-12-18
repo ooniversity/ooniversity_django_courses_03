@@ -2,6 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from coaches.models import Coach
 
+
 class Course(models.Model):
     name = models.CharField(max_length=75)
     short_description = models.CharField(max_length=100)
@@ -11,6 +12,7 @@ class Course(models.Model):
 
     def __unicode__(self):
         return self.name
+
 
 class Lesson(models.Model):
     subject = models.CharField(max_length=200)
