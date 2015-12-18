@@ -56,6 +56,22 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'pybursa.urls'
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 WSGI_APPLICATION = 'pybursa.wsgi.application'
 
 
@@ -95,3 +111,42 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
 ADMINS = (('Eugene', 'eugene-test-01@gmail.com'), ('EugeneB', 'eugene-test-02@gmail.com'))
+
+LOGGING = {
+    'version': 1,
+    'loggers':
+    {
+        'courses': {
+            'handlers': ['courses_file'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['students_file'],
+            'level': 'WARNING',
+        },
+    },
+
+    'handlers': {
+        'courses_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'courses',
+        },
+        'students_file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'students',
+        },
+    },
+    'formatters': {
+        'courses': {
+            'format': '%(levelname)s %(message)s'
+        },
+
+        'students': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+    },
+}
