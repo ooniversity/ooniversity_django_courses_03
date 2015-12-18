@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+  
+{% block title %}{{ course.name }}{% endblock title %}
+
+
+{% block active_main %}active{% endblock active_main %}
+
+
+{% block content %} 
+{% if messages %}
+  <ul class="messages">
+  {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><h3>{{ message }}</h3></li>
+  {% endfor %}
+  </ul>
+{% endif %} 
+
+    <div class= "container">
+      <div class="jumbotron">
+      
+    
+      
+    <div class="container">
+      <div class="page-header">
+        <h1 class="descr">{{ item.name }}</h1>
+        <div class="jumbotron">
+          <h3>{{ item.description|truncatechars:32 }}</h3>
+          
+        </div>
+
+    <h2 class="descr">Преподаватели</h2>
+        <div class="panel panel-default">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Учитель</th>
+              </tr>
+            </thead>  
+            <tbody>
+              <tr>
+                <td><a href="{% url 'coaches:detail' coach.id %}">{{coach.name}} {{coach.surname}}</a>
+                  <br/>
+                  <p>{{coach.description}}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Ассистент</th>
+              </tr>
+            </thead>  
+            <tbody>
+              <tr>
+                <td><a href="{% url 'coaches:detail' assistant.id %}">{{assistant.name}} {{assistant.surname}}</a>
+                  <br/>
+                  <p>{{assistant.description}}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    <hr>
+    <h1 class="descr">План курса</h1>
+    <hr>
+    <div class="jumbotron">
+
+      <div class="panel panel-default">
+                  
+        <table class="table">
+            <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Тема</th>
+                  <th>Описание</th>
+              </tr>
+            <a class="btn btn-success"  href="{% url 'courses:add-lesson' item.id %}" role="button">Добавить занятие</a>
+            </thead>
+                      <tbody>
+          
+                        {% for i in lessons %}
+                        <tr>
+                          <td>{{ i.order }}</td>
+                          <td>{{ i.subject }}</td>
+                          <td>{{ i.description|linebreaksbr }}</td>
+                        </tr>
+                        {% endfor %}
+          
+                      </tbody>
+        </table>
+
+      
+      </div>
+    </div>    
+
+
+{% endblock content %}

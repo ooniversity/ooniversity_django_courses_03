@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+  
+{% block title %}Main{% endblock title %}
+
+
+{% block active_main %}active{% endblock active_main %}
+
+
+{% block content %}   </div>
+    <div class= "container">
+      <div class="jumbotron">
+     
+    <h3 class="descr">Преподаватель</h3>
+        <div class="container">
+            <h2>{{master.name}} {{master.surname}}</h2>
+        </div>
+    
+    <div class="jumbotron">
+
+      <div class="panel panel-default">
+                  
+                  <table class="table">
+                    
+                    <tbody>
+          
+                    
+                      <tr>
+                        <td>Дата рождения</td><td>{{ master.date_of_birth|date:"d F, Y" }}</td>
+                      </tr>
+                      
+                      <tr>
+                        <td>Адрес</td><td>{{ master.address }}</td>
+                      </tr>
+                      <tr>
+                        <td>Почта</td><td>{{ master.email }}</td>
+                      </tr>
+                      <tr>
+                        <td>Skype</td><td>{{ master.skype }}</td>
+                      </tr>
+                      <tr>
+                        <td>Телефон</td><td>{{ master.phone }}</td>
+                      </tr>
+          
+                    
+                      <tr>
+                        <th>Курсы учитель</th>
+                      <td>
+                        {% for course in course_master %}                
+                                <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></p>
+                         {% endfor %}
+                      </td>
+                      </tr>
+                    
+                    
+                      <tr>
+                        <th>Курсы ассистент</th>
+                      <td>
+                        {% for course in course_apprentice %}
+                            <p><a href="{% url 'courses:detail' course.id %}">{{course.name}}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a></p>
+                        {% endfor %}
+                      </td>
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+
+          
+    
+          
+        
+        
+
+      </div>
+    </div>    
+{% endblock content %}

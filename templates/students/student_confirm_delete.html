@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+  
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block active_students %}active{% endblock active_students %}
+
+
+{% block content %} 
+
+<div class="container">
+	<div class="jumbotron">
+		<h2>Студент {{ name }} {{ surname }} будет удалён</h2>
+	</div>
+	
+		<form method="post">
+			{% csrf_token %}
+			<input type="submit" value="Удалить" />
+		</form>
+</div>
+{% endblock content %}

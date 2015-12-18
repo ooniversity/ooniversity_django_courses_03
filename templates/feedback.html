@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+  
+{% block title %}{{ title }}{% endblock title %}
+
+
+{% block active_students %}active{% endblock active_students %}
+
+
+{% block content %} 
+
+
+<div class= "container">
+    <div class="jumbotron"> 
+{% if messages %}
+	{% for message in messages %}
+	   {{ message }}
+	</div>
+	{% endfor %}
+{% endif %}             
+     <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Отправить">
+      </form>
+    </div>
+</div>
+{% endblock content %}

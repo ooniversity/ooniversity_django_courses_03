@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+  
+{% block title %}Main{% endblock title %}
+
+
+{% block active_main %}active{% endblock active_main %}
+
+
+{% block content %} 
+  
+    <div class= "container">
+      <div class="jumbotron">
+      
+        <h2><b>Description</b></h2>
+        <p class="lead"> Lorem ipsum dolor sit amet, maiorum blandit signiferumque quo an, his autem tation quaeque at, nam eruditi nominati forensibus an. Eum  ne admodum invenire quaerendum, nam ne simul appellantur. Ocurreret imperdiet patrioque mei an, sea ne impedit civibus. Iriure indoctum pertinacia in eos. Vis id mundi tritani. Ea vel integre partiendo iudicabit.
+
+          Iracundia persequeris eam te, eligendi placerat explicari et vel. Cu veritus singulis eos, dicit munere scripserit eu mel, pro utinam ridens ex. Corpora voluptua adolescens te duo, ius et impedit vivendo sensibus. Suavitate prodesset nec an, eius consul legendos mea ne, persius indoctum ad ius. Mea te paulo corpora efficiantur. In vel clita meliore menandri, mei et graeci vocent posidonium.
+
+        </p>
+      
+      </div>
+    </div>
+    <div class= "container">
+      <div class="jumbotron">
+      
+        <h2>Program</h2>
+          
+        <div class="floatright">
+          <p>Lorem ipsum dolor sit amet, maiorum blandit signiferumque quo an, his autem tation quaeque at, nam eruditi nominati forensibus an. Eum ne admodum invenire quaerendum, nam ne simul appellantur. Ocurreret imperdiet patrioque mei an, sea ne impedit civibus. Iriure indoctum pertinacia in eos. Vis id mundi tritani. Ea vel integre partiendo iudicabit.
+
+          Iracundia persequeris eam te, eligendi placerat explicari et vel. Cu veritus singulis eos, dicit munere scripserit eu mel, pro utinam ridens ex. Corpora voluptua adolescens te duo, ius et impedit vivendo sensibus. Suavitate prodesset nec an, eius consul legendos mea ne, persius indoctum ad ius. Mea te paulo corpora efficiantur. In vel clita meliore menandri, mei et graeci vocent posidonium.
+
+          </p>
+          <br>
+          <br>
+        
+        </div>
+            
+    <div class= "container">
+      <div class="jumbotron">
+      
+        <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Курс</th>
+                        <th>Описание</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+          {% for i in course %}
+                    <tr>
+                      <td><a href="{% url 'courses:detail' i.id %}">{{ i|upper }}</a></td>
+                      <td>{{ i.short_description|title }}</td>
+                      <td><a href="{% url 'courses:add' %}"><input class="btn btn-primary" value="Добавить курс"></a></td>
+                      <td><a href="{% url 'courses:edit' i.id %}"><input class="btn btn-warning" value="Редактировать курс"></a></td>
+                      <td><a href="{% url 'courses:remove' i.id %}"><input class="btn btn-danger" value="Удалить курс"></a></td>    
+                    </tr>
+          {% endfor %}
+                    </tbody>
+                  </table>
+          </p>
+          <br>
+          <br>
+        <p><a class="btn btn-lg btn-success" href="{% url 'contact' %}" role="button">Связаться с нами</a></p>
+        
+    
+          </div>
+        </div>
+      </div>
+    </div> 
+
+ 
+  {% endblock content %}
