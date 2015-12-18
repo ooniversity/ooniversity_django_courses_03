@@ -7,6 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.list import MultipleObjectMixin
 import models
+import logging
 
 
 def list_view(request):
@@ -62,7 +63,7 @@ def remove(request, pk):
 
 class StudentListView(ListView, MultipleObjectMixin):
     model = models.Student
-    paginate_by = 2
+    paginate_by = 3
 
     def get_queryset(self):
         qs = super(StudentListView, self).get_queryset()
@@ -74,6 +75,15 @@ class StudentListView(ListView, MultipleObjectMixin):
 
 class StudentDetailView(DetailView):
     model = models.Student
+
+    def get_context_data(self, **kwargs):
+        logger = logging.getLogger(__name__)
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        return context
 
 
 class StudentCreateView(CreateView):

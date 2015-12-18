@@ -93,3 +93,38 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 STATICFILES_DIRS = (os.path.join(BASE_DIR,  'static'),)
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'courses': {'format': '%(levelname)s %(message)s'},
+        'students': {'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'}
+    },
+    'handlers': {
+        'courses_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'courses_logger.log',
+            'formatter': 'courses',
+        },
+        'students_file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'courses_logger.log',
+            'formatter': 'students',
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['courses_file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'students': {
+            'handlers': ['students_file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+

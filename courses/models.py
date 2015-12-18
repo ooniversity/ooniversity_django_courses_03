@@ -22,3 +22,5 @@ class Lesson(models.Model):
     def __unicode__(self):
         return self.subject
 
+
+
