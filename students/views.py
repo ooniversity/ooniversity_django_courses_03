@@ -10,6 +10,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator
 
+import logging
+logger = logging.getLogger(__name__)
+
 class StudentListView(ListView):
   model = Student
   paginate_by = 2
@@ -30,6 +33,10 @@ class StudentDetailView(DetailView):
   model = Student
   def get_context_data(self, **kwargs):
     context = super(StudentDetailView,self).get_context_data(**kwargs)
+    logger.debug('Students detail view has been debugged')
+    logger.info('Logger of students detail view informs you!')
+    logger.warning('Logger of students detail view warns you!')
+    logger.error('Students detail view went wrong!')
     context['courses'] = Course.objects.filter(student__id = self.object.id)
     return context
 
