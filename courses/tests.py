@@ -68,22 +68,33 @@ class CoursesDetailTest(TestCase):
          #self.assertContains(response, 'somecourse')
          self.assertEqual(Course.objects.all().count(), 1)
     def test_course_edit(self):
+        client = Client()
         add_course()
         response = self.client.get('/courses/edit/1/')
         self.assertEqual(response.status_code, 200)
         response = self.client.post('/courses/edit/1/', {'name': 'Course1_1', 'short_description': 'SomeDescription_1', 'description': 'SomeBigDescription_1'})
         self.assertEqual(response.status_code, 302)
-    def course_detail_name(self):
+    def test_course_detail_name(self):
         client = Client()
         add_course()
         response = self.client.get('/courses/1/')
         self.assertEqual(response.status_code, 200)    
         self.assertContains(response, 'SomeCourse') 
-    def course_detail_description(self):
+    def test_course_detail_description(self):
         client = Client()
         add_course()
         response = self.client.get('/courses/1/')
         self.assertEqual(response.status_code, 200)    
-        self.assertContains(response, 'SomeBigDescription') 
-    
+        self.assertContains(response, 'SomeBigDescription')
+    #def test_course_detail_short_description(self):
+        #client = Client()
+        #add_course(),
+        #response = self.client.get('/courses/1/')
+        #self.assertEqual(response.status_code, 200)    
+        #self.assertContains(response, 'SomeDescription')  
+    def test_course_detail_template(self):
+        client = Client()
+        add_course()
+        response = self.client.get('/courses/1/')
+        self.assertTemplateUsed(response, 'courses/detail.html')
 # Create your tests here.
