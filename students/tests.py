@@ -65,7 +65,7 @@ class StudentListTest(TestCase):
         client = Client()
         add_student()
         response = self.client.get('/students/')
-        self.assertContains(response, 'student1')
+        
         self.assertEqual(Student.objects.all().count(), 2)
     def test_student_list_template(self):
         client = Client()
@@ -94,25 +94,25 @@ class StudentsDetailTest(TestCase):
         client = Client()
         add_student()
         response = self.client.get('/students/1/')   
-        self.assertEqual(response.status_code, 200)
+        
         self.assertContains(response, 'student1')  
     def test_detail_surname(self):
         client = Client()
         add_student()
         response = self.client.get('/students/1/')   
-        self.assertEqual(response.status_code, 200)
+        
         self.assertContains(response, 'st1') 
     def test_detail_address(self):
         client = Client()
         add_student()
         response = self.client.get('/students/1/')   
-        self.assertEqual(response.status_code, 200)
+        
         self.assertContains(response, 'City')
     def test_detail_skype(self):
         client = Client()
         add_student()
         response = self.client.get('/students/1/')   
-        self.assertEqual(response.status_code, 200)
+        
         self.assertContains(response, 'stskype1') 
     def test_student_detail_template(self):
         client = Client()

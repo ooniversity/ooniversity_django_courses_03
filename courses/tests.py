@@ -57,34 +57,36 @@ class CoursesDetailTest(TestCase):
         client = Client()
         add_course()
         self.assertEqual(Course.objects.all().count(), 1)  
+    def test_course_detail_view0(self):
+        client = Client()
+        response = self.client.get('/courses/1/')
+        self.assertEqual(response.status_code, 404)
     def test_course_detail_view(self):
-         client = Client()
-         response = self.client.get('/courses/1/')
-         self.assertEqual(response.status_code, 404)
-         self.assertEqual(Course.objects.all().count(), 0) 
-         add_course()
-         response = self.client.get('/courses/1/')
-         self.assertEqual(response.status_code, 200)
-         #self.assertContains(response, 'somecourse')
-         self.assertEqual(Course.objects.all().count(), 1)
+        client = Client()
+         
+        add_course()
+        response = self.client.get('/courses/1/')
+        self.assertEqual(response.status_code, 200)
+        #self.assertContains(response, 'somecourse')
+        
     def test_course_edit(self):
         client = Client()
         add_course()
         response = self.client.get('/courses/edit/1/')
-        self.assertEqual(response.status_code, 200)
+        
         response = self.client.post('/courses/edit/1/', {'name': 'Course1_1', 'short_description': 'SomeDescription_1', 'description': 'SomeBigDescription_1'})
         self.assertEqual(response.status_code, 302)
     def test_course_detail_name(self):
         client = Client()
         add_course()
         response = self.client.get('/courses/1/')
-        self.assertEqual(response.status_code, 200)    
+            
         self.assertContains(response, 'SomeCourse') 
     def test_course_detail_description(self):
         client = Client()
         add_course()
         response = self.client.get('/courses/1/')
-        self.assertEqual(response.status_code, 200)    
+           
         self.assertContains(response, 'SomeBigDescription')
     #def test_course_detail_short_description(self):
         #client = Client()
