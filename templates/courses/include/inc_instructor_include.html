@@ -1,0 +1,9 @@
+<div class="study_table">
+  <div class="panel panel-default">
+  	<div class="panel-heading"><h2 class="course_program">{{ block_title }}</h2></div>
+		<table class="table table-hover">           
+      <tr><td><h4><a href="{% url 'coaches:detail' instructor.id %}">{{ instructor.get_full_name }}</a></h4></td></tr>
+      <tr><td><h4>{{ instructor.description }}</h4></td></tr> 
+	  </table>
+  </div>
+</div>

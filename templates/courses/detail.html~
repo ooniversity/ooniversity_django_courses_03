@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ooniversity-courses_details{% endblock title %}
+
+
+{% block nav_brand_courses %}?course_id={{courses.id}}{% endblock %}
+    
+
+{% block content %}
+  <div class="jumbotron">
+    <div class="container">
+      <div class="bursa">
+        {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <h4 class="course_program">{{ message }}</h4>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <h1 id="pb" class="bursa">{{ courses.name }}</h1>
+        {% if courses.name == "Python Bursa" %}
+        <div class="details-logo">
+          <img class="logo-pybursa" src="{% static 'images/pblogo.jpg' %}" alt="...">
+        </div>
+        {% elif courses.name == "Java Bursa" %}
+        <div class="index-logo">
+          <img class="logo-itbursa" src="{% static 'images/jlogo.png' %}" alt="...">
+        </div>
+        {% else %}
+        <div class="index-logo">
+          <img class="logo-itbursa" src="{% static 'images/rlogo.jpg' %}" alt="...">
+        </div>
+        {% endif %}
+        <h2 class="des">Описание курса</h2>
+          <p class="descr">{{ courses.description|truncatechars:32 }}</p>
+      </div>
+    </div>
+  </div>
+{% if course.coach %}
+{% include "courses/include/inc_instructor_include.html" with block_title="Учитель" instructor=courses.coach %}
+{% endif %}
+
+{% if course.assistant %}
+{% include "courses/include/inc_instructor_include.html" with block_title="Ассистент" instructor=courses.assistant %}
+{% endif %}
+  <div class="course_id">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h2 class="py_program"></h2><a href="{% url 'courses:add_lesson' courses.id %}" class="btn btn-primary btn-lg active" role="button">Добавить занятие</a></h3></td></div>
+        <table class="table-responsive">       
+          <tr class="headtable"><td><h3>#</h3></td><td><h3>Тема недели</h3></td><td><h3>Описание</h3></td><tr>
+          {% for course in courses.lesson_set.all %}
+          <tr class="tablelist"><td><h4>{{ forloop.counter }}</h4></td><td><div class="them"><h4>{{ course.subject }}</h4></div></td><td><h4>{{ course.description }}</h4></td></tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+    

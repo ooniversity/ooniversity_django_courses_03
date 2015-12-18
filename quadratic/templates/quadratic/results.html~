@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+
+{% block title %}<title>ooniversity-quadratic results</title>{% endblock %}
+
+
+{% block nav_brand_quadratic %}active{% endblock %}
+
+
+{% block students %}<li class="{% block nav_brand_students %}{% endblock %}"><a href="{% url 'students:list_view' %}">Студенты</a></li>{% endblock %}
+
+
+{% block content %}
+<div class="page-header">
+  <h1 class="student-head">Квадратное уравнение a*x*x + b*x + c = 0</h1>                        
+</div>
+<div class="study_table2">
+  <div class="panel panel-default">
+  	<div class="panel-heading"><h3 class="course_program"><input type="submit" value="Решить" /></h3></div>
+    <table class="table table-hover">
+		  <tr><td><h4><form method="get">{{ form.as_p }}</form></h4></td></tr>
+        {% if context.D or context.D == 0 %}
+      <tr><td><h4>Дискриминант: {{ context.D }}</h4></td></tr>         
+        {% if context.D < 0 %}
+      <tr><td><h4>Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений.</h4></td></tr> 
+        {% elif context.D == 0 %}
+      <tr><td><h4>Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = {{ context.x1 }}</h4></td></tr>
+        {% else %}
+      <tr><td><h4>Квадратное уравнение имеет два действительных корня: x1 = {{ context.x1 }}, x2 = {{ context.x2 }}</h4></td></tr>
+        {% endif %}
+        {% endif %}
+    </table>    
+{% endblock content %}

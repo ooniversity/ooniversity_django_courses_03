@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ooniversity-coaches_details{% endblock title %}
+
+
+{% block content %}
+  <div class="page-header"> 
+    <h1 class="student-head">{{ coach.get_full_name }}</h1>
+      <p class="below-header">2015</p>                         
+  </div>
+	<div class="study_table2">
+	  <div class="panel panel-default">
+  	  <div class="panel-heading"><h2 class="course_program">Информация об учителе</h2></div>
+        <table class="table table-hover">
+          <tr><td><h4>
+                      дата рождения
+            </h4></td>
+            <td><h4>
+                      {{ coach.date_of_birth|date:'j F, Y' }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      email
+            </h4></td>
+            <td><h4>
+                      {{ coach.user.email }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      телефон
+            </h4></td>
+            <td><h4>
+                      {{ coach.phone }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      адрес
+            </h4></td>
+            <td><h4>
+                      {{ coach.address }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      skype
+            </h4></td>
+            <td><h3>
+                      {{ coach.skype }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      курсы учитель
+            </h4></td>
+            <td><h4>
+                      {% for course in coach_course %}
+            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>Студенты курса
+            <a href="{% url 'students:list_view' %}?course_id={{ course.id }}"><span class="glyphicons glyphicons-person"></span>></a></br>
+                      {% endfor %}
+            </h4></td></tr>
+          <tr><td><h4>
+                      курсы ассистент
+            </h4></td>
+            <td><h4>
+                      {% for assistant in assistant_course %}
+            <a href="{% url 'courses:detail' assistant.id %}">{{ assistant.name }}</a>Студенты курса
+            <a href="{% url 'students:list_view' %}?course_id={{ assistant.id }}"><span class="glyphicons glyphicons-person"></span>></a></br>
+                      {% endfor %}
+            </h3></td></tr>
+        </table>
+      </div>
+    </div>
+    <p ckass="back_on_main"><a href="{% url 'index' %}">назад на Главную</a></p>
+{% endblock content %}                        
+    

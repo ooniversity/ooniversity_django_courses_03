@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ooniversity-students_details{% endblock title %}
+
+
+{% block nav_brand_students %}active{% endblock %}
+
+
+{% block content %}
+  <div class="page-header">
+    <h1 class="student-head">{{ student.name }} {{ student.surname }}</h1>
+      <p class="below-header">Выпуск 2015</p>                         
+  </div>
+	<div class="study_table2">
+		<div class="panel panel-default">
+  		<div class="panel-heading"><h2 class="course_program">Информация о студенте</h2></div>
+      	<table class="table table-hover">
+        	<tr><td><h4>
+                      дата рождения
+            </h4></td>
+            <td><h4>
+                      {{ student.date_of_birth }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      адрес
+            </h4></td>
+            <td><h4>
+                      {{ student.address }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      email
+            </h4></td>
+            <td><h4>
+                      {{ student.email }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      skype
+            </h4></td>
+            <td><h4>
+                      {{ student.skype }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      телефон
+            </h4></td>
+            <td><h4>
+                      {{ student.phone }}
+            </h4></td></tr>
+          <tr><td><h4>
+                      курсы
+            </h4></td>
+            <td><h4>
+                      {% for course in object.courses.all %}
+            <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></br>
+					            {% endfor %}
+            </h4></td></tr>
+          </table>
+        </div>
+      </div>
+                      
+{% endblock content %}    

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}ooniversity{% endblock title %}
+
+
+{% block nav_brand_index %}active{% endblock %}
+
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+	    <div class="bursa">
+        <h1 class="itbursa"><b>IT Bursa<b></h1>
+        <div class="index-logo">
+          <img class="logo-itbursa" src="{% static 'images/logo itbursa.png' %}" alt="...">
+        </div>
+  {% include "include/inc_itbursa_include.html" %}
+      </div>
+    </div>
+  </div>
+  <div class="study_table">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h2 class="py_program">Запишись на курсы, попади в тренд современной WEB разработки</h2>
+        {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <h4 class="course_program">{{ message }}</h4>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>      
+        <table class="table table-hover">
+          <tr class="course_table"><td><h3><b>Курс</b></h3></td><td><h3><b>Тема</b></h3></td><td><h3><a href="{% url 'courses:add' %}" class="btn btn-primary btn-lg active" role="button">Добавить новый курс</a></h3></td><tr>
+          {% for course in courses %}
+          <tr><td><a href="{% url 'courses:detail' course.id %}"><h4 class="course"><b>{{ course|upper }}</b></h4></a></td><td><h4><b> {{ course.short_description|title }}</b></h4></td><td><p><a href="{% url 'courses:edit' course.id %}" <button type="button" class="btn btn-warning">Изменить</button></a><p></p><a href="{% url 'courses:remove' course.id %}"<button type="button" class="btn btn-danger">Удалить</button></a></p></td></tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    {% endblock content %}
