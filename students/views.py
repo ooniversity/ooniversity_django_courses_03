@@ -8,7 +8,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from courses.models import Course, Lesson
 from students.models import Student
 from students.forms import StudentModelForm
-
+# import the logging library
+import logging
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 '''
 def list_view(request):
@@ -75,6 +78,11 @@ class StudentListView(ListView):
 
 
 class StudentDetailView(DetailView):
+    logger.debug('Students detail view has been debugged')
+    logger.info('Logger of students detail view informs you!')
+    logger.warning('Logger of students detail view warns you!')
+    logger.error('Students detail view went wrong!')
+
     model = Student
     def get_context_data(self, **kwargs):
         context = super(StudentDetailView,self).get_context_data(**kwargs)
