@@ -105,3 +105,40 @@ STATICFILES_DIRS = (
 # 
 ADMINS = (('mutekey', 'kirillushkov@gmail.com'), ('another_one', 'kirillushkov@meta.ua') )
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters':{ 
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+    },
+    'handlers': {
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'courses_logger.log',
+            'formatter' : 'simple'
+        },
+        'file_students': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'students_logger.log',
+            'formatter' : 'verbose'
+        },
+
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'WARNING',
+        },
+    },
+}
