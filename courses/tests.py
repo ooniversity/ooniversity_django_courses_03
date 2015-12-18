@@ -63,7 +63,7 @@ class CoursesListTest(TestCase):
     def test_rendered_correct_html(self):
         client = Client()
         response = client.get('/')
-        self.assertContains(response, '<h2>Ooniversity</h2>')
+        self.assertContains(response, '<h2 class="title"> Ooniversity</h2>')
         self.assertContains(response, '<h3>Join our courses!</h3>')
 
     def test_index_response_contains_correct_context(self):
