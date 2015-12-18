@@ -19,8 +19,7 @@ def student_detail(request):
 def page_not_found(request):
     response = render_to_response('status/404.html', {}, context_instance=RequestContext(request))
     response.status_code = 404
-    return response
-
+    return responce
 
 def server_error(request):
     response = render_to_response('status/500.html', {}, context_instance=RequestContext(request))
