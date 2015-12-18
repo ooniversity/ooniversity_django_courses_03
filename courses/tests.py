@@ -158,7 +158,11 @@ class CoursesDetailTest(TestCase):
         self.assertEqual(response.status_code, 200)
         response = self.client.post('/courses/1/add_lesson', {'subject': 'test', 'description': 'test', 'course': 'Python/Django', 'order': 4})
         self.assertEqual(response.status_code, 200)
-      
+
+    def test_check_coache(self):
+        response = self.client.get('/courses/1/')
+        self.assertContains(response, '/coaches/1/')
+        
         
 
 
