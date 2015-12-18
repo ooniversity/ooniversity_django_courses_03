@@ -107,37 +107,38 @@ ADMINS = (('mutekey', 'kirillushkov@gmail.com'), ('another_one', 'kirillushkov@m
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
-    'formatters':{ 
-        'simple': {
+    'loggers': 
+    {
+    'courses': {
+        'handlers': ['courses_file'],
+        'level' : 'DEBUG'
+    },
+    'students': {
+        'handlers': ['students_file'],
+        'level': 'WARNING'
+    }
+    },
+    'handlers':
+    {
+        'courses_file': {
+        'level': 'DEBUG',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        'formatter': 'short'
+    },
+    'students_file': {
+        'level': 'WARNING',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        'formatter': 'detail'
+    }
+    },
+    'formatters': {
+        'detail': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'short': {
             'format': '%(levelname)s %(message)s'
-        },
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'        },
-    },
-    'handlers': {
-        'file_courses': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'courses_logger.log',
-            'formatter' : 'simple'
-        },
-        'file_students': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'students_logger.log',
-            'formatter' : 'verbose'
-        },
-
-    },
-    'loggers': {
-        'courses': {
-            'handlers': ['file_courses'],
-            'level': 'DEBUG',
-        },
-        'students': {
-            'handlers': ['file_students'],
-            'level': 'WARNING',
         },
     },
 }
