@@ -99,3 +99,32 @@ EMAIL_PORT = 1025
 #EMAIL_HOST_PASSWORD = 'admin'
 
 ADMINS = (('admin', 'admin@pybursa.com'), )
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'courses_logger.log',
+        },
+        'file2': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'students_logger.log',
+        },
+    },
+    'loggers': {
+        'courses.views': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'students.views': {
+            'handlers': ['file2'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}

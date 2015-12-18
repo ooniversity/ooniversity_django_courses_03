@@ -8,7 +8,8 @@ from django.core.urlresolvers import reverse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
-
+import logging
+logger = logging.getLogger(__name__)
 
 def index(request):
     context ={}
@@ -31,6 +32,12 @@ class CourseDetailView(DetailView):
     model = Course
     template_name = "courses/detail.html"
     context_object_name = "course"
+    logger.error("Courses detail view went wrong!")
+    logger.debug("Courses detail view has been debugged")
+    logger.info("Logger of courses detail view informs you!")
+    logger.warning("Logger of courses detail view warns you!")
+
+
 
 
 class CourseCreateView(CreateView):
