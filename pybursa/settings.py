@@ -42,6 +42,8 @@ INSTALLED_APPS = (
     'students',
     'coaches',
     'feedbacks',
+    'debug_toolbar',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,3 +94,60 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 EMAIL_HOST = 'localhost'
 EMAIL_POST = 1025
 ADMINS = (("Folya", "folkacat28@gmail.com"), )
+
+#LOGGING = {
+    #'version': 1,
+    #'loggers':
+    #{
+    #'course.view': {
+        #'handlers': ['file'],
+        #'level': 'DEBUG',
+        #},
+    #},
+    #'handlers':
+    #{
+        #'file':{
+        #'level': 'DEBUG',
+        #'class': 'logging.FileHandler',
+        #'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        #},
+    #},
+#}
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },    
+    'handlers': {
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'simple'
+        },
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'courses.views': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'students.views': {
+            'handlers': ['file_students'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
