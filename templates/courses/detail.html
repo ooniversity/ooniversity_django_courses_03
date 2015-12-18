@@ -30,10 +30,14 @@
    <h3>Преподаватели</h3>
     <br>
     
+  {% if course.coach %}  
     {% include "include/instructor_include.html" with block_title="Учитель" instructor=coach %}
+  {% endif %}  
 
-
+  
+  {% if course.assistant %}
     {% include "include/instructor_include.html" with block_title="Ассистент" instructor=assistant %}
+  {% endif %}  
 
     <h3>План курса </h3>
     <p><a href="{% url 'courses:add-lesson' course.id %}" class="btn btn-primary" role="button">Добавить занятие</a></p>
