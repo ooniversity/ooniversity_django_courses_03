@@ -113,8 +113,7 @@ LOGGING = {
             'format': '%(levelname)s %(message)s'
         },
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        },
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'        },
     },
     'handlers': {
         'file_courses': {
