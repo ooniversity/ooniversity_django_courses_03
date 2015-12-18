@@ -46,7 +46,7 @@ def add_student():
         skype = 'stskype2')
     student2.courses.add(course2)
 
-class StudentListTest(TestCase):
+class StudentsListTest(TestCase):
     
     def test_student_valid_links(self):
 		response = self.client.get('/students/')
