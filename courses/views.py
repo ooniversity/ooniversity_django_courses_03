@@ -29,10 +29,6 @@ class MixinCourseContext(object):
 
     def get_context_data(self, *args, **kwargs):
         context = super(MixinCourseContext, self).get_context_data(**kwargs)
-        logger.debug("Courses detail view has been debugged")
-        logger.info("Logger of courses detail view informs you!")
-        logger.warning("Logger of courses detail view warns you!")
-        logger.error("Courses detail view went wrong!")
         
         #context['title'] = 'Student registration'
         #self.object = self.get_object()
@@ -51,6 +47,11 @@ class CourseDetailView(MixinCourseContext, DetailView):
     
     def get_context_data(self, **kwargs):
         data = super(CourseDetailView, self).get_context_data(**kwargs)
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
+        
         #context['title'] = 'Student registration'
         #self.object = self.get_object()
         #print self.object
