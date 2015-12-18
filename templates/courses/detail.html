@@ -40,10 +40,13 @@
       </div>
     </div>
   </div>
+{% if courses.coach %}
 {% include "courses/include/inc_instructor_include.html" with block_title="Учитель" instructor=courses.coach %}
+{% endif %}
 
-
+{% if courses.assistant %}
 {% include "courses/include/inc_instructor_include.html" with block_title="Ассистент" instructor=courses.assistant %}
+{% endif %}
   <div class="course_id">
     <div class="panel panel-default">
       <div class="panel-heading"><h2 class="py_program"></h2><a href="{% url 'courses:add_lesson' courses.id %}" class="btn btn-primary btn-lg active" role="button">Добавить занятие</a></h3></td></div>
