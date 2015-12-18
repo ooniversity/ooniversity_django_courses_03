@@ -57,19 +57,23 @@ class StudentListTest(TestCase):
         response = self.client.get('/students/')
         self.assertEqual(Student.objects.all().count(), 0) 
     def test_student_list_codenot0(self):
+        client = Client()
         add_student()
         response = self.client.get('/students/')
         self.assertEqual(response.status_code, 200)
     def test_student_list_numbernot0(self):
+        client = Client()
         add_student()
         response = self.client.get('/students/')
         self.assertContains(response, 'student1')
         self.assertEqual(Student.objects.all().count(), 2)
     def test_student_list_template(self):
+        client = Client()
         add_student()
         response = self.client.get('/students/')
         self.assertTemplateUsed(response, 'students/student_list.html')
     def test_valid_student_name_edit(self):
+        client = Client()
         add_student()
         response = self.client.get('/students/edit/1/')
         self.assertContains(response, 'student1')
@@ -115,4 +119,9 @@ class StudentsDetailTest(TestCase):
         add_student()
         response = self.client.get('/students/1/')   
         self.assertTemplateUsed(response, 'students/student_detail.html')
+    def test_detail_phone(self):
+        client = Client()
+        add_student()
+        response = self.client.get('/students/1/')   
+        self.assertContains(response, '0-800-900-500-67') 
 # Create your tests here.
