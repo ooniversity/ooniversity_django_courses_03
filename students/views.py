@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponse
 from django.contrib import messages
-from django.views.generic.detail import DetailView 
-from django.views.generic.list import ListView 
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class StudentDeleteView(DeleteView):
@@ -19,7 +22,7 @@ class StudentDeleteView(DeleteView):
     def delete(self, request, *args, **kwargs):
         student = self.get_object()
         full_name = student.name + ' ' + student.surname
-        message = 'Info on %(name)s has been sucessfully deleted.' % {'name': full_name} 
+        message = 'Info on %(name)s has been sucessfully deleted.' % {'name': full_name}
         messages.success(self.request, message)
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
 
@@ -35,7 +38,7 @@ class StudentCreateView(CreateView):
 
     def form_valid(self, form):
         full_name = form.cleaned_data['name'] + ' ' + form.cleaned_data['surname']
-        message = 'Student %(name)s has been successfully added.' % {'name': full_name} 
+        message = 'Student %(name)s has been successfully added.' % {'name': full_name}
         messages.success(self.request, message)
         return super(StudentCreateView, self).form_valid(form)
 
@@ -60,10 +63,18 @@ class StudentUpdateView(UpdateView):
 
     student_id = 1
     model = Student
-    success_url = reverse_lazy("students:edit", kwargs={'pk': student_id})
+    # success_url = reverse_lazy("students:edit", kwargs={'pk': student_id})
 
 
 class StudentDetailView(DetailView):
+    def get_context_data(self, **kwargs):
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+        return context
+
     model = Student
 
 

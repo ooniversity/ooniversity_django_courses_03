@@ -26,7 +26,6 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -58,7 +57,6 @@ ROOT_URLCONF = 'pybursa.urls'
 
 WSGI_APPLICATION = 'pybursa.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -84,17 +82,52 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 ADMINS = (
-    ('Admin', 'admin@pybursa.com'), 
-    ('Director', 'director@pybursa.com'), 
+    ('Admin', 'admin@pybursa.com'),
+    ('Director', 'director@pybursa.com'),
     ('Manager', 'manager@pybursa.com'),
 )
+
+LOGGING = {
+    'version': 1,
+    'formatters': {
+        'student': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'course': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file_course': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'course'
+        },
+        'file_student': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'student'
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file_course'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file_student'],
+            'level': 'WARNING',
+        },
+    },
+}
