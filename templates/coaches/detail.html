@@ -8,6 +8,7 @@
 
 
 {% block content %}
+{% if coach %}
   <table class="table table-condensed">
     <thead><h3>{{ coach.user.first_name }} {{ coach.user.last_name }}</h3>
       </thead>
@@ -38,6 +39,7 @@
       </tr>
     </tbody>
   </table>
+{% endif %}
 {% endblock content %}  
   
   
