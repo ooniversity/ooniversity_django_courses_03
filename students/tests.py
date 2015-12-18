@@ -71,7 +71,7 @@ class StudentsListTest(TestCase):
     def test_rendered_correct_html(self):
         client = Client()
         response = client.get('/students/')
-        self.assertContains(response, "<h2>Student's list</h2>")
+        self.assertContains(response, "<strong>Student's list</strong>")
         self.assertContains(response, '<th>Name</th>')
         self.assertContains(response, '<th>Name</th>')
         self.assertContains(response, '<th>Address</th>')
@@ -147,7 +147,7 @@ class StudentsDetailTest(TestCase):
         create_students()
         response = client.get(reverse('students:detail', args=(1,)))
         self.assertTemplateUsed(response, 'students/student_detail.html')
-        self.assertContains(response, '<h2>Name1 Surname1</h2>')
+        self.assertContains(response, '<td>E-mail</td>')
 
     def test_student_detail_response_contains_correct_context(self):
         client = Client()
