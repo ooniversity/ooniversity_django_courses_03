@@ -127,3 +127,8 @@ class StudentsDetailTest(TestCase):
 		response = self.client.get('/students/1/')
 		self.assertContains(response, 'test1')
 
+	def test_phone_check_student(self):
+		response = self.client.get('/students/1/')
+		self.assertContains(response, '099-999-99-99')
+
+
