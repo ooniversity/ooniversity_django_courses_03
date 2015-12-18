@@ -40,17 +40,20 @@
       </div>
     </div>
   </div>
+{% if course.coach %}
 {% include "courses/include/inc_instructor_include.html" with block_title="Учитель" instructor=courses.coach %}
+{% endif %}
 
-
+{% if course.assistant %}
 {% include "courses/include/inc_instructor_include.html" with block_title="Ассистент" instructor=courses.assistant %}
+{% endif %}
   <div class="course_id">
     <div class="panel panel-default">
       <div class="panel-heading"><h2 class="py_program"></h2><a href="{% url 'courses:add_lesson' courses.id %}" class="btn btn-primary btn-lg active" role="button">Добавить занятие</a></h3></td></div>
         <table class="table-responsive">       
           <tr class="headtable"><td><h3>#</h3></td><td><h3>Тема недели</h3></td><td><h3>Описание</h3></td><tr>
           {% for course in courses.lesson_set.all %}
-          <tr class="tablelist"><td><h4>{{ forloop.counter }}</h4></td><td><div class="them"><h4>{{ course.subject }}</h4></div></td><td><h4>{{ lessons.description }}</h4></td></tr>
+          <tr class="tablelist"><td><h4>{{ forloop.counter }}</h4></td><td><div class="them"><h4>{{ course.subject }}</h4></div></td><td><h4>{{ course.description }}</h4></td></tr>
           {% endfor %}
         </table>
       </div>
