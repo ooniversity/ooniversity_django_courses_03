@@ -96,6 +96,17 @@
   background-size: cover;
 }
 
+.background_error{
+    /*background-image: url();
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;*/
+  background: url("../images/404.gif") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 /* TABLE
 -------------------------------------------------- */
