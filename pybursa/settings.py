@@ -110,7 +110,7 @@ LOGGING = {
         },
         'students.views': {
         	'handlers': ['file_students'],
-            'level': 'WARNING',
+            'level': 'DEBUG',
         },
     },
     'handlers': 
