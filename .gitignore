@@ -1,3 +1,7 @@
 # python precompiled files:
 *.pyc
 *.pyo
+
+# log files
+courses_logger
+students_logger

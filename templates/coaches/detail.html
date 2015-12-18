@@ -15,29 +15,24 @@
     <div class="jumbotron">
       <div class="container" role="main">
         <div class="jumbotron">
-          <h1 class="center">{{ coacher.get_first_name   }} {{coacher.get_last_name}}</h1>
-          <p class="center"> {{ coacher.description }}</p>
+          <h1 class="center">{{ coach.full_name  }}</h1>
         </div>
         <table class="table">
-          <tr>
-          </tr>
-          <th>first_name</th>
-          <td> {{ coacher.get_first_name }} </td>
-          <tr>
-            <th>last_name</th>
-            <td> {{ coacher.get_last_name }}</td>
-          </tr>
           <tr>
             <th>bday</th>
             <td>{{ coacher.date_of_birth|date:'j F, Y' }}</td>
           </tr>
           <tr>
             <th>email</th>
-            <td> {{ coacher.get_email }} </td>
+            <td> {{ coacher.email }} </td>
           </tr>
           <tr>
             <th>cell</th>
             <td> {{ coacher.phone }} </td>
+          </tr>
+          <tr>
+            <th>skype</th>
+            <td> {{ coacher.skype }} </td>
           </tr>
           <tr>
             <th>adress</th>
@@ -45,24 +40,22 @@
           </tr>
           <tr>
             <th>coach</th>
-            <td> {% for i in is_coach %}
-              {{i.name}}
-              {% endfor %} 
+            <td>
+              {% for course in courses_coach %}
+                <p><a href="{% url 'courses:detail' course.id %}">{{ course }}</a>Course students<a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class=" glyphicon glyphicon-home"></span></a></p>
+              {% endfor %}
             </td>
           </tr>
           <tr>
             <th>assistance</th>
-            <td> {% for i in is_assist %}
-              {{i.name}}
-              <a href="{% url 'contact' %}">              
+            <td>
+                {% for course in courses_assistant %}
+                <p><a href="{% url 'courses:detail' course.id %}"> {{ course }}</a> студенты курса <a href="{% url 'students:list_view' %}?course_id={{course.id}}"><span class=" glyphicon glyphicon-home"></span></a></p>
+              <a href="{% url 'contact' %}">
               <button type="button" class="btn btn-default" aria-label="Left Align">
               <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
               </button>
               </a>
-
-              
-
-              
               {% endfor %} 
             </td>
           </tr>
@@ -70,5 +63,5 @@
       </div>
     </div>
 
-
+{% include 'include/coach_img_include.html' %}
 {% endblock content %}

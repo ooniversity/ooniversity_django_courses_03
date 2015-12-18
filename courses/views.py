@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.urlresolvers import reverse_lazy
 from courses.models import Course, Lesson
@@ -8,6 +7,14 @@ from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+import logging
+logger = logging.getLogger(__name__)
+
+
+logger.debug("Courses detail view has been debugged")
+logger.info("Logger of courses detail view informs you!")
+logger.warning("Logger of courses detail view warns you!")
+logger.error("Courses detail view went wrong!")
 
 class CourseDetailView(DetailView):
     model = Course
