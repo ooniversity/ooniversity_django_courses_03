@@ -8,6 +8,10 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+# import the logging library
+import logging
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 '''
 def detail(request, course_id):
@@ -69,6 +73,11 @@ def remove(request, pk):
 
 
 class CourseDetailView(DetailView):
+    logger.debug('Courses detail view has been debugged')
+    logger.info('Logger of courses detail view informs you!')
+    logger.warning('Logger of courses detail view warns you!')
+    logger.error('Courses detail view went wrong!')
+
     model = Course
     template_name = "courses/detail.html"
     context_object_name = "course"
