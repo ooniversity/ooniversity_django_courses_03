@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Main{% endblock title %}
+
+
+{% block navbar_button_1 %}active{% endblock navbar_button_1 %}
+
+
+{% block content %}
+
+
+    <div class="container theme-showcase">
+        <div class="jumbotron">
+        </div>
+
+            <div>
+                <h2>{{ teacher.full_name }}</h2>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>Birth Date</td>
+                        <td>{{ teacher.date_of_birth|date:'d F, Y' }}</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>{{ teacher.address }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ teacher.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Skype</td>
+                        <td>{{ teacher.skype }}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>{{ teacher.phone }}</td>
+                    </tr>
+                    {% if course_coach %}
+                        <tr>
+                            <td>Courses as Coach</td>
+                            <td>
+                                {% for course in  course_coach %}
+                                    <a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+
+                                    <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                                        <button type="button" class="btn btn-xm" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                                        </button>
+                                        <br>
+                                    </a>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                    {% if course_assistant %}
+                        <tr>
+                            <td>Courses as Assistant</td>
+                            <td>
+                                {% for course in  course_assistant %}
+                                    <a class="table" href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+
+                                    <a class="table" href="{% url 'students:list_view' %}?course_id={{ course.id }}">
+                                        <button type="button" class="btn btn-xm" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+                                        </button>
+                                        <br>
+                                    </a>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            {% include "include/footer_include.html" %}
+
+    </div>
+
+{% endblock content %}

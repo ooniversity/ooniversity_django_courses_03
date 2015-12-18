@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Equation{% endblock title %}
+
+
+{% block navbar_button_4 %}active{% endblock navbar_button_4 %}
+
+
+{% block content %}
+      <p>Квадратное уравнение a*x*x + b*x + c = 0</p><br>
+      <form method="get">
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary btn-sm" value="Calculate">
+      </form>
+      <p>{{ print_d }}<br>{{ d_out }}</p>
+
+      {% include "include/footer_include.html" %}
+{% endblock content %}

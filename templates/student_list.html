@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <title>Students</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>  
+          </button>
+          <a class="navbar-brand" href="#">ITBursa</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'contact' %}">Контакты</a></li>
+            <li class="active"><a href="{% url 'student_list' %}">Студенты</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  	<div class="container theme-showcase">
+      <div class="jumbotron">
+        <h1 class="descr">Students of PyBursa</h1>
+      <div class="panel panel-default">
+        <div class="panel-heading">Students 2015</div>
+          <table class="table table-striped table table-bordered">
+            <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Surname</th>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Skype</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row"><a class="table" href="{% url 'student_detail' %}">1</a></th>
+                  <td>Stallman</td>
+                  <td>Richard</td>
+                  <td>Rivington Street 62/17, New York, 12841, USA</td>
+                  <td>Richard.Stallman</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a class="table" href="#">2</a></th>
+                  <td>Torvalds</td>
+                  <td>Linus</td>
+                  <td>Hämeentie 73/12, Helsinki, 00054, Finland</td>
+                  <td>Linus.Torvalds</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a class="table" href="#">3</a></th>
+                  <td>Augustin</td>
+                  <td>Larry</td>
+                  <td>Serra Mall 450, Stanford, CA 94305, USA</td>
+                  <td>Larry.Augustin</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a class="table" href="#">4</a></th>
+                  <td>McKusick</td>
+                  <td>Marshall</td>
+                  <td>Berkeley, CA 94720-5800 USA</td>
+                  <td>Marshall.McKusick</td>
+                </tr>
+                <tr>
+                  <th scope="row"><a class="table" href="#">5</a></th>
+                  <td>Vixie</td>
+                  <td>Paul</td>
+                  <td>155 Bovet Road, 476, San Mateo, CA 94402 USA</td>
+                  <td>Paul.Vixie</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+          
+</div>  
+
+      <hr>
+
+      <footer class="footer">
+        <p>&copy; PyBursa 2015</p>
+      </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+       
+  </body>
+</html>
+
