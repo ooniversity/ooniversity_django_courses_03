@@ -4,105 +4,86 @@ from coaches.models import Coach
 from django.contrib.auth.models import User
 from django.test import Client
 
-
+def add_course():
+    coach1=Coach.objects.create(
+            user=User.objects.create(),
+            date_of_birth='1980-01-01',
+            gender='F',
+            phone='0-800-345-657-765',
+            address='City',
+            skype='SomeSkype')
+             
+    course1 = Course.objects.create(
+            name='SomeCourse',
+            short_description='SomeDescription',
+            description='SomeBigDescription',
+            coach=coach1,
+            assistant=coach1) 
 class CoursesListTest(TestCase):
 
-    def test_course_list(self):
+    
+        
+    def test_course_list_code0(self):
         client = Client()
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
+    def test_course_list_number0(self):
+        client = Client()
+        response = self.client.get('/')
         self.assertEqual(Course.objects.all().count(), 0) 
-        coach1=Coach.objects.create(
-            user=User.objects.create(),
-            date_of_birth='1980-01-01',
-            gender='F',
-            phone='0-800-345-657-765',
-            address='City',
-            skype='SomeSkype',
-            description='somedescription') 
-        course1 = Course.objects.create(
-            name='SomeCourse',
-            short_description='SomeDescription',
-            description='SomeBigDescription',
-            coach=coach1,
-            assistant=coach1)
+    def test_course_list_codenot0(self):
+        add_course()
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-        #self.assertContains(response, 'Description')
+    def test_course_list_numbernot0(self):
+        add_course()
+        response = self.client.get('/')
+        
         self.assertEqual(Course.objects.all().count(), 1)
-            
+    def test_course_list_template(self):
+        client = Client()
+        add_course()
+        response = self.client.get('/')
+        self.assertTemplateUsed(response, 'index.html')
+    def test_valid_course_name_edit(self):
+        client = Client()
+        add_course()
+        response = self.client.get('/courses/edit/1/')
+        self.assertContains(response, 'SomeCourse')  
+              
 class CoursesDetailTest(TestCase):
 
     def test_course_create(self):
-    
-        coach1=Coach.objects.create(
-            user=User.objects.create(),
-            date_of_birth='1980-01-01',
-            gender='F',
-            phone='0-800-345-657-765',
-            address='City',
-            skype='SomeSkype',
-            description='SomeDescription')
-            
-        #coach2=Coach.objects.create(
-            #user=User.objects.create(),
-            #date_of_birth='1981-01-01',
-            #gender='M',
-            #phone='0-800-345-657-745',
-           # address='Town',
-            #skype='SomeSkype2',
-            #description='SomeDescription2')
-            
-        course1 = Course.objects.create(
-            name='SomeCourse',
-            short_description='SomeDescription',
-            description='SomeBigDescription',
-            coach=coach1,
-            assistant=coach1)
-            
+        client = Client()
+        add_course()
         self.assertEqual(Course.objects.all().count(), 1)  
-    def test_course_detail(self):
-         self.client = Client()
+    def test_course_detail_view(self):
+         client = Client()
          response = self.client.get('/courses/1/')
          self.assertEqual(response.status_code, 404)
          self.assertEqual(Course.objects.all().count(), 0) 
-         coach1=Coach.objects.create(
-            user=User.objects.create(),
-            date_of_birth='1980-01-01',
-            gender='F',
-            phone='0-800-345-657-765',
-            address='City',
-            skype='SomeSkype',
-            description='SomeDescription') 
-         course1 = Course.objects.create(
-            name='SomeCourse',
-            short_description='SomeDescription',
-            description='SomeBigDescription',
-            coach=coach1,
-            assistant=coach1)
+         add_course()
          response = self.client.get('/courses/1/')
          self.assertEqual(response.status_code, 200)
          #self.assertContains(response, 'somecourse')
          self.assertEqual(Course.objects.all().count(), 1)
     def test_course_edit(self):
-        coach1=Coach.objects.create(
-            user=User.objects.create(),
-            date_of_birth='1980-01-01',
-            gender='F',
-            phone='0-800-345-657-765',
-            address='City',
-            skype='SomeSkype',
-            description='SomeDescription') 
-        course1 = Course.objects.create(
-            name='SomeCourse',
-            short_description='SomeDescription',
-            description='SomeBigDescription',
-            coach=coach1,
-            assistant=coach1)
+        add_course()
         response = self.client.get('/courses/edit/1/')
         self.assertEqual(response.status_code, 200)
         response = self.client.post('/courses/edit/1/', {'name': 'Course1_1', 'short_description': 'SomeDescription_1', 'description': 'SomeBigDescription_1'})
         self.assertEqual(response.status_code, 302)
-        
-         
+    def course_detail_name(self):
+        client = Client()
+        add_course()
+        response = self.client.get('/courses/1/')
+        self.assertEqual(response.status_code, 200)    
+        self.assertContains(response, 'SomeCourse') 
+    def course_detail_description(self):
+        client = Client()
+        add_course()
+        response = self.client.get('/courses/1/')
+        self.assertEqual(response.status_code, 200)    
+        self.assertContains(response, 'SomeBigDescription') 
+    
 # Create your tests here.
