@@ -8,7 +8,8 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from pybursa.views import MixinMessage, MixinTitle
 
-
+import logging
+logger = logging.getLogger(__name__) # courses.view
 
 class CourseDetailView(DetailView):
     model = Course
@@ -17,6 +18,11 @@ class CourseDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['lessons'] = Lesson.objects.filter(course=self.get_object().id)
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
+        context['lessons'] = lessons
         return context
 
 
