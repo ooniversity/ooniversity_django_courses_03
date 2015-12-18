@@ -88,3 +88,35 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
+
+
+
+
+LOGGING = {
+    'version': 1,
+    'loggers': {
+       'courses.views': {
+          'handlers': ['courses.views.file'],
+          'level':'DEBUG',
+       },
+       'students.views': {
+          'handlers': ['students.views.file'],
+          'level':'DEBUG',
+       },
+    },
+
+    'handlers':
+    {
+       'courses.views.file': {
+          'level': 'DEBUG',
+          'class': 'logging.FileHandler',
+          'filename': os.path.join(BASE_DIR, 'courses_logger'),
+       },
+       'students.views.file': {
+          'level': 'DEBUG',
+          'class': 'logging.FileHandler',
+          'filename': os.path.join(BASE_DIR, 'students_logger'),
+       },
+    },
+}
+
