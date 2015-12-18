@@ -70,7 +70,6 @@ class StudentListTest(TestCase):
         client = Client()
         add_student()
         response = self.client.get('/students/')
-        
         self.assertEqual(Student.objects.all().count(), 2)
     def test_student_list_template(self):
         client = Client()
@@ -82,7 +81,10 @@ class StudentListTest(TestCase):
         add_student()
         response = self.client.get('/students/edit/1/')
         self.assertContains(response, 'student1')
-        
+    def test_student_title(self):
+        client = Client()
+        response = self.client.get('/students/')
+        self.assertContains(response, 'PyStudents')     
         
     #def test_student_edit(self):
        # client = Client()
