@@ -20,3 +20,11 @@ class CoursesListTest(TestCase):
     def test_index_link(self):
 		response = self.client.get('/')
 		self.assertEqual(response.status_code, 200)
+
+    def test_contacts_link(self):
+        response = self.client.get('/contact/')
+        self.assertEqual(response.status_code, 200)
+        
+    def test_feedback_link(self):
+        response = self.client.get('/feedback/')
+        self.assertEqual(response.status_code, 200)        
