@@ -1,4 +1,5 @@
 # python precompiled files:
+courses_logger.log
 *.pyc
 *.pyo
 *~
