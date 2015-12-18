@@ -47,7 +47,12 @@ def add_student():
     student2.courses.add(course2)
 
 class StudentListTest(TestCase):
-
+    
+    def test_student_valid_links(self):
+		response = self.client.get('/students/')
+		self.assertContains(response, 'Main')
+		self.assertContains(response, 'Contacts')
+		self.assertContains(response, 'Students')
     def test_student_list_code0(self):
         client = Client()
         response = self.client.get('/students/')
@@ -89,7 +94,11 @@ class StudentListTest(TestCase):
        # self.assertContains(response, student1)
 		
 class StudentsDetailTest(TestCase):
-    
+    def test_student_valid_links2(self):
+		response = self.client.get('/students/')
+		self.assertContains(response, 'Main')
+		self.assertContains(response, 'Contacts')
+		self.assertContains(response, 'Students')
     def test_detail_name(self):
         client = Client()
         add_student()
