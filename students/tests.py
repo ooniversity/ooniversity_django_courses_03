@@ -1,3 +1,80 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
+from django.test import Client
+from courses.models import Course, Lesson
+from students.models import Student
+from coaches.models import Coach
 
+
+def add_student():
+    coach1=Coach.objects.create(
+        user=User.objects.create(),
+        date_of_birth='1980-01-01',
+        gender='F',
+        phone='0-800-345-657-765',
+        address='City',
+        skype='SomeSkype',
+        description='somedescription') 
+    course1 = Course.objects.create(
+        name='SomeCourse',
+        short_description='SomeDescription',
+        description='SomeBigDescription',
+        coach=coach1,
+        assistant=coach1)
+    course2 = Course.objects.create(
+        name='SomeCourse2',
+        short_description='SomeDescription2',
+        description='SomeBigDescription2',
+        coach=coach1,
+        assistant=coach1)
+    student1 = Student.objects.create(
+        name = 'student1',
+        surname = 'st1',
+        date_of_birth = '1982-09-09',
+        email = 'st1@st.com',
+        phone = '0-800-900-500-67',
+        address = 'City',
+        skype = 'stskype1')
+    student1.courses.add(course1)
+    student2 = Student.objects.create(
+        name = 'student2',
+        surname = 'st2',
+        date_of_birth = '1982-02-09',
+        email = 'st2@st.com',
+        phone = '0-800-900-510-67',
+        address = 'City2',
+        skype = 'stskype2')
+    student2.courses.add(course2)
+
+class StudentListTest(TestCase):
+
+    def test_student_list(self):
+        client = Client()
+        response = self.client.get('/students/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(Student.objects.all().count(), 0) 
+        add_student()
+        response = self.client.get('/students/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'student1')
+        self.assertEqual(Student.objects.all().count(), 2)
+        self.assertTemplateUsed(response, 'students/student_list.html')
+    #def test_student_edit(self):
+       # client = Client()
+        #add_student
+        #response = self.client.post('/students/edit/1/', {'name': 'St1_1', 'surname': 'St_11', 'date_of_birth': '1905-05-05', 'email': 'dyt@dyt.com', 'phone': '09-09-09', 'address': 'Somecity', 'skype': 'skype'})
+        #response = self.client.get('/students/1/')
+        
+        #self.assertEqual(response.status_code, 302)
+       # self.assertContains(response, student1)
+		
+class StudentsDetailTest(TestCase):
+    
+    def test_detail(self):
+        client = Client()
+        add_student()
+        response = self.client.get('/students/1/')   
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'student1')     
+        self.assertTemplateUsed(response, 'students/student_detail.html')
 # Create your tests here.
