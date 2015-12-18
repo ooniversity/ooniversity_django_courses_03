@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Main{% endblock title %}
+
+
+{% block nav_index %}class="active"{% endblock %}
+
+
+{% block content %}
+    <br>
+        {% if messages %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <ul class="messages">
+            {% for message in messages %}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                 {{ message }}
+             {% endfor %}
+            </ul>
+        </div>        
+        {% endif %} 
+      <br>  
+    <div class="jumbotron">
+      <div class="container">
+      <h1>Description</h1>
+      <h2>Program</h2>
+      <p> Python is a widely used general-purpose, high-level programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code.</p>
+      <p> Ruby is a dynamic, reflective, object-oriented, general-purpose programming language.</p>
+      <p> Enroll in the latest online IT courses covering important topics in software engineering.</p>
+      </div>
+    </div>
+    <div class="jumbotron">
+      <div class="container">
+        <img src="{% static 'images/pic.jpg' %}" class="img-responsive" alt="Responsive image">
+        <p>Courses can be taken in any order. If current dates are unavailable, please check back often as they are always being added.</p> 
+      </div>
+      <h1>Welcome to ITBursa-2015!</h1>
+      <h2>Choose your course</h2>
+      <br>
+      <a href="{% url 'courses:add' %}">
+      <button type="button" class="btn btn-primary">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add course </button>    
+      </a>  
+      <br><br>  
+      <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr class="success">
+              <td><strong>Course</strong></td>
+              <td><strong>Short description</strong></td>
+              <td><strong>Actions</strong></td>  
+            </tr>
+          </thead>
+          <tbody>
+            {% if gc %} 
+              {% for course in gc %}
+              <tr>
+                <td><a href="{% url 'courses:detail' course.id %}"> {{ course.name|upper }} </a></td>
+                <td>{{ course.short_description|title }}</td>
+                <td>
+                <a href="{% url 'courses:edit' course.id %}">
+                    <button type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit </button>    
+                </a>  
+                <a href="{% url 'courses:remove' course.id %}">
+                    <button type="button" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Delete </button>    
+                </a> 
+                </td> 
+              </tr>
+              {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+      </div>  
+    </div>  
+{% endblock content %}
