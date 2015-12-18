@@ -5,7 +5,6 @@ from courses.models import Course
 
 
 class StudentsListTest(TestCase):
-
     def test_code_response(self):
         client = Client()
         response = client.get('/students/')
