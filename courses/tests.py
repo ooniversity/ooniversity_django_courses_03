@@ -20,7 +20,11 @@ def add_course():
             coach=coach1,
             assistant=coach1) 
 class CoursesListTest(TestCase):
-
+    def test_course_valid_links(self):
+		response = self.client.get('/')
+		self.assertContains(response, 'Main')
+		self.assertContains(response, 'Contacts')
+		self.assertContains(response, 'Students')
     
         
     def test_course_list_code0(self):
@@ -52,7 +56,11 @@ class CoursesListTest(TestCase):
         self.assertContains(response, 'SomeCourse')  
               
 class CoursesDetailTest(TestCase):
-
+    def test_course_valid_links2(self):
+		response = self.client.get('/')
+		self.assertContains(response, 'Main')
+		self.assertContains(response, 'Contacts')
+		self.assertContains(response, 'Students')
     def test_course_create(self):
         client = Client()
         add_course()
