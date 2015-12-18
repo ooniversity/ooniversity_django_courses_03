@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Quadratic solver{% endblock title %}
+
+{% block content %}
+    <p>Квадратное уравнение a*x^2 + b*x + c = 0</p>
+    <form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Решить уравнение"/>
+    </form>
+    {% if result %}
+    <p>Дискриминант: {{ d }}</p>
+    <p>{{ result }}</p>
+    {% endif %}
+{% endblock content %}
