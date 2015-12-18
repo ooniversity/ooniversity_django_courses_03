@@ -1,5 +1,8 @@
+# -*- coding: utf-8 -*-
 from django.test import TestCase, Client
 from students.models import Student
+from coaches.models import Coach
+from django.contrib.auth.models import User
 from courses.models import Course
 
 
@@ -61,3 +64,4 @@ class StudentsDetailTest(TestCase):
 	def test_feedback_link(self):
 		response = self.client.get('/feedback/')
 		self.assertEqual(response.status_code, 200)
+

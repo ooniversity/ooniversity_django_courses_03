@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.test import TestCase, Client
 from courses.models import Course, Lesson
 from coaches.models import Coach
@@ -97,6 +98,24 @@ class CoursesDetailTest(TestCase):
 								assistant=coach1)
 		response = self.client.get('/courses/edit/1/')
 		self.assertEqual(response.status_code, 200)
+		
+		def test_course_detail_add_lesson_button(self):
+		coach1 = Coach.objects.create(
+								user=User.objects.create(),
+								date_of_birth='2015-12-15',
+								gender='M',
+								phone='111-11-11',
+								address='address',
+								skype='skype',
+								description = 'desc')
+		course1 = Course.objects.create(
+								name='Course1-name',
+								short_description='Short',
+								description='description',
+								coach=coach1,
+								assistant=coach1)
+		response = self.client.get('/courses/1/')
+		self.assertContains(response, 'Добавить занятие')
 
 		
 		
