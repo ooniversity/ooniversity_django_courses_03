@@ -122,4 +122,8 @@ class StudentsDetailTest(TestCase):
 		response = self.client.get('/students/1/')
 		self.assertContains(response, 'Python/Django')
 		self.assertContains(response, '/courses/1/')
-    
+
+	def test_skype_check_student(self):
+		response = self.client.get('/students/1/')
+		self.assertContains(response, 'test1')
+

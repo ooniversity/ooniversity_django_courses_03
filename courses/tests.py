@@ -66,20 +66,15 @@ class CoursesListTest(TestCase):
 		insert_course()
 
 	def test_new_course(self):
-		#insert_course()
 		self.assertEqual(Course.objects.all().count(), 3)
 
 	def test_page_course(self):
-		#client = Client()
-		#insert_course()
 		response = self.client.get('/')
 		self.assertEqual(response.status_code, 200)
 		self.assertContains(response, 'PYTHON/DJANGO')
 		self.assertTemplateUsed(response, 'index.html')
     
 	def test_link_add_edit_remove_course(self):
-		#client = Client()
-		#insert_course()
 		response = self.client.get('/')
 		self.assertContains(response, '/courses/add/')
 		for i in range(1, 4):
@@ -87,8 +82,6 @@ class CoursesListTest(TestCase):
 			self.assertContains(response, '/courses/remove/{}/'.format(i))
     
 	def test_check_valid_add_course(self):
-		#client = Client()
-		#insert_course()
 		response = self.client.get('/courses/add/')
 		self.assertContains(response, 'Name')
 		self.assertContains(response, 'Short description')
@@ -97,15 +90,11 @@ class CoursesListTest(TestCase):
 		self.assertContains(response, 'Assistant')
     
 	def test_check_valid_edit_course(self):
-		#client = Client()
-		#insert_course()
 		response = self.client.get('/courses/edit/1/')
 		self.assertContains(response, 'user_1')
 		self.assertContains(response, 'user_3')
     
 	def test_check_valid_remove_course(self):
-		#client = Client()
-		#insert_course()
 		for i in range(1, 4):
 			response = self.client.post('/courses/remove/{}/'.format(i))
 			self.assertEqual(response.status_code, 302)
@@ -119,23 +108,16 @@ class CoursesDetailTest(TestCase):
 		insert_course()
 
 	def test_detail_page_course(self):
-		#client = Client()
-		#response = self.client.get('/courses/1/')
-		#self.assertEqual(response.status_code, 404)
-		#insert_course()
 		response = self.client.get('/courses/1/')
 		self.assertEqual(response.status_code, 200)
 		self.assertContains(response, 'Практический курс')
 		self.assertTemplateUsed(response, 'courses/detail.html')
 
 	def test_link_student(self):
-		#client = Client()
 		response = self.client.get('/students/', {'course_id': 1})
 		self.assertEqual(response.status_code, 200)
 
 	def test_coach(self):
-		#client = Client()
-		#insert_course()
 		response = self.client.get('/coaches/1/')
 		self.assertEqual(response.status_code, 200)
 
