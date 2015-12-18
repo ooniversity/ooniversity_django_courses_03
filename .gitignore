@@ -5,5 +5,5 @@
 *~
 /MANIFEST
 /.idea
-/courses_logger
-/students_logger
+/courses_logger.log
+/students_logger.log
