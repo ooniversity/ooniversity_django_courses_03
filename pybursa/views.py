@@ -26,20 +26,8 @@ def student_list(request):
 def student_detail(request):
     return render(request, 'student_detail.html')
 
-"""
-class FeedbackView(CreateView):
-    model = Feedback
-    form_class = FeedbackForm
-    template_name = "feedback.html"
-    success_url = reverse_lazy('feedback')
+def error_handler404(request):
+    return render(request,'404.html')
 
-    def form_valid(self, form):
-        send_mail(
-            subject=form.cleaned_data.get('subject'),#.encode('utf-8').strip(),
-            message=form.cleaned_data.get('message'),
-            from_email=form.cleaned_data.get('mesfrom_emailsage'),
-            recipient_list=settings.ADMINS
-        )
-        messages.success(self.request, 'Thank you for your feedback! We will keep in touch with you very soon!', extra_tags='msg')
-        return super(FeedbackView, self).form_valid(form)
-"""
+def error_handler500(request):
+    return render(request,'500.html')
