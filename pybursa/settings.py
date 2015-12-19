@@ -92,6 +92,42 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
+LOGGING = {
+     'version': 1,
+     'disable_existing_loggers': False,
+     'formatters': {
+         'detail': {
+             'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+         },
+         'short': {
+             'format': '%(levelname)s %(message)s'
+         },
+     },
+     'handlers': {
+         'file.courses': {
+             'level': 'DEBUG',
+             'class': 'logging.FileHandler',
+             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+             'formatter': 'short'
+         },
+         'file.students': {
+             'level': 'WARNING',
+             'class': 'logging.FileHandler',
+             'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+             'formatter': 'detail'
+         },
+     },
+     'loggers': {
+         'courses': {
+             'handlers': ['file.courses'],
+             'level': 'DEBUG',
+         },
+         'students': {
+             'handlers': ['file.students'],
+             'level': 'WARNING',
+         },
+     },
+ }
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
