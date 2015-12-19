@@ -54,6 +54,14 @@ class CoursesListTest(TestCase):
 		response = self.client.get('/')
 		self.assertContains(response, '/courses/edit/{}/'.format(course.id))
 
+	def test_link_delete(self):
+		course = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
+		response = self.client.get('/')
+		self.assertContains(response, '/courses/remove/{}/'.format(course.id))
+
 
 class CoursesDetailTest(TestCase):
 
@@ -110,3 +118,19 @@ class CoursesDetailTest(TestCase):
 		response = client.get('/courses/1/')
 		self.assertEqual(response.status_code, 200)
 		self.assertContains(response, course.description)
+
+	def test_detail_lesson(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 404)
+
+		course = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
+
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'Добавить занятие')

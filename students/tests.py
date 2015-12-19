@@ -95,6 +95,21 @@ class StudentsListTest(TestCase):
 		response = client.get('/students/?course_id=1')  
 		self.assertEqual(response.status_code, 200)
 
+	def test_student_skype(self):
+		client = Client()
+
+		student = Student.objects.create(
+			name = 'Student',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+		response = client.get('/students/')  
+		self.assertContains(response, 'olia')
+
 
 class StudentsDetailTest(TestCase):
 
@@ -182,3 +197,29 @@ class StudentsDetailTest(TestCase):
 		response = client.get('/students/1/')
 		self.assertEqual(response.status_code, 200)
 		self.assertContains(response, 'Kharkiv')
+
+	def test_student_skype(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 404)
+
+		course = Course.objects.create(
+			name = 'Course 1',
+			short_description = 'Second test for course list',
+			description = 'This is course number two')
+
+		student = Student.objects.create(
+			name = 'StudentBursa',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'olia')
