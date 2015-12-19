@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '5w48h%g+gq6u!o)of8cg=ne0jdv@136#-z@vfi4zf9n95cf2#k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'students',
     'coaches',
     'feedbacks',
-    'debug_toolbar'
+    #'debug_toolbar'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -133,3 +133,8 @@ LOGGING = {
             },
     },
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    print "Warning! local_settings are not defined!"
