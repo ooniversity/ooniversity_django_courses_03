@@ -1,89 +1,225 @@
 from django.test import TestCase
+from django.test import Client
+
 from students.models import Student
 from courses.models import Course
 
-
 class StudentsListTest(TestCase):
-    def test_courses_response_status(self):
-        response = self.client.get('/students/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'students/student_list.html')
 
-    def test_add_valid_student(self):
-        response = self.client.get('/students/add/')
-        self.assertContains(response, 'Student registration')
+	def test_students(self):
+		client = Client()
 
-    def test_edit_valid_course(self):
-        student = Student.objects.create(
-            name='Frank',
-            surname='Sinatra',
-            date_of_birth='1915-12-12'
-        )
-        response = self.client.get('/students/edit/1/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'students/student_form.html')
+		response = client.get('/students/')
+		self.assertEqual(response.status_code, 200)
 
-    def test_remove_valid_student(self):
-        student = Student.objects.create(
-            name='Frank',
-            surname='Sinatra',
-            date_of_birth='1915-12-12'
-        )
-        response = self.client.post('/students/remove/1/')
-        self.assertEqual(response.status_code, 302)
-        response = self.client.get('/students/remove/1/')
-        self.assertEqual(response.status_code, 404)
+		course = Course.objects.create(
+			name = 'Course 1',
+			short_description = 'Second test for course list',
+			description = 'This is course number two')
 
-    def test_title_form_list(self):
-        response = self.client.get('/students/')
-        self.assertContains(response, '<h5 class="white-text">Задайте вопрос</h5>')
+		student = Student.objects.create(
+			name = 'Student',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+		response = client.get('/students/')
+		self.assertEqual(response.status_code, 200)
+
+	def test_students_count(self):
+		client = Client()
+
+		response = client.get('/students/')
+		self.assertEqual(response.status_code, 200)
+
+		course = Course.objects.create(
+			name = 'Course 1',
+			short_description = 'Second test for course list',
+			description = 'This is course number two')
+
+		student = Student.objects.create(
+			name = 'Student',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+		response = client.get('/students/')
+		self.assertEqual(Course.objects.all().count(), 1)
+
+	def test_students_name(self):
+		client = Client()
+
+		response = client.get('/students/')
+		self.assertEqual(response.status_code, 200)
+
+		course = Course.objects.create(
+			name = 'Course 1',
+			short_description = 'Second test for course list',
+			description = 'This is course number two')
+
+		student = Student.objects.create(
+			name = 'Student',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+		response = client.get('/students/')
+		self.assertContains(response, 'student')
+
+	def test_student_course(self):
+		client = Client()
+
+		course = Course.objects.create(
+			name = 'Course 1',
+			short_description = 'Second test for course list',
+			description = 'This is course number one')
+
+		student = Student.objects.create(
+			name = 'Student',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+		response = client.get('/students/?course_id=1')  
+		self.assertEqual(response.status_code, 200)
+
+	def test_student_skype(self):
+		client = Client()
+
+		student = Student.objects.create(
+			name = 'Student',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+		response = client.get('/students/')  
+		self.assertContains(response, 'olia')
 
 
 class StudentsDetailTest(TestCase):
-    def test_response_404(self):
-        response = self.client.get('/students/1/')
-        self.assertEqual(response.status_code, 404)
 
-    def test_response_200(self):
-        student = Student.objects.create(
-            name='Frank',
-            surname='Sinatra',
-            date_of_birth='1915-12-12'
-        )
-        response = self.client.get('/students/1/')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(student.pk, 1)
-        self.assertContains(response, 'Frank Sinatra')
-        self.assertTemplateUsed(response, 'students/student_detail.html')
+	def test_student_empty(self):
+		from django.test import Client
+		client = Client()
 
-    def test_add_course(self):
-        course = Course.objects.create(
-            name='Python/Django 3 Поток',
-            short_description='Изучать Python',
-        )
-        student = Student.objects.create(
-            name='Frank',
-            surname='Sinatra',
-            date_of_birth='1915-12-12',
-        )
-        student.courses.add(course)
-        response = self.client.get('/students/1/')
-        self.assertContains(response, '/courses/1/')
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 404)
 
-    def test_bursa_mail(self):
-        student = Student.objects.create(
-            name='Frank',
-            surname='Sinatra',
-            date_of_birth='1915-12-12',
-        )
-        response = self.client.get('/students/1/')
-        self.assertContains(response, 'itbursa100@gmail.com')
+	def test_student_name(self):
+		from django.test import Client
+		client = Client()
 
-    def test_title_form(self):
-        student = Student.objects.create(
-            name='Frank',
-            surname='Sinatra',
-            date_of_birth='1915-12-12',
-        )
-        response = self.client.get('/students/1/')
-        self.assertContains(response, '<h5 class="white-text">Задайте вопрос</h5>')
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 404)
+
+		course = Course.objects.create(
+			name = 'Course 1',
+			short_description = 'Second test for course list',
+			description = 'This is course number two')
+
+		student = Student.objects.create(
+			name = 'StudentBursa',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'StudentBursa')
+
+	def test_student_email(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 404)
+
+		course = Course.objects.create(
+			name = 'Course 1',
+			short_description = 'Second test for course list',
+			description = 'This is course number two')
+
+		student = Student.objects.create(
+			name = 'StudentBursa',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'olia.yemets@gmail.com')
+
+	def test_student_address(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 404)
+
+		course = Course.objects.create(
+			name = 'Course 1',
+			short_description = 'Second test for course list',
+			description = 'This is course number two')
+
+		student = Student.objects.create(
+			name = 'StudentBursa',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'Kharkiv')
+
+	def test_student_skype(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 404)
+
+		course = Course.objects.create(
+			name = 'Course 1',
+			short_description = 'Second test for course list',
+			description = 'This is course number two')
+
+		student = Student.objects.create(
+			name = 'StudentBursa',
+			surname = 'Studentof',
+			date_of_birth = '1988-02-25',
+			email = 'olia.yemets@gmail.com',
+			phone = '0502165619',
+			address = 'Kharkiv',
+			skype = 'olia'
+			)
+
+		response = client.get('/students/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'olia')
