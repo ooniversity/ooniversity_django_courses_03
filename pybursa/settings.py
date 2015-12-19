@@ -65,11 +65,11 @@ LOGGING = {
 SECRET_KEY = 'env^g1ad-y*xt-sd(^b!3xptnisk43=95lz@f9+thcel=72m&5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 ADMINS = (('John', 'john@example.com'), ('Mary', 'mary@example.com'))
 
