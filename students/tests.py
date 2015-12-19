@@ -16,7 +16,7 @@ class StudentsListTest(TestCase):
 
     def students_create(self):
         for i in xrange(self.courses_number):
-            instance = CoursesListTest()
+            instance = CoursesListTest.courses_generator
             course = CoursesListTest.courses_generator(instance, 1)
             for j in xrange(self.students_number):
                 rnd_c = "".join([random.choice(string.letters) for i in xrange(5)])
