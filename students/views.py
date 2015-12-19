@@ -30,11 +30,12 @@ class StudentListView(ListView):
 class StudentDetailView(DetailView):
     model = Student
     success_url = reverse_lazy('index')
-    logger.debug("Students detail view has been debugged")
-    logger.info("Logger of students detail view informs you")
-    logger.warning("Logger of students detail view warns you")
-    logger.error("Students detail view went wrong!")
-    # student = models.Student.objects.get(id = student_id)
+    get_context_data(self, **kwargs):
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+        return super(StudentDetailView, self).get_context_data(**kwargs)    # student = models.Student.objects.get(id = student_id)
     # return render(request, 'students/detail.html', {'student': student})
 
 class StudentCreateView(CreateView):
