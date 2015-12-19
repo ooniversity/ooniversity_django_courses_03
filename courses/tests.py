@@ -28,3 +28,51 @@ class CoursesListTest(TestCase):
         client = Client()
         responce = client.get('/')
         self.assertContains(responce, 'PyBursa')
+
+class CoursesDetailTest(TestCase):
+    def test_page(self):
+        client = Client()
+        response = client.get('/courses/1/')
+        self.assertEqual(response.status_code, 404)
+
+    def test_course_create(self):
+        client = Client()
+        course1 = Course.objects.create(name="Python")
+        response = client.get('/courses/1/')
+        self.assertEqual(response.status_code, 200)
+        #self.assertContains(response,"Python")
+
+    def test_course_content(self):
+        client = Client()
+        course1 = Course.objects.create(name="Python")
+        response = client.get('/courses/1/')
+        #self.assertEqual(response.status_code, 200)
+        self.assertContains(response,"Python")
+
+    def test_detail_redirect(self):
+        client = Client()
+        course1 = Course.objects.create(name="Python")
+        responce = client.get('/courses/1')
+        self.assertEqual(responce.status_code, 301)
+
+    def test_create_coach(self):
+        client = Client()
+        Coach.objects.create(
+            user = User.objects.create_user(
+                username = 'dvfsd',
+                password = 'sdfsdf',
+                email = 'sdfsd01@ffff.com',
+                first_name = 'sdf',
+                last_name = 'sfdsdf',
+                ),
+            date_of_birth = '2010-10-01',
+            gender = 'F',
+            phone = '1234657980',
+            address = 'dgvsdv',
+            skype = 'dfbfdb',
+            description = 'dfbdf dfgvdfb dvfd',
+            )
+        responce = client.get('/')
+        self.assertEqual(responce.status_code, 200)
+
+
