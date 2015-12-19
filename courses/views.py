@@ -12,7 +12,7 @@ from django.shortcuts import redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic.detail import DetailView
-
+import random
 import logging
 logger = logging.getLogger(__name__)
 
@@ -113,6 +113,23 @@ class CourseDetailView(DetailView):
 		n_lesson = Lesson.objects.filter(course_id=self.object.id)
 		context['name_lesson'] = n_lesson
 		context['id_c'] = id_c
+		
+		element = random.choice(range(1,Course.objects.all().count()))
+		print element
+		clessons = Lesson.objects.filter(course_id=element)
+		print clessons
+		kollessons = clessons.count()
+		print kollessons
+		les1 = Lesson.objects.create(
+							subject='lesson01',
+							description='desc', 
+							course = Course.objects.get(id=element),
+							order =100	)
+		print Lesson.objects.filter(course_id=element).count()		
+		print kollessons+1
+		#self.assertEqual(Lesson.objects.filter(course_id=element).count(), kollessons+1) 
+
+	
 		return context
 
 def detail(request, course_id):
