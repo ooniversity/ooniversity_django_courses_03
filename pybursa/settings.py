@@ -107,12 +107,50 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Email settings
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+EMAIL_HOST = 'smtp-pulse.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
 
-# EMAIL_HOST_USER
-# EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER = 's.pod.pub@ya.ru'
+EMAIL_HOST_PASSWORD = 'ikm3tMPdoJtcp8'
 
 SERVER_EMAIL = 's.pod.pub@ya.ru'
 ADMINS = ('s.pod.pub@ya.ru',)
 
+# Logging settings
+
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'courses': {
+            'handlers': ['courses_log_file'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['students_log_file'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers': {
+        'courses_log_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_handler'),
+            'formatter': 'simple',
+        },
+        'students_log_file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_handler'),
+            'formatter': 'verbose',
+        },
+    },
+    'formatters': {
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+    },
+}

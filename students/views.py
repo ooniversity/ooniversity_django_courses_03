@@ -6,7 +6,10 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.core.urlresolvers import reverse_lazy
-from django.core.paginator import Paginator
+# from django.core.paginator import Paginator
+
+import logging
+logger = logging.getLogger(__name__)
 
 
 class StudentListView(ListView):
@@ -31,6 +34,11 @@ class StudentDetailView(DetailView):
     model = Student
     # template_name = ""
     # context_object_name = "student_details"
+
+    logger.debug('Students detail view has been debugged')
+    logger.info('Logger of students detail view informs you!')
+    logger.warning('Logger of students detail view warns you!')
+    logger.error('Students detail view went wrong!')
 
 
 class StudentCreateView(CreateView):
@@ -60,7 +68,7 @@ class StudentUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        message = u'Info on the student has been sucessfully changed.'  # successfully
+        message = u'Info on the student has been successfully changed.'  # successfully
         messages.add_message(self.request, messages.SUCCESS, message)
         return super(StudentUpdateView, self).form_valid(form)
 
@@ -78,6 +86,6 @@ class StudentDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         student = self.get_object()
-        message = u"Info on %s has been sucessfully deleted." % student  # successfully
+        message = u"Info on %s has been successfully deleted." % student  # successfully
         messages.success(self.request, message)
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
