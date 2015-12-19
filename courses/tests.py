@@ -77,5 +77,5 @@ class CoursesListTest(TestCase):
         course_name = 'test_course'
         course_create(course_name)
         # import pdb; pdb.set_trace()
-        context = client.get('/').context['courses']
-        self.assertContains(context.context, course_name)
+        request = client.get('/')
+        self.assertContains(request.values('courses'), course_name)
