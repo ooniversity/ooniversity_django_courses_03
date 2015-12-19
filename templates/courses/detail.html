@@ -25,11 +25,15 @@
           {% if course.coach %}
             <p>Coaches</p>
             <p><a href={% url 'coaches:detail' course.coach.id %}>{{course.coach.user.username}}</a></p>
+            {% else %}
+            <p>No coaches yet</p>
           {% endif %}
 
           {% if course.assistant %}
             <p>Assistants</p>
             <p><a href={% url 'coaches:detail' course.assistant.id %}>{{course.assistant.user.username}}</a></p>
+            {% else %}
+            <p>No assistants yet</p>
           {% endif %}
           
           </div>
