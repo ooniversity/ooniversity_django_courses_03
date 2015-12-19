@@ -21,11 +21,11 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as DEFAULT_T
 SECRET_KEY = 'o)-ngq2-qshhu687cz2pa((@paj7x)j=734th0(pjf93v)$)y_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*' ]
 
 
 # Application definition
