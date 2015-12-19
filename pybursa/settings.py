@@ -97,48 +97,39 @@ EMAIL_PORT = 1025
 ADMINS = (('admin', 'Admin@gmail.ua'), )
 
 LOGGING = {
-    'version':1,
+    'version': 1,
     'loggers':
-    {
-        'courses.views':{
-            'handlers':['console', 'file'],
-            'level':'DEBUG',
+        {
+            'courses': {
+                'handlers': ['courses_file'],
+                'level': 'DEBUG'
+            },
+            'students': {
+                'handlers': ['students_file'],
+                'level': 'WARNING'
+            }
         },
-        'students.views':{
-            'handlers':['console2', 'file2'],
-            'level':'WARNING',
-        },
-    },
     'handlers':
-    {
-        'console': {
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
+        {
+            'courses_file': {
+                'level': 'DEBUG',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+                'formatter': 'short'
+            },
+            'students_file': {
+                'level': 'WARNING',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+                'formatter': 'detail'
+            }
         },
-        'console2': {
-            'level':'WARNING',
-            'class':'logging.StreamHandler',
-        },
-        'file':{
-            'level':'DEBUG',
-            'class':'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
-            'formatter':'simple',
-        },
-        'file2':{
-            'level':'WARNING',
-            'class':'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
-            'formatter':'verbose',
-        }
-    },
     'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        'detail': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
-        'simple': {
+        'short': {
             'format': '%(levelname)s %(message)s'
         },
     },
 }
-
