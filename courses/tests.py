@@ -1,3 +1,5 @@
+# -*- coding:UTF-8 -*-
+
 import random
 from datetime import date
 from django.test import TestCase, Client
@@ -69,6 +71,10 @@ class CoursesListTest(TestCase):
     def test_getting_index_page(self):
         client = Client()
         response = client.get('/')
-        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
 
+    def test_button_main_and_active(self):
+        client = Client()
+        response = client.get('/')
+        self.assertContains(response, '<li class="active"><a href="/">Главная</a></li>')
