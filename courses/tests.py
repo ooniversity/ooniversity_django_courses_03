@@ -99,7 +99,7 @@ class CoursesListTest(TestCase):
         client = Client()
         response = client.get('/')
         context_c = response.context['courses']
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(context_c), self.courses_number)
 
