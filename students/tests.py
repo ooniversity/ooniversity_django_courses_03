@@ -55,12 +55,6 @@ class StudentsListTest(TestCase):
         response = client.get('/students/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response.content, 'students/student_list.html')
-'''
-    def test_ability_to_add_student(self):
-        client = Client()
-        response = client.get('/students/')
-        self.assertContains(response, '<a href="/students/add/')
-'''
 
     def test_check_student_edit_button_equality(self):
 
@@ -73,3 +67,12 @@ class StudentsListTest(TestCase):
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(real_buttons_number, 2)
+
+
+'''
+    def test_ability_to_add_student(self):
+        client = Client()
+        response = client.get('/students/')
+        self.assertContains(response, '<a href="/students/add/')
+'''
+
