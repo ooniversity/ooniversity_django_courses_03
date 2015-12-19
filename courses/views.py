@@ -1,22 +1,30 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core.urlresolvers import reverse_lazy
 from django.contrib import messages
-from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 from courses.models import Course, Lesson
 from courses.forms import CourseModelForm, LessonModelForm
-
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+import logging
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
     context_object_name = 'course'
 
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        logger.debug('Courses detail view has been debugged')
+        logger.info('Logger of courses detail view informs you!')
+        logger.warning('Logger of courses detail view warns you!')
+        logger.error('Courses detail view went wrong!')
+        return context
+
 class LessonCreateView(CreateView):
     model = Lesson
     template_name = 'courses/add_lesson.html'
-    #success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         context = super(LessonCreateView, self).get_context_data(**kwargs)
@@ -31,6 +39,8 @@ class LessonCreateView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('courses:detail', kwargs={'pk': self.object.course_id})
+
+
 
 class CourseCreateView(CreateView):
     model = Course
@@ -47,6 +57,7 @@ class CourseCreateView(CreateView):
         mess = u'Course {} has been successfully added.' .format(self.object.name)
         messages.success(self.request, mess)
         return message
+
 
 class CourseUpdateView(UpdateView):
     model = Course
@@ -80,4 +91,5 @@ class CourseDeleteView(DeleteView):
         mess = u'Course {} has been deleted.' .format(self.object.name)
         messages.success(self.request, mess)
         return message
+
 

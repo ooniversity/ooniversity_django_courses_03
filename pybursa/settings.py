@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '9hu3lg7l8y2f$&lz^_j70zho&jg4gp!k5+pegig0ord2$od++4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -114,6 +114,40 @@ EMAIL_HOST = 'localhost'
 
 EMAIL_PORT = 1025
 
-ADMINS = (('NVA', 'vovan817@mail.ru'),)
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'courses': {
+            'handlers': ['course_handler'],
+            'level': 'DEBUG'
+        },
+        'students': {
+            'handlers': ['student_handler'],
+            'level': 'WARNING'
+        }
+    },
+    'handlers': {
+        'course_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'simple'
+        },
+        'student_handler': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'verbose'
+        }
+    },
 
-EMAIL_SUBJECT_PREFIX = ''
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+
+}
