@@ -1,4 +1,4 @@
 # python precompiled files:
 *.pyc
 *.pyo
-*venv
+*.log
