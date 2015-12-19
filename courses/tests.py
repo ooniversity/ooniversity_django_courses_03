@@ -59,6 +59,10 @@ def course_create(course):
 
 
 class CoursesListTest(TestCase):
+
+    c1 = course_create("course_name_1")
+    c2 = course_create("course_name_2")
+
     def test_getting_index_page(self):
         client = Client()
         response = client.get('/')
@@ -72,9 +76,8 @@ class CoursesListTest(TestCase):
 
     def test_courses_presence_on_page(self):
         client = Client()
-        c1 = course_create("course_name_1")
-        c2 = course_create("course_name_2")
+
         import pdb
         pdb.set_trace()
         response = client.get('/')
-        self.assertContains(response.content, c1, 200)
+        self.assertContains(response.content, self.c1)
