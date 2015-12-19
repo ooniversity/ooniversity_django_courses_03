@@ -87,7 +87,7 @@ class CoursesListTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(context_c), self.courses_number)
 
-    def test_check_course_edit_button_presence(self):
+    def test_check_course_edit_button_equality(self):
 
         self.courses_generator(self.courses_number)
 
@@ -95,6 +95,18 @@ class CoursesListTest(TestCase):
         response = client.get('/')
         content = response.content
         real_buttons_number = content.count('<a href="/courses/edit/')
+        # import pdb; pdb.set_trace()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(real_buttons_number, self.courses_number)
+
+    def test_check_course_remove_button_equality(self):
+
+        self.courses_generator(self.courses_number)
+
+        client = Client()
+        response = client.get('/')
+        content = response.content
+        real_buttons_number = content.count('<a href="/courses/remove/"')
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(real_buttons_number, self.courses_number)
