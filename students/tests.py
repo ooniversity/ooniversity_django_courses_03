@@ -22,14 +22,10 @@ class StudentsListTest(TestCase):
             course_name = ("test_course_" + rnd_c)
             short_description = "This is the test short_description for " + rnd_c
             description = "This is the test full description for " + rnd_c
-            coach = "coach_" + rnd_c
-            assistant = "coach_" + rnd_c
 
             course = Course.objects.create(name=course_name,
                                            short_description=short_description,
                                            description=description,
-                                           coach=coach,
-                                           assistant=assistant,
                                            )
             for s_i in xrange(self.students_number):
                 rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
