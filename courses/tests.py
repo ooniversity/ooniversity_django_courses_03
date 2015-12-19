@@ -41,7 +41,7 @@ class CoursesDetailTest(TestCase):
 	def test_courses_detail(self):
 		client = Client()
 		course = Course.objects.create(name="Web dev", short_description="Best course")
-		response = client.get('/courses/1/')
+		response = client.get('/courses/%s/' % course.id)
 		self.assertEqual(response.status_code, 200)
 
 	def test_courses_detail_not_found(self):
@@ -52,18 +52,17 @@ class CoursesDetailTest(TestCase):
 	def test_course_detail_page_correct_title(self):
 		client = Client()
 		course = Course.objects.create(name="Web dev", short_description="Best course")
-		response = client.get('/courses/1/')
+		response = client.get('/courses/%s/' % course.id)
 		self.assertContains(response, "<title>Course detail</title>")
 
 	def test_course_detail_page_correct_coaches(self):
 		client = Client()
 		course = Course.objects.create(name="Web dev", short_description="Best course")
-		response = client.get('/courses/1/')
+		response = client.get('/courses/%s/' % course.id)
 		self.assertContains(response, "<p>No coaches yet</p>")
 
 	def test_course_detail_page_correct_assistants(self):
 		client = Client()
 		course = Course.objects.create(name="Web dev", short_description="Best course")
-		response = client.get('/courses/1/')
-		print response
+		response = client.get('/courses/%s/' % course.id)
 		self.assertContains(response, "<p>No assistants yet</p>")
