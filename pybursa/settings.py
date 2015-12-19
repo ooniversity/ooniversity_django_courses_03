@@ -101,16 +101,26 @@ DEFAULT_FROM_EMAIL = "test_python@gmail.com"
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
         'file_courses': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR,'courses_logger'),
+            'formatter': 'simple'
         },
         'file_students': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR,'students_logger'),
+            'formatter': 'verbose'
         },
         'console': {
             'level': 'DEBUG',
