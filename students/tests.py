@@ -58,7 +58,7 @@ class StudentsListTest(TestCase):
 
 
 class StudentsDetailTest(TestCase):
-    def test_pages(self):
+    def test_page_students_detail(self):
         from django.test import Client
         client = Client()
         response = client.get('/students/1/')
@@ -73,3 +73,77 @@ class StudentsDetailTest(TestCase):
 
         self.assertContains(response, "Ksenia")
         #self.assertQuerysetEqual(response.context['latest_question_list'], [])
+
+    def test_students_detail_name_surname_in_header(self):
+        from django.test import Client
+        client = Client()
+        response = client.get('/students/1/')
+        self.assertEqual(response.status_code, 404)
+        student1 = Student.objects.create(
+            name='Ksenia_Test',
+            surname='Kolomiets_Test',
+            date_of_birth='1981-01-29')
+        response = self.client.get('/students/1/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Ksenia_Test Kolomiets_Test")
+
+    def test_students_detail_birth_date_format(self):
+        from django.test import Client
+        client = Client()
+        response = client.get('/students/1/')
+        self.assertEqual(response.status_code, 404)
+        student1 = Student.objects.create(
+            name='Ksenia_Test',
+            surname='Kolomiets_Test',
+            date_of_birth='1981-01-29')
+        response = self.client.get('/students/1/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Jan. 29, 1981")
+
+    def test_students_detail_email_displaying(self):
+        from django.test import Client
+        client = Client()
+        response = client.get('/students/1/')
+        self.assertEqual(response.status_code, 404)
+        student1 = Student.objects.create(
+            name='Ksenia_Test',
+            surname='Kolomiets_Test',
+            date_of_birth='1981-01-29',
+            email="ksenia.k@gmail.com")
+        response = self.client.get('/students/1/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "ksenia.k@gmail.com")
+
+    def test_students_detail_address_displaying(self):
+        from django.test import Client
+        client = Client()
+        response = client.get('/students/1/')
+        self.assertEqual(response.status_code, 404)
+        student1 = Student.objects.create(
+            name='Ksenia_Test',
+            surname='Kolomiets_Test',
+            date_of_birth='1981-01-29',
+            address="Kharkov, Novgorodskaya, 11",)
+        response = self.client.get('/students/1/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Kharkov, Novgorodskaya, 11")
+
+"""
+        student1 = Student.objects.create(
+            name='Ksenia_Test',
+            surname='Kolomiets_Test',
+            date_of_birth='1981-01-29',
+            address="Kharkov",
+            email="ksenia.k@gmail.com",
+            phone="12-34-67",
+            skype="ksenia")
+
+        response = self.client.get('/students/1/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Ksenia_Test Kolomiets_Test")
+        self.assertContains(response, "Jan. 29, 1981")
+        self.assertContains(response, "Kharkov")
+        self.assertContains(response, "ksenia.k@gmail.com")
+        self.assertContains(response, "12-34-67")
+        self.assertContains(response, "ksenia")
+"""
