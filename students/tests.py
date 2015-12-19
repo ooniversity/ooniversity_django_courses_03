@@ -14,6 +14,16 @@ class StudentsListTest(TestCase):
     courses_number = 3
     students_number = random.randrange(1, 4)
 
+    courses = CoursesListTest()
+
+    def test_simple(self):
+        CoursesListTest.courses_generator(self.courses, 1)
+        import pdb; pdb.set_trace()
+
+
+    
+
+'''
     def students_create(self):
         for i in xrange(self.courses_number):
             instance = CoursesListTest()
@@ -38,3 +48,5 @@ class StudentsListTest(TestCase):
         response = client.get('/students/')
         import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
+
+'''
