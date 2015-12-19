@@ -4,6 +4,7 @@ from django.shortcuts import render
 import views
 from feedbacks.views import FeedbackView
 from django.conf import settings 
+from pybursa import views
 
 urlpatterns = patterns('',
     url(r'^polls/', include('polls.urls', namespace="polls")),
@@ -18,3 +19,5 @@ urlpatterns = patterns('',
     url(r'^quadratic/', include('quadratic.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
+handler404 = 'pybursa.views.page_not_found404'
+handler500 = 'pybursa.views.internal_error500'
