@@ -32,24 +32,27 @@
       <h2 class="course">Преподаватели</h2>
       <div class="panel panel-default">
         <div class="panel-heading">Учитель</div>
+        {% if course.coach %}
           <div class="panel-body">
             <a href="{% url 'coaches:detail' course.coach.id %}">{{ coach }}</a>
             <p>{{ course.coach.description }}</p>
           </div>
+        {% endif %}
         </div>
-      </div>
   </div>
 
   <div class="container">
       <div class="panel panel-default">
         <div class="panel-heading">Ассистент</div>
+        {% if course.coach %}
           <div class="panel-body">
             <a href="{% url 'coaches:detail' course.assistant.id %}">{{ assistant }}</a>
             <p>{{ course.assistant.description }}</p>
           </div>
+        {% endif %}
         </div>
-      </div>
-  </div>
+ </div>
+
 
     <div class="container">
         <h2 class="course">План курса</h2>

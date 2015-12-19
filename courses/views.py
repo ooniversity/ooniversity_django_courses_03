@@ -19,8 +19,10 @@ class CourseDetailView(DetailView):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         courses = Course.objects.get(id=self.kwargs['pk'])
         context['course'] = courses
-        context['coach'] = courses.coach.user.get_full_name()
-        context['assistant'] = courses.assistant.user.get_full_name()
+        if courses.coach:
+            context['coach'] = courses.coach.user.get_full_name()
+        if courses.assistant:
+            context['assistant'] = courses.assistant.user.get_full_name()
 
         logger.debug("Courses detail view has been debugged")
         logger.info("Logger of courses detail view informs you!")
