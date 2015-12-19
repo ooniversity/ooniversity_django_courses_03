@@ -8,12 +8,6 @@ class StudentsListTest(TestCase):
     def test_student_create(self):
         student1 = Student.objects.create(name="Katya",date_of_birth = '2015-01-01')
         self.assertEqual(Student.objects.all().count(), 1)
-
-    #def test_lessons_create(self):
-    #    course1 = Course.objects.create(name="Python")
-    #    lesson1 = Lesson.objects.create(subject="Les1",course=course1,description="xfvdvdfv", order = 1)
-    #    course1_lessons = Lesson.objects.filter(course_id=course1.id)
-    #    self.assertEqual(course1_lessons.all().count(),1)
     def test_list_statuscode(self):
         client = Client()
         responce = client.get(reverse_lazy('students:list_view'))
@@ -31,3 +25,36 @@ class StudentsListTest(TestCase):
         client = Client()
         responce = client.get('/students/')
         self.assertContains(responce, 'Katya')
+
+
+class StudentsDetailTest(TestCase):
+    def test_page(self):
+        client = Client()
+        response = client.get('/students/1/')
+        self.assertEqual(response.status_code, 404)
+
+    def test_student_create(self):
+        client = Client()
+        student1 = Student.objects.create(name="Katya",date_of_birth = '2015-01-01')
+        response = client.get('/students/1/')
+        self.assertEqual(response.status_code, 200)
+        #self.assertContains(response,"Python")
+
+    def test_student_content(self):
+        client = Client()
+        student1 = Student.objects.create(name="Katya",date_of_birth = '2015-01-01')
+        response = client.get('/students/1/')
+        #self.assertEqual(response.status_code, 200)
+        self.assertContains(response,"Katya")
+
+    def test_detail_redirect(self):
+        client = Client()
+        student1 = Student.objects.create(name="Katya",date_of_birth = '2015-01-01')
+        responce = client.get('/courses/1')
+        self.assertEqual(responce.status_code, 301)
+
+    def test_student_date_of_birth(self):
+        client = Client()
+        student1 = Student.objects.create(name="Katya",date_of_birth = '1990-09-10')
+        response = client.get('/students/1/')
+        self.assertContains(response,'Sept. 10, 1990')

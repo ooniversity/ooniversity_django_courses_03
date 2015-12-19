@@ -47,6 +47,7 @@
 
     <div class="container">
       <!--<div class="jumbotron transparant-background">-->
+        {% if course.coach %}
         <div class="panel panel-primary transparant-background">
           <div class="panel-heading">
             Course coach
@@ -56,6 +57,8 @@
             <p>{{ course.coach.description }}</p>
           </div>
         </div>
+        {% endif %}
+        {% if course.assistant %}
         <div class="panel panel-primary transparant-background">
           <div class="panel-heading">
             Course assistant
@@ -64,6 +67,7 @@
           <p><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant }}</a></p>
           <p>{{ course.assistant.description }}</p>
         </div>
+        {% endif %}
       </div>
     </div>
 {% endblock content %}
