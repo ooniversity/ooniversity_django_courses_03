@@ -27,7 +27,7 @@
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading">Students List</div>
-
+      {% if student_list %}
       <!-- Table -->
       <table class="table table-striped table-bordered">
       <thead>
@@ -55,7 +55,9 @@
       {% endfor %}
       </tbody>
       </table>
-
+      {% else %}
+        <p>No students are available.</p>
+      {% endif %}
     </div>
 
 {% include 'include/pagination_include.html' %}
