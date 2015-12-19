@@ -3,6 +3,7 @@
 import random, string
 from datetime import date
 from django.test import TestCase, Client
+from courses.tests import CoursesListTest
 from django.contrib.auth.models import User
 from students.models import Student
 from courses.models import Course
@@ -15,7 +16,7 @@ class StudentsListTest(TestCase):
 
     def students_create(self):
         for i in xrange(self.courses_number):
-            course = self.course_create()
+            course = CoursesListTest.courses_generator
             for j in xrange(self.students_number):
                 rnd_c = "".join([random.choice(string.letters) for i in xrange(5)])
                 rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
