@@ -93,7 +93,7 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = '1025'
 
 ADMINS = (('kostya', 'kostya@gmail.com'),)
-print(os.path.join)
+
 LOGGING = {
     'version': 1,
     'loggers': {
