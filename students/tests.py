@@ -68,6 +68,23 @@ class StudentsListTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(real_buttons_number, 2)
 
+    def test_check_student_remove_button_equality(self):
+
+        self.course_students_create()
+
+        client = Client()
+        response = client.get('/students/')
+        content = response.content
+        real_buttons_number = content.count('<a href="/students/remove/')
+        # import pdb; pdb.set_trace()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(real_buttons_number, 2)
+
+    def test_pagination(self):
+        client = Client()
+        response = client.get('/students/?page=2')
+        self.assertEqual(response.status_code, 200)
+
 
 '''
     def test_ability_to_add_student(self):
