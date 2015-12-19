@@ -70,7 +70,6 @@ def courses_generator(number):
 class CoursesListTest(TestCase):
 
     courses_number = 5
-    courses_generator(courses_number)
 
     def test_getting_index_page(self):
         client = Client()
@@ -85,6 +84,8 @@ class CoursesListTest(TestCase):
 
     def test_courses_presence_on_page(self):
 
+        courses_generator(self.courses_number)
+
         client = Client()
         response = client.get('/')
         context_c = response.context['courses']
@@ -93,11 +94,13 @@ class CoursesListTest(TestCase):
         self.assertEqual(len(context_c), self.courses_number)
 
     def test_check_course_edit_button_presence(self):
+
+        courses_generator(self.courses_number)
+
         client = Client()
         response = client.get('/')
-        content = response.content()
+        content = response.content
         real_buttons_number = content.count('<a href="/courses/edit/')
-        exp_edit_course_buttons_num = self.courses_number
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(real_buttons_number, exp_edit_course_buttons_num)
+        self.assertEqual(real_buttons_number, self.courses_number)
