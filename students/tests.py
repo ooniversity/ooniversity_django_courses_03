@@ -67,7 +67,44 @@ class StudentsListTest(TestCase):
         response = client.get('/students/')
         self.assertContains(response, '<a href="/students/add/')
 
+    def test_student_lists_normal_response(self):
+        client = Client()
+        response = client.get('/students/?course_id=1')  
+        self.assertEqual(response.status_code, 200)
 
+    def test_student_lists_course_pages(self):
+        client = Client()
+        response = client.get('/students/?course_id=1') 
+        items = create_students()
+        for n in items:
+            for i in items[n].courses.all():
+                students_count = len(Student.objects.filter(courses=i.id))
+                if students_count % 2 == 0:
+                    pages = students_count / 2
+                else:
+                    pages = students_count / 2 + 1
+                response = client.get('/students/?course_id=%d&page=1' % 1 )  
+                self.assertEqual(response.status_code, 200)
+
+    def test_student_lists_pages(self):
+        client = Client()
+        response = client.get('/students/?course_id=1') 
+        items = create_students()
+        for i in items:
+            if items[i].id % 2 == 0:
+                page = items[i].id / 2
+            else:
+                page = items[i].id / 2 + 1
+            response = client.get('/students/?page=%d' % page )  
+            self.assertEqual(response.status_code, 200)
+
+    def test_list_template(self):
+        response = self.client.get('/students/')
+        self.assertTemplateUsed(response, 'students/student_list.html')
+
+    def test_list_title(self):
+        response = self.client.get('/students/')
+        self.assertContains(response, 'Pybursa Students')
 
 
 
