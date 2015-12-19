@@ -94,7 +94,7 @@ class CoursesListTest(TestCase):
 
     def test_courses_presence_on_page(self):
 
-        self.courses_generator(3)
+        self.courses_generator(self.courses_number)
 
         client = Client()
         response = client.get('/')
@@ -105,7 +105,7 @@ class CoursesListTest(TestCase):
 
     def test_check_course_edit_button_equality(self):
 
-        # self.courses_generator(self.courses_number)
+        self.courses_generator(self.courses_number)
 
         client = Client()
         response = client.get('/')
@@ -117,7 +117,7 @@ class CoursesListTest(TestCase):
 
     def test_check_course_remove_button_equality(self):
 
-        # self.courses_generator(self.courses_number)
+        self.courses_generator(self.courses_number)
 
         client = Client()
         response = client.get('/')
