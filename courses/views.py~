@@ -6,6 +6,9 @@ from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+import logging
+
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
@@ -18,7 +21,12 @@ class CourseDetailView(DetailView):
         context['course'] = courses
         context['coach'] = courses.coach.user.get_full_name()
         context['assistant'] = courses.assistant.user.get_full_name()
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")        
         return context
+
 
 class CourseCreateView(CreateView):
     model = Course
@@ -29,8 +37,8 @@ class CourseCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super(CourseCreateView, self).get_context_data(**kwargs)
         context['title'] = "Course creation"
-        context['name_form'] = "Создание нового курса"
-        context['name_button'] = "Создать"
+        context['name_form'] = "Create New Course"
+        context['name_button'] = "Create"
         return context
 
     def form_valid(self, form):
@@ -47,8 +55,8 @@ class CourseUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super(CourseUpdateView, self).get_context_data(**kwargs)
         context['title'] = "Course update"
-        context['name_form'] = "Редактирование данных курса"
-        context['name_button'] = "Изменить"
+        context['name_form'] = "Change Data Course"
+        context['name_button'] = "Change"
         return context
 
     def form_valid(self, form):
@@ -67,7 +75,7 @@ class CourseDeleteView(DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super(CourseDeleteView, self).get_context_data(**kwargs)
-        context['title'] = "Course deletion"
+        context['title'] = "Course Deletion"
         courses = Course.objects.get(id=self.kwargs['pk'])
         context['name'] = courses
         return context
