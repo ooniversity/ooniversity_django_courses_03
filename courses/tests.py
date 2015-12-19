@@ -116,7 +116,7 @@ class CoursesDetailTest(TestCase):
 
     def test_resolve_course_details(self):
 
-        self.courses_generator(self.courses_number)
+        CoursesListTest.courses_generator(self.courses_number)
 
         client = Client()
 
@@ -125,7 +125,7 @@ class CoursesDetailTest(TestCase):
 
     def test_presence_of_add_lesson_button(self):
 
-        self.courses_generator(self.courses_number)
+        CoursesListTest.courses_generator(self.courses_number)
 
         client = Client()
         response = client.get('/courses/1/')
