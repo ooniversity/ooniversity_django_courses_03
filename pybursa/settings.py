@@ -42,6 +42,8 @@ INSTALLED_APPS = (
     'polls',
     'quadratic',
     'students',
+    'debug_toolbar',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
