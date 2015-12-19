@@ -15,13 +15,13 @@ def student_list(request):
 def student_detail(request):
 	return render(request, 'student_detail.html')
 
-def handler404(request):
+def page_not_found(request):
     response = render_to_response('404.html', {},
                                   context_instance=RequestContext(request))
     response.status_code = 404
     return response
 
-def handler500(request):
+def server_error(request):
     response = render_to_response('500.html', {},
                                   context_instance=RequestContext(request))
     response.status_code = 500

@@ -16,5 +16,5 @@ urlpatterns = patterns('',
     url(r'feedback/$', FeedbackView.as_view(), name='feedback'),
 )
 
-handler404 = "pybursa.views.handler404"
-handler500 = "pybursa.views.handler500"
+handler404 = "pybursa.views.page_not_found"
+handler500 = "pybursa.views.server_error"
