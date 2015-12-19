@@ -58,6 +58,15 @@ def course_create(course):
                                  )
 
 
+def courses_generator(number):
+
+        courses_number = number
+
+        for i in range(courses_number):
+            course_name = ("test_course_" + "".join([random.choice(string.letters) for i in xrange(5)]))
+            course_create(course_name)
+
+
 class CoursesListTest(TestCase):
 
     def test_getting_index_page(self):
@@ -73,10 +82,8 @@ class CoursesListTest(TestCase):
 
     def test_courses_presence_on_page(self):
 
-        courses_number = 3
-        for i in range(courses_number):
-            course_name = ("test_course" + "".join([random.choice(string.letters) for i in xrange(5)]))
-            course_create(course_name)
+        courses_number = 5
+        courses_generator(courses_number)
 
         client = Client()
         response = client.get('/')
