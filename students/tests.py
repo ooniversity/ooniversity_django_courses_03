@@ -87,46 +87,5 @@ class StudentsListTest(TestCase):
 
 
 class StudentsDetailTest(TestCase):
-    def test_resolve_student_details3(self):
-        client = Client()
-
-        response = client.get('/student/1/')
-        self.assertEqual(response.status_code, 404)
-
-    def test_resolve_student_details4(self):
-        client = Client()
-
-        response = client.get('/student/9/')
-        self.assertEqual(response.status_code, 404)
-
-    def test_resolve_student_details6(self):
-        client = Client()
-
-        response = client.get('/student/6/')
-        self.assertEqual(response.status_code, 404)
-
-    def test_resolve_student_details7(self):
-        client = Client()
-
-        response = client.get('/student/5/')
-        self.assertEqual(response.status_code, 404)
-
-    def test_resolve_student_details8(self):
-        client = Client()
-
-        response = client.get('/student/4/')
-        self.assertEqual(response.status_code, 404)
-
-    def test_resolve_student_detai8(self):
-        client = Client()
-
-        response = client.get('/student/3/')
-        self.assertEqual(response.status_code, 404)
-
-
-'''
-    def test_ability_to_add_student(self):
-        client = Client()
-        response = client.get('/students/')
-        self.assertContains(response, '<a href="/students/add/')
-'''
+    """ not implemented """
+    pass
