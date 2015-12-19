@@ -41,7 +41,9 @@ INSTALLED_APPS = (
     'courses',
     'students',
     'coaches',
-    'feedbacks'
+    'feedbacks',
+    'debug_toolbar',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,3 +98,41 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
 ADMINS = (('alex', 'atim@mail.ru'), ('alex', 'atim@gmail.com'))
+LOGGING = {
+    'version': 1,
+    'loggers':
+        {
+            'courses': {
+                'handlers': ['courses_message'],
+                'level': 'DEBUG',
+            },
+            'students': {
+                'handlers': ['students_message'],
+                'level': 'WARNING',
+            }
+        },
+    'handlers':
+        {
+            'courses_message': {
+                'level': 'DEBUG',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+                'formatter': 'course_format'
+            },
+            'students_message': {
+                'level': 'WARNING',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+                'formatter': 'student_format'
+            },
+        },
+    'formatters': {
+        "course_format": {
+            'format': '%(levelname)s %(message)s'
+        },
+        "student_format": {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+
+    },
+}
