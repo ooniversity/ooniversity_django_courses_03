@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include, url, handler404, handler500
 from django.contrib import admin
 from pybursa.views import index, contact, student_list, student_detail
 from feedbacks import views
@@ -19,7 +19,9 @@ urlpatterns = patterns('',
 	url(r'^courses/', include('courses.urls', namespace="courses")),
 	url(r'^students/', include('students.urls', namespace="students")),
 	url(r'^coaches/', include('coaches.urls', namespace="coaches")),
-
 	
 )
+
+handler404 = 'pybursa.views.custom_page_not_found'
+handler500 = 'pybursa.views.custom_500_server_error'
 
