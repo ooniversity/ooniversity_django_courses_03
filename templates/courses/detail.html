@@ -16,9 +16,11 @@
     {% include "include/result_msg_include.html" %}
     <h2>{{ course.name }}</h2><hr>
     <p>{{ course.description|truncatechars:32 }}</p>
+    {% if course.coach %}
     <h3>Преподаватели</h3>
     {% include "include/coach_include.html" with block_title="Учитель" instructor=course.coach %}
     {% include "include/coach_include.html" with block_title="Ассистент" instructor=course.assistant %}
+    {% endif %}
     <a href="{% url 'courses:add-lesson' course.id%}" role="button" class="btn btn-primary">Добавить занятие</a>
     <h3>План курса:</h3>
     <table class = "course_info">
