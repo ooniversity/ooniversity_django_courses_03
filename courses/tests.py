@@ -136,7 +136,7 @@ class CoursesDetailTest(CoursesListTest):
 
         client = Client()
 
-        for i in range(self.courses_number):
+        for i in range(1, 4):
             response = client.get('/courses/%d/' % i)
             import pdb; pdb.set_trace()
             self.assertEqual(response.status_code, 200)
