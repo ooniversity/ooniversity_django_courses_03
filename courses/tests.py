@@ -72,18 +72,6 @@ class CoursesListTest(TestCase):
         for i in xrange(1, 3):
             self.assertContains(response, 'href="/courses/edit/{}/"'.format(i))
 
-    def test_delete_course_url(self):
-        client = Client()
-        create_courses()
-        response = client.get('/')
-        for i in range(1, 3):
-            self.assertContains(response, 'href="/courses/remove/{}/"'.format(i))
-
-    def test_add_course_url(self):
-        client = Client()
-        response = client.get('/')
-        self.assertContains(response, 'href="/courses/add/"')
-
 
 
 class CoursesDetailTest(TestCase):
@@ -99,7 +87,7 @@ class CoursesDetailTest(TestCase):
         response = client.get(reverse('courses:detail', args=(1, )))
         self.assertEqual(response.status_code, 404)
 
-    def test_index(self):
+    def test_detail(self):
         create_courses()
         client = Client()
         for i in range(1, 3):
@@ -120,26 +108,7 @@ class CoursesDetailTest(TestCase):
         course = response.context['course']
         self.assertEqual(course.name, 'first_course')
 
-    def test_add_lesson_url(self):
-        client = Client()
-        create_courses()
-        for i in range(1, 3):
-            response = client.get(reverse('courses:detail', args=(i,)))
-            self.assertContains(response, 'href="/courses/{}/add_lesson"'.format(i))
 
-    def test_to_coach_url(self):
-        client = Client()
-        create_courses()
-        for i in range(1, 3):
-            response = client.get(reverse('courses:detail', args=(i,)))
-            self.assertContains(response, 'href="/coaches/1/"')
-
-    def test_to_assistant_url(self):
-        client = Client()
-        create_courses()
-        for i in range(1, 3):
-            response = client.get(reverse('courses:detail', args=(i,)))
-            self.assertContains(response, 'href="/coaches/2/"')
 
 
        
