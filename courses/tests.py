@@ -131,23 +131,16 @@ class CoursesListTest(TestCase):
 class CoursesDetailTest(CoursesListTest):
 
     def test_resolve_course_details(self):
-
         self.courses_generator(self.courses_number)
-
         client = Client()
-
         for i in range(1, 4):
             response = client.get('/courses/%d/' % i)
-            import pdb; pdb.set_trace()
             self.assertEqual(response.status_code, 200)
 
     def test_presence_of_add_lesson_button(self):
-
         self.courses_generator(self.courses_number)
-
         client = Client()
-        response = client.get('/courses/1/')
-        content = response.content
-        # import pdb; pdb.set_trace()
-        self.assertEqual(response.status_code, 200)
-
+        for i in range(1, 4):
+            response = client.get('/courses/%d/' % i)
+            self.assertEqual(response.status_code, 200)
+            self.assertContains(response, '<a href="/courses/%d/add_lesson">Добавить занятие</a>' % i)
