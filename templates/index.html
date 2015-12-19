@@ -36,7 +36,8 @@
                     <a class="btn btn-default" href={% url 'courses:remove' course.id %} role="button">Delete</a>
                   </td>
                 </tr>
-
+              {% empty %}
+                  <td>No students yet</td>
               {% endfor %}
             </tbody>
           </table>
