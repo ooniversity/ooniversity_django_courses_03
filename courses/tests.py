@@ -144,5 +144,4 @@ class CoursesDetailTest(CoursesListTest):
             response = client.get('/courses/%d/' % i)
             self.assertEqual(response.status_code, 200)
             # self.assertContains(response, '<a href="/courses/%d/add_lesson">Добавить занятие</a>' % i)
-            import pdb; pdb.set_trace()
-            self.assertRegexpMatches(str(response), r'<a href="/courses/%d/add_lesson">.*</a>' % i)
+            self.assertRegexpMatches(str(response), r'<a.*href="/courses/%d/add_lesson">.*</a>' % i)
