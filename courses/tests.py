@@ -48,7 +48,7 @@ class CoursesListTest(TestCase):
 		response = self.client.get('/')
 		self.assertContains(response, 'TESTNAME')
 
-class CourseDetailList(TestCase):
+class CoursesDetailList(TestCase):
 
 
 	def test_course_detail(self):
@@ -78,7 +78,7 @@ class CourseDetailList(TestCase):
 		response = self.client.get('/courses/1/')
 		self.assertContains(response, 'testlessonsubject')
 
-#	def test_course_student_link(self):
-#		course = course_creation
-#		response = self.client.get('/students/', {'course_id': 1})
-#		self.assertEqual(response.status_code, 200)
+	def test_course_student_link(self):
+		course = course_creation
+		response = self.client.get('/students/', {'course_id': 1})
+		self.assertEqual(response.status_code, 200)
