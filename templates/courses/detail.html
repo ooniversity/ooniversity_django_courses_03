@@ -150,22 +150,18 @@
         <h5 class="text-primarycolor">Программа курса</h5>
     </div>
     <div class="col s12 l12">
-        {% if 'Python' in course.name %}
-            <table class="responsive-table bordered centered striped highlight">
-            <thead class="cyan">
-        {% elif 'Ruby' in course.name %}
-            <table class="responsive-table bordered centered striped highlight">
-            <thead class="red accent-4">
-        {% elif 'Java' in course.name %}
-            <table class="responsive-table bordered centered striped highlight">
-            <thead class="pink accent-3">
-        {% elif 'Symfony' in course.name %}
-            <table class="responsive-table bordered centered striped highlight">
-            <thead class="grey darken-4 white-text">
-        {% elif 'JsBursa' in course.name %}
-            <table class="responsive-table bordered centered striped highlight">
-            <thead class="yellow accent-1">
-        {% endif %}
+        <table class="responsive-table bordered centered striped highlight">
+            {% if 'Python' in course.name %}
+                <thead class="cyan">
+            {% elif 'Ruby' in course.name %}
+                <thead class="red accent-4">
+            {% elif 'Java' in course.name %}
+                <thead class="pink accent-3">
+            {% elif 'Symfony' in course.name %}
+                <thead class="grey darken-4 white-text">
+            {% elif 'JsBursa' in course.name %}
+                <thead class="yellow accent-1">
+            {% endif %}
             <tr>
                 <th data-field="nomber">
                     ЗАНЯТИЕ
@@ -178,21 +174,21 @@
                 </th>
             </tr>
             </thead>
-        {% for lesson in lessons %}
-            <tbody>
-            <tr>
-                <td class="number_cell">
-                    {{ lesson.order }}
-                </td>
-                <td>
-                    {{ lesson.subject }}
-                </td>
-                <td>
-                    {{ lesson.description }}
-                </td>
-            </tr>
-        </tbody>
-        {% endfor %}
+            {% for lesson in lessons %}
+                <tbody>
+                    <tr>
+                        <td class="number_cell">
+                            {{ lesson.order }}
+                        </td>
+                        <td>
+                            {{ lesson.subject }}
+                        </td>
+                        <td>
+                            {{ lesson.description }}
+                        </td>
+                    </tr>
+                </tbody>
+            {% endfor %}
         </table>
     </div>
 {% endblock %}
