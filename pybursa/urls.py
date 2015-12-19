@@ -4,6 +4,7 @@ from pybursa import views
 # from django.views.generic import TemplateView
 from feedbacks.views import FeedbackView
 
+from django.conf import settings
 
 urlpatterns = patterns('',
                        url(r'^$', views.index, name='index'),
@@ -19,3 +20,9 @@ urlpatterns = patterns('',
                        url(r'^quadratic/', include('quadratic.urls')),
                        url(r'^feedback/$', FeedbackView.as_view(), name='feedback'),
                        )
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += patterns('',
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    )
