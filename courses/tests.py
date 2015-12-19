@@ -47,8 +47,8 @@ def course_create(course):
     name = course
     short_description = "This is the test short_description"
     description = "This is the test full description"
-    coach = coach_create("1")
-    assistant = coach_create("2")
+    coach = coach_create(random.sample(range(0, 9), 2))
+    assistant = coach_create(random.sample(range(0, 9), 2))
 
     return Course.objects.create(name=name,
                                  short_description=short_description,
