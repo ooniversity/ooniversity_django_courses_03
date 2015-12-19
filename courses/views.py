@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import render, redirect
 from courses.models import Course, Lesson
 from coaches.models import Coach
@@ -6,7 +7,8 @@ from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
-import logging
+
+
 
 logger = logging.getLogger(__name__)
 
@@ -14,7 +16,7 @@ class CourseDetailView(DetailView):
   model = Course
   fields = '__all__'
   template_name = 'courses/detail.html'
-  context_object_name = 'item'
+  context_object_name = 'course'
   def get_context_data(self, **kwargs):
     logger.debug('Courses detail view has been debugged')
     logger.info('Logger of courses detail view informs you!')
@@ -75,10 +77,10 @@ def add_lesson(request, course_id):
 	if request.method == 'POST':
 		form = LessonModelForm(request.POST)
 		if form.is_valid():
-			lesson = form.save()
+			form.save()
 			messages.success(request, 'Lesson %s has been successfully added.' %(lesson.subject))
 			return redirect('courses:detail', course_id)
 	else:
-		form = LessonModelForm(initial={'course': course_id})
+		form = LessonModelForm(initial={'courses': course_id})
     
 	return render(request, 'courses/add_lesson.html', {'form':form})
