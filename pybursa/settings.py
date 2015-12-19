@@ -97,3 +97,36 @@ EMAIL_PORT = 1025
 ADMINS = (("Ksenia", "ksenia.kolomiets@gmail.com"),)
 
 DEFAULT_FROM_EMAIL = "test_python@gmail.com"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR,'courses_logger'),
+        },
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR,'students_logger'),
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file_courses', 'console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'students': {
+            'handlers': ['file_students', 'console'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}
