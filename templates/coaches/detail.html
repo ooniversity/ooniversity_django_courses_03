@@ -37,6 +37,7 @@
   <td class="bold">логин Skype</a></td>
   <td>{{ coach.skype }}</td>
  </tr>
+{% if courses_coach %}
 {% for course in courses_coach %}
  <tr> 
   <td class="bold">учитель курса</a></td>
@@ -49,6 +50,8 @@
   </td>
 </tr>
 {% endfor %}
+{% endif %}
+{% if courses_assistant %}
 {% for course_as in courses_assistant %}
 <tr > 
 <td class="bold">ассистент курса</a></td>
@@ -60,8 +63,8 @@
 </button>
 </a>
 </td>
-
 </tr>
 {% endfor %}
+{% endif %}
   </table>    
 {% endblock content %}
