@@ -34,6 +34,10 @@ class StudentsListTest(TestCase):
         response = self.client.get('/students/remove/1/')
         self.assertEqual(response.status_code, 404)
 
+    def test_title_form_list(self):
+        response = self.client.get('/students/')
+        self.assertContains(response, '<h5 class="white-text">Задайте вопрос</h5>')
+
 
 class StudentsDetailTest(TestCase):
     def test_response_404(self):
@@ -66,7 +70,7 @@ class StudentsDetailTest(TestCase):
         response = self.client.get('/students/1/')
         self.assertContains(response, '/courses/1/')
 
-    def test_title_bursa_mail(self):
+    def test_bursa_mail(self):
         student = Student.objects.create(
             name='Frank',
             surname='Sinatra',
@@ -74,3 +78,12 @@ class StudentsDetailTest(TestCase):
         )
         response = self.client.get('/students/1/')
         self.assertContains(response, 'itbursa100@gmail.com')
+
+    def test_title_form(self):
+        student = Student.objects.create(
+            name='Frank',
+            surname='Sinatra',
+            date_of_birth='1915-12-12',
+        )
+        response = self.client.get('/students/1/')
+        self.assertContains(response, '<h5 class="white-text">Задайте вопрос</h5>')

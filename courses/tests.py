@@ -38,6 +38,10 @@ class CoursesListTest(TestCase):
         response = self.client.get('/courses/remove/1/')
         self.assertEqual(response.status_code, 404)
 
+    def test_title_form_list(self):
+        response = self.client.get('/')
+        self.assertContains(response, '<h5 class="white-text">Задайте вопрос</h5>')
+
 
 class CoursesDetailTest(TestCase):
 
@@ -79,3 +83,11 @@ class CoursesDetailTest(TestCase):
         response = self.client.get('/coaches/1/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'coaches/detail.html')
+
+    def test_title_form(self):
+        course = Course.objects.create(
+            name='Python/Django 3 Поток',
+            short_description='Изучать Python',
+        )
+        response = self.client.get('/courses/1/')
+        self.assertContains(response, '<h5 class="white-text">Задайте вопрос</h5>')
