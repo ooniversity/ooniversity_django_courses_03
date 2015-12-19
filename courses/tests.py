@@ -70,7 +70,7 @@ class CoursesListTest(TestCase):
 
             assistant = self.coach_create(random_name + '_a')
 
-            course = Course.objects.create(name=random_name,
+            course = Course.objects.create(name='course_' + random_name,
                                            short_description=short_description,
                                            description=description,
                                            coach=coach,
