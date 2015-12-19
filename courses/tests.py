@@ -62,6 +62,7 @@ class CoursesListTest(TestCase):
 
     c1 = course_create("course_name_1")
     c2 = course_create("course_name_2")
+    c3 = course_create("course_name_3")
 
     def test_getting_index_page(self):
         client = Client()
@@ -76,8 +77,8 @@ class CoursesListTest(TestCase):
 
     def test_courses_presence_on_page(self):
         client = Client()
-
-        import pdb
-        pdb.set_trace()
         response = client.get('/')
-        self.assertContains(response.content, self.c1)
+        context_c = response.context['courses']
+        import pdb; pdb.set_trace()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(context_c), 3)
