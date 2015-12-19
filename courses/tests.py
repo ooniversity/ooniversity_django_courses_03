@@ -45,29 +45,18 @@ def coach_create(coach):
 
 
 def course_create(course):
-    prefix = 'test_course_'
-    name = prefix + course
+    name = course
     short_description = "This is the test short_description"
     description = "This is the test full description"
     coach = coach_create("1")
-    print coach
     assistant = coach_create("2")
 
-    course_1 = Course.objects.create(name=name,
-                                     short_description=short_description,
-                                     description=description,
-                                     coach=coach,
-                                     assistant=assistant,
-                                     )
-
-    course_2 = Course.objects.create(name=name,
-                                     short_description=short_description,
-                                     description=description,
-                                     coach=coach,
-                                     assistant=assistant,
-                                     )
-    return course_1, course_2
-
+    return Course.objects.create(name=name,
+                                 short_description=short_description,
+                                 description=description,
+                                 coach=coach,
+                                 assistant=assistant,
+                                 )
 
 class CoursesListTest(TestCase):
 
@@ -81,3 +70,9 @@ class CoursesListTest(TestCase):
         client = Client()
         response = client.get('/')
         self.assertContains(response, '<li class="active"><a href="/">Главная</a></li>')
+
+    def test_courses_presence_on_page(self):
+            client = Client()
+            course_create('test_course')
+            response = client.get('/')
+            self.assertContains(response.context['courses'], "test_course")
