@@ -1,6 +1,6 @@
 # -*- coding:UTF-8 -*-
 
-import random
+import random, string
 from datetime import date
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
@@ -29,7 +29,7 @@ def coach_create(coach):
     prefix = 'test_coach_'
     date_of_birth = date.today()
     gender = random.choice('MF')
-    phone = random.sample(range(0, 9), 8)
+    phone = "".join([random.choice(string.digits) for i in xrange(11)])
     address = "This is the test address"
     skype = prefix + "skype"
     description = "This is the test description"
@@ -47,7 +47,7 @@ def course_create(course):
     name = course
     short_description = "This is the test short_description"
     description = "This is the test full description"
-    coach = coach_create(random.sample(range(0, 9), 2))
+    coach = coach_create("".join([random.choice(string.letters) for i in xrange(15)]))
     assistant = coach_create(random.sample(range(0, 9), 2))
 
     return Course.objects.create(name=name,
