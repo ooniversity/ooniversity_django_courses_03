@@ -101,7 +101,7 @@ LOGGING = {
        },
        'students.views': {
           'handlers': ['students.views.file'],
-          'level':'DEBUG',
+          'level':'WARNING',
        },
     },
 
@@ -111,12 +111,22 @@ LOGGING = {
           'level': 'DEBUG',
           'class': 'logging.FileHandler',
           'filename': os.path.join(BASE_DIR, 'courses_logger'),
+          'formatter': 'cources',
        },
        'students.views.file': {
-          'level': 'DEBUG',
+          'level': 'WARNING',
           'class': 'logging.FileHandler',
           'filename': os.path.join(BASE_DIR, 'students_logger'),
+          'formatter': 'students',
        },
+    },
+    'formatters': {
+        'cources': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'students': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
     },
 }
 
