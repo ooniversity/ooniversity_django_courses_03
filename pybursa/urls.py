@@ -21,6 +21,7 @@ from feedbacks.views import FeedbackView
 
 
 
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/', include('polls.urls', namespace="polls")),
