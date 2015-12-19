@@ -6,6 +6,9 @@ from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
+import logging
+
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
   model = Course
@@ -13,6 +16,10 @@ class CourseDetailView(DetailView):
   template_name = 'courses/detail.html'
   context_object_name = 'item'
   def get_context_data(self, **kwargs):
+    logger.debug('Courses detail view has been debugged')
+    logger.info('Logger of courses detail view informs you!')
+    logger.warning('Logger of courses detail view warns you!')
+    logger.error('Courses detail view went wrong!')
     context = super(CourseDetailView, self).get_context_data(**kwargs)
     context['lessons'] = Lesson.objects.filter(course_id=kwargs['object'].id)
     context['coach'] = kwargs['object'].coach
