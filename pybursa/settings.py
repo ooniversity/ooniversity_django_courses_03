@@ -93,4 +93,43 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = '1025'
 
 ADMINS = (('kostya', 'kostya@gmail.com'),)
+print(os.path.join)
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'courses': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+        },
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger'),
+            'formatter': 'verbose'
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+}
 

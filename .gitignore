@@ -2,3 +2,5 @@
 *.pyc
 *.pyo
 .idea/
+courses_logger
+students_logger
