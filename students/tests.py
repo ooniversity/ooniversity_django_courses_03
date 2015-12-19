@@ -64,7 +64,7 @@ class StudentsListTest(TestCase):
 		response = self.client.get('/students/')
 		self.assertContains(response, 'teststudent')
 
-class StudentsDetailList(TestCase):
+class StudentsDetailTest(TestCase):
 
 	def test_student_detail(self):
 		student = student_creation()
