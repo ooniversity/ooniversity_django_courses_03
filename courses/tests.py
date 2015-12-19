@@ -48,17 +48,20 @@ def course_create(course):
     coach = coach_create("1")
     assistant = coach_create("2")
 
-    return Course.objects.create(name=name,
-                                 short_description=short_description,
-                                 description=description,
-                                 coach=coach,
-                                 assistant=assistant,
-                                 )
+    course_1 = Course.objects.create(name=name,
+                                     short_description=short_description,
+                                     description=description,
+                                     coach=coach,
+                                     assistant=assistant,
+                                     )
 
-# Prepare courses for testing
-
-course_create("1")
-course_create("2")
+    course_2 = Course.objects.create(name=name,
+                                     short_description=short_description,
+                                     description=description,
+                                     coach=coach,
+                                     assistant=assistant,
+                                     )
+    return course_1, course_2
 
 
 class CoursesListTest(TestCase):
