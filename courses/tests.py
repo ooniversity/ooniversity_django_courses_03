@@ -74,8 +74,8 @@ class CoursesListTest(TestCase):
 
     def test_courses_presence_on_page(self):
         client = Client()
-        course_name = 'test_course'
-        course_create(course_name)
+        c1 = course_create("course_name_1")
+        c2 = course_create("course_name_2")
         import pdb; pdb.set_trace()
         response = client.get('/')
-        self.assertContains(response, course_name)
+        self.assertContains(response, c1)
