@@ -1,24 +1,31 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>404</title>
+
+    <!-- Bootstrap -->
+    {% load static from staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  
+  <body>
+    
+    <h1>{{ error_message }}</h1>
+    
+    
+  </body>
+</html>
 
 
-{% block title %}PyBursa - Главная{% endblock title %}
 
 
-{% block nav_class_index %}active{% endblock nav_class_index %}
-
-
-{% block link_students %}
-  {% url 'students:list_view' %}
-{% endblock link_students %}  
-
-
-{% block content %}
-
-
-{% load static from staticfiles %}
-
-  <h1>{{ error_message }}</h1>
+  
 
         
    
-{% endblock content %}         
+      
