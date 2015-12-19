@@ -56,8 +56,8 @@ class StudentsListTest(TestCase):
 class StudentsDetailTest(TestCase):
 	def test_student_detail(self):
 		client = Client()
-		createTestStudent("valera", "ivanoff", datetime.date(1992,1,3), "asdf@gmail.com")
-		response = client.get("/students/1/")
+		st = createTestStudent("valera", "ivanoffF", datetime.date(1992,1,3), "asdf@gmail.com")
+		response = client.get("/students/%s/" % st.id)
 		self.assertEqual(response.status_code, 200)
 
 	def test_student_detail_not_found(self):
@@ -67,21 +67,21 @@ class StudentsDetailTest(TestCase):
 
 	def test_student_detail_name(self):
 		client = Client()
-		createTestStudent("valera", "ivanoff", datetime.date(1992,1,3), "asdf@gmail.com")
-		response = client.get("/students/1/")
+		st = createTestStudent("valera", "ivanoff", datetime.date(1992,1,3), "asdf@gmail.com")
+		response = client.get("/students/%s/" % st.id)
 
 		self.assertEqual(response.context['student'].full_name(), "valera ivanoff")
 
 	def test_student_detail_page_correct_title(self):
 		client = Client()
-		createTestStudent("valera", "ivanoff", datetime.date(1992,1,14), "asdf@gmail.com")
-		response = client.get("/students/1/")
+		st = createTestStudent("valera", "ivanoff", datetime.date(1992,1,14), "asdf@gmail.com")
+		response = client.get("/students/%s/" % st.id)
 
 		self.assertContains(response, "<title>Student detail</title>")
 
  	def test_student_detail_skype(self):
  		client = Client()
-		createTestStudent("valera", "ivanoff", datetime.date(1992,1,14), "asdf@gmail.com")
-		response = client.get('/students/1/')  
+		st = createTestStudent("valera", "ivanoff", datetime.date(1992,1,14), "asdf@gmail.com")
+		response = client.get('/students/%s/' % st.id)  
 		self.assertContains(response, '<td>%s</td>' % "superuserdo" )
 
