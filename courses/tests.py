@@ -83,7 +83,7 @@ class CoursesListTest(TestCase):
         response = client.get('/')
         self.assertContains(response, '<li class="active"><a href="/">Главная</a></li>')
 
-    def test_courses_presence_on_page(self):
+    def test_courses_presence_on_page(self, courses_number):
 
         client = Client()
         response = client.get('/')
