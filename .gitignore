@@ -2,7 +2,13 @@
 *.pyc
 *.pyo
 
+# logs
+
+courses_logger
+students_logger
+
 ### Intellij ###
+
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
 *.iml

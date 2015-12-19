@@ -117,3 +117,40 @@ EMAIL_HOST_PASSWORD = 'ikm3tMPdoJtcp8'
 SERVER_EMAIL = 's.pod.pub@ya.ru'
 ADMINS = ('s.pod.pub@ya.ru',)
 
+# Logging settings
+
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'courses': {
+            'handlers': ['courses_handler'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['students_handler'],
+            'level': 'WARNING',
+        },
+    },
+    'handlers': {
+        'courses_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_handler'),
+            'formatter': 'courses_simple',
+        },
+        'students_handler': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_handler'),
+            'formatter': 'students_custom',
+        },
+    },
+    'formatters': {
+        'course_simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'students_custom': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+    },
+}
