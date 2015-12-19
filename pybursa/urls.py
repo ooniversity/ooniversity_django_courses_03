@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url, handler404, handler500
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
 import views
 from pybursa import views
