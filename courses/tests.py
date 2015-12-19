@@ -9,7 +9,6 @@ from courses.models import Course
 from django.core.urlresolvers import reverse
 
 
-
 def user_create(name):
     """ https://docs.djangoproject.com/en/1.7/ref/contrib/auth/#user """
     prefix = 'test_user_'
@@ -60,7 +59,6 @@ def course_create(course):
 
 
 class CoursesListTest(TestCase):
-
     def test_getting_index_page(self):
         client = Client()
         response = client.get('/')
@@ -76,6 +74,7 @@ class CoursesListTest(TestCase):
         client = Client()
         c1 = course_create("course_name_1")
         c2 = course_create("course_name_2")
-        import pdb; pdb.set_trace()
+        import pdb
+        pdb.set_trace()
         response = client.get('/')
         self.assertContains(response, c1)
