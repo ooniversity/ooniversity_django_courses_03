@@ -17,11 +17,11 @@ class StudentsListTest(TestCase):
     courses = CoursesListTest()
 
     def test_simple(self):
-        CoursesListTest.courses_generator(self.courses, 1)
+        CoursesListTest.test_courses_presence_on_page(self.courses)
         import pdb; pdb.set_trace()
 
 
-    
+
 
 '''
     def students_create(self):
