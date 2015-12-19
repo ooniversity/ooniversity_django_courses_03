@@ -24,9 +24,10 @@
                     <h3 class="panel-title">Teacher</h3>
                 </div>
                 <div class="panel-body">
+                    {% if course.coach.id %}
                     <a href="{% url 'coaches:detail' course.coach.id %}"> {{ course.coach.full_name }} </a>
-
                     <p>{{ course.coach.description }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -36,9 +37,10 @@
                     <h3 class="panel-title">Assistant</h3>
                 </div>
                 <div class="panel-body">
+                    {% if course.coach.id %}
                     <a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.full_name }}</a>
-
                     <p>{{ course.assistant.description }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

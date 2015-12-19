@@ -96,6 +96,9 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
+# http://ianalexandr.com/blog/getting-started-with-django-logging-in-5-minutes.html
+# https://docs.djangoproject.com/en/1.7/topics/logging/
+# http://djbook.ru/rel1.7/topics/logging.html
 LOGGING = {
     'version': 1,
     'loggers': {
