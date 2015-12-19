@@ -25,7 +25,7 @@ TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_TEMPLATE_CONTEXT_PROCESSORS + (
 SECRET_KEY = 'rfu#_@l%tz_r*ox%41se0yd1g&uio2q68j&_fzuopjl!dznr1y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
