@@ -114,10 +114,6 @@ class CoursesListTest(TestCase):
 
 class CoursesDetailTest(TestCase):
 
-    courses_number = 5
-
-    i = CoursesListTest()
-
     def test_resolve_course_details(self):
 
         client = Client()
