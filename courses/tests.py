@@ -55,7 +55,7 @@ class CoursesListTest(TestCase):
                                      )
         return coach
 
-    def courses_create(self, courses_number):
+    def courses_generator(self, courses_number):
 
         courses_list = []
 
