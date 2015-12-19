@@ -106,7 +106,7 @@ class CoursesListTest(TestCase):
         client = Client()
         response = client.get('/')
         content = response.content
-        real_buttons_number = content.count('<a href="/courses/remove/"')
+        real_buttons_number = content.count('<a href="/courses/remove/')
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(real_buttons_number, self.courses_number)
