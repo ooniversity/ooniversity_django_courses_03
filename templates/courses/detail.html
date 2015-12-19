@@ -13,17 +13,23 @@
    
    
 {% block content %}
-
+<div class="container">
+<div class="jumbotron">
+ <h1>{{ course.name }}</h1>
+  <p>{{ course.description }}</p>
+</div> 
+</div> 
 <div class="center bold page-header">
+
   <h1>Преподаватели курса</h1>
-  <h3>PyBursa</h3>
+ 
 </div>
-
+{% if course.coach %}
 {% include "include/inctructor_include.html" with block_title="Учитель курса" instructor=course.coach %}
-
-
+{% endif %}
+{% if course.assistant %}
 {% include "include/inctructor_include.html" with block_title="Ассистент курса" instructor=course.assistant %}
-
+{% endif %}
 {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
