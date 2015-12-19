@@ -128,8 +128,6 @@ class CoursesDetailTest(TestCase):
         self.courses_generator(self.courses_number)
 
         client = Client()
-
-        client = Client()
         response = client.get('/courses/1/')
         content = response.content
         # import pdb; pdb.set_trace()
