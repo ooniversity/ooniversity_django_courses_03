@@ -119,7 +119,8 @@ EMAIL_HOST_PASSWORD = 'ikm3tMPdoJtcp8'
 SERVER_EMAIL = 's.pod.pub@ya.ru'
 ADMINS = ('s.pod.pub@ya.ru',)
 
-# Logging settings
+# Logging settings (added extensions)
+# https://docs.djangoproject.com/en/1.7/topics/logging/#examples
 
 LOGGING = {
     'version': 1,
