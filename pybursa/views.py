@@ -14,7 +14,7 @@ class IndexView(ListView):
 
 #def index(request):
 #    data_course = Course.objects.all()
-#    return render(request,'index.html', {'course': data_course})
+#    return render(request, 'index.html', {'course': data_course})
 
 def contact(request):
     return render(request,'contact.html')
@@ -25,4 +25,17 @@ def student_detail(request):
 def student_list(request):
     return render(request,'student_list.html')
 
+def my_error_404(request):
+    return render(request, '404.html', {'message': 'Sorry, page is not found'})
+
+def my_error_500(request):
+    return render(request, '500.html', {'message': 'Sorry, internal server error occurred'})
+
+'''
+def my_error_404(request):
+    response = render_to_response('404.html', { 'message' : 'Sorry, page is not found' },
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+'''
 
