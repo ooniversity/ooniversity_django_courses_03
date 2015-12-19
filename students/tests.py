@@ -10,7 +10,7 @@ def create_course(name):
         short_description='CourseShortDescription',
         description='CourseFullDescription')  
 
-class StudentListTest(TestCase):
+class StudentsListTest(TestCase):
     def test_students_list(self): 
         from django.test import Client
         client = Client()
@@ -65,7 +65,7 @@ class StudentListTest(TestCase):
         self.assertEqual(response.context['student_list'][1].courses.all()[0].name, course1.name) 
        
 
-class StudentDetailTest(TestCase):
+class StudentsDetailTest(TestCase):
     def test_student_detail(self):
         from django.test import Client
         client = Client()
