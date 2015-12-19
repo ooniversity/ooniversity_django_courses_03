@@ -121,6 +121,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'simple',
         },
      'file_students': {
             'level': 'WARNING',
