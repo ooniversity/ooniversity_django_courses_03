@@ -1,0 +1,46 @@
+body{
+  padding-top: 100px;
+  padding-bottom: 40px;
+	background: url("../images/fon_1.jpg");
+}
+.red{
+	font-family: Florence, cursive;
+	color: red;
+}
+.t_name{
+	font-family: Arial;	
+	color: green;
+}
+.t_skype{
+	font-family: Blippo;
+	color: green;
+}
+.t_mail{
+	font-family: Arial, cursive;	
+	color: green;
+}
+.t_tel{
+	font-family: "Courier New", Courier, monospace;	
+	color: green;
+}
+.name{
+	font-family: Arial;	
+	color: blue;
+}
+.skype{
+	font-family: Blippo;
+	color: blue;
+}
+.mail{
+	font-family: Arial, cursive;	
+	color: blue;
+}
+.tel{
+	font-family: "Courier New", Courier, monospace;	
+	color: blue;
+}
+.Title{
+	font-family: "Courier New", Courier, monospace;	
+	color: blue;
+}
+
