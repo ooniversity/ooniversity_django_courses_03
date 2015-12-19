@@ -10,11 +10,17 @@ class StudentsListTest(TestCase):
     def test_list(self):
         client = Client()
         responce = client.get('/students/')
-        self.assertEqual(responce.status_code, 200)
         self.assertContains(responce, 'Student\'s list:')
 
     def test_index_link(self):
 		response = self.client.get('/')
 		self.assertEqual(response.status_code, 200)
-		
-	
+
+    def test_list_statuscode(self):
+        client = Client()
+        responce = client.get('/students/')
+        self.assertEqual(responce.status_code, 200)
+
+    def test_contacts_link(self):
+        response = self.client.get('/contact/')
+        self.assertEqual(response.status_code, 200)

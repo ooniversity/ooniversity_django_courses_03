@@ -27,9 +27,9 @@ SECRET_KEY = 'rfu#_@l%tz_r*ox%41se0yd1g&uio2q68j&_fzuopjl!dznr1y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -92,7 +92,7 @@ EMAIL_PORT = 1025
 #EMAIL_HOST_USER = ''
 #EMAIL_HOST_PASSWORD = ''
 
-ADMINS = (('Svetlana', 'asm740073@gmail.com'),)
+ADMINS = (('Sveta', 'asm7777@ukr.net'), ('Svetlana', 'asm740073@gmail.com'))
 
 
 # Static files (CSS, JavaScript, Images)
