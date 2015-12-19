@@ -30,7 +30,7 @@ class StudentListView(ListView):
 class StudentDetailView(DetailView):
     model = Student
     success_url = reverse_lazy('index')
-    get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         logger.debug("Students detail view has been debugged")
         logger.info("Logger of students detail view informs you!")
         logger.warning("Logger of students detail view warns you!")
