@@ -60,10 +60,6 @@ def course_create(course):
 
 class CoursesListTest(TestCase):
 
-    c1 = course_create("course_name_1")
-    c2 = course_create("course_name_2")
-    c3 = course_create("course_name_3")
-
     def test_getting_index_page(self):
         client = Client()
         response = client.get('/')
@@ -76,6 +72,9 @@ class CoursesListTest(TestCase):
         self.assertContains(response, '<li class="active"><a href="/">Главная</a></li>')
 
     def test_courses_presence_on_page(self):
+
+        course_name = "my test course"
+        course_create(course_name)
         client = Client()
         response = client.get('/')
         context_c = response.context['courses']
