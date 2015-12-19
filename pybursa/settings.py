@@ -100,7 +100,7 @@ DEFAULT_FROM_EMAIL = "test_python@gmail.com"
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
+    #'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
@@ -122,21 +122,25 @@ LOGGING = {
             'filename': os.path.join(BASE_DIR,'students_logger'),
             'formatter': 'verbose'
         },
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
+
+        #'console': {
+        #   'level': 'DEBUG',
+        #    'class': 'logging.StreamHandler',
+        #},
+
     },
     'loggers': {
         'courses': {
-            'handlers': ['file_courses', 'console'],
+            #'handlers': ['file_courses', 'console'],
+            'handlers': ['file_courses'],
             'level': 'DEBUG',
-            'propagate': True,
+            #'propagate': True,
         },
         'students': {
-            'handlers': ['file_students', 'console'],
+            #'handlers': ['file_students', 'console'],
+            'handlers': ['file_students'],
             'level': 'WARNING',
-            'propagate': True,
+            #'propagate': True,
         },
     },
 }
