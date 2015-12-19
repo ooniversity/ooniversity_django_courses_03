@@ -75,6 +75,9 @@ class CoursesListTest(TestCase):
         self.assertContains(response, '<title>ItBursa main</title>' )
 
 class CoursesDetailTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        load_test_data()
 
     def test_courses_no_crash(self):
         for i in [1, 2]:
