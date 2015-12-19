@@ -106,12 +106,12 @@ LOGGING = {
         'file_courses': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
         },
         'file_students': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_logger'),
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
         },
     },
     'loggers': {
