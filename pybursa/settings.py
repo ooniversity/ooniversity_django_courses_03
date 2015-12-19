@@ -96,3 +96,42 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
 ADMINS = (('is', 'is@gmail.com'), ('ivan', 'ivan.sopronyuk@gmail.com'))
+
+LOGGING = {
+    'version': 1,
+    'loggers': 
+    {
+        'course': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'DEBUG',
+        },
+    },
+    
+    'handlers': {
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'short'
+        },
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'detail'
+        },
+    },
+    'formatters': {
+        'detail': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'short': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+ }
+ 
