@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'coaches',
     'feedbacks',
     'debug_toolbar',
-    'django_extensions',
+    #'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -123,6 +123,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+			'formatter': 'simple',
         },
      'file_students': {
             'level': 'WARNING',

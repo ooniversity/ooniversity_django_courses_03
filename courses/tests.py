@@ -28,6 +28,12 @@ class CoursesListTest(TestCase):
 	def test_feedback_link(self):
 		response = self.client.get('/feedback/')
 		self.assertEqual(response.status_code, 200)
+
+	def test_course_list_links(self):
+		response = self.client.get('/')
+		self.assertContains(response, 'Главная')
+		self.assertContains(response, 'Контакты')
+		self.assertContains(response, 'Студенты')
 		
 	
 class CoursesDetailTest(TestCase):
@@ -61,6 +67,10 @@ class CoursesDetailTest(TestCase):
 	def test_feedback_link(self):
 		response = self.client.get('/feedback/')
 		self.assertEqual(response.status_code, 200)
+
+	def test_course_detail_404(self):
+		response = self.client.get('/courses/1/')
+		self.assertEqual(response.status_code, 404)
 		
 	def test_detail(self):
 		coach1 = Coach.objects.create(
@@ -100,22 +110,22 @@ class CoursesDetailTest(TestCase):
 		self.assertEqual(response.status_code, 200)
 		
 		def test_course_detail_add_lesson_button(self):
-		coach1 = Coach.objects.create(
-								user=User.objects.create(),
-								date_of_birth='2015-12-15',
-								gender='M',
-								phone='111-11-11',
-								address='address',
-								skype='skype',
-								description = 'desc')
-		course1 = Course.objects.create(
-								name='Course1-name',
-								short_description='Short',
-								description='description',
-								coach=coach1,
-								assistant=coach1)
-		response = self.client.get('/courses/1/')
-		self.assertContains(response, 'Добавить занятие')
+			coach1 = Coach.objects.create(
+									user=User.objects.create(),
+									date_of_birth='2015-12-15',
+									gender='M',
+									phone='111-11-11',
+									address='address',
+									skype='skype',
+									description = 'desc')
+			course1 = Course.objects.create(
+									name='Course1-name',
+									short_description='Short',
+									description='description',
+									coach=coach1,
+									assistant=coach1)
+			response = self.client.get('/courses/1/')
+			self.assertContains(response, 'Добавить занятие')
 
 		
 		
