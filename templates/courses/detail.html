@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}{{ course }}{% endblock title %}
+
+{% block detail %}
+<li class="active"><a href="#">detail</a></li>{% endblock detail %}
+{% block course %}?course_id={{ course.id }}{% endblock course %}
+
+{% block content %}
+
+{% include "include/course_description_include.html" %}
+
+{% if messages %}
+
+<div>
+    <ul class="messages">
+        {% for message in messages %}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        {{ message }}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+
+<h3> Преподаватели: </h3>
+
+<h4>Учитель</h4>
+<a href="{% url 'coaches:detail' course.coach.id %}"> {{ course.coach }} </a>
+<h6>{{ course.coach.description }}</h6>
+
+<h4>Ассистент</h4>
+<a href="{% url 'coaches:detail' course.assistant.id %}"> {{ course.assistant }} </a>
+<h6>{{ course.assistant.description }}</h6>
+
+<div class="jumbotron">
+</div>
+
+<h3> План курса: </h3>
+
+<a href="{% url 'courses:add-lesson' course.id %}">
+    <button type="button" class="btn btn-primary">Добавить занятие</button>
+</a>
+
+
+<div class="detail">
+    <table class="table">
+        <thead>
+        <tr class="success">
+            <td><strong>#</strong></td>
+            <td><strong>Тема</strong></td>
+            <td><strong>Описание</strong></td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if lessons_list %}
+        {% for lesson in lessons_list %}
+        <tr>
+            <td>{{ lesson.order }}</td>
+            <td>{{ lesson.subject }}</td>
+            <td>{{ lesson.description }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

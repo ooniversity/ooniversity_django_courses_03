@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}student_list{% endblock title %}
+
+{% block nav_class_students %}active{% endblock nav_class_students %}
+
+{% block content %}
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><h2>Студенты курса PyBursa</h2></div>
+    <div class="panel-body">
+        <p>Ниже представлен список студентов, выпуск - апрель 2015.</p>
+    </div>
+    <!-- Table -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>№</th>
+            <th>Surname</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Skype</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td scope="row"><a href="{% url 'student_detail' %}">1</a></td>
+            <td>Sinenkiy</td>
+            <td>Maxim</td>
+            <td>Украина, г.Харьков, ул.Блюхера, д.25б кв.3</td>
+            <td>msinenkiy</td>
+        </tr>
+        <tr>
+            <td scope="row">2</td>
+            <td>Petrov</td>
+            <td>Ivan</td>
+            <td>Украина, г.Харьков, Пр.Победы, д.253 кв.4</td>
+            <td>Ivan.Petrov</td>
+        </tr>
+        <tr>
+            <td scope="row">3</td>
+            <td>Oleg</td>
+            <td>Stulkin</td>
+            <td>Украина, г.Харьков, ул.Блюхера, д.25 кв.31</td>
+            <td>Oleg.Stulkin</td>
+        </tr>
+        <tr>
+            <td scope="row">4</td>
+            <td>Kozlov</td>
+            <td>Pavel</td>
+            <td>Украина, г.Харьков, ул.Сумская, д.100 кв.8</td>
+            <td>P.Kozlov</td>
+        </tr>
+        <tr>
+            <td scope="row">5</td>
+            <td>Polishchuk</td>
+            <td>Volodymyr</td>
+            <td>Украина, г.Харьков, ул.Академика Пвлова, д.105 кв.60</td>
+            <td>V.Polishchuk</td>
+        </tr>
+        <tr>
+            <td scope="row">6</td>
+            <td>Kotulska</td>
+            <td>Olga</td>
+            <td>Украина, г.Харьков, ул.Блюхера, д.306 кв.24</td>
+            <td>O.Kotulska</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

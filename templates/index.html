@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Main{% endblock title %}
+
+{% block nav_class_index %}active{% endblock nav_class_index %}
+
+{% block content %}
+
+{% if messages %}
+<div class="alert alert-success alert-dismissible" role="alert">
+    {% for message in messages %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<h2 class="header_top">Description</h2>
+
+<p class="text">Наибольшей проблемой всех учебников и статей, по которым начинают изучать Python - это
+    отсутствие практики с освоенным материалом.</p>
+
+<p class="text">Можно читать тонны ресурсов по веб-программированию на Python - и не научиться ничему,
+    потому что знания, которые вы не успели применить, очень быстро забываются.</p>
+
+<p class="text">Многие начинающие сдаются на полпути, так как устают, им надоедает бесконечное блуждание по
+    сети в поисках крупиц информации, из которых трудно собрать общую картину.</p>
+
+<h2>Program</h2>
+<ul class="list-group">
+    <li class="list-group-item">Основы Python</li>
+    <li class="list-group-item">Строки и итераторы</li>
+    <li class="list-group-item">Функции и модульность</li>
+    <li class="list-group-item">Библиотеки и пакетный менеджер</li>
+    <li class="list-group-item">Классы и ООП, основы</li>
+    <li class="list-group-item">Классы и ООП, возможности Python</li>
+    <li class="list-group-item">Работа с файлами</li>
+    <li class="list-group-item">Работа с датами</li>
+    <li class="list-group-item">Основы html/css</li>
+    <li class="list-group-item">Основы JavaScript</li>
+    <li class="list-group-item">Основы Web, HTTP</li>
+    <li class="list-group-item">Django first steps</li>
+    <li class="list-group-item">Структура Web приложения</li>
+    <li class="list-group-item">Работа с базами данных, ORM</li>
+    <li class="list-group-item">Кастомизация админки</li>
+    <li class="list-group-item">Язык шаблонов</li>
+    <li class="list-group-item">Forms</li>
+    <li class="list-group-item">Class-based (Generic) Views</li>
+    <li class="list-group-item">Реализация стандартных задач</li>
+    <li class="list-group-item">Средства отладки и тестирование</li>
+    <li class="list-group-item">Деплоймент</li>
+</ul>
+<div class="table-responsive">
+    <h3>Выбирай на каком курсе ты хочешь учиться!</h3>
+    <a href="{% url 'courses:add' %}">
+        <button type="button" class="btn btn-primary">Добавить курс</button>
+    </a>
+    <table class="table table-hover table-bordered">
+        <thead>
+        <tr class="success">
+            <td><strong>Курс</strong></td>
+            <td><strong>Описание</strong></td>
+            <td><strong></strong></td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if courses %}
+        {% for course in courses %}
+        <tr>
+            <td><a href="{% url 'courses:detail' course.id %}"> {{ course.name|upper }} </a></td>
+            <td>{{ course.short_description|title }}</td>
+            <td>
+                <a href="{% url 'courses:edit' course.id %}">
+                    <button type="button" class="btn btn-primary">Изменить</button>
+                </a>
+                <a href="{% url 'courses:remove' course.id %}">
+                    <button type="button" class="btn btn-primary">Удалить</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
