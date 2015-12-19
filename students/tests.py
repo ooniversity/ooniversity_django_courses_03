@@ -14,7 +14,7 @@ class StudentsListTest(TestCase):
     courses_number = 3
     students_number = random.randrange(1, 4)
 
-    def course_student_create(self, number):
+    def course_students_create(self, number):
 
         rnd_c = "".join([random.choice(string.letters) for i in xrange(5)])
 
