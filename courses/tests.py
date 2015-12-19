@@ -128,7 +128,7 @@ class CoursesListTest(TestCase):
         self.assertEqual(real_buttons_number, self.courses_number)
 
 
-class CoursesDetailTest(TestCase, CoursesListTest):
+class CoursesDetailTest(CoursesListTest):
 
     def test_resolve_course_details(self):
 
