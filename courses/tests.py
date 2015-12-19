@@ -18,6 +18,8 @@ from django.core.urlresolvers import reverse
 
 class CoursesListTest(TestCase):
 
+    courses_number = 3
+
     def user_create(self, name):
         """ https://docs.djangoproject.com/en/1.7/ref/contrib/auth/#user """
         prefix = 'test_user_'
