@@ -115,7 +115,21 @@ class StudentsDetailTest(TestCase):
     def test_detail_page_student(self):
         response = self.client.get('/students/1/')
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'students/student_detail.html')
+
+    def test_mail_check_student(self):
+        response = self.client.get('/students/1/')
         self.assertContains(response, 'test1@test.com')
+
+    def test_course_check_student(self):
+        response = self.client.get('/students/1/')
         self.assertContains(response, 'Python/Django')
         self.assertContains(response, '/courses/1/')
-        self.assertTemplateUsed(response, 'students/student_detail.html')
+
+    def test_skype_check_student(self):
+        response = self.client.get('/students/1/')
+        self.assertContains(response, 'test1')
+
+    def test_phone_check_student(self):
+        response = self.client.get('/students/1/')
+        self.assertContains(response, '0931556565')
