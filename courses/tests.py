@@ -73,8 +73,8 @@ class CoursesListTest(TestCase):
         self.assertContains(response, '<li class="active"><a href="/">Главная</a></li>')
 
     def test_courses_presence_on_page(self):
-            client = Client()
-            course_create('test_course')
-            # import pdb; pdb.set_trace()
-            response = client.get('/')
-            self.assertContains(response.context['courses'], '[<Course: test_course>]')
+        client = Client()
+        course_create('test_course')
+        # import pdb; pdb.set_trace()
+        response = client.get('/')
+        self.assertContains(response.context['courses'], '[<Course: test_course>]')
