@@ -1,93 +1,136 @@
+#-*- coding: utf-8 -*-
 from django.test import TestCase
 from courses.models import Course, Lesson
-from coaches.models import Coach
-from django.contrib.auth.models import User
-
 
 class CoursesListTest(TestCase):
 
-    def test_courses_response_status(self):
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'index.html')
+	def test_list(self):
+		from django.test import Client
+		client = Client()
 
-    def test_add_valid_course(self):
-        response = self.client.get('/courses/add/')
-        self.assertContains(response, 'Название курса')
-        self.assertContains(response, 'Краткле описание')
-        self.assertContains(response, 'Описание')
-        self.assertContains(response, 'Coach')
-        self.assertContains(response, 'Assistant')
+		response = client.get('/')
+		self.assertEqual(response.status_code, 200)
 
-    def test_edit_valid_course(self):
-        course = Course.objects.create(
-            name='Python/Django 3 Поток',
-            short_description='Изучать Python',
-        )
-        response = self.client.get('/courses/edit/1/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'courses/edit.html')
+		course_first = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
 
-    def test_remove_valid_course(self):
-        course = Course.objects.create(
-            name='Python/Django 3 Поток',
-            short_description='Изучать Python',
-        )
-        response = self.client.post('/courses/remove/1/')
-        self.assertEqual(response.status_code, 302)
-        response = self.client.get('/courses/remove/1/')
-        self.assertEqual(response.status_code, 404)
+		course_second = Course.objects.create(
+			name = 'Test Name 2',
+			short_description = 'Second test for course list',
+			description = 'This is course number two')
 
-    def test_title_form_list(self):
-        response = self.client.get('/')
-        self.assertContains(response, '<h5 class="white-text">Задайте вопрос</h5>')
+		response = client.get('/')
+		self.assertEqual(response.status_code, 200)
+		self.assertEqual(Course.objects.all().count(), 2)
+
+
+	def test_list_name(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/')
+		self.assertEqual(response.status_code, 200)
+
+		course_first = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
+
+		response = self.client.get('/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'name')
+
+	def test_link_add(self):
+		response = self.client.get('/')
+		self.assertContains(response, '/courses/add/')
+
+	def test_link_edit(self):
+		course = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
+		response = self.client.get('/')
+		self.assertContains(response, '/courses/edit/{}/'.format(course.id))
+
+	def test_link_delete(self):
+		course = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
+		response = self.client.get('/')
+		self.assertContains(response, '/courses/remove/{}/'.format(course.id))
 
 
 class CoursesDetailTest(TestCase):
 
-    def test_response_404(self):
-        response = self.client.get('/courses/1/')
-        self.assertEqual(response.status_code, 404)
+	def test_detail_item(self):
+		from django.test import Client
+		client = Client()
 
-    def test_response_200(self):
-        course = Course.objects.create(
-            name='Python/Django 3 Поток',
-            short_description='Изучать Python',
-        )
-        response = self.client.get('/courses/1/')
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(course.pk, 1)
-        self.assertContains(response, 'Python/Django 3 Поток')
-        self.assertTemplateUsed(response, 'courses/detail.html')
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 404)
 
-    def test_add_lesson(self):
-        course = Course.objects.create(
-            name='Python/Django 3 Поток',
-            short_description='Изучать Python',
-        )
-        lesson = Lesson.objects.create(subject='Основы Python', order=1, course=course)
-        response = self.client.get('/courses/1/')
-        self.assertContains(response, 'Основы Python')
+		course = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
 
-    def test_coache(self):
-        user = User.objects.create(username='FirstUser')
-        coach = Coach.objects.create(
-            user=user,
-            date_of_birth='1950-10-23'
-        )
-        course = Course.objects.create(
-            name='Python/Django 3 Поток',
-            short_description='Изучать Python',
-            coach=coach,
-        )
-        response = self.client.get('/coaches/1/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'coaches/detail.html')
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 200)
 
-    def test_title_form(self):
-        course = Course.objects.create(
-            name='Python/Django 3 Поток',
-            short_description='Изучать Python',
-        )
-        response = self.client.get('/courses/1/')
-        self.assertContains(response, '<h5 class="white-text">Задайте вопрос</h5>')
+	def test_detail_name(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 404)
+
+		course = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
+
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, course.name)
+
+	def test_detail_empty(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 404)
+
+	def test_detail_description(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 404)
+
+		course = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
+
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, course.description)
+
+	def test_detail_lesson(self):
+		from django.test import Client
+		client = Client()
+
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 404)
+
+		course = Course.objects.create(
+			name = 'Test Name 1',
+			short_description = 'First test for course list',
+			description = 'This is course number one')
+
+		response = client.get('/courses/1/')
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, 'Добавить занятие')
