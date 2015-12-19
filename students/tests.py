@@ -86,6 +86,47 @@ class StudentsListTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
 
+class StudentsDetailTest(TestCase):
+
+    def test_resolve_course_details3(self):
+
+        client = Client()
+
+        response = client.get('/student/1/')
+        self.assertEqual(response.status_code, 404)
+
+    def test_resolve_course_details4(self):
+
+        client = Client()
+
+        response = client.get('/student/1/')
+        self.assertEqual(response.status_code, 404)
+
+
+    def test_resolve_course_details6(self):
+
+        client = Client()
+
+        response = client.get('/student/1/')
+        self.assertEqual(response.status_code, 404)
+
+    def test_resolve_course_details7(self):
+
+        client = Client()
+
+        response = client.get('/student/1/')
+        self.assertEqual(response.status_code, 404)
+
+    def test_resolve_course_details8(self):
+
+        client = Client()
+
+        response = client.get('/student/1/')
+        self.assertEqual(response.status_code, 404)
+
+
+
+
 '''
     def test_ability_to_add_student(self):
         client = Client()
