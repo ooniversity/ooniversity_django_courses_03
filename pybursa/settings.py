@@ -89,6 +89,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
     #'/var/www/static/',
@@ -142,10 +144,15 @@ LOGGING = {
     },
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
         },
     },
 }
+
+try: 
+    from local_settings import * 
+except ImportError: 
+    print 'Warning! local_settings are not defined!'

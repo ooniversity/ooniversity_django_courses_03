@@ -21,6 +21,7 @@
 				<h3>{{ course.description|truncatechars:32 }}</h3>
 			</div>
 			<div text-align='center'>
+			{% if coach %}
 			<h1>Преподователи курса</h1>
 				<h2 align="center">Преподователь курса</h2>
 				<h3 align="center"><a href="{% url 'coaches:detail' course.coach.id %}">{{ course.coach.full_name }}</a></h3>
@@ -28,6 +29,7 @@
 				<h2 align="center">Ассистент курса</h2>
 				<h3 align="center"><a href="{% url 'coaches:detail' course.assistant.id %}">{{ course.assistant.full_name }}</a></h3>
 				<p>{{ course.coach.description }}</p>
+			{% endif %}
 			</div>
 			<a href="{% url 'courses:add-lesson' course.id %}"><input type="buttom" value="Добавить занятие" class="btn btn-primary"></a>
 			<div class='grey'>
