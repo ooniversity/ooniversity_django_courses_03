@@ -73,11 +73,14 @@ class CoursesListTest(TestCase):
 
     def test_courses_presence_on_page(self):
 
-        course_name = "my test course"
-        course_create(course_name)
+        courses_number = 3
+        for i in range(courses_number):
+            course_name = ("test_course" + "".join([random.choice(string.letters) for i in xrange(5)]))
+            course_create(course_name)
+
         client = Client()
         response = client.get('/')
         context_c = response.context['courses']
         import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(context_c), 3)
+        self.assertEqual(len(context_c), courses_number)
