@@ -78,4 +78,4 @@ class CoursesListTest(TestCase):
         course_create(course_name)
         # import pdb; pdb.set_trace()
         request = client.get('/')
-        self.assertContains(request.courses, course_name)
+        self.assertContains(request.context, course_name)
