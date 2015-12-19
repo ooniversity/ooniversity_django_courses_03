@@ -23,8 +23,8 @@ class CoursesListTest(TestCase):
     def user_create(self, name):
         """ https://docs.djangoproject.com/en/1.7/ref/contrib/auth/#user """
         prefix = 'test_user_'
-        username = prefix + self.name
-        email = prefix + self.name + "@test.ua"
+        username = prefix + name
+        email = prefix + name + "@test.ua"
         first_name = prefix + "first_name"
         last_name = prefix + "last_name"
         password = prefix + "password"
