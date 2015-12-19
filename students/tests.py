@@ -27,7 +27,6 @@ class StudentsListTest(TestCase):
 		client = Client()
 		createTestStudent("valera", "ivanoff", datetime.date(1992,1,3), "asdf@gmail.com")
 		response = client.get(reverse('students:list_view'))
-
 		self.assertEqual(len(response.context['student_list']), 1)
 
 	def test_student_courses_filtration(self):
@@ -37,7 +36,6 @@ class StudentsListTest(TestCase):
 		course = createTestCourse("Web dev", "best course")
 		student1.courses = [course]
 		response = client.get(reverse('students:list_view'),{'course_id' : 1})
-
 		self.assertEqual(len(response.context['student_list']), 1)
 
 	def test_student_pagination(self):
@@ -55,7 +53,7 @@ class StudentsListTest(TestCase):
 		response = client.get(reverse('students:list_view'), {'page' : 2})
 		self.assertEqual(response.status_code, 404)
 
-class StudentDetailTest(TestCase):
+class StudentsDetailTest(TestCase):
 	def test_student_detail(self):
 		client = Client()
 		createTestStudent("valera", "ivanoff", datetime.date(1992,1,3), "asdf@gmail.com")
