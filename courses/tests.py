@@ -112,7 +112,7 @@ class CoursesListTest(TestCase):
         self.assertEqual(real_buttons_number, self.courses_number)
 
 
-class CoursesDetailTest(TestCase, CoursesListTest):
+class CoursesDetailTest(TestCase):
 
     courses_number = 5
 
