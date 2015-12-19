@@ -8,7 +8,8 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
-
+import logging
+logger = logging.getLogger(__name__)  # courses.views
 
 # Create your views here.
 #def index_courses(request):
@@ -17,10 +18,15 @@ from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteVi
     #return render(request, 'index.html', context)
     #return render(request, 'index.html', {'courses_list': Course.objects.all()})
 
+
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
     context_object_name = "course"
+    logger.debug("Courses detail view has been debugged")
+    logger.info("Logger of courses detail view informs you!")
+    logger.warning("Logger of courses detail view warns you!")
+    logger.error("Courses detail view went wrong!")
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
