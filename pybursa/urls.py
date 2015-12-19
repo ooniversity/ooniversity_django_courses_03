@@ -1,6 +1,7 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include, url, handler404, handler500
 from django.contrib import admin
 import views
+from pybursa import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name = "index"),
