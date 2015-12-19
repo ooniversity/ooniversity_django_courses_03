@@ -35,10 +35,15 @@ class StudentDetailView(DetailView):
     # template_name = ""
     # context_object_name = "student_details"
 
-    logger.debug('Students detail view has been debugged')
-    logger.info('Logger of students detail view informs you!')
-    logger.warning('Logger of students detail view warns you!')
-    logger.error('Students detail view went wrong!')
+    def get_context_data(self, **kwargs):
+
+        logger.debug('Students detail view has been debugged')
+        logger.info('Logger of students detail view informs you!')
+        logger.warning('Logger of students detail view warns you!')
+        logger.error('Students detail view went wrong!')
+
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        return context
 
 
 class StudentCreateView(CreateView):
@@ -68,7 +73,7 @@ class StudentUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        message = u'Info on the student has been successfully changed.'  # successfully
+        message = u'Info on the student has been sucessfully changed.'  # successfully
         messages.add_message(self.request, messages.SUCCESS, message)
         return super(StudentUpdateView, self).form_valid(form)
 
@@ -86,6 +91,6 @@ class StudentDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         student = self.get_object()
-        message = u"Info on %s has been successfully deleted." % student  # successfully
+        message = u"Info on %s has been sucessfully deleted." % student  # successfully
         messages.success(self.request, message)
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
