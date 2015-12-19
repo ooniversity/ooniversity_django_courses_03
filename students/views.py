@@ -11,17 +11,15 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import logging
-
 logger = logging.getLogger(__name__)
-
-logger.debug("Students detail view has been debugged")
-logger.info("Logger of students detail view informs you!")
-logger.warning("Logger of students detail view warns you!")
-logger.error("Students detail view went wrong!")
-
 
 class StudentDetailView(DetailView):
     model = Student
+    logger.debug("Students detail view has been debugged")
+    logger.info("Logger of students detail view informs you!")
+    logger.warning("Logger of students detail view warns you!")
+    logger.error("Students detail view went wrong!")
+
 
 class StudentListView(ListView):
     model = Student
