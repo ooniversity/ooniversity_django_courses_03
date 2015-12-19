@@ -24,7 +24,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*' ]
 
 
 # Application definition
@@ -133,8 +133,9 @@ LOGGING = {
             },
     },
 }
-
+'''
 try:
     from local_settings import *
 except ImportError:
     print "Warning! local_settings are not defined!"
+'''
