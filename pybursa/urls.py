@@ -1,9 +1,9 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include, url, handler404, handler500
 from django.contrib import admin
 from pybursa.views import index, contact, student_list, student_detail, IndexView
 from quadratic.views import quadratic_results
 from feedbacks.views import FeedbackView
-from django.conf.urls import handler404, handler500
+
 
 
 
