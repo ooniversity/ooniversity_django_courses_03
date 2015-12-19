@@ -9,6 +9,11 @@ from django.views.generic.detail import DetailView
 from courses.models import Course, Lesson
 from students.forms import StudentModelForm
 from students.models import Student
+
+import logging
+logger = logging.getLogger(__name__)
+
+
 class StudentListView(ListView):
     model = Student
     paginate_by = 2
@@ -117,7 +122,7 @@ def remove(request, s_id):
 '''
 
 class StudentDetailView(DetailView):
-	model = Student
+    model = Student
 
     def get_context_data(self, **kwargs):
         context = super(StudentDetailView, self).get_context_data(**kwargs)
