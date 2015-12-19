@@ -2,3 +2,5 @@
 *.pyc
 *.pyo
 *~
+courses_logger.log
+students_logger.log
