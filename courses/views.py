@@ -7,8 +7,11 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from pybursa.views import MixinMessage, MixinTitle
+import logging  
 
 
+
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
@@ -19,6 +22,10 @@ class CourseDetailView(DetailView):
         data = super(CourseDetailView, self).get_context_data(**kwargs)
         lessons = Lesson.objects.filter(course=self.object).order_by('order')
         data['lessons'] = lessons
+        logger.debug("Courses detail view has been debugged")
+        logger.info("Logger of courses detail view informs you!")
+        logger.warning("Logger of courses detail view warns you!")
+        logger.error("Courses detail view went wrong!")
         return data
 
 
