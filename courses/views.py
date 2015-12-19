@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse_lazy, reverse
 import models
 from forms import *
 import logging
-logger = logging.getlogger(__name__)
+logger = logging.getLogger('courses')
 
 #import pybursa.utils
 
