@@ -110,3 +110,28 @@ class CoursesListTest(TestCase):
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(real_buttons_number, self.courses_number)
+
+
+class CoursesDetailTest(TestCase):
+
+    def test_resolve_course_details(self):
+
+        self.courses_generator(self.courses_number)
+
+        client = Client()
+
+        response = client.get('/courses/1/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_presence_of_add_lesson_button(self):
+
+        self.courses_generator(self.courses_number)
+
+        client = Client()
+
+        client = Client()
+        response = client.get('/courses/1/')
+        content = response.content
+        # import pdb; pdb.set_trace()
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, '/add_lesson')
