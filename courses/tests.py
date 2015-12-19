@@ -77,4 +77,4 @@ class CoursesListTest(TestCase):
         import pdb
         pdb.set_trace()
         response = client.get('/')
-        self.assertContains(response.content, c1)
+        self.assertContains(response.content, c1, 200)
