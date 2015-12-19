@@ -68,7 +68,7 @@ class StudentUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        message = u'Info on the student has been sucessfully changed.'  # successfully
+        message = u'Info on the student has been successfully changed.'  # successfully
         messages.add_message(self.request, messages.SUCCESS, message)
         return super(StudentUpdateView, self).form_valid(form)
 
@@ -86,6 +86,6 @@ class StudentDeleteView(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         student = self.get_object()
-        message = u"Info on %s has been sucessfully deleted." % student  # successfully
+        message = u"Info on %s has been successfully deleted." % student  # successfully
         messages.success(self.request, message)
         return super(StudentDeleteView, self).delete(request, *args, **kwargs)
