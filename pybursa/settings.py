@@ -92,3 +92,42 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 ADMINS = (('Me','d3nshapoval@gmail.com'),'Ups','dustydevol@ukr.net')
+
+
+LOGGING = {
+    'version': 1,
+    'loggers': 
+    {
+    'courses': {
+        'handlers': ['courses_logs'],
+        'level' : 'DEBUG'
+    },
+    'students': {
+        'handlers': ['students_logs'],
+        'level': 'WARNING'
+    }
+    },
+    'handlers':
+    {
+        'courses_logs': {
+        'level': 'DEBUG',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+        'formatter': 'short'
+    },
+    'students_logs': {
+        'level': 'WARNING',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+        'formatter': 'detail'
+    }
+    },
+    'formatters': {
+        'detail': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'short': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+}
