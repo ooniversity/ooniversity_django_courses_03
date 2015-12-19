@@ -47,7 +47,7 @@ class StudentsListTest(TestCase):
 
     def test_students_presence_on_page(self):
 
-        self.sourse_students_create()
+        self.course_students_create()
 
         client = Client()
         response = client.get('/students/')
