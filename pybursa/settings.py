@@ -86,9 +86,45 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.FileSystemFinder", "django.contrib.staticfiles.finders.AppDirectoriesFinder")
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'templates','courses'), os.path.join(BASE_DIR, 'templates', 'students'), os.path.join(BASE_DIR, 'quadratic', 'templates'))
-ADMINS = ('ostrenko@yandex.ru','mr.ostrenko@gmail.com')
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = '1025'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+ADMINS = (('ostrenko', 'ostrenko@yandex.ru'),('gmail','mr.ostrenko@gmail.com'))
+EMAIL_HOST = 'mail.hzmk.com.ua'
+EMAIL_PORT = '26'
+EMAIL_HOST_USER = 'ostrenko@hzmk.com.ua'
+EMAIL_HOST_PASSWORD = 'Q69DjekF'
+
+try:
+    from local_settings import *
+except ImportError:
+    print "Warning! Error importing local_settings.py"
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger'),
+        },
+        'file_students': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger'),
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+
+    },
+}
