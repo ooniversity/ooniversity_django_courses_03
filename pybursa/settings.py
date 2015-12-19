@@ -45,7 +45,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     # 'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -157,6 +157,7 @@ LOGGING = {
     },
 }
 
+'''
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 
@@ -165,3 +166,4 @@ def show_toolbar(request):
 SHOW_TOOLBAR_CALLBACK = show_toolbar
 
 INTERNAL_IPS = ('127.0.0.1', '162.211.227.228',)
+'''
