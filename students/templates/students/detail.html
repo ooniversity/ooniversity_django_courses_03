@@ -33,7 +33,7 @@
                         <td>
                             <table>
                                 {% for course in student.courses.all  %}
-                                    <tr><td><a href="{% url 'courses:course_detail' course_id=course.id %}">{{ course }}</a></td></tr>
+                                    <tr><td><a href="{% url 'courses:course_detail' pk=course.id %}">{{ course }}</a></td></tr>
                                 {% endfor %}
                             </table>
                         </td>
