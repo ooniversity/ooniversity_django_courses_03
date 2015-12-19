@@ -135,8 +135,11 @@ class CoursesDetailTest(CoursesListTest):
         self.courses_generator(self.courses_number)
 
         client = Client()
-        response = client.get('/courses/1/')
-        self.assertEqual(response.status_code, 200)
+
+        for i in range(self.courses_number):
+            response = client.get('/courses/%d/' % i)
+            import pdb; pdb.set_trace()
+            self.assertEqual(response.status_code, 200)
 
     def test_presence_of_add_lesson_button(self):
 
