@@ -23,7 +23,7 @@ SECRET_KEY = 'o)-ngq2-qshhu687cz2pa((@paj7x)j=734th0(pjf93v)$)y_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = [ '*' ]
 
