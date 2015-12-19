@@ -1,5 +1,5 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext
 from courses.models import Course
 
 
