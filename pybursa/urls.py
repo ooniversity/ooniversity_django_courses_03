@@ -3,6 +3,17 @@ from django.contrib import admin
 from pybursa.views import index, contact, student_list, student_detail, IndexView
 from quadratic.views import quadratic_results
 from feedbacks.views import FeedbackView
+from django.conf.urls import handler404, handler500
+
+
+
+handler404 = 'pybursa.views.page_not_found'
+handler500 = 'pybursa.views.server_error'
+
+
+
+
+
 
 urlpatterns = patterns('',
     url(r'^polls/', include('polls.urls', namespace="polls")),
