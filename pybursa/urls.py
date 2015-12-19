@@ -23,3 +23,6 @@ urlpatterns = patterns('',
     url(r'^quadratic/',include('quadratic.urls')),
     url(r'feedback/$', FeedbackView.as_view(), name='feedback'),
 )
+
+handler404 = 'pybursa.views.my_error_404'
+handler500 = 'pybursa.views.my_error_500'

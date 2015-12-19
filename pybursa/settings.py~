@@ -100,3 +100,39 @@ EMAIL_PORT = 1025
 ADMINS = (('Vadim', 'mr.zinchenkov@gmail.com'),)
 EMAIL_SUBJECT_PREFIX = ''
 
+LOGGING = {
+    'version': 1,
+    'formatters': {
+        'format_courses': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'format_students': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'format_courses'
+            },
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'format_students'
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+            },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'WARNING',
+            },
+    },
+}
+
