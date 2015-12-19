@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
@@ -5,6 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from courses.models import Course, Lesson
 from pybursa.views import MixinTitle
+
+logger = logging.getLogger(__name__)
 
 
 class CourseDetailView(DetailView):
@@ -15,21 +19,12 @@ class CourseDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['lessons'] = Lesson.objects.filter(course=self.get_object().id)
+        logger.debug('Courses detail view has been debugged')
+        logger.info('Logger of courses detail view informs you!')
+        logger.warning('Logger of courses detail view warns you!')
+        logger.error('Courses detail view went wrong!')
         return context
 
-
-# def detail(request, course_id):
-#     courses = Course.objects.get(id=course_id)
-#     lessons = courses.lesson_set.all()
-#     coaches = courses.coach.user.get_full_name()
-#     assistants = courses.assistant.user.get_full_name()
-#     return render(request,
-#                   'courses/detail.html', {
-#                       'courses': courses,
-#                       'lessons': lessons,
-#                       'coaches': coaches,
-#                       'assistants': assistants
-#                   })
 
 class CourseCreateView(CreateView):
     model = Course
@@ -93,7 +88,6 @@ class LessonCreateView(MixinTitle, CreateView):
     model = Lesson
     template_name = 'courses/add_lesson.html'
     title = 'Create Lesson'
-    # success_url = reverse_lazy('courses:detail')
 
     def form_valid(self, form):
         data = form.cleaned_data
@@ -103,73 +97,3 @@ class LessonCreateView(MixinTitle, CreateView):
 
     def get_success_url(self):
         return self.object.get_url()
-
-        # context_object_name = 'lesson'
-
-# def add_lesson(request, pk):
-#     course = Course.objects.get(id=pk)
-#     if request.POST:
-#         form = LessonModelForm(request.POST)
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             form.save()
-#             messages.success(request, 'Lesson %s has been successfully added.' % (
-#                 data['subject']))
-#             return redirect('courses:detail', data['course'].id)
-#     else:
-#         form = LessonModelForm(initial={'course': pk})
-#     return render(request, 'courses/add_lesson.html', {'form': form})
-
-# def add(request):
-#     context = {}
-#     if request.POST:
-#         form = CourseModelForm(request.POST)
-#         if form.is_valid():
-#             course = form.cleaned_data
-#             form.save()
-#             messages.success(
-#                 request, 'Course %s has been successfully added.' % course['name'])
-#             return redirect('index')
-#     else:
-#         context['form'] = CourseModelForm()
-#     # context['form'] = form
-#     return render(request, 'courses/add.html', context)
-
-
-# def edit(request, pk):
-#     context = {}
-#     course = Course.objects.get(id=pk)
-#     if request.method == 'POST':
-#         form = CourseModelForm(request.POST, instance=course)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'The changes have been saved.')
-#             return redirect('courses:edit', pk)
-#     else:
-#         context['form'] = CourseModelForm(instance=course)
-#     return render(request, 'courses/edit.html', context)
-
-
-# def remove(request, pk):
-#     course = Course.objects.get(id=pk)
-#     if request.method == "POST":
-#         course.delete()
-#         messages.success(request, 'Course %s has been deleted.' % (
-#             course.name))
-#         return redirect('index')
-#     return render(request, 'courses/remove.html', {'course': course})
-
-
-# def add_lesson(request, pk):
-#     course = Course.objects.get(id=pk)
-#     if request.POST:
-#         form = LessonModelForm(request.POST)
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             form.save()
-#             messages.success(request, 'Lesson %s has been successfully added.' % (
-#                 data['subject']))
-#             return redirect('courses:detail', data['course'].id)
-#     else:
-#         form = LessonModelForm(initial={'course': pk})
-#     return render(request, 'courses/add_lesson.html', {'form': form})
