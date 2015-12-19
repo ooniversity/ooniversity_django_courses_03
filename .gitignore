@@ -1,4 +1,6 @@
 # python precompiled files:
 *.pyc
 *.pyos
+*.log
 *~
+pybursa/local_settings.py

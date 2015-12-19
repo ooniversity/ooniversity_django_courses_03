@@ -20,12 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'vq&n2s86@t1m-ez$5j$0#1ei-r@y&tje(c=skq%ybr8-ro4%6a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
+#TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
-
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -89,8 +91,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
@@ -98,3 +102,49 @@ ADMINS = (
 		('admin 1', "adm1@example.com"), 
 		('admin 2', "adm2@example.com"), 
 		('admin 3', "adm3@example.com"))
+
+#https://docs.djangoproject.com/en/1.7/topics/logging/
+LOGGING = {
+	'version': 1,
+	'formatters': {
+		'verbose': {
+			'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+		},
+		'simple': {
+			'format': '%(levelname)s %(message)s'
+		},
+	},
+	'loggers':
+	{
+		'courses': {
+			'handlers': ['file_courses'],
+			'level': 'DEBUG',
+		},
+		'students': {
+			'handlers': ['file_students'],
+			'level': 'DEBUG',
+		},
+	},
+	'handlers':
+	{
+		'file_courses': {
+			'level': 'DEBUG',
+			'class': 'logging.FileHandler',
+			'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+			'formatter': 'simple'
+		},
+		'file_students': {
+			'level': 'WARNING',
+			'class': 'logging.FileHandler',
+			'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+			'formatter': 'verbose'
+		},
+	},
+}
+"""
+try:
+	from local_settings import *
+except ImportError:
+	print "Warning! local_settings are not defined!"
+"""
+
