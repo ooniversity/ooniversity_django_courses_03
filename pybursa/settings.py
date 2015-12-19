@@ -119,12 +119,23 @@ LOGGING = {
             'handlers': ['file_courses'],
             'level': 'DEBUG',
             'propagate': True,
+            'formatter': 'courses',
         },
         'students': {
             'handlers': ['file_students'],
             'level': 'WARNING',
             'propagate': True,
+            'formatter': 'students',
         },
 
+    },
+
+    'formatters': {
+        'cources': {
+            'format': '%(levelname)s %(message)s'
+        },
+        'students': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
     },
 }

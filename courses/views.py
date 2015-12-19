@@ -15,7 +15,7 @@ class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
     context_object_name = 'course'
-    get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         logger.debug("Courses detail view has been debugged")
         logger.info("Logger of courses detail view informs you!")
         logger.warning("Logger of courses detail view warns you!")
