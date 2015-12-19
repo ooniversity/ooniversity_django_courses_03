@@ -7,6 +7,7 @@ class CoachAdmin(admin.ModelAdmin):
     list_display = ['name', 'surname', 'gender', 'email', 'skype', 'description']
     list_filter = (('user__is_staff',admin.BooleanFieldListFilter),)
 
+
 class UserAdmin(admin.ModelAdmin):
     list_display = ['username', 'first_name', 'last_name', 'gender', 'email', 'skype', 'is_staff']
     list_filter = (('is_staff', admin.BooleanFieldListFilter),)
