@@ -19,7 +19,8 @@ from .views import contact, index
 from feedbacks.views import FeedbackView
 
 
-
+handler404 = 'pybursa.views.page_not_found'
+handler500 = 'pybursa.views.server_error'
 
 
 urlpatterns = [
