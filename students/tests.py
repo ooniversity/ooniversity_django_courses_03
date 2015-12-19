@@ -16,8 +16,6 @@ class StudentsListTest(TestCase):
 
     def students_create(self):
         for i in xrange(self.courses_number):
-            instance = CoursesListTest.courses_generator
-            course = CoursesListTest.courses_generator(instance, 1)
             for j in xrange(self.students_number):
                 rnd_c = "".join([random.choice(string.letters) for i in xrange(5)])
                 rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
@@ -29,7 +27,7 @@ class StudentsListTest(TestCase):
                                                  address='This is the test address for ' + rnd_c,
                                                  skype=rnd_c + '_skype',
                                                  )
-                student.courses.add(course)
+                student.courses.add(CoursesListTest.courses_generator(student, 1))
 
     def test_students_presence_on_page(self):
 
