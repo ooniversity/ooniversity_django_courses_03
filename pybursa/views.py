@@ -32,6 +32,6 @@ def page_not_found404(request):
 	return response
 
 def internal_error500(request):
-	response = render_to_response('500.html', { 'message' : 'Sorry, internal server error occurred' }, context_instance=RequestContext(request))
+	response = render_to_response('500.html', context_instance=RequestContext(request))
 	response.status_code = 500
 	return response	
