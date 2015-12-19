@@ -33,11 +33,11 @@ class CoursesListTest(TestCase):
         self.assertEqual(response.status_code, 200) 
         self.assertEqual(Course.objects.all().count(), 2)
 
-        for item in Course.objects.all():
-            self.assertContains(response, item.name.upper())
+        for course in Course.objects.all():
+            self.assertContains(response, course.name.upper())
 
-        for item in Course.objects.all():
-            self.assertContains(response, item.short_description)
+        #for course in Course.objects.all():
+        #    self.assertContains(response, course.short_description)
 
         self.assertEqual(response.context['courses'][0].name, course1.name) 
         self.assertEqual(response.context['courses'][1].name, course2.name) 
@@ -76,26 +76,26 @@ class CoursesDetailTest(TestCase):
             skype='skype2',
             description='coach2 description')
 
-        course1 = coach1.rel_coaches.create(
+        course1 = Course.objects.create(
             name = 'FakeCourseName1',
-            short_description='CourseShortDescr',
+            short_description='CourseShortDescription',
             description='CourseDescription',
+            coach=coach1,
+            assistant=coach2
             ) 
-
-        coach2.rel_assistants.add(course1)
 
         lesson1 = Lesson.objects.create(
             description='lesson1Description',
             course=course1,
-            index = 1)
+            order = 1)
 
         lesson2 = Lesson.objects.create(
             description='lesson2Description',
             course=course1,
-            index = 2)
+            order = 2)
 
         response = client.get(reverse(
-                                 'courses:course', 
+                                 'courses:detail', 
                                  args=(Course.objects.get().pk,)))
 
         self.assertEqual(response.status_code, 200)    
@@ -121,5 +121,5 @@ class CoursesDetailTest(TestCase):
         for item in Coach.objects.all():
             self.assertContains(response, item.description)
 
-        self.assertEqual(response.context['object'].trainer.user, self.u1)
-        self.assertEqual(response.context['object'].assistant.user, self.u2)
+        self.assertEqual(response.context['object'].coach.user, self.user1)
+        self.assertEqual(response.context['object'].assistant.user, self.user2)
