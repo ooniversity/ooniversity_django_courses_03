@@ -22,7 +22,7 @@ SECRET_KEY = 'kn_e4$^c51ded^u5!18n8t-1lug*8vw7kfh2u$fij2ej_njbnd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -85,19 +85,19 @@ LOGGING = {
         'file_courses': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'courses_debug.log'),
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
             'formatter': 'simple'
         },
         'file_students': {
             'level': 'WARNING',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_debug.log'),
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
             'formatter': 'verbose'
         },
     },
     'formatters': {
         'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
