@@ -58,6 +58,7 @@ def course_create(course):
                                  assistant=assistant,
                                  )
 
+
 class CoursesListTest(TestCase):
 
     def test_getting_index_page(self):
@@ -75,4 +76,4 @@ class CoursesListTest(TestCase):
             client = Client()
             course_create('test_course')
             response = client.get('/')
-            self.assertContains(response.context['courses'], "test_course")
+            self.assertContains(response.context['course'], "test_course")
