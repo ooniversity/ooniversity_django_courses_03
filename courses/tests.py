@@ -44,6 +44,14 @@ class CoursesListTest(TestCase):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'index.html')
 
+    def test_list_url_details(self):
+        client = Client()
+        items = create_courses()
+        response = client.get('/')      
+        for i in items:
+            self.assertContains(response, '<a href="/courses/%d/">%s</a>' % (items[i].id,
+                                                            items[i].name.upper()))
+
 class CoursesDetailTest(TestCase):
 
     def test_course_detail_page_have_title(self):
