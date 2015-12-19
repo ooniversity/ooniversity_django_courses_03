@@ -4,3 +4,4 @@
 .idea/
 courses_logger
 students_logger
+db.sqlite3
