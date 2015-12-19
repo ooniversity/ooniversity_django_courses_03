@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'students',
     'coaches',
     'feedbacks',
-    'django_extensions',
+    'django_extensions', #pip install django-extensions
 )
 
 MIDDLEWARE_CLASSES = (
