@@ -83,21 +83,21 @@ class CoursesListTest(TestCase):
         response = client.get('/')
         self.assertContains(response, '<li class="active"><a href="/">Главная</a></li>')
 
-    def test_courses_presence_on_page(self, courses_number):
+    def test_courses_presence_on_page(self):
 
         client = Client()
         response = client.get('/')
         context_c = response.context['courses']
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(context_c), courses_number)
+        self.assertEqual(len(context_c), self.courses_number)
 
-    def test_check_course_edit_button_presence(self, courses_number):
+    def test_check_course_edit_button_presence(self):
         client = Client()
         response = client.get('/')
         content = response.content()
         real_buttons_number = content.count('<a href="/courses/edit/')
-        exp_edit_course_buttons_num = courses_number
+        exp_edit_course_buttons_num = self.courses_number
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(real_buttons_number, exp_edit_course_buttons_num)
