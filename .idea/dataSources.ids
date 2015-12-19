@@ -181,6 +181,8 @@
       <primary-key columns="id"/>
       <exported-key name="#FAKE_auth_group_permissions_2" table="auth_group_permissions" schema="" catalog="" columns="group_id"/>
       <exported-key name="#FAKE_auth_user_groups_1" table="auth_user_groups" schema="" catalog="" columns="group_id"/>
+      <exported-key name="#FAKE_auth_group_permissions_2" table="auth_group_permissions" schema="" catalog="" columns="group_id"/>
+      <exported-key name="#FAKE_auth_user_groups_1" table="auth_user_groups" schema="" catalog="" columns="group_id"/>
     </table>
     <table name="auth_group_permissions" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
@@ -201,6 +203,8 @@
       <foreign-key name="#FAKE_auth_permission_1" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
       <exported-key name="#FAKE_auth_group_permissions_1" table="auth_group_permissions" schema="" catalog="" columns="permission_id"/>
       <exported-key name="#FAKE_auth_user_user_permissions_1" table="auth_user_user_permissions" schema="" catalog="" columns="permission_id"/>
+      <exported-key name="#FAKE_auth_group_permissions_1" table="auth_group_permissions" schema="" catalog="" columns="permission_id"/>
+      <exported-key name="#FAKE_auth_user_user_permissions_1" table="auth_user_user_permissions" schema="" catalog="" columns="permission_id"/>
       <index name="auth_permission_417f1b1c" unique="true" columns="content_type_id"/>
     </table>
     <table name="auth_user" schema="" catalog="" type="TABLE">
@@ -216,6 +220,10 @@
       <column name="is_active" sqlType="BOOL" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="date_joined" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
+      <exported-key name="#FAKE_auth_user_groups_2" table="auth_user_groups" schema="" catalog="" columns="user_id"/>
+      <exported-key name="#FAKE_auth_user_user_permissions_2" table="auth_user_user_permissions" schema="" catalog="" columns="user_id"/>
+      <exported-key name="#FAKE_coaches_coach_1" table="coaches_coach" schema="" catalog="" columns="user_id"/>
+      <exported-key name="#FAKE_django_admin_log_1" table="django_admin_log" schema="" catalog="" columns="user_id"/>
       <exported-key name="#FAKE_auth_user_groups_2" table="auth_user_groups" schema="" catalog="" columns="user_id"/>
       <exported-key name="#FAKE_auth_user_user_permissions_2" table="auth_user_user_permissions" schema="" catalog="" columns="user_id"/>
       <exported-key name="#FAKE_coaches_coach_1" table="coaches_coach" schema="" catalog="" columns="user_id"/>
@@ -254,6 +262,8 @@
       <foreign-key name="#FAKE_coaches_coach_1" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
       <exported-key name="#FAKE_courses_course_1" table="courses_course" schema="" catalog="" columns="coach_id"/>
       <exported-key name="#FAKE_courses_course_2" table="courses_course" schema="" catalog="" columns="assistant_id"/>
+      <exported-key name="#FAKE_courses_course_1" table="courses_course" schema="" catalog="" columns="coach_id"/>
+      <exported-key name="#FAKE_courses_course_2" table="courses_course" schema="" catalog="" columns="assistant_id"/>
     </table>
     <table name="courses_course" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
@@ -265,6 +275,8 @@
       <primary-key columns="id"/>
       <foreign-key name="#FAKE_courses_course_1" columns="coach_id" ref-table="coaches_coach" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
       <foreign-key name="#FAKE_courses_course_2" columns="assistant_id" ref-table="coaches_coach" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+      <exported-key name="#FAKE_courses_lesson_1" table="courses_lesson" schema="" catalog="" columns="course_id"/>
+      <exported-key name="#FAKE_students_student_course_1" table="students_student_course" schema="" catalog="" columns="course_id"/>
       <exported-key name="#FAKE_courses_lesson_1" table="courses_lesson" schema="" catalog="" columns="course_id"/>
       <exported-key name="#FAKE_students_student_course_1" table="students_student_course" schema="" catalog="" columns="course_id"/>
       <index name="courses_course_ea814e95" unique="true" columns="coach_id"/>
@@ -303,6 +315,8 @@
       <primary-key columns="id"/>
       <exported-key name="#FAKE_auth_permission_1" table="auth_permission" schema="" catalog="" columns="content_type_id"/>
       <exported-key name="#FAKE_django_admin_log_2" table="django_admin_log" schema="" catalog="" columns="content_type_id"/>
+      <exported-key name="#FAKE_auth_permission_1" table="auth_permission" schema="" catalog="" columns="content_type_id"/>
+      <exported-key name="#FAKE_django_admin_log_2" table="django_admin_log" schema="" catalog="" columns="content_type_id"/>
     </table>
     <table name="django_migrations" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
@@ -318,6 +332,15 @@
       <primary-key columns="session_key"/>
       <index name="django_session_de54fa62" unique="true" columns="expire_date"/>
     </table>
+    <table name="feedbacks_feedback" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR(32)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="subject" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="message" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="from_email" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="create_date" sqlType="DATE" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
     <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
       <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
@@ -332,6 +355,7 @@
       <column name="address" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="skype" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
+      <exported-key name="#FAKE_students_student_course_2" table="students_student_course" schema="" catalog="" columns="student_id"/>
       <exported-key name="#FAKE_students_student_course_2" table="students_student_course" schema="" catalog="" columns="student_id"/>
     </table>
     <table name="students_student_course" schema="" catalog="" type="TABLE">
