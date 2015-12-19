@@ -6,6 +6,8 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from coaches.models import Coach
 from courses.models import Course
+from django.core.urlresolvers import reverse
+
 
 
 def user_create(name):
@@ -48,6 +50,7 @@ def course_create(course):
     short_description = "This is the test short_description"
     description = "This is the test full description"
     coach = coach_create("1")
+    print coach
     assistant = coach_create("2")
 
     course_1 = Course.objects.create(name=name,
