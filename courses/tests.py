@@ -24,3 +24,7 @@ class CoursesListTest(TestCase):
         client = Client()
         responce = client.get('/')
         self.assertContains(responce, '<li class="active"><a href="/">Main</a></li>')
+    def test_list_header(self):
+        client = Client()
+        responce = client.get('/')
+        self.assertContains(responce, 'PyBursa')
