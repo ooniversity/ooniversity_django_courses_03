@@ -112,11 +112,13 @@ class CoursesListTest(TestCase):
         self.assertEqual(real_buttons_number, self.courses_number)
 
 
-class CoursesDetailTest(TestCase):
+class CoursesDetailTest(TestCase, CoursesListTest):
+
+    courses_number = 5
+
+    i = CoursesListTest()
 
     def test_resolve_course_details(self):
-
-        CoursesListTest.courses_generator(self.courses_number)
 
         client = Client()
 
@@ -124,8 +126,6 @@ class CoursesDetailTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_presence_of_add_lesson_button(self):
-
-        CoursesListTest.courses_generator(self.courses_number)
 
         client = Client()
         response = client.get('/courses/1/')
