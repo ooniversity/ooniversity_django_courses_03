@@ -159,3 +159,9 @@ LOGGING = {
 
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
+
+def show_toolbar(request):
+    return True
+SHOW_TOOLBAR_CALLBACK = show_toolbar
+
+INTERNAL_IPS = ('127.0.0.1', '162.211.227.228',)
