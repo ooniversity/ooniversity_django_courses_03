@@ -48,7 +48,7 @@ class CoursesListTest(TestCase):
 		response = self.client.get('/')
 		self.assertContains(response, 'TESTNAME')
 
-class CoursesDetailList(TestCase):
+class CoursesDetailTest(TestCase):
 
 
 	def test_course_detail(self):
