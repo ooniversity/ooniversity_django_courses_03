@@ -76,4 +76,4 @@ class CoursesListTest(TestCase):
             client = Client()
             course_create('test_course')
             response = client.get('/')
-            self.assertContains(response.context['course'], "test_course")
+            self.assertContains(response.context['courses'], "test_course")
