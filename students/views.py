@@ -31,6 +31,7 @@ class StudentDetailView(DetailView):
 
 class StudentListView(ListView):
     model = Student
+    #import pdb; pdb.set_trace()
     paginate_by = 2
     ##queryset = Student.objects.all()
     ##template_name = 'students/list.html'
