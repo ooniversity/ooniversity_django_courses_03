@@ -86,10 +86,6 @@ class StudentsListTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
 
-'''
-    def test_ability_to_add_student(self):
-        client = Client()
-        response = client.get('/students/')
-        self.assertContains(response, '<a href="/students/add/')
-'''
-
+class StudentsDetailTest(TestCase):
+    """ not implemented """
+    pass

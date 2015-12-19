@@ -117,9 +117,8 @@ class CoursesDetailTest(TestCase):
     def test_resolve_course_details(self):
 
         client = Client()
-
         response = client.get('/courses/1/')
-        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 200)
 
     def test_presence_of_add_lesson_button(self):
 
@@ -127,33 +126,5 @@ class CoursesDetailTest(TestCase):
         response = client.get('/courses/1/')
         content = response.content
         # import pdb; pdb.set_trace()
-        self.assertEqual(response.status_code, 404)
-
-
-    def test_presence_of_add_lesson_button2(self):
-
-        client = Client()
-        response = client.get('/courses/1/')
-        content = response.content
-        # import pdb; pdb.set_trace()
-        self.assertEqual(response.status_code, 404)
-
-
-    def test_presence_of_add_lesson_button3(self):
-
-        client = Client()
-        response = client.get('/courses/1/')
-        content = response.content
-        # import pdb; pdb.set_trace()
-        self.assertEqual(response.status_code, 404)
-
-
-    def test_presence_of_add_lesson_button4(self):
-
-        client = Client()
-        response = client.get('/courses/1/')
-        content = response.content
-        # import pdb; pdb.set_trace()
-        self.assertEqual(response.status_code, 404)
-
+        self.assertEqual(response.status_code, 200)
 
