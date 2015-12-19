@@ -41,39 +41,34 @@ class StudentsListTest(TestCase):
                                                  )
                 student.courses.add(course)
 
-    def test_students_presence_on_page(self):
+    def test_response_status(self):
 
         self.course_students_create()
 
         client = Client()
         response = client.get('/students/')
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
 
-'''
-    def students_create(self):
-        for i in xrange(self.courses_number):
-            instance = CoursesListTest()
-            for j in xrange(self.students_number):
-                rnd_c = "".join([random.choice(string.letters) for i in xrange(5)])
-                rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
-                student = Student.objects.create(name='test_student',
-                                                 surname=rnd_c,
-                                                 date_of_birth=date.today(),
-                                                 email=rnd_c + '@test.st',
-                                                 phone=rnd_n,
-                                                 address='This is the test address for ' + rnd_c,
-                                                 skype=rnd_c + '_skype',
-                                                 )
-                student.courses.add(CoursesListTest.courses_generator(instance, 1))
+    def test_student_list_template(self):
+        client = Client()
+        response = client.get('/students/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'students/student_list.html')
 
-    def test_students_presence_on_page(self):
+    def test_ability_to_add_student(self):
+        client = Client()
+        response = client.get('/students/')
+        self.assertContains(response, '<a href="/students/add/')
 
-        self.students_create()
+    def test_check_student_edit_button_equality(self):
+
+        self.course_students_create()
 
         client = Client()
         response = client.get('/students/')
-        import pdb; pdb.set_trace()
+        content = response.content
+        real_buttons_number = content.count('<a href="/students/edit/')
+        # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
-
-'''
+        self.assertEqual(real_buttons_number, 2)
