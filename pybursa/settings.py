@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '4qkky3rx)y-fbqjwfx8d2n32+l32a^+yyj^xblmux=_nqgza2&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 
@@ -91,6 +91,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
+'''
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+STATICFILES_FINDER = ("django.contrib.staticfiles.finders.FileSystemFinder",
+                      "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+                      )
+'''
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 
 
@@ -139,3 +145,9 @@ LOGGING = {
         },
     },
 }
+
+try:     
+    from local_settings import * 
+except ImportError:
+    print "Achtung! local_settings sind nicht definiert!"
+
