@@ -3,3 +3,4 @@
 *.pyo
 venv/
 *.log
+/pybursa/local_settings.py
