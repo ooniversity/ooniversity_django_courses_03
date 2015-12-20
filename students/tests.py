@@ -185,7 +185,7 @@ class StudentsDetailTest(TestCase):
     def test_student_name_in_header(self):
         students = self.students
         client = Client()
-        for i in range(len(students)):
+        for i in range(len(self.students)):
             student = students[i]
             s_id = student.id
             s_name = student.name
