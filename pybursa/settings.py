@@ -25,7 +25,7 @@ SECRET_KEY = '4$)hrf^)4qb4hpzl*of8&h-3@llfqo5krdx-1o44hirreyd^@z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -160,8 +160,8 @@ LOGGING = {
 
 try:
     from local_settings import *
-except:
-    pass
+except ImportError:
+    print "Local_settings not defined"
 
 
 
