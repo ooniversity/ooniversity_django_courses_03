@@ -115,4 +115,4 @@ class StudentsDetailTest(TestCase):
         response = client.get('/students/%d/' % s_obj[0].id)
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
-        self.assertRegexpMatches(str(response), r'<h[123]>%s</h[123]>' % s_obj[0].name)
+        self.assertRegexpMatches(str(response), r'<h[123]>%s </h[123]>' % s_obj[0].name)
