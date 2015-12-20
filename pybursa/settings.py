@@ -8,8 +8,8 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -18,12 +18,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'kfjgffdlksfjlksjlsijjwirr())(jh323++ekwjelkw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -56,7 +55,6 @@ ROOT_URLCONF = 'pybursa.urls'
 
 WSGI_APPLICATION = 'pybursa.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -80,48 +78,48 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-TEMPLATE_DIRS=(os.path.join(BASE_DIR, 'templates'), )
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
-ADMINS = (('Aniken','fake@gmail.com'),)
+ADMINS = (('Aniken', 'fake@gmail.com'),)
 
 LOGGING = {
     'version': 1,
     'loggers':
-    {
-        'students':{
-            'handlers':['file_1'],
-            'level': 'WARNING',
+        {
+            'students': {
+                'handlers': ['file_1'],
+                'level': 'WARNING',
+            },
+            'courses': {
+                'handlers': ['file_2'],
+                'level': 'DEBUG',
+            }
         },
-        'courses':{
-            'handlers':['file_2'],
-            'level': 'DEBUG',
-        }
-    },
 
     'handlers':
-    {
-        'file_1':{
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
-            'formatter': 'students'
+        {
+            'file_1': {
+                'level': 'WARNING',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+                'formatter': 'students'
+            },
+            'file_2': {
+                'level': 'DEBUG',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+                'formatter': 'courses',
+            }
         },
-        'file_2':{
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
-            'formatter': 'courses',
-        }
-    },
     'formatters': {
         'students': {
             'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
@@ -131,3 +129,8 @@ LOGGING = {
         },
     },
 }
+
+try:
+    from local_settings import *
+except ImportError:
+    print 'Warning! local_settings are not defined!'

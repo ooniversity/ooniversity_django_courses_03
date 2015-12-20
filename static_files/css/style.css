@@ -1,0 +1,59 @@
+.text1 {font-size: 16px; font-family: Courier New}
+.jumbotron {padding-left: 3%; padding-right: 3%}
+.logo {height: 50px; width: 50px}
+.contact_photo a img {height: 80px; width: 80px}
+.navbar-brand {padding-top: 2px; padding-left: 15px}
+.nav-pills {padding-top: 5px; padding-left: 60px}
+.active {font-weight: bold; font-family: Courier New; font-size: 18px}
+.active a {font-weight: bold; font-family: Courier New; font-size: 18px}
+.passive {font-family: Courier New; font-size: 18px}
+.headline {text-align: center; font-family: Courier New}
+h1 {font-weight: bold}
+h2 {font-weight: bold}
+h4 {font-weight: bold}
+.names {font-size: 14px; font-weight: bold}
+.container.headline div p {font-size: 20px; font-family: Courier New}
+.data {font-size: 16px; font-family: Courier New}
+.table {border:2px;}
+.name {width: 25%}
+.skype {width: 25%}
+.email {widthco: 25%}
+.phone {width: 25%}
+.panel-body {background: #00BFFF;}
+.panel {width:70%;}
+.text2 {background: #00BFFF;font-style: italic}
+.text3 {background: #00BFFF;}
+#programm {text-align:center; font-weight: bold}
+#programm table{font-family:TahomaRegular;font-size:18px;width:1000px;margin:0 auto;border:#bdbdbd 1px solid;border-collapse:collapse}
+#programm table tbody tr th{text-align:center; padding-top:7px;padding-bottom:7px;vertical-align:middle;background:#446785;border:dashed 1px #bdbdbd;color:#FFF}
+#programm table tbody tr td{padding-top:33px;padding-bottom:33px;vertical-align:middle;border:dashed 1px #bdbdbd}
+#programm table tbody tr td:last-child{text-align:left}
+#programm table tbody tr th:first-child{width:106px}
+#programm table tbody tr th:last-child{width:515px}
+#programm table tbody tr td ul{display:inline-block}
+#programm table tbody tr td ul li{list-style:none;padding-left:77px}
+#programm table tbody tr td ul li.paddingLeft{list-style:none;padding-left:130px}
+#programm table tbody tr td p{padding-left:50px}
+#programm .number_cell{font-family:'trebuchet_msregular';font-size:26px}
+.table_contact th {text-align:left; font-size:24px; font-weight: bold; background: #00BFFF }
+.format_data {font-family: Courier New; text-align:left; vertical-align:middle; font-size:16px; font-weight: bold;}
+#spisok {border-radius: 6px; width: 100%; margin: auto}
+#spisok table thead {background-color: #8FBC8F}
+#spisok table tbody {background-color: #90EE90}
+#spisok2 {border-radius: 6px; width: 1000px;}
+#spisok2 table tbody {background-color: #90EE90;}
+.spisok2_1 {width: 200px; font-weight: bold}
+.student_detail p {padding-left: 2%; font-size: 36px; font-weight: bold}
+.student_detail h2 {padding-left: 2%}
+.student_detail p img {max-width:75%; height:auto}
+.student_detail p a {background-color: #1E90FF; font-weight: bold; font-size: 16px}
+#info_company thead tr {background-color: black; font-weight: bold; color:orange}
+#info_company tbody tr {background-color: orange; font-weight: bold}
+#st_details {width: 50%}
+#st_details tbody {background-color: orange}
+.column_data {width: 150px}
+#res_controls {width: 75%}
+#res_controls table thead {background-color: #4682B4; color: white; font-weight: bold}
+#res_controls table tbody {background-color: #5F9EA0}
+#students_detail {text-align:center}
+#coach table thead {background-color: #8FBC8F; font-weight: bold}
