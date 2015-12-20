@@ -27,5 +27,5 @@ urlpatterns = patterns('',
 #         url(r'^__debug__/', include(debug_toolbar.urls)),
 #     )
 
-handler404 = 'pybursa.views.err_404_not_found'
-handler500 = 'pybursa.views.err_500_server_error'
+# handler404 = 'pybursa.views.err_404_not_found'
+# handler500 = 'pybursa.views.err_500_server_error'
