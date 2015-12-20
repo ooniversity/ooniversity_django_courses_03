@@ -160,3 +160,15 @@ class CoursesDetailTest(CoursesListTest):
             self.assertEqual(response.status_code, 200)
             self.assertRegexpMatches(str(response), r'<h[123]>%s</h[123]>' % c_name)
 
+    def test_coach_link_presence(self):
+        courses = self.courses_generator(self.courses_number)
+        client = Client()
+        for i in range(len(courses)):
+            course = courses[i]
+            c_id = course.id
+            co_id = course.coach_id
+            response = client.get('/courses/%d/' % c_id)
+            self.assertEqual(response.status_code, 200)
+            self.assertRegexpMatches(str(response), r'<a.*href=\'?\"?/coaches/%d/\'?\"?>.*</a>' % co_id)
+
+
