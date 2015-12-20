@@ -60,7 +60,25 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'pybursa.urls'
 
 WSGI_APPLICATION = 'pybursa.wsgi.application'
-
+'''
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+'''
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -91,12 +109,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
-'''
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 STATICFILES_FINDER = ("django.contrib.staticfiles.finders.FileSystemFinder",
                       "django.contrib.staticfiles.finders.AppDirectoriesFinder"
                       )
-'''
+
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 
 
@@ -145,9 +162,9 @@ LOGGING = {
         },
     },
 }
-
+'''
 try:     
     from local_settings import * 
 except ImportError:
     print "Achtung! local_settings sind nicht definiert!"
-
+'''
