@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'vw$09ctgi8)@_4_2ljl_3e17e^w)_ux$+ai&2(#6eh5$@)hu)8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -146,4 +146,6 @@ try:
 	from local_settings import *
 except ImportError:
 	print 'Warning! local_settings are not defined!'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
 '''
