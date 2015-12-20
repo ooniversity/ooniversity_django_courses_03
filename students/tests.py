@@ -25,7 +25,7 @@ class CreateAll(object):
         rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
 
         student_n = Student.objects.create(name='test_student_' + rnd_s,
-                                           surname=rnd_n,
+                                           # surname=rnd_n,
                                            date_of_birth=date.today(),
                                            email=rnd_s + '@test.st',
                                            phone=rnd_n,
