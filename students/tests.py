@@ -201,7 +201,7 @@ class StudentTests(TestCase):
 
 class StudentsDetailTest(TestCase):
 
-    students = StudentsListTest()
+    # students = StudentsListTest()
 
     def test_student_details_template(self):
 
