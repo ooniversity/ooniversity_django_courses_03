@@ -11,22 +11,51 @@ from courses.models import Course
 from django.core.urlresolvers import reverse
 
 
-def students_create():
+def course_create():
+    test_user = User.objects.create(username='test')
+    test_coach = Coach.objects.create(user=test_user,
+                                      date_of_birth=date.today(),
+                                      phone='888888',
+                                      address='qqqq',
+                                      skype='wwww',
+                                      description='rrrr')
+    course = Course.objects.create(name='yyyyy',
+                                   short_description='yyyyyyyyyyy',
+                                   description='ddddddddddyyg',
+                                   coach=test_coach,
+                                   assistant=test_coach)
+    return course
 
-    # imp = CoursesListTest()
 
-    rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
-    rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
-
-    student = Student.objects.create(name='test_student_' + rnd_s,
-                                     surname=rnd_n,
+def student_create():
+    course = course_create()
+    student = Student.objects.create(name='111111111111',
+                                     surname='2222222222222222222',
                                      date_of_birth=date.today(),
-                                     email=rnd_s + '@test.st',
-                                     phone=rnd_n,
-                                     address='This is the test address for ' + rnd_s,
-                                     skype=rnd_s + '_skype',
-                                     courses=[4],
+                                     email='1111111@222222222.333',
+                                     phone='444444444444444',
+                                     address='555555555555555555',
+                                     skype='6666666666666666666',
                                      )
+    student.courses.add(course)
+    return student
+
+# def students_create():
+#
+#     imp = CoursesListTest()
+#
+#     rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
+#     rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
+#
+#     student = Student.objects.create(name='test_student_' + rnd_s,
+#                                      surname=rnd_n,
+#                                      date_of_birth=date.today(),
+#                                      email=rnd_s + '@test.st',
+#                                      phone=rnd_n,
+#                                      address='This is the test address for ' + rnd_s,
+#                                      skype=rnd_s + '_skype',
+#                                      courses=[4],
+#                                      )
 
     # import pdb; pdb.set_trace()
     # course_id = imp.courses_generator(1)[0].id
@@ -34,11 +63,11 @@ def students_create():
 
 
 class StudentsListTest(TestCase):
-    courses_number = 3
-    students_number = random.randrange(1, 4)
-
-    courses = CoursesListTest()
-    courses_list = courses.courses_generator(courses_number)
+    # courses_number = 3
+    # students_number = random.randrange(1, 4)
+    #
+    # courses = CoursesListTest()
+    # courses_list = courses.courses_generator(courses_number)
 
     # def runTest(self):
     #     pass
