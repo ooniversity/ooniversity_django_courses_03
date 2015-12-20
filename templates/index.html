@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa: Главная страница{% endblock title%}
+
+
+{% block nav_class_index %}active{% endblock %}
+
+
+{% block content %}
+
+
+{% include "include/messages_include.html" %}
+
+
+<br>
+<a href="{% url 'courses:add' %}" class="btn btn-success" role="button">
+    <span class="glyphicon glyphicon-plus"></span> Добавить курс</a>
+
+
+<div class="page-header">
+    <h1>Полигон</h1>
+</div>
+<p>Цель проекта — готовить квалифицированных веб-разработчиков и системных архитекторов.
+    Широкий спектр тем — от базовых, таких как алгоритмы и структуры данных,
+    до тонкостей разработки приложений для мобильных платформ.
+    Такие проекты, как Technopolis, важны и для рынка в целом,
+    и в первую очередь — для самих студентов. У молодых специалистов должна быть возможность
+    общаться с экспертами отрасли, пробовать свои силы в реальных проектах, иметь перед глазами вдохновляющие примеры.
+    Мы стремимся создавать площадки для этого: проводим конференции для it-разработчиков,
+    организуем крупнейшую в стране олимпиаду для программистов Polygon Cup и другие международные чемпионаты.</p>
+<br>
+<h2>Популярные курсы</h2>
+<br>
+<div class="table-responsive">
+    <table class="table table-hover table-condensed">
+        <thead>
+        <tr>
+            <th class="text-center">Курс</th>
+            <th class="text-center">Описание</th>
+            <th class="text-center">Управление</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for course in courses %}
+        <tr>
+            <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
+            <td>{{ course.short_description|title }}</td>
+            <td>
+                <a href="{% url 'courses:edit' course.id %}" class="btn btn-warning btn-xs" role="button">
+                    <span class="glyphicon glyphicon-pencil"></span> Изменить</a>
+                <a href="{% url 'courses:remove' course.id%}" class="btn btn-danger btn-xs" role="button">
+                    <span class="glyphicon glyphicon-remove"></span> Удалить </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

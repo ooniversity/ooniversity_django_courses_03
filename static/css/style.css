@@ -1,0 +1,265 @@
+html {
+  overflow-y: scroll;
+}
+body {
+    overflow: scroll;
+    overflow-x: hidden;
+        }
+::-webkit-scrollbar{
+  width:0px;   // here actuall it exist but width is 0 so no one can see it 
+  background:transparent;
+} //end of the code here
+// this code for further customization of thumbs
+::-webkit-scrollbar-thumb{
+   background-color: rgba(0,0,0,0);
+}
+.logo {
+  height: 40px;
+  width: 40px;
+  margin-top: -10px;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+table, td {
+    border: 1px solid rgba(255,255,255,50);
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.navbar {
+  background: rgb(226, 226, 226);
+  background: -moz-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: linear-gradient(to bottom, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+}
+.navbar-default {
+  background: rgb(226, 226, 226);
+  background: -moz-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: linear-gradient(to bottom, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+}
+.navbar-fixed-top {
+  background: rgb(226, 226, 226);
+  background: -moz-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: linear-gradient(to bottom, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+}
+.navbar-collapse {
+  background: rgb(226, 226, 226);
+  background: -moz-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: linear-gradient(to bottom, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+}
+.navbar-nav {
+  background: rgb(226, 226, 226);
+  background: -moz-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+  background: linear-gradient(to bottom, rgba(226, 226, 226, 1) 0%, rgba(219, 219, 219, 1) 50%, rgba(209, 209, 209, 1) 51%, rgba(254, 254, 254, 1) 100%);
+}
+.footer {
+  background: rgb(254,254,254);
+  background: -moz-linear-gradient(top,  rgba(254,254,254,1) 0%, rgba(209,209,209,1) 49%, rgba(219,219,219,1) 50%, rgba(226,226,226,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(254,254,254,1) 0%,rgba(209,209,209,1) 49%,rgba(219,219,219,1) 50%,rgba(226,226,226,1) 100%);
+  background: linear-gradient(to bottom,  rgba(254,254,254,1) 0%,rgba(209,209,209,1) 49%,rgba(219,219,219,1) 50%,rgba(226,226,226,1) 100%);
+}
+.navbar-default .navbar-nav > .active > a {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(250, 246, 232, 1) 50%, rgba(245, 236, 205, 1) 51%, rgba(252, 249, 240, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(250, 246, 232, 1) 50%, rgba(245, 236, 205, 1) 51%, rgba(252, 249, 240, 1) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(250, 246, 232, 1) 50%, rgba(245, 236, 205, 1) 51%, rgba(252, 249, 240, 1) 100%);
+}
+#cnt1 {
+  /*background-color:rgba(240, 240, 240, 0.88); */
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.feature {
+  padding: 5px 0;
+  text-align: center;
+}
+.feature > div > div {
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+.feature > div:hover > div {
+  margin-top: -5px;
+  border: 1px solid rgb(200, 200, 200);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px 2px;
+  background: rgba(232, 215, 215, 0.10);
+  transition: 0.3s;
+}
+.container {
+  width: 90%;
+}
+.main_item {
+  list-style-type: square;
+  font-weight: bold;
+}
+.period {
+  list-style: inherit;
+  list-style-type: circle;
+  margin-left: 20px;
+}
+.row-link:hover {
+  cursor: pointer;
+}
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+  background-color: rgba(210, 230, 205, 1);
+}
+tbody > tr > td:first-child {
+  text-align: center;
+  vertical-align: middle;
+}
+#scard > tbody > tr > td {
+  text-align: left;
+  padding-left: 20px;
+}
+#scard2 > tbody > tr > td {
+  text-align: center;
+  vertical-align: middle;
+}
+#scard2 > thead > tr > th {
+  text-align: center;
+  column-width: auto;
+  background-color: orange;
+}
+#scard2 td.left {
+  text-align: left;
+  padding-left: 25px;
+}
+#scard2 td.right {
+  text-align: right;
+  column-width: auto;
+  padding-right: 65px;
+  margin: 0 auto
+}
+.some_side_menu > li {
+  width: 230px;
+  height: 45px;
+  float: right;
+  padding: 15px;
+  background-color: bisque;
+  text-align: left;
+  vertical-align: middle;
+}
+.some_side_menu > li:hover {
+  background-color: coral;
+}
+#osebe button {
+  clear: both;
+  margin: 20px 0 0 15px;
+  ;
+}
+.msg_alert {
+  color: red;
+}
+#divider{
+  border-bottom: 1px dotted black;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  width : 45%;;
+  text-align: left;
+}
+
+/*
+tbody > tr > td > a {
+  font-size: 0.9em;
+}
+*/
+
+thead > tr > th {
+  background: rgb(254,253,242);
+  background: -moz-linear-gradient(top,  rgba(254,253,242,1) 0%, rgba(247,233,133,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(254,253,242,1) 0%,rgba(247,233,133,1) 100%);
+  background: linear-gradient(to bottom,  rgba(254,253,242,1) 0%,rgba(247,233,133,1) 100%);
+  text-align: center;
+}
+
+.wide28 {
+  width:28%;
+}
+
+.wide5 {
+  width:5%;
+}
+
+tbody > tr > td {
+  vertical-align:middle !important;
+}
+div.table-responsive.col-md-6 > img {
+  border: 3px solid rgba(240,240,240,50);
+  margin-left: 6px;
+}
+
+form{
+    width:33%;
+    padding:15px 20px;
+    background:#f5f5f5;
+    background-color:rgba(245,245,245,0.95);
+    border-radius: 10px;
+    box-shadow:0 0 5px rgba(0, 0, 0, 0.4);
+    font-size:1em;
+    color:#444;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,
+textarea
+{
+    width:100%;
+    max-height:70px;
+    border:1px solid #ccc;
+    margin-bottom:1em;
+    padding:5px 5px;
+    background:white;
+    border-radius: 5px;
+    box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-sizing:border-box;
+}
+input[type="checkbox"]{
+    margin:0 10px 0 0;
+    border:1px dotted #ddd;
+    background:white;
+    box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    color:#ddd;
+}
+input[type="submit"] {
+    width:33%;
+    border:1px solid #ccc;
+    margin-bottom:1em;
+    padding:5px 5px;
+    background: #CCEECC;
+    border-radius: 5px;
+    box-shadow:outset 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-sizing:border-box;
+    -webkit-transition:box-shadow 0.5s;
+}
+input[type="submit"]:hover{
+    background: #BBEEBB;
+}
+input[type="submit"]:focus{
+    outline:0;
+}
+.active > a:focus {
+    outline:0;
+}
+.pagination-centered{
+  margin: 10px auto;
+}
+.pagination > li > a:hover{
+  outline:0;
+}
+

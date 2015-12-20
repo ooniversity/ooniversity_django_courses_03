@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa: Контакты{% endblock title%}
+
+
+{% block nav_class_contact %}active{% endblock %}
+
+
+{% block content %}
+<div class="container" id="cnt1">
+  <div class="row feature">
+    <div class="col-md-4">
+      <div>
+        <img src="{% static 'images/pasha.jpg' %}" alt="Павел Обод" class="img-circle img-thumbnail">
+        <h2>Founder</h2>
+        <p><b>Name:</b> Павел Обод</p>
+        <p><b>Email:</b> itbursa100@gmail.com</p>
+        <p><b>Phone:</b> 0-800-555-44-00</p>
+        <p><b>Skype:</b> azaless</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div>
+        <img src="{% static 'images/alena.jpg' %}" alt="Алена Чайка" class="img-circle img-thumbnail">
+        <h2>Director</h2>
+        <p><b>Name:</b> Алена Чайка</p>
+        <p><b>Email:</b> alena.itbursa@gmail.com</p>
+        <p><b>Phone:</b> 0-800-555-23-25</p>
+        <p><b>Skype:</b> alena.itbursa</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div>
+        <img src="{% static 'images/darka.jpg' %}" alt="Дария Михалевич" class="img-circle img-thumbnail">
+        <h2>Manager</h2>
+        <p><b>Name:</b> Дария Михалевич</p>
+        <p><b>Email:</b> daria.mykhalevych@gmail.com</p>
+        <p><b>Phone:</b> 0-800-555-11-12</p>
+        <p><b>Skype:</b> darka.darka.darka.darka.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

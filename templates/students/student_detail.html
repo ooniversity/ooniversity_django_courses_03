@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa: Детали студента{% endblock title%}
+
+
+{% block nav_class_student %}active{% endblock %}
+
+
+{% block content %}
+  <div class="page-header">
+    <h1>{{ object.name }} {{ object.surname }}</h1>
+  </div>
+<div class="table-responsive col-md-5">
+  <table class="table table-hover">
+    <thead>
+    </thead>
+    <tbody>
+    <tr class="success">
+      <td>дата рождения</td>
+      <td>{{ object.date_of_birth }}</td>
+    </tr>
+    <tr class="success">
+      <td>адрес</td>
+      <td>{{ object.address }}</td>
+    </tr>
+    <tr class="success">
+      <td>email</td>
+      <td>{{ object.email }}</td>
+    </tr>
+    <tr class="success">
+      <td>skype</td>
+      <td>{{ object.skype }}</td>
+    </tr>
+    <tr class="success">
+      <td>телефон</td>
+      <td>{{ object.phone }}</td>
+    </tr>
+    <tr class="success">
+      <td>курсы</td>
+      <td>
+        {% for course in object.courses.all %}
+        <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a><br>
+        {% endfor %}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

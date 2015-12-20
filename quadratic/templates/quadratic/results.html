@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}PyBursa: Уравнение{% endblock title%}
+
+
+{% block nav_class_quadratic %}active{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+    <h2>Решить квадратное уравнение: a*x^2+b*x+c=0</h2>
+</div>
+
+  {% if form %}
+  <br/>
+
+  <form method="get">
+    {{ form.as_p }}
+    <input type="submit" value="Решить"/>
+  </form>
+  <hr/>
+  <p>{{ discr }}</p>
+
+  <p>{{ res }}</p>
+
+  {% else %}
+
+  <p>Something is going wrong. Contact System Administrator.</p>
+
+  {% endif %}
+
+{% endblock content %}
