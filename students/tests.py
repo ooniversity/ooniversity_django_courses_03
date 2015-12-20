@@ -14,6 +14,8 @@ class StudentsListTest(TestCase):
     courses_number = 3
     students_number = random.randrange(1, 4)
 
+    import pdb; pdb.set_trace()
+
     def course_students_create(self):
 
         rnd_c = "".join([random.choice(string.letters) for i in xrange(5)])
