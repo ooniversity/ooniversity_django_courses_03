@@ -83,5 +83,9 @@ class StudentsListTest(TestCase):
 
 
 class StudentsDetailTest(TestCase):
-    """ not implemented """
-    pass
+
+    def test_student_details_template(self):
+        client = Client()
+        response = client.get('/students/1/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response.content, 'students/student_detail.html')
