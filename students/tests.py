@@ -109,8 +109,7 @@ class StudentsDetailTest(TestCase):
         client = Client()
         student = CreateAll()
         s_obj = student.create_students_list()
-        s_id = s_obj.id
-        s_name = s_obj.name
+        import pdb; pdb.set_trace()
         response = client.get('/students/%d/' % s_id)
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
