@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    Sorry, internal server error occurred
-</body>
-</html>
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+{% block title %}Main{% endblock %}
+
+
+{% block navbar_i1 %}active{% endblock %}"
+
+
+{% block jumbotron %}{% endblock %}
+
+
+{% block content %}<h1>Sorry, internal server error occurred</h1>{% endblock %}
