@@ -120,7 +120,7 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 # EMAIL_USE_SSL = True
 #
 # EMAIL_HOST_USER = 's.pod.pub@ya.ru'
-# EMAIL_HOST_PASSWORD = 'ikm3tMPdoJtcp8'
+# EMAIL_HOST_PASSWORD = 'ikm3tMpdoJtcp8'
 
 
 EMAIL_HOST = 'smtp.sendgrid.net'
