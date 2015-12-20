@@ -74,6 +74,9 @@ class StudentsListTest(TestCase):
         self.assertEqual(real_buttons_number, 2)
 
     def test_pagination(self):
+
+        self.students_create()
+
         client = Client()
         response = client.get('/students/?page=2')
         self.assertEqual(response.status_code, 200)
