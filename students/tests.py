@@ -11,15 +11,15 @@ from courses.models import Course
 from django.core.urlresolvers import reverse
 
 
-def create_course(name):
-    return Course.objects.create(
-        name=name,
-        short_description="This is the test short_description",
-        description="This is the test full description")
+class CreateAll(TestCase):
 
+    def create_course(name):
+        return Course.objects.create(
+            name=name,
+            short_description="This is the test short_description",
+            description="This is the test full description")
 
-class StudentTests(TestCase):
-    def test_students_list(self):
+    def create_students_list(self):
 
         rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
         rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
@@ -34,8 +34,16 @@ class StudentTests(TestCase):
                                            )
 
         course_n = create_course('course_' + rnd_s)
-        student_n.courses.add(course_n)
+
+        return student_n.courses.add(course_n)
+
+
+class StudentTests(TestCase):
+
+    def test_student_list(self):
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get(reverse('students:list_view'))
         import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
