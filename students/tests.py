@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse
 
 class CreateAll(object):
 
-    def create_course(name):
+    def create_course(self, name):
         return Course.objects.create(
             name=name,
             short_description="This is the test short_description",
@@ -32,8 +32,8 @@ class CreateAll(object):
                                            address='This is the test address for ' + rnd_s,
                                            skype=rnd_s + '_skype',
                                            )
-
-        course_n = self.create_course('course_' + self.rnd_s)
+        name = 'course_' + rnd_s
+        course_n = self.create_course(name)
 
         return student_n.courses.add(course_n)
 
