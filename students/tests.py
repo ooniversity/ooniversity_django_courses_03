@@ -36,9 +36,9 @@ class StudentsListTest(TestCase):
                                                  phone=rnd_n,
                                                  address='This is the test address for ' + rnd_s,
                                                  skype=rnd_s + '_skype',
-                                                 course=course.id
                                                  )
-                # student.courses.add(courses_list)
+                import pdb; pdb.set_trace()
+                student.courses.add(courses_list)
                 students_list.append(student)
 
         return students_list
@@ -112,6 +112,6 @@ class StudentsDetailTest(TestCase):
             s_id = student.id
             s_name = student.name
             response = client.get('/students/%d/' % s_id)
-            import pdb; pdb.set_trace()
+            # import pdb; pdb.set_trace()
             self.assertEqual(response.status_code, 200)
             self.assertRegexpMatches(str(response), r'<h[123]>%s</h[123]>' % s_name)
