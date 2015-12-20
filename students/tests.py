@@ -58,7 +58,7 @@ class StudentsListTest(TestCase):
         response = client.get('/students/')
         content = response.content
         real_buttons_number = content.count('<a href="/students/edit/')
-        # import pdb; pdb.set_trace()
+        import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(real_buttons_number, 2)
 
