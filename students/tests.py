@@ -36,7 +36,7 @@ class StudentTests(TestCase):
         course_n = create_course('course_' + rnd_s)
         student_n.courses.add(course_n)
         client = Client()
-        response = client.get(reverse('students:students'))
+        response = client.get(reverse('students:list_view'))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(Student.objects.all().count(), 1)
 
