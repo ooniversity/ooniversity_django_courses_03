@@ -34,7 +34,7 @@ class StudentsListTest(TestCase):
                                      address='This is the test address for ' + rnd_s,
                                      skype=rnd_s + '_skype',
                                      )
-        assistant = Coach.objects.create(user=user,
+        assistant = Coach.objects.create(user=user + '_a',
                                          date_of_birth=date.today(),
                                          phone=rnd_n,
                                          address='This is the test address for ' + rnd_s,
