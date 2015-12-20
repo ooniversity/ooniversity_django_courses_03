@@ -32,7 +32,7 @@ class CreateAll(object):
                                            address='This is the test address for ' + rnd_s,
                                            skype=rnd_s + '_skype',
                                            )
-        name = 'course_' + rnd_s
+        name = str('course_' + rnd_s)
         course_n = self.create_course(name)
 
         return student_n.courses.add(course_n)
