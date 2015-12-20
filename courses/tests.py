@@ -169,7 +169,8 @@ class CoursesDetailTest(CoursesListTest):
             co_id = course.coach_id
             response = client.get('/courses/%d/' % c_id)
             self.assertEqual(response.status_code, 200)
-            self.assertRegexpMatches(str(response), r'<a.*href=\'?\"?/coaches/%d/\'?\"?>(.|\n)*</a>' % co_id)
+            self.assertRegexpMatches(str(response),
+                                     r'<a.*href=\'?\"?/coaches/%d/\'?\"?>(.|\n)*</a>' % co_id)
 
     def test_assistant_link_presence(self):
         courses = self.courses_generator(self.courses_number)
@@ -180,6 +181,7 @@ class CoursesDetailTest(CoursesListTest):
             as_id = course.assistant_id
             response = client.get('/courses/%d/' % c_id)
             self.assertEqual(response.status_code, 200)
-            self.assertRegexpMatches(str(response), r'<a.*href=\'?\"?/coaches/%d/\'?\"?>' % as_id)
+            self.assertRegexpMatches(str(response),
+                                     r'<a.*href=\'?\"?/coaches/%d/\'?\"?>(.|\n)*_a(.|\n)*</a>' % as_id)
 
 
