@@ -140,11 +140,10 @@ class CoursesDetailTest(CoursesListTest):
     def test_presence_of_add_lesson_link(self):
         courses = self.courses_generator(self.courses_number)
         client = Client()
-        for i in range(len(courses)):
+        for i in range(len(courses)+1):
             course = courses[i]
             cid = course.id
             response = client.get('/courses/%d/' % cid)
-            import pdb; pdb.set_trace()
             self.assertEqual(response.status_code, 200)
             # self.assertContains(response, '<a href="/courses/%d/add_lesson">Добавить занятие</a>' % i)
             self.assertRegexpMatches(str(response), r'<a.*href=\'?\"?/courses/%d/add_lesson\'?\"?>.*</a>' % cid)
