@@ -13,7 +13,7 @@ class FeedbackView(CreateView):
     model = Feedback
     form_class = FeedbackForm
     template_name = 'feedback.html'
-    success_url = reverse_lazy('feedbaSck')
+    success_url = reverse_lazy('feedback')
 
 # send_mail(
     # subject, message, from_email, recipient_list, fail_silently=False,
