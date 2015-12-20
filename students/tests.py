@@ -16,6 +16,7 @@ def students_create():
     imp = CoursesListTest()
 
     rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
+    rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
 
     student = Student.objects.create(name='test_student_' + rnd_s,
                                      surname=rnd_n,
@@ -25,7 +26,7 @@ def students_create():
                                      address='This is the test address for ' + rnd_s,
                                      skype=rnd_s + '_skype',
                                      )
-    student.courses.add(imp.courses_generator(1))
+    student.courses.add(imp.courses_generator(1).id)
 
 
 
