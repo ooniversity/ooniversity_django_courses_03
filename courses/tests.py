@@ -142,19 +142,21 @@ class CoursesDetailTest(CoursesListTest):
         client = Client()
         for i in range(len(courses)):
             course = courses[i]
-            cid = course.id
-            response = client.get('/courses/%d/' % cid)
+            c_id = course.id
+            response = client.get('/courses/%d/' % c_id)
             self.assertEqual(response.status_code, 200)
             # self.assertContains(response, '<a href="/courses/%d/add_lesson">Добавить занятие</a>' % i)
-            self.assertRegexpMatches(str(response), r'<a.*href=\'?\"?/courses/%d/add_lesson\'?\"?>.*</a>' % cid)
+            self.assertRegexpMatches(str(response),
+                                     r'<a.*href=\'?\"?/courses/%d/add_lesson\'?\"?>.*</a>' % c_id)
 
     def test_course_name_in_header(self):
         courses = self.courses_generator(self.courses_number)
         client = Client()
         for i in range(len(courses)):
             course = courses[i]
-            cname = course.name
-            response = client.get('/courses/%d/' % cid)
+            c_id = course.id
+            c_name = course.name
+            response = client.get('/courses/%d/' % c_id)
             self.assertEqual(response.status_code, 200)
-            self.assertRegexpMatches(str(response), r'<h[123]>%s</h\[123]>' % cname)
+            self.assertRegexpMatches(str(response), r'<h[123]>%s</h\[123]>' % c_name)
 
