@@ -113,9 +113,9 @@ class StudentsDetailTest(TestCase):
         s_obj = student.create_students_list()
         response = client.get('/students/%d/' % s_obj[0].id)
         self.assertEqual(response.status_code, 200)
-        self.assertRegexpMatches(str(response), r'<h[123]>%s %s </h[123]>' % (s_obj[0].name, s_obj[0].surname))
+        self.assertRegexpMatches(str(response), r'<h[123]>%s %s</h[123]>' % (s_obj[0].name, s_obj[0].surname))
 
-    def test_student_details_page_contains_course(self):
+    def test_student_details_page_count_courses(self):
         client = Client()
         student = CreateAll()
         s_obj = student.create_students_list()
@@ -132,3 +132,7 @@ class StudentsDetailTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, s_obj[1].name)
 
+    def test_student_page_not_found(self):
+        client = Client()
+        response = client.get('/students/0/')
+        self.assertEqual(response.status_code, 404)
