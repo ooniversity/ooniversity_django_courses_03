@@ -24,7 +24,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['polygon.tk', '127.0.0.1']
 
 # Application definition
 
