@@ -75,7 +75,7 @@ class StudentsListTest(TestCase):
 
     def test_pagination(self):
         client = Client()
-        response = client.get('/students/?page=1')
+        response = client.get('/students/?page=2')
         self.assertEqual(response.status_code, 200)
 
 
