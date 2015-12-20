@@ -11,7 +11,7 @@ from courses.models import Course
 from django.core.urlresolvers import reverse
 
 
-class CreateAll(TestCase):
+class CreateAll(object):
 
     def create_course(name):
         return Course.objects.create(
