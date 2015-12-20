@@ -153,7 +153,7 @@ class StudentTests(TestCase):
 
     def test_response_status(self):
 
-        student = students_create()
+        # student = students_create()
 
         client = Client()
         response = client.get('/students/')
