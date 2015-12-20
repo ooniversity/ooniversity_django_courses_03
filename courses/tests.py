@@ -182,6 +182,6 @@ class CoursesDetailTest(CoursesListTest):
             response = client.get('/courses/%d/' % c_id)
             self.assertEqual(response.status_code, 200)
             self.assertRegexpMatches(str(response),
-                                     r'<a.*href=\'?\"?/coaches/%d/\'?\"?>(.|\n)?_a(.|\n)?</a>' % as_id)
+                                     r'<a.*href=\'?\"?/coaches/%d/\'?\"?>(.|\n)*</a>' % as_id)
 
 
