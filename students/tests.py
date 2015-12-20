@@ -85,6 +85,9 @@ class StudentsListTest(TestCase):
 class StudentsDetailTest(TestCase):
 
     def test_student_details_template(self):
+        
+        self.students_create()
+
         client = Client()
         response = client.get('/students/1/')
         # self.assertEqual(response.status_code, 200)
