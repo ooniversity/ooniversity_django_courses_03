@@ -40,15 +40,28 @@ class IndexView(TemplateView):
         return context
 '''
 
+#
+# def not_found(request):
+#     response = render_to_response('errors/404.html', {'error_text': 'Sorry, page is not found'},
+#                                   context_instance=RequestContext(request))
+#     response.status_code = 404
+#     return response
+#
+#
+# def server_error(request):
+#     response = render_to_response('errors/500.html', {'error_text': 'Sorry, internal server error occurred'},
+#                                   context_instance=RequestContext(request))
+#     response.status_code = 500
+#     return response
 
-def err_404_not_found(request):
+def not_found(request):
     response = render_to_response('errors/404.html', {'error_text': 'Sorry, page is not found'},
                                   context_instance=RequestContext(request))
     response.status_code = 404
     return response
 
 
-def err_500_server_error(request):
+def server_error(request):
     response = render_to_response('errors/500.html', {'error_text': 'Sorry, internal server error occurred'},
                                   context_instance=RequestContext(request))
     response.status_code = 500
