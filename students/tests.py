@@ -25,7 +25,7 @@ def students_create():
                                      phone=rnd_n,
                                      address='This is the test address for ' + rnd_s,
                                      skype=rnd_s + '_skype',
-                                     courses={'course': 4},
+                                     courses=[4],
                                      )
 
     # import pdb; pdb.set_trace()
