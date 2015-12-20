@@ -17,7 +17,12 @@ class StudentsListTest(TestCase):
     courses = CoursesListTest()
     courses_list = courses.courses_generator(courses_number)
 
+    def runTest(self):
+        pass
+
     def students_create(self):
+
+        students_list = []
 
         for course in self.courses_list:
             for s_i in xrange(self.students_number):
@@ -33,6 +38,9 @@ class StudentsListTest(TestCase):
                                                  skype=rnd_s + '_skype',
                                                  )
                 student.courses.add(course)
+                students_list.append(course)
+
+        return students_list
 
     def test_response_status(self):
 
@@ -84,9 +92,11 @@ class StudentsListTest(TestCase):
 
 class StudentsDetailTest(TestCase):
 
+    students = StudentsListTest()
+
     def test_student_details_template(self):
 
-        self.students_create()
+        self.students.students_create()
 
         client = Client()
         response = client.get('/students/1/')
