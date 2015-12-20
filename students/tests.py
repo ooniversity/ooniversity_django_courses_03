@@ -37,7 +37,7 @@ class StudentsListTest(TestCase):
 
     def test_response_status(self):
 
-        self.courses.courses_generator(self.courses_number)
+        self.students_create()
 
         client = Client()
         response = client.get('/students/')
@@ -52,7 +52,7 @@ class StudentsListTest(TestCase):
 
     def test_check_student_edit_button_equality(self):
 
-        self.courses.courses_generator(self.courses_number)
+        self.students_create()
 
         client = Client()
         response = client.get('/students/')
@@ -64,7 +64,7 @@ class StudentsListTest(TestCase):
 
     def test_check_student_remove_button_equality(self):
 
-        self.courses.courses_generator(self.courses_number)
+        self.students_create()
 
         client = Client()
         response = client.get('/students/')
