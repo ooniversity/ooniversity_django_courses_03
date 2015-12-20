@@ -29,3 +29,5 @@ urlpatterns = patterns('',
 
 handler404 = 'pybursa.views.not_found'
 handler500 = 'pybursa.views.server_error'
+
+#
