@@ -11,6 +11,22 @@ from courses.models import Course
 from django.core.urlresolvers import reverse
 
 
+def students_create():
+
+    imp = CoursesListTest()
+
+    student = Student.objects.create(name='test_student_' + rnd_s,
+                                     surname=rnd_n,
+                                     date_of_birth=date.today(),
+                                     email=rnd_s + '@test.st',
+                                     phone=rnd_n,
+                                     address='This is the test address for ' + rnd_s,
+                                     skype=rnd_s + '_skype',
+                                     )
+    student.courses.add(imp.courses_generator(1))
+
+
+
 class StudentsListTest(TestCase):
     courses_number = 3
     students_number = random.randrange(1, 4)
@@ -21,43 +37,33 @@ class StudentsListTest(TestCase):
     # def runTest(self):
     #     pass
 
-    def students_create(self):
-        rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
-        rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
-        short_description = "This is the test short_description"
-        description = "This is the test full description"
-
-        user_c = User.objects.create(username='test_user_' + rnd_s)
-        user_a = User.objects.create(username='test_user_' + rnd_s + '_a')
-        coach = Coach.objects.create(user=user_c,
-                                     date_of_birth=date.today(),
-                                     phone=rnd_n,
-                                     address='This is the test address for ' + rnd_s,
-                                     skype=rnd_s + '_skype',
-                                     )
-        assistant = Coach.objects.create(user=user_a,
-                                         date_of_birth=date.today(),
-                                         phone=rnd_n,
-                                         address='This is the test address for ' + rnd_s,
-                                         skype=rnd_s + '_skype',
-                                         )
-
-        course = Course.objects.create(name='course_' + rnd_s,
-                                       short_description=short_description,
-                                       description=description,
-                                       coach=coach,
-                                       assistant=assistant,
-                                       )
-
-        student = Student.objects.create(name='test_student_' + rnd_s,
-                                         surname=rnd_n,
-                                         date_of_birth=date.today(),
-                                         email=rnd_s + '@test.st',
-                                         phone=rnd_n,
-                                         address='This is the test address for ' + rnd_s,
-                                         skype=rnd_s + '_skype',
-                                         )
-        student.courses.add(course)
+    # def students_create(self):
+    #     rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
+    #     rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
+    #     short_description = "This is the test short_description"
+    #     description = "This is the test full description"
+    #
+    #     user_c = User.objects.create(username='test_user_' + rnd_s)
+    #     user_a = User.objects.create(username='test_user_' + rnd_s + '_a')
+    #     coach = Coach.objects.create(user=user_c,
+    #                                  date_of_birth=date.today(),
+    #                                  phone=rnd_n,
+    #                                  address='This is the test address for ' + rnd_s,
+    #                                  skype=rnd_s + '_skype',
+    #                                  )
+    #     assistant = Coach.objects.create(user=user_a,
+    #                                      date_of_birth=date.today(),
+    #                                      phone=rnd_n,
+    #                                      address='This is the test address for ' + rnd_s,
+    #                                      skype=rnd_s + '_skype',
+    #                                      )
+    #
+    #     course = Course.objects.create(name='course_' + rnd_s,
+    #                                    short_description=short_description,
+    #                                    description=description,
+    #                                    coach=coach,
+    #                                    assistant=assistant,
+    #                                    )
 
 
 
@@ -82,7 +88,7 @@ class StudentsListTest(TestCase):
 
     def test_response_status(self):
 
-        self.students_create()
+        students_create()
 
         client = Client()
         response = client.get('/students/')
@@ -97,7 +103,7 @@ class StudentsListTest(TestCase):
 
     def test_check_student_edit_button_equality(self):
 
-        self.students_create()
+        students_create()
 
         client = Client()
         response = client.get('/students/')
@@ -109,7 +115,7 @@ class StudentsListTest(TestCase):
 
     def test_check_student_remove_button_equality(self):
 
-        self.students_create()
+        students_create()
 
         client = Client()
         response = client.get('/students/')
@@ -121,7 +127,7 @@ class StudentsListTest(TestCase):
 
     def test_pagination(self):
 
-        self.students_create()
+        students_create()
 
         client = Client()
         response = client.get('/students/?page=2')
