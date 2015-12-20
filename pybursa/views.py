@@ -1,6 +1,7 @@
 # -*- coding:UTF-8 -*-
 
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, render_to_response
+from django.template import RequestContext
 from courses.models import Course
 # from students.models import Student
 # from django.views.generic import TemplateView
@@ -39,3 +40,16 @@ class IndexView(TemplateView):
         return context
 '''
 
+
+def err_404_not_found(request):
+    response = render_to_response('errors/404.html', {'error_text': 'Sorry, page is not found'},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+
+
+def err_500_server_error(request):
+    response = render_to_response('errors/500.html', {'error_text': 'Sorry, internal server error occurred'},
+                                  context_instance=RequestContext(request))
+    response.status_code = 500
+    return response

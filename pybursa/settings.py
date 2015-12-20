@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '#(ry%ee*q_pqzoa9xf@a*vntmqqwdixb(rf9_h1@l1ex1ntn32'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['polygon.tk', '127.0.0.1']
 
 # Application definition
 
@@ -41,15 +41,15 @@ INSTALLED_APPS = (
     'students',
     'coaches',
     'feedbacks',
-    'debug_toolbar',
+    # 'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'django.middleware.cache.UpdateCacheMiddleware',
+    # 'django.middleware.cache.UpdateCacheMiddleware',  # for caches
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.cache.FetchFromCacheMiddleware',
+    # 'django.middleware.cache.FetchFromCacheMiddleware',  # for caches
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
@@ -101,6 +101,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.FileSystemFinder",
+                       "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+                       )
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -109,12 +115,19 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Email settings
 
-EMAIL_HOST = 'smtp-pulse.com'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
+# EMAIL_HOST = 'smtp-pulse.com'
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
+#
+# EMAIL_HOST_USER = 's.pod.pub@ya.ru'
+# EMAIL_HOST_PASSWORD = 'ikm3tMpdoJtcp8'
 
-EMAIL_HOST_USER = 's.pod.pub@ya.ru'
-EMAIL_HOST_PASSWORD = 'ikm3tMPdoJtcp8'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'Sansiro'
+EMAIL_HOST_PASSWORD = 't0iAO0OQhVmo0xHVr3pM'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 SERVER_EMAIL = 's.pod.pub@ya.ru'
 ADMINS = ('s.pod.pub@ya.ru',)
