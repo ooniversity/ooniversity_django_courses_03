@@ -27,8 +27,8 @@ def students_create():
                                      skype=rnd_s + '_skype',
                                      )
     import pdb; pdb.set_trace()
-    student.courses.add(imp.courses_generator(1))
-
+    course_id = imp.courses_generator(1)[0].id
+    student.courses.add(course_id)
 
 
 class StudentsListTest(TestCase):
