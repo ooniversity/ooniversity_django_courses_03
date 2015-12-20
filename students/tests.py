@@ -13,7 +13,7 @@ from django.core.urlresolvers import reverse
 
 def students_create():
 
-    imp = CoursesListTest()
+    # imp = CoursesListTest()
 
     rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
     rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
@@ -27,8 +27,8 @@ def students_create():
                                      skype=rnd_s + '_skype',
                                      )
     import pdb; pdb.set_trace()
-    course_id = imp.courses_generator(1)[0].id
-    student.courses.add(course_id)
+    # course_id = imp.courses_generator(1)[0].id
+    student.courses.add(5)
 
 
 class StudentsListTest(TestCase):
