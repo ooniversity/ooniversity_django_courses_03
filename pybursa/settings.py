@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ciro^!dy7a6t!*p!q-2jiyhqj8vb&lfft%uaq=&j$7c9phrg#e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [all]
 
 # Application definition
 
@@ -92,7 +92,7 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 EMAIL_HOST_USER = 'dermedont@gmail.com'
 EMAIL_HOST_PASSWORD = 'qwerty'
-ADMINS = (('admin', 'admin@gmail.com'), ('user1', 'user1@gmail.com'), ('user2', 'user2@gmail.com'))
+ADMINS = (('admin', 'dermedont@gmail.com'), ('user1', 'user1@gmail.com'), ('user2', 'user2@gmail.com'))
 
 LOGGING = \
     {
@@ -139,3 +139,8 @@ LOGGING = \
                     },
             },
     }
+
+try:
+    from local_settings import *
+except ImportError:
+    print "Warning! local_settings are not defined!"
