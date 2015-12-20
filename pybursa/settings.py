@@ -116,6 +116,9 @@ EMAIL_PORT = 1025
 
 ADMINS = (('Olena', 'lena-test-01@ya.ru'), ('Olenka', 'lena-test-02@ya.ru'))
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+
 LOGGING = {
     'version': 1,
     'loggers':
