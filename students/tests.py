@@ -36,7 +36,7 @@ class StudentsListTest(TestCase):
                                                  address='student %d address' % id,
                                                  skype='student.skype %d' % id
                                                  )
-                self.student.courses.add(course.id)
+                student.courses.add(course.id)
                 students_list.append(student)
 
         return students_list
