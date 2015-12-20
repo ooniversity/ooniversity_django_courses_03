@@ -1,0 +1,68 @@
+.itbursa { color:#290701; }
+.logo-itbursa { width:70px;height:70px; }
+.index-logo{ float:right; margin-top:-80px; }
+.topping_index { background-color:#EBEBE3;margin-top:20px;border:none;height:30px; }
+.des { color:#290701; } 
+.jumbotron .container .descr{ color:#EBEBE3; background-color:#290701; }
+.panel-default .panel-heading .py_program { color:#290701;background-color:#f0ad4e; }
+.jumbotron .container .head { color:#290701; }
+.jumbotron .container .text { color:#290701; }
+.table-responsive .headtable { background-color:#f0ad4e; }
+.table-responsive .value { background-color:#61B85E; opacity:1;color:#290701; }
+.table-responsive .value2 { background-color:#EE821D; opacity:1;color:#290701; }
+.table-responsive .value3 { background-color:red; opacity:1;color:#290701; }
+.table-responsive .tablelist { background-color:#8EE99C; opacity:1;color:#290701; }
+.table-responsive .tablelist2 { background-color:#E99042; opacity:1;color:#290701; }
+.table-responsive .tablelist3 { background-color:#EE5B5B; opacity:1;color:#290701; }
+.table-responsive .them { background-color:#D7D7D0; opacity:1;color:#290701; }
+.table-hover .course_table { background-color:#f0ad4e; }
+.table-hover .course_name { background-color:#ECD92B; }
+.table-hover .row_table_student { background-color:#EBEBE3; }
+.table-hover { width:100%; }
+.course_id { margin-left:-110px;width:1400px; }
+
+
+.topping_contacts { background-color:#EBEBE3;margin-top:20px;border:none;height:30px; }
+.thumbnail .imgd { width:150px;height:160px;border-radius: 40px; }
+.thumbnail .imgm { width:150px;height:200px;border-radius: 40px; }
+.thumbnail .imgf { width:150px;height:160px;border-radius: 40px; }
+.d { background-color:#D7D7D0;color:#290701; }
+.m { background-color:#D7D7D0;color:#290701; }
+.f { background-color:#D7D7D0;color:#290701; }
+.d1 { background-color:#D7D7D0;color:#290701;}
+.m1 { background-color:#D7D7D0;color:#290701; }
+.f1 { background-color:#D7D7D0;color:#290701; }
+.info { background-color:#EBEBE3;opacity:0.8; }
+.page-header .contact-head { color:#290701; margin-left:30px; }
+.below-contact { color:#290701; margin-left:30px; }
+
+
+.topping_students { background-color:#EBEBE3;margin-top:20px;border:none;height:30px; }
+.page-header .student-head { color:#290701; margin-left:30px; }
+.below-header { color:#290701; margin-left:30px; }
+.panel-default .panel-heading .course_program { color:#290701;background-color:#f0ad4e;margin-left:15px; }
+.study_table { margin-left:-110px; }
+.study_table2 { margin-left:-150px; }
+.table-hover .headtable_student { background-color:#f0ad4e; }
+.table-hover .head_study_table { background-color:#ECD92B; }
+.table-hover .row_table_student { background-color:#EBEBE3; }
+
+
+.topping_details { background-color:#EBEBE3;margin-top:20px;border:none;height:30px; }
+.page-header .person-head { color:#290701; margin-left:30px;margin-top:0px; }
+.below-person { color:#290701; margin-left:30px; }
+.self_photo { border-radius:40px;margin-left:30px;height:300px;width:250px; }
+.self_info { background-color:#EBEBE3;margin-top:30px; opacity:0.8; }
+.self_info_text{ background-color:#EBEBE3 ;color:#290701;margin-left:30px; }
+.table-hover .head_self_table { background-color:#ECD92B; }
+.panel-default .panel-heading .self_course_program { color:#290701;background-color:#f0ad4e;margin-left:15px; }
+.panel-default .panel-heading .self_raiting { color:#290701;background-color:#337ab7;margin-left:15px; }
+.raiting_row { background-color:#5bc0de; }
+
+
+.logo-pbursa { width:100px;height:50px; }
+.detail_courses-logo{ float:right; margin-top:-73px; }
+.back_on_main { margin-left:-130px; }
+.logo-pybursa { width:100px;height:50px; }
+.details-logo{ float:right; margin-top:-73px; }
+
