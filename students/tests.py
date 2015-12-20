@@ -26,7 +26,8 @@ def students_create():
                                      address='This is the test address for ' + rnd_s,
                                      skype=rnd_s + '_skype',
                                      )
-    student.courses.add(imp.courses_generator(1).id)
+    import pdb; pdb.set_trace()
+    student.courses.add(imp.courses_generator(1))
 
 
 
