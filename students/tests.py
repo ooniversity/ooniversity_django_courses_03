@@ -25,10 +25,11 @@ def students_create():
                                      phone=rnd_n,
                                      address='This is the test address for ' + rnd_s,
                                      skype=rnd_s + '_skype',
+                                     course=4,
                                      )
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     # course_id = imp.courses_generator(1)[0].id
-    student.courses.add(5)
+    #student.courses.add(5)
 
 
 class StudentsListTest(TestCase):
