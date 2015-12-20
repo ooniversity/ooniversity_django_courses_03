@@ -20,7 +20,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '#(ry%ee*q_pqzoa9xf@a*vntmqqwdixb(rf9_h1@l1ex1ntn32'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
 DEBUG = False
 
 
@@ -43,7 +42,7 @@ INSTALLED_APPS = (
     'students',
     'coaches',
     'feedbacks',
-    'debug_toolbar',
+    # 'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,6 +101,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+
+STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.FileSystemFinder",
+                       "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+                       )
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
