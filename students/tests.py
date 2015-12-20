@@ -6,86 +6,133 @@ from django.test import TestCase, Client
 from courses.tests import CoursesListTest
 from django.contrib.auth.models import User
 from students.models import Student
+from coaches.models import Coach
 from courses.models import Course
 from django.core.urlresolvers import reverse
 
 
-class StudentsListTest(TestCase):
-    courses_number = 3
-    students_number = random.randrange(1, 4)
+class CreateAll(object):
 
-    def course_students_create(self):
+    def create_course(self, name):
+        return Course.objects.create(
+            name=name,
+            short_description="This is the test short_description",
+            description="This is the test full description")
 
-        rnd_c = "".join([random.choice(string.letters) for i in xrange(5)])
+    def create_students_list(self):
 
-        for c_i in range(self.courses_number):
-            course_name = ("test_course_" + rnd_c)
-            short_description = "This is the test short_description for " + rnd_c
-            description = "This is the test full description for " + rnd_c
+        rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
+        rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
 
-            course = Course.objects.create(name=course_name,
-                                           short_description=short_description,
-                                           description=description,
+        student_n = Student.objects.create(name='test_student_' + rnd_s,
+                                           surname=rnd_s,
+                                           date_of_birth=date.today(),
+                                           email=rnd_s + '@test.st',
+                                           phone=rnd_n,
+                                           address='This is the test address for ' + rnd_s,
+                                           skype=rnd_s + '_skype',
                                            )
-            for s_i in xrange(self.students_number):
-                rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
-                rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
+        name = str('course_' + rnd_s)
+        course_n = self.create_course(name)
 
-                student = Student.objects.create(name='test_student',
-                                                 surname=rnd_s,
-                                                 date_of_birth=date.today(),
-                                                 email=rnd_s + '@test.st',
-                                                 phone=rnd_n,
-                                                 address='This is the test address for ' + rnd_s,
-                                                 skype=rnd_s + '_skype',
-                                                 )
-                student.courses.add(course)
+        student_n.courses.add(course_n)
+
+        return [student_n, course_n]
+
+
+class StudentTests(TestCase):
+
+    def test_student_list(self):
+        client = Client()
+        student = CreateAll()
+        student.create_students_list()
+        response = client.get(reverse('students:list_view'))
+        # import pdb; pdb.set_trace()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(Student.objects.all().count(), 1)
 
     def test_response_status(self):
-
-        self.course_students_create()
-
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/')
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
 
     def test_student_list_template(self):
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response.content, 'students/student_list.html')
 
     def test_check_student_edit_button_equality(self):
-
-        self.course_students_create()
-
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/')
         content = response.content
         real_buttons_number = content.count('<a href="/students/edit/')
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(real_buttons_number, 2)
+        self.assertEqual(real_buttons_number, 1)
 
     def test_check_student_remove_button_equality(self):
-
-        self.course_students_create()
-
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/')
         content = response.content
         real_buttons_number = content.count('<a href="/students/remove/')
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(real_buttons_number, 2)
+        self.assertEqual(real_buttons_number, 1)
 
     def test_pagination(self):
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/?page=1')
         self.assertEqual(response.status_code, 200)
 
 
 class StudentsDetailTest(TestCase):
-    """ not implemented """
-    pass
+
+    def test_student_details_template(self):
+        client = Client()
+        student = CreateAll()
+        student.create_students_list()
+        response = client.get('/students/1/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response.content, 'students/student_detail.html')
+
+    def test_student_name_in_header(self):
+        client = Client()
+        student = CreateAll()
+        s_obj = student.create_students_list()
+        response = client.get('/students/%d/' % s_obj[0].id)
+        self.assertEqual(response.status_code, 200)
+        self.assertRegexpMatches(str(response), r'<h[123]>%s %s</h[123]>' % (s_obj[0].name, s_obj[0].surname))
+
+    def test_student_details_page_count_courses(self):
+        client = Client()
+        student = CreateAll()
+        s_obj = student.create_students_list()
+        response = client.get('/students/%d/' % s_obj[0].id)
+        real_courses_number = response.content.count(s_obj[1].name)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(real_courses_number, 1)
+
+    def test_student_details_page_contains_course(self):
+        client = Client()
+        student = CreateAll()
+        s_obj = student.create_students_list()
+        response = client.get('/students/%d/' % s_obj[0].id)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, s_obj[1].name)
+
+    def test_student_page_not_found(self):
+        client = Client()
+        response = client.get('/students/0/')
+        self.assertEqual(response.status_code, 404)

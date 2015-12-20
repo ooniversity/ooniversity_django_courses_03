@@ -6,64 +6,82 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from coaches.models import Coach
 from courses.models import Course
-from django.core.urlresolvers import reverse
+
+
+# class CreateCoursesForTest(object):
+#
+#     def __init__(self, courses_number=None):
+#         if courses_number is None:
+#             self.courses_number = 1
 
 
 class CoursesListTest(TestCase):
-    courses_number = 5
+
+    courses_number = 3
+
+    def runTest(self):
+        pass
 
     def user_create(self, name):
         """ https://docs.djangoproject.com/en/1.7/ref/contrib/auth/#user """
-        prefix = 'test_user_'
-        username = prefix + name
-        email = prefix + name + "@test.ua"
-        first_name = prefix + "first_name"
-        last_name = prefix + "last_name"
-        password = prefix + "password"
-        return User.objects.create_user(username=username,
+        random_name = "".join([random.choice(string.letters) for i in xrange(5)])
+        username = random_name
+        email = random_name + "@test.ua"
+        first_name = random_name + "_first_name"
+        last_name = random_name + "_last_name"
+        password = random_name + "_password"
+        user = User.objects.create_user(username=username,
                                         email=email,
                                         first_name=first_name,
                                         last_name=last_name,
                                         password=password,
                                         )
+        return user
 
-    def coach_create(self, coach):
+    def coach_create(self, name):
         prefix = 'test_coach_'
+        name = prefix + name
         date_of_birth = date.today()
         gender = random.choice('MF')
         phone = "".join([random.choice(string.digits) for i in xrange(11)])
         address = "This is the test address"
         skype = prefix + "skype"
         description = "This is the test description"
-        return Coach.objects.create(user=self.user_create(coach),
-                                    date_of_birth=date_of_birth,
-                                    gender=gender,
-                                    phone=phone,
-                                    address=address,
-                                    skype=skype,
-                                    description=description,
-                                    )
+        coach = Coach.objects.create(user=self.user_create(name),
+                                     date_of_birth=date_of_birth,
+                                     gender=gender,
+                                     phone=phone,
+                                     address=address,
+                                     skype=skype,
+                                     description=description,
+                                     )
+        return coach
 
-    def course_create(self, course):
-        name = course
+    def courses_generator(self, courses_number):
+
+        courses_list = []
+
         short_description = "This is the test short_description"
         description = "This is the test full description"
-        coach = self.coach_create("".join([random.choice(string.letters) for i in xrange(5)]))
-        assistant = self.coach_create("".join([random.choice(string.letters) for i in xrange(5)]))
-
-        return Course.objects.create(name=name,
-                                     short_description=short_description,
-                                     description=description,
-                                     coach=coach,
-                                     assistant=assistant,
-                                     )
-
-    def courses_generator(self, number):
-        courses_number = number
 
         for i in range(courses_number):
-            course_name = ("test_course_" + "".join([random.choice(string.letters) for i in xrange(5)]))
-            self.course_create(course_name)
+
+            random_name = "".join([random.choice(string.letters) for i in xrange(5)])
+
+            coach = self.coach_create(random_name)
+
+            assistant = self.coach_create(random_name + '_a')
+
+            course = Course.objects.create(name='course_' + random_name,
+                                           short_description=short_description,
+                                           description=description,
+                                           coach=coach,
+                                           assistant=assistant,
+                                           )
+
+            courses_list.append(course)
+
+        return courses_list
 
     def test_getting_index_page(self):
         client = Client()
@@ -112,19 +130,60 @@ class CoursesListTest(TestCase):
         self.assertEqual(real_buttons_number, self.courses_number)
 
 
-class CoursesDetailTest(TestCase):
+class CoursesDetailTest(CoursesListTest):
 
     def test_resolve_course_details(self):
-
+        self.courses_generator(self.courses_number)
         client = Client()
-        response = client.get('/courses/1/')
-        self.assertEqual(response.status_code, 200)
+        for i in range(1, 4):
+            response = client.get('/courses/%d/' % i)
+            self.assertEqual(response.status_code, 200)
 
-    def test_presence_of_add_lesson_button(self):
-
+    def test_presence_of_add_lesson_link(self):
+        courses = self.courses_generator(self.courses_number)
         client = Client()
-        response = client.get('/courses/1/')
-        content = response.content
-        # import pdb; pdb.set_trace()
-        self.assertEqual(response.status_code, 200)
+        for i in range(len(courses)):
+            course = courses[i]
+            c_id = course.id
+            response = client.get('/courses/%d/' % c_id)
+            self.assertEqual(response.status_code, 200)
+            # self.assertContains(response, '<a href="/courses/%d/add_lesson">Добавить занятие</a>' % i)
+            self.assertRegexpMatches(str(response),
+                                     r'<a.*href=\'?\"?/courses/%d/add_lesson\'?\"?>.*</a>' % c_id)
+
+    def test_course_name_in_header(self):
+        courses = self.courses_generator(self.courses_number)
+        client = Client()
+        for i in range(len(courses)):
+            course = courses[i]
+            c_id = course.id
+            c_name = course.name
+            response = client.get('/courses/%d/' % c_id)
+            self.assertEqual(response.status_code, 200)
+            self.assertRegexpMatches(str(response), r'<h[123]>%s</h[123]>' % c_name)
+
+    def test_coach_link_presence(self):
+        courses = self.courses_generator(self.courses_number)
+        client = Client()
+        for i in range(len(courses)):
+            course = courses[i]
+            c_id = course.id
+            co_id = course.coach_id
+            response = client.get('/courses/%d/' % c_id)
+            self.assertEqual(response.status_code, 200)
+            self.assertRegexpMatches(str(response),
+                                     r'<a.*href=\'?\"?/coaches/%d/\'?\"?>(.|\n)*</a>' % co_id)
+
+    def test_assistant_link_presence(self):
+        courses = self.courses_generator(self.courses_number)
+        client = Client()
+        for i in range(len(courses)):
+            course = courses[i]
+            c_id = course.id
+            as_id = course.assistant_id
+            response = client.get('/courses/%d/' % c_id)
+            self.assertEqual(response.status_code, 200)
+            self.assertRegexpMatches(str(response),
+                                     r'<a.*href=\'?\"?/coaches/%d/\'?\"?>(.|\n)*</a>' % as_id)
+
 
