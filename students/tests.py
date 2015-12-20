@@ -18,8 +18,8 @@ class StudentsListTest(TestCase):
     courses = CoursesListTest()
     courses_list = courses.courses_generator(courses_number)
 
-    def runTest(self):
-        pass
+    # def runTest(self):
+    #     pass
 
     def students_create(self):
         rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
@@ -42,23 +42,22 @@ class StudentsListTest(TestCase):
                                          skype=rnd_s + '_skype',
                                          )
 
-        for i in range(self.courses_number):
-            course = Course.objects.create(name='course_' + rnd_s,
-                                           short_description=short_description,
-                                           description=description,
-                                           coach=coach,
-                                           assistant=assistant,
-                                           )
+        course = Course.objects.create(name='course_' + rnd_s,
+                                       short_description=short_description,
+                                       description=description,
+                                       coach=coach,
+                                       assistant=assistant,
+                                       )
 
-            student = Student.objects.create(name='test_student_' + rnd_s,
-                                             surname=rnd_n,
-                                             date_of_birth=date.today(),
-                                             email=rnd_s + '@test.st',
-                                             phone=rnd_n,
-                                             address='This is the test address for ' + rnd_s,
-                                             skype=rnd_s + '_skype',
-                                             )
-            student.courses.add(course)
+        student = Student.objects.create(name='test_student_' + rnd_s,
+                                         surname=rnd_n,
+                                         date_of_birth=date.today(),
+                                         email=rnd_s + '@test.st',
+                                         phone=rnd_n,
+                                         address='This is the test address for ' + rnd_s,
+                                         skype=rnd_s + '_skype',
+                                         )
+        student.courses.add(course)
 
 
 
