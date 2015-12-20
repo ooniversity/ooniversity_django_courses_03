@@ -43,7 +43,7 @@ class StudentsListTest(TestCase):
                                          )
 
         for i in range(self.courses_number):
-            course = Course.objects.create(name='course_' + random_name,
+            course = Course.objects.create(name='course_' + rnd_s,
                                            short_description=short_description,
                                            description=description,
                                            coach=coach,
