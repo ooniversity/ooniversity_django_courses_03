@@ -24,7 +24,7 @@ class StudentsListTest(TestCase):
 
         students_list = []
 
-        courses = self.create_courses()
+        courses = self.courses_list()
 
         for course in courses:
             for id in range(1, 4):
