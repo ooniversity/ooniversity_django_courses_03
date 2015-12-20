@@ -120,7 +120,7 @@ class StudentsDetailTest(TestCase):
         student = CreateAll()
         s_obj = student.create_students_list()
         response = client.get('/students/%d/' % s_obj[0].id)
-        real_courses_number = response.content.count(s_obj[1])
+        real_courses_number = response.content.count(s_obj[1].name)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(real_courses_number, 1)
 
