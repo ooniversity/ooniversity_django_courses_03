@@ -22,12 +22,12 @@ class CoursesListTest(TestCase):
 
     def user_create(self, name):
         """ https://docs.djangoproject.com/en/1.7/ref/contrib/auth/#user """
-        prefix = 'test_user_'
-        username = prefix + name
-        email = prefix + name + "@test.ua"
-        first_name = prefix + "first_name"
-        last_name = prefix + "last_name"
-        password = prefix + "password"
+        random_name = "".join([random.choice(string.letters) for i in xrange(5)])
+        username = random_name
+        email = random_name + "@test.ua"
+        first_name = random_name + "_first_name"
+        last_name = random_name + "_last_name"
+        password = random_name + "_password"
         user = User.objects.create_user(username=username,
                                         email=email,
                                         first_name=first_name,
@@ -182,6 +182,6 @@ class CoursesDetailTest(CoursesListTest):
             response = client.get('/courses/%d/' % c_id)
             self.assertEqual(response.status_code, 200)
             self.assertRegexpMatches(str(response),
-                                     r'<a.*href=\'?\"?/coaches/%d/\'?\"?>(.|\n)*_a(.|\n)*</a>' % as_id)
+                                     r'<a.*href=\'?\"?/coaches/%d/\'?\"?>(.|\n)?_a(.|\n)?</a>' % as_id)
 
 
