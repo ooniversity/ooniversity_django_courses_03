@@ -102,3 +102,15 @@ class StudentsDetailTest(TestCase):
         response = client.get('/students/1/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response.content, 'students/student_detail.html')
+
+    def test_student_name_in_header(self):
+        students = self.students.students_create()
+        client = Client()
+        for i in range(len(students)):
+            student = students[i]
+            s_id = student.id
+            s_name = student.name
+            response = client.get('/students/%d/' % s_id)
+            import pdb; pdb.set_trace()
+            self.assertEqual(response.status_code, 200)
+            self.assertRegexpMatches(str(response), r'<h[123]>%s</h[123]>' % s_name)
