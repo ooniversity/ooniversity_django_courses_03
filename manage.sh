@@ -10,7 +10,7 @@ usage()
 
 start()
 {
-	if [ -f /home/san/python/bursa/tmp/project-master.pid ];
+	if [ -f /home/san/python/bursa/tmp/san-master.pid ];
 	    then
 	    echo "Already running"
 	    exit 0
@@ -23,7 +23,7 @@ start()
 
 stop()
 {
-if [ -f /home/san/python/bursa/tmp/project-master.pid ];
+if [ -f /home/san/python/bursa/tmp/san-master.pid ];
 then
     cd /home/san/python/bursa/tmp/
     uwsgi --stop project-master.pid
