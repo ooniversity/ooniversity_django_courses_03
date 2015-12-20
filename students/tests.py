@@ -69,8 +69,8 @@ class StudentsListTest(TestCase):
     # courses = CoursesListTest()
     # courses_list = courses.courses_generator(courses_number)
 
-    # def runTest(self):
-    #     pass
+    def runTest(self):
+        pass
 
     # def students_create(self):
     #     rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
@@ -175,7 +175,7 @@ class StudentsDetailTest(TestCase):
 
     def test_student_details_template(self):
 
-        students_create()
+        students = StudentsListTest.students_create()
 
         client = Client()
         response = client.get('/students/1/')
@@ -183,7 +183,7 @@ class StudentsDetailTest(TestCase):
         self.assertTemplateUsed(response.content, 'students/student_detail.html')
 
     def test_student_name_in_header(self):
-        students = students_create()
+        students = StudentsListTest.students_create()
         client = Client()
         for i in range(len(students)):
             student = students[i]
