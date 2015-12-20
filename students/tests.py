@@ -15,6 +15,8 @@ def students_create():
 
     imp = CoursesListTest()
 
+    rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
+
     student = Student.objects.create(name='test_student_' + rnd_s,
                                      surname=rnd_n,
                                      date_of_birth=date.today(),
