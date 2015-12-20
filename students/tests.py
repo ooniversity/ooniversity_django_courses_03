@@ -35,7 +35,9 @@ class CreateAll(object):
         name = str('course_' + rnd_s)
         course_n = self.create_course(name)
 
-        return student_n.courses.add(course_n)
+        student_n.courses.add(course_n)
+
+        return student_n, course_n
 
 
 class StudentTests(TestCase):
