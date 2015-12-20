@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response
 from courses.models import Course
 from django.views.generic import TemplateView
 
@@ -10,10 +10,22 @@ class ContactView(TemplateView):
 class IndexView(TemplateView):
     template_name = 'index.html'
 
-    def get_context_data(self,**kwargs):
+    def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['courses'] = Course.objects.all()
         return context
+
+
+def page_404(request):
+    response = render_to_response('404.html')
+    response.status_code = 404
+    return response
+
+
+def page_500(request):
+    response = render_to_response('500.html')
+    response.status_code = 500
+    return response
 
 # def contact(request):
 #     return render(request, 'contact.html')
