@@ -24,8 +24,8 @@ class StudentsListTest(TestCase):
                 rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
                 rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
 
-                student = Student.objects.create(name='test_student',
-                                                 surname=rnd_s,
+                student = Student.objects.create(name='test_student' + rnd_s,
+                                                 surname=rnd_n,
                                                  date_of_birth=date.today(),
                                                  email=rnd_s + '@test.st',
                                                  phone=rnd_n,
