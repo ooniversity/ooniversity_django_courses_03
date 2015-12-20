@@ -33,7 +33,7 @@ class CreateAll(object):
                                            skype=rnd_s + '_skype',
                                            )
 
-        course_n = create_course('course_' + rnd_s)
+        course_n = self.create_course('course_' + self.rnd_s)
 
         return student_n.courses.add(course_n)
 
