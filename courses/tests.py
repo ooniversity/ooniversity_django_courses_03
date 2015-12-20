@@ -6,7 +6,6 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from coaches.models import Coach
 from courses.models import Course
-from django.core.urlresolvers import reverse
 
 
 # class CreateCoursesForTest(object):
@@ -19,6 +18,9 @@ from django.core.urlresolvers import reverse
 class CoursesListTest(TestCase):
 
     courses_number = 3
+
+    def runTest(self):
+        pass
 
     def user_create(self, name):
         """ https://docs.djangoproject.com/en/1.7/ref/contrib/auth/#user """
