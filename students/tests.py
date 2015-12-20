@@ -175,7 +175,7 @@ class StudentsDetailTest(TestCase):
 
     def test_student_details_template(self):
 
-        students = StudentsListTest.students_create()
+        students = self.students
 
         client = Client()
         response = client.get('/students/1/')
@@ -183,7 +183,7 @@ class StudentsDetailTest(TestCase):
         self.assertTemplateUsed(response.content, 'students/student_detail.html')
 
     def test_student_name_in_header(self):
-        students = StudentsListTest.students_create()
+        students = self.students
         client = Client()
         for i in range(len(students)):
             student = students[i]
