@@ -34,7 +34,12 @@ class StudentsListTest(TestCase):
                                      address='This is the test address for ' + rnd_s,
                                      skype=rnd_s + '_skype',
                                      )
-        assistant = Coach.objects.create(rnd_s + '_a')
+        assistant = Coach.objects.create(user=user,
+                                         date_of_birth=date.today(),
+                                         phone=rnd_n,
+                                         address='This is the test address for ' + rnd_s,
+                                         skype=rnd_s + '_skype',
+                                         )
 
         for i in range(self.courses_number):
             course = Course.objects.create(name='course_' + random_name,
