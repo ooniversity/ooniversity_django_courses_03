@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '3zti90-ee8m=o1&et^5cd(rnnamji4@onmn*d)ce)**nl54g1&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
@@ -129,4 +129,9 @@ LOGGING = {
         },
     },
 }
+
+try: 
+    from local_settings import *
+except ImportError:
+    print 'Warning! local_settings are not defined!'
 
