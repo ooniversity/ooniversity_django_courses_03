@@ -36,8 +36,9 @@ class StudentsListTest(TestCase):
                                                  phone=rnd_n,
                                                  address='This is the test address for ' + rnd_s,
                                                  skype=rnd_s + '_skype',
+                                                 course=self.courses_list
                                                  )
-                student.courses.add(course)
+                # student.courses.add(courses_list)
                 students_list.append(student)
 
         return students_list
