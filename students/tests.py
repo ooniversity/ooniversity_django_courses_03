@@ -27,14 +27,15 @@ class StudentsListTest(TestCase):
         short_description = "This is the test short_description"
         description = "This is the test full description"
 
-        user = User.objects.create(username='test_user_' + rnd_s)
-        coach = Coach.objects.create(user=user,
+        user_c = User.objects.create(username='test_user_' + rnd_s)
+        user_a = User.objects.create(username='test_user_' + rnd_s + '_a')
+        coach = Coach.objects.create(user=user_c,
                                      date_of_birth=date.today(),
                                      phone=rnd_n,
                                      address='This is the test address for ' + rnd_s,
                                      skype=rnd_s + '_skype',
                                      )
-        assistant = Coach.objects.create(user=user + '_a',
+        assistant = Coach.objects.create(user=user_a,
                                          date_of_birth=date.today(),
                                          phone=rnd_n,
                                          address='This is the test address for ' + rnd_s,
