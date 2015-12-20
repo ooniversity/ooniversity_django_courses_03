@@ -38,7 +38,7 @@ class StudentsListTest(TestCase):
                                                  skype=rnd_s + '_skype',
                                                  )
                 import pdb; pdb.set_trace()
-                student.courses.add(courses_list)
+                student.courses.add(course)
                 students_list.append(student)
 
         return students_list
