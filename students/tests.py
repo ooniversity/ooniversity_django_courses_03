@@ -25,7 +25,7 @@ class CreateAll(object):
         rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
 
         student_n = Student.objects.create(name='test_student_' + rnd_s,
-                                           # surname=rnd_n,
+                                           surname=rnd_s,
                                            date_of_birth=date.today(),
                                            email=rnd_s + '@test.st',
                                            phone=rnd_n,
@@ -111,8 +111,24 @@ class StudentsDetailTest(TestCase):
         client = Client()
         student = CreateAll()
         s_obj = student.create_students_list()
-        # import pdb; pdb.set_trace()
         response = client.get('/students/%d/' % s_obj[0].id)
-        # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
-        self.assertRegexpMatches(str(response), r'<h[123]>%s </h[123]>' % s_obj[0].name)
+        self.assertRegexpMatches(str(response), r'<h[123]>%s %s </h[123]>' % (s_obj[0].name, s_obj[0].surname))
+
+    def test_student_details_page_contains_course(self):
+        client = Client()
+        student = CreateAll()
+        s_obj = student.create_students_list()
+        response = client.get('/students/%d/' % s_obj[0].id)
+        real_courses_number = response.content.count(s_obj[1])
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(real_courses_number, 1)
+
+    def test_student_details_page_contains_course(self):
+        client = Client()
+        student = CreateAll()
+        s_obj = student.create_students_list()
+        response = client.get('/students/%d/' % s_obj[0].id)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, s_obj[1].name)
+
