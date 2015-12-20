@@ -37,7 +37,7 @@ class CreateAll(object):
 
         student_n.courses.add(course_n)
 
-        return student_n, course_n
+        return [student_n, course_n]
 
 
 class StudentTests(TestCase):
