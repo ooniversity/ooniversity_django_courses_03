@@ -19,4 +19,4 @@ urlpatterns = patterns('',
 )
 
 handler404 = 'pybursa.views.my_error_404'
-handler500 = 'pybursa.views.my_error_500'
+#handler500 = 'pybursa.views.my_error_500'
