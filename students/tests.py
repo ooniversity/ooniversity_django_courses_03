@@ -24,24 +24,41 @@ class StudentsListTest(TestCase):
 
         students_list = []
 
-        for course in self.courses_list:
-            for s_i in xrange(self.students_number):
-                rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
-                rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
+        courses = self.create_courses()
 
-                student = Student.objects.create(name='test_student_' + rnd_s,
-                                                 surname=rnd_n,
+        for course in courses:
+            for id in range(1, 4):
+                student = Student.objects.create(name='student%d' % id,
+                                                 surname='%dstudent' % id,
                                                  date_of_birth=date.today(),
-                                                 email=rnd_s + '@test.st',
-                                                 phone=rnd_n,
-                                                 address='This is the test address for ' + rnd_s,
-                                                 skype=rnd_s + '_skype',
+                                                 email='student_%d@email.com' % id,
+                                                 phone=str(id) * 10,
+                                                 address='student %d address' % id,
+                                                 skype='student.skype %d' % id
                                                  )
-                import pdb; pdb.set_trace()
-                student.courses.add(course)
+                self.student.courses.add(course.id)
                 students_list.append(student)
 
         return students_list
+
+        # for course in self.courses_list:
+        #     for s_i in xrange(self.students_number):
+        #         rnd_s = "".join([random.choice(string.letters) for i in xrange(5)])
+        #         rnd_n = "".join([random.choice(string.digits) for i in xrange(11)])
+        #
+        #         student = Student.objects.create(name='test_student_' + rnd_s,
+        #                                          surname=rnd_n,
+        #                                          date_of_birth=date.today(),
+        #                                          email=rnd_s + '@test.st',
+        #                                          phone=rnd_n,
+        #                                          address='This is the test address for ' + rnd_s,
+        #                                          skype=rnd_s + '_skype',
+        #                                          )
+        #         import pdb; pdb.set_trace()
+        #         student.courses.add(course)
+        #         students_list.append(student)
+
+
 
     def test_response_status(self):
 
