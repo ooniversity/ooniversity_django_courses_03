@@ -109,7 +109,7 @@ STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.FileSystemFinder",
                        )
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static_files'),
 )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
