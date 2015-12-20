@@ -22,6 +22,6 @@ urlpatterns = patterns('',
 	
 )
 
-handler404 = 'pybursa.views.custom_page_not_found'
-handler500 = 'pybursa.views.custom_500_server_error'
+#handler404 = 'pybursa.views.custom_page_not_found'
+#handler500 = 'pybursa.views.custom_500_server_error'
 
