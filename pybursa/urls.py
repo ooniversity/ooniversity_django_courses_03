@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url, handler404, handler500
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from pybursa import views
 # from django.views.generic import TemplateView
@@ -27,5 +27,5 @@ urlpatterns = patterns('',
 #         url(r'^__debug__/', include(debug_toolbar.urls)),
 #     )
 
-handler404 = 'pybursa.views.404_not_found'
-handler500 = 'pybursa.views.500_server_error'
+handler404 = 'pybursa.views.err_404_not_found'
+handler500 = 'pybursa.views.err_500_server_error'
