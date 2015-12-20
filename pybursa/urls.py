@@ -1,10 +1,10 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include, url, handler404, handler500
 from django.contrib import admin
 from pybursa import views
 # from django.views.generic import TemplateView
 from feedbacks.views import FeedbackView
 
-from django.conf import settings
+# from django.conf import settings
 
 urlpatterns = patterns('',
                        url(r'^$', views.index, name='index'),
@@ -21,8 +21,11 @@ urlpatterns = patterns('',
                        url(r'^feedback/$', FeedbackView.as_view(), name='feedback'),
                        )
 
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns += patterns('',
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    )
+# if settings.DEBUG:
+#     import debug_toolbar
+#     urlpatterns += patterns('',
+#         url(r'^__debug__/', include(debug_toolbar.urls)),
+#     )
+
+handler404 = 'pybursa.views.404_not_found'
+handler500 = 'pybursa.views.500_server_error'
