@@ -32,7 +32,6 @@ class StudentsListTest(TestCase):
                                                  address='This is the test address for ' + rnd_s,
                                                  skype=rnd_s + '_skype',
                                                  )
-                import pdb; pdb.set_trace()
                 student.courses.add(course)
 
     def test_response_status(self):
