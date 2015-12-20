@@ -1,6 +1,6 @@
 from django.test import TestCase
 from students.models import Student
-from courses.models import Course, Lesson
+from courses.models import Course
 from django.test import Client
 import coaches.models
 from django.contrib.auth.models import User
@@ -82,6 +82,7 @@ def obj_create():
         address='test_address_2',
         skype='test_skype_2', )
     student_2.courses.add(course_2)
+    student_2.courses.add(course_3)
 
     student_3 = Student.objects.create(
         name='test_student_name_3',
@@ -91,7 +92,8 @@ def obj_create():
         phone='096-222-22-22',
         address='test_address_3',
         skype='test_skype_3', )
-    student_3.courses.add(course_3)
+    student_3.courses.add(course_1)
+    student_3.courses.add(course_2)
 
 
 class StudentsListTest(TestCase):
