@@ -20,7 +20,7 @@ SECRET_KEY = 'kfjgffdlksfjlksjlsijjwirr())(jh323++ekwjelkw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -85,7 +85,7 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
