@@ -45,30 +45,30 @@ class StudentTests(TestCase):
         student = CreateAll()
         student.create_students_list()
         response = client.get(reverse('students:list_view'))
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(Student.objects.all().count(), 1)
 
     def test_response_status(self):
-
-        # student = students_create()
-
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/')
         # import pdb; pdb.set_trace()
         self.assertEqual(response.status_code, 200)
 
     def test_student_list_template(self):
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response.content, 'students/student_list.html')
 
     def test_check_student_edit_button_equality(self):
-
-        # students_create()
-
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/')
         content = response.content
         real_buttons_number = content.count('<a href="/students/edit/')
@@ -77,10 +77,9 @@ class StudentTests(TestCase):
         self.assertEqual(real_buttons_number, 1)
 
     def test_check_student_remove_button_equality(self):
-        #
-        # students_create()
-
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/')
         content = response.content
         real_buttons_number = content.count('<a href="/students/remove/')
@@ -89,10 +88,9 @@ class StudentTests(TestCase):
         self.assertEqual(real_buttons_number, 1)
 
     def test_pagination(self):
-
-        # students_create()
-
         client = Client()
+        student = CreateAll()
+        student.create_students_list()
         response = client.get('/students/?page=1')
         self.assertEqual(response.status_code, 200)
 
