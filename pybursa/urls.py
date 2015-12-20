@@ -27,3 +27,7 @@ urlpatterns = patterns('',
     #Coaches
      url(r'^coaches/', include('coaches.urls', namespace="coaches")),
 )
+
+
+handler404 = 'pybursa.views.page_not_found'
+handler500 = 'pybursa.views.server_error'

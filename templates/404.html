@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Main</title>
+{% endblock %}
+
+{% block top_menu %}
+<ul class="nav navbar-nav">
+    <li class="active"><a href="{% url 'index' %}">Main</a></li>
+    <li><a href="{% url 'contact' %}">Contacts</a></li>
+    <li><a href="{% url 'feedback' %}">Feedback</a></li>
+    <li><a href="{% url 'students:list_view' %}">Students</a></li>
+</ul>
+{% include "include/search_include.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron  ">
+
+    <h2 class="title">Sorry, page is not found</h2>
+
+</div>
+{% endblock %}
+
