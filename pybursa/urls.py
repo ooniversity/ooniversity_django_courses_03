@@ -19,7 +19,4 @@ urlpatterns = patterns('',
     url(r'^coaches/', include('coaches.urls', namespace="coaches")),
     url(r'^quadratic/results/$', include('quadratic.urls', namespace="quadratic")),
 )
-'''
-handler404 = "pybursa.views.handler404"
-handler500 = "pybursa.views.handler500"
-'''
+
