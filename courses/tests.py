@@ -137,11 +137,15 @@ class CoursesDetailTest(CoursesListTest):
             response = client.get('/courses/%d/' % i)
             self.assertEqual(response.status_code, 200)
 
-    def test_presence_of_add_lesson_button(self):
-        self.courses_generator(self.courses_number)
+    def test_presence_of_add_lesson_link(self):
+        courses = self.courses_generator(self.courses_number)
         client = Client()
-        for i in range(1, 4):
-            response = client.get('/courses/%d/' % i)
+        for i in range(len(courses)):
+            course = courses[i]
+            cid = course.id
+            response = client.get('/courses/%d/' % cid)
             self.assertEqual(response.status_code, 200)
             # self.assertContains(response, '<a href="/courses/%d/add_lesson">Добавить занятие</a>' % i)
-            self.assertRegexpMatches(str(response), r'<a.*href=\'?\"?/courses/%d/add_lesson\'?\"?>.*</a>' % i)
+            self.assertRegexpMatches(str(response), r'<a.*href=\'?\"?/courses/%d/add_lesson\'?\"?>.*</a>' % cid)
+
+#  <h1>one plus x</h1>
