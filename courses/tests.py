@@ -169,6 +169,6 @@ class CoursesDetailTest(CoursesListTest):
             co_id = course.coach_id
             response = client.get('/courses/%d/' % c_id)
             self.assertEqual(response.status_code, 200)
-            self.assertRegexpMatches(str(response), r'<a.*href=\'?\"?/coaches/%d/\'?\"?>.*</a>' % co_id)
+            self.assertRegexpMatches(str(response), r'<a.*href=\'?\"?/coaches/%d/\'?\"?>.+</a>' % co_id)
 
 
