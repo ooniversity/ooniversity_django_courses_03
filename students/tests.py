@@ -27,7 +27,7 @@ def course_create():
     return course
 
 
-def student_create():
+def students_create():
     course = course_create()
     student = Student.objects.create(name='111111111111',
                                      surname='2222222222222222222',
@@ -123,7 +123,7 @@ class StudentsListTest(TestCase):
 
     def test_response_status(self):
 
-        students_create()
+        student = students_create()
 
         client = Client()
         response = client.get('/students/')
