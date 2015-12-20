@@ -60,6 +60,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'pybursa.urls'
 
 WSGI_APPLICATION = 'pybursa.wsgi.application'
+
 SITE_ID = 1
 
 # Database
@@ -77,7 +78,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -90,11 +91,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
-STATICFILES_FINDER = ("django.contrib.staticfiles.finders.FileSystemFinder",
- "django.contrib.staticfiles.finders.AppDirectoriesFinder")
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
+
+STATICFILES_FINDERS = (
+"django.contrib.staticfiles.finders.FileSystemFinder", 
+"django.contrib.staticfiles.finders.AppDirectoriesFinder"
+)
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
 
 
 EMAIL_HOST = 'localhost'
