@@ -13,7 +13,7 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url, handler404, handler500
+from django.conf.urls import include, url, patterns, handler404, handler500
 from django.contrib import admin
 from .views import contact, index
 from feedbacks.views import FeedbackView
@@ -23,7 +23,7 @@ handler404 = 'pybursa.views.page_not_found'
 handler500 = 'pybursa.views.server_error'
 
 
-urlpatterns = [
+urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^$', index, name='index'),
@@ -33,4 +33,4 @@ urlpatterns = [
     url(r'^coaches/', include('coaches.urls', namespace="coaches")),
     url(r'^contact/$', contact, name='contact'),
     url(r'feedback/', FeedbackView.as_view(), name="feedback"),
-]
+    )
