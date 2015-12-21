@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 <html lang="en">
-  <body class="sl-background">
-        <img alt="500" src="{% static 'images/status/500.jpg' %}">
-        <br>
-        <h3>Sorry, intenral server error occurred</h3>
-  </body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>500</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>    
+<body class="sl-background">
+    <img alt="500" src="{% static 'images/status/500.jpg' %}">
+    <br>
+    <h3>Sorry, intenral server error occurred</h3>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
 </html>
