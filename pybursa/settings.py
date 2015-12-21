@@ -20,11 +20,11 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 SECRET_KEY = 'i7&w1#slavl%n57v70y4r)n-@9)&&%8l6zothkq326!$xq58ga'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+#TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -87,7 +87,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_FINDERS = \
+("django.contrib.staticfiles.finders.FileSystemFinder", "django.contrib.staticfiles.finders.AppDirectoriesFinder")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"), )
+#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 EMAIL_HOST = 'localhost'
@@ -128,5 +131,9 @@ LOGGING = {
         'courses_format': {
             'format': '%(levelname)s %(message)s'
         },
-    },
-}
+    },}
+
+#try:
+#    from local_settings import *
+#except ImportError:
+#    print "Warning! local_settings are not defined!"
