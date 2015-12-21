@@ -1,2 +1,4 @@
 WARNING 2015-12-18 13:34:44,272 views get_context_data Logger of students detail view warns you!
 ERROR 2015-12-18 13:34:44,272 views get_context_data Students detail view went wrong!
+WARNING 2015-12-21 15:58:15,618 views get_context_data Logger of students detail view warns you!
+ERROR 2015-12-21 15:58:15,618 views get_context_data Students detail view went wrong!
