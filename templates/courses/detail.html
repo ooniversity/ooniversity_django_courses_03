@@ -27,6 +27,7 @@
           <h2>{{ course.name }} course details</h2>
             <p>{{ course.description|truncatechars:32 }}</p>
               <br>
+              <p><a class="btn btn-primary" href="{% url 'courses:add-lesson' course.id %}" role="button"><span class="glyphicon glyphicon-plus"></span>Add lesson</a></p>
                 <h3>Coach</h3>
                  <table class="table">
                     <thead>
