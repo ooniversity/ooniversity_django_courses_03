@@ -24,7 +24,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -85,13 +85,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
 STATIC_URL = '/static/'
 
+STATIC_ROOT = (os.path.join(BASE_DIR, "assets"))
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),'/var/www/static/',)
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
