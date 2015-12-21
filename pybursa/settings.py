@@ -29,7 +29,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['smmy.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -97,6 +97,8 @@ ADMINS = (('Sveta', 'asm7777@ukr.net'), ('Svetlana', 'asm740073@gmail.com'))
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
 
