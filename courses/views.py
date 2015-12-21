@@ -7,24 +7,24 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from pybursa.views import MixinMessage, MixinTitle
+import logging  
 
-import logging
-logger = logging.getLogger(__name__) # courses.view
+logger = logging.getLogger(__name__)
 
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
     context_object_name = 'course'
+
     def get_context_data(self, **kwargs):
-        context = super(CourseDetailView, self).get_context_data(**kwargs)
-        context['lessons'] = Lesson.objects.filter(course=self.get_object().id)
+        data = super(CourseDetailView, self).get_context_data(**kwargs)
+        lessons = Lesson.objects.filter(course=self.object).order_by('order')
+        data['lessons'] = lessons
         logger.debug("Courses detail view has been debugged")
         logger.info("Logger of courses detail view informs you!")
         logger.warning("Logger of courses detail view warns you!")
         logger.error("Courses detail view went wrong!")
-        context['lessons'] = lessons
-        return context
-
+        return data
 
 class CourseCreateView(CreateView):
     model = Course
@@ -42,7 +42,6 @@ class CourseCreateView(CreateView):
         mess = 'Course {} has been successfully added.'.format(form.cleaned_data['name'])
         messages.success(self.request, mess)
         return super(CourseCreateView, self).form_valid(form)
-
 
 class CourseUpdateView(UpdateView):
     model = Course
@@ -62,7 +61,6 @@ class CourseUpdateView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('courses:edit', None, [self.object.id])
 
-
 class CourseDeleteView(DeleteView):
     model = Course
     success_url = reverse_lazy('index')
@@ -79,7 +77,6 @@ class CourseDeleteView(DeleteView):
         mess = 'Course {} has been deleted.'.format(self.object.name)
         messages.success(self.request, mess)
         return data
-
 
 class LessonCreateView(MixinMessage, MixinTitle, CreateView):
     model = Lesson

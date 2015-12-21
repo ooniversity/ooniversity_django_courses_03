@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView
 from django.core.urlresolvers import reverse_lazy
 from django.core.mail import mail_admins
 from feedbacks.models import Feedback
+from django.core.mail import EmailMessage
 
 class FeedbackView(CreateView):
     template_name = 'feedbacks/feedback.html'

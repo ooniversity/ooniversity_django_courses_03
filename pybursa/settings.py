@@ -22,9 +22,9 @@ SECRET_KEY = 'ul51*x=6zm%72&!oepz^6($o+d2x7f7oea$1g&7fvbzry^r!i&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -92,8 +92,10 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+EMAIL_HOST = 'toweya.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dt@toweya.net'
+EMAIL_USE_TLS = True
 
 ADMINS = (('denn', 'katafalk@list.ru'), ('denn', 'denn.terentyev@gmail.com'))
 
