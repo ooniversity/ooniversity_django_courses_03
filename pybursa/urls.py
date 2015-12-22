@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, include, url, handler404, handler500
 from django.contrib import admin
 from pybursa import views
 from feedbacks.views import FeedbackView
@@ -18,3 +18,5 @@ urlpatterns = patterns('',
     url(r'feedback/', FeedbackView.as_view(), name = "feedback"),
 )
 
+handler404 = 'pybursa.views.page_not_found'
+handler500 = 'pybursa.views.server_error'
