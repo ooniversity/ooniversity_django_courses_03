@@ -1,14 +1,9 @@
-{% extends 'base.html' %}
-
-
-{% block title %}404 Not found{% endblock title %}
-
-
-{% block content %}
-          
-<body>
-<img src="{% static 'images/404.jpg' %}">
-<h1>{{ message }}</h1>
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <body class="sl-background">
+        <img alt="404" src="{% static 'images/404.jpg' %}">
+        <br>
+        <h3>Sorry, page is not found</h3>
   </body>
-
-{% endblock content %}
+</html>
