@@ -18,3 +18,6 @@ urlpatterns = [
     url(r'^quadratic/', include('quadratic.urls')),
 	url(r'^courses/', include('courses.urls')),
 ]
+
+handler404 = 'pybursa.views.not_found'
+handler500 = 'pybursa.views.server_error'
