@@ -4,8 +4,8 @@ from views import *
 from feedbacks.views import *
 
 admin.site.site_header = 'ITBursa'
-handler404 = 'pybursa.views.my_handler404'
-handler500 = 'pybursa.views.my_handler500'
+# handler404 = 'pybursa.views.my_handler404'
+# handler500 = 'pybursa.views.my_handler500'
 
 urlpatterns = patterns('',
 
