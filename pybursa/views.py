@@ -12,8 +12,8 @@ def student_list(request):
     return render(request, 'student_list.html')
 def student_detail(request):
     return render(request, 'student_detail.html')
-def not_found(request):
-    response = render_to_response('404.html', {}, context_instance=RequestContext(request))
+def page_not_found(request):
+    response = render_to_response('error/404.html', {}, context_instance=RequestContext(request))
     response.status_code = 404
     return response
 
