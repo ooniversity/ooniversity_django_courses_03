@@ -20,11 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '81z$r2sh+@z-l*+3w(bu)nnj#bez(5p41h(0$@8_u3rx^-i%1#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1',]
+
 
 # Application definition
 
@@ -57,6 +58,7 @@ ROOT_URLCONF = 'pybursa.urls'
 
 WSGI_APPLICATION = 'pybursa.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
@@ -82,11 +84,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
