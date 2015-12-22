@@ -1,6 +1,7 @@
 
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, render_to_response
 from courses.models import Course, Lesson
+from django.template import RequestContext
 from students.models import Student
 
 
@@ -18,3 +19,16 @@ def student_list(request):
 
 def student_detail(request):
     return render(request, 'students/student_detail.html')
+
+def not_found(request):
+    response = render_to_response('404.html', {'error_text': 'Sorry, page is not found'},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+
+
+def server_error(request):
+    response = render_to_response('500.html', {'error_text': 'Sorry, internal server error occurred'},
+                                  context_instance=RequestContext(request))
+    response.status_code = 500
+    return response
