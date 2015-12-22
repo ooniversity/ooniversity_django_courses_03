@@ -87,6 +87,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+
+STATICFILES_FINDERS = \
+("django.contrib.staticfiles.finder.FileSystemFinder",
+ "django.contrib.staticfiles.finders.AppDirectoriesFinder")
+
 TEMPLATE_DIRS=(os.path.join(BASE_DIR, 'templates'), )
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 EMAIL_HOST = 'localhost'
