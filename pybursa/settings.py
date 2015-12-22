@@ -22,9 +22,9 @@ SECRET_KEY = 'ciro^!dy7a6t!*p!q-2jiyhqj8vb&lfft%uaq=&j$7c9phrg#e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = [all]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -85,6 +85,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
@@ -99,46 +100,40 @@ LOGGING = \
         'version': 1,
         'loggers':
             {
-                'courses': \
-                {
-                    'handlers': ['courses_file'],
-                    'level': 'DEBUG',
-                },
-                'students': \
-                {
-                    'handlers': ['students_file'],
-                    'level': 'WARNING',
-                },
+                'courses': {
+                        'handlers': ['courses_file'],
+                        'level': 'DEBUG',
+                    },
+                'students': {
+                        'handlers': ['students_file'],
+                        'level': 'WARNING',
+                    },
             },
         'handlers':
             {
-                'courses_file': \
-                {
-                    'level': 'DEBUG',
-                    'class': 'logging.FileHandler',
-                    'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
-                    'formatter': 'course',
-                },
-                'students_file': \
-                {
-                    'level': 'WARNING',
-                    'class': 'logging.FileHandler',
-                    'filename': os.path.join(BASE_DIR, 'students_logger.log'),
-                    'formatter': 'students',
-                },
+                'courses_file': {
+                        'level': 'DEBUG',
+                        'class': 'logging.FileHandler',
+                        'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+                        'formatter': 'course',
+                    },
+                'students_file': {
+                        'level': 'WARNING',
+                        'class': 'logging.FileHandler',
+                        'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+                        'formatter': 'students',
+                    },
             },
-        'formatters': \
-            {
-                'course': \
-                    {
+        'formatters': {
+                'course': {
                         'format': '%(levelname)s %(message)s',
                     },
-                'students': \
-                    {
+                'students': {
                         'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s',
                     },
             },
     }
+
 
 try:
     from local_settings import *
