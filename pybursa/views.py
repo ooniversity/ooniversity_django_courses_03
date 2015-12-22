@@ -1,7 +1,7 @@
-from django.shortcuts import render, render_to_response
-from django.http import HttpResponse
+from django.shortcuts import render # render_to_response
+# from django.http import HttpResponse
 from courses.models import *
-from django.template import RequestContext, Context, loader
+# from django.template import RequestContext, Context, loader
 
 
 def index(request):
@@ -20,7 +20,7 @@ def student_list(request):
 def student_detail(request):
     return render(request, 'student_detail.html')
 
-
+'''
 def my_handler404(request):
     template = loader.get_template('404.html')
     context = Context({'message': 'Sorry, page is not found'})
@@ -33,7 +33,7 @@ def my_handler500(request):
     return HttpResponse(content=template.render(context), status=404)
 
 
-'''
+
 def my_handler404(request):
     response = render_to_response('404.html', {'message': 'Sorry, page is not found'},
                                   context_instance=RequestContext(request))
