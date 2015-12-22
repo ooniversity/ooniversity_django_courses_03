@@ -91,4 +91,46 @@ TEMPLATE_DIRS=(os.path.join(BASE_DIR, 'templates'), )
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
-ADMINS = (('Serghi','serg@gmail.com'), ('toyuo','toyou@gmail.com'))
+ADMINS = (('Vlad','test@gmail.com'), ('t2','test2@gmail.com'))
+LOGGING = {
+    'version': 1,
+    'loggers': {
+        'courses': {
+            'handlers': ['file_courses'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file_students'],
+            'level': 'WARNING',
+        },
+    },
+
+    'handlers': {
+        'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'file_courses': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR,'courses_logger.log'),
+            'formatter':'courses',
+        },
+        'file_students': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR,'students_logger.log'),
+            'formatter':'students',
+        },
+
+    },
+    'formatters': {
+        'students': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'courses': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    
+}
