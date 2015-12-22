@@ -23,9 +23,10 @@ SECRET_KEY = '@81#*#1_lxsf4gh&ap7^67$qjj1lie4q8yluh&o4ur-py6zopx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -88,6 +89,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = (os.path.join(BASE_DIR, "assets"))
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'polls'), os.path.join(BASE_DIR, 'quadratic'),os.path.join(BASE_DIR, 'courses'),os.path.join(BASE_DIR, 'students'),os.path.join(BASE_DIR, 'coaches'),os.path.join(BASE_DIR, 'include'),os.path.join(BASE_DIR, 'errors')]
 
@@ -96,6 +98,7 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 
 ADMINS = (('admin', 'Admin@gmail.ua'), )
+DEFAULT_FROM_EMAIL = "test@gmail.com"
 
 LOGGING = {
     'version': 1,
