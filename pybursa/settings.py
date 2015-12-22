@@ -20,11 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'xu1&h)c4#(qhsu1n6lcb^%n+e41nrwu(dcg5la_c5jazs7q=d8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -88,14 +88,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
+STATIC_ROOT = (os.path.join(BASE_DIR, "assets"))
 
-STATICFILES_FINDERS = \
-("django.contrib.staticfiles.finder.FileSystemFinder",
- "django.contrib.staticfiles.finders.AppDirectoriesFinder")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
-TEMPLATE_DIRS=(os.path.join(BASE_DIR, 'templates'), )
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 ADMINS = (('Vlad','test@gmail.com'), ('t2','test2@gmail.com'))
@@ -139,5 +137,5 @@ LOGGING = {
             'format': '%(levelname)s %(message)s'
         },
     },
-    
+
 }
