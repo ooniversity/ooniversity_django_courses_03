@@ -21,3 +21,7 @@ urlpatterns = patterns('',
     #url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^admin/', include(admin.site.urls)),
 )
+'''
+handler404 = 'pybursa.views.custom_page_not_found'
+handler500 = 'pybursa.views.custom_500_server_error'
+'''

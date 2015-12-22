@@ -20,11 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'qlw#t(j6z=!ftu!q@k*=sdjfck7ryu8*0=w4(wxa1!ee@9c!!-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -142,3 +144,10 @@ LOGGING = {
     },
 
 }
+
+'''
+try:
+    from local_settings import *
+except ImportError:
+    print "Warning! local_settings are not defined!"
+'''
