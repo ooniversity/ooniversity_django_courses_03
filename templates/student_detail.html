@@ -1,0 +1,120 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>DJ101 - Student's Card Page</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'index' %}">Main</a></li>
+          <li><a href="{% url 'contact' %}">Contacts</a></li>
+          <li><a href="{% url 'student_list' %}">Students</a></li>
+          <li><a href="{% url 'quadratic_results' %}">Equation</a></li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+    <div>
+      <h1 class="detail">Sergey Shyshka</h1>
+      <img src="{% static 'images/sergey.jpg' %}">
+    </div>
+    <div>
+      <h3 class="subheader">STUDENT'S CARD</h3>
+      <table class="table table-bordered s-card">
+        <tbody>
+          <tr>
+            <td>Surname</td>
+            <td>Shyshka</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Sergey</td>
+          </tr>
+          <tr>
+            <td>Patronymic</td>
+            <td>Sergeevich</td>
+          </tr>
+          <tr>
+            <td>Rating</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Average Grade</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>Birth Date</td>
+            <td>23.03.1984</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>Ukraine, Kiev, Harmatna street 39в, app 49</td>
+          </tr>            
+          <tr>
+            <td>E-mail</td>
+            <td>s_shishka@ukr.net</td>
+          </tr>            
+          <tr>
+            <td>Post</td>
+            <td>03058</td>
+          </tr>            
+          <tr>
+            <td>Skype</td>
+            <td>shico_aries</td>
+          </tr>          
+      </tbody>
+      </table>
+    </div>
+    <div>
+      <h3 class="subheader">PERFORMANCE</h3>
+      <table class="table table-bordered s-performance">
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Week</th>
+            <th>Control Type</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="5">Django 101</td>
+            <td rowspan="3">Week 1</td>
+            <td>Tests</td>
+            <td>100%</td>
+            <tr>
+              <td>Problem Task №1</td>
+              <td>100%</td>
+            </tr>
+            <tr>
+              <td>Problem Task №2</td>
+              <td>100%</td>
+            </tr>
+          </tr>
+          <tr>
+            <td rowspan="2">Week 2</td>
+            <td>Tests</td>
+            <td>100%</td>
+            <tr>
+              <td>Problem Task №1</td>
+              <td>100%</td>
+            </tr>
+          </tr>
+        </tbody>
+      </table>   
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+  </body>
+</html>

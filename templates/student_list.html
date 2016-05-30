@@ -1,0 +1,84 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>DJ101 - Students Page</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="{% url 'index' %}">Main</a></li>
+          <li><a href="{% url 'contact' %}">Contacts</a></li>
+          <li><a href="{% url 'student_list' %}">Students</a></li>
+          <li><a href="{% url 'quadratic_results' %}">Equation</a></li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+    <div class="container">
+      <h1 class="header" id="h1">PyBursa - Django 101 Course</h1>
+      <h3 class="header subheader">GRADUATES LIST 2016</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Surname</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Skype</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="{% url 'student_detail' %}">1</a></td>
+            <td>Shyshka</td>
+            <td>Irina</td>
+            <td>Ukraine, Kiev, Vyshniakovskaya street 19/19, app 100</td>
+            <td>ira.shyshka</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Piankova</td>
+            <td>Ekaterina</td>
+            <td>Ukraine, Kiev, Harmatna street 39в, app 49</td>
+            <td>katerina.piankova</td>
+          </tr>          
+          <tr>
+            <td>3</td>
+            <td>Shyshka</td>
+            <td>Sergey</td>
+            <td>Ukraine, Kiev, Harmatna street 39в, app 49</td>
+            <td>shico_aries</td>
+          </tr>          
+          <tr>
+            <td>4</td>
+            <td>Balaba</td>
+            <td>Igor</td>
+            <td>Ukraine, Kiev, Obolonskiy avenu 28a, app 51</td>
+            <td>vatutino2009</td>
+          </tr>          
+          <tr>
+            <td>5</td>
+            <td>Balaba</td>
+            <td>Ekaterina</td>
+            <td>Ukraine, Kiev, Obolonskiy avenu 28a, app 51</td>
+            <td>balabaket</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+  </body>
+</html>
